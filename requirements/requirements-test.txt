@@ -4,7 +4,7 @@
 azure-storage==0.36.0
 boto3==1.9.71
 botocore==1.12.71
-google-cloud-storage==1.10.0
+google-cloud-storage==1.13.2
 
 fake-factory==0.7.2
 httpretty==0.8.14
