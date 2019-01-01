@@ -6,7 +6,7 @@ boto3==1.9.71
 botocore==1.12.71
 google-cloud-storage==1.13.2
 
-fake-factory==0.7.2
+fake-factory==9999.9.9
 httpretty==0.8.14
 moto==1.3.4
 google-compute-engine==2.8.3
