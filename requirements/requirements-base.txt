@@ -2,5 +2,5 @@ clint==0.5.1
 polystores==0.1.0
 psutil==5.5.0
 requests>=2.20.1
-requests-toolbelt==0.8.0
+requests-toolbelt==0.9.1
 websocket-client>=0.53.0,<=0.54.0
