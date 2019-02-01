@@ -2,4 +2,4 @@
 -r requirements-base-test.txt
 
 fake-factory==9999.9.9
-httpretty==0.8.14
+httpretty==0.9.6
