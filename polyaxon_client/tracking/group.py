@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function
 
-import atexit
-import sys
-import time
-
 from polyaxon_client import settings
 from polyaxon_client.tracking import Experiment
 from polyaxon_client.tracking.base import BaseTracker
@@ -32,7 +28,19 @@ class Group(BaseTracker):
         self.last_status = None
         self.base_outputs_path = None
 
+    def get_data(self):
+        if settings.NO_OP:
+            return
+
+        self._data = self.client.experiment_group.get_experiment_group(
+            username=self.username,
+            project_name=self.project_name,
+            group_id=self.group_id)
+
     def create(self, name=None, tags=None, description=None, config=None, base_outputs_path=None):
+        if settings.NO_OP:
+            return None
+
         group_config = {}
         if name:
             group_config['name'] = name
@@ -61,6 +69,9 @@ class Group(BaseTracker):
         return self
 
     def create_experiment(self, name=None, tags=None, description=None, config=None):
+        if settings.NO_OP:
+            return None
+
         experiment = Experiment(project=self.project,
                                 group_id=self.group_id,
                                 client=self.client,
@@ -75,41 +86,10 @@ class Group(BaseTracker):
                           base_outputs_path=self.base_outputs_path)
         return experiment
 
-    def _start(self):
-        atexit.register(self._end)
-        self.start()
-
-        def excepthook(exception, value, tb):
-            self.failed(message='Type: {}, Value: {}'.format(exception, value))
-            # Resume normal work
-            sys.__excepthook__(exception, value, tb)
-
-        sys.excepthook = excepthook
-
-    def _end(self):
-        self.succeeded()
-
-    def end(self, status, message=None):
-        if self.last_status in ['succeeded', 'failed', 'stopped']:
+    def log_status(self, status, message=None, traceback=None):
+        if settings.NO_OP:
             return
-        self.log_status(status, message)
-        self.last_status = status
-        time.sleep(0.1)  # Just to give the opportunity to the worker to pick the message
 
-    def start(self):
-        self.log_status('running')
-        self.last_status = 'running'
-
-    def succeeded(self):
-        self.end('succeeded')
-
-    def stop(self):
-        self.end('stopped')
-
-    def failed(self, message=None):
-        self.end(status='failed', message=message)
-
-    def log_status(self, status, message=None):
         self.client.experiment_group.create_status(username=self.username,
                                                    project_name=self.project_name,
                                                    group_id=self.group_id,

@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function
 
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.exceptions import PolyaxonClientException
-from polyaxon_client.schemas import JobConfig, JobStatusConfig
+from polyaxon_client.schemas import BuildJobConfig, JobStatusConfig
 
 
 class BuildJobApi(BaseApiHandler):
@@ -20,7 +20,7 @@ class BuildJobApi(BaseApiHandler):
                                      job_id)
         try:
             response = self.transport.get(request_url)
-            return self.prepare_results(response_json=response.json(), config=JobConfig)
+            return self.prepare_results(response_json=response.json(), config=BuildJobConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(e=e, log_message='Error while retrieving build')
             return None
@@ -38,7 +38,7 @@ class BuildJobApi(BaseApiHandler):
 
         try:
             response = self.transport.patch(request_url, json_data=patch_dict)
-            return self.prepare_results(response_json=response.json(), config=JobConfig)
+            return self.prepare_results(response_json=response.json(), config=BuildJobConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(e=e, log_message='Error while updating build')
             return None
@@ -73,6 +73,39 @@ class BuildJobApi(BaseApiHandler):
         except PolyaxonClientException as e:
             self.transport.handle_exception(
                 e=e, log_message='Error while retrieving build statuses')
+            return None
+
+    def create_status(self,
+                      username,
+                      project_name,
+                      job_id,
+                      status,
+                      message=None,
+                      traceback=None,
+                      background=False):
+        request_url = self.build_url(self._get_http_url(),
+                                     username,
+                                     project_name,
+                                     'builds',
+                                     job_id,
+                                     'statuses')
+
+        json_data = {'status': status}
+        if message:
+            json_data['message'] = message
+        if traceback:
+            json_data['traceback'] = traceback
+        if background:
+            self.transport.async_post(request_url, json_data=json_data)
+            return None
+
+        try:
+            response = self.transport.post(request_url, json_data=json_data)
+            return self.prepare_results(response_json=response.json(),
+                                        config=JobStatusConfig)
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while creating build status.')
             return None
 
     def stop(self, username, project_name, job_id, background=False):

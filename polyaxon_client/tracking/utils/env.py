@@ -7,7 +7,6 @@ import platform
 import socket
 import sys
 
-from polyaxon_client import settings
 from polyaxon_client.logger import logger
 
 PROJECT_CLIENT_NAME = 'polyaxon-client'
@@ -64,5 +63,4 @@ def get_run_env():
         'filename': get_filename(),
         'module_path': get_module_path(),
         'packages': get_packages(),
-        'in_cluster': settings.IN_CLUSTER,
     }

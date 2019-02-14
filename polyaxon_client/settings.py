@@ -7,10 +7,21 @@ import rhea
 
 from hestia.auth import AuthenticationTypes
 from hestia.user_path import polyaxon_user_path
+from rhea import RheaError  # noqa
 
 TMP_AUTH_TOKEN_PATH = '/tmp/.polyaxon/.authtoken'
 CLIENT_CONFIG_PATH = os.path.join(polyaxon_user_path(), '.polyaxonclient')
+CONFIG_PATH = os.path.join(polyaxon_user_path(), '.polyaxonconfig')
+AUTH_PATH = os.path.join(polyaxon_user_path(), '.polyaxonauth')
 
+global_config = rhea.Rhea.read_configs([
+    rhea.ConfigSpec(CONFIG_PATH, config_type='.json', check_if_exists=False),
+    {'dummy': 'dummy'}
+])
+auth_config = rhea.Rhea.read_configs([
+    rhea.ConfigSpec(AUTH_PATH, config_type='.json', check_if_exists=False),
+    {'dummy': 'dummy'}
+])
 config = rhea.Rhea.read_configs([
     rhea.ConfigSpec(CLIENT_CONFIG_PATH, config_type='.json', check_if_exists=False),
     os.environ,
@@ -20,17 +31,39 @@ config = rhea.Rhea.read_configs([
 IN_CLUSTER = config.get_boolean('POLYAXON_IN_CLUSTER',
                                 is_optional=True,
                                 default=False)
+NO_OP = config.get_boolean('POLYAXON_NO_OP',
+                           is_optional=True,
+                           default=False)
 API_HOST = config.get_string('POLYAXON_API_HOST',
                              is_optional=True)
+if not API_HOST:  # Check global config config
+    API_HOST = global_config.get_string('host',
+                                        is_optional=True)
+
 HTTP_PORT = config.get_int('POLYAXON_HTTP_PORT',
                            is_optional=True)
+if not HTTP_PORT:  # Check global config config
+    HTTP_PORT = global_config.get_int('http_port',
+                                      is_optional=True)
 WS_PORT = config.get_int('POLYAXON_WS_PORT',
                          is_optional=True)
+if not WS_PORT:  # Check global config config
+    WS_PORT = global_config.get_int('ws_port',
+                                    is_optional=True)
 USE_HTTPS = config.get_boolean('POLYAXON_USE_HTTPS',
-                               is_optional=True,
-                               default=False)
+                               is_optional=True)
+if USE_HTTPS is None:  # Check global config config
+    USE_HTTPS = global_config.get_boolean('use_https',
+                                          is_optional=True,
+                                          default=False)
 VERIFY_SSL = config.get_boolean('POLYAXON_VERIFY_SSL',
                                 is_optional=True)
+if VERIFY_SSL is None:  # Check global config config
+    try:
+        VERIFY_SSL = global_config.get_boolean('verify_ssl',
+                                               is_optional=True)
+    except RheaError:
+        VERIFY_SSL = False
 API_HTTP_HOST = config.get_string('POLYAXON_API_HTTP_HOST',
                                   is_optional=True)
 API_WS_HOST = config.get_string('POLYAXON_API_WS_HOST',
@@ -38,6 +71,11 @@ API_WS_HOST = config.get_string('POLYAXON_API_WS_HOST',
 SECRET_USER_TOKEN_KEY = 'POLYAXON_SECRET_USER_TOKEN'  # noqa
 SECRET_USER_TOKEN = config.get_string(SECRET_USER_TOKEN_KEY,
                                       is_optional=True)
+if not SECRET_USER_TOKEN:  # Check global config
+    SECRET_USER_TOKEN = auth_config.get_string('token',
+                                               is_optional=True,
+                                               is_secret=True,
+                                               is_local=True)
 SECRET_EPHEMERAL_TOKEN_KEY = 'POLYAXON_SECRET_EPHEMERAL_TOKEN'  # noqa
 SECRET_EPHEMERAL_TOKEN = config.get_string(SECRET_EPHEMERAL_TOKEN_KEY,
                                            is_optional=True)
