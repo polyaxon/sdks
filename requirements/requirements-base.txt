@@ -3,4 +3,4 @@ polystores>=0.1.7
 psutil==5.5.1
 requests>=2.20.1
 requests-toolbelt==0.9.1
-websocket-client>=0.53.0,<=0.54.0
+websocket-client==0.55.0
