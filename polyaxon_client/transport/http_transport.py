@@ -6,20 +6,17 @@ import os
 import requests
 import tarfile
 
-from clint.textui import progress
-from clint.textui.progress import Bar
 from hestia.list_utils import to_list
 from requests_toolbelt import MultipartEncoder, MultipartEncoderMonitor
 
 from polyaxon_client import settings
 from polyaxon_client.exceptions import ERRORS_MAPPING, PolyaxonShouldExitError
 from polyaxon_client.logger import logger
+from polyaxon_client.transport.utils import Bar, progress_bar
 
 
 class HttpTransportMixin(object):
     """HTTP operations transport."""
-    MAX_UPLOAD_SIZE = 1024 * 1024 * 150
-
     @property
     def session(self):
         if not hasattr(self, '_session'):
@@ -29,12 +26,12 @@ class HttpTransportMixin(object):
     @staticmethod
     def create_progress_callback(encoder):
         encoder_len = encoder.len
-        progress_bar = Bar(expected_size=encoder_len, filled_char='=')
+        callback_bar = Bar(expected_size=encoder_len, filled_char='=')
 
         def callback(monitor):
-            progress_bar.show(monitor.bytes_read)
+            callback_bar.show(monitor.bytes_read)
 
-        return callback, progress_bar
+        return callback, callback_bar
 
     @staticmethod
     def format_sizeof(num, suffix='B'):
@@ -120,13 +117,23 @@ class HttpTransportMixin(object):
                headers=None,
                session=None):
 
-        if files_size > self.MAX_UPLOAD_SIZE:
+        if files_size > settings.WARN_UPLOAD_SIZE:
+            logger.warning(
+                "You are uploading %s, there's a hard limit of %s.\n"
+                "If you have data files in the current directory, "
+                "please make sure to add them to .polyaxonignore or "
+                "add them directly to your data volume, or upload them "
+                "separately using `polyaxon data` command and remove them from here.\n",
+                self.format_sizeof(settings.WARN_UPLOAD_SIZE),
+                self.format_sizeof(settings.MAX_UPLOAD_SIZE))
+
+        if files_size > settings.MAX_UPLOAD_SIZE:
             raise PolyaxonShouldExitError(
                 "Files too large to sync, please keep it under {}.\n"
                 "If you have data files in the current directory, "
                 "please add them directly to your data volume, or upload them "
                 "separately using `polyaxon data` command and remove them from here.\n".format(
-                    self.format_sizeof(self.MAX_UPLOAD_SIZE)))
+                    self.format_sizeof(settings.MAX_UPLOAD_SIZE)))
 
         files = to_list(files)
         if json_data:
@@ -139,7 +146,7 @@ class HttpTransportMixin(object):
         request_headers.update({"Content-Type": multipart_encoder.content_type})
 
         # Attach progress bar
-        progress_callback, progress_bar = self.create_progress_callback(multipart_encoder)
+        progress_callback, callback_bar = self.create_progress_callback(multipart_encoder)
         multipart_encoder_monitor = MultipartEncoderMonitor(multipart_encoder, progress_callback)
 
         timeout = timeout if timeout is not None else settings.LONG_REQUEST_TIMEOUT
@@ -153,7 +160,7 @@ class HttpTransportMixin(object):
                                 session=session)
         finally:
             # always make sure we clear the console
-            progress_bar.done()
+            callback_bar.done()
 
         return response
 
@@ -190,7 +197,7 @@ class HttpTransportMixin(object):
                 if not content_length:
                     content_length = response.headers.get('content-length')
                 if content_length:
-                    for chunk in progress.bar(response.iter_content(chunk_size=1024),
+                    for chunk in progress_bar(response.iter_content(chunk_size=1024),
                                               expected_size=(int(content_length) / 1024) + 1):
                         if chunk:
                             f.write(chunk)

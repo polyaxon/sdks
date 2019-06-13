@@ -6,21 +6,19 @@ import json
 import uuid
 
 from collections import Mapping
-from faker import Faker
 
 from tests.test_api.utils import TestBaseApi
 
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.api.project import ProjectApi
 from polyaxon_client.schemas import (
+    BuildJobConfig,
     ExperimentConfig,
-    ExperimentGroupConfig,
+    GroupConfig,
     JobConfig,
     ProjectConfig,
     TensorboardJobConfig
 )
-
-faker = Faker()
 
 
 class TestProjectApi(TestBaseApi):
@@ -32,7 +30,7 @@ class TestProjectApi(TestBaseApi):
 
     @httpretty.activate
     def test_list_projects(self):
-        projects = [ProjectConfig(faker.word).to_dict() for _ in range(10)]
+        projects = [ProjectConfig('proj_{}'.format(i)).to_dict() for i in range(10)]
         httpretty.register_uri(
             httpretty.GET,
             BaseApiHandler.build_url(
@@ -63,7 +61,7 @@ class TestProjectApi(TestBaseApi):
 
     @httpretty.activate
     def test_get_project(self):
-        obj = ProjectConfig(faker.word()).to_dict()
+        obj = ProjectConfig('proj').to_dict()
         httpretty.register_uri(
             httpretty.GET,
             BaseApiHandler.build_url(
@@ -86,7 +84,7 @@ class TestProjectApi(TestBaseApi):
 
     @httpretty.activate
     def test_create_project(self):
-        obj = ProjectConfig(faker.word()).to_dict()
+        obj = ProjectConfig('proj').to_dict()
         httpretty.register_uri(
             httpretty.POST,
             BaseApiHandler.build_url(
@@ -107,7 +105,7 @@ class TestProjectApi(TestBaseApi):
 
     @httpretty.activate
     def test_update_project(self):
-        obj = ProjectConfig(faker.word()).to_dict()
+        obj = ProjectConfig('proj').to_dict()
         httpretty.register_uri(
             httpretty.PATCH,
             BaseApiHandler.build_url(
@@ -155,6 +153,94 @@ class TestProjectApi(TestBaseApi):
             method='delete')
 
     @httpretty.activate
+    def test_enable_ci(self):
+        httpretty.register_uri(
+            httpretty.POST,
+            BaseApiHandler.build_url(
+                self.api_config.base_url,
+                '/',
+                'username',
+                'project_name',
+                'ci'),
+            content_type='application/json',
+            status=201)
+        result = self.api_handler.enable_ci('username', 'project_name')
+        assert result.status_code == 201
+
+        # Async
+        self.assert_async_call(
+            api_handler_call=lambda: self.api_handler.enable_ci(
+                'user', 'project', background=True),
+            method='post')
+
+    @httpretty.activate
+    def test_disable_ci(self):
+        httpretty.register_uri(
+            httpretty.DELETE,
+            BaseApiHandler.build_url(
+                self.api_config.base_url,
+                '/',
+                'username',
+                'project_name',
+                'ci'),
+            content_type='application/json',
+            status=204)
+        result = self.api_handler.disable_ci('username', 'project_name')
+        assert result.status_code == 204
+
+        # Async
+        self.assert_async_call(
+            api_handler_call=lambda: self.api_handler.disable_ci(
+                'user', 'project', background=True),
+            method='delete')
+
+    @httpretty.activate
+    def test_sync_git_repo(self):
+        httpretty.register_uri(
+            httpretty.POST,
+            BaseApiHandler.build_url(
+                self.api_config.base_url,
+                '/',
+                'username',
+                'project_name',
+                'repo',
+                'sync'),
+            content_type='application/json',
+            status=200)
+        result = self.api_handler.sync_repo('username', 'project_name')
+        assert result.status_code == 200
+
+        # Async
+        self.assert_async_call(
+            api_handler_call=lambda: self.api_handler.sync_repo(
+                'user', 'project', background=True),
+            method='post')
+
+    @httpretty.activate
+    def test_set_git_repo(self):
+        obj = {'git': 'https://github.com/foo/bar'}
+        httpretty.register_uri(
+            httpretty.POST,
+            BaseApiHandler.build_url(
+                self.api_config.base_url,
+                '/',
+                'username',
+                'project_name',
+                'repo',
+                'external'),
+            body=json.dumps(obj),
+            content_type='application/json',
+            status=201)
+        result = self.api_handler.set_repo('username', 'project_name', obj)
+        assert result.status_code == 201
+
+        # Async
+        self.assert_async_call(
+            api_handler_call=lambda: self.api_handler.set_repo(
+                'user', 'project', obj, background=True),
+            method='post')
+
+    @httpretty.activate
     def test_upload_repo(self):
         httpretty.register_uri(
             httpretty.PUT,
@@ -166,12 +252,12 @@ class TestProjectApi(TestBaseApi):
                 'repo',
                 'upload'),
             content_type='application/json',
-            status=204)
+            status=200)
         files = [('code', ('repo',
                            open('./tests/fixtures_static/repo.tar.gz', 'rb'),
                            'text/plain'))]
         result = self.api_handler.upload_repo('user', 'project', files=files, files_size=10)
-        assert result.status_code == 204
+        assert result.status_code == 200
 
         # Async
         self.assert_async_call(
@@ -180,10 +266,39 @@ class TestProjectApi(TestBaseApi):
             method='upload')
 
     @httpretty.activate
+    def test_upload_and_sync_repo(self):
+        httpretty.register_uri(
+            httpretty.PUT,
+            BaseApiHandler.build_url(
+                self.api_config.base_url,
+                '/',
+                'user',
+                'project',
+                'repo',
+                'upload'),
+            content_type='application/json',
+            status=200)
+        files = [('code', ('repo',
+                           open('./tests/fixtures_static/repo.tar.gz', 'rb'),
+                           'text/plain'))]
+        result = self.api_handler.upload_repo('user',
+                                              'project',
+                                              files=files,
+                                              files_size=10,
+                                              sync=True)
+        assert result.status_code == 200
+
+        # Async
+        self.assert_async_call(
+            api_handler_call=lambda: self.api_handler.upload_repo(
+                'user', 'project', files=files, files_size=10, sync=True, background=True),
+            method='upload')
+
+    @httpretty.activate
     def test_list_experiment_groups(self):
         project_uuid = uuid.uuid4().hex
         experiment_groups = [
-            ExperimentGroupConfig(content=faker.word, project=project_uuid).to_dict()
+            GroupConfig(content='text', project=project_uuid).to_dict()
             for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
@@ -200,7 +315,7 @@ class TestProjectApi(TestBaseApi):
         # Schema response
         response = self.api_handler.list_experiment_groups('user', 'project')
         assert len(response['results']) == 10
-        assert isinstance(response['results'][0], ExperimentGroupConfig)
+        assert isinstance(response['results'][0], GroupConfig)
 
         # Raw response
         self.set_raw_response()
@@ -211,7 +326,7 @@ class TestProjectApi(TestBaseApi):
     @httpretty.activate
     def test_create_experiment_group(self):
         project_uuid = uuid.uuid4().hex
-        obj = ExperimentGroupConfig(content=faker.word(), project=project_uuid)
+        obj = GroupConfig(content='text', project=project_uuid)
         httpretty.register_uri(
             httpretty.POST,
             BaseApiHandler.build_url(
@@ -272,7 +387,7 @@ class TestProjectApi(TestBaseApi):
     def test_list_experiments(self):
         project_uuid = uuid.uuid4().hex
         xp_uuid = uuid.uuid4().hex
-        xps = [ExperimentConfig(config={}, uuid=xp_uuid, project=project_uuid).to_dict()
+        xps = [ExperimentConfig(uuid=xp_uuid, project=project_uuid).to_dict()
                for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
@@ -324,7 +439,7 @@ class TestProjectApi(TestBaseApi):
 
         # Metrics & Declarations
         for xp in xps:
-            xp['metrics'] = {'loss': 0.1}
+            xp['last_metric'] = {'loss': 0.1}
             xp['declarations'] = {'foo': 'bar'}
 
         httpretty.register_uri(
@@ -393,7 +508,7 @@ class TestProjectApi(TestBaseApi):
     @httpretty.activate
     def test_create_experiment(self):
         project_uuid = uuid.uuid4().hex
-        obj = ExperimentConfig(project=project_uuid, config={})
+        obj = ExperimentConfig(project=project_uuid)
         obj_dict = obj.to_dict()
         httpretty.register_uri(
             httpretty.POST,
@@ -488,7 +603,7 @@ class TestProjectApi(TestBaseApi):
     def test_list_jobs(self):
         project_uuid = uuid.uuid4().hex
         xp_uuid = uuid.uuid4().hex
-        xps = [JobConfig(config={}, uuid=xp_uuid, project=project_uuid).to_dict()
+        xps = [JobConfig(uuid=xp_uuid, project=project_uuid).to_dict()
                for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
@@ -572,7 +687,7 @@ class TestProjectApi(TestBaseApi):
     @httpretty.activate
     def test_create_job(self):
         project_uuid = uuid.uuid4().hex
-        obj = JobConfig(project=project_uuid, config={})
+        obj = JobConfig(project=project_uuid)
         httpretty.register_uri(
             httpretty.POST,
             BaseApiHandler.build_url(
@@ -633,7 +748,7 @@ class TestProjectApi(TestBaseApi):
     def test_list_tensorboards(self):
         project_uuid = uuid.uuid4().hex
         xp_uuid = uuid.uuid4().hex
-        xps = [TensorboardJobConfig(config={}, uuid=xp_uuid, project=project_uuid).to_dict()
+        xps = [TensorboardJobConfig(uuid=xp_uuid, project=project_uuid).to_dict()
                for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
@@ -718,7 +833,7 @@ class TestProjectApi(TestBaseApi):
     def test_list_builds(self):
         project_uuid = uuid.uuid4().hex
         xp_uuid = uuid.uuid4().hex
-        xps = [JobConfig(config={}, uuid=xp_uuid, project=project_uuid).to_dict()
+        xps = [JobConfig(uuid=xp_uuid, project=project_uuid).to_dict()
                for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
@@ -802,7 +917,7 @@ class TestProjectApi(TestBaseApi):
     @httpretty.activate
     def test_create_build(self):
         project_uuid = uuid.uuid4().hex
-        obj = JobConfig(project=project_uuid, config={})
+        obj = BuildJobConfig(project=project_uuid)
         httpretty.register_uri(
             httpretty.POST,
             BaseApiHandler.build_url(

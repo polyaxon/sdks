@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function
 
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.exceptions import PolyaxonClientException
-from polyaxon_client.schemas import ExperimentConfig, ExperimentGroupConfig, GroupStatusConfig
+from polyaxon_client.schemas import ExperimentConfig, GroupConfig, GroupStatusConfig
 
 
 class ExperimentGroupApi(BaseApiHandler):
@@ -20,7 +20,7 @@ class ExperimentGroupApi(BaseApiHandler):
                                      group_id)
         try:
             response = self.transport.get(request_url)
-            return self.prepare_results(response_json=response.json(), config=ExperimentGroupConfig)
+            return self.prepare_results(response_json=response.json(), config=GroupConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(e=e, log_message='Error while retrieving project')
             return None
@@ -72,7 +72,7 @@ class ExperimentGroupApi(BaseApiHandler):
 
         try:
             response = self.transport.patch(request_url, json_data=patch_dict)
-            return self.prepare_results(response_json=response.json(), config=ExperimentGroupConfig)
+            return self.prepare_results(response_json=response.json(), config=GroupConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(e=e, log_message='Error while updating project')
             return None
@@ -167,7 +167,8 @@ class ExperimentGroupApi(BaseApiHandler):
                           username,
                           project_name,
                           group_id,
-                          job_config=None,
+                          content=None,
+                          is_managed=True,
                           background=False):
         request_url = self.build_url(self._get_http_url(),
                                      username,
@@ -177,7 +178,10 @@ class ExperimentGroupApi(BaseApiHandler):
                                      'tensorboard',
                                      'start')
 
-        job_config = {'config': job_config} if job_config else {}
+        job_config = {
+            'content': self.validate_content(content=content),
+            'is_managed': is_managed
+        } if content else {}
 
         if background:
             self.transport.async_post(request_url, json_data=job_config)

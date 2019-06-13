@@ -24,14 +24,14 @@ class PyTest(TestCommand):
 
 
 setup(name='polyaxon-client',
-      version='0.3.8',
+      version='0.4.4',
       description='Python client to interact with Polyaxon API.',
       long_description=read_readme(),
       maintainer='Mourad Mourafiq',
       maintainer_email='mourad@polyaxon.com',
       author='Mourad Mourafiq',
       author_email='mourad@polyaxon.com',
-      url='https://github.com/polyaxon/polyaxon-cli',
+      url='https://github.com/polyaxon/polyaxon-client',
       license='MIT',
       platforms='any',
       packages=find_packages(),
@@ -54,13 +54,12 @@ setup(name='polyaxon-client',
           'kubernetes',
       ],
       install_requires=[
-          "clint==0.5.1",
-          "polyaxon-schemas==0.3.8",
-          "polystores==0.1.0",
+          "polyaxon-schemas==0.4.4",
+          "polystores>=0.1.8",
           "psutil==5.4.7",
           "requests>=2.20.0",
           "requests-toolbelt==0.8.0",
-          "websocket-client>=0.53.0,<=0.54.0",
+          "websocket-client>=0.53.0",
       ],
       extras_require={
           'gcs': ['google-cloud-storage'],
@@ -76,7 +75,7 @@ setup(name='polyaxon-client',
       ],
       tests_require=[
           "pytest",
-          "httpretty==0.8.14",
+          "httpretty==0.9.6",
           "fake-factory==0.7.2"
       ],
       cmdclass={'test': PyTest})

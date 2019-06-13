@@ -4,8 +4,9 @@ from __future__ import absolute_import, division, print_function
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.exceptions import PolyaxonClientException
 from polyaxon_client.schemas import (
+    BuildJobConfig,
     ExperimentConfig,
-    ExperimentGroupConfig,
+    GroupConfig,
     JobConfig,
     ProjectConfig,
     TensorboardJobConfig
@@ -74,17 +75,108 @@ class ProjectApi(BaseApiHandler):
             self.transport.handle_exception(e=e, log_message='Error while deleting project.')
             return None
 
-    def upload_repo(self, username, project_name, files, files_size=None, background=False):
+    def enable_ci(self, username, project_name, config=None, background=False):
+        """Enable ci on the project"""
+        request_url = self.build_url(
+            self._get_http_url(), username, project_name, 'ci')
+        json_data = {}
+        if config:
+            json_data['config'] = config
+
+        if background:
+            self.transport.async_post(request_url, json_data=json_data)
+            return None
+
+        try:
+            response = self.transport.post(request_url, json_data=json_data)
+            return response
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while enabling ci on project.')
+            return None
+
+    def disable_ci(self, username, project_name, background=False):
+        """Disable ci on the project"""
+        request_url = self.build_url(
+            self._get_http_url(), username, project_name, 'ci')
+
+        if background:
+            self.transport.async_delete(request_url)
+            return None
+
+        try:
+            response = self.transport.delete(request_url)
+            return response
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while disabling ci on project.')
+            return None
+
+    def set_repo(self, username, project_name, git_url, is_public=True, background=False):
+        """Set a git url on the project to use as a code repo."""
+        request_url = self.build_url(
+            self._get_http_url(), username, project_name, 'repo', 'external')
+
+        json_data = {
+            'git_url': git_url,
+            'is_public': is_public
+        }
+        if background:
+            self.transport.async_post(request_url, json_data=json_data)
+            return None
+
+        try:
+            response = self.transport.post(request_url, json_data=json_data)
+            return response
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while setting external repo on project.')
+            return None
+
+    def sync_repo(self, username, project_name, background=False):
+        """Sync the external git repo of the project."""
+        request_url = self.build_url(
+            self._get_http_url(), username, project_name, 'repo', 'sync')
+
+        if background:
+            self.transport.async_post(request_url)
+            return None
+
+        try:
+            response = self.transport.post(request_url)
+            return response
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while syncing external repo on project.')
+            return None
+
+    def upload_repo(self,
+                    username,
+                    project_name,
+                    files,
+                    files_size=None,
+                    sync=False,
+                    background=False):
         """Uploads code data related for this project from the current dir."""
         request_url = self.build_url(
             self._get_http_url(), username, project_name, 'repo', 'upload')
 
+        json_data = {}
+        if sync:
+            json_data['sync'] = sync
+
         if background:
-            self.transport.async_upload(request_url, files=files, files_size=files_size)
+            self.transport.async_upload(request_url,
+                                        files=files,
+                                        files_size=files_size,
+                                        json_data=json_data)
             return None
 
         try:
-            response = self.transport.upload(request_url, files=files, files_size=files_size)
+            response = self.transport.upload(request_url,
+                                             files=files,
+                                             files_size=files_size,
+                                             json_data=json_data)
             return response
         except PolyaxonClientException as e:
             self.transport.handle_exception(e=e, log_message='Error while updating project repo.')
@@ -134,7 +226,7 @@ class ProjectApi(BaseApiHandler):
             if sort:
                 params['sort'] = sort
             response = self.transport.get(request_url, params=params)
-            return self.prepare_list_results(response.json(), page, ExperimentGroupConfig)
+            return self.prepare_list_results(response.json(), page, GroupConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(
                 e=e, log_message='Error while retrieving experiment groups.')
@@ -146,7 +238,7 @@ class ProjectApi(BaseApiHandler):
                                 experiment_group_config,
                                 background=False):
         experiment_group_config = self.validate_config(config=experiment_group_config,
-                                                       config_schema=ExperimentGroupConfig)
+                                                       config_schema=GroupConfig)
         request_url = self.build_url(self._get_http_url(), username, project_name, 'groups')
 
         if background:
@@ -155,7 +247,7 @@ class ProjectApi(BaseApiHandler):
 
         try:
             response = self.transport.post(request_url, json_data=experiment_group_config.to_dict())
-            return self.prepare_results(response_json=response.json(), config=ExperimentGroupConfig)
+            return self.prepare_results(response_json=response.json(), config=GroupConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(
                 e=e, log_message='Error while creating experiment group.')
@@ -268,7 +360,7 @@ class ProjectApi(BaseApiHandler):
             return []
 
     def create_build(self, username, project_name, build_config, background=False):
-        build_config = self.validate_config(config=build_config, config_schema=JobConfig)
+        build_config = self.validate_config(config=build_config, config_schema=BuildJobConfig)
         request_url = self.build_url(self._get_http_url(), username, project_name, 'builds')
 
         if background:
@@ -277,7 +369,7 @@ class ProjectApi(BaseApiHandler):
 
         try:
             response = self.transport.post(request_url, json_data=build_config.to_dict())
-            return self.prepare_results(response_json=response.json(), config=JobConfig)
+            return self.prepare_results(response_json=response.json(), config=BuildJobConfig)
         except PolyaxonClientException as e:
             self.transport.handle_exception(e=e, log_message='Error while creating build job.')
             return None
@@ -300,14 +392,21 @@ class ProjectApi(BaseApiHandler):
                 e=e, log_message='Error while retrieving tensorboard jobs.')
             return []
 
-    def start_tensorboard(self, username, project_name, job_config=None, background=False):
+    def start_tensorboard(self,
+                          username,
+                          project_name, content=None,
+                          is_managed=True,
+                          background=False):
         request_url = self.build_url(self._get_http_url(),
                                      username,
                                      project_name,
                                      'tensorboard',
                                      'start')
 
-        job_config = {'config': job_config} if job_config else {}
+        job_config = {
+            'content': self.validate_content(content=content),
+            'is_managed': is_managed
+        } if content else {}
 
         if background:
             self.transport.async_post(request_url, json_data=job_config)
@@ -336,14 +435,23 @@ class ProjectApi(BaseApiHandler):
             self.transport.handle_exception(e=e, log_message='Error while stopping tensorboard.')
             return None
 
-    def start_notebook(self, username, project_name, job_config=None, background=False):
+    def start_notebook(self,
+                       username,
+                       project_name,
+                       content=None,
+                       is_managed=True,
+                       background=False):
         request_url = self.build_url(self._get_http_url(),
                                      username,
                                      project_name,
                                      'notebook',
                                      'start')
 
-        job_config = {'config': job_config} if job_config else {}
+        content = self.validate_content(content=content)
+        job_config = {
+            'content': self.validate_content(content=content),
+            'is_managed': is_managed
+        } if content else {}
 
         if background:
             self.transport.async_post(request_url, json_data=job_config)

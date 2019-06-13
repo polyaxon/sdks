@@ -6,20 +6,12 @@ import json
 import uuid
 
 from collections import Mapping
-from faker import Faker
 
 from tests.test_api.utils import TestBaseApi
 
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.api.bookmark import BookmarkApi
-from polyaxon_client.schemas import (
-    ExperimentConfig,
-    ExperimentGroupConfig,
-    JobConfig,
-    ProjectConfig
-)
-
-faker = Faker()
+from polyaxon_client.schemas import ExperimentConfig, GroupConfig, JobConfig, ProjectConfig
 
 
 class TestBookmarkApi(TestBaseApi):
@@ -32,8 +24,7 @@ class TestBookmarkApi(TestBaseApi):
     def test_get_bookmarked_builds(self):
         project_uuid = uuid.uuid4().hex
         obj_uuid = uuid.uuid4().hex
-        objs = [{'content_object': JobConfig(config={},
-                                             uuid=obj_uuid,
+        objs = [{'content_object': JobConfig(uuid=obj_uuid,
                                              project=project_uuid).to_dict()}
                 for _ in range(10)]
         httpretty.register_uri(
@@ -62,8 +53,7 @@ class TestBookmarkApi(TestBaseApi):
     def test_get_bookmarked_jobs(self):
         project_uuid = uuid.uuid4().hex
         obj_uuid = uuid.uuid4().hex
-        objs = [{'content_object': JobConfig(config={},
-                                             uuid=obj_uuid,
+        objs = [{'content_object': JobConfig(uuid=obj_uuid,
                                              project=project_uuid).to_dict()}
                 for _ in range(10)]
         httpretty.register_uri(
@@ -92,8 +82,7 @@ class TestBookmarkApi(TestBaseApi):
     def test_get_bookmarked_experiments(self):
         project_uuid = uuid.uuid4().hex
         obj_uuid = uuid.uuid4().hex
-        objs = [{'content_object': ExperimentConfig(config={},
-                                                    uuid=obj_uuid,
+        objs = [{'content_object': ExperimentConfig(uuid=obj_uuid,
                                                     project=project_uuid).to_dict()}
                 for _ in range(10)]
         httpretty.register_uri(
@@ -122,8 +111,7 @@ class TestBookmarkApi(TestBaseApi):
     def test_get_bookmarked_groups(self):
         project_uuid = uuid.uuid4().hex
         experiment_groups = [
-            {'content_object': ExperimentGroupConfig(content=faker.word,
-                                                     project=project_uuid).to_dict()}
+            {'content_object': GroupConfig(content='text', project=project_uuid).to_dict()}
             for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
@@ -139,7 +127,7 @@ class TestBookmarkApi(TestBaseApi):
         # Schema response
         result = self.api_handler.groups('user')
         assert len(result['results']) == 10
-        assert isinstance(result['results'][0], ExperimentGroupConfig)
+        assert isinstance(result['results'][0], GroupConfig)
 
         # Raw response
         self.set_raw_response()
@@ -149,7 +137,7 @@ class TestBookmarkApi(TestBaseApi):
 
     @httpretty.activate
     def test_get_bookmarked_projects(self):
-        projects = [{'content_object': ProjectConfig(faker.word).to_dict()} for _ in range(10)]
+        projects = [{'content_object': ProjectConfig('proj').to_dict()} for _ in range(10)]
         httpretty.register_uri(
             httpretty.GET,
             BaseApiHandler.build_url(

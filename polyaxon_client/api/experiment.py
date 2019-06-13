@@ -8,12 +8,12 @@ from hestia.tz_utils import utc
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.exceptions import PolyaxonClientException
 from polyaxon_client.schemas import (
+    CodeReferenceConfig,
     ExperimentConfig,
     ExperimentJobConfig,
     ExperimentMetricConfig,
     ExperimentStatusConfig
 )
-from polyaxon_schemas.code_reference import CodeReferenceConfig
 
 
 class ExperimentApi(BaseApiHandler):
@@ -214,6 +214,8 @@ class ExperimentApi(BaseApiHandler):
                 return int(value)
             if isinstance(value, np.floating):
                 return float(value)
+            if hasattr(value, 'item'):
+                return value.item()
             raise PolyaxonClientException(
                 'Client could not parse the value `{}`, it expects a number.'.format(value))
 
@@ -292,7 +294,7 @@ class ExperimentApi(BaseApiHandler):
                 username,
                 project_name,
                 experiment_id,
-                config=None,
+                content=None,
                 update_code=None,
                 background=False):
         """Restart an experiment."""
@@ -304,8 +306,8 @@ class ExperimentApi(BaseApiHandler):
                                      'restart')
 
         data = {}
-        if config:
-            data['config'] = config
+        if content:
+            data['content'] = self.validate_content(content=content)
         if update_code:
             data['update_code'] = update_code
 
@@ -325,7 +327,7 @@ class ExperimentApi(BaseApiHandler):
                username,
                project_name,
                experiment_id,
-               config=None,
+               content=None,
                update_code=None,
                background=False):
         """Restart an experiment."""
@@ -337,8 +339,8 @@ class ExperimentApi(BaseApiHandler):
                                      'resume')
 
         data = {}
-        if config:
-            data['config'] = config
+        if content:
+            data['content'] = self.validate_content(content=content)
         if update_code:
             data['update_code'] = update_code
 
@@ -357,7 +359,7 @@ class ExperimentApi(BaseApiHandler):
              username,
              project_name,
              experiment_id,
-             config=None,
+             content=None,
              update_code=None,
              background=False):
         """Restart an experiment."""
@@ -369,8 +371,8 @@ class ExperimentApi(BaseApiHandler):
                                      'copy')
 
         data = {}
-        if config:
-            data['config'] = config
+        if content:
+            data['content'] = self.validate_content(content=content)
         if update_code:
             data['update_code'] = update_code
 
@@ -435,7 +437,8 @@ class ExperimentApi(BaseApiHandler):
             try:
                 return self.transport.get(request_url)
             except PolyaxonClientException as e:
-                self.transport.handle_exception(e=e, log_message='Error while retrieving jobs.')
+                self.transport.handle_exception(
+                    e=e, log_message='Error while sending experiment logs.')
                 return []
 
         request_url = self.build_url(self._get_ws_url(),
@@ -450,7 +453,8 @@ class ExperimentApi(BaseApiHandler):
                           username,
                           project_name,
                           experiment_id,
-                          job_config=None,
+                          content=None,
+                          is_managed=True,
                           background=False):
         request_url = self.build_url(self._get_http_url(),
                                      username,
@@ -460,7 +464,10 @@ class ExperimentApi(BaseApiHandler):
                                      'tensorboard',
                                      'start')
 
-        job_config = {'config': job_config} if job_config else {}
+        job_config = {
+            'content': self.validate_content(content=content),
+            'is_managed': is_managed
+        } if content else {}
 
         if background:
             self.transport.async_post(request_url, json_data=job_config)

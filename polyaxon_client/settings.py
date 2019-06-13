@@ -7,31 +7,50 @@ import rhea
 
 from hestia.auth import AuthenticationTypes
 from hestia.user_path import polyaxon_user_path
+from marshmallow import EXCLUDE, RAISE
 from rhea import RheaError  # noqa
 
-TMP_AUTH_TOKEN_PATH = '/tmp/.polyaxon/.authtoken'
-CLIENT_CONFIG_PATH = os.path.join(polyaxon_user_path(), '.polyaxonclient')
-CONFIG_PATH = os.path.join(polyaxon_user_path(), '.polyaxonconfig')
-AUTH_PATH = os.path.join(polyaxon_user_path(), '.polyaxonauth')
+TMP_POLYAXON_PATH = '/tmp/.polyaxon/'
+
+TMP_AUTH_TOKEN_PATH = os.path.join(TMP_POLYAXON_PATH, '.authtoken')
+CONTEXT_AUTH_TOKEN_PATH = '/plx-context/.authtoken'
+
+TMP_CLIENT_CONFIG_PATH = os.path.join(TMP_POLYAXON_PATH, '.polyaxonclient')
+TMP_CONFIG_PATH = os.path.join(TMP_POLYAXON_PATH, '.polyaxonconfig')
+TMP_AUTH_PATH = os.path.join(TMP_POLYAXON_PATH, '.polyaxonauth')
+USER_CLIENT_CONFIG_PATH = os.path.join(polyaxon_user_path(), '.polyaxonclient')
+USER_CONFIG_PATH = os.path.join(polyaxon_user_path(), '.polyaxonconfig')
+USER_AUTH_PATH = os.path.join(polyaxon_user_path(), '.polyaxonauth')
 
 global_config = rhea.Rhea.read_configs([
-    rhea.ConfigSpec(CONFIG_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(TMP_CONFIG_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(USER_CONFIG_PATH, config_type='.json', check_if_exists=False),
     {'dummy': 'dummy'}
 ])
 auth_config = rhea.Rhea.read_configs([
-    rhea.ConfigSpec(AUTH_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(TMP_AUTH_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(USER_AUTH_PATH, config_type='.json', check_if_exists=False),
     {'dummy': 'dummy'}
 ])
 config = rhea.Rhea.read_configs([
-    rhea.ConfigSpec(CLIENT_CONFIG_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(TMP_CLIENT_CONFIG_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(USER_CLIENT_CONFIG_PATH, config_type='.json', check_if_exists=False),
     os.environ,
-    rhea.ConfigSpec(TMP_AUTH_TOKEN_PATH, config_type='.json', check_if_exists=False)
+    rhea.ConfigSpec(TMP_AUTH_TOKEN_PATH, config_type='.json', check_if_exists=False),
+    rhea.ConfigSpec(CONTEXT_AUTH_TOKEN_PATH, config_type='.json', check_if_exists=False)
 ])
 
+IS_LOCAL = config.get_boolean('POLYAXON_IS_LOCAL',
+                              is_optional=True,
+                              default=False)
 IN_CLUSTER = config.get_boolean('POLYAXON_IN_CLUSTER',
                                 is_optional=True,
                                 default=False)
-NO_OP = config.get_boolean('POLYAXON_NO_OP',
+IS_MANAGED = config.get_boolean('POLYAXON_IS_MANAGED',
+                                is_optional=True,
+                                default=False)
+POLYAXON_NO_OP_KEY = 'POLYAXON_NO_OP'
+NO_OP = config.get_boolean(POLYAXON_NO_OP_KEY,
                            is_optional=True,
                            default=False)
 API_HOST = config.get_string('POLYAXON_API_HOST',
@@ -126,3 +145,15 @@ QUEUE_CALL = config.get_int('POLYAXON_INTERVAL',
                             default=200)
 LOGS_LEVEL = config.get_int('POLYAXON_LOGS_LEVEL',
                             is_optional=True)
+RECEPTION_UNKNOWN_BEHAVIOUR = config.get_string('POLYAXON_RECEPTION_UNKNOWN_BEHAVIOUR',
+                                                is_optional=True,
+                                                default=EXCLUDE)
+VALIDATION_UNKNOWN_BEHAVIOUR = config.get_string('POLYAXON_VALIDATION_UNKNOWN_BEHAVIOUR',
+                                                 is_optional=True,
+                                                 default=RAISE)
+WARN_UPLOAD_SIZE = config.get_int('POLYAXON_WARN_UPLOAD_SIZE',
+                                  is_optional=True,
+                                  default=1024 * 1024 * 10)
+MAX_UPLOAD_SIZE = config.get_int('POLYAXON_MAX_UPLOAD_SIZE',
+                                 is_optional=True,
+                                 default=1024 * 1024 * 150)

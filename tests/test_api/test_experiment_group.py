@@ -7,15 +7,12 @@ import json
 import uuid
 
 from collections import Mapping
-from faker import Faker
 
 from tests.test_api.utils import TestBaseApi
 
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.api.experiment_group import ExperimentGroupApi
-from polyaxon_client.schemas import ExperimentConfig, ExperimentGroupConfig, GroupStatusConfig
-
-faker = Faker()
+from polyaxon_client.schemas import ExperimentConfig, GroupConfig, GroupStatusConfig
 
 
 class TestExperimentGroupApi(TestBaseApi):
@@ -26,9 +23,9 @@ class TestExperimentGroupApi(TestBaseApi):
 
     @httpretty.activate
     def test_get_experiment_group(self):
-        obj = ExperimentGroupConfig(content=faker.word(),
-                                    uuid=uuid.uuid4().hex,
-                                    project=uuid.uuid4().hex).to_dict()
+        obj = GroupConfig(content='text',
+                          uuid=uuid.uuid4().hex,
+                          project=uuid.uuid4().hex).to_dict()
         httpretty.register_uri(
             httpretty.GET,
             BaseApiHandler.build_url(
@@ -57,7 +54,6 @@ class TestExperimentGroupApi(TestBaseApi):
         project_uuid = uuid.uuid4().hex
         xp_uuid = uuid.uuid4().hex
         xps = [ExperimentConfig(uuid=xp_uuid,
-                                config={},
                                 project=project_uuid,
                                 experiment_group=group_uuid).to_dict()
                for _ in range(10)]
@@ -150,9 +146,9 @@ class TestExperimentGroupApi(TestBaseApi):
 
     @httpretty.activate
     def test_update_experiment_group(self):
-        obj = ExperimentGroupConfig(content=faker.word(),
-                                    uuid=uuid.uuid4().hex,
-                                    project=uuid.uuid4().hex).to_dict()
+        obj = GroupConfig(content='text',
+                          uuid=uuid.uuid4().hex,
+                          project=uuid.uuid4().hex).to_dict()
         httpretty.register_uri(
             httpretty.PATCH,
             BaseApiHandler.build_url(
@@ -417,7 +413,7 @@ class TestExperimentGroupApi(TestBaseApi):
             method='post')
 
     @httpretty.activate
-    def test_unbookmark_experiment(self):
+    def test_unbookmark_experiment_group(self):
         httpretty.register_uri(
             httpretty.DELETE,
             BaseApiHandler.build_url(

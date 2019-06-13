@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function
 from polyaxon_client.api.base import BaseApiHandler
 from polyaxon_client.exceptions import PolyaxonClientException
 from polyaxon_client.schemas import JobConfig, JobStatusConfig
+from polyaxon_schemas.api.code_reference import CodeReferenceConfig
 
 
 class JobApi(BaseApiHandler):
@@ -107,11 +108,87 @@ class JobApi(BaseApiHandler):
                 e=e, log_message='Error while creating job status.')
             return None
 
+    def get_code_reference(self,
+                           username,
+                           project_name,
+                           job_id):
+        request_url = self.build_url(self._get_http_url(),
+                                     username,
+                                     project_name,
+                                     'jobs',
+                                     job_id,
+                                     'coderef')
+        try:
+            response = self.transport.get(request_url)
+            return self.prepare_results(response.json(), CodeReferenceConfig)
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while retrieving job code reference.')
+            return None
+
+    def create_code_reference(self,
+                              username,
+                              project_name,
+                              job_id,
+                              coderef,
+                              background=False):
+        request_url = self.build_url(self._get_http_url(),
+                                     username,
+                                     project_name,
+                                     'jobs',
+                                     job_id,
+                                     'coderef')
+        if background:
+            self.transport.async_post(request_url, json_data=coderef)
+            return None
+
+        try:
+            response = self.transport.post(request_url, json_data=coderef)
+            return self.prepare_results(response_json=response.json(),
+                                        config=CodeReferenceConfig)
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while creating job coderef.')
+            return None
+
+    def send_logs(self,
+                  username,
+                  project_name,
+                  job_id,
+                  log_lines,
+                  background=False,
+                  periodic=False):
+        request_url = self.build_url(self._get_http_url(),
+                                     username,
+                                     project_name,
+                                     'jobs',
+                                     job_id,
+                                     'logs')
+
+        if isinstance(log_lines, list):
+            log_lines = '\n'.join(log_lines)
+
+        if background:
+            self.transport.async_post(request_url, json_data=log_lines)
+            return None
+
+        if periodic:
+            self.transport.periodic_post(request_url, json_data=log_lines)
+            return None
+
+        try:
+            response = self.transport.post(request_url, json_data=log_lines)
+            return response
+        except PolyaxonClientException as e:
+            self.transport.handle_exception(
+                e=e, log_message='Error while sending job logs.')
+            return None
+
     def restart(self,
                 username,
                 project_name,
                 job_id,
-                config=None,
+                content=None,
                 update_code=None,
                 background=False):
         """Restart an job."""
@@ -123,8 +200,8 @@ class JobApi(BaseApiHandler):
                                      'restart')
 
         data = {}
-        if config:
-            data['config'] = config
+        if content:
+            data['content'] = self.validate_content(content=content)
         if update_code:
             data['update_code'] = update_code
 
@@ -143,7 +220,7 @@ class JobApi(BaseApiHandler):
                username,
                project_name,
                job_id,
-               config=None,
+               content=None,
                update_code=None,
                background=False):
         """Resume a job."""
@@ -155,8 +232,8 @@ class JobApi(BaseApiHandler):
                                      'resume')
 
         data = {}
-        if config:
-            data['config'] = config
+        if content:
+            data['content'] = self.validate_content(content=content)
         if update_code:
             data['update_code'] = update_code
 
@@ -175,7 +252,7 @@ class JobApi(BaseApiHandler):
              username,
              project_name,
              job_id,
-             config=None,
+             content=None,
              update_code=None,
              background=False):
         """Copy an job."""
@@ -187,8 +264,8 @@ class JobApi(BaseApiHandler):
                                      'copy')
 
         data = {}
-        if config:
-            data['config'] = config
+        if content:
+            data['content'] = self.validate_content(content=content)
         if update_code:
             data['update_code'] = update_code
 
