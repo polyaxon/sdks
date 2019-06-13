@@ -217,11 +217,17 @@ class Experiment(BaseTracker):
 
     @check_no_op
     def log_artifact(self, file_path):
-        self.experiment.outputs_store.upload_file(file_path)
+        if self.experiment is not None:
+            self.experiment.outputs_store.upload_file(file_path)
+        else:
+            self.outputs_store.upload_file(file_path)
 
     @check_no_op
     def log_artifacts(self, dir_path):
-        self.experiment.outputs_store.upload_file(dir_path)
+        if self.experiment is not None:
+            self.experiment.outputs_store.upload_file(dir_path)
+        else:
+            self.outputs_store.upload_file(dir_path)
 
     @staticmethod
     def get_cluster_def():
