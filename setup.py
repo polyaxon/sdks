@@ -84,6 +84,6 @@ setup(name='polyaxon-client',
       tests_require=[
           "pytest",
           "httpretty==0.9.6",
-          "fake-factory==0.7.2"
+          "fake-factory==9999.9.9"
       ],
       cmdclass={'test': PyTest})
