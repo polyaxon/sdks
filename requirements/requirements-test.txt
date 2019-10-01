@@ -2,5 +2,5 @@
 
 polyaxon-pip-tests==0.0.6
 
-fake-factory==0.7.2
+fake-factory==9999.9.9
 httpretty==0.9.6
