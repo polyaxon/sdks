@@ -41,6 +41,9 @@ type V1PytorchJob struct {
 	// Optional master replica definition
 	Master *V1KFReplica `json:"master,omitempty"`
 
+	// optional scheduling policy section
+	SchedulingPolicy *V1SchedulingPolicy `json:"schedulingPolicy,omitempty"`
+
 	// Optional worker replica definition
 	Worker *V1KFReplica `json:"worker,omitempty"`
 }
@@ -54,6 +57,10 @@ func (m *V1PytorchJob) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMaster(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSchedulingPolicy(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -105,6 +112,25 @@ func (m *V1PytorchJob) validateMaster(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1PytorchJob) validateSchedulingPolicy(formats strfmt.Registry) error {
+	if swag.IsZero(m.SchedulingPolicy) { // not required
+		return nil
+	}
+
+	if m.SchedulingPolicy != nil {
+		if err := m.SchedulingPolicy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedulingPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedulingPolicy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *V1PytorchJob) validateWorker(formats strfmt.Registry) error {
 	if swag.IsZero(m.Worker) { // not required
 		return nil
@@ -133,6 +159,10 @@ func (m *V1PytorchJob) ContextValidate(ctx context.Context, formats strfmt.Regis
 	}
 
 	if err := m.contextValidateMaster(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedulingPolicy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -170,6 +200,22 @@ func (m *V1PytorchJob) contextValidateMaster(ctx context.Context, formats strfmt
 				return ve.ValidateName("master")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("master")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1PytorchJob) contextValidateSchedulingPolicy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SchedulingPolicy != nil {
+		if err := m.SchedulingPolicy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedulingPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedulingPolicy")
 			}
 			return err
 		}

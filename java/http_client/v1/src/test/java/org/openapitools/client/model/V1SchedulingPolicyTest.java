@@ -35,74 +35,47 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.V1CleanPodPolicy;
-import org.openapitools.client.model.V1KFReplica;
-import org.openapitools.client.model.V1SchedulingPolicy;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for V1MPIJob
+ * Model tests for V1SchedulingPolicy
  */
-public class V1MPIJobTest {
-    private final V1MPIJob model = new V1MPIJob();
+public class V1SchedulingPolicyTest {
+    private final V1SchedulingPolicy model = new V1SchedulingPolicy();
 
     /**
-     * Model tests for V1MPIJob
+     * Model tests for V1SchedulingPolicy
      */
     @Test
-    public void testV1MPIJob() {
-        // TODO: test V1MPIJob
+    public void testV1SchedulingPolicy() {
+        // TODO: test V1SchedulingPolicy
     }
 
     /**
-     * Test the property 'kind'
+     * Test the property 'minAvailable'
      */
     @Test
-    public void kindTest() {
-        // TODO: test kind
+    public void minAvailableTest() {
+        // TODO: test minAvailable
     }
 
     /**
-     * Test the property 'cleanPodPolicy'
+     * Test the property 'queue'
      */
     @Test
-    public void cleanPodPolicyTest() {
-        // TODO: test cleanPodPolicy
+    public void queueTest() {
+        // TODO: test queue
     }
 
     /**
-     * Test the property 'schedulingPolicy'
+     * Test the property 'priorityClass'
      */
     @Test
-    public void schedulingPolicyTest() {
-        // TODO: test schedulingPolicy
-    }
-
-    /**
-     * Test the property 'slotsPerWorker'
-     */
-    @Test
-    public void slotsPerWorkerTest() {
-        // TODO: test slotsPerWorker
-    }
-
-    /**
-     * Test the property 'launcher'
-     */
-    @Test
-    public void launcherTest() {
-        // TODO: test launcher
-    }
-
-    /**
-     * Test the property 'worker'
-     */
-    @Test
-    public void workerTest() {
-        // TODO: test worker
+    public void priorityClassTest() {
+        // TODO: test priorityClass
     }
 
 }

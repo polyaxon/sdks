@@ -42,7 +42,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new PolyaxonSdk.V1PytorchJob();
+    instance = new PolyaxonSdk.V1SchedulingPolicy();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,40 +61,28 @@
       object[property] = value;
   }
 
-  describe('V1PytorchJob', function() {
-    it('should create an instance of V1PytorchJob', function() {
-      // uncomment below and update the code to test V1PytorchJob
-      //var instance = new PolyaxonSdk.V1PytorchJob();
-      //expect(instance).to.be.a(PolyaxonSdk.V1PytorchJob);
+  describe('V1SchedulingPolicy', function() {
+    it('should create an instance of V1SchedulingPolicy', function() {
+      // uncomment below and update the code to test V1SchedulingPolicy
+      //var instance = new PolyaxonSdk.V1SchedulingPolicy();
+      //expect(instance).to.be.a(PolyaxonSdk.V1SchedulingPolicy);
     });
 
-    it('should have the property kind (base name: "kind")', function() {
-      // uncomment below and update the code to test the property kind
-      //var instance = new PolyaxonSdk.V1PytorchJob();
+    it('should have the property minAvailable (base name: "minAvailable")', function() {
+      // uncomment below and update the code to test the property minAvailable
+      //var instance = new PolyaxonSdk.V1SchedulingPolicy();
       //expect(instance).to.be();
     });
 
-    it('should have the property cleanPodPolicy (base name: "cleanPodPolicy")', function() {
-      // uncomment below and update the code to test the property cleanPodPolicy
-      //var instance = new PolyaxonSdk.V1PytorchJob();
+    it('should have the property queue (base name: "queue")', function() {
+      // uncomment below and update the code to test the property queue
+      //var instance = new PolyaxonSdk.V1SchedulingPolicy();
       //expect(instance).to.be();
     });
 
-    it('should have the property schedulingPolicy (base name: "schedulingPolicy")', function() {
-      // uncomment below and update the code to test the property schedulingPolicy
-      //var instance = new PolyaxonSdk.V1PytorchJob();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property master (base name: "master")', function() {
-      // uncomment below and update the code to test the property master
-      //var instance = new PolyaxonSdk.V1PytorchJob();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property worker (base name: "worker")', function() {
-      // uncomment below and update the code to test the property worker
-      //var instance = new PolyaxonSdk.V1PytorchJob();
+    it('should have the property priorityClass (base name: "priorityClass")', function() {
+      // uncomment below and update the code to test the property priorityClass
+      //var instance = new PolyaxonSdk.V1SchedulingPolicy();
       //expect(instance).to.be();
     });
 

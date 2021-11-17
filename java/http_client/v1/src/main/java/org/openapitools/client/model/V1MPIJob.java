@@ -39,6 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
+import org.openapitools.client.model.V1SchedulingPolicy;
 
 /**
  * V1MPIJob
@@ -52,6 +53,10 @@ public class V1MPIJob {
   public static final String SERIALIZED_NAME_CLEAN_POD_POLICY = "cleanPodPolicy";
   @SerializedName(SERIALIZED_NAME_CLEAN_POD_POLICY)
   private V1CleanPodPolicy cleanPodPolicy = V1CleanPodPolicy.ALL;
+
+  public static final String SERIALIZED_NAME_SCHEDULING_POLICY = "schedulingPolicy";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
+  private V1SchedulingPolicy schedulingPolicy;
 
   public static final String SERIALIZED_NAME_SLOTS_PER_WORKER = "slotsPerWorker";
   @SerializedName(SERIALIZED_NAME_SLOTS_PER_WORKER)
@@ -109,6 +114,29 @@ public class V1MPIJob {
 
   public void setCleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
     this.cleanPodPolicy = cleanPodPolicy;
+  }
+
+
+  public V1MPIJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
+    
+    this.schedulingPolicy = schedulingPolicy;
+    return this;
+  }
+
+   /**
+   * Get schedulingPolicy
+   * @return schedulingPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1SchedulingPolicy getSchedulingPolicy() {
+    return schedulingPolicy;
+  }
+
+
+  public void setSchedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
+    this.schedulingPolicy = schedulingPolicy;
   }
 
 
@@ -192,6 +220,7 @@ public class V1MPIJob {
     V1MPIJob v1MPIJob = (V1MPIJob) o;
     return Objects.equals(this.kind, v1MPIJob.kind) &&
         Objects.equals(this.cleanPodPolicy, v1MPIJob.cleanPodPolicy) &&
+        Objects.equals(this.schedulingPolicy, v1MPIJob.schedulingPolicy) &&
         Objects.equals(this.slotsPerWorker, v1MPIJob.slotsPerWorker) &&
         Objects.equals(this.launcher, v1MPIJob.launcher) &&
         Objects.equals(this.worker, v1MPIJob.worker);
@@ -199,7 +228,7 @@ public class V1MPIJob {
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, slotsPerWorker, launcher, worker);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, slotsPerWorker, launcher, worker);
   }
 
   @Override
@@ -208,6 +237,7 @@ public class V1MPIJob {
     sb.append("class V1MPIJob {\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
+    sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
     sb.append("    slotsPerWorker: ").append(toIndentedString(slotsPerWorker)).append("\n");
     sb.append("    launcher: ").append(toIndentedString(launcher)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");

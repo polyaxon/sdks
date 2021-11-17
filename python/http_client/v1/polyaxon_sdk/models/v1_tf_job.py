@@ -55,6 +55,7 @@ class V1TFJob(object):
     openapi_types = {
         'kind': 'str',
         'clean_pod_policy': 'V1CleanPodPolicy',
+        'scheduling_policy': 'V1SchedulingPolicy',
         'chief': 'V1KFReplica',
         'ps': 'V1KFReplica',
         'worker': 'V1KFReplica',
@@ -64,13 +65,14 @@ class V1TFJob(object):
     attribute_map = {
         'kind': 'kind',
         'clean_pod_policy': 'cleanPodPolicy',
+        'scheduling_policy': 'schedulingPolicy',
         'chief': 'chief',
         'ps': 'ps',
         'worker': 'worker',
         'evaluator': 'evaluator'
     }
 
-    def __init__(self, kind='tfjob', clean_pod_policy=None, chief=None, ps=None, worker=None, evaluator=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='tfjob', clean_pod_policy=None, scheduling_policy=None, chief=None, ps=None, worker=None, evaluator=None, local_vars_configuration=None):  # noqa: E501
         """V1TFJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -78,6 +80,7 @@ class V1TFJob(object):
 
         self._kind = None
         self._clean_pod_policy = None
+        self._scheduling_policy = None
         self._chief = None
         self._ps = None
         self._worker = None
@@ -88,6 +91,8 @@ class V1TFJob(object):
             self.kind = kind
         if clean_pod_policy is not None:
             self.clean_pod_policy = clean_pod_policy
+        if scheduling_policy is not None:
+            self.scheduling_policy = scheduling_policy
         if chief is not None:
             self.chief = chief
         if ps is not None:
@@ -138,6 +143,27 @@ class V1TFJob(object):
         """
 
         self._clean_pod_policy = clean_pod_policy
+
+    @property
+    def scheduling_policy(self):
+        """Gets the scheduling_policy of this V1TFJob.  # noqa: E501
+
+
+        :return: The scheduling_policy of this V1TFJob.  # noqa: E501
+        :rtype: V1SchedulingPolicy
+        """
+        return self._scheduling_policy
+
+    @scheduling_policy.setter
+    def scheduling_policy(self, scheduling_policy):
+        """Sets the scheduling_policy of this V1TFJob.
+
+
+        :param scheduling_policy: The scheduling_policy of this V1TFJob.  # noqa: E501
+        :type scheduling_policy: V1SchedulingPolicy
+        """
+
+        self._scheduling_policy = scheduling_policy
 
     @property
     def chief(self):

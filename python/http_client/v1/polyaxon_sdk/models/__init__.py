@@ -220,6 +220,7 @@ from polyaxon_sdk.models.v1_run_settings import V1RunSettings
 from polyaxon_sdk.models.v1_s3_type import V1S3Type
 from polyaxon_sdk.models.v1_schedule import V1Schedule
 from polyaxon_sdk.models.v1_schedule_kind import V1ScheduleKind
+from polyaxon_sdk.models.v1_scheduling_policy import V1SchedulingPolicy
 from polyaxon_sdk.models.v1_schemas import V1Schemas
 from polyaxon_sdk.models.v1_search import V1Search
 from polyaxon_sdk.models.v1_search_spec import V1SearchSpec

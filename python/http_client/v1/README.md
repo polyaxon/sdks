@@ -560,6 +560,7 @@ Class | Method | HTTP request | Description
  - [V1S3Type](docs/V1S3Type.md)
  - [V1Schedule](docs/V1Schedule.md)
  - [V1ScheduleKind](docs/V1ScheduleKind.md)
+ - [V1SchedulingPolicy](docs/V1SchedulingPolicy.md)
  - [V1Schemas](docs/V1Schemas.md)
  - [V1Search](docs/V1Search.md)
  - [V1SearchSpec](docs/V1SearchSpec.md)

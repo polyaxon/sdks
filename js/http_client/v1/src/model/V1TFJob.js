@@ -28,6 +28,7 @@
 import ApiClient from '../ApiClient';
 import V1CleanPodPolicy from './V1CleanPodPolicy';
 import V1KFReplica from './V1KFReplica';
+import V1SchedulingPolicy from './V1SchedulingPolicy';
 
 /**
  * The V1TFJob model module.
@@ -69,6 +70,9 @@ class V1TFJob {
             if (data.hasOwnProperty('cleanPodPolicy')) {
                 obj['cleanPodPolicy'] = V1CleanPodPolicy.constructFromObject(data['cleanPodPolicy']);
             }
+            if (data.hasOwnProperty('schedulingPolicy')) {
+                obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
+            }
             if (data.hasOwnProperty('chief')) {
                 obj['chief'] = V1KFReplica.constructFromObject(data['chief']);
             }
@@ -98,6 +102,11 @@ V1TFJob.prototype['kind'] = 'tfjob';
  * @member {module:model/V1CleanPodPolicy} cleanPodPolicy
  */
 V1TFJob.prototype['cleanPodPolicy'] = undefined;
+
+/**
+ * @member {module:model/V1SchedulingPolicy} schedulingPolicy
+ */
+V1TFJob.prototype['schedulingPolicy'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} chief

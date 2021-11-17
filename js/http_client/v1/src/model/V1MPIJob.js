@@ -28,6 +28,7 @@
 import ApiClient from '../ApiClient';
 import V1CleanPodPolicy from './V1CleanPodPolicy';
 import V1KFReplica from './V1KFReplica';
+import V1SchedulingPolicy from './V1SchedulingPolicy';
 
 /**
  * The V1MPIJob model module.
@@ -69,6 +70,9 @@ class V1MPIJob {
             if (data.hasOwnProperty('cleanPodPolicy')) {
                 obj['cleanPodPolicy'] = V1CleanPodPolicy.constructFromObject(data['cleanPodPolicy']);
             }
+            if (data.hasOwnProperty('schedulingPolicy')) {
+                obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
+            }
             if (data.hasOwnProperty('slotsPerWorker')) {
                 obj['slotsPerWorker'] = ApiClient.convertToType(data['slotsPerWorker'], 'Number');
             }
@@ -95,6 +99,11 @@ V1MPIJob.prototype['kind'] = 'mpi_job';
  * @member {module:model/V1CleanPodPolicy} cleanPodPolicy
  */
 V1MPIJob.prototype['cleanPodPolicy'] = undefined;
+
+/**
+ * @member {module:model/V1SchedulingPolicy} schedulingPolicy
+ */
+V1MPIJob.prototype['schedulingPolicy'] = undefined;
 
 /**
  * @member {Number} slotsPerWorker

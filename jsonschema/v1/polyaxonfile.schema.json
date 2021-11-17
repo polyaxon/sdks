@@ -8138,6 +8138,10 @@
           "$ref": "#/definitions/v1KFReplica",
           "title": "Optional launcher replica definition"
         },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/v1SchedulingPolicy",
+          "title": "optional scheduling policy section"
+        },
         "slotsPerWorker": {
           "format": "int32",
           "title": "Optional slots per worker",
@@ -9289,6 +9293,10 @@
           "$ref": "#/definitions/v1KFReplica",
           "title": "Optional master replica definition"
         },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/v1SchedulingPolicy",
+          "title": "optional scheduling policy section"
+        },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Optional worker replica definition"
@@ -9906,6 +9914,21 @@
       ],
       "type": "string"
     },
+    "v1SchedulingPolicy": {
+      "properties": {
+        "minAvailable": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "priorityClass": {
+          "type": "string"
+        },
+        "queue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "v1Schemas": {
       "properties": {
         "artifacs": {
@@ -10506,6 +10529,10 @@
         "ps": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Optional ps replica definition"
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/v1SchedulingPolicy",
+          "title": "optional scheduling policy section"
         },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",

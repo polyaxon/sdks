@@ -203,6 +203,7 @@ export * from './V1RunSettings';
 export * from './V1S3Type';
 export * from './V1Schedule';
 export * from './V1ScheduleKind';
+export * from './V1SchedulingPolicy';
 export * from './V1Schemas';
 export * from './V1Search';
 export * from './V1SearchSpec';

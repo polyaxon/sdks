@@ -216,6 +216,7 @@ import V1RunSettings from './model/V1RunSettings';
 import V1S3Type from './model/V1S3Type';
 import V1Schedule from './model/V1Schedule';
 import V1ScheduleKind from './model/V1ScheduleKind';
+import V1SchedulingPolicy from './model/V1SchedulingPolicy';
 import V1Schemas from './model/V1Schemas';
 import V1Search from './model/V1Search';
 import V1SearchSpec from './model/V1SearchSpec';
@@ -1444,6 +1445,12 @@ export {
      * @property {module:model/V1ScheduleKind}
      */
     V1ScheduleKind,
+
+    /**
+     * The V1SchedulingPolicy model constructor.
+     * @property {module:model/V1SchedulingPolicy}
+     */
+    V1SchedulingPolicy,
 
     /**
      * The V1Schemas model constructor.

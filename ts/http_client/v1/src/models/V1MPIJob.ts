@@ -36,6 +36,10 @@ import {
     V1KFReplicaFromJSON,
     V1KFReplicaFromJSONTyped,
     V1KFReplicaToJSON,
+    V1SchedulingPolicy,
+    V1SchedulingPolicyFromJSON,
+    V1SchedulingPolicyFromJSONTyped,
+    V1SchedulingPolicyToJSON,
 } from './';
 
 /**
@@ -56,6 +60,12 @@ export interface V1MPIJob {
      * @memberof V1MPIJob
      */
     cleanPodPolicy?: V1CleanPodPolicy;
+    /**
+     * 
+     * @type {V1SchedulingPolicy}
+     * @memberof V1MPIJob
+     */
+    schedulingPolicy?: V1SchedulingPolicy;
     /**
      * 
      * @type {number}
@@ -88,6 +98,7 @@ export function V1MPIJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
+        'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
         'slotsPerWorker': !exists(json, 'slotsPerWorker') ? undefined : json['slotsPerWorker'],
         'launcher': !exists(json, 'launcher') ? undefined : V1KFReplicaFromJSON(json['launcher']),
         'worker': !exists(json, 'worker') ? undefined : V1KFReplicaFromJSON(json['worker']),
@@ -105,6 +116,7 @@ export function V1MPIJobToJSON(value?: V1MPIJob | null): any {
         
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
+        'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),
         'slotsPerWorker': value.slotsPerWorker,
         'launcher': V1KFReplicaToJSON(value.launcher),
         'worker': V1KFReplicaToJSON(value.worker),

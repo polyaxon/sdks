@@ -39,6 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
+import org.openapitools.client.model.V1SchedulingPolicy;
 
 /**
  * V1PytorchJob
@@ -52,6 +53,10 @@ public class V1PytorchJob {
   public static final String SERIALIZED_NAME_CLEAN_POD_POLICY = "cleanPodPolicy";
   @SerializedName(SERIALIZED_NAME_CLEAN_POD_POLICY)
   private V1CleanPodPolicy cleanPodPolicy = V1CleanPodPolicy.ALL;
+
+  public static final String SERIALIZED_NAME_SCHEDULING_POLICY = "schedulingPolicy";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
+  private V1SchedulingPolicy schedulingPolicy;
 
   public static final String SERIALIZED_NAME_MASTER = "master";
   @SerializedName(SERIALIZED_NAME_MASTER)
@@ -105,6 +110,29 @@ public class V1PytorchJob {
 
   public void setCleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
     this.cleanPodPolicy = cleanPodPolicy;
+  }
+
+
+  public V1PytorchJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
+    
+    this.schedulingPolicy = schedulingPolicy;
+    return this;
+  }
+
+   /**
+   * Get schedulingPolicy
+   * @return schedulingPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1SchedulingPolicy getSchedulingPolicy() {
+    return schedulingPolicy;
+  }
+
+
+  public void setSchedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
+    this.schedulingPolicy = schedulingPolicy;
   }
 
 
@@ -165,13 +193,14 @@ public class V1PytorchJob {
     V1PytorchJob v1PytorchJob = (V1PytorchJob) o;
     return Objects.equals(this.kind, v1PytorchJob.kind) &&
         Objects.equals(this.cleanPodPolicy, v1PytorchJob.cleanPodPolicy) &&
+        Objects.equals(this.schedulingPolicy, v1PytorchJob.schedulingPolicy) &&
         Objects.equals(this.master, v1PytorchJob.master) &&
         Objects.equals(this.worker, v1PytorchJob.worker);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, master, worker);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, master, worker);
   }
 
   @Override
@@ -180,6 +209,7 @@ public class V1PytorchJob {
     sb.append("class V1PytorchJob {\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
+    sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
     sb.append("    master: ").append(toIndentedString(master)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("}");

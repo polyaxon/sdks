@@ -39,6 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
+import org.openapitools.client.model.V1SchedulingPolicy;
 
 /**
  * V1TFJob
@@ -52,6 +53,10 @@ public class V1TFJob {
   public static final String SERIALIZED_NAME_CLEAN_POD_POLICY = "cleanPodPolicy";
   @SerializedName(SERIALIZED_NAME_CLEAN_POD_POLICY)
   private V1CleanPodPolicy cleanPodPolicy = V1CleanPodPolicy.ALL;
+
+  public static final String SERIALIZED_NAME_SCHEDULING_POLICY = "schedulingPolicy";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
+  private V1SchedulingPolicy schedulingPolicy;
 
   public static final String SERIALIZED_NAME_CHIEF = "chief";
   @SerializedName(SERIALIZED_NAME_CHIEF)
@@ -113,6 +118,29 @@ public class V1TFJob {
 
   public void setCleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
     this.cleanPodPolicy = cleanPodPolicy;
+  }
+
+
+  public V1TFJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
+    
+    this.schedulingPolicy = schedulingPolicy;
+    return this;
+  }
+
+   /**
+   * Get schedulingPolicy
+   * @return schedulingPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1SchedulingPolicy getSchedulingPolicy() {
+    return schedulingPolicy;
+  }
+
+
+  public void setSchedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
+    this.schedulingPolicy = schedulingPolicy;
   }
 
 
@@ -219,6 +247,7 @@ public class V1TFJob {
     V1TFJob v1TFJob = (V1TFJob) o;
     return Objects.equals(this.kind, v1TFJob.kind) &&
         Objects.equals(this.cleanPodPolicy, v1TFJob.cleanPodPolicy) &&
+        Objects.equals(this.schedulingPolicy, v1TFJob.schedulingPolicy) &&
         Objects.equals(this.chief, v1TFJob.chief) &&
         Objects.equals(this.ps, v1TFJob.ps) &&
         Objects.equals(this.worker, v1TFJob.worker) &&
@@ -227,7 +256,7 @@ public class V1TFJob {
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, chief, ps, worker, evaluator);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, chief, ps, worker, evaluator);
   }
 
   @Override
@@ -236,6 +265,7 @@ public class V1TFJob {
     sb.append("class V1TFJob {\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
+    sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
     sb.append("    chief: ").append(toIndentedString(chief)).append("\n");
     sb.append("    ps: ").append(toIndentedString(ps)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");

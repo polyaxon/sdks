@@ -55,6 +55,7 @@ class V1PytorchJob(object):
     openapi_types = {
         'kind': 'str',
         'clean_pod_policy': 'V1CleanPodPolicy',
+        'scheduling_policy': 'V1SchedulingPolicy',
         'master': 'V1KFReplica',
         'worker': 'V1KFReplica'
     }
@@ -62,11 +63,12 @@ class V1PytorchJob(object):
     attribute_map = {
         'kind': 'kind',
         'clean_pod_policy': 'cleanPodPolicy',
+        'scheduling_policy': 'schedulingPolicy',
         'master': 'master',
         'worker': 'worker'
     }
 
-    def __init__(self, kind='pytorch_job', clean_pod_policy=None, master=None, worker=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='pytorch_job', clean_pod_policy=None, scheduling_policy=None, master=None, worker=None, local_vars_configuration=None):  # noqa: E501
         """V1PytorchJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -74,6 +76,7 @@ class V1PytorchJob(object):
 
         self._kind = None
         self._clean_pod_policy = None
+        self._scheduling_policy = None
         self._master = None
         self._worker = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class V1PytorchJob(object):
             self.kind = kind
         if clean_pod_policy is not None:
             self.clean_pod_policy = clean_pod_policy
+        if scheduling_policy is not None:
+            self.scheduling_policy = scheduling_policy
         if master is not None:
             self.master = master
         if worker is not None:
@@ -128,6 +133,27 @@ class V1PytorchJob(object):
         """
 
         self._clean_pod_policy = clean_pod_policy
+
+    @property
+    def scheduling_policy(self):
+        """Gets the scheduling_policy of this V1PytorchJob.  # noqa: E501
+
+
+        :return: The scheduling_policy of this V1PytorchJob.  # noqa: E501
+        :rtype: V1SchedulingPolicy
+        """
+        return self._scheduling_policy
+
+    @scheduling_policy.setter
+    def scheduling_policy(self, scheduling_policy):
+        """Sets the scheduling_policy of this V1PytorchJob.
+
+
+        :param scheduling_policy: The scheduling_policy of this V1PytorchJob.  # noqa: E501
+        :type scheduling_policy: V1SchedulingPolicy
+        """
+
+        self._scheduling_policy = scheduling_policy
 
     @property
     def master(self):

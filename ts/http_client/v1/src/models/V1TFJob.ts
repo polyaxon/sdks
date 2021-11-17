@@ -36,6 +36,10 @@ import {
     V1KFReplicaFromJSON,
     V1KFReplicaFromJSONTyped,
     V1KFReplicaToJSON,
+    V1SchedulingPolicy,
+    V1SchedulingPolicyFromJSON,
+    V1SchedulingPolicyFromJSONTyped,
+    V1SchedulingPolicyToJSON,
 } from './';
 
 /**
@@ -56,6 +60,12 @@ export interface V1TFJob {
      * @memberof V1TFJob
      */
     cleanPodPolicy?: V1CleanPodPolicy;
+    /**
+     * 
+     * @type {V1SchedulingPolicy}
+     * @memberof V1TFJob
+     */
+    schedulingPolicy?: V1SchedulingPolicy;
     /**
      * 
      * @type {V1KFReplica}
@@ -94,6 +104,7 @@ export function V1TFJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
+        'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
         'chief': !exists(json, 'chief') ? undefined : V1KFReplicaFromJSON(json['chief']),
         'ps': !exists(json, 'ps') ? undefined : V1KFReplicaFromJSON(json['ps']),
         'worker': !exists(json, 'worker') ? undefined : V1KFReplicaFromJSON(json['worker']),
@@ -112,6 +123,7 @@ export function V1TFJobToJSON(value?: V1TFJob | null): any {
         
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
+        'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),
         'chief': V1KFReplicaToJSON(value.chief),
         'ps': V1KFReplicaToJSON(value.ps),
         'worker': V1KFReplicaToJSON(value.worker),

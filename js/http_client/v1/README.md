@@ -595,6 +595,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1S3Type](docs/V1S3Type.md)
  - [PolyaxonSdk.V1Schedule](docs/V1Schedule.md)
  - [PolyaxonSdk.V1ScheduleKind](docs/V1ScheduleKind.md)
+ - [PolyaxonSdk.V1SchedulingPolicy](docs/V1SchedulingPolicy.md)
  - [PolyaxonSdk.V1Schemas](docs/V1Schemas.md)
  - [PolyaxonSdk.V1Search](docs/V1Search.md)
  - [PolyaxonSdk.V1SearchSpec](docs/V1SearchSpec.md)

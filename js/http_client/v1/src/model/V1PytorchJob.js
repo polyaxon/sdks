@@ -28,6 +28,7 @@
 import ApiClient from '../ApiClient';
 import V1CleanPodPolicy from './V1CleanPodPolicy';
 import V1KFReplica from './V1KFReplica';
+import V1SchedulingPolicy from './V1SchedulingPolicy';
 
 /**
  * The V1PytorchJob model module.
@@ -69,6 +70,9 @@ class V1PytorchJob {
             if (data.hasOwnProperty('cleanPodPolicy')) {
                 obj['cleanPodPolicy'] = V1CleanPodPolicy.constructFromObject(data['cleanPodPolicy']);
             }
+            if (data.hasOwnProperty('schedulingPolicy')) {
+                obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
+            }
             if (data.hasOwnProperty('master')) {
                 obj['master'] = V1KFReplica.constructFromObject(data['master']);
             }
@@ -92,6 +96,11 @@ V1PytorchJob.prototype['kind'] = 'pytorch_job';
  * @member {module:model/V1CleanPodPolicy} cleanPodPolicy
  */
 V1PytorchJob.prototype['cleanPodPolicy'] = undefined;
+
+/**
+ * @member {module:model/V1SchedulingPolicy} schedulingPolicy
+ */
+V1PytorchJob.prototype['schedulingPolicy'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} master

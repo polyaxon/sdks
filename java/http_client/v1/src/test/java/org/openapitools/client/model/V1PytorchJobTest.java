@@ -37,6 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
+import org.openapitools.client.model.V1SchedulingPolicy;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -70,6 +71,14 @@ public class V1PytorchJobTest {
     @Test
     public void cleanPodPolicyTest() {
         // TODO: test cleanPodPolicy
+    }
+
+    /**
+     * Test the property 'schedulingPolicy'
+     */
+    @Test
+    public void schedulingPolicyTest() {
+        // TODO: test schedulingPolicy
     }
 
     /**

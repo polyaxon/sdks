@@ -80,6 +80,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property schedulingPolicy (base name: "schedulingPolicy")', function() {
+      // uncomment below and update the code to test the property schedulingPolicy
+      //var instance = new PolyaxonSdk.V1MPIJob();
+      //expect(instance).to.be();
+    });
+
     it('should have the property slotsPerWorker (base name: "slotsPerWorker")', function() {
       // uncomment below and update the code to test the property slotsPerWorker
       //var instance = new PolyaxonSdk.V1MPIJob();

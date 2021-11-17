@@ -24,6 +24,12 @@ import "v1/polyflow/k8s.proto";
 
 option go_package = "v1/polyflow";
 
+message SchedulingPolicy {
+  	int32 minAvailable = 1;
+	  string queue = 2;
+	  string priorityClass = 3;
+}
+
 // Distributed Replica specification
 message KFReplica {
     // Number of replicas
@@ -61,7 +67,10 @@ message MPIJob {
     string kind = 1;
 
     // optional clean pod policy section
-    CleanPodPolicy cleanPodPolicy = 3;
+    CleanPodPolicy cleanPodPolicy = 2;
+
+    // optional scheduling policy section
+    SchedulingPolicy schedulingPolicy = 3;
 
     // Optional slots per worker
     int32 slotsPerWorker = 4;
@@ -81,11 +90,14 @@ message PytorchJob {
     // optional clean pod policy section
     CleanPodPolicy cleanPodPolicy = 2;
 
+    // optional scheduling policy section
+    SchedulingPolicy schedulingPolicy = 3;
+
     // Optional master replica definition
-    KFReplica master = 3;
+    KFReplica master = 4;
 
     // Optional worker replica definition
-    KFReplica worker = 4;
+    KFReplica worker = 5;
 }
 
 // TF Job specification
@@ -96,15 +108,18 @@ message TFJob {
     // optional clean pod policy section
     CleanPodPolicy cleanPodPolicy = 2;
 
+    // optional scheduling policy section
+    SchedulingPolicy schedulingPolicy = 3;
+
     // Optional chief replica definition
-    KFReplica chief = 3;
+    KFReplica chief = 4;
 
     // Optional ps replica definition
-    KFReplica ps = 4;
+    KFReplica ps = 5;
 
     // Optional worker replica definition
-    KFReplica worker = 5;
+    KFReplica worker = 6;
 
     // Optional evaluator replica definition
-    KFReplica evaluator = 6;
+    KFReplica evaluator = 7;
 }
