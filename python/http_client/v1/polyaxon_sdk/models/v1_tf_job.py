@@ -56,9 +56,10 @@ class V1TFJob(object):
         'kind': 'str',
         'clean_pod_policy': 'V1CleanPodPolicy',
         'scheduling_policy': 'V1SchedulingPolicy',
+        'template': 'V1KFReplica',
         'chief': 'V1KFReplica',
-        'ps': 'V1KFReplica',
         'worker': 'V1KFReplica',
+        'ps': 'V1KFReplica',
         'evaluator': 'V1KFReplica'
     }
 
@@ -66,13 +67,14 @@ class V1TFJob(object):
         'kind': 'kind',
         'clean_pod_policy': 'cleanPodPolicy',
         'scheduling_policy': 'schedulingPolicy',
+        'template': 'template',
         'chief': 'chief',
-        'ps': 'ps',
         'worker': 'worker',
+        'ps': 'ps',
         'evaluator': 'evaluator'
     }
 
-    def __init__(self, kind='tfjob', clean_pod_policy=None, scheduling_policy=None, chief=None, ps=None, worker=None, evaluator=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='tfjob', clean_pod_policy=None, scheduling_policy=None, template=None, chief=None, worker=None, ps=None, evaluator=None, local_vars_configuration=None):  # noqa: E501
         """V1TFJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -81,9 +83,10 @@ class V1TFJob(object):
         self._kind = None
         self._clean_pod_policy = None
         self._scheduling_policy = None
+        self._template = None
         self._chief = None
-        self._ps = None
         self._worker = None
+        self._ps = None
         self._evaluator = None
         self.discriminator = None
 
@@ -93,12 +96,14 @@ class V1TFJob(object):
             self.clean_pod_policy = clean_pod_policy
         if scheduling_policy is not None:
             self.scheduling_policy = scheduling_policy
+        if template is not None:
+            self.template = template
         if chief is not None:
             self.chief = chief
-        if ps is not None:
-            self.ps = ps
         if worker is not None:
             self.worker = worker
+        if ps is not None:
+            self.ps = ps
         if evaluator is not None:
             self.evaluator = evaluator
 
@@ -166,6 +171,27 @@ class V1TFJob(object):
         self._scheduling_policy = scheduling_policy
 
     @property
+    def template(self):
+        """Gets the template of this V1TFJob.  # noqa: E501
+
+
+        :return: The template of this V1TFJob.  # noqa: E501
+        :rtype: V1KFReplica
+        """
+        return self._template
+
+    @template.setter
+    def template(self, template):
+        """Sets the template of this V1TFJob.
+
+
+        :param template: The template of this V1TFJob.  # noqa: E501
+        :type template: V1KFReplica
+        """
+
+        self._template = template
+
+    @property
     def chief(self):
         """Gets the chief of this V1TFJob.  # noqa: E501
 
@@ -187,27 +213,6 @@ class V1TFJob(object):
         self._chief = chief
 
     @property
-    def ps(self):
-        """Gets the ps of this V1TFJob.  # noqa: E501
-
-
-        :return: The ps of this V1TFJob.  # noqa: E501
-        :rtype: V1KFReplica
-        """
-        return self._ps
-
-    @ps.setter
-    def ps(self, ps):
-        """Sets the ps of this V1TFJob.
-
-
-        :param ps: The ps of this V1TFJob.  # noqa: E501
-        :type ps: V1KFReplica
-        """
-
-        self._ps = ps
-
-    @property
     def worker(self):
         """Gets the worker of this V1TFJob.  # noqa: E501
 
@@ -227,6 +232,27 @@ class V1TFJob(object):
         """
 
         self._worker = worker
+
+    @property
+    def ps(self):
+        """Gets the ps of this V1TFJob.  # noqa: E501
+
+
+        :return: The ps of this V1TFJob.  # noqa: E501
+        :rtype: V1KFReplica
+        """
+        return self._ps
+
+    @ps.setter
+    def ps(self, ps):
+        """Sets the ps of this V1TFJob.
+
+
+        :param ps: The ps of this V1TFJob.  # noqa: E501
+        :type ps: V1KFReplica
+        """
+
+        self._ps = ps
 
     @property
     def evaluator(self):

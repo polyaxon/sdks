@@ -394,6 +394,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
+ - [MPIJobImplementation](docs/MPIJobImplementation.md)
+ - [MXJobMode](docs/MXJobMode.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
  - [RuntimeError](docs/RuntimeError.md)
@@ -531,6 +533,7 @@ Class | Method | HTTP request | Description
  - [V1LogHandler](docs/V1LogHandler.md)
  - [V1Logs](docs/V1Logs.md)
  - [V1MPIJob](docs/V1MPIJob.md)
+ - [V1MXJob](docs/V1MXJob.md)
  - [V1Mapping](docs/V1Mapping.md)
  - [V1Matrix](docs/V1Matrix.md)
  - [V1MatrixKind](docs/V1MatrixKind.md)
@@ -618,6 +621,7 @@ Class | Method | HTTP request | Description
  - [V1Uuids](docs/V1Uuids.md)
  - [V1Version](docs/V1Version.md)
  - [V1WasbType](docs/V1WasbType.md)
+ - [V1XGBoostJob](docs/V1XGBoostJob.md)
 
 
 ## Documentation for Authorization

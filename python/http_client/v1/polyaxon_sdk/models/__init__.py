@@ -32,6 +32,8 @@ from __future__ import absolute_import
 
 # import models into model package
 from polyaxon_sdk.models.agent_state_response_agent_state import AgentStateResponseAgentState
+from polyaxon_sdk.models.mpi_job_implementation import MPIJobImplementation
+from polyaxon_sdk.models.mx_job_mode import MXJobMode
 from polyaxon_sdk.models.protobuf_any import ProtobufAny
 from polyaxon_sdk.models.protobuf_null_value import ProtobufNullValue
 from polyaxon_sdk.models.runtime_error import RuntimeError
@@ -169,6 +171,7 @@ from polyaxon_sdk.models.v1_log import V1Log
 from polyaxon_sdk.models.v1_log_handler import V1LogHandler
 from polyaxon_sdk.models.v1_logs import V1Logs
 from polyaxon_sdk.models.v1_mpi_job import V1MPIJob
+from polyaxon_sdk.models.v1_mx_job import V1MXJob
 from polyaxon_sdk.models.v1_mapping import V1Mapping
 from polyaxon_sdk.models.v1_matrix import V1Matrix
 from polyaxon_sdk.models.v1_matrix_kind import V1MatrixKind
@@ -256,3 +259,4 @@ from polyaxon_sdk.models.v1_user_singup import V1UserSingup
 from polyaxon_sdk.models.v1_uuids import V1Uuids
 from polyaxon_sdk.models.v1_version import V1Version
 from polyaxon_sdk.models.v1_wasb_type import V1WasbType
+from polyaxon_sdk.models.v1_xg_boost_job import V1XGBoostJob

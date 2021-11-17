@@ -28,6 +28,8 @@
 
 import ApiClient from './ApiClient';
 import AgentStateResponseAgentState from './model/AgentStateResponseAgentState';
+import MPIJobImplementation from './model/MPIJobImplementation';
+import MXJobMode from './model/MXJobMode';
 import ProtobufAny from './model/ProtobufAny';
 import ProtobufNullValue from './model/ProtobufNullValue';
 import RuntimeError from './model/RuntimeError';
@@ -165,6 +167,7 @@ import V1Log from './model/V1Log';
 import V1LogHandler from './model/V1LogHandler';
 import V1Logs from './model/V1Logs';
 import V1MPIJob from './model/V1MPIJob';
+import V1MXJob from './model/V1MXJob';
 import V1Mapping from './model/V1Mapping';
 import V1Matrix from './model/V1Matrix';
 import V1MatrixKind from './model/V1MatrixKind';
@@ -252,6 +255,7 @@ import V1UserSingup from './model/V1UserSingup';
 import V1Uuids from './model/V1Uuids';
 import V1Version from './model/V1Version';
 import V1WasbType from './model/V1WasbType';
+import V1XGBoostJob from './model/V1XGBoostJob';
 import AgentsV1Api from './api/AgentsV1Api';
 import ArtifactsStoresV1Api from './api/ArtifactsStoresV1Api';
 import AuthV1Api from './api/AuthV1Api';
@@ -317,6 +321,18 @@ export {
      * @property {module:model/AgentStateResponseAgentState}
      */
     AgentStateResponseAgentState,
+
+    /**
+     * The MPIJobImplementation model constructor.
+     * @property {module:model/MPIJobImplementation}
+     */
+    MPIJobImplementation,
+
+    /**
+     * The MXJobMode model constructor.
+     * @property {module:model/MXJobMode}
+     */
+    MXJobMode,
 
     /**
      * The ProtobufAny model constructor.
@@ -1141,6 +1157,12 @@ export {
     V1MPIJob,
 
     /**
+     * The V1MXJob model constructor.
+     * @property {module:model/V1MXJob}
+     */
+    V1MXJob,
+
+    /**
      * The V1Mapping model constructor.
      * @property {module:model/V1Mapping}
      */
@@ -1661,6 +1683,12 @@ export {
      * @property {module:model/V1WasbType}
      */
     V1WasbType,
+
+    /**
+     * The V1XGBoostJob model constructor.
+     * @property {module:model/V1XGBoostJob}
+     */
+    V1XGBoostJob,
 
     /**
     * The AgentsV1Api service constructor.

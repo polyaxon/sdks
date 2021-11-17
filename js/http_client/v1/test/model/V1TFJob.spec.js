@@ -86,20 +86,26 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property template (base name: "template")', function() {
+      // uncomment below and update the code to test the property template
+      //var instance = new PolyaxonSdk.V1TFJob();
+      //expect(instance).to.be();
+    });
+
     it('should have the property chief (base name: "chief")', function() {
       // uncomment below and update the code to test the property chief
       //var instance = new PolyaxonSdk.V1TFJob();
       //expect(instance).to.be();
     });
 
-    it('should have the property ps (base name: "ps")', function() {
-      // uncomment below and update the code to test the property ps
+    it('should have the property worker (base name: "worker")', function() {
+      // uncomment below and update the code to test the property worker
       //var instance = new PolyaxonSdk.V1TFJob();
       //expect(instance).to.be();
     });
 
-    it('should have the property worker (base name: "worker")', function() {
-      // uncomment below and update the code to test the property worker
+    it('should have the property ps (base name: "ps")', function() {
+      // uncomment below and update the code to test the property ps
       //var instance = new PolyaxonSdk.V1TFJob();
       //expect(instance).to.be();
     });

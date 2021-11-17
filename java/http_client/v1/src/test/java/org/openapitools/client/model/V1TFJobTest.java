@@ -82,6 +82,14 @@ public class V1TFJobTest {
     }
 
     /**
+     * Test the property 'template'
+     */
+    @Test
+    public void templateTest() {
+        // TODO: test template
+    }
+
+    /**
      * Test the property 'chief'
      */
     @Test
@@ -90,19 +98,19 @@ public class V1TFJobTest {
     }
 
     /**
-     * Test the property 'ps'
-     */
-    @Test
-    public void psTest() {
-        // TODO: test ps
-    }
-
-    /**
      * Test the property 'worker'
      */
     @Test
     public void workerTest() {
         // TODO: test worker
+    }
+
+    /**
+     * Test the property 'ps'
+     */
+    @Test
+    public void psTest() {
+        // TODO: test ps
     }
 
     /**

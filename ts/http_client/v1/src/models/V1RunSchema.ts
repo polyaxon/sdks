@@ -48,6 +48,10 @@ import {
     V1MPIJobFromJSON,
     V1MPIJobFromJSONTyped,
     V1MPIJobToJSON,
+    V1MXJob,
+    V1MXJobFromJSON,
+    V1MXJobFromJSONTyped,
+    V1MXJobToJSON,
     V1PytorchJob,
     V1PytorchJobFromJSON,
     V1PytorchJobFromJSONTyped,
@@ -68,6 +72,10 @@ import {
     V1TFJobFromJSON,
     V1TFJobFromJSONTyped,
     V1TFJobToJSON,
+    V1XGBoostJob,
+    V1XGBoostJobFromJSON,
+    V1XGBoostJobFromJSONTyped,
+    V1XGBoostJobToJSON,
 } from './';
 
 /**
@@ -114,6 +122,18 @@ export interface V1RunSchema {
     mpiJob?: V1MPIJob;
     /**
      * 
+     * @type {V1MXJob}
+     * @memberof V1RunSchema
+     */
+    mxJob?: V1MXJob;
+    /**
+     * 
+     * @type {V1XGBoostJob}
+     * @memberof V1RunSchema
+     */
+    xgboostJob?: V1XGBoostJob;
+    /**
+     * 
      * @type {V1Dask}
      * @memberof V1RunSchema
      */
@@ -154,6 +174,8 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'tfJob': !exists(json, 'tfJob') ? undefined : V1TFJobFromJSON(json['tfJob']),
         'pytorchJob': !exists(json, 'pytorchJob') ? undefined : V1PytorchJobFromJSON(json['pytorchJob']),
         'mpiJob': !exists(json, 'mpiJob') ? undefined : V1MPIJobFromJSON(json['mpiJob']),
+        'mxJob': !exists(json, 'mxJob') ? undefined : V1MXJobFromJSON(json['mxJob']),
+        'xgboostJob': !exists(json, 'xgboostJob') ? undefined : V1XGBoostJobFromJSON(json['xgboostJob']),
         'dask': !exists(json, 'dask') ? undefined : V1DaskFromJSON(json['dask']),
         'spark': !exists(json, 'spark') ? undefined : V1SparkFromJSON(json['spark']),
         'flink': !exists(json, 'flink') ? undefined : V1FlinkFromJSON(json['flink']),
@@ -176,6 +198,8 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         'tfJob': V1TFJobToJSON(value.tfJob),
         'pytorchJob': V1PytorchJobToJSON(value.pytorchJob),
         'mpiJob': V1MPIJobToJSON(value.mpiJob),
+        'mxJob': V1MXJobToJSON(value.mxJob),
+        'xgboostJob': V1XGBoostJobToJSON(value.xgboostJob),
         'dask': V1DaskToJSON(value.dask),
         'spark': V1SparkToJSON(value.spark),
         'flink': V1FlinkToJSON(value.flink),

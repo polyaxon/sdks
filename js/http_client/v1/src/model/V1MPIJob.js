@@ -26,6 +26,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import MPIJobImplementation from './MPIJobImplementation';
 import V1CleanPodPolicy from './V1CleanPodPolicy';
 import V1KFReplica from './V1KFReplica';
 import V1SchedulingPolicy from './V1SchedulingPolicy';
@@ -73,14 +74,23 @@ class V1MPIJob {
             if (data.hasOwnProperty('schedulingPolicy')) {
                 obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
             }
+            if (data.hasOwnProperty('sshAuthMountPath')) {
+                obj['sshAuthMountPath'] = ApiClient.convertToType(data['sshAuthMountPath'], 'String');
+            }
+            if (data.hasOwnProperty('implementation')) {
+                obj['implementation'] = MPIJobImplementation.constructFromObject(data['implementation']);
+            }
             if (data.hasOwnProperty('slotsPerWorker')) {
                 obj['slotsPerWorker'] = ApiClient.convertToType(data['slotsPerWorker'], 'Number');
             }
-            if (data.hasOwnProperty('launcher')) {
-                obj['launcher'] = V1KFReplica.constructFromObject(data['launcher']);
+            if (data.hasOwnProperty('template')) {
+                obj['template'] = V1KFReplica.constructFromObject(data['template']);
             }
             if (data.hasOwnProperty('worker')) {
                 obj['worker'] = V1KFReplica.constructFromObject(data['worker']);
+            }
+            if (data.hasOwnProperty('launcher')) {
+                obj['launcher'] = V1KFReplica.constructFromObject(data['launcher']);
             }
         }
         return obj;
@@ -106,19 +116,34 @@ V1MPIJob.prototype['cleanPodPolicy'] = undefined;
 V1MPIJob.prototype['schedulingPolicy'] = undefined;
 
 /**
+ * @member {String} sshAuthMountPath
+ */
+V1MPIJob.prototype['sshAuthMountPath'] = undefined;
+
+/**
+ * @member {module:model/MPIJobImplementation} implementation
+ */
+V1MPIJob.prototype['implementation'] = undefined;
+
+/**
  * @member {Number} slotsPerWorker
  */
 V1MPIJob.prototype['slotsPerWorker'] = undefined;
 
 /**
- * @member {module:model/V1KFReplica} launcher
+ * @member {module:model/V1KFReplica} template
  */
-V1MPIJob.prototype['launcher'] = undefined;
+V1MPIJob.prototype['template'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} worker
  */
 V1MPIJob.prototype['worker'] = undefined;
+
+/**
+ * @member {module:model/V1KFReplica} launcher
+ */
+V1MPIJob.prototype['launcher'] = undefined;
 
 
 

@@ -58,17 +58,21 @@ public class V1TFJob {
   @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
   private V1SchedulingPolicy schedulingPolicy;
 
+  public static final String SERIALIZED_NAME_TEMPLATE = "template";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  private V1KFReplica template;
+
   public static final String SERIALIZED_NAME_CHIEF = "chief";
   @SerializedName(SERIALIZED_NAME_CHIEF)
   private V1KFReplica chief;
 
-  public static final String SERIALIZED_NAME_PS = "ps";
-  @SerializedName(SERIALIZED_NAME_PS)
-  private V1KFReplica ps;
-
   public static final String SERIALIZED_NAME_WORKER = "worker";
   @SerializedName(SERIALIZED_NAME_WORKER)
   private V1KFReplica worker;
+
+  public static final String SERIALIZED_NAME_PS = "ps";
+  @SerializedName(SERIALIZED_NAME_PS)
+  private V1KFReplica ps;
 
   public static final String SERIALIZED_NAME_EVALUATOR = "evaluator";
   @SerializedName(SERIALIZED_NAME_EVALUATOR)
@@ -144,6 +148,29 @@ public class V1TFJob {
   }
 
 
+  public V1TFJob template(V1KFReplica template) {
+    
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1KFReplica getTemplate() {
+    return template;
+  }
+
+
+  public void setTemplate(V1KFReplica template) {
+    this.template = template;
+  }
+
+
   public V1TFJob chief(V1KFReplica chief) {
     
     this.chief = chief;
@@ -167,29 +194,6 @@ public class V1TFJob {
   }
 
 
-  public V1TFJob ps(V1KFReplica ps) {
-    
-    this.ps = ps;
-    return this;
-  }
-
-   /**
-   * Get ps
-   * @return ps
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public V1KFReplica getPs() {
-    return ps;
-  }
-
-
-  public void setPs(V1KFReplica ps) {
-    this.ps = ps;
-  }
-
-
   public V1TFJob worker(V1KFReplica worker) {
     
     this.worker = worker;
@@ -210,6 +214,29 @@ public class V1TFJob {
 
   public void setWorker(V1KFReplica worker) {
     this.worker = worker;
+  }
+
+
+  public V1TFJob ps(V1KFReplica ps) {
+    
+    this.ps = ps;
+    return this;
+  }
+
+   /**
+   * Get ps
+   * @return ps
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1KFReplica getPs() {
+    return ps;
+  }
+
+
+  public void setPs(V1KFReplica ps) {
+    this.ps = ps;
   }
 
 
@@ -248,15 +275,16 @@ public class V1TFJob {
     return Objects.equals(this.kind, v1TFJob.kind) &&
         Objects.equals(this.cleanPodPolicy, v1TFJob.cleanPodPolicy) &&
         Objects.equals(this.schedulingPolicy, v1TFJob.schedulingPolicy) &&
+        Objects.equals(this.template, v1TFJob.template) &&
         Objects.equals(this.chief, v1TFJob.chief) &&
-        Objects.equals(this.ps, v1TFJob.ps) &&
         Objects.equals(this.worker, v1TFJob.worker) &&
+        Objects.equals(this.ps, v1TFJob.ps) &&
         Objects.equals(this.evaluator, v1TFJob.evaluator);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, chief, ps, worker, evaluator);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, template, chief, worker, ps, evaluator);
   }
 
   @Override
@@ -266,9 +294,10 @@ public class V1TFJob {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
     sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    chief: ").append(toIndentedString(chief)).append("\n");
-    sb.append("    ps: ").append(toIndentedString(ps)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
+    sb.append("    ps: ").append(toIndentedString(ps)).append("\n");
     sb.append("    evaluator: ").append(toIndentedString(evaluator)).append("\n");
     sb.append("}");
     return sb.toString();

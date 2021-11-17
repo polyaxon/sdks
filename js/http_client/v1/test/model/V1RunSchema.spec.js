@@ -104,6 +104,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property mxJob (base name: "mxJob")', function() {
+      // uncomment below and update the code to test the property mxJob
+      //var instance = new PolyaxonSdk.V1RunSchema();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property xgboostJob (base name: "xgboostJob")', function() {
+      // uncomment below and update the code to test the property xgboostJob
+      //var instance = new PolyaxonSdk.V1RunSchema();
+      //expect(instance).to.be();
+    });
+
     it('should have the property dask (base name: "dask")', function() {
       // uncomment below and update the code to test the property dask
       //var instance = new PolyaxonSdk.V1RunSchema();

@@ -15,6 +15,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './AgentStateResponseAgentState';
+export * from './MPIJobImplementation';
+export * from './MXJobMode';
 export * from './ProtobufAny';
 export * from './ProtobufNullValue';
 export * from './RuntimeError';
@@ -152,6 +154,7 @@ export * from './V1Log';
 export * from './V1LogHandler';
 export * from './V1Logs';
 export * from './V1MPIJob';
+export * from './V1MXJob';
 export * from './V1Mapping';
 export * from './V1Matrix';
 export * from './V1MatrixKind';
@@ -239,3 +242,4 @@ export * from './V1UserSingup';
 export * from './V1Uuids';
 export * from './V1Version';
 export * from './V1WasbType';
+export * from './V1XGBoostJob';

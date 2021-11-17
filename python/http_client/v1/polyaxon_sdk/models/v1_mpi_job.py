@@ -56,21 +56,27 @@ class V1MPIJob(object):
         'kind': 'str',
         'clean_pod_policy': 'V1CleanPodPolicy',
         'scheduling_policy': 'V1SchedulingPolicy',
+        'ssh_auth_mount_path': 'str',
+        'implementation': 'MPIJobImplementation',
         'slots_per_worker': 'int',
-        'launcher': 'V1KFReplica',
-        'worker': 'V1KFReplica'
+        'template': 'V1KFReplica',
+        'worker': 'V1KFReplica',
+        'launcher': 'V1KFReplica'
     }
 
     attribute_map = {
         'kind': 'kind',
         'clean_pod_policy': 'cleanPodPolicy',
         'scheduling_policy': 'schedulingPolicy',
+        'ssh_auth_mount_path': 'sshAuthMountPath',
+        'implementation': 'implementation',
         'slots_per_worker': 'slotsPerWorker',
-        'launcher': 'launcher',
-        'worker': 'worker'
+        'template': 'template',
+        'worker': 'worker',
+        'launcher': 'launcher'
     }
 
-    def __init__(self, kind='mpi_job', clean_pod_policy=None, scheduling_policy=None, slots_per_worker=None, launcher=None, worker=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='mpi_job', clean_pod_policy=None, scheduling_policy=None, ssh_auth_mount_path=None, implementation=None, slots_per_worker=None, template=None, worker=None, launcher=None, local_vars_configuration=None):  # noqa: E501
         """V1MPIJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -79,9 +85,12 @@ class V1MPIJob(object):
         self._kind = None
         self._clean_pod_policy = None
         self._scheduling_policy = None
+        self._ssh_auth_mount_path = None
+        self._implementation = None
         self._slots_per_worker = None
-        self._launcher = None
+        self._template = None
         self._worker = None
+        self._launcher = None
         self.discriminator = None
 
         if kind is not None:
@@ -90,12 +99,18 @@ class V1MPIJob(object):
             self.clean_pod_policy = clean_pod_policy
         if scheduling_policy is not None:
             self.scheduling_policy = scheduling_policy
+        if ssh_auth_mount_path is not None:
+            self.ssh_auth_mount_path = ssh_auth_mount_path
+        if implementation is not None:
+            self.implementation = implementation
         if slots_per_worker is not None:
             self.slots_per_worker = slots_per_worker
-        if launcher is not None:
-            self.launcher = launcher
+        if template is not None:
+            self.template = template
         if worker is not None:
             self.worker = worker
+        if launcher is not None:
+            self.launcher = launcher
 
     @property
     def kind(self):
@@ -161,6 +176,48 @@ class V1MPIJob(object):
         self._scheduling_policy = scheduling_policy
 
     @property
+    def ssh_auth_mount_path(self):
+        """Gets the ssh_auth_mount_path of this V1MPIJob.  # noqa: E501
+
+
+        :return: The ssh_auth_mount_path of this V1MPIJob.  # noqa: E501
+        :rtype: str
+        """
+        return self._ssh_auth_mount_path
+
+    @ssh_auth_mount_path.setter
+    def ssh_auth_mount_path(self, ssh_auth_mount_path):
+        """Sets the ssh_auth_mount_path of this V1MPIJob.
+
+
+        :param ssh_auth_mount_path: The ssh_auth_mount_path of this V1MPIJob.  # noqa: E501
+        :type ssh_auth_mount_path: str
+        """
+
+        self._ssh_auth_mount_path = ssh_auth_mount_path
+
+    @property
+    def implementation(self):
+        """Gets the implementation of this V1MPIJob.  # noqa: E501
+
+
+        :return: The implementation of this V1MPIJob.  # noqa: E501
+        :rtype: MPIJobImplementation
+        """
+        return self._implementation
+
+    @implementation.setter
+    def implementation(self, implementation):
+        """Sets the implementation of this V1MPIJob.
+
+
+        :param implementation: The implementation of this V1MPIJob.  # noqa: E501
+        :type implementation: MPIJobImplementation
+        """
+
+        self._implementation = implementation
+
+    @property
     def slots_per_worker(self):
         """Gets the slots_per_worker of this V1MPIJob.  # noqa: E501
 
@@ -182,25 +239,25 @@ class V1MPIJob(object):
         self._slots_per_worker = slots_per_worker
 
     @property
-    def launcher(self):
-        """Gets the launcher of this V1MPIJob.  # noqa: E501
+    def template(self):
+        """Gets the template of this V1MPIJob.  # noqa: E501
 
 
-        :return: The launcher of this V1MPIJob.  # noqa: E501
+        :return: The template of this V1MPIJob.  # noqa: E501
         :rtype: V1KFReplica
         """
-        return self._launcher
+        return self._template
 
-    @launcher.setter
-    def launcher(self, launcher):
-        """Sets the launcher of this V1MPIJob.
+    @template.setter
+    def template(self, template):
+        """Sets the template of this V1MPIJob.
 
 
-        :param launcher: The launcher of this V1MPIJob.  # noqa: E501
-        :type launcher: V1KFReplica
+        :param template: The template of this V1MPIJob.  # noqa: E501
+        :type template: V1KFReplica
         """
 
-        self._launcher = launcher
+        self._template = template
 
     @property
     def worker(self):
@@ -222,6 +279,27 @@ class V1MPIJob(object):
         """
 
         self._worker = worker
+
+    @property
+    def launcher(self):
+        """Gets the launcher of this V1MPIJob.  # noqa: E501
+
+
+        :return: The launcher of this V1MPIJob.  # noqa: E501
+        :rtype: V1KFReplica
+        """
+        return self._launcher
+
+    @launcher.setter
+    def launcher(self, launcher):
+        """Sets the launcher of this V1MPIJob.
+
+
+        :param launcher: The launcher of this V1MPIJob.  # noqa: E501
+        :type launcher: V1KFReplica
+        """
+
+        self._launcher = launcher
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

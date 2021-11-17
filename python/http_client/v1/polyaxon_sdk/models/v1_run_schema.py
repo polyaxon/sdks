@@ -59,6 +59,8 @@ class V1RunSchema(object):
         'tf_job': 'V1TFJob',
         'pytorch_job': 'V1PytorchJob',
         'mpi_job': 'V1MPIJob',
+        'mx_job': 'V1MXJob',
+        'xgboost_job': 'V1XGBoostJob',
         'dask': 'V1Dask',
         'spark': 'V1Spark',
         'flink': 'V1Flink',
@@ -72,13 +74,15 @@ class V1RunSchema(object):
         'tf_job': 'tfJob',
         'pytorch_job': 'pytorchJob',
         'mpi_job': 'mpiJob',
+        'mx_job': 'mxJob',
+        'xgboost_job': 'xgboostJob',
         'dask': 'dask',
         'spark': 'spark',
         'flink': 'flink',
         'ruy': 'ruy'
     }
 
-    def __init__(self, job=None, service=None, dag=None, tf_job=None, pytorch_job=None, mpi_job=None, dask=None, spark=None, flink=None, ruy=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, job=None, service=None, dag=None, tf_job=None, pytorch_job=None, mpi_job=None, mx_job=None, xgboost_job=None, dask=None, spark=None, flink=None, ruy=None, local_vars_configuration=None):  # noqa: E501
         """V1RunSchema - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -90,6 +94,8 @@ class V1RunSchema(object):
         self._tf_job = None
         self._pytorch_job = None
         self._mpi_job = None
+        self._mx_job = None
+        self._xgboost_job = None
         self._dask = None
         self._spark = None
         self._flink = None
@@ -108,6 +114,10 @@ class V1RunSchema(object):
             self.pytorch_job = pytorch_job
         if mpi_job is not None:
             self.mpi_job = mpi_job
+        if mx_job is not None:
+            self.mx_job = mx_job
+        if xgboost_job is not None:
+            self.xgboost_job = xgboost_job
         if dask is not None:
             self.dask = dask
         if spark is not None:
@@ -242,6 +252,48 @@ class V1RunSchema(object):
         """
 
         self._mpi_job = mpi_job
+
+    @property
+    def mx_job(self):
+        """Gets the mx_job of this V1RunSchema.  # noqa: E501
+
+
+        :return: The mx_job of this V1RunSchema.  # noqa: E501
+        :rtype: V1MXJob
+        """
+        return self._mx_job
+
+    @mx_job.setter
+    def mx_job(self, mx_job):
+        """Sets the mx_job of this V1RunSchema.
+
+
+        :param mx_job: The mx_job of this V1RunSchema.  # noqa: E501
+        :type mx_job: V1MXJob
+        """
+
+        self._mx_job = mx_job
+
+    @property
+    def xgboost_job(self):
+        """Gets the xgboost_job of this V1RunSchema.  # noqa: E501
+
+
+        :return: The xgboost_job of this V1RunSchema.  # noqa: E501
+        :rtype: V1XGBoostJob
+        """
+        return self._xgboost_job
+
+    @xgboost_job.setter
+    def xgboost_job(self, xgboost_job):
+        """Sets the xgboost_job of this V1RunSchema.
+
+
+        :param xgboost_job: The xgboost_job of this V1RunSchema.  # noqa: E501
+        :type xgboost_job: V1XGBoostJob
+        """
+
+        self._xgboost_job = xgboost_job
 
     @property
     def dask(self):

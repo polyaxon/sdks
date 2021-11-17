@@ -63,6 +63,12 @@ enum CleanPodPolicy {
 
 // MPI Job specification
 message MPIJob {
+
+    enum Implementation {
+      OpenMPI = 0;
+      Intel = 1;
+    }
+
     // Optional component kind, should be equal to 'mpi_job'
     string kind = 1;
 
@@ -72,14 +78,23 @@ message MPIJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
+    // Optional is the directory where SSH keys are mounted, default "/root/.ssh"
+    string sshAuthMountPath = 4;
+
+    // MPI implementation, options are "OpenMPI" (default) and "Intel".
+    Implementation implementation = 5;
+
     // Optional slots per worker
-    int32 slotsPerWorker = 4;
+    int32 slotsPerWorker = 6;
 
-    // Optional launcher replica definition
-    KFReplica launcher = 5;
+    // Template replicas definition
+    KFReplica template = 7;
 
-    // Optional worker replica definition
-    KFReplica worker = 6;
+    // Worker replicas definition
+    KFReplica worker = 8;
+
+    // Launcher replicas definition
+    KFReplica launcher = 9;
 }
 
 // Pytorch Job specification
@@ -93,16 +108,19 @@ message PytorchJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
-    // Optional master replica definition
-    KFReplica master = 4;
+    // Template replicas definition
+    KFReplica template = 4;
 
-    // Optional worker replica definition
-    KFReplica worker = 5;
+    // Master replicas definition
+    KFReplica master = 5;
+
+    // Worker replicas definition
+    KFReplica worker = 6;
 }
 
 // TF Job specification
 message TFJob {
-    // Optional component kind, should be equal to 'pytorch_job'
+    // Optional component kind, should be equal to 'tf_job'
     string kind = 1;
 
     // optional clean pod policy section
@@ -111,15 +129,83 @@ message TFJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
-    // Optional chief replica definition
-    KFReplica chief = 4;
+    // Template replicas definition
+    KFReplica template = 4;
 
-    // Optional ps replica definition
-    KFReplica ps = 5;
+    // Chief replicas definition
+    KFReplica chief = 5;
 
-    // Optional worker replica definition
+    // Worker replicas definition
     KFReplica worker = 6;
 
-    // Optional evaluator replica definition
-    KFReplica evaluator = 7;
+    // PS replicas definition
+    KFReplica ps = 7;
+
+    // Evaluator replicas definition
+    KFReplica evaluator = 8;
+}
+
+// MXNet Job specification
+message MXJob {
+
+  enum Mode {
+    // Train Mode, requires Server, Scheduler, Worker
+    MXTrain = 0;
+    // Tune Mode, requires Tuner
+    MXTune = 1;
+  }
+
+  // Optional component kind, should be equal to 'mx_job'
+  string kind = 1;
+
+  // optional clean pod policy section
+  CleanPodPolicy cleanPodPolicy = 2;
+
+  // optional scheduling policy section
+  SchedulingPolicy schedulingPolicy = 3;
+
+  // MXJob mode "MXTrain" and "MXTune".
+  Mode mode = 4;
+
+  // Template replicas definition
+  KFReplica template = 5;
+
+  // Scheduler replicas definition
+  KFReplica scheduler = 6;
+
+  // Server replicas definition
+  KFReplica server = 7;
+
+  // Worker replicas definition
+  KFReplica worker = 8;
+
+  // TunerTracker replicas definition
+  KFReplica tuner_tracker = 9;
+
+  // TunerServer replicas definition
+  KFReplica tuner_server = 10;
+
+  // Tuner replicas definition
+  KFReplica tuner = 11;
+}
+
+// XGBoost Job specification
+message XGBoostJob {
+  // Optional component kind, should be equal to 'xgboost_job'
+  string kind = 1;
+
+  // optional clean pod policy section
+  CleanPodPolicy cleanPodPolicy = 2;
+
+  // optional scheduling policy section
+  SchedulingPolicy schedulingPolicy = 3;
+
+  // Template replicas definition
+  KFReplica template = 4;
+
+  // Master replicas definition
+  KFReplica master = 5;
+
+  // Worker replicas definition
+  KFReplica worker = 6;
 }

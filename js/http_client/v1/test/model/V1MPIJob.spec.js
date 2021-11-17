@@ -86,20 +86,38 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sshAuthMountPath (base name: "sshAuthMountPath")', function() {
+      // uncomment below and update the code to test the property sshAuthMountPath
+      //var instance = new PolyaxonSdk.V1MPIJob();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property implementation (base name: "implementation")', function() {
+      // uncomment below and update the code to test the property implementation
+      //var instance = new PolyaxonSdk.V1MPIJob();
+      //expect(instance).to.be();
+    });
+
     it('should have the property slotsPerWorker (base name: "slotsPerWorker")', function() {
       // uncomment below and update the code to test the property slotsPerWorker
       //var instance = new PolyaxonSdk.V1MPIJob();
       //expect(instance).to.be();
     });
 
-    it('should have the property launcher (base name: "launcher")', function() {
-      // uncomment below and update the code to test the property launcher
+    it('should have the property template (base name: "template")', function() {
+      // uncomment below and update the code to test the property template
       //var instance = new PolyaxonSdk.V1MPIJob();
       //expect(instance).to.be();
     });
 
     it('should have the property worker (base name: "worker")', function() {
       // uncomment below and update the code to test the property worker
+      //var instance = new PolyaxonSdk.V1MPIJob();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property launcher (base name: "launcher")', function() {
+      // uncomment below and update the code to test the property launcher
       //var instance = new PolyaxonSdk.V1MPIJob();
       //expect(instance).to.be();
     });

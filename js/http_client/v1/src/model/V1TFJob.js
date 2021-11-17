@@ -73,14 +73,17 @@ class V1TFJob {
             if (data.hasOwnProperty('schedulingPolicy')) {
                 obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
             }
+            if (data.hasOwnProperty('template')) {
+                obj['template'] = V1KFReplica.constructFromObject(data['template']);
+            }
             if (data.hasOwnProperty('chief')) {
                 obj['chief'] = V1KFReplica.constructFromObject(data['chief']);
             }
-            if (data.hasOwnProperty('ps')) {
-                obj['ps'] = V1KFReplica.constructFromObject(data['ps']);
-            }
             if (data.hasOwnProperty('worker')) {
                 obj['worker'] = V1KFReplica.constructFromObject(data['worker']);
+            }
+            if (data.hasOwnProperty('ps')) {
+                obj['ps'] = V1KFReplica.constructFromObject(data['ps']);
             }
             if (data.hasOwnProperty('evaluator')) {
                 obj['evaluator'] = V1KFReplica.constructFromObject(data['evaluator']);
@@ -109,19 +112,24 @@ V1TFJob.prototype['cleanPodPolicy'] = undefined;
 V1TFJob.prototype['schedulingPolicy'] = undefined;
 
 /**
+ * @member {module:model/V1KFReplica} template
+ */
+V1TFJob.prototype['template'] = undefined;
+
+/**
  * @member {module:model/V1KFReplica} chief
  */
 V1TFJob.prototype['chief'] = undefined;
 
 /**
- * @member {module:model/V1KFReplica} ps
- */
-V1TFJob.prototype['ps'] = undefined;
-
-/**
  * @member {module:model/V1KFReplica} worker
  */
 V1TFJob.prototype['worker'] = undefined;
+
+/**
+ * @member {module:model/V1KFReplica} ps
+ */
+V1TFJob.prototype['ps'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} evaluator

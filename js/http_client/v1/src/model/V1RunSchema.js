@@ -31,11 +31,13 @@ import V1Dask from './V1Dask';
 import V1Flink from './V1Flink';
 import V1Job from './V1Job';
 import V1MPIJob from './V1MPIJob';
+import V1MXJob from './V1MXJob';
 import V1PytorchJob from './V1PytorchJob';
 import V1Ray from './V1Ray';
 import V1Service from './V1Service';
 import V1Spark from './V1Spark';
 import V1TFJob from './V1TFJob';
+import V1XGBoostJob from './V1XGBoostJob';
 
 /**
  * The V1RunSchema model module.
@@ -89,6 +91,12 @@ class V1RunSchema {
             if (data.hasOwnProperty('mpiJob')) {
                 obj['mpiJob'] = V1MPIJob.constructFromObject(data['mpiJob']);
             }
+            if (data.hasOwnProperty('mxJob')) {
+                obj['mxJob'] = V1MXJob.constructFromObject(data['mxJob']);
+            }
+            if (data.hasOwnProperty('xgboostJob')) {
+                obj['xgboostJob'] = V1XGBoostJob.constructFromObject(data['xgboostJob']);
+            }
             if (data.hasOwnProperty('dask')) {
                 obj['dask'] = V1Dask.constructFromObject(data['dask']);
             }
@@ -137,6 +145,16 @@ V1RunSchema.prototype['pytorchJob'] = undefined;
  * @member {module:model/V1MPIJob} mpiJob
  */
 V1RunSchema.prototype['mpiJob'] = undefined;
+
+/**
+ * @member {module:model/V1MXJob} mxJob
+ */
+V1RunSchema.prototype['mxJob'] = undefined;
+
+/**
+ * @member {module:model/V1XGBoostJob} xgboostJob
+ */
+V1RunSchema.prototype['xgboostJob'] = undefined;
 
 /**
  * @member {module:model/V1Dask} dask

@@ -37,6 +37,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.MPIJobImplementation;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
 import org.openapitools.client.model.V1SchedulingPolicy;
@@ -58,17 +59,29 @@ public class V1MPIJob {
   @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
   private V1SchedulingPolicy schedulingPolicy;
 
+  public static final String SERIALIZED_NAME_SSH_AUTH_MOUNT_PATH = "sshAuthMountPath";
+  @SerializedName(SERIALIZED_NAME_SSH_AUTH_MOUNT_PATH)
+  private String sshAuthMountPath;
+
+  public static final String SERIALIZED_NAME_IMPLEMENTATION = "implementation";
+  @SerializedName(SERIALIZED_NAME_IMPLEMENTATION)
+  private MPIJobImplementation implementation = MPIJobImplementation.OPENMPI;
+
   public static final String SERIALIZED_NAME_SLOTS_PER_WORKER = "slotsPerWorker";
   @SerializedName(SERIALIZED_NAME_SLOTS_PER_WORKER)
   private Integer slotsPerWorker;
 
-  public static final String SERIALIZED_NAME_LAUNCHER = "launcher";
-  @SerializedName(SERIALIZED_NAME_LAUNCHER)
-  private V1KFReplica launcher;
+  public static final String SERIALIZED_NAME_TEMPLATE = "template";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  private V1KFReplica template;
 
   public static final String SERIALIZED_NAME_WORKER = "worker";
   @SerializedName(SERIALIZED_NAME_WORKER)
   private V1KFReplica worker;
+
+  public static final String SERIALIZED_NAME_LAUNCHER = "launcher";
+  @SerializedName(SERIALIZED_NAME_LAUNCHER)
+  private V1KFReplica launcher;
 
 
   public V1MPIJob kind(String kind) {
@@ -140,6 +153,52 @@ public class V1MPIJob {
   }
 
 
+  public V1MPIJob sshAuthMountPath(String sshAuthMountPath) {
+    
+    this.sshAuthMountPath = sshAuthMountPath;
+    return this;
+  }
+
+   /**
+   * Get sshAuthMountPath
+   * @return sshAuthMountPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSshAuthMountPath() {
+    return sshAuthMountPath;
+  }
+
+
+  public void setSshAuthMountPath(String sshAuthMountPath) {
+    this.sshAuthMountPath = sshAuthMountPath;
+  }
+
+
+  public V1MPIJob implementation(MPIJobImplementation implementation) {
+    
+    this.implementation = implementation;
+    return this;
+  }
+
+   /**
+   * Get implementation
+   * @return implementation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public MPIJobImplementation getImplementation() {
+    return implementation;
+  }
+
+
+  public void setImplementation(MPIJobImplementation implementation) {
+    this.implementation = implementation;
+  }
+
+
   public V1MPIJob slotsPerWorker(Integer slotsPerWorker) {
     
     this.slotsPerWorker = slotsPerWorker;
@@ -163,26 +222,26 @@ public class V1MPIJob {
   }
 
 
-  public V1MPIJob launcher(V1KFReplica launcher) {
+  public V1MPIJob template(V1KFReplica template) {
     
-    this.launcher = launcher;
+    this.template = template;
     return this;
   }
 
    /**
-   * Get launcher
-   * @return launcher
+   * Get template
+   * @return template
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public V1KFReplica getLauncher() {
-    return launcher;
+  public V1KFReplica getTemplate() {
+    return template;
   }
 
 
-  public void setLauncher(V1KFReplica launcher) {
-    this.launcher = launcher;
+  public void setTemplate(V1KFReplica template) {
+    this.template = template;
   }
 
 
@@ -209,6 +268,29 @@ public class V1MPIJob {
   }
 
 
+  public V1MPIJob launcher(V1KFReplica launcher) {
+    
+    this.launcher = launcher;
+    return this;
+  }
+
+   /**
+   * Get launcher
+   * @return launcher
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1KFReplica getLauncher() {
+    return launcher;
+  }
+
+
+  public void setLauncher(V1KFReplica launcher) {
+    this.launcher = launcher;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -221,14 +303,17 @@ public class V1MPIJob {
     return Objects.equals(this.kind, v1MPIJob.kind) &&
         Objects.equals(this.cleanPodPolicy, v1MPIJob.cleanPodPolicy) &&
         Objects.equals(this.schedulingPolicy, v1MPIJob.schedulingPolicy) &&
+        Objects.equals(this.sshAuthMountPath, v1MPIJob.sshAuthMountPath) &&
+        Objects.equals(this.implementation, v1MPIJob.implementation) &&
         Objects.equals(this.slotsPerWorker, v1MPIJob.slotsPerWorker) &&
-        Objects.equals(this.launcher, v1MPIJob.launcher) &&
-        Objects.equals(this.worker, v1MPIJob.worker);
+        Objects.equals(this.template, v1MPIJob.template) &&
+        Objects.equals(this.worker, v1MPIJob.worker) &&
+        Objects.equals(this.launcher, v1MPIJob.launcher);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, slotsPerWorker, launcher, worker);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, sshAuthMountPath, implementation, slotsPerWorker, template, worker, launcher);
   }
 
   @Override
@@ -238,9 +323,12 @@ public class V1MPIJob {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
     sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
+    sb.append("    sshAuthMountPath: ").append(toIndentedString(sshAuthMountPath)).append("\n");
+    sb.append("    implementation: ").append(toIndentedString(implementation)).append("\n");
     sb.append("    slotsPerWorker: ").append(toIndentedString(slotsPerWorker)).append("\n");
-    sb.append("    launcher: ").append(toIndentedString(launcher)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
+    sb.append("    launcher: ").append(toIndentedString(launcher)).append("\n");
     sb.append("}");
     return sb.toString();
   }

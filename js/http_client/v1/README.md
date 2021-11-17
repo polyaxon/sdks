@@ -407,6 +407,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PolyaxonSdk.AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
+ - [PolyaxonSdk.MPIJobImplementation](docs/MPIJobImplementation.md)
+ - [PolyaxonSdk.MXJobMode](docs/MXJobMode.md)
  - [PolyaxonSdk.ProtobufAny](docs/ProtobufAny.md)
  - [PolyaxonSdk.ProtobufNullValue](docs/ProtobufNullValue.md)
  - [PolyaxonSdk.RuntimeError](docs/RuntimeError.md)
@@ -544,6 +546,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1LogHandler](docs/V1LogHandler.md)
  - [PolyaxonSdk.V1Logs](docs/V1Logs.md)
  - [PolyaxonSdk.V1MPIJob](docs/V1MPIJob.md)
+ - [PolyaxonSdk.V1MXJob](docs/V1MXJob.md)
  - [PolyaxonSdk.V1Mapping](docs/V1Mapping.md)
  - [PolyaxonSdk.V1Matrix](docs/V1Matrix.md)
  - [PolyaxonSdk.V1MatrixKind](docs/V1MatrixKind.md)
@@ -631,6 +634,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1Uuids](docs/V1Uuids.md)
  - [PolyaxonSdk.V1Version](docs/V1Version.md)
  - [PolyaxonSdk.V1WasbType](docs/V1WasbType.md)
+ - [PolyaxonSdk.V1XGBoostJob](docs/V1XGBoostJob.md)
 
 
 ## Documentation for Authorization

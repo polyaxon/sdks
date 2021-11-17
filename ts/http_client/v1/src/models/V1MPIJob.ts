@@ -28,6 +28,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    MPIJobImplementation,
+    MPIJobImplementationFromJSON,
+    MPIJobImplementationFromJSONTyped,
+    MPIJobImplementationToJSON,
     V1CleanPodPolicy,
     V1CleanPodPolicyFromJSON,
     V1CleanPodPolicyFromJSONTyped,
@@ -68,6 +72,18 @@ export interface V1MPIJob {
     schedulingPolicy?: V1SchedulingPolicy;
     /**
      * 
+     * @type {string}
+     * @memberof V1MPIJob
+     */
+    sshAuthMountPath?: string;
+    /**
+     * 
+     * @type {MPIJobImplementation}
+     * @memberof V1MPIJob
+     */
+    implementation?: MPIJobImplementation;
+    /**
+     * 
      * @type {number}
      * @memberof V1MPIJob
      */
@@ -77,13 +93,19 @@ export interface V1MPIJob {
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
-    launcher?: V1KFReplica;
+    template?: V1KFReplica;
     /**
      * 
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
     worker?: V1KFReplica;
+    /**
+     * 
+     * @type {V1KFReplica}
+     * @memberof V1MPIJob
+     */
+    launcher?: V1KFReplica;
 }
 
 export function V1MPIJobFromJSON(json: any): V1MPIJob {
@@ -99,9 +121,12 @@ export function V1MPIJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
+        'sshAuthMountPath': !exists(json, 'sshAuthMountPath') ? undefined : json['sshAuthMountPath'],
+        'implementation': !exists(json, 'implementation') ? undefined : MPIJobImplementationFromJSON(json['implementation']),
         'slotsPerWorker': !exists(json, 'slotsPerWorker') ? undefined : json['slotsPerWorker'],
-        'launcher': !exists(json, 'launcher') ? undefined : V1KFReplicaFromJSON(json['launcher']),
+        'template': !exists(json, 'template') ? undefined : V1KFReplicaFromJSON(json['template']),
         'worker': !exists(json, 'worker') ? undefined : V1KFReplicaFromJSON(json['worker']),
+        'launcher': !exists(json, 'launcher') ? undefined : V1KFReplicaFromJSON(json['launcher']),
     };
 }
 
@@ -117,9 +142,12 @@ export function V1MPIJobToJSON(value?: V1MPIJob | null): any {
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),
+        'sshAuthMountPath': value.sshAuthMountPath,
+        'implementation': MPIJobImplementationToJSON(value.implementation),
         'slotsPerWorker': value.slotsPerWorker,
-        'launcher': V1KFReplicaToJSON(value.launcher),
+        'template': V1KFReplicaToJSON(value.template),
         'worker': V1KFReplicaToJSON(value.worker),
+        'launcher': V1KFReplicaToJSON(value.launcher),
     };
 }
 

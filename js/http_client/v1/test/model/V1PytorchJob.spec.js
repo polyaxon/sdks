@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property template (base name: "template")', function() {
+      // uncomment below and update the code to test the property template
+      //var instance = new PolyaxonSdk.V1PytorchJob();
+      //expect(instance).to.be();
+    });
+
     it('should have the property master (base name: "master")', function() {
       // uncomment below and update the code to test the property master
       //var instance = new PolyaxonSdk.V1PytorchJob();

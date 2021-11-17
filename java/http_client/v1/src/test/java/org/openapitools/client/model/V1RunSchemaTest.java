@@ -40,11 +40,13 @@ import org.openapitools.client.model.V1Dask;
 import org.openapitools.client.model.V1Flink;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
+import org.openapitools.client.model.V1MXJob;
 import org.openapitools.client.model.V1PytorchJob;
 import org.openapitools.client.model.V1Ray;
 import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1Spark;
 import org.openapitools.client.model.V1TFJob;
+import org.openapitools.client.model.V1XGBoostJob;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -110,6 +112,22 @@ public class V1RunSchemaTest {
     @Test
     public void mpiJobTest() {
         // TODO: test mpiJob
+    }
+
+    /**
+     * Test the property 'mxJob'
+     */
+    @Test
+    public void mxJobTest() {
+        // TODO: test mxJob
+    }
+
+    /**
+     * Test the property 'xgboostJob'
+     */
+    @Test
+    public void xgboostJobTest() {
+        // TODO: test xgboostJob
     }
 
     /**

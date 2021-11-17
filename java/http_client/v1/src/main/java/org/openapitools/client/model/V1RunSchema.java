@@ -42,11 +42,13 @@ import org.openapitools.client.model.V1Dask;
 import org.openapitools.client.model.V1Flink;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
+import org.openapitools.client.model.V1MXJob;
 import org.openapitools.client.model.V1PytorchJob;
 import org.openapitools.client.model.V1Ray;
 import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1Spark;
 import org.openapitools.client.model.V1TFJob;
+import org.openapitools.client.model.V1XGBoostJob;
 
 /**
  * V1RunSchema
@@ -76,6 +78,14 @@ public class V1RunSchema {
   public static final String SERIALIZED_NAME_MPI_JOB = "mpiJob";
   @SerializedName(SERIALIZED_NAME_MPI_JOB)
   private V1MPIJob mpiJob;
+
+  public static final String SERIALIZED_NAME_MX_JOB = "mxJob";
+  @SerializedName(SERIALIZED_NAME_MX_JOB)
+  private V1MXJob mxJob;
+
+  public static final String SERIALIZED_NAME_XGBOOST_JOB = "xgboostJob";
+  @SerializedName(SERIALIZED_NAME_XGBOOST_JOB)
+  private V1XGBoostJob xgboostJob;
 
   public static final String SERIALIZED_NAME_DASK = "dask";
   @SerializedName(SERIALIZED_NAME_DASK)
@@ -232,6 +242,52 @@ public class V1RunSchema {
   }
 
 
+  public V1RunSchema mxJob(V1MXJob mxJob) {
+    
+    this.mxJob = mxJob;
+    return this;
+  }
+
+   /**
+   * Get mxJob
+   * @return mxJob
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1MXJob getMxJob() {
+    return mxJob;
+  }
+
+
+  public void setMxJob(V1MXJob mxJob) {
+    this.mxJob = mxJob;
+  }
+
+
+  public V1RunSchema xgboostJob(V1XGBoostJob xgboostJob) {
+    
+    this.xgboostJob = xgboostJob;
+    return this;
+  }
+
+   /**
+   * Get xgboostJob
+   * @return xgboostJob
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1XGBoostJob getXgboostJob() {
+    return xgboostJob;
+  }
+
+
+  public void setXgboostJob(V1XGBoostJob xgboostJob) {
+    this.xgboostJob = xgboostJob;
+  }
+
+
   public V1RunSchema dask(V1Dask dask) {
     
     this.dask = dask;
@@ -339,6 +395,8 @@ public class V1RunSchema {
         Objects.equals(this.tfJob, v1RunSchema.tfJob) &&
         Objects.equals(this.pytorchJob, v1RunSchema.pytorchJob) &&
         Objects.equals(this.mpiJob, v1RunSchema.mpiJob) &&
+        Objects.equals(this.mxJob, v1RunSchema.mxJob) &&
+        Objects.equals(this.xgboostJob, v1RunSchema.xgboostJob) &&
         Objects.equals(this.dask, v1RunSchema.dask) &&
         Objects.equals(this.spark, v1RunSchema.spark) &&
         Objects.equals(this.flink, v1RunSchema.flink) &&
@@ -347,7 +405,7 @@ public class V1RunSchema {
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, dask, spark, flink, ruy);
+    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, mxJob, xgboostJob, dask, spark, flink, ruy);
   }
 
   @Override
@@ -360,6 +418,8 @@ public class V1RunSchema {
     sb.append("    tfJob: ").append(toIndentedString(tfJob)).append("\n");
     sb.append("    pytorchJob: ").append(toIndentedString(pytorchJob)).append("\n");
     sb.append("    mpiJob: ").append(toIndentedString(mpiJob)).append("\n");
+    sb.append("    mxJob: ").append(toIndentedString(mxJob)).append("\n");
+    sb.append("    xgboostJob: ").append(toIndentedString(xgboostJob)).append("\n");
     sb.append("    dask: ").append(toIndentedString(dask)).append("\n");
     sb.append("    spark: ").append(toIndentedString(spark)).append("\n");
     sb.append("    flink: ").append(toIndentedString(flink)).append("\n");

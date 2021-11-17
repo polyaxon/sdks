@@ -35,6 +35,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.MPIJobImplementation;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
 import org.openapitools.client.model.V1SchedulingPolicy;
@@ -82,6 +83,22 @@ public class V1MPIJobTest {
     }
 
     /**
+     * Test the property 'sshAuthMountPath'
+     */
+    @Test
+    public void sshAuthMountPathTest() {
+        // TODO: test sshAuthMountPath
+    }
+
+    /**
+     * Test the property 'implementation'
+     */
+    @Test
+    public void implementationTest() {
+        // TODO: test implementation
+    }
+
+    /**
      * Test the property 'slotsPerWorker'
      */
     @Test
@@ -90,11 +107,11 @@ public class V1MPIJobTest {
     }
 
     /**
-     * Test the property 'launcher'
+     * Test the property 'template'
      */
     @Test
-    public void launcherTest() {
-        // TODO: test launcher
+    public void templateTest() {
+        // TODO: test template
     }
 
     /**
@@ -103,6 +120,14 @@ public class V1MPIJobTest {
     @Test
     public void workerTest() {
         // TODO: test worker
+    }
+
+    /**
+     * Test the property 'launcher'
+     */
+    @Test
+    public void launcherTest() {
+        // TODO: test launcher
     }
 
 }

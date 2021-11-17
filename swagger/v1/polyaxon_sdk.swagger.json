@@ -17978,6 +17978,23 @@
         }
       }
     },
+    "MPIJobImplementation": {
+      "type": "string",
+      "enum": [
+        "OpenMPI",
+        "Intel"
+      ],
+      "default": "OpenMPI"
+    },
+    "MXJobMode": {
+      "type": "string",
+      "enum": [
+        "MXTrain",
+        "MXTune"
+      ],
+      "default": "MXTrain",
+      "title": "- MXTrain: Train Mode, requires Server, Scheduler, Worker\n - MXTune: Tune Mode, requires Tuner"
+    },
     "SearchView": {
       "type": "string",
       "enum": [
@@ -21798,21 +21815,84 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
+        "sshAuthMountPath": {
+          "type": "string",
+          "title": "Optional is the directory where SSH keys are mounted, default \"/root/.ssh\""
+        },
+        "implementation": {
+          "$ref": "#/definitions/MPIJobImplementation",
+          "description": "MPI implementation, options are \"OpenMPI\" (default) and \"Intel\"."
+        },
         "slotsPerWorker": {
           "type": "integer",
           "format": "int32",
           "title": "Optional slots per worker"
         },
-        "launcher": {
+        "template": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional launcher replica definition"
+          "title": "Template replicas definition"
         },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional worker replica definition"
+          "title": "Worker replicas definition"
+        },
+        "launcher": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Launcher replicas definition"
         }
       },
       "title": "MPI Job specification"
+    },
+    "v1MXJob": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "title": "Optional component kind, should be equal to 'mx_job'",
+          "default": "mxjob"
+        },
+        "cleanPodPolicy": {
+          "$ref": "#/definitions/v1CleanPodPolicy",
+          "title": "optional clean pod policy section"
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/v1SchedulingPolicy",
+          "title": "optional scheduling policy section"
+        },
+        "mode": {
+          "$ref": "#/definitions/MXJobMode",
+          "description": "MXJob mode \"MXTrain\" and \"MXTune\"."
+        },
+        "template": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Template replicas definition"
+        },
+        "scheduler": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Scheduler replicas definition"
+        },
+        "server": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Server replicas definition"
+        },
+        "worker": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Worker replicas definition"
+        },
+        "tuner_tracker": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "TunerTracker replicas definition"
+        },
+        "tuner_server": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "TunerServer replicas definition"
+        },
+        "tuner": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Tuner replicas definition"
+        }
+      },
+      "title": "MXNet Job specification"
     },
     "v1Mapping": {
       "type": "object",
@@ -22879,13 +22959,17 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
+        "template": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Template replicas definition"
+        },
         "master": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional master replica definition"
+          "title": "Master replicas definition"
         },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional worker replica definition"
+          "title": "Worker replicas definition"
         }
       },
       "title": "Pytorch Job specification"
@@ -23397,6 +23481,12 @@
         },
         "mpiJob": {
           "$ref": "#/definitions/v1MPIJob"
+        },
+        "mxJob": {
+          "$ref": "#/definitions/v1MXJob"
+        },
+        "xgboostJob": {
+          "$ref": "#/definitions/v1XGBoostJob"
         },
         "dask": {
           "$ref": "#/definitions/v1Dask"
@@ -24089,7 +24179,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'pytorch_job'",
+          "title": "Optional component kind, should be equal to 'tf_job'",
           "default": "tfjob"
         },
         "cleanPodPolicy": {
@@ -24100,21 +24190,25 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
+        "template": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Template replicas definition"
+        },
         "chief": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional chief replica definition"
-        },
-        "ps": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional ps replica definition"
+          "title": "Chief replicas definition"
         },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional worker replica definition"
+          "title": "Worker replicas definition"
+        },
+        "ps": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "PS replicas definition"
         },
         "evaluator": {
           "$ref": "#/definitions/v1KFReplica",
-          "title": "Optional evaluator replica definition"
+          "title": "Evaluator replicas definition"
         }
       },
       "title": "TF Job specification"
@@ -24608,6 +24702,37 @@
         }
       },
       "title": "Wasb type specification"
+    },
+    "v1XGBoostJob": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "title": "Optional component kind, should be equal to 'xgboost_job'",
+          "default": "xgboost_job"
+        },
+        "cleanPodPolicy": {
+          "$ref": "#/definitions/v1CleanPodPolicy",
+          "title": "optional clean pod policy section"
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/v1SchedulingPolicy",
+          "title": "optional scheduling policy section"
+        },
+        "template": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Template replicas definition"
+        },
+        "master": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Master replicas definition"
+        },
+        "worker": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Worker replicas definition"
+        }
+      },
+      "title": "XGBoost Job specification"
     },
     "v1AverageStoppingPolicy": {
       "properties": {

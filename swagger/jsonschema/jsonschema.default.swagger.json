@@ -219,6 +219,12 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
+              "$ref": "#/definitions/v1MXJob"
+            },
+            {
+              "$ref": "#/definitions/v1XGBoostJob"
+            },
+            {
               "$ref": "#/definitions/v1Ray"
             },
             {
@@ -255,6 +261,12 @@
             },
             {
               "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1MXJob"
+            },
+            {
+              "$ref": "#/definitions/v1XGBoostJob"
             },
             {
               "$ref": "#/definitions/v1Ray"
@@ -331,6 +343,12 @@
             },
             {
               "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1MXJob"
+            },
+            {
+              "$ref": "#/definitions/v1XGBoostJob"
             },
             {
               "$ref": "#/definitions/v1Ray"

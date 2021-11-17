@@ -42,6 +42,20 @@
         }
       }
     },
+    "v1MXJob": {
+      "properties": {
+        "kind": {
+          "default": "mxjob"
+        }
+      }
+    },
+    "v1XGBoostJob": {
+      "properties": {
+        "kind": {
+          "default": "xgboost_job"
+        }
+      }
+    },
     "v1Spark": {
       "properties": {
         "kind": {

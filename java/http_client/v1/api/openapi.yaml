@@ -17148,6 +17148,21 @@ components:
           title: A flag to tell the agent that the queues are still full
           type: boolean
       type: object
+    MPIJobImplementation:
+      default: OpenMPI
+      enum:
+      - OpenMPI
+      - Intel
+      type: string
+    MXJobMode:
+      default: MXTrain
+      enum:
+      - MXTrain
+      - MXTune
+      title: |-
+        - MXTrain: Train Mode, requires Server, Scheduler, Worker
+         - MXTune: Tune Mode, requires Tuner
+      type: string
     SearchView:
       default: any
       description: |-
@@ -24289,7 +24304,143 @@ components:
       type: object
     v1MPIJob:
       example:
+        template:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
         slotsPerWorker: 7
+        sshAuthMountPath: sshAuthMountPath
         kind: mpi_job
         worker:
           container: '{}'
@@ -24574,15 +24725,1001 @@ components:
           $ref: '#/components/schemas/v1CleanPodPolicy'
         schedulingPolicy:
           $ref: '#/components/schemas/v1SchedulingPolicy'
+        sshAuthMountPath:
+          title: Optional is the directory where SSH keys are mounted, default "/root/.ssh"
+          type: string
+        implementation:
+          $ref: '#/components/schemas/MPIJobImplementation'
         slotsPerWorker:
           format: int32
           title: Optional slots per worker
           type: integer
-        launcher:
+        template:
           $ref: '#/components/schemas/v1KFReplica'
         worker:
           $ref: '#/components/schemas/v1KFReplica'
+        launcher:
+          $ref: '#/components/schemas/v1KFReplica'
       title: MPI Job specification
+      type: object
+    v1MXJob:
+      example:
+        template:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        scheduler:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        server:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        tuner_server:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        tuner:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        tuner_tracker:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        kind: mxjob
+        worker:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        schedulingPolicy:
+          minAvailable: 1
+          priorityClass: priorityClass
+          queue: queue
+      properties:
+        kind:
+          default: mxjob
+          title: Optional component kind, should be equal to 'mx_job'
+          type: string
+        cleanPodPolicy:
+          $ref: '#/components/schemas/v1CleanPodPolicy'
+        schedulingPolicy:
+          $ref: '#/components/schemas/v1SchedulingPolicy'
+        mode:
+          $ref: '#/components/schemas/MXJobMode'
+        template:
+          $ref: '#/components/schemas/v1KFReplica'
+        scheduler:
+          $ref: '#/components/schemas/v1KFReplica'
+        server:
+          $ref: '#/components/schemas/v1KFReplica'
+        worker:
+          $ref: '#/components/schemas/v1KFReplica'
+        tuner_tracker:
+          $ref: '#/components/schemas/v1KFReplica'
+        tuner_server:
+          $ref: '#/components/schemas/v1KFReplica'
+        tuner:
+          $ref: '#/components/schemas/v1KFReplica'
+      title: MXNet Job specification
       type: object
     v1Mapping:
       example:
@@ -26114,6 +27251,141 @@ components:
       type: object
     v1PytorchJob:
       example:
+        template:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
         kind: pytorch_job
         worker:
           container: '{}'
@@ -26398,6 +27670,8 @@ components:
           $ref: '#/components/schemas/v1CleanPodPolicy'
         schedulingPolicy:
           $ref: '#/components/schemas/v1SchedulingPolicy'
+        template:
+          $ref: '#/components/schemas/v1KFReplica'
         master:
           $ref: '#/components/schemas/v1KFReplica'
         worker:
@@ -27068,6 +28342,957 @@ components:
         flink:
           kind: flink
           spec: '{}'
+        mxJob:
+          template:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          scheduler:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          server:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          tuner_server:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          tuner:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          tuner_tracker:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          kind: mxjob
+          worker:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          schedulingPolicy:
+            minAvailable: 1
+            priorityClass: priorityClass
+            queue: queue
         spark:
           pythonVersion: pythonVersion
           mainClass: mainClass
@@ -27490,6 +29715,141 @@ components:
           kind: kind
           spec: '{}'
         tfJob:
+          template:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
           ps:
             container: '{}'
             init:
@@ -27901,6 +30261,417 @@ components:
             priorityClass: priorityClass
             queue: queue
           evaluator:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+        xgboostJob:
+          template:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          kind: xgboost_job
+          worker:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
+          schedulingPolicy:
+            minAvailable: 1
+            priorityClass: priorityClass
+            queue: queue
+          master:
             container: '{}'
             init:
             - container: '{}'
@@ -29122,6 +31893,141 @@ components:
           - connections
           concurrency: 4
         pytorchJob:
+          template:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
           kind: pytorch_job
           worker:
             container: '{}'
@@ -29673,7 +32579,143 @@ components:
           - connections
           - connections
         mpiJob:
+          template:
+            container: '{}'
+            init:
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            - container: '{}'
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - '{}'
+                - '{}'
+                langEnv: langEnv
+                copy:
+                - '{}'
+                - '{}'
+                username: 7
+              model: model
+              connection: connection
+              artifacts:
+                files:
+                - '{}'
+                - '{}'
+                dirs:
+                - '{}'
+                - '{}'
+                workers: 3
+            sidecars:
+            - null
+            - null
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: '{}'
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: '{}'
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: '{}'
+              hostPID: hostPID
+            replicas: 4
+            volumes:
+            - null
+            - null
+            connections:
+            - connections
+            - connections
           slotsPerWorker: 7
+          sshAuthMountPath: sshAuthMountPath
           kind: mpi_job
           worker:
             container: '{}'
@@ -29962,6 +33004,10 @@ components:
           $ref: '#/components/schemas/v1PytorchJob'
         mpiJob:
           $ref: '#/components/schemas/v1MPIJob'
+        mxJob:
+          $ref: '#/components/schemas/v1MXJob'
+        xgboostJob:
+          $ref: '#/components/schemas/v1XGBoostJob'
         dask:
           $ref: '#/components/schemas/v1Dask'
         spark:
@@ -30116,6 +33162,957 @@ components:
           flink:
             kind: flink
             spec: '{}'
+          mxJob:
+            template:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            scheduler:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            server:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            tuner_server:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            tuner:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            tuner_tracker:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            kind: mxjob
+            worker:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            schedulingPolicy:
+              minAvailable: 1
+              priorityClass: priorityClass
+              queue: queue
           spark:
             pythonVersion: pythonVersion
             mainClass: mainClass
@@ -30538,6 +34535,141 @@ components:
             kind: kind
             spec: '{}'
           tfJob:
+            template:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
             ps:
               container: '{}'
               init:
@@ -30949,6 +35081,417 @@ components:
               priorityClass: priorityClass
               queue: queue
             evaluator:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+          xgboostJob:
+            template:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            kind: xgboost_job
+            worker:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
+            schedulingPolicy:
+              minAvailable: 1
+              priorityClass: priorityClass
+              queue: queue
+            master:
               container: '{}'
               init:
               - container: '{}'
@@ -32170,6 +36713,141 @@ components:
             - connections
             concurrency: 4
           pytorchJob:
+            template:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
             kind: pytorch_job
             worker:
               container: '{}'
@@ -32721,7 +37399,143 @@ components:
             - connections
             - connections
           mpiJob:
+            template:
+              container: '{}'
+              init:
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              - container: '{}'
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - '{}'
+                  - '{}'
+                  langEnv: langEnv
+                  copy:
+                  - '{}'
+                  - '{}'
+                  username: 7
+                model: model
+                connection: connection
+                artifacts:
+                  files:
+                  - '{}'
+                  - '{}'
+                  dirs:
+                  - '{}'
+                  - '{}'
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: '{}'
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: '{}'
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: '{}'
+                hostPID: hostPID
+              replicas: 4
+              volumes:
+              - null
+              - null
+              connections:
+              - connections
+              - connections
             slotsPerWorker: 7
+            sshAuthMountPath: sshAuthMountPath
             kind: mpi_job
             worker:
               container: '{}'
@@ -35056,6 +39870,141 @@ components:
       type: string
     v1TFJob:
       example:
+        template:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
         ps:
           container: '{}'
           init:
@@ -35604,17 +40553,19 @@ components:
       properties:
         kind:
           default: tfjob
-          title: Optional component kind, should be equal to 'pytorch_job'
+          title: Optional component kind, should be equal to 'tf_job'
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'
         schedulingPolicy:
           $ref: '#/components/schemas/v1SchedulingPolicy'
+        template:
+          $ref: '#/components/schemas/v1KFReplica'
         chief:
           $ref: '#/components/schemas/v1KFReplica'
-        ps:
-          $ref: '#/components/schemas/v1KFReplica'
         worker:
+          $ref: '#/components/schemas/v1KFReplica'
+        ps:
           $ref: '#/components/schemas/v1KFReplica'
         evaluator:
           $ref: '#/components/schemas/v1KFReplica'
@@ -36112,6 +41063,435 @@ components:
           title: Optional path
           type: boolean
       title: Wasb type specification
+      type: object
+    v1XGBoostJob:
+      example:
+        template:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        kind: xgboost_job
+        worker:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+        schedulingPolicy:
+          minAvailable: 1
+          priorityClass: priorityClass
+          queue: queue
+        master:
+          container: '{}'
+          init:
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          - container: '{}'
+            path: path
+            git:
+              flags:
+              - flags
+              - flags
+              url: url
+              revision: revision
+            file:
+              filename: filename
+              kind: kind
+              chmod: chmod
+              content: content
+            dockerfile:
+              image: image
+              gid: 0
+              workdirPath: workdirPath
+              run:
+              - run
+              - run
+              env:
+                key: env
+              path:
+              - path
+              - path
+              uid: 7
+              filename: filename
+              workdir: workdir
+              shell: shell
+              post_run_copy:
+              - '{}'
+              - '{}'
+              langEnv: langEnv
+              copy:
+              - '{}'
+              - '{}'
+              username: 7
+            model: model
+            connection: connection
+            artifacts:
+              files:
+              - '{}'
+              - '{}'
+              dirs:
+              - '{}'
+              - '{}'
+              workers: 3
+          sidecars:
+          - null
+          - null
+          environment:
+            nodeName: nodeName
+            dnsPolicy: dnsPolicy
+            serviceAccountName: serviceAccountName
+            hostNetwork: true
+            dnsConfig: '{}'
+            imagePullSecrets:
+            - imagePullSecrets
+            - imagePullSecrets
+            priorityClassName: priorityClassName
+            annotations:
+              key: annotations
+            hostAliases:
+            - null
+            - null
+            securityContext: '{}'
+            priority: 3
+            restartPolicy: restartPolicy
+            labels:
+              key: labels
+            nodeSelector:
+              key: nodeSelector
+            tolerations:
+            - null
+            - null
+            schedulerName: schedulerName
+            affinity: '{}'
+            hostPID: hostPID
+          replicas: 4
+          volumes:
+          - null
+          - null
+          connections:
+          - connections
+          - connections
+      properties:
+        kind:
+          default: xgboost_job
+          title: Optional component kind, should be equal to 'xgboost_job'
+          type: string
+        cleanPodPolicy:
+          $ref: '#/components/schemas/v1CleanPodPolicy'
+        schedulingPolicy:
+          $ref: '#/components/schemas/v1SchedulingPolicy'
+        template:
+          $ref: '#/components/schemas/v1KFReplica'
+        master:
+          $ref: '#/components/schemas/v1KFReplica'
+        worker:
+          $ref: '#/components/schemas/v1KFReplica'
+      title: XGBoost Job specification
       type: object
     v1AverageStoppingPolicy:
       properties:
