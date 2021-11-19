@@ -107,14 +107,6 @@ public class V1MPIJobTest {
     }
 
     /**
-     * Test the property 'template'
-     */
-    @Test
-    public void templateTest() {
-        // TODO: test template
-    }
-
-    /**
      * Test the property 'worker'
      */
     @Test

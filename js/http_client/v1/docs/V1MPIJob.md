@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **sshAuthMountPath** | **String** |  | [optional] 
 **implementation** | [**MPIJobImplementation**](MPIJobImplementation.md) |  | [optional] 
 **slotsPerWorker** | **Number** |  | [optional] 
-**template** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 **worker** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 **launcher** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 

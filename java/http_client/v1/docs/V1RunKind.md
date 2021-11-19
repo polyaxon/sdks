@@ -25,6 +25,10 @@
 
 * `PYTORCHJOB` (value: `"pytorchjob"`)
 
+* `MXJOB` (value: `"mxjob"`)
+
+* `XGBJOB` (value: `"xgbjob"`)
+
 * `MATRIX` (value: `"matrix"`)
 
 * `SCHEDULE` (value: `"schedule"`)

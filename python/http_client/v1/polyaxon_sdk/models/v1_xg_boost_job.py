@@ -56,7 +56,6 @@ class V1XGBoostJob(object):
         'kind': 'str',
         'clean_pod_policy': 'V1CleanPodPolicy',
         'scheduling_policy': 'V1SchedulingPolicy',
-        'template': 'V1KFReplica',
         'master': 'V1KFReplica',
         'worker': 'V1KFReplica'
     }
@@ -65,12 +64,11 @@ class V1XGBoostJob(object):
         'kind': 'kind',
         'clean_pod_policy': 'cleanPodPolicy',
         'scheduling_policy': 'schedulingPolicy',
-        'template': 'template',
         'master': 'master',
         'worker': 'worker'
     }
 
-    def __init__(self, kind='xgboost_job', clean_pod_policy=None, scheduling_policy=None, template=None, master=None, worker=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='xgboost_job', clean_pod_policy=None, scheduling_policy=None, master=None, worker=None, local_vars_configuration=None):  # noqa: E501
         """V1XGBoostJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -79,7 +77,6 @@ class V1XGBoostJob(object):
         self._kind = None
         self._clean_pod_policy = None
         self._scheduling_policy = None
-        self._template = None
         self._master = None
         self._worker = None
         self.discriminator = None
@@ -90,8 +87,6 @@ class V1XGBoostJob(object):
             self.clean_pod_policy = clean_pod_policy
         if scheduling_policy is not None:
             self.scheduling_policy = scheduling_policy
-        if template is not None:
-            self.template = template
         if master is not None:
             self.master = master
         if worker is not None:
@@ -159,27 +154,6 @@ class V1XGBoostJob(object):
         """
 
         self._scheduling_policy = scheduling_policy
-
-    @property
-    def template(self):
-        """Gets the template of this V1XGBoostJob.  # noqa: E501
-
-
-        :return: The template of this V1XGBoostJob.  # noqa: E501
-        :rtype: V1KFReplica
-        """
-        return self._template
-
-    @template.setter
-    def template(self, template):
-        """Sets the template of this V1XGBoostJob.
-
-
-        :param template: The template of this V1XGBoostJob.  # noqa: E501
-        :type template: V1KFReplica
-        """
-
-        self._template = template
 
     @property
     def master(self):

@@ -58,10 +58,6 @@ public class V1XGBoostJob {
   @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
   private V1SchedulingPolicy schedulingPolicy;
 
-  public static final String SERIALIZED_NAME_TEMPLATE = "template";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE)
-  private V1KFReplica template;
-
   public static final String SERIALIZED_NAME_MASTER = "master";
   @SerializedName(SERIALIZED_NAME_MASTER)
   private V1KFReplica master;
@@ -140,29 +136,6 @@ public class V1XGBoostJob {
   }
 
 
-  public V1XGBoostJob template(V1KFReplica template) {
-    
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public V1KFReplica getTemplate() {
-    return template;
-  }
-
-
-  public void setTemplate(V1KFReplica template) {
-    this.template = template;
-  }
-
-
   public V1XGBoostJob master(V1KFReplica master) {
     
     this.master = master;
@@ -221,14 +194,13 @@ public class V1XGBoostJob {
     return Objects.equals(this.kind, v1XGBoostJob.kind) &&
         Objects.equals(this.cleanPodPolicy, v1XGBoostJob.cleanPodPolicy) &&
         Objects.equals(this.schedulingPolicy, v1XGBoostJob.schedulingPolicy) &&
-        Objects.equals(this.template, v1XGBoostJob.template) &&
         Objects.equals(this.master, v1XGBoostJob.master) &&
         Objects.equals(this.worker, v1XGBoostJob.worker);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, template, master, worker);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, master, worker);
   }
 
   @Override
@@ -238,7 +210,6 @@ public class V1XGBoostJob {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
     sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    master: ").append(toIndentedString(master)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("}");

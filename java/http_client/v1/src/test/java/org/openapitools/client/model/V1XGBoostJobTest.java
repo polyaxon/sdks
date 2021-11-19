@@ -82,14 +82,6 @@ public class V1XGBoostJobTest {
     }
 
     /**
-     * Test the property 'template'
-     */
-    @Test
-    public void templateTest() {
-        // TODO: test template
-    }
-
-    /**
      * Test the property 'master'
      */
     @Test

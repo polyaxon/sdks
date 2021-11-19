@@ -57,7 +57,6 @@ class V1MXJob(object):
         'clean_pod_policy': 'V1CleanPodPolicy',
         'scheduling_policy': 'V1SchedulingPolicy',
         'mode': 'MXJobMode',
-        'template': 'V1KFReplica',
         'scheduler': 'V1KFReplica',
         'server': 'V1KFReplica',
         'worker': 'V1KFReplica',
@@ -71,7 +70,6 @@ class V1MXJob(object):
         'clean_pod_policy': 'cleanPodPolicy',
         'scheduling_policy': 'schedulingPolicy',
         'mode': 'mode',
-        'template': 'template',
         'scheduler': 'scheduler',
         'server': 'server',
         'worker': 'worker',
@@ -80,7 +78,7 @@ class V1MXJob(object):
         'tuner': 'tuner'
     }
 
-    def __init__(self, kind='mxjob', clean_pod_policy=None, scheduling_policy=None, mode=None, template=None, scheduler=None, server=None, worker=None, tuner_tracker=None, tuner_server=None, tuner=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='mxjob', clean_pod_policy=None, scheduling_policy=None, mode=None, scheduler=None, server=None, worker=None, tuner_tracker=None, tuner_server=None, tuner=None, local_vars_configuration=None):  # noqa: E501
         """V1MXJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -90,7 +88,6 @@ class V1MXJob(object):
         self._clean_pod_policy = None
         self._scheduling_policy = None
         self._mode = None
-        self._template = None
         self._scheduler = None
         self._server = None
         self._worker = None
@@ -107,8 +104,6 @@ class V1MXJob(object):
             self.scheduling_policy = scheduling_policy
         if mode is not None:
             self.mode = mode
-        if template is not None:
-            self.template = template
         if scheduler is not None:
             self.scheduler = scheduler
         if server is not None:
@@ -205,27 +200,6 @@ class V1MXJob(object):
         """
 
         self._mode = mode
-
-    @property
-    def template(self):
-        """Gets the template of this V1MXJob.  # noqa: E501
-
-
-        :return: The template of this V1MXJob.  # noqa: E501
-        :rtype: V1KFReplica
-        """
-        return self._template
-
-    @template.setter
-    def template(self, template):
-        """Sets the template of this V1MXJob.
-
-
-        :param template: The template of this V1MXJob.  # noqa: E501
-        :type template: V1KFReplica
-        """
-
-        self._template = template
 
     @property
     def scheduler(self):

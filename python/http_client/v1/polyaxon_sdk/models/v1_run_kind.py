@@ -58,6 +58,8 @@ class V1RunKind(object):
     MPIJOB = "mpijob"
     TFJOB = "tfjob"
     PYTORCHJOB = "pytorchjob"
+    MXJOB = "mxjob"
+    XGBJOB = "xgbjob"
     MATRIX = "matrix"
     SCHEDULE = "schedule"
     TUNER = "tuner"
@@ -66,7 +68,7 @@ class V1RunKind(object):
     CLEANER = "cleaner"
     BUILDER = "builder"
 
-    allowable_values = [JOB, SERVICE, DAG, SPARK, DASK, FLINK, RAY, MPIJOB, TFJOB, PYTORCHJOB, MATRIX, SCHEDULE, TUNER, WATCHDOG, NOTIFIER, CLEANER, BUILDER]  # noqa: E501
+    allowable_values = [JOB, SERVICE, DAG, SPARK, DASK, FLINK, RAY, MPIJOB, TFJOB, PYTORCHJOB, MXJOB, XGBJOB, MATRIX, SCHEDULE, TUNER, WATCHDOG, NOTIFIER, CLEANER, BUILDER]  # noqa: E501
 
     """
     Attributes:

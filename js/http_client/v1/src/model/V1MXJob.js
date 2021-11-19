@@ -77,9 +77,6 @@ class V1MXJob {
             if (data.hasOwnProperty('mode')) {
                 obj['mode'] = MXJobMode.constructFromObject(data['mode']);
             }
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = V1KFReplica.constructFromObject(data['template']);
-            }
             if (data.hasOwnProperty('scheduler')) {
                 obj['scheduler'] = V1KFReplica.constructFromObject(data['scheduler']);
             }
@@ -125,11 +122,6 @@ V1MXJob.prototype['schedulingPolicy'] = undefined;
  * @member {module:model/MXJobMode} mode
  */
 V1MXJob.prototype['mode'] = undefined;
-
-/**
- * @member {module:model/V1KFReplica} template
- */
-V1MXJob.prototype['template'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} scheduler

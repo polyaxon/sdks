@@ -83,9 +83,6 @@ class V1MPIJob {
             if (data.hasOwnProperty('slotsPerWorker')) {
                 obj['slotsPerWorker'] = ApiClient.convertToType(data['slotsPerWorker'], 'Number');
             }
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = V1KFReplica.constructFromObject(data['template']);
-            }
             if (data.hasOwnProperty('worker')) {
                 obj['worker'] = V1KFReplica.constructFromObject(data['worker']);
             }
@@ -129,11 +126,6 @@ V1MPIJob.prototype['implementation'] = undefined;
  * @member {Number} slotsPerWorker
  */
 V1MPIJob.prototype['slotsPerWorker'] = undefined;
-
-/**
- * @member {module:model/V1KFReplica} template
- */
-V1MPIJob.prototype['template'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} worker

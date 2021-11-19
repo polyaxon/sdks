@@ -50,9 +50,6 @@ type V1MXJob struct {
 	// Server replicas definition
 	Server *V1KFReplica `json:"server,omitempty"`
 
-	// Template replicas definition
-	Template *V1KFReplica `json:"template,omitempty"`
-
 	// Tuner replicas definition
 	Tuner *V1KFReplica `json:"tuner,omitempty"`
 
@@ -87,10 +84,6 @@ func (m *V1MXJob) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateServer(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTemplate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -211,25 +204,6 @@ func (m *V1MXJob) validateServer(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1MXJob) validateTemplate(formats strfmt.Registry) error {
-	if swag.IsZero(m.Template) { // not required
-		return nil
-	}
-
-	if m.Template != nil {
-		if err := m.Template.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("template")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("template")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1MXJob) validateTuner(formats strfmt.Registry) error {
 	if swag.IsZero(m.Tuner) { // not required
 		return nil
@@ -330,10 +304,6 @@ func (m *V1MXJob) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateTemplate(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateTuner(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -428,22 +398,6 @@ func (m *V1MXJob) contextValidateServer(ctx context.Context, formats strfmt.Regi
 				return ve.ValidateName("server")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("server")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1MXJob) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Template != nil {
-		if err := m.Template.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("template")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("template")
 			}
 			return err
 		}

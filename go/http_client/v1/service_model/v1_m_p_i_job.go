@@ -53,9 +53,6 @@ type V1MPIJob struct {
 	// Optional is the directory where SSH keys are mounted, default "/root/.ssh"
 	SSHAuthMountPath string `json:"sshAuthMountPath,omitempty"`
 
-	// Template replicas definition
-	Template *V1KFReplica `json:"template,omitempty"`
-
 	// Worker replicas definition
 	Worker *V1KFReplica `json:"worker,omitempty"`
 }
@@ -77,10 +74,6 @@ func (m *V1MPIJob) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSchedulingPolicy(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTemplate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -170,25 +163,6 @@ func (m *V1MPIJob) validateSchedulingPolicy(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1MPIJob) validateTemplate(formats strfmt.Registry) error {
-	if swag.IsZero(m.Template) { // not required
-		return nil
-	}
-
-	if m.Template != nil {
-		if err := m.Template.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("template")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("template")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1MPIJob) validateWorker(formats strfmt.Registry) error {
 	if swag.IsZero(m.Worker) { // not required
 		return nil
@@ -225,10 +199,6 @@ func (m *V1MPIJob) ContextValidate(ctx context.Context, formats strfmt.Registry)
 	}
 
 	if err := m.contextValidateSchedulingPolicy(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTemplate(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -298,22 +268,6 @@ func (m *V1MPIJob) contextValidateSchedulingPolicy(ctx context.Context, formats 
 				return ve.ValidateName("schedulingPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("schedulingPolicy")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1MPIJob) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Template != nil {
-		if err := m.Template.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("template")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("template")
 			}
 			return err
 		}

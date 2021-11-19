@@ -81,12 +81,6 @@ export interface V1MXJob {
      * @type {V1KFReplica}
      * @memberof V1MXJob
      */
-    template?: V1KFReplica;
-    /**
-     * 
-     * @type {V1KFReplica}
-     * @memberof V1MXJob
-     */
     scheduler?: V1KFReplica;
     /**
      * 
@@ -134,7 +128,6 @@ export function V1MXJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
         'mode': !exists(json, 'mode') ? undefined : MXJobModeFromJSON(json['mode']),
-        'template': !exists(json, 'template') ? undefined : V1KFReplicaFromJSON(json['template']),
         'scheduler': !exists(json, 'scheduler') ? undefined : V1KFReplicaFromJSON(json['scheduler']),
         'server': !exists(json, 'server') ? undefined : V1KFReplicaFromJSON(json['server']),
         'worker': !exists(json, 'worker') ? undefined : V1KFReplicaFromJSON(json['worker']),
@@ -157,7 +150,6 @@ export function V1MXJobToJSON(value?: V1MXJob | null): any {
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),
         'mode': MXJobModeToJSON(value.mode),
-        'template': V1KFReplicaToJSON(value.template),
         'scheduler': V1KFReplicaToJSON(value.scheduler),
         'server': V1KFReplicaToJSON(value.server),
         'worker': V1KFReplicaToJSON(value.worker),

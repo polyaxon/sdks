@@ -59,7 +59,6 @@ class V1MPIJob(object):
         'ssh_auth_mount_path': 'str',
         'implementation': 'MPIJobImplementation',
         'slots_per_worker': 'int',
-        'template': 'V1KFReplica',
         'worker': 'V1KFReplica',
         'launcher': 'V1KFReplica'
     }
@@ -71,12 +70,11 @@ class V1MPIJob(object):
         'ssh_auth_mount_path': 'sshAuthMountPath',
         'implementation': 'implementation',
         'slots_per_worker': 'slotsPerWorker',
-        'template': 'template',
         'worker': 'worker',
         'launcher': 'launcher'
     }
 
-    def __init__(self, kind='mpi_job', clean_pod_policy=None, scheduling_policy=None, ssh_auth_mount_path=None, implementation=None, slots_per_worker=None, template=None, worker=None, launcher=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, kind='mpi_job', clean_pod_policy=None, scheduling_policy=None, ssh_auth_mount_path=None, implementation=None, slots_per_worker=None, worker=None, launcher=None, local_vars_configuration=None):  # noqa: E501
         """V1MPIJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -88,7 +86,6 @@ class V1MPIJob(object):
         self._ssh_auth_mount_path = None
         self._implementation = None
         self._slots_per_worker = None
-        self._template = None
         self._worker = None
         self._launcher = None
         self.discriminator = None
@@ -105,8 +102,6 @@ class V1MPIJob(object):
             self.implementation = implementation
         if slots_per_worker is not None:
             self.slots_per_worker = slots_per_worker
-        if template is not None:
-            self.template = template
         if worker is not None:
             self.worker = worker
         if launcher is not None:
@@ -237,27 +232,6 @@ class V1MPIJob(object):
         """
 
         self._slots_per_worker = slots_per_worker
-
-    @property
-    def template(self):
-        """Gets the template of this V1MPIJob.  # noqa: E501
-
-
-        :return: The template of this V1MPIJob.  # noqa: E501
-        :rtype: V1KFReplica
-        """
-        return self._template
-
-    @template.setter
-    def template(self, template):
-        """Sets the template of this V1MPIJob.
-
-
-        :param template: The template of this V1MPIJob.  # noqa: E501
-        :type template: V1KFReplica
-        """
-
-        self._template = template
 
     @property
     def worker(self):

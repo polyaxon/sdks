@@ -93,12 +93,6 @@ export interface V1MPIJob {
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
-    template?: V1KFReplica;
-    /**
-     * 
-     * @type {V1KFReplica}
-     * @memberof V1MPIJob
-     */
     worker?: V1KFReplica;
     /**
      * 
@@ -124,7 +118,6 @@ export function V1MPIJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'sshAuthMountPath': !exists(json, 'sshAuthMountPath') ? undefined : json['sshAuthMountPath'],
         'implementation': !exists(json, 'implementation') ? undefined : MPIJobImplementationFromJSON(json['implementation']),
         'slotsPerWorker': !exists(json, 'slotsPerWorker') ? undefined : json['slotsPerWorker'],
-        'template': !exists(json, 'template') ? undefined : V1KFReplicaFromJSON(json['template']),
         'worker': !exists(json, 'worker') ? undefined : V1KFReplicaFromJSON(json['worker']),
         'launcher': !exists(json, 'launcher') ? undefined : V1KFReplicaFromJSON(json['launcher']),
     };
@@ -145,7 +138,6 @@ export function V1MPIJobToJSON(value?: V1MPIJob | null): any {
         'sshAuthMountPath': value.sshAuthMountPath,
         'implementation': MPIJobImplementationToJSON(value.implementation),
         'slotsPerWorker': value.slotsPerWorker,
-        'template': V1KFReplicaToJSON(value.template),
         'worker': V1KFReplicaToJSON(value.worker),
         'launcher': V1KFReplicaToJSON(value.launcher),
     };

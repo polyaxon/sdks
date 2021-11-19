@@ -104,6 +104,20 @@ export default class V1RunKind {
 
     
         /**
+         * value: "mxjob"
+         * @const
+         */
+        "mxjob" = "mxjob";
+
+    
+        /**
+         * value: "xgbjob"
+         * @const
+         */
+        "xgbjob" = "xgbjob";
+
+    
+        /**
          * value: "matrix"
          * @const
          */

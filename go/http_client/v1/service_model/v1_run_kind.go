@@ -73,6 +73,12 @@ const (
 	// V1RunKindPytorchjob captures enum value "pytorchjob"
 	V1RunKindPytorchjob V1RunKind = "pytorchjob"
 
+	// V1RunKindMxjob captures enum value "mxjob"
+	V1RunKindMxjob V1RunKind = "mxjob"
+
+	// V1RunKindXgbjob captures enum value "xgbjob"
+	V1RunKindXgbjob V1RunKind = "xgbjob"
+
 	// V1RunKindMatrix captures enum value "matrix"
 	V1RunKindMatrix V1RunKind = "matrix"
 
@@ -100,7 +106,7 @@ var v1RunKindEnum []interface{}
 
 func init() {
 	var res []V1RunKind
-	if err := json.Unmarshal([]byte(`["job","service","dag","spark","dask","flink","ray","mpijob","tfjob","pytorchjob","matrix","schedule","tuner","watchdog","notifier","cleaner","builder"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["job","service","dag","spark","dask","flink","ray","mpijob","tfjob","pytorchjob","mxjob","xgbjob","matrix","schedule","tuner","watchdog","notifier","cleaner","builder"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

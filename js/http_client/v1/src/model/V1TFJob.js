@@ -73,9 +73,6 @@ class V1TFJob {
             if (data.hasOwnProperty('schedulingPolicy')) {
                 obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
             }
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = V1KFReplica.constructFromObject(data['template']);
-            }
             if (data.hasOwnProperty('chief')) {
                 obj['chief'] = V1KFReplica.constructFromObject(data['chief']);
             }
@@ -110,11 +107,6 @@ V1TFJob.prototype['cleanPodPolicy'] = undefined;
  * @member {module:model/V1SchedulingPolicy} schedulingPolicy
  */
 V1TFJob.prototype['schedulingPolicy'] = undefined;
-
-/**
- * @member {module:model/V1KFReplica} template
- */
-V1TFJob.prototype['template'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} chief

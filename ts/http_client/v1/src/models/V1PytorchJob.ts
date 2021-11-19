@@ -71,12 +71,6 @@ export interface V1PytorchJob {
      * @type {V1KFReplica}
      * @memberof V1PytorchJob
      */
-    template?: V1KFReplica;
-    /**
-     * 
-     * @type {V1KFReplica}
-     * @memberof V1PytorchJob
-     */
     master?: V1KFReplica;
     /**
      * 
@@ -99,7 +93,6 @@ export function V1PytorchJobFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
-        'template': !exists(json, 'template') ? undefined : V1KFReplicaFromJSON(json['template']),
         'master': !exists(json, 'master') ? undefined : V1KFReplicaFromJSON(json['master']),
         'worker': !exists(json, 'worker') ? undefined : V1KFReplicaFromJSON(json['worker']),
     };
@@ -117,7 +110,6 @@ export function V1PytorchJobToJSON(value?: V1PytorchJob | null): any {
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),
-        'template': V1KFReplicaToJSON(value.template),
         'master': V1KFReplicaToJSON(value.master),
         'worker': V1KFReplicaToJSON(value.worker),
     };

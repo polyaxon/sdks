@@ -63,10 +63,6 @@ public class V1MXJob {
   @SerializedName(SERIALIZED_NAME_MODE)
   private MXJobMode mode = MXJobMode.MXTRAIN;
 
-  public static final String SERIALIZED_NAME_TEMPLATE = "template";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE)
-  private V1KFReplica template;
-
   public static final String SERIALIZED_NAME_SCHEDULER = "scheduler";
   @SerializedName(SERIALIZED_NAME_SCHEDULER)
   private V1KFReplica scheduler;
@@ -181,29 +177,6 @@ public class V1MXJob {
 
   public void setMode(MXJobMode mode) {
     this.mode = mode;
-  }
-
-
-  public V1MXJob template(V1KFReplica template) {
-    
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public V1KFReplica getTemplate() {
-    return template;
-  }
-
-
-  public void setTemplate(V1KFReplica template) {
-    this.template = template;
   }
 
 
@@ -358,7 +331,6 @@ public class V1MXJob {
         Objects.equals(this.cleanPodPolicy, v1MXJob.cleanPodPolicy) &&
         Objects.equals(this.schedulingPolicy, v1MXJob.schedulingPolicy) &&
         Objects.equals(this.mode, v1MXJob.mode) &&
-        Objects.equals(this.template, v1MXJob.template) &&
         Objects.equals(this.scheduler, v1MXJob.scheduler) &&
         Objects.equals(this.server, v1MXJob.server) &&
         Objects.equals(this.worker, v1MXJob.worker) &&
@@ -369,7 +341,7 @@ public class V1MXJob {
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, mode, template, scheduler, server, worker, tunerTracker, tunerServer, tuner);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, mode, scheduler, server, worker, tunerTracker, tunerServer, tuner);
   }
 
   @Override
@@ -380,7 +352,6 @@ public class V1MXJob {
     sb.append("    cleanPodPolicy: ").append(toIndentedString(cleanPodPolicy)).append("\n");
     sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    server: ").append(toIndentedString(server)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");

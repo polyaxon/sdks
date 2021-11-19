@@ -8184,10 +8184,6 @@
           "title": "Optional is the directory where SSH keys are mounted, default \"/root/.ssh\"",
           "type": "string"
         },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
-        },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Worker replicas definition"
@@ -8222,10 +8218,6 @@
         "server": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Server replicas definition"
-        },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
         },
         "tuner": {
           "$ref": "#/definitions/v1KFReplica",
@@ -9395,10 +9387,6 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
-        },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Worker replicas definition"
@@ -9841,6 +9829,8 @@
         "mpijob",
         "tfjob",
         "pytorchjob",
+        "mxjob",
+        "xgbjob",
         "matrix",
         "schedule",
         "tuner",
@@ -10642,10 +10632,6 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
-        },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Worker replicas definition"
@@ -11162,10 +11148,6 @@
         "schedulingPolicy": {
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
-        },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
         },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",

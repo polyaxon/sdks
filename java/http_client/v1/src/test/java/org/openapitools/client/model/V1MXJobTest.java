@@ -91,14 +91,6 @@ public class V1MXJobTest {
     }
 
     /**
-     * Test the property 'template'
-     */
-    @Test
-    public void templateTest() {
-        // TODO: test template
-    }
-
-    /**
      * Test the property 'scheduler'
      */
     @Test

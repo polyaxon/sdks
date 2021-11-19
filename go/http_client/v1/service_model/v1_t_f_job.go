@@ -50,9 +50,6 @@ type V1TFJob struct {
 	// optional scheduling policy section
 	SchedulingPolicy *V1SchedulingPolicy `json:"schedulingPolicy,omitempty"`
 
-	// Template replicas definition
-	Template *V1KFReplica `json:"template,omitempty"`
-
 	// Worker replicas definition
 	Worker *V1KFReplica `json:"worker,omitempty"`
 }
@@ -78,10 +75,6 @@ func (m *V1TFJob) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSchedulingPolicy(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTemplate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -190,25 +183,6 @@ func (m *V1TFJob) validateSchedulingPolicy(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1TFJob) validateTemplate(formats strfmt.Registry) error {
-	if swag.IsZero(m.Template) { // not required
-		return nil
-	}
-
-	if m.Template != nil {
-		if err := m.Template.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("template")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("template")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1TFJob) validateWorker(formats strfmt.Registry) error {
 	if swag.IsZero(m.Worker) { // not required
 		return nil
@@ -249,10 +223,6 @@ func (m *V1TFJob) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 	}
 
 	if err := m.contextValidateSchedulingPolicy(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateTemplate(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -338,22 +308,6 @@ func (m *V1TFJob) contextValidateSchedulingPolicy(ctx context.Context, formats s
 				return ve.ValidateName("schedulingPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("schedulingPolicy")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1TFJob) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Template != nil {
-		if err := m.Template.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("template")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("template")
 			}
 			return err
 		}

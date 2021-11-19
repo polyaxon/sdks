@@ -73,9 +73,6 @@ class V1PytorchJob {
             if (data.hasOwnProperty('schedulingPolicy')) {
                 obj['schedulingPolicy'] = V1SchedulingPolicy.constructFromObject(data['schedulingPolicy']);
             }
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = V1KFReplica.constructFromObject(data['template']);
-            }
             if (data.hasOwnProperty('master')) {
                 obj['master'] = V1KFReplica.constructFromObject(data['master']);
             }
@@ -104,11 +101,6 @@ V1PytorchJob.prototype['cleanPodPolicy'] = undefined;
  * @member {module:model/V1SchedulingPolicy} schedulingPolicy
  */
 V1PytorchJob.prototype['schedulingPolicy'] = undefined;
-
-/**
- * @member {module:model/V1KFReplica} template
- */
-V1PytorchJob.prototype['template'] = undefined;
 
 /**
  * @member {module:model/V1KFReplica} master

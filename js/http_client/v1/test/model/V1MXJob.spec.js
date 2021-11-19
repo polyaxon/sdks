@@ -92,12 +92,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property template (base name: "template")', function() {
-      // uncomment below and update the code to test the property template
-      //var instance = new PolyaxonSdk.V1MXJob();
-      //expect(instance).to.be();
-    });
-
     it('should have the property scheduler (base name: "scheduler")', function() {
       // uncomment below and update the code to test the property scheduler
       //var instance = new PolyaxonSdk.V1MXJob();

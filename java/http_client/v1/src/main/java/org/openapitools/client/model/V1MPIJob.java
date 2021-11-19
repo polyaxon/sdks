@@ -71,10 +71,6 @@ public class V1MPIJob {
   @SerializedName(SERIALIZED_NAME_SLOTS_PER_WORKER)
   private Integer slotsPerWorker;
 
-  public static final String SERIALIZED_NAME_TEMPLATE = "template";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE)
-  private V1KFReplica template;
-
   public static final String SERIALIZED_NAME_WORKER = "worker";
   @SerializedName(SERIALIZED_NAME_WORKER)
   private V1KFReplica worker;
@@ -222,29 +218,6 @@ public class V1MPIJob {
   }
 
 
-  public V1MPIJob template(V1KFReplica template) {
-    
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public V1KFReplica getTemplate() {
-    return template;
-  }
-
-
-  public void setTemplate(V1KFReplica template) {
-    this.template = template;
-  }
-
-
   public V1MPIJob worker(V1KFReplica worker) {
     
     this.worker = worker;
@@ -306,14 +279,13 @@ public class V1MPIJob {
         Objects.equals(this.sshAuthMountPath, v1MPIJob.sshAuthMountPath) &&
         Objects.equals(this.implementation, v1MPIJob.implementation) &&
         Objects.equals(this.slotsPerWorker, v1MPIJob.slotsPerWorker) &&
-        Objects.equals(this.template, v1MPIJob.template) &&
         Objects.equals(this.worker, v1MPIJob.worker) &&
         Objects.equals(this.launcher, v1MPIJob.launcher);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, sshAuthMountPath, implementation, slotsPerWorker, template, worker, launcher);
+    return Objects.hash(kind, cleanPodPolicy, schedulingPolicy, sshAuthMountPath, implementation, slotsPerWorker, worker, launcher);
   }
 
   @Override
@@ -326,7 +298,6 @@ public class V1MPIJob {
     sb.append("    sshAuthMountPath: ").append(toIndentedString(sshAuthMountPath)).append("\n");
     sb.append("    implementation: ").append(toIndentedString(implementation)).append("\n");
     sb.append("    slotsPerWorker: ").append(toIndentedString(slotsPerWorker)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("    launcher: ").append(toIndentedString(launcher)).append("\n");
     sb.append("}");

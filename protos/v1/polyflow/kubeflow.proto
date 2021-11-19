@@ -87,14 +87,11 @@ message MPIJob {
     // Optional slots per worker
     int32 slotsPerWorker = 6;
 
-    // Template replicas definition
-    KFReplica template = 7;
-
     // Worker replicas definition
-    KFReplica worker = 8;
+    KFReplica worker = 7;
 
     // Launcher replicas definition
-    KFReplica launcher = 9;
+    KFReplica launcher = 8;
 }
 
 // Pytorch Job specification
@@ -108,14 +105,11 @@ message PytorchJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
-    // Template replicas definition
-    KFReplica template = 4;
-
     // Master replicas definition
-    KFReplica master = 5;
+    KFReplica master = 4;
 
     // Worker replicas definition
-    KFReplica worker = 6;
+    KFReplica worker = 5;
 }
 
 // TF Job specification
@@ -129,20 +123,17 @@ message TFJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
-    // Template replicas definition
-    KFReplica template = 4;
-
     // Chief replicas definition
-    KFReplica chief = 5;
+    KFReplica chief = 4;
 
     // Worker replicas definition
-    KFReplica worker = 6;
+    KFReplica worker = 5;
 
     // PS replicas definition
-    KFReplica ps = 7;
+    KFReplica ps = 6;
 
     // Evaluator replicas definition
-    KFReplica evaluator = 8;
+    KFReplica evaluator = 7;
 }
 
 // MXNet Job specification
@@ -167,26 +158,23 @@ message MXJob {
   // MXJob mode "MXTrain" and "MXTune".
   Mode mode = 4;
 
-  // Template replicas definition
-  KFReplica template = 5;
-
   // Scheduler replicas definition
-  KFReplica scheduler = 6;
+  KFReplica scheduler = 5;
 
   // Server replicas definition
-  KFReplica server = 7;
+  KFReplica server = 6;
 
   // Worker replicas definition
-  KFReplica worker = 8;
+  KFReplica worker = 7;
 
   // TunerTracker replicas definition
-  KFReplica tuner_tracker = 9;
+  KFReplica tuner_tracker = 8;
 
   // TunerServer replicas definition
-  KFReplica tuner_server = 10;
+  KFReplica tuner_server = 9;
 
   // Tuner replicas definition
-  KFReplica tuner = 11;
+  KFReplica tuner = 10;
 }
 
 // XGBoost Job specification
@@ -200,12 +188,9 @@ message XGBoostJob {
   // optional scheduling policy section
   SchedulingPolicy schedulingPolicy = 3;
 
-  // Template replicas definition
-  KFReplica template = 4;
-
   // Master replicas definition
-  KFReplica master = 5;
+  KFReplica master = 4;
 
   // Worker replicas definition
-  KFReplica worker = 6;
+  KFReplica worker = 5;
 }

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **cleanPodPolicy** | [**V1CleanPodPolicy**](V1CleanPodPolicy.md) |  | [optional] 
 **schedulingPolicy** | [**V1SchedulingPolicy**](V1SchedulingPolicy.md) |  | [optional] 
 **mode** | [**MXJobMode**](MXJobMode.md) |  | [optional] 
-**template** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 **scheduler** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 **server** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 **worker** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 

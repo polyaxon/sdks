@@ -104,12 +104,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property template (base name: "template")', function() {
-      // uncomment below and update the code to test the property template
-      //var instance = new PolyaxonSdk.V1MPIJob();
-      //expect(instance).to.be();
-    });
-
     it('should have the property worker (base name: "worker")', function() {
       // uncomment below and update the code to test the property worker
       //var instance = new PolyaxonSdk.V1MPIJob();

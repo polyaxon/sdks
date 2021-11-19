@@ -21828,10 +21828,6 @@
           "format": "int32",
           "title": "Optional slots per worker"
         },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
-        },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Worker replicas definition"
@@ -21862,10 +21858,6 @@
         "mode": {
           "$ref": "#/definitions/MXJobMode",
           "description": "MXJob mode \"MXTrain\" and \"MXTune\"."
-        },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
         },
         "scheduler": {
           "$ref": "#/definitions/v1KFReplica",
@@ -22959,10 +22951,6 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
-        },
         "master": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Master replicas definition"
@@ -23400,6 +23388,8 @@
         "mpijob",
         "tfjob",
         "pytorchjob",
+        "mxjob",
+        "xgbjob",
         "matrix",
         "schedule",
         "tuner",
@@ -24190,10 +24180,6 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
-        },
         "chief": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Chief replicas definition"
@@ -24718,10 +24704,6 @@
         "schedulingPolicy": {
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
-        },
-        "template": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Template replicas definition"
         },
         "master": {
           "$ref": "#/definitions/v1KFReplica",
