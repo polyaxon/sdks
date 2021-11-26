@@ -159,6 +159,7 @@ import V1ListRunConnectionsResponse from './model/V1ListRunConnectionsResponse';
 import V1ListRunEdgesResponse from './model/V1ListRunEdgesResponse';
 import V1ListRunsResponse from './model/V1ListRunsResponse';
 import V1ListSearchesResponse from './model/V1ListSearchesResponse';
+import V1ListServiceAccountsResponse from './model/V1ListServiceAccountsResponse';
 import V1ListTagsResponse from './model/V1ListTagsResponse';
 import V1ListTeamMembersResponse from './model/V1ListTeamMembersResponse';
 import V1ListTeamsResponse from './model/V1ListTeamsResponse';
@@ -225,6 +226,7 @@ import V1Search from './model/V1Search';
 import V1SearchSpec from './model/V1SearchSpec';
 import V1SectionSpec from './model/V1SectionSpec';
 import V1Service from './model/V1Service';
+import V1ServiceAccount from './model/V1ServiceAccount';
 import V1SettingsCatalog from './model/V1SettingsCatalog';
 import V1Spark from './model/V1Spark';
 import V1SparkReplica from './model/V1SparkReplica';
@@ -272,6 +274,7 @@ import QueuesV1Api from './api/QueuesV1Api';
 import RunsV1Api from './api/RunsV1Api';
 import SchemasV1Api from './api/SchemasV1Api';
 import SearchesV1Api from './api/SearchesV1Api';
+import ServiceAccountsV1Api from './api/ServiceAccountsV1Api';
 import TagsV1Api from './api/TagsV1Api';
 import TeamsV1Api from './api/TeamsV1Api';
 import UsersV1Api from './api/UsersV1Api';
@@ -1109,6 +1112,12 @@ export {
     V1ListSearchesResponse,
 
     /**
+     * The V1ListServiceAccountsResponse model constructor.
+     * @property {module:model/V1ListServiceAccountsResponse}
+     */
+    V1ListServiceAccountsResponse,
+
+    /**
      * The V1ListTagsResponse model constructor.
      * @property {module:model/V1ListTagsResponse}
      */
@@ -1505,6 +1514,12 @@ export {
     V1Service,
 
     /**
+     * The V1ServiceAccount model constructor.
+     * @property {module:model/V1ServiceAccount}
+     */
+    V1ServiceAccount,
+
+    /**
      * The V1SettingsCatalog model constructor.
      * @property {module:model/V1SettingsCatalog}
      */
@@ -1785,6 +1800,12 @@ export {
     * @property {module:api/SearchesV1Api}
     */
     SearchesV1Api,
+
+    /**
+    * The ServiceAccountsV1Api service constructor.
+    * @property {module:api/ServiceAccountsV1Api}
+    */
+    ServiceAccountsV1Api,
 
     /**
     * The TagsV1Api service constructor.

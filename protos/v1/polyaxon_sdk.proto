@@ -42,6 +42,7 @@ import "v1/api/stage.proto";
 import "v1/api/tag.proto";
 import "v1/api/team.proto";
 import "v1/api/hub.proto";
+import "v1/api/service_account.proto";
 import "v1/api/registry.proto";
 import "v1/polyboard/log.proto";
 import "v1/polyboard/artifact.proto";
@@ -1539,18 +1540,118 @@ service AgentsV1 {
   }
 
   // Update agent token
-  rpc UpdateAgentToken(AgentTokenBodyRequest) returns (Token) {
+  rpc UpdateAgentToken(EntityTokenBodyRequest) returns (Token) {
     option (google.api.http) = {
-      put: "/api/v1/orgs/{owner}/agents/{agent}/token"
+      put: "/api/v1/orgs/{owner}/agents/{entity}/token"
       body: "token"
     };
   }
 
   // Patch agent token
-  rpc PatchAgentToken(AgentTokenBodyRequest) returns (Token) {
+  rpc PatchAgentToken(EntityTokenBodyRequest) returns (Token) {
     option (google.api.http) = {
-      patch: "/api/v1/orgs/{owner}/agents/{agent}/token"
+      patch: "/api/v1/orgs/{owner}/agents/{entity}/token"
       body: "token"
+    };
+  }
+}
+
+// Service to manage service accounts
+service ServiceAccountsV1 {
+  // List service accounts names
+  rpc ListServiceAccountNames(OwnerResourceListRequest) returns (ListServiceAccountsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/sa/names"
+    };
+  }
+
+  // List service accounts
+  rpc ListServiceAccounts(OwnerResourceListRequest) returns (ListServiceAccountsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/sa"
+    };
+  }
+
+  // Create service account
+  rpc CreateServiceAccount(ServiceAccountBodyRequest) returns (ServiceAccount) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/sa"
+      body: "sa"
+    };
+  }
+
+  // Get service account
+  rpc GetServiceAccount(OwnerEntityResourceRequestByUid) returns (ServiceAccount) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/sa/{uuid}"
+    };
+  }
+
+  // Update service account
+  rpc UpdateServiceAccount(ServiceAccountBodyRequest) returns (ServiceAccount) {
+    option (google.api.http) = {
+      put: "/api/v1/orgs/{owner}/sa/{sa.uuid}"
+      body: "sa"
+    };
+  }
+
+  // Patch service account
+  rpc PatchServiceAccount(ServiceAccountBodyRequest) returns (ServiceAccount) {
+    option (google.api.http) = {
+      patch: "/api/v1/orgs/{owner}/sa/{sa.uuid}"
+      body: "sa"
+    };
+  }
+
+  // Delete service account
+  rpc DeleteServiceAccount(OwnerEntityResourceRequestByUid) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/api/v1/orgs/{owner}/sa/{uuid}"
+    };
+  }
+
+  // List service account tokens
+  rpc ListServiceAccountTokens(OwnerEntityResourceRequestByUid) returns (ListTokenResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/sa/{uuid}/tokens"
+    };
+  }
+
+  // Create service account token
+  rpc CreateServiceAccountToken(EntityTokenBodyRequest) returns (Token) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/sa/{entity}/tokens"
+      body: "token"
+    };
+  }
+
+  // Get service account token
+  rpc GetServiceAccountToken(OwnerSubEntityResourceRequestByUid) returns (Token) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}"
+    };
+  }
+
+  // Update service account token
+  rpc UpdateServiceAccountToken(EntityTokenBodyRequest) returns (Token) {
+    option (google.api.http) = {
+      put: "/api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}"
+      body: "token"
+    };
+  }
+
+  // Patch service account token
+  rpc PatchServiceAccountToken(EntityTokenBodyRequest) returns (Token) {
+    option (google.api.http) = {
+      patch: "/api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}"
+      body: "token"
+    };
+  }
+
+  // Delete service account token
+  rpc DeleteServiceAccountToken(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}"
     };
   }
 }

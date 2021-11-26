@@ -22,7 +22,7 @@ import "google/protobuf/struct.proto";
 
 option go_package = "v1/api";
 
-// Contains list of bookmarks
+// Contains list of of bookmarks
 message ListBookmarksResponse{
   // Count of the entities
   int32 count = 1;

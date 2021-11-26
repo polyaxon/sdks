@@ -83,7 +83,7 @@ message AgentBodyRequest {
 }
 
 
-// Contains list agents
+// Contains list of agents
 message ListAgentsResponse {
     // Count of the entities
     int32 count = 1;
@@ -149,7 +149,7 @@ message Queue {
  }
 
 
-// Contains list agents
+// Contains list of agents
 message ListQueuesResponse {
     // Count of the entities
     int32 count = 1;

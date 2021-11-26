@@ -486,7 +486,7 @@ func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime
 	op := &runtime.ClientOperation{
 		ID:                 "PatchAgentToken",
 		Method:             "PATCH",
-		PathPattern:        "/api/v1/orgs/{owner}/agents/{agent}/token",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/{entity}/token",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -646,7 +646,7 @@ func (a *Client) UpdateAgentToken(params *UpdateAgentTokenParams, authInfo runti
 	op := &runtime.ClientOperation{
 		ID:                 "UpdateAgentToken",
 		Method:             "PUT",
-		PathPattern:        "/api/v1/orgs/{owner}/agents/{agent}/token",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/{entity}/token",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListProjectsResponse Contains list projects
+// V1ListProjectsResponse Contains list of projects
 //
 // swagger:model v1ListProjectsResponse
 type V1ListProjectsResponse struct {

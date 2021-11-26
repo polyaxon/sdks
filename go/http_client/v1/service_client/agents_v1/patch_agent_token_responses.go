@@ -87,7 +87,7 @@ type PatchAgentTokenOK struct {
 }
 
 func (o *PatchAgentTokenOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/token][%d] patchAgentTokenOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenOK  %+v", 200, o.Payload)
 }
 func (o *PatchAgentTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
@@ -119,7 +119,7 @@ type PatchAgentTokenNoContent struct {
 }
 
 func (o *PatchAgentTokenNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/token][%d] patchAgentTokenNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNoContent  %+v", 204, o.Payload)
 }
 func (o *PatchAgentTokenNoContent) GetPayload() interface{} {
 	return o.Payload
@@ -149,7 +149,7 @@ type PatchAgentTokenForbidden struct {
 }
 
 func (o *PatchAgentTokenForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/token][%d] patchAgentTokenForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenForbidden  %+v", 403, o.Payload)
 }
 func (o *PatchAgentTokenForbidden) GetPayload() interface{} {
 	return o.Payload
@@ -179,7 +179,7 @@ type PatchAgentTokenNotFound struct {
 }
 
 func (o *PatchAgentTokenNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/token][%d] patchAgentTokenNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNotFound  %+v", 404, o.Payload)
 }
 func (o *PatchAgentTokenNotFound) GetPayload() interface{} {
 	return o.Payload
@@ -218,7 +218,7 @@ func (o *PatchAgentTokenDefault) Code() int {
 }
 
 func (o *PatchAgentTokenDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/token][%d] PatchAgentToken default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] PatchAgentToken default  %+v", o._statusCode, o.Payload)
 }
 func (o *PatchAgentTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload

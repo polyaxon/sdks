@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListPresetsResponse Contains list scheduling presets
+// V1ListPresetsResponse Contains list of scheduling presets
 //
 // swagger:model v1ListPresetsResponse
 type V1ListPresetsResponse struct {

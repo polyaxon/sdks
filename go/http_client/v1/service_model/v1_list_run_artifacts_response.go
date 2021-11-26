@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListRunArtifactsResponse Contains list run artifacts
+// V1ListRunArtifactsResponse Contains list of run artifacts
 //
 // swagger:model v1ListRunArtifactsResponse
 type V1ListRunArtifactsResponse struct {

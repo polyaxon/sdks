@@ -75,17 +75,17 @@ func NewPatchAgentTokenParamsWithHTTPClient(client *http.Client) *PatchAgentToke
 */
 type PatchAgentTokenParams struct {
 
-	/* Agent.
-
-	   Agent
-	*/
-	Agent string
-
 	/* Body.
 
 	   Token body
 	*/
 	Body *service_model.V1Token
+
+	/* Entity.
+
+	   Rntity
+	*/
+	Entity string
 
 	/* Owner.
 
@@ -146,17 +146,6 @@ func (o *PatchAgentTokenParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithAgent adds the agent to the patch agent token params
-func (o *PatchAgentTokenParams) WithAgent(agent string) *PatchAgentTokenParams {
-	o.SetAgent(agent)
-	return o
-}
-
-// SetAgent adds the agent to the patch agent token params
-func (o *PatchAgentTokenParams) SetAgent(agent string) {
-	o.Agent = agent
-}
-
 // WithBody adds the body to the patch agent token params
 func (o *PatchAgentTokenParams) WithBody(body *service_model.V1Token) *PatchAgentTokenParams {
 	o.SetBody(body)
@@ -166,6 +155,17 @@ func (o *PatchAgentTokenParams) WithBody(body *service_model.V1Token) *PatchAgen
 // SetBody adds the body to the patch agent token params
 func (o *PatchAgentTokenParams) SetBody(body *service_model.V1Token) {
 	o.Body = body
+}
+
+// WithEntity adds the entity to the patch agent token params
+func (o *PatchAgentTokenParams) WithEntity(entity string) *PatchAgentTokenParams {
+	o.SetEntity(entity)
+	return o
+}
+
+// SetEntity adds the entity to the patch agent token params
+func (o *PatchAgentTokenParams) SetEntity(entity string) {
+	o.Entity = entity
 }
 
 // WithOwner adds the owner to the patch agent token params
@@ -186,15 +186,15 @@ func (o *PatchAgentTokenParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
-	// path param agent
-	if err := r.SetPathParam("agent", o.Agent); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
+	}
+
+	// path param entity
+	if err := r.SetPathParam("entity", o.Entity); err != nil {
+		return err
 	}
 
 	// path param owner

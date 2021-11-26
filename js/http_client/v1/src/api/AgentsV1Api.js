@@ -586,20 +586,20 @@ export default class AgentsV1Api {
     /**
      * Patch agent token
      * @param {String} owner Owner of the namespace
-     * @param {String} agent Agent
+     * @param {String} entity Rntity
      * @param {module:model/V1Token} body Token body
      * @param {module:api/AgentsV1Api~patchAgentTokenCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Token}
      */
-    patchAgentToken(owner, agent, body, callback) {
+    patchAgentToken(owner, entity, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling patchAgentToken");
       }
-      // verify the required parameter 'agent' is set
-      if (agent === undefined || agent === null) {
-        throw new Error("Missing the required parameter 'agent' when calling patchAgentToken");
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling patchAgentToken");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -608,7 +608,7 @@ export default class AgentsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'agent': agent
+        'entity': entity
       };
       let queryParams = {
       };
@@ -622,7 +622,7 @@ export default class AgentsV1Api {
       let accepts = ['application/json'];
       let returnType = V1Token;
       return this.apiClient.callApi(
-        '/api/v1/orgs/{owner}/agents/{agent}/token', 'PATCH',
+        '/api/v1/orgs/{owner}/agents/{entity}/token', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -797,20 +797,20 @@ export default class AgentsV1Api {
     /**
      * Update agent token
      * @param {String} owner Owner of the namespace
-     * @param {String} agent Agent
+     * @param {String} entity Rntity
      * @param {module:model/V1Token} body Token body
      * @param {module:api/AgentsV1Api~updateAgentTokenCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Token}
      */
-    updateAgentToken(owner, agent, body, callback) {
+    updateAgentToken(owner, entity, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling updateAgentToken");
       }
-      // verify the required parameter 'agent' is set
-      if (agent === undefined || agent === null) {
-        throw new Error("Missing the required parameter 'agent' when calling updateAgentToken");
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling updateAgentToken");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -819,7 +819,7 @@ export default class AgentsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'agent': agent
+        'entity': entity
       };
       let queryParams = {
       };
@@ -833,7 +833,7 @@ export default class AgentsV1Api {
       let accepts = ['application/json'];
       let returnType = V1Token;
       return this.apiClient.callApi(
-        '/api/v1/orgs/{owner}/agents/{agent}/token', 'PUT',
+        '/api/v1/orgs/{owner}/agents/{entity}/token', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

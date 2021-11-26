@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListDashboardsResponse Contains list dashboards
+// V1ListDashboardsResponse Contains list of dashboards
 //
 // swagger:model v1ListDashboardsResponse
 type V1ListDashboardsResponse struct {

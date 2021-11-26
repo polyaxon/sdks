@@ -64,7 +64,7 @@ message ConnectionResponse {
  }
 
 
-// Contains list connections
+// Contains list of connections
 message ListConnectionsResponse {
     // Count of the entities
     int32 count = 1;

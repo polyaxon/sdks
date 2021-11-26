@@ -1820,124 +1820,6 @@
         ]
       }
     },
-    "/api/v1/orgs/{owner}/agents/{agent}/token": {
-      "put": {
-        "summary": "Update agent token",
-        "operationId": "UpdateAgentToken",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Token"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "agent",
-            "description": "Agent",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Token body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1Token"
-            }
-          }
-        ],
-        "tags": [
-          "AgentsV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch agent token",
-        "operationId": "PatchAgentToken",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Token"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "agent",
-            "description": "Agent",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Token body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1Token"
-            }
-          }
-        ],
-        "tags": [
-          "AgentsV1"
-        ]
-      }
-    },
     "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}": {
       "get": {
         "summary": "Get queue",
@@ -2046,6 +1928,124 @@
         ],
         "tags": [
           "QueuesV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/agents/{entity}/token": {
+      "put": {
+        "summary": "Update agent token",
+        "operationId": "UpdateAgentToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Rntity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Token body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      },
+      "patch": {
+        "summary": "Patch agent token",
+        "operationId": "PatchAgentToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Rntity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Token body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          }
+        ],
+        "tags": [
+          "AgentsV1"
         ]
       }
     },
@@ -5572,6 +5572,816 @@
         ],
         "tags": [
           "OrganizationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa": {
+      "get": {
+        "summary": "List service accounts",
+        "operationId": "ListServiceAccounts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListServiceAccountsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Mode of the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      },
+      "post": {
+        "summary": "Create service account",
+        "operationId": "CreateServiceAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "ServiceAccount body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/names": {
+      "get": {
+        "summary": "List service accounts names",
+        "operationId": "ListServiceAccountNames",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListServiceAccountsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Mode of the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/{entity}/tokens": {
+      "post": {
+        "summary": "Create service account token",
+        "operationId": "CreateServiceAccountToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Rntity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Token body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}": {
+      "put": {
+        "summary": "Update service account token",
+        "operationId": "UpdateServiceAccountToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Rntity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token.uuid",
+            "description": "UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Token body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      },
+      "patch": {
+        "summary": "Patch service account token",
+        "operationId": "PatchServiceAccountToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Rntity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token.uuid",
+            "description": "UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Token body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}": {
+      "get": {
+        "summary": "Get service account token",
+        "operationId": "GetServiceAccountToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Token"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      },
+      "delete": {
+        "summary": "Delete service account token",
+        "operationId": "DeleteServiceAccountToken",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/{sa.uuid}": {
+      "put": {
+        "summary": "Update service account",
+        "operationId": "UpdateServiceAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sa.uuid",
+            "description": "UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "ServiceAccount body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      },
+      "patch": {
+        "summary": "Patch service account",
+        "operationId": "PatchServiceAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sa.uuid",
+            "description": "UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "ServiceAccount body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/{uuid}": {
+      "get": {
+        "summary": "Get service account",
+        "operationId": "GetServiceAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ServiceAccount"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      },
+      "delete": {
+        "summary": "Delete service account",
+        "operationId": "DeleteServiceAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/sa/{uuid}/tokens": {
+      "get": {
+        "summary": "List service account tokens",
+        "operationId": "ListServiceAccountTokens",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListTokenResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ServiceAccountsV1"
         ]
       }
     },
@@ -21158,7 +21968,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list activities"
+      "title": "Contains list of activities"
     },
     "v1ListAgentsResponse": {
       "type": "object",
@@ -21184,7 +21994,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list agents"
+      "title": "Contains list of agents"
     },
     "v1ListBookmarksResponse": {
       "type": "object",
@@ -21210,7 +22020,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list of bookmarks"
+      "title": "Contains list of of bookmarks"
     },
     "v1ListComponentHubsResponse": {
       "type": "object",
@@ -21236,7 +22046,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list component hub"
+      "title": "Contains list of component hub"
     },
     "v1ListComponentVersionsResponse": {
       "type": "object",
@@ -21262,7 +22072,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list component hub"
+      "title": "Contains list of component hub"
     },
     "v1ListConnectionsResponse": {
       "type": "object",
@@ -21288,7 +22098,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list connections"
+      "title": "Contains list of connections"
     },
     "v1ListDashboardsResponse": {
       "type": "object",
@@ -21314,7 +22124,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list dashboards"
+      "title": "Contains list of dashboards"
     },
     "v1ListModelRegistriesResponse": {
       "type": "object",
@@ -21340,7 +22150,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list model registries"
+      "title": "Contains list of model registries"
     },
     "v1ListModelVersionsResponse": {
       "type": "object",
@@ -21366,7 +22176,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list model versions"
+      "title": "Contains list of model versions"
     },
     "v1ListOrganizationMembersResponse": {
       "type": "object",
@@ -21392,7 +22202,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list organization members"
+      "title": "Contains list of organization members"
     },
     "v1ListOrganizationsResponse": {
       "type": "object",
@@ -21418,7 +22228,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list organizations"
+      "title": "Contains list of organizations"
     },
     "v1ListPresetsResponse": {
       "type": "object",
@@ -21444,7 +22254,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list scheduling presets"
+      "title": "Contains list of scheduling presets"
     },
     "v1ListProjectsResponse": {
       "type": "object",
@@ -21470,7 +22280,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list projects"
+      "title": "Contains list of projects"
     },
     "v1ListQueuesResponse": {
       "type": "object",
@@ -21496,7 +22306,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list agents"
+      "title": "Contains list of agents"
     },
     "v1ListRunArtifactsResponse": {
       "type": "object",
@@ -21522,7 +22332,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list run artifacts"
+      "title": "Contains list of run artifacts"
     },
     "v1ListRunConnectionsResponse": {
       "type": "object",
@@ -21548,7 +22358,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list runs"
+      "title": "Contains list of runs"
     },
     "v1ListRunEdgesResponse": {
       "type": "object",
@@ -21574,7 +22384,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list run edges"
+      "title": "Contains list of run edges"
     },
     "v1ListRunsResponse": {
       "type": "object",
@@ -21600,7 +22410,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list runs"
+      "title": "Contains list of runs"
     },
     "v1ListSearchesResponse": {
       "type": "object",
@@ -21626,7 +22436,33 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list searches"
+      "title": "Contains list of searches"
+    },
+    "v1ListServiceAccountsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Count of the entities"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ServiceAccount"
+          },
+          "title": "List of all entities"
+        },
+        "previous": {
+          "type": "string",
+          "title": "Previous page"
+        },
+        "next": {
+          "type": "string",
+          "title": "Next page"
+        }
+      },
+      "title": "Contains list of service accounts"
     },
     "v1ListTagsResponse": {
       "type": "object",
@@ -21652,7 +22488,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list tags"
+      "title": "Contains list of tags"
     },
     "v1ListTeamMembersResponse": {
       "type": "object",
@@ -21678,7 +22514,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list organization members"
+      "title": "Contains list of organization members"
     },
     "v1ListTeamsResponse": {
       "type": "object",
@@ -21704,7 +22540,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list teams"
+      "title": "Contains list of teams"
     },
     "v1ListTokenResponse": {
       "type": "object",
@@ -21730,7 +22566,7 @@
           "title": "Next page"
         }
       },
-      "title": "Contains list tokens"
+      "title": "Contains list of tokens"
     },
     "v1Log": {
       "type": "object",
@@ -23878,6 +24714,60 @@
         }
       },
       "title": "Service specification"
+    },
+    "v1ServiceAccount": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "UUID"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "description": {
+          "type": "string",
+          "title": "Optional description"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity"
+        },
+        "live_state": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Current live state"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional time when the entity was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional last time the entity was updated"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional scopes allowed for this service account"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional services allowed for this service account"
+        }
+      },
+      "title": "ServiceAccount specification"
     },
     "v1SettingsCatalog": {
       "type": "object",

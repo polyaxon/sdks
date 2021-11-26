@@ -138,11 +138,11 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.AgentsV1Api* | [**listAgentNames**](docs/AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 *PolyaxonSdk.AgentsV1Api* | [**listAgents**](docs/AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 *PolyaxonSdk.AgentsV1Api* | [**patchAgent**](docs/AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
-*PolyaxonSdk.AgentsV1Api* | [**patchAgentToken**](docs/AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/token | Patch agent token
+*PolyaxonSdk.AgentsV1Api* | [**patchAgentToken**](docs/AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 *PolyaxonSdk.AgentsV1Api* | [**syncAgent**](docs/AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 *PolyaxonSdk.AgentsV1Api* | [**updateAgent**](docs/AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 *PolyaxonSdk.AgentsV1Api* | [**updateAgentConfig**](docs/AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
-*PolyaxonSdk.AgentsV1Api* | [**updateAgentToken**](docs/AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/token | Update agent token
+*PolyaxonSdk.AgentsV1Api* | [**updateAgentToken**](docs/AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 *PolyaxonSdk.ArtifactsStoresV1Api* | [**uploadArtifact**](docs/ArtifactsStoresV1Api.md#uploadArtifact) | **POST** /api/v1/catalogs/{owner}/artifacts/{uuid}/upload | Upload artifact to a store
 *PolyaxonSdk.AuthV1Api* | [**changePassword**](docs/AuthV1Api.md#changePassword) | **POST** /api/v1/auth/change-password | Change password
 *PolyaxonSdk.AuthV1Api* | [**login**](docs/AuthV1Api.md#login) | **POST** /api/v1/auth/token | Login
@@ -369,6 +369,19 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.SearchesV1Api* | [**listSearches**](docs/SearchesV1Api.md#listSearches) | **GET** /api/v1/orgs/{owner}/searches | List searches
 *PolyaxonSdk.SearchesV1Api* | [**patchSearch**](docs/SearchesV1Api.md#patchSearch) | **PATCH** /api/v1/orgs/{owner}/searches/{search.uuid} | Patch search
 *PolyaxonSdk.SearchesV1Api* | [**updateSearch**](docs/SearchesV1Api.md#updateSearch) | **PUT** /api/v1/orgs/{owner}/searches/{search.uuid} | Update search
+*PolyaxonSdk.ServiceAccountsV1Api* | [**createServiceAccount**](docs/ServiceAccountsV1Api.md#createServiceAccount) | **POST** /api/v1/orgs/{owner}/sa | Create service account
+*PolyaxonSdk.ServiceAccountsV1Api* | [**createServiceAccountToken**](docs/ServiceAccountsV1Api.md#createServiceAccountToken) | **POST** /api/v1/orgs/{owner}/sa/{entity}/tokens | Create service account token
+*PolyaxonSdk.ServiceAccountsV1Api* | [**deleteServiceAccount**](docs/ServiceAccountsV1Api.md#deleteServiceAccount) | **DELETE** /api/v1/orgs/{owner}/sa/{uuid} | Delete service account
+*PolyaxonSdk.ServiceAccountsV1Api* | [**deleteServiceAccountToken**](docs/ServiceAccountsV1Api.md#deleteServiceAccountToken) | **DELETE** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Delete service account token
+*PolyaxonSdk.ServiceAccountsV1Api* | [**getServiceAccount**](docs/ServiceAccountsV1Api.md#getServiceAccount) | **GET** /api/v1/orgs/{owner}/sa/{uuid} | Get service account
+*PolyaxonSdk.ServiceAccountsV1Api* | [**getServiceAccountToken**](docs/ServiceAccountsV1Api.md#getServiceAccountToken) | **GET** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Get service account token
+*PolyaxonSdk.ServiceAccountsV1Api* | [**listServiceAccountNames**](docs/ServiceAccountsV1Api.md#listServiceAccountNames) | **GET** /api/v1/orgs/{owner}/sa/names | List service accounts names
+*PolyaxonSdk.ServiceAccountsV1Api* | [**listServiceAccountTokens**](docs/ServiceAccountsV1Api.md#listServiceAccountTokens) | **GET** /api/v1/orgs/{owner}/sa/{uuid}/tokens | List service account tokens
+*PolyaxonSdk.ServiceAccountsV1Api* | [**listServiceAccounts**](docs/ServiceAccountsV1Api.md#listServiceAccounts) | **GET** /api/v1/orgs/{owner}/sa | List service accounts
+*PolyaxonSdk.ServiceAccountsV1Api* | [**patchServiceAccount**](docs/ServiceAccountsV1Api.md#patchServiceAccount) | **PATCH** /api/v1/orgs/{owner}/sa/{sa.uuid} | Patch service account
+*PolyaxonSdk.ServiceAccountsV1Api* | [**patchServiceAccountToken**](docs/ServiceAccountsV1Api.md#patchServiceAccountToken) | **PATCH** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Patch service account token
+*PolyaxonSdk.ServiceAccountsV1Api* | [**updateServiceAccount**](docs/ServiceAccountsV1Api.md#updateServiceAccount) | **PUT** /api/v1/orgs/{owner}/sa/{sa.uuid} | Update service account
+*PolyaxonSdk.ServiceAccountsV1Api* | [**updateServiceAccountToken**](docs/ServiceAccountsV1Api.md#updateServiceAccountToken) | **PUT** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Update service account token
 *PolyaxonSdk.TagsV1Api* | [**createTag**](docs/TagsV1Api.md#createTag) | **POST** /api/v1/orgs/{owner}/tags | Create tag
 *PolyaxonSdk.TagsV1Api* | [**deleteTag**](docs/TagsV1Api.md#deleteTag) | **DELETE** /api/v1/orgs/{owner}/tags/{uuid} | Delete tag
 *PolyaxonSdk.TagsV1Api* | [**getTag**](docs/TagsV1Api.md#getTag) | **GET** /api/v1/orgs/{owner}/tags/{uuid} | Get tag
@@ -538,6 +551,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1ListRunEdgesResponse](docs/V1ListRunEdgesResponse.md)
  - [PolyaxonSdk.V1ListRunsResponse](docs/V1ListRunsResponse.md)
  - [PolyaxonSdk.V1ListSearchesResponse](docs/V1ListSearchesResponse.md)
+ - [PolyaxonSdk.V1ListServiceAccountsResponse](docs/V1ListServiceAccountsResponse.md)
  - [PolyaxonSdk.V1ListTagsResponse](docs/V1ListTagsResponse.md)
  - [PolyaxonSdk.V1ListTeamMembersResponse](docs/V1ListTeamMembersResponse.md)
  - [PolyaxonSdk.V1ListTeamsResponse](docs/V1ListTeamsResponse.md)
@@ -604,6 +618,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1SearchSpec](docs/V1SearchSpec.md)
  - [PolyaxonSdk.V1SectionSpec](docs/V1SectionSpec.md)
  - [PolyaxonSdk.V1Service](docs/V1Service.md)
+ - [PolyaxonSdk.V1ServiceAccount](docs/V1ServiceAccount.md)
  - [PolyaxonSdk.V1SettingsCatalog](docs/V1SettingsCatalog.md)
  - [PolyaxonSdk.V1Spark](docs/V1Spark.md)
  - [PolyaxonSdk.V1SparkReplica](docs/V1SparkReplica.md)

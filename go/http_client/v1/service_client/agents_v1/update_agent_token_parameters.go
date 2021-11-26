@@ -75,17 +75,17 @@ func NewUpdateAgentTokenParamsWithHTTPClient(client *http.Client) *UpdateAgentTo
 */
 type UpdateAgentTokenParams struct {
 
-	/* Agent.
-
-	   Agent
-	*/
-	Agent string
-
 	/* Body.
 
 	   Token body
 	*/
 	Body *service_model.V1Token
+
+	/* Entity.
+
+	   Rntity
+	*/
+	Entity string
 
 	/* Owner.
 
@@ -146,17 +146,6 @@ func (o *UpdateAgentTokenParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithAgent adds the agent to the update agent token params
-func (o *UpdateAgentTokenParams) WithAgent(agent string) *UpdateAgentTokenParams {
-	o.SetAgent(agent)
-	return o
-}
-
-// SetAgent adds the agent to the update agent token params
-func (o *UpdateAgentTokenParams) SetAgent(agent string) {
-	o.Agent = agent
-}
-
 // WithBody adds the body to the update agent token params
 func (o *UpdateAgentTokenParams) WithBody(body *service_model.V1Token) *UpdateAgentTokenParams {
 	o.SetBody(body)
@@ -166,6 +155,17 @@ func (o *UpdateAgentTokenParams) WithBody(body *service_model.V1Token) *UpdateAg
 // SetBody adds the body to the update agent token params
 func (o *UpdateAgentTokenParams) SetBody(body *service_model.V1Token) {
 	o.Body = body
+}
+
+// WithEntity adds the entity to the update agent token params
+func (o *UpdateAgentTokenParams) WithEntity(entity string) *UpdateAgentTokenParams {
+	o.SetEntity(entity)
+	return o
+}
+
+// SetEntity adds the entity to the update agent token params
+func (o *UpdateAgentTokenParams) SetEntity(entity string) {
+	o.Entity = entity
 }
 
 // WithOwner adds the owner to the update agent token params
@@ -186,15 +186,15 @@ func (o *UpdateAgentTokenParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
-	// path param agent
-	if err := r.SetPathParam("agent", o.Agent); err != nil {
-		return err
-	}
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
+	}
+
+	// path param entity
+	if err := r.SetPathParam("entity", o.Entity); err != nil {
+		return err
 	}
 
 	// path param owner

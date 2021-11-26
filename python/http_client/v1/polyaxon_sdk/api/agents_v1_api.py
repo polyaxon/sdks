@@ -1649,19 +1649,19 @@ class AgentsV1Api(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def patch_agent_token(self, owner, agent, body, **kwargs):  # noqa: E501
+    def patch_agent_token(self, owner, entity, body, **kwargs):  # noqa: E501
         """Patch agent token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_agent_token(owner, agent, body, async_req=True)
+        >>> thread = api.patch_agent_token(owner, entity, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param agent: Agent (required)
-        :type agent: str
+        :param entity: Rntity (required)
+        :type entity: str
         :param body: Token body (required)
         :type body: V1Token
         :param async_req: Whether to execute the request asynchronously.
@@ -1680,21 +1680,21 @@ class AgentsV1Api(object):
         :rtype: V1Token
         """
         kwargs['_return_http_data_only'] = True
-        return self.patch_agent_token_with_http_info(owner, agent, body, **kwargs)  # noqa: E501
+        return self.patch_agent_token_with_http_info(owner, entity, body, **kwargs)  # noqa: E501
 
-    def patch_agent_token_with_http_info(self, owner, agent, body, **kwargs):  # noqa: E501
+    def patch_agent_token_with_http_info(self, owner, entity, body, **kwargs):  # noqa: E501
         """Patch agent token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.patch_agent_token_with_http_info(owner, agent, body, async_req=True)
+        >>> thread = api.patch_agent_token_with_http_info(owner, entity, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param agent: Agent (required)
-        :type agent: str
+        :param entity: Rntity (required)
+        :type entity: str
         :param body: Token body (required)
         :type body: V1Token
         :param async_req: Whether to execute the request asynchronously.
@@ -1724,7 +1724,7 @@ class AgentsV1Api(object):
 
         all_params = [
             'owner',
-            'agent',
+            'entity',
             'body'
         ]
         all_params.extend(
@@ -1749,10 +1749,10 @@ class AgentsV1Api(object):
         if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
                                                         local_var_params['owner'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `owner` when calling `patch_agent_token`")  # noqa: E501
-        # verify the required parameter 'agent' is set
-        if self.api_client.client_side_validation and ('agent' not in local_var_params or  # noqa: E501
-                                                        local_var_params['agent'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `agent` when calling `patch_agent_token`")  # noqa: E501
+        # verify the required parameter 'entity' is set
+        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
+                                                        local_var_params['entity'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `entity` when calling `patch_agent_token`")  # noqa: E501
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
                                                         local_var_params['body'] is None):  # noqa: E501
@@ -1763,8 +1763,8 @@ class AgentsV1Api(object):
         path_params = {}
         if 'owner' in local_var_params:
             path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'agent' in local_var_params:
-            path_params['agent'] = local_var_params['agent']  # noqa: E501
+        if 'entity' in local_var_params:
+            path_params['entity'] = local_var_params['entity']  # noqa: E501
 
         query_params = []
 
@@ -1795,7 +1795,7 @@ class AgentsV1Api(object):
         }
 
         return self.api_client.call_api(
-            '/api/v1/orgs/{owner}/agents/{agent}/token', 'PATCH',
+            '/api/v1/orgs/{owner}/agents/{entity}/token', 'PATCH',
             path_params,
             query_params,
             header_params,
@@ -2292,19 +2292,19 @@ class AgentsV1Api(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def update_agent_token(self, owner, agent, body, **kwargs):  # noqa: E501
+    def update_agent_token(self, owner, entity, body, **kwargs):  # noqa: E501
         """Update agent token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_agent_token(owner, agent, body, async_req=True)
+        >>> thread = api.update_agent_token(owner, entity, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param agent: Agent (required)
-        :type agent: str
+        :param entity: Rntity (required)
+        :type entity: str
         :param body: Token body (required)
         :type body: V1Token
         :param async_req: Whether to execute the request asynchronously.
@@ -2323,21 +2323,21 @@ class AgentsV1Api(object):
         :rtype: V1Token
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_agent_token_with_http_info(owner, agent, body, **kwargs)  # noqa: E501
+        return self.update_agent_token_with_http_info(owner, entity, body, **kwargs)  # noqa: E501
 
-    def update_agent_token_with_http_info(self, owner, agent, body, **kwargs):  # noqa: E501
+    def update_agent_token_with_http_info(self, owner, entity, body, **kwargs):  # noqa: E501
         """Update agent token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_agent_token_with_http_info(owner, agent, body, async_req=True)
+        >>> thread = api.update_agent_token_with_http_info(owner, entity, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param agent: Agent (required)
-        :type agent: str
+        :param entity: Rntity (required)
+        :type entity: str
         :param body: Token body (required)
         :type body: V1Token
         :param async_req: Whether to execute the request asynchronously.
@@ -2367,7 +2367,7 @@ class AgentsV1Api(object):
 
         all_params = [
             'owner',
-            'agent',
+            'entity',
             'body'
         ]
         all_params.extend(
@@ -2392,10 +2392,10 @@ class AgentsV1Api(object):
         if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
                                                         local_var_params['owner'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `owner` when calling `update_agent_token`")  # noqa: E501
-        # verify the required parameter 'agent' is set
-        if self.api_client.client_side_validation and ('agent' not in local_var_params or  # noqa: E501
-                                                        local_var_params['agent'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `agent` when calling `update_agent_token`")  # noqa: E501
+        # verify the required parameter 'entity' is set
+        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
+                                                        local_var_params['entity'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `entity` when calling `update_agent_token`")  # noqa: E501
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
                                                         local_var_params['body'] is None):  # noqa: E501
@@ -2406,8 +2406,8 @@ class AgentsV1Api(object):
         path_params = {}
         if 'owner' in local_var_params:
             path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'agent' in local_var_params:
-            path_params['agent'] = local_var_params['agent']  # noqa: E501
+        if 'entity' in local_var_params:
+            path_params['entity'] = local_var_params['entity']  # noqa: E501
 
         query_params = []
 
@@ -2438,7 +2438,7 @@ class AgentsV1Api(object):
         }
 
         return self.api_client.call_api(
-            '/api/v1/orgs/{owner}/agents/{agent}/token', 'PUT',
+            '/api/v1/orgs/{owner}/agents/{entity}/token', 'PUT',
             path_params,
             query_params,
             header_params,

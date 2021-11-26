@@ -103,11 +103,11 @@ Class | Method | HTTP request | Description
 *AgentsV1Api* | [**list_agent_names**](docs/AgentsV1Api.md#list_agent_names) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 *AgentsV1Api* | [**list_agents**](docs/AgentsV1Api.md#list_agents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 *AgentsV1Api* | [**patch_agent**](docs/AgentsV1Api.md#patch_agent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
-*AgentsV1Api* | [**patch_agent_token**](docs/AgentsV1Api.md#patch_agent_token) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/token | Patch agent token
+*AgentsV1Api* | [**patch_agent_token**](docs/AgentsV1Api.md#patch_agent_token) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 *AgentsV1Api* | [**sync_agent**](docs/AgentsV1Api.md#sync_agent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 *AgentsV1Api* | [**update_agent**](docs/AgentsV1Api.md#update_agent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 *AgentsV1Api* | [**update_agent_config**](docs/AgentsV1Api.md#update_agent_config) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
-*AgentsV1Api* | [**update_agent_token**](docs/AgentsV1Api.md#update_agent_token) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/token | Update agent token
+*AgentsV1Api* | [**update_agent_token**](docs/AgentsV1Api.md#update_agent_token) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 *ArtifactsStoresV1Api* | [**upload_artifact**](docs/ArtifactsStoresV1Api.md#upload_artifact) | **POST** /api/v1/catalogs/{owner}/artifacts/{uuid}/upload | Upload artifact to a store
 *AuthV1Api* | [**change_password**](docs/AuthV1Api.md#change_password) | **POST** /api/v1/auth/change-password | Change password
 *AuthV1Api* | [**login**](docs/AuthV1Api.md#login) | **POST** /api/v1/auth/token | Login
@@ -334,6 +334,19 @@ Class | Method | HTTP request | Description
 *SearchesV1Api* | [**list_searches**](docs/SearchesV1Api.md#list_searches) | **GET** /api/v1/orgs/{owner}/searches | List searches
 *SearchesV1Api* | [**patch_search**](docs/SearchesV1Api.md#patch_search) | **PATCH** /api/v1/orgs/{owner}/searches/{search.uuid} | Patch search
 *SearchesV1Api* | [**update_search**](docs/SearchesV1Api.md#update_search) | **PUT** /api/v1/orgs/{owner}/searches/{search.uuid} | Update search
+*ServiceAccountsV1Api* | [**create_service_account**](docs/ServiceAccountsV1Api.md#create_service_account) | **POST** /api/v1/orgs/{owner}/sa | Create service account
+*ServiceAccountsV1Api* | [**create_service_account_token**](docs/ServiceAccountsV1Api.md#create_service_account_token) | **POST** /api/v1/orgs/{owner}/sa/{entity}/tokens | Create service account token
+*ServiceAccountsV1Api* | [**delete_service_account**](docs/ServiceAccountsV1Api.md#delete_service_account) | **DELETE** /api/v1/orgs/{owner}/sa/{uuid} | Delete service account
+*ServiceAccountsV1Api* | [**delete_service_account_token**](docs/ServiceAccountsV1Api.md#delete_service_account_token) | **DELETE** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Delete service account token
+*ServiceAccountsV1Api* | [**get_service_account**](docs/ServiceAccountsV1Api.md#get_service_account) | **GET** /api/v1/orgs/{owner}/sa/{uuid} | Get service account
+*ServiceAccountsV1Api* | [**get_service_account_token**](docs/ServiceAccountsV1Api.md#get_service_account_token) | **GET** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Get service account token
+*ServiceAccountsV1Api* | [**list_service_account_names**](docs/ServiceAccountsV1Api.md#list_service_account_names) | **GET** /api/v1/orgs/{owner}/sa/names | List service accounts names
+*ServiceAccountsV1Api* | [**list_service_account_tokens**](docs/ServiceAccountsV1Api.md#list_service_account_tokens) | **GET** /api/v1/orgs/{owner}/sa/{uuid}/tokens | List service account tokens
+*ServiceAccountsV1Api* | [**list_service_accounts**](docs/ServiceAccountsV1Api.md#list_service_accounts) | **GET** /api/v1/orgs/{owner}/sa | List service accounts
+*ServiceAccountsV1Api* | [**patch_service_account**](docs/ServiceAccountsV1Api.md#patch_service_account) | **PATCH** /api/v1/orgs/{owner}/sa/{sa.uuid} | Patch service account
+*ServiceAccountsV1Api* | [**patch_service_account_token**](docs/ServiceAccountsV1Api.md#patch_service_account_token) | **PATCH** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Patch service account token
+*ServiceAccountsV1Api* | [**update_service_account**](docs/ServiceAccountsV1Api.md#update_service_account) | **PUT** /api/v1/orgs/{owner}/sa/{sa.uuid} | Update service account
+*ServiceAccountsV1Api* | [**update_service_account_token**](docs/ServiceAccountsV1Api.md#update_service_account_token) | **PUT** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Update service account token
 *TagsV1Api* | [**create_tag**](docs/TagsV1Api.md#create_tag) | **POST** /api/v1/orgs/{owner}/tags | Create tag
 *TagsV1Api* | [**delete_tag**](docs/TagsV1Api.md#delete_tag) | **DELETE** /api/v1/orgs/{owner}/tags/{uuid} | Delete tag
 *TagsV1Api* | [**get_tag**](docs/TagsV1Api.md#get_tag) | **GET** /api/v1/orgs/{owner}/tags/{uuid} | Get tag
@@ -503,6 +516,7 @@ Class | Method | HTTP request | Description
  - [V1ListRunEdgesResponse](docs/V1ListRunEdgesResponse.md)
  - [V1ListRunsResponse](docs/V1ListRunsResponse.md)
  - [V1ListSearchesResponse](docs/V1ListSearchesResponse.md)
+ - [V1ListServiceAccountsResponse](docs/V1ListServiceAccountsResponse.md)
  - [V1ListTagsResponse](docs/V1ListTagsResponse.md)
  - [V1ListTeamMembersResponse](docs/V1ListTeamMembersResponse.md)
  - [V1ListTeamsResponse](docs/V1ListTeamsResponse.md)
@@ -569,6 +583,7 @@ Class | Method | HTTP request | Description
  - [V1SearchSpec](docs/V1SearchSpec.md)
  - [V1SectionSpec](docs/V1SectionSpec.md)
  - [V1Service](docs/V1Service.md)
+ - [V1ServiceAccount](docs/V1ServiceAccount.md)
  - [V1SettingsCatalog](docs/V1SettingsCatalog.md)
  - [V1Spark](docs/V1Spark.md)
  - [V1SparkReplica](docs/V1SparkReplica.md)

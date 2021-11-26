@@ -113,7 +113,7 @@ message ComponentVersion {
  }
 
 
-// Contains list component hub
+// Contains list of component hub
 message ListComponentHubsResponse {
     // Count of the entities
     int32 count = 1;
@@ -142,7 +142,7 @@ message ComponentVersionBodyRequest {
 }
 
 
-// Contains list component hub
+// Contains list of component hub
 message ListComponentVersionsResponse {
   // Count of the entities
   int32 count = 1;

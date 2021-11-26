@@ -62,7 +62,7 @@ message Team {
  }
 
 
-// Contains list teams
+// Contains list of teams
 message ListTeamsResponse {
     // Count of the entities
     int32 count = 1;
@@ -111,7 +111,7 @@ message TeamMemberBodyRequest {
     TeamMember member = 3;
  }
 
-// Contains list organization members
+// Contains list of organization members
 message ListTeamMembersResponse {
     // Count of the entities
     int32 count = 1;

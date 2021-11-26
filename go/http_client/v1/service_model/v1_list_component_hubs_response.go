@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListComponentHubsResponse Contains list component hub
+// V1ListComponentHubsResponse Contains list of component hub
 //
 // swagger:model v1ListComponentHubsResponse
 type V1ListComponentHubsResponse struct {

@@ -240,9 +240,9 @@ public class AgentsV1ApiTest {
     @Test
     public void patchAgentTokenTest() throws ApiException {
         String owner = null;
-        String agent = null;
+        String entity = null;
         V1Token body = null;
-                V1Token response = api.patchAgentToken(owner, agent, body);
+                V1Token response = api.patchAgentToken(owner, entity, body);
         // TODO: test validations
     }
     
@@ -308,9 +308,9 @@ public class AgentsV1ApiTest {
     @Test
     public void updateAgentTokenTest() throws ApiException {
         String owner = null;
-        String agent = null;
+        String entity = null;
         V1Token body = null;
-                V1Token response = api.updateAgentToken(owner, agent, body);
+                V1Token response = api.updateAgentToken(owner, entity, body);
         // TODO: test validations
     }
     

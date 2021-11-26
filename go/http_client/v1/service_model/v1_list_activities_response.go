@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListActivitiesResponse Contains list activities
+// V1ListActivitiesResponse Contains list of activities
 //
 // swagger:model v1ListActivitiesResponse
 type V1ListActivitiesResponse struct {

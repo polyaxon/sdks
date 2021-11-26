@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListConnectionsResponse Contains list connections
+// V1ListConnectionsResponse Contains list of connections
 //
 // swagger:model v1ListConnectionsResponse
 type V1ListConnectionsResponse struct {

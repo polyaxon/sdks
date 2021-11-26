@@ -50,7 +50,7 @@ message Activity {
 }
 
 
- // Contains list activities
+ // Contains list of activities
  message ListActivitiesResponse{
   // Count of the entities
   int32 count = 1;

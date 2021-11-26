@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListModelRegistriesResponse Contains list model registries
+// V1ListModelRegistriesResponse Contains list of model registries
 //
 // swagger:model v1ListModelRegistriesResponse
 type V1ListModelRegistriesResponse struct {

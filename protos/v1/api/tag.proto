@@ -53,7 +53,7 @@ message TagBodyRequest {
 }
 
 
-// Contains list tags
+// Contains list of tags
 message ListTagsResponse {
   // Count of the entities
   int32 count = 1;

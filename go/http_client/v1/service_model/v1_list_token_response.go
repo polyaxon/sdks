@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListTokenResponse Contains list tokens
+// V1ListTokenResponse Contains list of tokens
 //
 // swagger:model v1ListTokenResponse
 type V1ListTokenResponse struct {

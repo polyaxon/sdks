@@ -121,7 +121,7 @@ export interface PatchAgentRequest {
 
 export interface PatchAgentTokenRequest {
     owner: string;
-    agent: string;
+    entity: string;
     body: V1Token;
 }
 
@@ -145,7 +145,7 @@ export interface UpdateAgentConfigRequest {
 
 export interface UpdateAgentTokenRequest {
     owner: string;
-    agent: string;
+    entity: string;
     body: V1Token;
 }
 
@@ -618,8 +618,8 @@ export class AgentsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchAgentToken.');
         }
 
-        if (requestParameters.agent === null || requestParameters.agent === undefined) {
-            throw new runtime.RequiredError('agent','Required parameter requestParameters.agent was null or undefined when calling patchAgentToken.');
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling patchAgentToken.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -637,7 +637,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/orgs/{owner}/agents/{agent}/token`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"agent"}}`, encodeURIComponent(String(requestParameters.agent))),
+            path: `/api/v1/orgs/{owner}/agents/{entity}/token`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -797,8 +797,8 @@ export class AgentsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateAgentToken.');
         }
 
-        if (requestParameters.agent === null || requestParameters.agent === undefined) {
-            throw new runtime.RequiredError('agent','Required parameter requestParameters.agent was null or undefined when calling updateAgentToken.');
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling updateAgentToken.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -816,7 +816,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/orgs/{owner}/agents/{agent}/token`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"agent"}}`, encodeURIComponent(String(requestParameters.agent))),
+            path: `/api/v1/orgs/{owner}/agents/{entity}/token`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))),
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,

@@ -7510,7 +7510,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list activities",
+      "title": "Contains list of activities",
       "type": "object"
     },
     "v1ListAgentsResponse": {
@@ -7536,7 +7536,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list agents",
+      "title": "Contains list of agents",
       "type": "object"
     },
     "v1ListBookmarksResponse": {
@@ -7562,7 +7562,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list of bookmarks",
+      "title": "Contains list of of bookmarks",
       "type": "object"
     },
     "v1ListComponentHubsResponse": {
@@ -7588,7 +7588,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list component hub",
+      "title": "Contains list of component hub",
       "type": "object"
     },
     "v1ListComponentVersionsResponse": {
@@ -7614,7 +7614,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list component hub",
+      "title": "Contains list of component hub",
       "type": "object"
     },
     "v1ListConnectionsResponse": {
@@ -7640,7 +7640,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list connections",
+      "title": "Contains list of connections",
       "type": "object"
     },
     "v1ListDashboardsResponse": {
@@ -7666,7 +7666,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list dashboards",
+      "title": "Contains list of dashboards",
       "type": "object"
     },
     "v1ListModelRegistriesResponse": {
@@ -7692,7 +7692,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list model registries",
+      "title": "Contains list of model registries",
       "type": "object"
     },
     "v1ListModelVersionsResponse": {
@@ -7718,7 +7718,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list model versions",
+      "title": "Contains list of model versions",
       "type": "object"
     },
     "v1ListOrganizationMembersResponse": {
@@ -7744,7 +7744,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list organization members",
+      "title": "Contains list of organization members",
       "type": "object"
     },
     "v1ListOrganizationsResponse": {
@@ -7770,7 +7770,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list organizations",
+      "title": "Contains list of organizations",
       "type": "object"
     },
     "v1ListPresetsResponse": {
@@ -7796,7 +7796,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list scheduling presets",
+      "title": "Contains list of scheduling presets",
       "type": "object"
     },
     "v1ListProjectsResponse": {
@@ -7822,7 +7822,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list projects",
+      "title": "Contains list of projects",
       "type": "object"
     },
     "v1ListQueuesResponse": {
@@ -7848,7 +7848,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list agents",
+      "title": "Contains list of agents",
       "type": "object"
     },
     "v1ListRunArtifactsResponse": {
@@ -7874,7 +7874,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list run artifacts",
+      "title": "Contains list of run artifacts",
       "type": "object"
     },
     "v1ListRunConnectionsResponse": {
@@ -7900,7 +7900,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list runs",
+      "title": "Contains list of runs",
       "type": "object"
     },
     "v1ListRunEdgesResponse": {
@@ -7926,7 +7926,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list run edges",
+      "title": "Contains list of run edges",
       "type": "object"
     },
     "v1ListRunsResponse": {
@@ -7952,7 +7952,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list runs",
+      "title": "Contains list of runs",
       "type": "object"
     },
     "v1ListSearchesResponse": {
@@ -7978,7 +7978,33 @@
           "type": "array"
         }
       },
-      "title": "Contains list searches",
+      "title": "Contains list of searches",
+      "type": "object"
+    },
+    "v1ListServiceAccountsResponse": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "title": "Count of the entities",
+          "type": "integer"
+        },
+        "next": {
+          "title": "Next page",
+          "type": "string"
+        },
+        "previous": {
+          "title": "Previous page",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/v1ServiceAccount"
+          },
+          "title": "List of all entities",
+          "type": "array"
+        }
+      },
+      "title": "Contains list of service accounts",
       "type": "object"
     },
     "v1ListTagsResponse": {
@@ -8004,7 +8030,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list tags",
+      "title": "Contains list of tags",
       "type": "object"
     },
     "v1ListTeamMembersResponse": {
@@ -8030,7 +8056,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list organization members",
+      "title": "Contains list of organization members",
       "type": "object"
     },
     "v1ListTeamsResponse": {
@@ -8056,7 +8082,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list teams",
+      "title": "Contains list of teams",
       "type": "object"
     },
     "v1ListTokenResponse": {
@@ -8082,7 +8108,7 @@
           "type": "array"
         }
       },
-      "title": "Contains list tokens",
+      "title": "Contains list of tokens",
       "type": "object"
     },
     "v1Log": {
@@ -10318,6 +10344,60 @@
         }
       },
       "title": "Service specification",
+      "type": "object"
+    },
+    "v1ServiceAccount": {
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "title": "Optional time when the entity was created",
+          "type": "string"
+        },
+        "description": {
+          "title": "Optional description",
+          "type": "string"
+        },
+        "live_state": {
+          "format": "int32",
+          "title": "Current live state",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "scopes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional scopes allowed for this service account",
+          "type": "array"
+        },
+        "services": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional services allowed for this service account",
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity",
+          "type": "array"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        }
+      },
+      "title": "ServiceAccount specification",
       "type": "object"
     },
     "v1SettingsCatalog": {

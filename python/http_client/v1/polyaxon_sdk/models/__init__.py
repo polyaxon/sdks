@@ -163,6 +163,7 @@ from polyaxon_sdk.models.v1_list_run_connections_response import V1ListRunConnec
 from polyaxon_sdk.models.v1_list_run_edges_response import V1ListRunEdgesResponse
 from polyaxon_sdk.models.v1_list_runs_response import V1ListRunsResponse
 from polyaxon_sdk.models.v1_list_searches_response import V1ListSearchesResponse
+from polyaxon_sdk.models.v1_list_service_accounts_response import V1ListServiceAccountsResponse
 from polyaxon_sdk.models.v1_list_tags_response import V1ListTagsResponse
 from polyaxon_sdk.models.v1_list_team_members_response import V1ListTeamMembersResponse
 from polyaxon_sdk.models.v1_list_teams_response import V1ListTeamsResponse
@@ -229,6 +230,7 @@ from polyaxon_sdk.models.v1_search import V1Search
 from polyaxon_sdk.models.v1_search_spec import V1SearchSpec
 from polyaxon_sdk.models.v1_section_spec import V1SectionSpec
 from polyaxon_sdk.models.v1_service import V1Service
+from polyaxon_sdk.models.v1_service_account import V1ServiceAccount
 from polyaxon_sdk.models.v1_settings_catalog import V1SettingsCatalog
 from polyaxon_sdk.models.v1_spark import V1Spark
 from polyaxon_sdk.models.v1_spark_replica import V1SparkReplica

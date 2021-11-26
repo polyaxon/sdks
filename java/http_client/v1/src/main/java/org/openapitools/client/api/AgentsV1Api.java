@@ -1586,7 +1586,7 @@ public class AgentsV1Api {
     /**
      * Build call for patchAgentToken
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1601,13 +1601,13 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAgentTokenCall(String owner, String agent, V1Token body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchAgentTokenCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/orgs/{owner}/agents/{agent}/token"
+        String localVarPath = "/api/v1/orgs/{owner}/agents/{entity}/token"
             .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "agent" + "\\}", localVarApiClient.escapeString(agent.toString()));
+            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1634,16 +1634,16 @@ public class AgentsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchAgentTokenValidateBeforeCall(String owner, String agent, V1Token body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchAgentTokenValidateBeforeCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchAgentToken(Async)");
         }
         
-        // verify the required parameter 'agent' is set
-        if (agent == null) {
-            throw new ApiException("Missing the required parameter 'agent' when calling patchAgentToken(Async)");
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling patchAgentToken(Async)");
         }
         
         // verify the required parameter 'body' is set
@@ -1652,7 +1652,7 @@ public class AgentsV1Api {
         }
         
 
-        okhttp3.Call localVarCall = patchAgentTokenCall(owner, agent, body, _callback);
+        okhttp3.Call localVarCall = patchAgentTokenCall(owner, entity, body, _callback);
         return localVarCall;
 
     }
@@ -1661,7 +1661,7 @@ public class AgentsV1Api {
      * Patch agent token
      * 
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @return V1Token
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1675,8 +1675,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1Token patchAgentToken(String owner, String agent, V1Token body) throws ApiException {
-        ApiResponse<V1Token> localVarResp = patchAgentTokenWithHttpInfo(owner, agent, body);
+    public V1Token patchAgentToken(String owner, String entity, V1Token body) throws ApiException {
+        ApiResponse<V1Token> localVarResp = patchAgentTokenWithHttpInfo(owner, entity, body);
         return localVarResp.getData();
     }
 
@@ -1684,7 +1684,7 @@ public class AgentsV1Api {
      * Patch agent token
      * 
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @return ApiResponse&lt;V1Token&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1698,8 +1698,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1Token> patchAgentTokenWithHttpInfo(String owner, String agent, V1Token body) throws ApiException {
-        okhttp3.Call localVarCall = patchAgentTokenValidateBeforeCall(owner, agent, body, null);
+    public ApiResponse<V1Token> patchAgentTokenWithHttpInfo(String owner, String entity, V1Token body) throws ApiException {
+        okhttp3.Call localVarCall = patchAgentTokenValidateBeforeCall(owner, entity, body, null);
         Type localVarReturnType = new TypeToken<V1Token>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1708,7 +1708,7 @@ public class AgentsV1Api {
      * Patch agent token (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1723,9 +1723,9 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchAgentTokenAsync(String owner, String agent, V1Token body, final ApiCallback<V1Token> _callback) throws ApiException {
+    public okhttp3.Call patchAgentTokenAsync(String owner, String entity, V1Token body, final ApiCallback<V1Token> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchAgentTokenValidateBeforeCall(owner, agent, body, _callback);
+        okhttp3.Call localVarCall = patchAgentTokenValidateBeforeCall(owner, entity, body, _callback);
         Type localVarReturnType = new TypeToken<V1Token>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2170,7 +2170,7 @@ public class AgentsV1Api {
     /**
      * Build call for updateAgentToken
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2185,13 +2185,13 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAgentTokenCall(String owner, String agent, V1Token body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAgentTokenCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/orgs/{owner}/agents/{agent}/token"
+        String localVarPath = "/api/v1/orgs/{owner}/agents/{entity}/token"
             .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "agent" + "\\}", localVarApiClient.escapeString(agent.toString()));
+            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2218,16 +2218,16 @@ public class AgentsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAgentTokenValidateBeforeCall(String owner, String agent, V1Token body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAgentTokenValidateBeforeCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateAgentToken(Async)");
         }
         
-        // verify the required parameter 'agent' is set
-        if (agent == null) {
-            throw new ApiException("Missing the required parameter 'agent' when calling updateAgentToken(Async)");
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling updateAgentToken(Async)");
         }
         
         // verify the required parameter 'body' is set
@@ -2236,7 +2236,7 @@ public class AgentsV1Api {
         }
         
 
-        okhttp3.Call localVarCall = updateAgentTokenCall(owner, agent, body, _callback);
+        okhttp3.Call localVarCall = updateAgentTokenCall(owner, entity, body, _callback);
         return localVarCall;
 
     }
@@ -2245,7 +2245,7 @@ public class AgentsV1Api {
      * Update agent token
      * 
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @return V1Token
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2259,8 +2259,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1Token updateAgentToken(String owner, String agent, V1Token body) throws ApiException {
-        ApiResponse<V1Token> localVarResp = updateAgentTokenWithHttpInfo(owner, agent, body);
+    public V1Token updateAgentToken(String owner, String entity, V1Token body) throws ApiException {
+        ApiResponse<V1Token> localVarResp = updateAgentTokenWithHttpInfo(owner, entity, body);
         return localVarResp.getData();
     }
 
@@ -2268,7 +2268,7 @@ public class AgentsV1Api {
      * Update agent token
      * 
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @return ApiResponse&lt;V1Token&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2282,8 +2282,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1Token> updateAgentTokenWithHttpInfo(String owner, String agent, V1Token body) throws ApiException {
-        okhttp3.Call localVarCall = updateAgentTokenValidateBeforeCall(owner, agent, body, null);
+    public ApiResponse<V1Token> updateAgentTokenWithHttpInfo(String owner, String entity, V1Token body) throws ApiException {
+        okhttp3.Call localVarCall = updateAgentTokenValidateBeforeCall(owner, entity, body, null);
         Type localVarReturnType = new TypeToken<V1Token>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2292,7 +2292,7 @@ public class AgentsV1Api {
      * Update agent token (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param agent Agent (required)
+     * @param entity Rntity (required)
      * @param body Token body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2307,9 +2307,9 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAgentTokenAsync(String owner, String agent, V1Token body, final ApiCallback<V1Token> _callback) throws ApiException {
+    public okhttp3.Call updateAgentTokenAsync(String owner, String entity, V1Token body, final ApiCallback<V1Token> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAgentTokenValidateBeforeCall(owner, agent, body, _callback);
+        okhttp3.Call localVarCall = updateAgentTokenValidateBeforeCall(owner, entity, body, _callback);
         Type localVarReturnType = new TypeToken<V1Token>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

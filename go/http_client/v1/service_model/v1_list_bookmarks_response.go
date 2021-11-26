@@ -26,7 +26,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListBookmarksResponse Contains list of bookmarks
+// V1ListBookmarksResponse Contains list of of bookmarks
 //
 // swagger:model v1ListBookmarksResponse
 type V1ListBookmarksResponse struct {

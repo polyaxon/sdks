@@ -75,7 +75,7 @@ message Dashboard {
     Dashboard dashboard = 3;
  }
 
-// Contains list dashboards
+// Contains list of dashboards
 message ListDashboardsResponse {
     // Count of the entities
     int32 count = 1;

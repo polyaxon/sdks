@@ -62,7 +62,7 @@ message Preset {
  }
 
 
-// Contains list scheduling presets
+// Contains list of scheduling presets
 message ListPresetsResponse {
     // Count of the entities
     int32 count = 1;

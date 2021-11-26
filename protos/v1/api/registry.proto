@@ -120,7 +120,7 @@ message ModelVersion {
  }
 
 
-// Contains list model registries
+// Contains list of model registries
 message ListModelRegistriesResponse {
     // Count of the entities
     int32 count = 1;
@@ -148,7 +148,7 @@ message ListModelRegistriesResponse {
 }
 
 
-// Contains list model versions
+// Contains list of model versions
 message ListModelVersionsResponse {
   // Count of the entities
   int32 count = 1;

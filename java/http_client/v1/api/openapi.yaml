@@ -1756,125 +1756,6 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /api/v1/orgs/{owner}/agents/{agent}/token:
-    patch:
-      operationId: PatchAgentToken
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Agent
-        in: path
-        name: agent
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1Token'
-        description: Token body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Token'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch agent token
-      tags:
-      - AgentsV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateAgentToken
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Agent
-        in: path
-        name: agent
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1Token'
-        description: Token body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Token'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update agent token
-      tags:
-      - AgentsV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}:
     delete:
       operationId: DeleteQueue
@@ -1984,6 +1865,125 @@ paths:
       summary: Get queue
       tags:
       - QueuesV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/agents/{entity}/token:
+    patch:
+      operationId: PatchAgentToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Rntity
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Token'
+        description: Token body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Token'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Patch agent token
+      tags:
+      - AgentsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      operationId: UpdateAgentToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Rntity
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Token'
+        description: Token body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Token'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Update agent token
+      tags:
+      - AgentsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
       x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{name}/queues:
     get:
@@ -5329,6 +5329,792 @@ paths:
       - OrganizationsV1
       x-codegen-request-body-name: body
       x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa:
+    get:
+      operationId: ListServiceAccounts
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: Filter by bookmarks.
+        in: query
+        name: bookmarks
+        schema:
+          type: boolean
+      - description: Mode of the search.
+        in: query
+        name: mode
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListServiceAccountsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List service accounts
+      tags:
+      - ServiceAccountsV1
+      x-accepts: application/json
+    post:
+      operationId: CreateServiceAccount
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ServiceAccount'
+        description: ServiceAccount body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ServiceAccount'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Create service account
+      tags:
+      - ServiceAccountsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/names:
+    get:
+      operationId: ListServiceAccountNames
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: Filter by bookmarks.
+        in: query
+        name: bookmarks
+        schema:
+          type: boolean
+      - description: Mode of the search.
+        in: query
+        name: mode
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListServiceAccountsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List service accounts names
+      tags:
+      - ServiceAccountsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/{entity}/tokens:
+    post:
+      operationId: CreateServiceAccountToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Rntity
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Token'
+        description: Token body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Token'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Create service account token
+      tags:
+      - ServiceAccountsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}:
+    patch:
+      operationId: PatchServiceAccountToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Rntity
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: UUID
+        in: path
+        name: token.uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Token'
+        description: Token body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Token'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Patch service account token
+      tags:
+      - ServiceAccountsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      operationId: UpdateServiceAccountToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Rntity
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: UUID
+        in: path
+        name: token.uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Token'
+        description: Token body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Token'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Update service account token
+      tags:
+      - ServiceAccountsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}:
+    delete:
+      operationId: DeleteServiceAccountToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: 'Entity: project name, hub name, registry name, ...'
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Uuid identifier of the sub-entity
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Delete service account token
+      tags:
+      - ServiceAccountsV1
+      x-accepts: application/json
+    get:
+      operationId: GetServiceAccountToken
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: 'Entity: project name, hub name, registry name, ...'
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Uuid identifier of the sub-entity
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Token'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get service account token
+      tags:
+      - ServiceAccountsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/{sa.uuid}:
+    patch:
+      operationId: PatchServiceAccount
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: UUID
+        in: path
+        name: sa.uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ServiceAccount'
+        description: ServiceAccount body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ServiceAccount'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Patch service account
+      tags:
+      - ServiceAccountsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      operationId: UpdateServiceAccount
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: UUID
+        in: path
+        name: sa.uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ServiceAccount'
+        description: ServiceAccount body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ServiceAccount'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Update service account
+      tags:
+      - ServiceAccountsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/{uuid}:
+    delete:
+      operationId: DeleteServiceAccount
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Uuid identifier of the entity
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Delete service account
+      tags:
+      - ServiceAccountsV1
+      x-accepts: application/json
+    get:
+      operationId: GetServiceAccount
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Uuid identifier of the entity
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ServiceAccount'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get service account
+      tags:
+      - ServiceAccountsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/sa/{uuid}/tokens:
+    get:
+      operationId: ListServiceAccountTokens
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Uuid identifier of the entity
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListTokenResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List service account tokens
+      tags:
+      - ServiceAccountsV1
       x-accepts: application/json
   /api/v1/orgs/{owner}/searches:
     get:
@@ -22555,7 +23341,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list activities
+      title: Contains list of activities
       type: object
     v1ListAgentsResponse:
       example:
@@ -22611,7 +23397,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list agents
+      title: Contains list of agents
       type: object
     v1ListBookmarksResponse:
       example:
@@ -22638,7 +23424,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list of bookmarks
+      title: Contains list of of bookmarks
       type: object
     v1ListComponentHubsResponse:
       example:
@@ -22704,7 +23490,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list component hub
+      title: Contains list of component hub
       type: object
     v1ListComponentVersionsResponse:
       example:
@@ -22772,7 +23558,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list component hub
+      title: Contains list of component hub
       type: object
     v1ListConnectionsResponse:
       example:
@@ -22816,7 +23602,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list connections
+      title: Contains list of connections
       type: object
     v1ListDashboardsResponse:
       example:
@@ -22900,7 +23686,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list dashboards
+      title: Contains list of dashboards
       type: object
     v1ListModelRegistriesResponse:
       example:
@@ -22972,7 +23758,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list model registries
+      title: Contains list of model registries
       type: object
     v1ListModelVersionsResponse:
       example:
@@ -23044,7 +23830,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list model versions
+      title: Contains list of model versions
       type: object
     v1ListOrganizationMembersResponse:
       example:
@@ -23078,7 +23864,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list organization members
+      title: Contains list of organization members
       type: object
     v1ListOrganizationsResponse:
       example:
@@ -23132,7 +23918,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list organizations
+      title: Contains list of organizations
       type: object
     v1ListPresetsResponse:
       example:
@@ -23178,7 +23964,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list scheduling presets
+      title: Contains list of scheduling presets
       type: object
     v1ListProjectsResponse:
       example:
@@ -23286,7 +24072,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list projects
+      title: Contains list of projects
       type: object
     v1ListQueuesResponse:
       example:
@@ -23336,7 +24122,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list agents
+      title: Contains list of agents
       type: object
     v1ListRunArtifactsResponse:
       example:
@@ -23372,7 +24158,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list run artifacts
+      title: Contains list of run artifacts
       type: object
     v1ListRunConnectionsResponse:
       example:
@@ -23402,7 +24188,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list runs
+      title: Contains list of runs
       type: object
     v1ListRunEdgesResponse:
       example:
@@ -23730,7 +24516,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list run edges
+      title: Contains list of run edges
       type: object
     v1ListRunsResponse:
       example:
@@ -23900,7 +24686,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list runs
+      title: Contains list of runs
       type: object
     v1ListSearchesResponse:
       example:
@@ -24020,7 +24806,61 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list searches
+      title: Contains list of searches
+      type: object
+    v1ListServiceAccountsResponse:
+      example:
+        next: next
+        previous: previous
+        count: 0
+        results:
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          created_at: 2000-01-23T04:56:07.000+00:00
+          live_state: 6
+          scopes:
+          - scopes
+          - scopes
+          services:
+          - services
+          - services
+          uuid: uuid
+          tags:
+          - tags
+          - tags
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          created_at: 2000-01-23T04:56:07.000+00:00
+          live_state: 6
+          scopes:
+          - scopes
+          - scopes
+          services:
+          - services
+          - services
+          uuid: uuid
+          tags:
+          - tags
+          - tags
+      properties:
+        count:
+          format: int32
+          title: Count of the entities
+          type: integer
+        results:
+          items:
+            $ref: '#/components/schemas/v1ServiceAccount'
+          title: List of all entities
+          type: array
+        previous:
+          title: Previous page
+          type: string
+        next:
+          title: Next page
+          type: string
+      title: Contains list of service accounts
       type: object
     v1ListTagsResponse:
       example:
@@ -24056,7 +24896,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list tags
+      title: Contains list of tags
       type: object
     v1ListTeamMembersResponse:
       example:
@@ -24092,7 +24932,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list organization members
+      title: Contains list of organization members
       type: object
     v1ListTeamsResponse:
       example:
@@ -24174,7 +25014,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list teams
+      title: Contains list of teams
       type: object
     v1ListTokenResponse:
       example:
@@ -24226,7 +25066,7 @@ components:
         next:
           title: Next page
           type: string
-      title: Contains list tokens
+      title: Contains list of tokens
       type: object
     v1Log:
       example:
@@ -37440,6 +38280,62 @@ components:
             Default is false, the service shoud handle a base url.
           type: boolean
       title: Service specification
+      type: object
+    v1ServiceAccount:
+      example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        created_at: 2000-01-23T04:56:07.000+00:00
+        live_state: 6
+        scopes:
+        - scopes
+        - scopes
+        services:
+        - services
+        - services
+        uuid: uuid
+        tags:
+        - tags
+        - tags
+      properties:
+        uuid:
+          title: UUID
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Optional description
+          type: string
+        tags:
+          items:
+            type: string
+          title: Optional tags of this entity
+          type: array
+        live_state:
+          format: int32
+          title: Current live state
+          type: integer
+        created_at:
+          format: date-time
+          title: Optional time when the entity was created
+          type: string
+        updated_at:
+          format: date-time
+          title: Optional last time the entity was updated
+          type: string
+        scopes:
+          items:
+            type: string
+          title: Optional scopes allowed for this service account
+          type: array
+        services:
+          items:
+            type: string
+          title: Optional services allowed for this service account
+          type: array
+      title: ServiceAccount specification
       type: object
     v1SettingsCatalog:
       example:

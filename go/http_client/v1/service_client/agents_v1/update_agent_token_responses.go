@@ -87,7 +87,7 @@ type UpdateAgentTokenOK struct {
 }
 
 func (o *UpdateAgentTokenOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/token][%d] updateAgentTokenOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{entity}/token][%d] updateAgentTokenOK  %+v", 200, o.Payload)
 }
 func (o *UpdateAgentTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
@@ -119,7 +119,7 @@ type UpdateAgentTokenNoContent struct {
 }
 
 func (o *UpdateAgentTokenNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/token][%d] updateAgentTokenNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{entity}/token][%d] updateAgentTokenNoContent  %+v", 204, o.Payload)
 }
 func (o *UpdateAgentTokenNoContent) GetPayload() interface{} {
 	return o.Payload
@@ -149,7 +149,7 @@ type UpdateAgentTokenForbidden struct {
 }
 
 func (o *UpdateAgentTokenForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/token][%d] updateAgentTokenForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{entity}/token][%d] updateAgentTokenForbidden  %+v", 403, o.Payload)
 }
 func (o *UpdateAgentTokenForbidden) GetPayload() interface{} {
 	return o.Payload
@@ -179,7 +179,7 @@ type UpdateAgentTokenNotFound struct {
 }
 
 func (o *UpdateAgentTokenNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/token][%d] updateAgentTokenNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{entity}/token][%d] updateAgentTokenNotFound  %+v", 404, o.Payload)
 }
 func (o *UpdateAgentTokenNotFound) GetPayload() interface{} {
 	return o.Payload
@@ -218,7 +218,7 @@ func (o *UpdateAgentTokenDefault) Code() int {
 }
 
 func (o *UpdateAgentTokenDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/token][%d] UpdateAgentToken default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{entity}/token][%d] UpdateAgentToken default  %+v", o._statusCode, o.Payload)
 }
 func (o *UpdateAgentTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload

@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListModelVersionsResponse Contains list model versions
+// V1ListModelVersionsResponse Contains list of model versions
 //
 // swagger:model v1ListModelVersionsResponse
 type V1ListModelVersionsResponse struct {

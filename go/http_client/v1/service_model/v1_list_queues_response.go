@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListQueuesResponse Contains list agents
+// V1ListQueuesResponse Contains list of agents
 //
 // swagger:model v1ListQueuesResponse
 type V1ListQueuesResponse struct {

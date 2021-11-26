@@ -16,11 +16,11 @@ Method | HTTP request | Description
 [**listAgentNames**](AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
-[**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/token | Patch agent token
+[**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
-[**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/token | Update agent token
+[**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 
 
 
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ## patchAgentToken
 
-> V1Token patchAgentToken(owner, agent, body)
+> V1Token patchAgentToken(owner, entity, body)
 
 Patch agent token
 
@@ -597,9 +597,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let agent = "agent_example"; // String | Agent
+let entity = "entity_example"; // String | Rntity
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
-apiInstance.patchAgentToken(owner, agent, body, (error, data, response) => {
+apiInstance.patchAgentToken(owner, entity, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -614,7 +614,7 @@ apiInstance.patchAgentToken(owner, agent, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **agent** | **String**| Agent | 
+ **entity** | **String**| Rntity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type
@@ -792,7 +792,7 @@ Name | Type | Description  | Notes
 
 ## updateAgentToken
 
-> V1Token updateAgentToken(owner, agent, body)
+> V1Token updateAgentToken(owner, entity, body)
 
 Update agent token
 
@@ -809,9 +809,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let agent = "agent_example"; // String | Agent
+let entity = "entity_example"; // String | Rntity
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
-apiInstance.updateAgentToken(owner, agent, body, (error, data, response) => {
+apiInstance.updateAgentToken(owner, entity, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -826,7 +826,7 @@ apiInstance.updateAgentToken(owner, agent, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **agent** | **String**| Agent | 
+ **entity** | **String**| Rntity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type

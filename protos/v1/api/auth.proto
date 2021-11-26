@@ -107,26 +107,26 @@ message Token {
     int32 expiration = 10;
 }
 
- // Request data to create/update token
- message AgentTokenBodyRequest {
+ // Request data to create/update/delete an entity token
+ message EntityTokenBodyRequest {
     // Owner of the namespace
     string owner = 1;
 
-    // Agent
-    string agent = 2;
+    // Rntity
+    string entity = 2;
 
     // Token body
     Token token = 3;
- }
+}
 
-  // Request data to create/update token
-  message TokenBodyRequest {
+// Request data to create/update token
+message TokenBodyRequest {
     // Token body
     Token token = 1;
- }
+}
 
 
-// Contains list tokens
+// Contains list of tokens
 message ListTokenResponse {
     // Count of the entities
     int32 count = 1;

@@ -94,7 +94,7 @@ message Search {
  }
 
 
-// Contains list searches
+// Contains list of searches
 message ListSearchesResponse {
     // Count of the entities
     int32 count = 1;

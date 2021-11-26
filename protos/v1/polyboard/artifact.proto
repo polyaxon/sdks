@@ -142,7 +142,7 @@ message RunArtifacts {
     repeated RunArtifact artifacts = 1;
 }
 
-// Contains list run artifacts
+// Contains list of run artifacts
 message ListRunArtifactsResponse {
     // Count of the entities
     int32 count = 1;

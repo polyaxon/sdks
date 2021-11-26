@@ -76,7 +76,7 @@ message Project {
     Project project = 2;
  }
 
- // Contains list projects
+ // Contains list of projects
  message ListProjectsResponse {
     // Count of the entities
     int32 count = 1;

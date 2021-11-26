@@ -15,11 +15,11 @@ Method | HTTP request | Description
 [**listAgentNames**](AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
-[**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/token | Patch agent token
+[**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
-[**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/token | Update agent token
+[**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 
 
 <a name="createAgent"></a>
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 
 <a name="patchAgentToken"></a>
 # **patchAgentToken**
-> V1Token patchAgentToken(owner, agent, body)
+> V1Token patchAgentToken(owner, entity, body)
 
 Patch agent token
 
@@ -814,10 +814,10 @@ public class Example {
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String agent = "agent_example"; // String | Agent
+    String entity = "entity_example"; // String | Rntity
     V1Token body = new V1Token(); // V1Token | Token body
     try {
-      V1Token result = apiInstance.patchAgentToken(owner, agent, body);
+      V1Token result = apiInstance.patchAgentToken(owner, entity, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentsV1Api#patchAgentToken");
@@ -835,7 +835,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace |
- **agent** | **String**| Agent |
+ **entity** | **String**| Rntity |
  **body** | [**V1Token**](V1Token.md)| Token body |
 
 ### Return type
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 
 <a name="updateAgentToken"></a>
 # **updateAgentToken**
-> V1Token updateAgentToken(owner, agent, body)
+> V1Token updateAgentToken(owner, entity, body)
 
 Update agent token
 
@@ -1113,10 +1113,10 @@ public class Example {
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String agent = "agent_example"; // String | Agent
+    String entity = "entity_example"; // String | Rntity
     V1Token body = new V1Token(); // V1Token | Token body
     try {
-      V1Token result = apiInstance.updateAgentToken(owner, agent, body);
+      V1Token result = apiInstance.updateAgentToken(owner, entity, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentsV1Api#updateAgentToken");
@@ -1134,7 +1134,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace |
- **agent** | **String**| Agent |
+ **entity** | **String**| Rntity |
  **body** | [**V1Token**](V1Token.md)| Token body |
 
 ### Return type

@@ -15,11 +15,11 @@ Method | HTTP request | Description
 [**list_agent_names**](AgentsV1Api.md#list_agent_names) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 [**list_agents**](AgentsV1Api.md#list_agents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 [**patch_agent**](AgentsV1Api.md#patch_agent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
-[**patch_agent_token**](AgentsV1Api.md#patch_agent_token) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/token | Patch agent token
+[**patch_agent_token**](AgentsV1Api.md#patch_agent_token) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 [**sync_agent**](AgentsV1Api.md#sync_agent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 [**update_agent**](AgentsV1Api.md#update_agent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 [**update_agent_config**](AgentsV1Api.md#update_agent_config) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
-[**update_agent_token**](AgentsV1Api.md#update_agent_token) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/token | Update agent token
+[**update_agent_token**](AgentsV1Api.md#update_agent_token) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 
 
 # **create_agent**
@@ -826,7 +826,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_agent_token**
-> V1Token patch_agent_token(owner, agent, body)
+> V1Token patch_agent_token(owner, entity, body)
 
 Patch agent token
 
@@ -861,12 +861,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent = 'agent_example' # str | Agent
+entity = 'entity_example' # str | Rntity
 body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
         # Patch agent token
-        api_response = api_instance.patch_agent_token(owner, agent, body)
+        api_response = api_instance.patch_agent_token(owner, entity, body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AgentsV1Api->patch_agent_token: %s\n" % e)
@@ -877,7 +877,7 @@ body = polyaxon_sdk.V1Token() # V1Token | Token body
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **agent** | **str**| Agent | 
+ **entity** | **str**| Rntity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type
@@ -1141,7 +1141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_agent_token**
-> V1Token update_agent_token(owner, agent, body)
+> V1Token update_agent_token(owner, entity, body)
 
 Update agent token
 
@@ -1176,12 +1176,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent = 'agent_example' # str | Agent
+entity = 'entity_example' # str | Rntity
 body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
         # Update agent token
-        api_response = api_instance.update_agent_token(owner, agent, body)
+        api_response = api_instance.update_agent_token(owner, entity, body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AgentsV1Api->update_agent_token: %s\n" % e)
@@ -1192,7 +1192,7 @@ body = polyaxon_sdk.V1Token() # V1Token | Token body
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **agent** | **str**| Agent | 
+ **entity** | **str**| Rntity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type

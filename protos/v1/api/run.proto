@@ -252,7 +252,7 @@ message RunBodyRequest {
     Run run = 3;
 }
 
- // Contains list runs
+ // Contains list of runs
  message ListRunsResponse{
     // Count of the entities
     int32 count = 1;
@@ -324,7 +324,7 @@ message RunConnection {
    string kind = 3;
 }
 
-// Contains list runs
+// Contains list of runs
 message ListRunConnectionsResponse {
   // Count of the entities
   int32 count = 1;
@@ -368,7 +368,7 @@ message RunEdge {
   repeated Statuses statuses = 5;
 }
 
-// Contains list run edges
+// Contains list of run edges
 message ListRunEdgesResponse {
   // Count of the entities
   int32 count = 1;

@@ -28,7 +28,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ListRunEdgesResponse Contains list run edges
+// V1ListRunEdgesResponse Contains list of run edges
 //
 // swagger:model v1ListRunEdgesResponse
 type V1ListRunEdgesResponse struct {
