@@ -1162,8 +1162,20 @@ class ServiceAccountsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param uuid: Uuid identifier of the entity (required)
+        :param uuid: SubEntity uuid (required)
         :type uuid: str
+        :param entity: Entity name under namesapce.
+        :type entity: str
+        :param offset: Pagination offset.
+        :type offset: int
+        :param limit: Limit size.
+        :type limit: int
+        :param sort: Sort to order the search.
+        :type sort: str
+        :param query: Query filter the search.
+        :type query: str
+        :param no_page: No pagination.
+        :type no_page: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1193,8 +1205,20 @@ class ServiceAccountsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param uuid: Uuid identifier of the entity (required)
+        :param uuid: SubEntity uuid (required)
         :type uuid: str
+        :param entity: Entity name under namesapce.
+        :type entity: str
+        :param offset: Pagination offset.
+        :type offset: int
+        :param limit: Limit size.
+        :type limit: int
+        :param sort: Sort to order the search.
+        :type sort: str
+        :param query: Query filter the search.
+        :type query: str
+        :param no_page: No pagination.
+        :type no_page: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1222,7 +1246,13 @@ class ServiceAccountsV1Api(object):
 
         all_params = [
             'owner',
-            'uuid'
+            'uuid',
+            'entity',
+            'offset',
+            'limit',
+            'sort',
+            'query',
+            'no_page'
         ]
         all_params.extend(
             [
@@ -1260,6 +1290,18 @@ class ServiceAccountsV1Api(object):
             path_params['uuid'] = local_var_params['uuid']  # noqa: E501
 
         query_params = []
+        if 'entity' in local_var_params and local_var_params['entity'] is not None:  # noqa: E501
+            query_params.append(('entity', local_var_params['entity']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
+        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
+            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
 
         header_params = {}
 

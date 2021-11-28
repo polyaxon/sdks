@@ -1107,7 +1107,13 @@ public class ServiceAccountsV1Api {
     /**
      * Build call for listServiceAccountTokens
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the entity (required)
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namesapce. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param noPage No pagination. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1121,7 +1127,7 @@ public class ServiceAccountsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listServiceAccountTokensCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listServiceAccountTokensCall(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1134,6 +1140,30 @@ public class ServiceAccountsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (entity != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("entity", entity));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (noPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("no_page", noPage));
+        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1154,7 +1184,7 @@ public class ServiceAccountsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listServiceAccountTokensValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listServiceAccountTokensValidateBeforeCall(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'owner' is set
         if (owner == null) {
@@ -1167,7 +1197,7 @@ public class ServiceAccountsV1Api {
         }
         
 
-        okhttp3.Call localVarCall = listServiceAccountTokensCall(owner, uuid, _callback);
+        okhttp3.Call localVarCall = listServiceAccountTokensCall(owner, uuid, entity, offset, limit, sort, query, noPage, _callback);
         return localVarCall;
 
     }
@@ -1176,7 +1206,13 @@ public class ServiceAccountsV1Api {
      * List service account tokens
      * 
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the entity (required)
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namesapce. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param noPage No pagination. (optional)
      * @return V1ListTokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1189,8 +1225,8 @@ public class ServiceAccountsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1ListTokenResponse listServiceAccountTokens(String owner, String uuid) throws ApiException {
-        ApiResponse<V1ListTokenResponse> localVarResp = listServiceAccountTokensWithHttpInfo(owner, uuid);
+    public V1ListTokenResponse listServiceAccountTokens(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean noPage) throws ApiException {
+        ApiResponse<V1ListTokenResponse> localVarResp = listServiceAccountTokensWithHttpInfo(owner, uuid, entity, offset, limit, sort, query, noPage);
         return localVarResp.getData();
     }
 
@@ -1198,7 +1234,13 @@ public class ServiceAccountsV1Api {
      * List service account tokens
      * 
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the entity (required)
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namesapce. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param noPage No pagination. (optional)
      * @return ApiResponse&lt;V1ListTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1211,8 +1253,8 @@ public class ServiceAccountsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1ListTokenResponse> listServiceAccountTokensWithHttpInfo(String owner, String uuid) throws ApiException {
-        okhttp3.Call localVarCall = listServiceAccountTokensValidateBeforeCall(owner, uuid, null);
+    public ApiResponse<V1ListTokenResponse> listServiceAccountTokensWithHttpInfo(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean noPage) throws ApiException {
+        okhttp3.Call localVarCall = listServiceAccountTokensValidateBeforeCall(owner, uuid, entity, offset, limit, sort, query, noPage, null);
         Type localVarReturnType = new TypeToken<V1ListTokenResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1221,7 +1263,13 @@ public class ServiceAccountsV1Api {
      * List service account tokens (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the entity (required)
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namesapce. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param noPage No pagination. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1235,9 +1283,9 @@ public class ServiceAccountsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listServiceAccountTokensAsync(String owner, String uuid, final ApiCallback<V1ListTokenResponse> _callback) throws ApiException {
+    public okhttp3.Call listServiceAccountTokensAsync(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback<V1ListTokenResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listServiceAccountTokensValidateBeforeCall(owner, uuid, _callback);
+        okhttp3.Call localVarCall = listServiceAccountTokensValidateBeforeCall(owner, uuid, entity, offset, limit, sort, query, noPage, _callback);
         Type localVarReturnType = new TypeToken<V1ListTokenResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -28,6 +28,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewListServiceAccountTokensParams creates a new ListServiceAccountTokensParams object,
@@ -73,15 +74,55 @@ func NewListServiceAccountTokensParamsWithHTTPClient(client *http.Client) *ListS
 */
 type ListServiceAccountTokensParams struct {
 
+	/* Entity.
+
+	   Entity name under namesapce.
+	*/
+	Entity *string
+
+	/* Limit.
+
+	   Limit size.
+
+	   Format: int32
+	*/
+	Limit *int32
+
+	/* NoPage.
+
+	   No pagination.
+	*/
+	NoPage *bool
+
+	/* Offset.
+
+	   Pagination offset.
+
+	   Format: int32
+	*/
+	Offset *int32
+
 	/* Owner.
 
 	   Owner of the namespace
 	*/
 	Owner string
 
+	/* Query.
+
+	   Query filter the search.
+	*/
+	Query *string
+
+	/* Sort.
+
+	   Sort to order the search.
+	*/
+	Sort *string
+
 	/* UUID.
 
-	   Uuid identifier of the entity
+	   SubEntity uuid
 	*/
 	UUID string
 
@@ -138,6 +179,50 @@ func (o *ListServiceAccountTokensParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithEntity adds the entity to the list service account tokens params
+func (o *ListServiceAccountTokensParams) WithEntity(entity *string) *ListServiceAccountTokensParams {
+	o.SetEntity(entity)
+	return o
+}
+
+// SetEntity adds the entity to the list service account tokens params
+func (o *ListServiceAccountTokensParams) SetEntity(entity *string) {
+	o.Entity = entity
+}
+
+// WithLimit adds the limit to the list service account tokens params
+func (o *ListServiceAccountTokensParams) WithLimit(limit *int32) *ListServiceAccountTokensParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the list service account tokens params
+func (o *ListServiceAccountTokensParams) SetLimit(limit *int32) {
+	o.Limit = limit
+}
+
+// WithNoPage adds the noPage to the list service account tokens params
+func (o *ListServiceAccountTokensParams) WithNoPage(noPage *bool) *ListServiceAccountTokensParams {
+	o.SetNoPage(noPage)
+	return o
+}
+
+// SetNoPage adds the noPage to the list service account tokens params
+func (o *ListServiceAccountTokensParams) SetNoPage(noPage *bool) {
+	o.NoPage = noPage
+}
+
+// WithOffset adds the offset to the list service account tokens params
+func (o *ListServiceAccountTokensParams) WithOffset(offset *int32) *ListServiceAccountTokensParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the list service account tokens params
+func (o *ListServiceAccountTokensParams) SetOffset(offset *int32) {
+	o.Offset = offset
+}
+
 // WithOwner adds the owner to the list service account tokens params
 func (o *ListServiceAccountTokensParams) WithOwner(owner string) *ListServiceAccountTokensParams {
 	o.SetOwner(owner)
@@ -147,6 +232,28 @@ func (o *ListServiceAccountTokensParams) WithOwner(owner string) *ListServiceAcc
 // SetOwner adds the owner to the list service account tokens params
 func (o *ListServiceAccountTokensParams) SetOwner(owner string) {
 	o.Owner = owner
+}
+
+// WithQuery adds the query to the list service account tokens params
+func (o *ListServiceAccountTokensParams) WithQuery(query *string) *ListServiceAccountTokensParams {
+	o.SetQuery(query)
+	return o
+}
+
+// SetQuery adds the query to the list service account tokens params
+func (o *ListServiceAccountTokensParams) SetQuery(query *string) {
+	o.Query = query
+}
+
+// WithSort adds the sort to the list service account tokens params
+func (o *ListServiceAccountTokensParams) WithSort(sort *string) *ListServiceAccountTokensParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the list service account tokens params
+func (o *ListServiceAccountTokensParams) SetSort(sort *string) {
+	o.Sort = sort
 }
 
 // WithUUID adds the uuid to the list service account tokens params
@@ -168,9 +275,111 @@ func (o *ListServiceAccountTokensParams) WriteToRequest(r runtime.ClientRequest,
 	}
 	var res []error
 
+	if o.Entity != nil {
+
+		// query param entity
+		var qrEntity string
+
+		if o.Entity != nil {
+			qrEntity = *o.Entity
+		}
+		qEntity := qrEntity
+		if qEntity != "" {
+
+			if err := r.SetQueryParam("entity", qEntity); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int32
+
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt32(qrLimit)
+		if qLimit != "" {
+
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.NoPage != nil {
+
+		// query param no_page
+		var qrNoPage bool
+
+		if o.NoPage != nil {
+			qrNoPage = *o.NoPage
+		}
+		qNoPage := swag.FormatBool(qrNoPage)
+		if qNoPage != "" {
+
+			if err := r.SetQueryParam("no_page", qNoPage); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Offset != nil {
+
+		// query param offset
+		var qrOffset int32
+
+		if o.Offset != nil {
+			qrOffset = *o.Offset
+		}
+		qOffset := swag.FormatInt32(qrOffset)
+		if qOffset != "" {
+
+			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
 	// path param owner
 	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
+	}
+
+	if o.Query != nil {
+
+		// query param query
+		var qrQuery string
+
+		if o.Query != nil {
+			qrQuery = *o.Query
+		}
+		qQuery := qrQuery
+		if qQuery != "" {
+
+			if err := r.SetQueryParam("query", qQuery); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
+		}
 	}
 
 	// path param uuid

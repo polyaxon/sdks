@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ## listServiceAccountTokens
 
-> V1ListTokenResponse listServiceAccountTokens(owner, uuid)
+> V1ListTokenResponse listServiceAccountTokens(owner, uuid, opts)
 
 List service account tokens
 
@@ -418,8 +418,16 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ServiceAccountsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let uuid = "uuid_example"; // String | Uuid identifier of the entity
-apiInstance.listServiceAccountTokens(owner, uuid, (error, data, response) => {
+let uuid = "uuid_example"; // String | SubEntity uuid
+let opts = {
+  'entity': "entity_example", // String | Entity name under namesapce.
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'no_page': true // Boolean | No pagination.
+};
+apiInstance.listServiceAccountTokens(owner, uuid, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -434,7 +442,13 @@ apiInstance.listServiceAccountTokens(owner, uuid, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **uuid** | **String**| Uuid identifier of the entity | 
+ **uuid** | **String**| SubEntity uuid | 
+ **entity** | **String**| Entity name under namesapce. | [optional] 
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **no_page** | **Boolean**| No pagination. | [optional] 
 
 ### Return type
 

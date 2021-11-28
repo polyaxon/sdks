@@ -93,6 +93,12 @@ export interface ListServiceAccountNamesRequest {
 export interface ListServiceAccountTokensRequest {
     owner: string;
     uuid: string;
+    entity?: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    noPage?: boolean;
 }
 
 export interface ListServiceAccountsRequest {
@@ -456,6 +462,30 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters.entity !== undefined) {
+            queryParameters['entity'] = requestParameters.entity;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 

@@ -424,11 +424,19 @@ export default class ServiceAccountsV1Api {
     /**
      * List service account tokens
      * @param {String} owner Owner of the namespace
-     * @param {String} uuid Uuid identifier of the entity
+     * @param {String} uuid SubEntity uuid
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.entity Entity name under namesapce.
+     * @param {Number} opts.offset Pagination offset.
+     * @param {Number} opts.limit Limit size.
+     * @param {String} opts.sort Sort to order the search.
+     * @param {String} opts.query Query filter the search.
+     * @param {Boolean} opts.no_page No pagination.
      * @param {module:api/ServiceAccountsV1Api~listServiceAccountTokensCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1ListTokenResponse}
      */
-    listServiceAccountTokens(owner, uuid, callback) {
+    listServiceAccountTokens(owner, uuid, opts, callback) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
@@ -444,6 +452,12 @@ export default class ServiceAccountsV1Api {
         'uuid': uuid
       };
       let queryParams = {
+        'entity': opts['entity'],
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'no_page': opts['no_page']
       };
       let headerParams = {
       };

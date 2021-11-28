@@ -6075,12 +6075,44 @@ paths:
         required: true
         schema:
           type: string
-      - description: Uuid identifier of the entity
+      - description: SubEntity uuid
         in: path
         name: uuid
         required: true
         schema:
           type: string
+      - description: Entity name under namesapce.
+        in: query
+        name: entity
+        schema:
+          type: string
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
       responses:
         "200":
           content:

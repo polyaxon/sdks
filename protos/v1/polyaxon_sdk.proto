@@ -1611,7 +1611,7 @@ service ServiceAccountsV1 {
   }
 
   // List service account tokens
-  rpc ListServiceAccountTokens(OwnerEntityResourceRequestByUid) returns (ListTokenResponse) {
+  rpc ListServiceAccountTokens(OwnerSubEntityResourceListRequestByUid) returns (ListTokenResponse) {
     option (google.api.http) = {
       get: "/api/v1/orgs/{owner}/sa/{uuid}/tokens"
     };
