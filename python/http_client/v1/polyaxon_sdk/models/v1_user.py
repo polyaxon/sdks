@@ -56,6 +56,7 @@ class V1User(object):
         'username': 'str',
         'email': 'str',
         'name': 'str',
+        'kind': 'str',
         'theme': 'int',
         'organization': 'str'
     }
@@ -64,11 +65,12 @@ class V1User(object):
         'username': 'username',
         'email': 'email',
         'name': 'name',
+        'kind': 'kind',
         'theme': 'theme',
         'organization': 'organization'
     }
 
-    def __init__(self, username=None, email=None, name=None, theme=None, organization=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, username=None, email=None, name=None, kind=None, theme=None, organization=None, local_vars_configuration=None):  # noqa: E501
         """V1User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -77,6 +79,7 @@ class V1User(object):
         self._username = None
         self._email = None
         self._name = None
+        self._kind = None
         self._theme = None
         self._organization = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class V1User(object):
             self.email = email
         if name is not None:
             self.name = name
+        if kind is not None:
+            self.kind = kind
         if theme is not None:
             self.theme = theme
         if organization is not None:
@@ -154,6 +159,27 @@ class V1User(object):
         """
 
         self._name = name
+
+    @property
+    def kind(self):
+        """Gets the kind of this V1User.  # noqa: E501
+
+
+        :return: The kind of this V1User.  # noqa: E501
+        :rtype: str
+        """
+        return self._kind
+
+    @kind.setter
+    def kind(self, kind):
+        """Sets the kind of this V1User.
+
+
+        :param kind: The kind of this V1User.  # noqa: E501
+        :type kind: str
+        """
+
+        self._kind = kind
 
     @property
     def theme(self):

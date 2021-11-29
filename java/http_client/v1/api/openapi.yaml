@@ -40006,6 +40006,7 @@ components:
       type: object
     v1User:
       example:
+        kind: kind
         organization: organization
         name: name
         theme: 0
@@ -40020,6 +40021,9 @@ components:
           type: string
         name:
           title: Name
+          type: string
+        kind:
+          title: Kind
           type: string
         theme:
           format: int32

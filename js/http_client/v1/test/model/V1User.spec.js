@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property kind (base name: "kind")', function() {
+      // uncomment below and update the code to test the property kind
+      //var instance = new PolyaxonSdk.V1User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property theme (base name: "theme")', function() {
       // uncomment below and update the code to test the property theme
       //var instance = new PolyaxonSdk.V1User();

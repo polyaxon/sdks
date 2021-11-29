@@ -70,6 +70,9 @@ class V1User {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('kind')) {
+                obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
+            }
             if (data.hasOwnProperty('theme')) {
                 obj['theme'] = ApiClient.convertToType(data['theme'], 'Number');
             }
@@ -97,6 +100,11 @@ V1User.prototype['email'] = undefined;
  * @member {String} name
  */
 V1User.prototype['name'] = undefined;
+
+/**
+ * @member {String} kind
+ */
+V1User.prototype['kind'] = undefined;
 
 /**
  * @member {Number} theme

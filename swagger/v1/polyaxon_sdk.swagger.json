@@ -25528,6 +25528,10 @@
           "type": "string",
           "title": "Name"
         },
+        "kind": {
+          "type": "string",
+          "title": "Kind"
+        },
         "theme": {
           "type": "integer",
           "format": "int32",

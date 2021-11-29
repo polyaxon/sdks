@@ -31,9 +31,12 @@ message User {
     // Name
     string name = 3;
 
+    // Kind
+    string kind = 4;
+
     // Theme
-    int32 theme = 4;
+    int32 theme = 5;
 
     // Default organization
-    string organization = 5;
+    string organization = 6;
 }

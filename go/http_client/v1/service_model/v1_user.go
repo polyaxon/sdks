@@ -34,6 +34,9 @@ type V1User struct {
 	// Email
 	Email string `json:"email,omitempty"`
 
+	// Kind
+	Kind string `json:"kind,omitempty"`
+
 	// Name
 	Name string `json:"name,omitempty"`
 

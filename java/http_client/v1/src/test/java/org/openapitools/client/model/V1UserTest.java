@@ -79,6 +79,14 @@ public class V1UserTest {
     }
 
     /**
+     * Test the property 'kind'
+     */
+    @Test
+    public void kindTest() {
+        // TODO: test kind
+    }
+
+    /**
      * Test the property 'theme'
      */
     @Test

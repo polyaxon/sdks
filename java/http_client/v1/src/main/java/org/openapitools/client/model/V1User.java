@@ -55,6 +55,10 @@ public class V1User {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  private String kind;
+
   public static final String SERIALIZED_NAME_THEME = "theme";
   @SerializedName(SERIALIZED_NAME_THEME)
   private Integer theme;
@@ -133,6 +137,29 @@ public class V1User {
   }
 
 
+  public V1User kind(String kind) {
+    
+    this.kind = kind;
+    return this;
+  }
+
+   /**
+   * Get kind
+   * @return kind
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKind() {
+    return kind;
+  }
+
+
+  public void setKind(String kind) {
+    this.kind = kind;
+  }
+
+
   public V1User theme(Integer theme) {
     
     this.theme = theme;
@@ -191,13 +218,14 @@ public class V1User {
     return Objects.equals(this.username, v1User.username) &&
         Objects.equals(this.email, v1User.email) &&
         Objects.equals(this.name, v1User.name) &&
+        Objects.equals(this.kind, v1User.kind) &&
         Objects.equals(this.theme, v1User.theme) &&
         Objects.equals(this.organization, v1User.organization);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, email, name, theme, organization);
+    return Objects.hash(username, email, name, kind, theme, organization);
   }
 
   @Override
@@ -207,6 +235,7 @@ public class V1User {
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    theme: ").append(toIndentedString(theme)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("}");

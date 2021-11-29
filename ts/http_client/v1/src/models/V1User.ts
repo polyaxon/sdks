@@ -53,6 +53,12 @@ export interface V1User {
     name?: string;
     /**
      * 
+     * @type {string}
+     * @memberof V1User
+     */
+    kind?: string;
+    /**
+     * 
      * @type {number}
      * @memberof V1User
      */
@@ -78,6 +84,7 @@ export function V1UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         'username': !exists(json, 'username') ? undefined : json['username'],
         'email': !exists(json, 'email') ? undefined : json['email'],
         'name': !exists(json, 'name') ? undefined : json['name'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'theme': !exists(json, 'theme') ? undefined : json['theme'],
         'organization': !exists(json, 'organization') ? undefined : json['organization'],
     };
@@ -95,6 +102,7 @@ export function V1UserToJSON(value?: V1User | null): any {
         'username': value.username,
         'email': value.email,
         'name': value.name,
+        'kind': value.kind,
         'theme': value.theme,
         'organization': value.organization,
     };

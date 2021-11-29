@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **username** | **str** |  | [optional] 
 **email** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
+**kind** | **str** |  | [optional] 
 **theme** | **int** |  | [optional] 
 **organization** | **str** |  | [optional] 
 

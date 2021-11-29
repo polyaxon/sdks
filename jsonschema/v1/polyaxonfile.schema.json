@@ -11106,6 +11106,10 @@
           "title": "Email",
           "type": "string"
         },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
         "name": {
           "title": "Name",
           "type": "string"
