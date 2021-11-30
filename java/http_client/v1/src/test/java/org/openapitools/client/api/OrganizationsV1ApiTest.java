@@ -166,10 +166,11 @@ public class OrganizationsV1ApiTest {
         String memberUser = null;
         String memberUserEmail = null;
         String memberRole = null;
+        String memberKind = null;
         OffsetDateTime memberCreatedAt = null;
         OffsetDateTime memberUpdatedAt = null;
         String email = null;
-                api.deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email);
+                api.deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
         // TODO: test validations
     }
     
@@ -257,10 +258,11 @@ public class OrganizationsV1ApiTest {
         String memberUser = null;
         String memberUserEmail = null;
         String memberRole = null;
+        String memberKind = null;
         OffsetDateTime memberCreatedAt = null;
         OffsetDateTime memberUpdatedAt = null;
         String email = null;
-                V1OrganizationMember response = api.getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email);
+                V1OrganizationMember response = api.getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
         // TODO: test validations
     }
     

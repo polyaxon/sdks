@@ -501,7 +501,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_organization_invitation**
-> delete_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
+> delete_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_kind=member_kind, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
 
 Delete organization invitation details
 
@@ -539,13 +539,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 member_user = 'member_user_example' # str | User. (optional)
 member_user_email = 'member_user_email_example' # str | Read-only User email. (optional)
 member_role = 'member_role_example' # str | Role. (optional)
+member_kind = 'member_kind_example' # str | Kind. (optional)
 member_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
 member_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
 email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Delete organization invitation details
-        api_instance.delete_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
+        api_instance.delete_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_kind=member_kind, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
     except ApiException as e:
         print("Exception when calling OrganizationsV1Api->delete_organization_invitation: %s\n" % e)
 ```
@@ -558,6 +559,7 @@ Name | Type | Description  | Notes
  **member_user** | **str**| User. | [optional] 
  **member_user_email** | **str**| Read-only User email. | [optional] 
  **member_role** | **str**| Role. | [optional] 
+ **member_kind** | **str**| Kind. | [optional] 
  **member_created_at** | **datetime**| Optional time when the entity was created. | [optional] 
  **member_updated_at** | **datetime**| Optional last time the entity was updated. | [optional] 
  **email** | **str**| Optional email. | [optional] 
@@ -905,7 +907,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_invitation**
-> V1OrganizationMember get_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
+> V1OrganizationMember get_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_kind=member_kind, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
 
 Get organization invitation details
 
@@ -943,13 +945,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 member_user = 'member_user_example' # str | User. (optional)
 member_user_email = 'member_user_email_example' # str | Read-only User email. (optional)
 member_role = 'member_role_example' # str | Role. (optional)
+member_kind = 'member_kind_example' # str | Kind. (optional)
 member_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
 member_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
 email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Get organization invitation details
-        api_response = api_instance.get_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
+        api_response = api_instance.get_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_kind=member_kind, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrganizationsV1Api->get_organization_invitation: %s\n" % e)
@@ -963,6 +966,7 @@ Name | Type | Description  | Notes
  **member_user** | **str**| User. | [optional] 
  **member_user_email** | **str**| Read-only User email. | [optional] 
  **member_role** | **str**| Role. | [optional] 
+ **member_kind** | **str**| Kind. | [optional] 
  **member_created_at** | **datetime**| Optional time when the entity was created. | [optional] 
  **member_updated_at** | **datetime**| Optional last time the entity was updated. | [optional] 
  **email** | **str**| Optional email. | [optional] 

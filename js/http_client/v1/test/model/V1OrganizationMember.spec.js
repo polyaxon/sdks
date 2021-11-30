@@ -86,6 +86,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property kind (base name: "kind")', function() {
+      // uncomment below and update the code to test the property kind
+      //var instance = new PolyaxonSdk.V1OrganizationMember();
+      //expect(instance).to.be();
+    });
+
     it('should have the property created_at (base name: "created_at")', function() {
       // uncomment below and update the code to test the property created_at
       //var instance = new PolyaxonSdk.V1OrganizationMember();

@@ -377,6 +377,7 @@ let opts = {
   'member_user': "member_user_example", // String | User.
   'member_user_email': "member_user_email_example", // String | Read-only User email.
   'member_role': "member_role_example", // String | Role.
+  'member_kind': "member_kind_example", // String | Kind.
   'member_created_at': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional time when the entity was created.
   'member_updated_at': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional last time the entity was updated.
   'email': "email_example" // String | Optional email.
@@ -399,6 +400,7 @@ Name | Type | Description  | Notes
  **member_user** | **String**| User. | [optional] 
  **member_user_email** | **String**| Read-only User email. | [optional] 
  **member_role** | **String**| Role. | [optional] 
+ **member_kind** | **String**| Kind. | [optional] 
  **member_created_at** | **Date**| Optional time when the entity was created. | [optional] 
  **member_updated_at** | **Date**| Optional last time the entity was updated. | [optional] 
  **email** | **String**| Optional email. | [optional] 
@@ -660,6 +662,7 @@ let opts = {
   'member_user': "member_user_example", // String | User.
   'member_user_email': "member_user_email_example", // String | Read-only User email.
   'member_role': "member_role_example", // String | Role.
+  'member_kind': "member_kind_example", // String | Kind.
   'member_created_at': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional time when the entity was created.
   'member_updated_at': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional last time the entity was updated.
   'email': "email_example" // String | Optional email.
@@ -682,6 +685,7 @@ Name | Type | Description  | Notes
  **member_user** | **String**| User. | [optional] 
  **member_user_email** | **String**| Read-only User email. | [optional] 
  **member_role** | **String**| Role. | [optional] 
+ **member_kind** | **String**| Kind. | [optional] 
  **member_created_at** | **Date**| Optional time when the entity was created. | [optional] 
  **member_updated_at** | **Date**| Optional last time the entity was updated. | [optional] 
  **email** | **String**| Optional email. | [optional] 

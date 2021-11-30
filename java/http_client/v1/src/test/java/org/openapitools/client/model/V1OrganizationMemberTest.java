@@ -80,6 +80,14 @@ public class V1OrganizationMemberTest {
     }
 
     /**
+     * Test the property 'kind'
+     */
+    @Test
+    public void kindTest() {
+        // TODO: test kind
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test

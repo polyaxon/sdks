@@ -887,6 +887,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -903,7 +904,7 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOrganizationInvitationCall(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOrganizationInvitationCall(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -926,6 +927,10 @@ public class OrganizationsV1Api {
 
         if (memberRole != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("member.role", memberRole));
+        }
+
+        if (memberKind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("member.kind", memberKind));
         }
 
         if (memberCreatedAt != null) {
@@ -959,7 +964,7 @@ public class OrganizationsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOrganizationInvitationValidateBeforeCall(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteOrganizationInvitationValidateBeforeCall(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'owner' is set
         if (owner == null) {
@@ -967,7 +972,7 @@ public class OrganizationsV1Api {
         }
         
 
-        okhttp3.Call localVarCall = deleteOrganizationInvitationCall(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email, _callback);
+        okhttp3.Call localVarCall = deleteOrganizationInvitationCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, _callback);
         return localVarCall;
 
     }
@@ -979,6 +984,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -993,8 +999,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteOrganizationInvitation(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
-        deleteOrganizationInvitationWithHttpInfo(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email);
+    public void deleteOrganizationInvitation(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
+        deleteOrganizationInvitationWithHttpInfo(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
     }
 
     /**
@@ -1004,6 +1010,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -1019,8 +1026,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteOrganizationInvitationWithHttpInfo(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
-        okhttp3.Call localVarCall = deleteOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email, null);
+    public ApiResponse<Void> deleteOrganizationInvitationWithHttpInfo(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
+        okhttp3.Call localVarCall = deleteOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1031,6 +1038,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -1047,9 +1055,9 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOrganizationInvitationAsync(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteOrganizationInvitationAsync(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email, _callback);
+        okhttp3.Call localVarCall = deleteOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1646,6 +1654,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -1662,7 +1671,7 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrganizationInvitationCall(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrganizationInvitationCall(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1685,6 +1694,10 @@ public class OrganizationsV1Api {
 
         if (memberRole != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("member.role", memberRole));
+        }
+
+        if (memberKind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("member.kind", memberKind));
         }
 
         if (memberCreatedAt != null) {
@@ -1718,7 +1731,7 @@ public class OrganizationsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrganizationInvitationValidateBeforeCall(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrganizationInvitationValidateBeforeCall(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'owner' is set
         if (owner == null) {
@@ -1726,7 +1739,7 @@ public class OrganizationsV1Api {
         }
         
 
-        okhttp3.Call localVarCall = getOrganizationInvitationCall(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email, _callback);
+        okhttp3.Call localVarCall = getOrganizationInvitationCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, _callback);
         return localVarCall;
 
     }
@@ -1738,6 +1751,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -1753,8 +1767,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1OrganizationMember getOrganizationInvitation(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
-        ApiResponse<V1OrganizationMember> localVarResp = getOrganizationInvitationWithHttpInfo(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email);
+    public V1OrganizationMember getOrganizationInvitation(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
+        ApiResponse<V1OrganizationMember> localVarResp = getOrganizationInvitationWithHttpInfo(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
         return localVarResp.getData();
     }
 
@@ -1765,6 +1779,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -1780,8 +1795,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1OrganizationMember> getOrganizationInvitationWithHttpInfo(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
-        okhttp3.Call localVarCall = getOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email, null);
+    public ApiResponse<V1OrganizationMember> getOrganizationInvitationWithHttpInfo(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email) throws ApiException {
+        okhttp3.Call localVarCall = getOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, null);
         Type localVarReturnType = new TypeToken<V1OrganizationMember>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1793,6 +1808,7 @@ public class OrganizationsV1Api {
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
      * @param memberRole Role. (optional)
+     * @param memberKind Kind. (optional)
      * @param memberCreatedAt Optional time when the entity was created. (optional)
      * @param memberUpdatedAt Optional last time the entity was updated. (optional)
      * @param email Optional email. (optional)
@@ -1809,9 +1825,9 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrganizationInvitationAsync(String owner, String memberUser, String memberUserEmail, String memberRole, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback<V1OrganizationMember> _callback) throws ApiException {
+    public okhttp3.Call getOrganizationInvitationAsync(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback<V1OrganizationMember> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email, _callback);
+        okhttp3.Call localVarCall = getOrganizationInvitationValidateBeforeCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, _callback);
         Type localVarReturnType = new TypeToken<V1OrganizationMember>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

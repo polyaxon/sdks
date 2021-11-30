@@ -56,6 +56,10 @@ public class V1OrganizationMember {
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
 
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  private String kind;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -134,6 +138,29 @@ public class V1OrganizationMember {
   }
 
 
+  public V1OrganizationMember kind(String kind) {
+    
+    this.kind = kind;
+    return this;
+  }
+
+   /**
+   * Get kind
+   * @return kind
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getKind() {
+    return kind;
+  }
+
+
+  public void setKind(String kind) {
+    this.kind = kind;
+  }
+
+
   public V1OrganizationMember createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -192,13 +219,14 @@ public class V1OrganizationMember {
     return Objects.equals(this.user, v1OrganizationMember.user) &&
         Objects.equals(this.userEmail, v1OrganizationMember.userEmail) &&
         Objects.equals(this.role, v1OrganizationMember.role) &&
+        Objects.equals(this.kind, v1OrganizationMember.kind) &&
         Objects.equals(this.createdAt, v1OrganizationMember.createdAt) &&
         Objects.equals(this.updatedAt, v1OrganizationMember.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, userEmail, role, createdAt, updatedAt);
+    return Objects.hash(user, userEmail, role, kind, createdAt, updatedAt);
   }
 
   @Override
@@ -208,6 +236,7 @@ public class V1OrganizationMember {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

@@ -37,6 +37,9 @@ type V1OrganizationMember struct {
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`
 
+	// Kind
+	Kind string `json:"kind,omitempty"`
+
 	// Role
 	Role string `json:"role,omitempty"`
 

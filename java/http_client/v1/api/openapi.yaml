@@ -3379,6 +3379,11 @@ paths:
         name: member.role
         schema:
           type: string
+      - description: Kind.
+        in: query
+        name: member.kind
+        schema:
+          type: string
       - description: Optional time when the entity was created.
         in: query
         name: member.created_at
@@ -3450,6 +3455,11 @@ paths:
       - description: Role.
         in: query
         name: member.role
+        schema:
+          type: string
+      - description: Kind.
+        in: query
+        name: member.kind
         schema:
           type: string
       - description: Optional time when the entity was created.
@@ -23873,11 +23883,13 @@ components:
         - user_email: user_email
           role: role
           updated_at: 2000-01-23T04:56:07.000+00:00
+          kind: kind
           created_at: 2000-01-23T04:56:07.000+00:00
           user: user
         - user_email: user_email
           role: role
           updated_at: 2000-01-23T04:56:07.000+00:00
+          kind: kind
           created_at: 2000-01-23T04:56:07.000+00:00
           user: user
       properties:
@@ -27364,6 +27376,7 @@ components:
         user_email: user_email
         role: role
         updated_at: 2000-01-23T04:56:07.000+00:00
+        kind: kind
         created_at: 2000-01-23T04:56:07.000+00:00
         user: user
       properties:
@@ -27375,6 +27388,9 @@ components:
           type: string
         role:
           title: Role
+          type: string
+        kind:
+          title: Kind
           type: string
         created_at:
           format: date-time

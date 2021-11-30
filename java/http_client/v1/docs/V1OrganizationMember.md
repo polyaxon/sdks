@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **user** | **String** |  |  [optional]
 **userEmail** | **String** |  |  [optional]
 **role** | **String** |  |  [optional]
+**kind** | **String** |  |  [optional]
 **createdAt** | **OffsetDateTime** |  |  [optional]
 **updatedAt** | **OffsetDateTime** |  |  [optional]
 

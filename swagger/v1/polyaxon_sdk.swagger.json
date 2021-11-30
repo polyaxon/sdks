@@ -3555,6 +3555,13 @@
             "type": "string"
           },
           {
+            "name": "member.kind",
+            "description": "Kind.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "member.created_at",
             "description": "Optional time when the entity was created.",
             "in": "query",
@@ -3633,6 +3640,13 @@
           {
             "name": "member.role",
             "description": "Role.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "member.kind",
+            "description": "Kind.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -23375,6 +23389,10 @@
         "role": {
           "type": "string",
           "title": "Role"
+        },
+        "kind": {
+          "type": "string",
+          "title": "Kind"
         },
         "created_at": {
           "type": "string",

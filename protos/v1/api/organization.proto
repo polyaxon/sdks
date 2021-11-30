@@ -107,11 +107,14 @@ message OrganizationMember {
     // Role
     string role = 4;
 
+    // Kind
+    string kind = 5;
+
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp created_at = 6;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
 
 }
 

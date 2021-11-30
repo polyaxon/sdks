@@ -944,6 +944,8 @@ class OrganizationsV1Api(object):
         :type member_user_email: str
         :param member_role: Role.
         :type member_role: str
+        :param member_kind: Kind.
+        :type member_kind: str
         :param member_created_at: Optional time when the entity was created.
         :type member_created_at: datetime
         :param member_updated_at: Optional last time the entity was updated.
@@ -985,6 +987,8 @@ class OrganizationsV1Api(object):
         :type member_user_email: str
         :param member_role: Role.
         :type member_role: str
+        :param member_kind: Kind.
+        :type member_kind: str
         :param member_created_at: Optional time when the entity was created.
         :type member_created_at: datetime
         :param member_updated_at: Optional last time the entity was updated.
@@ -1021,6 +1025,7 @@ class OrganizationsV1Api(object):
             'member_user',
             'member_user_email',
             'member_role',
+            'member_kind',
             'member_created_at',
             'member_updated_at',
             'email'
@@ -1061,6 +1066,8 @@ class OrganizationsV1Api(object):
             query_params.append(('member.user_email', local_var_params['member_user_email']))  # noqa: E501
         if 'member_role' in local_var_params and local_var_params['member_role'] is not None:  # noqa: E501
             query_params.append(('member.role', local_var_params['member_role']))  # noqa: E501
+        if 'member_kind' in local_var_params and local_var_params['member_kind'] is not None:  # noqa: E501
+            query_params.append(('member.kind', local_var_params['member_kind']))  # noqa: E501
         if 'member_created_at' in local_var_params and local_var_params['member_created_at'] is not None:  # noqa: E501
             query_params.append(('member.created_at', local_var_params['member_created_at']))  # noqa: E501
         if 'member_updated_at' in local_var_params and local_var_params['member_updated_at'] is not None:  # noqa: E501
@@ -1733,6 +1740,8 @@ class OrganizationsV1Api(object):
         :type member_user_email: str
         :param member_role: Role.
         :type member_role: str
+        :param member_kind: Kind.
+        :type member_kind: str
         :param member_created_at: Optional time when the entity was created.
         :type member_created_at: datetime
         :param member_updated_at: Optional last time the entity was updated.
@@ -1774,6 +1783,8 @@ class OrganizationsV1Api(object):
         :type member_user_email: str
         :param member_role: Role.
         :type member_role: str
+        :param member_kind: Kind.
+        :type member_kind: str
         :param member_created_at: Optional time when the entity was created.
         :type member_created_at: datetime
         :param member_updated_at: Optional last time the entity was updated.
@@ -1810,6 +1821,7 @@ class OrganizationsV1Api(object):
             'member_user',
             'member_user_email',
             'member_role',
+            'member_kind',
             'member_created_at',
             'member_updated_at',
             'email'
@@ -1850,6 +1862,8 @@ class OrganizationsV1Api(object):
             query_params.append(('member.user_email', local_var_params['member_user_email']))  # noqa: E501
         if 'member_role' in local_var_params and local_var_params['member_role'] is not None:  # noqa: E501
             query_params.append(('member.role', local_var_params['member_role']))  # noqa: E501
+        if 'member_kind' in local_var_params and local_var_params['member_kind'] is not None:  # noqa: E501
+            query_params.append(('member.kind', local_var_params['member_kind']))  # noqa: E501
         if 'member_created_at' in local_var_params and local_var_params['member_created_at'] is not None:  # noqa: E501
             query_params.append(('member.created_at', local_var_params['member_created_at']))  # noqa: E501
         if 'member_updated_at' in local_var_params and local_var_params['member_updated_at'] is not None:  # noqa: E501

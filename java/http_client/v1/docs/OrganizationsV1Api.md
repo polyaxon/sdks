@@ -478,7 +478,7 @@ null (empty response body)
 
 <a name="deleteOrganizationInvitation"></a>
 # **deleteOrganizationInvitation**
-> deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email)
+> deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email)
 
 Delete organization invitation details
 
@@ -508,11 +508,12 @@ public class Example {
     String memberUser = "memberUser_example"; // String | User.
     String memberUserEmail = "memberUserEmail_example"; // String | Read-only User email.
     String memberRole = "memberRole_example"; // String | Role.
+    String memberKind = "memberKind_example"; // String | Kind.
     OffsetDateTime memberCreatedAt = OffsetDateTime.now(); // OffsetDateTime | Optional time when the entity was created.
     OffsetDateTime memberUpdatedAt = OffsetDateTime.now(); // OffsetDateTime | Optional last time the entity was updated.
     String email = "email_example"; // String | Optional email.
     try {
-      apiInstance.deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email);
+      apiInstance.deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#deleteOrganizationInvitation");
       System.err.println("Status code: " + e.getCode());
@@ -532,6 +533,7 @@ Name | Type | Description  | Notes
  **memberUser** | **String**| User. | [optional]
  **memberUserEmail** | **String**| Read-only User email. | [optional]
  **memberRole** | **String**| Role. | [optional]
+ **memberKind** | **String**| Kind. | [optional]
  **memberCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional]
  **memberUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional]
  **email** | **String**| Optional email. | [optional]
@@ -862,7 +864,7 @@ Name | Type | Description  | Notes
 
 <a name="getOrganizationInvitation"></a>
 # **getOrganizationInvitation**
-> V1OrganizationMember getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email)
+> V1OrganizationMember getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email)
 
 Get organization invitation details
 
@@ -892,11 +894,12 @@ public class Example {
     String memberUser = "memberUser_example"; // String | User.
     String memberUserEmail = "memberUserEmail_example"; // String | Read-only User email.
     String memberRole = "memberRole_example"; // String | Role.
+    String memberKind = "memberKind_example"; // String | Kind.
     OffsetDateTime memberCreatedAt = OffsetDateTime.now(); // OffsetDateTime | Optional time when the entity was created.
     OffsetDateTime memberUpdatedAt = OffsetDateTime.now(); // OffsetDateTime | Optional last time the entity was updated.
     String email = "email_example"; // String | Optional email.
     try {
-      V1OrganizationMember result = apiInstance.getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberCreatedAt, memberUpdatedAt, email);
+      V1OrganizationMember result = apiInstance.getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationInvitation");
@@ -917,6 +920,7 @@ Name | Type | Description  | Notes
  **memberUser** | **String**| User. | [optional]
  **memberUserEmail** | **String**| Read-only User email. | [optional]
  **memberRole** | **String**| Role. | [optional]
+ **memberKind** | **String**| Kind. | [optional]
  **memberCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional]
  **memberUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional]
  **email** | **String**| Optional email. | [optional]

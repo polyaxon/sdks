@@ -87,6 +87,12 @@ type DeleteOrganizationInvitationParams struct {
 	*/
 	MemberCreatedAt *strfmt.DateTime
 
+	/* MemberKind.
+
+	   Kind.
+	*/
+	MemberKind *string
+
 	/* MemberRole.
 
 	   Role.
@@ -194,6 +200,17 @@ func (o *DeleteOrganizationInvitationParams) SetMemberCreatedAt(memberCreatedAt 
 	o.MemberCreatedAt = memberCreatedAt
 }
 
+// WithMemberKind adds the memberKind to the delete organization invitation params
+func (o *DeleteOrganizationInvitationParams) WithMemberKind(memberKind *string) *DeleteOrganizationInvitationParams {
+	o.SetMemberKind(memberKind)
+	return o
+}
+
+// SetMemberKind adds the memberKind to the delete organization invitation params
+func (o *DeleteOrganizationInvitationParams) SetMemberKind(memberKind *string) {
+	o.MemberKind = memberKind
+}
+
 // WithMemberRole adds the memberRole to the delete organization invitation params
 func (o *DeleteOrganizationInvitationParams) WithMemberRole(memberRole *string) *DeleteOrganizationInvitationParams {
 	o.SetMemberRole(memberRole)
@@ -286,6 +303,23 @@ func (o *DeleteOrganizationInvitationParams) WriteToRequest(r runtime.ClientRequ
 		if qMemberCreatedAt != "" {
 
 			if err := r.SetQueryParam("member.created_at", qMemberCreatedAt); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.MemberKind != nil {
+
+		// query param member.kind
+		var qrMemberKind string
+
+		if o.MemberKind != nil {
+			qrMemberKind = *o.MemberKind
+		}
+		qMemberKind := qrMemberKind
+		if qMemberKind != "" {
+
+			if err := r.SetQueryParam("member.kind", qMemberKind); err != nil {
 				return err
 			}
 		}

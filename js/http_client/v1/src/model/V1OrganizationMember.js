@@ -70,6 +70,9 @@ class V1OrganizationMember {
             if (data.hasOwnProperty('role')) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
             }
+            if (data.hasOwnProperty('kind')) {
+                obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
+            }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
@@ -97,6 +100,11 @@ V1OrganizationMember.prototype['user_email'] = undefined;
  * @member {String} role
  */
 V1OrganizationMember.prototype['role'] = undefined;
+
+/**
+ * @member {String} kind
+ */
+V1OrganizationMember.prototype['kind'] = undefined;
 
 /**
  * @member {Date} created_at

@@ -96,6 +96,7 @@ export interface DeleteOrganizationInvitationRequest {
     memberUser?: string;
     memberUserEmail?: string;
     memberRole?: string;
+    memberKind?: string;
     memberCreatedAt?: Date;
     memberUpdatedAt?: Date;
     email?: string;
@@ -132,6 +133,7 @@ export interface GetOrganizationInvitationRequest {
     memberUser?: string;
     memberUserEmail?: string;
     memberRole?: string;
+    memberKind?: string;
     memberCreatedAt?: Date;
     memberUpdatedAt?: Date;
     email?: string;
@@ -552,6 +554,10 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
             queryParameters['member.role'] = requestParameters.memberRole;
         }
 
+        if (requestParameters.memberKind !== undefined) {
+            queryParameters['member.kind'] = requestParameters.memberKind;
+        }
+
         if (requestParameters.memberCreatedAt !== undefined) {
             queryParameters['member.created_at'] = (requestParameters.memberCreatedAt as any).toISOString();
         }
@@ -784,6 +790,10 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.memberRole !== undefined) {
             queryParameters['member.role'] = requestParameters.memberRole;
+        }
+
+        if (requestParameters.memberKind !== undefined) {
+            queryParameters['member.kind'] = requestParameters.memberKind;
         }
 
         if (requestParameters.memberCreatedAt !== undefined) {

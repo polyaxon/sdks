@@ -348,6 +348,7 @@ export default class OrganizationsV1Api {
      * @param {String} opts.member_user User.
      * @param {String} opts.member_user_email Read-only User email.
      * @param {String} opts.member_role Role.
+     * @param {String} opts.member_kind Kind.
      * @param {Date} opts.member_created_at Optional time when the entity was created.
      * @param {Date} opts.member_updated_at Optional last time the entity was updated.
      * @param {String} opts.email Optional email.
@@ -368,6 +369,7 @@ export default class OrganizationsV1Api {
         'member.user': opts['member_user'],
         'member.user_email': opts['member_user_email'],
         'member.role': opts['member_role'],
+        'member.kind': opts['member_kind'],
         'member.created_at': opts['member_created_at'],
         'member.updated_at': opts['member_updated_at'],
         'email': opts['email']
@@ -600,6 +602,7 @@ export default class OrganizationsV1Api {
      * @param {String} opts.member_user User.
      * @param {String} opts.member_user_email Read-only User email.
      * @param {String} opts.member_role Role.
+     * @param {String} opts.member_kind Kind.
      * @param {Date} opts.member_created_at Optional time when the entity was created.
      * @param {Date} opts.member_updated_at Optional last time the entity was updated.
      * @param {String} opts.email Optional email.
@@ -621,6 +624,7 @@ export default class OrganizationsV1Api {
         'member.user': opts['member_user'],
         'member.user_email': opts['member_user_email'],
         'member.role': opts['member_role'],
+        'member.kind': opts['member_kind'],
         'member.created_at': opts['member_created_at'],
         'member.updated_at': opts['member_updated_at'],
         'email': opts['email']

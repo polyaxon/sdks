@@ -8947,6 +8947,10 @@
           "title": "Optional time when the entity was created",
           "type": "string"
         },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
         "role": {
           "title": "Role",
           "type": "string"

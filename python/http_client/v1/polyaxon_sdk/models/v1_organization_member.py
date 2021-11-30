@@ -56,6 +56,7 @@ class V1OrganizationMember(object):
         'user': 'str',
         'user_email': 'str',
         'role': 'str',
+        'kind': 'str',
         'created_at': 'datetime',
         'updated_at': 'datetime'
     }
@@ -64,11 +65,12 @@ class V1OrganizationMember(object):
         'user': 'user',
         'user_email': 'user_email',
         'role': 'role',
+        'kind': 'kind',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, user=None, user_email=None, role=None, created_at=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, user=None, user_email=None, role=None, kind=None, created_at=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
         """V1OrganizationMember - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -77,6 +79,7 @@ class V1OrganizationMember(object):
         self._user = None
         self._user_email = None
         self._role = None
+        self._kind = None
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
@@ -87,6 +90,8 @@ class V1OrganizationMember(object):
             self.user_email = user_email
         if role is not None:
             self.role = role
+        if kind is not None:
+            self.kind = kind
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:
@@ -154,6 +159,27 @@ class V1OrganizationMember(object):
         """
 
         self._role = role
+
+    @property
+    def kind(self):
+        """Gets the kind of this V1OrganizationMember.  # noqa: E501
+
+
+        :return: The kind of this V1OrganizationMember.  # noqa: E501
+        :rtype: str
+        """
+        return self._kind
+
+    @kind.setter
+    def kind(self, kind):
+        """Sets the kind of this V1OrganizationMember.
+
+
+        :param kind: The kind of this V1OrganizationMember.  # noqa: E501
+        :type kind: str
+        """
+
+        self._kind = kind
 
     @property
     def created_at(self):
