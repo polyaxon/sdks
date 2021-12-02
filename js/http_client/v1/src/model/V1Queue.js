@@ -88,6 +88,9 @@ class V1Queue {
             if (data.hasOwnProperty('quota')) {
                 obj['quota'] = ApiClient.convertToType(data['quota'], 'String');
             }
+            if (data.hasOwnProperty('stats')) {
+                obj['stats'] = ApiClient.convertToType(data['stats'], Object);
+            }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
@@ -145,6 +148,11 @@ V1Queue.prototype['resource'] = undefined;
  * @member {String} quota
  */
 V1Queue.prototype['quota'] = undefined;
+
+/**
+ * @member {Object} stats
+ */
+V1Queue.prototype['stats'] = undefined;
 
 /**
  * @member {Date} created_at

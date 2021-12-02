@@ -130,6 +130,14 @@ public class V1QueueTest {
     }
 
     /**
+     * Test the property 'stats'
+     */
+    @Test
+    public void statsTest() {
+        // TODO: test stats
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test

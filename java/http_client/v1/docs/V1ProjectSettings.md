@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **agents** | **List&lt;String&gt;** |  |  [optional]
 **userAccesses** | [**List&lt;V1ProjectUserAccess&gt;**](V1ProjectUserAccess.md) |  |  [optional]
 **teams** | **List&lt;String&gt;** |  |  [optional]
+**projects** | **List&lt;String&gt;** |  |  [optional]
 
 
 

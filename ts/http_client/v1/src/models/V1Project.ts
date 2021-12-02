@@ -28,6 +28,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    V1ProjectKind,
+    V1ProjectKindFromJSON,
+    V1ProjectKindFromJSONTyped,
+    V1ProjectKindToJSON,
     V1ProjectSettings,
     V1ProjectSettingsFromJSON,
     V1ProjectSettingsFromJSONTyped,
@@ -102,6 +106,12 @@ export interface V1Project {
     readme?: string;
     /**
      * 
+     * @type {V1ProjectKind}
+     * @memberof V1Project
+     */
+    kind?: V1ProjectKind;
+    /**
+     * 
      * @type {Array<string>}
      * @memberof V1Project
      */
@@ -146,6 +156,7 @@ export function V1ProjectFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'is_public': !exists(json, 'is_public') ? undefined : json['is_public'],
         'bookmarked': !exists(json, 'bookmarked') ? undefined : json['bookmarked'],
         'readme': !exists(json, 'readme') ? undefined : json['readme'],
+        'kind': !exists(json, 'kind') ? undefined : V1ProjectKindFromJSON(json['kind']),
         'excluded_runtimes': !exists(json, 'excluded_runtimes') ? undefined : json['excluded_runtimes'],
         'settings': !exists(json, 'settings') ? undefined : V1ProjectSettingsFromJSON(json['settings']),
         'role': !exists(json, 'role') ? undefined : json['role'],
@@ -172,6 +183,7 @@ export function V1ProjectToJSON(value?: V1Project | null): any {
         'is_public': value.is_public,
         'bookmarked': value.bookmarked,
         'readme': value.readme,
+        'kind': V1ProjectKindToJSON(value.kind),
         'excluded_runtimes': value.excluded_runtimes,
         'settings': V1ProjectSettingsToJSON(value.settings),
         'role': value.role,

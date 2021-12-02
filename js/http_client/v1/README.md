@@ -589,6 +589,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1PolyaxonSidecarContainer](docs/V1PolyaxonSidecarContainer.md)
  - [PolyaxonSdk.V1Preset](docs/V1Preset.md)
  - [PolyaxonSdk.V1Project](docs/V1Project.md)
+ - [PolyaxonSdk.V1ProjectKind](docs/V1ProjectKind.md)
  - [PolyaxonSdk.V1ProjectSettings](docs/V1ProjectSettings.md)
  - [PolyaxonSdk.V1ProjectUserAccess](docs/V1ProjectUserAccess.md)
  - [PolyaxonSdk.V1PytorchJob](docs/V1PytorchJob.md)

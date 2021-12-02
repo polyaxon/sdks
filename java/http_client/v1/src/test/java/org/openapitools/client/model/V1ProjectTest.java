@@ -37,6 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.V1ProjectKind;
 import org.openapitools.client.model.V1ProjectSettings;
 import org.threeten.bp.OffsetDateTime;
 import org.junit.Assert;
@@ -136,6 +137,14 @@ public class V1ProjectTest {
     @Test
     public void readmeTest() {
         // TODO: test readme
+    }
+
+    /**
+     * Test the property 'kind'
+     */
+    @Test
+    public void kindTest() {
+        // TODO: test kind
     }
 
     /**

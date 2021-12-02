@@ -554,6 +554,7 @@ Class | Method | HTTP request | Description
  - [V1PolyaxonSidecarContainer](docs/V1PolyaxonSidecarContainer.md)
  - [V1Preset](docs/V1Preset.md)
  - [V1Project](docs/V1Project.md)
+ - [V1ProjectKind](docs/V1ProjectKind.md)
  - [V1ProjectSettings](docs/V1ProjectSettings.md)
  - [V1ProjectUserAccess](docs/V1ProjectUserAccess.md)
  - [V1PytorchJob](docs/V1PytorchJob.md)

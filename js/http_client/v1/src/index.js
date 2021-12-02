@@ -197,6 +197,7 @@ import V1PolyaxonInitContainer from './model/V1PolyaxonInitContainer';
 import V1PolyaxonSidecarContainer from './model/V1PolyaxonSidecarContainer';
 import V1Preset from './model/V1Preset';
 import V1Project from './model/V1Project';
+import V1ProjectKind from './model/V1ProjectKind';
 import V1ProjectSettings from './model/V1ProjectSettings';
 import V1ProjectUserAccess from './model/V1ProjectUserAccess';
 import V1PytorchJob from './model/V1PytorchJob';
@@ -1338,6 +1339,12 @@ export {
      * @property {module:model/V1Project}
      */
     V1Project,
+
+    /**
+     * The V1ProjectKind model constructor.
+     * @property {module:model/V1ProjectKind}
+     */
+    V1ProjectKind,
 
     /**
      * The V1ProjectSettings model constructor.

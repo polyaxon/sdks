@@ -63,6 +63,7 @@ class V1Project(object):
         'is_public': 'bool',
         'bookmarked': 'bool',
         'readme': 'str',
+        'kind': 'V1ProjectKind',
         'excluded_runtimes': 'list[str]',
         'settings': 'V1ProjectSettings',
         'role': 'str',
@@ -80,13 +81,14 @@ class V1Project(object):
         'is_public': 'is_public',
         'bookmarked': 'bookmarked',
         'readme': 'readme',
+        'kind': 'kind',
         'excluded_runtimes': 'excluded_runtimes',
         'settings': 'settings',
         'role': 'role',
         'live_state': 'live_state'
     }
 
-    def __init__(self, uuid=None, owner=None, name=None, description=None, tags=None, created_at=None, updated_at=None, is_public=None, bookmarked=None, readme=None, excluded_runtimes=None, settings=None, role=None, live_state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uuid=None, owner=None, name=None, description=None, tags=None, created_at=None, updated_at=None, is_public=None, bookmarked=None, readme=None, kind=None, excluded_runtimes=None, settings=None, role=None, live_state=None, local_vars_configuration=None):  # noqa: E501
         """V1Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -102,6 +104,7 @@ class V1Project(object):
         self._is_public = None
         self._bookmarked = None
         self._readme = None
+        self._kind = None
         self._excluded_runtimes = None
         self._settings = None
         self._role = None
@@ -128,6 +131,8 @@ class V1Project(object):
             self.bookmarked = bookmarked
         if readme is not None:
             self.readme = readme
+        if kind is not None:
+            self.kind = kind
         if excluded_runtimes is not None:
             self.excluded_runtimes = excluded_runtimes
         if settings is not None:
@@ -346,6 +351,27 @@ class V1Project(object):
         """
 
         self._readme = readme
+
+    @property
+    def kind(self):
+        """Gets the kind of this V1Project.  # noqa: E501
+
+
+        :return: The kind of this V1Project.  # noqa: E501
+        :rtype: V1ProjectKind
+        """
+        return self._kind
+
+    @kind.setter
+    def kind(self, kind):
+        """Sets the kind of this V1Project.
+
+
+        :param kind: The kind of this V1Project.  # noqa: E501
+        :type kind: V1ProjectKind
+        """
+
+        self._kind = kind
 
     @property
     def excluded_runtimes(self):

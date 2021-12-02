@@ -82,6 +82,10 @@ public class V1Queue {
   @SerializedName(SERIALIZED_NAME_QUOTA)
   private String quota;
 
+  public static final String SERIALIZED_NAME_STATS = "stats";
+  @SerializedName(SERIALIZED_NAME_STATS)
+  private Object stats;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -306,6 +310,29 @@ public class V1Queue {
   }
 
 
+  public V1Queue stats(Object stats) {
+    
+    this.stats = stats;
+    return this;
+  }
+
+   /**
+   * Get stats
+   * @return stats
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getStats() {
+    return stats;
+  }
+
+
+  public void setStats(Object stats) {
+    this.stats = stats;
+  }
+
+
   public V1Queue createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -370,13 +397,14 @@ public class V1Queue {
         Objects.equals(this.concurrency, v1Queue.concurrency) &&
         Objects.equals(this.resource, v1Queue.resource) &&
         Objects.equals(this.quota, v1Queue.quota) &&
+        Objects.equals(this.stats, v1Queue.stats) &&
         Objects.equals(this.createdAt, v1Queue.createdAt) &&
         Objects.equals(this.updatedAt, v1Queue.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, agent, name, description, tags, priority, concurrency, resource, quota, createdAt, updatedAt);
+    return Objects.hash(uuid, agent, name, description, tags, priority, concurrency, resource, quota, stats, createdAt, updatedAt);
   }
 
   @Override
@@ -392,6 +420,7 @@ public class V1Queue {
     sb.append("    concurrency: ").append(toIndentedString(concurrency)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
+    sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

@@ -236,6 +236,7 @@ from polyaxon_sdk.models.v1_polyaxon_init_container import V1PolyaxonInitContain
 from polyaxon_sdk.models.v1_polyaxon_sidecar_container import V1PolyaxonSidecarContainer
 from polyaxon_sdk.models.v1_preset import V1Preset
 from polyaxon_sdk.models.v1_project import V1Project
+from polyaxon_sdk.models.v1_project_kind import V1ProjectKind
 from polyaxon_sdk.models.v1_project_settings import V1ProjectSettings
 from polyaxon_sdk.models.v1_project_user_access import V1ProjectUserAccess
 from polyaxon_sdk.models.v1_pytorch_job import V1PytorchJob

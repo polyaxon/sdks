@@ -86,6 +86,9 @@ class V1ProjectSettings {
             if (data.hasOwnProperty('teams')) {
                 obj['teams'] = ApiClient.convertToType(data['teams'], ['String']);
             }
+            if (data.hasOwnProperty('projects')) {
+                obj['projects'] = ApiClient.convertToType(data['projects'], ['String']);
+            }
         }
         return obj;
     }
@@ -132,6 +135,11 @@ V1ProjectSettings.prototype['user_accesses'] = undefined;
  * @member {Array.<String>} teams
  */
 V1ProjectSettings.prototype['teams'] = undefined;
+
+/**
+ * @member {Array.<String>} projects
+ */
+V1ProjectSettings.prototype['projects'] = undefined;
 
 
 

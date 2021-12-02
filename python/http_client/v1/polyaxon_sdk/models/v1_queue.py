@@ -62,6 +62,7 @@ class V1Queue(object):
         'concurrency': 'int',
         'resource': 'str',
         'quota': 'str',
+        'stats': 'object',
         'created_at': 'datetime',
         'updated_at': 'datetime'
     }
@@ -76,11 +77,12 @@ class V1Queue(object):
         'concurrency': 'concurrency',
         'resource': 'resource',
         'quota': 'quota',
+        'stats': 'stats',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, uuid=None, agent=None, name=None, description=None, tags=None, priority=None, concurrency=None, resource=None, quota=None, created_at=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uuid=None, agent=None, name=None, description=None, tags=None, priority=None, concurrency=None, resource=None, quota=None, stats=None, created_at=None, updated_at=None, local_vars_configuration=None):  # noqa: E501
         """V1Queue - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -95,6 +97,7 @@ class V1Queue(object):
         self._concurrency = None
         self._resource = None
         self._quota = None
+        self._stats = None
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
@@ -117,6 +120,8 @@ class V1Queue(object):
             self.resource = resource
         if quota is not None:
             self.quota = quota
+        if stats is not None:
+            self.stats = stats
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:
@@ -310,6 +315,27 @@ class V1Queue(object):
         """
 
         self._quota = quota
+
+    @property
+    def stats(self):
+        """Gets the stats of this V1Queue.  # noqa: E501
+
+
+        :return: The stats of this V1Queue.  # noqa: E501
+        :rtype: object
+        """
+        return self._stats
+
+    @stats.setter
+    def stats(self, stats):
+        """Sets the stats of this V1Queue.
+
+
+        :param stats: The stats of this V1Queue.  # noqa: E501
+        :type stats: object
+        """
+
+        self._stats = stats
 
     @property
     def created_at(self):

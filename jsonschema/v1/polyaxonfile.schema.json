@@ -9280,6 +9280,10 @@
           "title": "Optional flag to tell if this project is public",
           "type": "boolean"
         },
+        "kind": {
+          "$ref": "#/definitions/v1ProjectKind",
+          "title": "Optional project kind"
+        },
         "live_state": {
           "format": "int32",
           "title": "Current live state",
@@ -9325,6 +9329,16 @@
       "title": "Project specification",
       "type": "object"
     },
+    "v1ProjectKind": {
+      "default": "any",
+      "enum": [
+        "any",
+        "hub",
+        "registry",
+        "data"
+      ],
+      "type": "string"
+    },
     "v1ProjectSettings": {
       "properties": {
         "agents": {
@@ -9350,6 +9364,13 @@
             "type": "string"
           },
           "title": "Authorized Presets",
+          "type": "array"
+        },
+        "projects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized projects",
           "type": "array"
         },
         "queue": {
@@ -9461,6 +9482,10 @@
         "resource": {
           "title": "Optional queue resource",
           "type": "string"
+        },
+        "stats": {
+          "title": "Optional queue quota",
+          "type": "object"
         },
         "tags": {
           "items": {

@@ -89,6 +89,12 @@ export interface V1Queue {
     quota?: string;
     /**
      * 
+     * @type {object}
+     * @memberof V1Queue
+     */
+    stats?: object;
+    /**
+     * 
      * @type {Date}
      * @memberof V1Queue
      */
@@ -120,6 +126,7 @@ export function V1QueueFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'concurrency': !exists(json, 'concurrency') ? undefined : json['concurrency'],
         'resource': !exists(json, 'resource') ? undefined : json['resource'],
         'quota': !exists(json, 'quota') ? undefined : json['quota'],
+        'stats': !exists(json, 'stats') ? undefined : json['stats'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
     };
@@ -143,6 +150,7 @@ export function V1QueueToJSON(value?: V1Queue | null): any {
         'concurrency': value.concurrency,
         'resource': value.resource,
         'quota': value.quota,
+        'stats': value.stats,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),
     };

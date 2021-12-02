@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **concurrency** | **int** |  | [optional] 
 **resource** | **str** |  | [optional] 
 **quota** | **str** |  | [optional] 
+**stats** | **object** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 

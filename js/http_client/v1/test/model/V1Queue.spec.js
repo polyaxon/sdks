@@ -122,6 +122,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property stats (base name: "stats")', function() {
+      // uncomment below and update the code to test the property stats
+      //var instance = new PolyaxonSdk.V1Queue();
+      //expect(instance).to.be();
+    });
+
     it('should have the property created_at (base name: "created_at")', function() {
       // uncomment below and update the code to test the property created_at
       //var instance = new PolyaxonSdk.V1Queue();

@@ -24,6 +24,13 @@ option go_package = "v1/api";
 
 // Project specification
 message Project {
+    enum Kind {
+      any = 0;
+      hub = 1;
+      registry = 2;
+      data = 3;
+    }
+
     // UUID
     string uuid = 1;
 
@@ -54,17 +61,20 @@ message Project {
     // Optional a readme text describing this entity
     string readme = 10;
 
+    // Optional project kind
+    Kind kind = 11;
+
     // Optional project definition
-    repeated string excluded_runtimes = 11;
+    repeated string excluded_runtimes = 12;
 
     // Optional project settings
-    ProjectSettings settings = 12;
+    ProjectSettings settings = 13;
 
     // Current user's role in this (org/teams)/project
-    string role = 13;
+    string role = 14;
 
     // Current live state
-    int32 live_state = 14;
+    int32 live_state = 15;
 }
 
  // Request data to create/update project
@@ -127,6 +137,9 @@ message ProjectSettings {
 
     // Authorized teams
     repeated string teams = 8;
+
+    // Authorized projects
+    repeated string projects = 9;
 }
 
 // Request data to update project settings

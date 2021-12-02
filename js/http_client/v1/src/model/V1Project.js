@@ -26,6 +26,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1ProjectKind from './V1ProjectKind';
 import V1ProjectSettings from './V1ProjectSettings';
 
 /**
@@ -91,6 +92,9 @@ class V1Project {
             }
             if (data.hasOwnProperty('readme')) {
                 obj['readme'] = ApiClient.convertToType(data['readme'], 'String');
+            }
+            if (data.hasOwnProperty('kind')) {
+                obj['kind'] = V1ProjectKind.constructFromObject(data['kind']);
             }
             if (data.hasOwnProperty('excluded_runtimes')) {
                 obj['excluded_runtimes'] = ApiClient.convertToType(data['excluded_runtimes'], ['String']);
@@ -160,6 +164,11 @@ V1Project.prototype['bookmarked'] = undefined;
  * @member {String} readme
  */
 V1Project.prototype['readme'] = undefined;
+
+/**
+ * @member {module:model/V1ProjectKind} kind
+ */
+V1Project.prototype['kind'] = undefined;
 
 /**
  * @member {Array.<String>} excluded_runtimes

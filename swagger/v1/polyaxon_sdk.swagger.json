@@ -23737,6 +23737,10 @@
           "type": "string",
           "title": "Optional a readme text describing this entity"
         },
+        "kind": {
+          "$ref": "#/definitions/v1ProjectKind",
+          "title": "Optional project kind"
+        },
         "excluded_runtimes": {
           "type": "array",
           "items": {
@@ -23759,6 +23763,16 @@
         }
       },
       "title": "Project specification"
+    },
+    "v1ProjectKind": {
+      "type": "string",
+      "enum": [
+        "any",
+        "hub",
+        "registry",
+        "data"
+      ],
+      "default": "any"
     },
     "v1ProjectSettings": {
       "type": "object",
@@ -23812,6 +23826,13 @@
             "type": "string"
           },
           "title": "Authorized teams"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized projects"
         }
       },
       "title": "Project Settings specification"
@@ -23902,6 +23923,10 @@
         },
         "quota": {
           "type": "string",
+          "title": "Optional queue quota"
+        },
+        "stats": {
+          "type": "object",
           "title": "Optional queue quota"
         },
         "created_at": {

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **concurrency** | **Integer** |  |  [optional]
 **resource** | **String** |  |  [optional]
 **quota** | **String** |  |  [optional]
+**stats** | **Object** |  |  [optional]
 **createdAt** | **OffsetDateTime** |  |  [optional]
 **updatedAt** | **OffsetDateTime** |  |  [optional]
 
