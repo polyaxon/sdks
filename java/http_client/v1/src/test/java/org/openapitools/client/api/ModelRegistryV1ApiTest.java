@@ -53,11 +53,11 @@ public class ModelRegistryV1ApiTest {
 
     private final ModelRegistryV1Api api = new ModelRegistryV1Api();
 
-    
+
     /**
      * Archive registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -69,11 +69,11 @@ public class ModelRegistryV1ApiTest {
                 api.archiveModelRegistry(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Bookmark registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -85,11 +85,11 @@ public class ModelRegistryV1ApiTest {
                 api.bookmarkModelRegistry(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Create registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -101,11 +101,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistry response = api.createModelRegistry(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create model version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -118,11 +118,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelVersion response = api.createModelVersion(owner, model, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create new model version stage
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,11 +136,11 @@ public class ModelRegistryV1ApiTest {
                 V1Stage response = api.createModelVersionStage(owner, entity, name, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -152,11 +152,11 @@ public class ModelRegistryV1ApiTest {
                 api.deleteModelRegistry(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Delete model version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -169,11 +169,11 @@ public class ModelRegistryV1ApiTest {
                 api.deleteModelVersion(owner, entity, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -185,11 +185,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistry response = api.getModelRegistry(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get model activities
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -208,11 +208,11 @@ public class ModelRegistryV1ApiTest {
                 V1ListActivitiesResponse response = api.getModelRegistryActivities(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get registry model settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -224,11 +224,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistrySettings response = api.getModelRegistrySettings(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get model version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -241,11 +241,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelVersion response = api.getModelVersion(owner, entity, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get model version stages
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -258,11 +258,11 @@ public class ModelRegistryV1ApiTest {
                 V1Stage response = api.getModelVersionStages(owner, entity, name);
         // TODO: test validations
     }
-    
+
     /**
      * List registry models
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -280,11 +280,11 @@ public class ModelRegistryV1ApiTest {
                 V1ListModelRegistriesResponse response = api.listModelRegistries(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List registry model names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -302,11 +302,11 @@ public class ModelRegistryV1ApiTest {
                 V1ListModelRegistriesResponse response = api.listModelRegistryNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List model versions names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -325,11 +325,11 @@ public class ModelRegistryV1ApiTest {
                 V1ListModelVersionsResponse response = api.listModelVersionNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List model versions
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -348,11 +348,11 @@ public class ModelRegistryV1ApiTest {
                 V1ListModelVersionsResponse response = api.listModelVersions(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -365,11 +365,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistry response = api.patchModelRegistry(owner, modelName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch registry model settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -382,11 +382,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistrySettings response = api.patchModelRegistrySettings(owner, model, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch model version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -400,11 +400,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelVersion response = api.patchModelVersion(owner, model, versionName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Restore registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -416,11 +416,11 @@ public class ModelRegistryV1ApiTest {
                 api.restoreModelRegistry(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Unbookmark registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -432,11 +432,11 @@ public class ModelRegistryV1ApiTest {
                 api.unbookmarkModelRegistry(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Update registry model
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -449,11 +449,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistry response = api.updateModelRegistry(owner, modelName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update registry model settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -466,11 +466,11 @@ public class ModelRegistryV1ApiTest {
                 V1ModelRegistrySettings response = api.updateModelRegistrySettings(owner, model, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update model version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -484,5 +484,5 @@ public class ModelRegistryV1ApiTest {
                 V1ModelVersion response = api.updateModelVersion(owner, model, versionName, body);
         // TODO: test validations
     }
-    
+
 }

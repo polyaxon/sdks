@@ -54,7 +54,7 @@ public class V1EventChart {
 
 
   public V1EventChart kind(V1EventChartKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -77,7 +77,7 @@ public class V1EventChart {
 
 
   public V1EventChart figure(Object figure) {
-    
+
     this.figure = figure;
     return this;
   }

@@ -53,7 +53,7 @@ public class V1Flink {
 
 
   public V1Flink kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1Flink {
 
 
   public V1Flink spec(Object spec) {
-    
+
     this.spec = spec;
     return this;
   }

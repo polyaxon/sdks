@@ -53,7 +53,7 @@ public class V1HpGeomSpace {
 
 
   public V1HpGeomSpace kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1HpGeomSpace {
 
 
   public V1HpGeomSpace value(Object value) {
-    
+
     this.value = value;
     return this;
   }

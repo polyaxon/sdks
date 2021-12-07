@@ -52,7 +52,7 @@ public class V1DashboardSpec {
 
 
   public V1DashboardSpec sections(List<V1SectionSpec> sections) {
-    
+
     this.sections = sections;
     return this;
   }

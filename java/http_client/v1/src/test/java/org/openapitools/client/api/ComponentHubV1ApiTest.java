@@ -53,11 +53,11 @@ public class ComponentHubV1ApiTest {
 
     private final ComponentHubV1Api api = new ComponentHubV1Api();
 
-    
+
     /**
      * Archive hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -69,11 +69,11 @@ public class ComponentHubV1ApiTest {
                 api.archiveComponentHub(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Bookmark component hub
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -85,11 +85,11 @@ public class ComponentHubV1ApiTest {
                 api.bookmarkComponentHub(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Create hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -101,11 +101,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHub response = api.createComponentHub(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create component version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -118,11 +118,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentVersion response = api.createComponentVersion(owner, component, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create new component version stage
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,11 +136,11 @@ public class ComponentHubV1ApiTest {
                 V1Stage response = api.createComponentVersionStage(owner, entity, name, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -152,11 +152,11 @@ public class ComponentHubV1ApiTest {
                 api.deleteComponentHub(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Delete component version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -169,11 +169,11 @@ public class ComponentHubV1ApiTest {
                 api.deleteComponentVersion(owner, entity, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -185,11 +185,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHub response = api.getComponentHub(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get hub activities
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -208,11 +208,11 @@ public class ComponentHubV1ApiTest {
                 V1ListActivitiesResponse response = api.getComponentHubActivities(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get hub component settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -224,11 +224,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHubSettings response = api.getComponentHubSettings(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get component version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -241,11 +241,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentVersion response = api.getComponentVersion(owner, entity, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get component version stages
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -258,11 +258,11 @@ public class ComponentHubV1ApiTest {
                 V1Stage response = api.getComponentVersionStages(owner, entity, name);
         // TODO: test validations
     }
-    
+
     /**
      * List hub component names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -280,11 +280,11 @@ public class ComponentHubV1ApiTest {
                 V1ListComponentHubsResponse response = api.listComponentHubNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List hub components
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -302,11 +302,11 @@ public class ComponentHubV1ApiTest {
                 V1ListComponentHubsResponse response = api.listComponentHubs(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List component version names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -325,11 +325,11 @@ public class ComponentHubV1ApiTest {
                 V1ListComponentVersionsResponse response = api.listComponentVersionNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List component versions
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -348,11 +348,11 @@ public class ComponentHubV1ApiTest {
                 V1ListComponentVersionsResponse response = api.listComponentVersions(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -365,11 +365,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHub response = api.patchComponentHub(owner, componentName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch hub component settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -382,11 +382,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHubSettings response = api.patchComponentHubSettings(owner, component, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch component version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -400,11 +400,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentVersion response = api.patchComponentVersion(owner, component, versionName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Restore hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -416,11 +416,11 @@ public class ComponentHubV1ApiTest {
                 api.restoreComponentHub(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Unbookmark component hub
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -432,11 +432,11 @@ public class ComponentHubV1ApiTest {
                 api.unbookmarkComponentHub(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Update hub component
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -449,11 +449,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHub response = api.updateComponentHub(owner, componentName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update hub component settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -466,11 +466,11 @@ public class ComponentHubV1ApiTest {
                 V1ComponentHubSettings response = api.updateComponentHubSettings(owner, component, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update component version
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -484,5 +484,5 @@ public class ComponentHubV1ApiTest {
                 V1ComponentVersion response = api.updateComponentVersion(owner, component, versionName, body);
         // TODO: test validations
     }
-    
+
 }

@@ -65,7 +65,7 @@ public class V1Reference {
 
 
   public V1Reference hubRef(V1HubRef hubRef) {
-    
+
     this.hubRef = hubRef;
     return this;
   }
@@ -88,7 +88,7 @@ public class V1Reference {
 
 
   public V1Reference dagRef(V1DagRef dagRef) {
-    
+
     this.dagRef = dagRef;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1Reference {
 
 
   public V1Reference urlRef(V1UrlRef urlRef) {
-    
+
     this.urlRef = urlRef;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1Reference {
 
 
   public V1Reference pathRef(V1PathRef pathRef) {
-    
+
     this.pathRef = pathRef;
     return this;
   }

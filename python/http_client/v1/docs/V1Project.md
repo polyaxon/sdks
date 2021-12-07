@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **is_public** | **bool** |  | [optional] 
 **bookmarked** | **bool** |  | [optional] 
 **readme** | **str** |  | [optional] 
-**kind** | [**V1ProjectKind**](V1ProjectKind.md) |  | [optional] 
 **excluded_runtimes** | **list[str]** |  | [optional] 
 **settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  | [optional] 
 **role** | **str** |  | [optional] 

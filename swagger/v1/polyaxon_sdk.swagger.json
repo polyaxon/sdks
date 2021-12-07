@@ -17623,10 +17623,12 @@
               "table",
               "tensorboard",
               "curve",
+              "confusion",
               "analysis",
               "iteration",
               "markdown",
-              "system"
+              "system",
+              "artifact"
             ]
           },
           {
@@ -18121,10 +18123,12 @@
               "table",
               "tensorboard",
               "curve",
+              "confusion",
               "analysis",
               "iteration",
               "markdown",
-              "system"
+              "system",
+              "artifact"
             ]
           },
           {
@@ -19130,13 +19134,15 @@
         "table",
         "tensorboard",
         "curve",
+        "confusion",
         "analysis",
         "iteration",
         "markdown",
-        "system"
+        "system",
+        "artifact"
       ],
       "default": "model",
-      "description": "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event",
+      "description": "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - artifact: Generic artifact",
       "title": "Artifact kind"
     },
     "v1ArtifactTree": {
@@ -20632,6 +20638,9 @@
         },
         "curve": {
           "$ref": "#/definitions/v1EventCurve"
+        },
+        "confusion": {
+          "$ref": "#/definitions/v1EventConfusionMatrix"
         }
       },
       "title": "Event spec definition"
@@ -20703,6 +20712,33 @@
       "default": "plotly",
       "description": "- plotly: Plotly chart\n - bokeh: Bokeh chart\n - vega: Vega chart",
       "title": "Chart kind"
+    },
+    "v1EventConfusionMatrix": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "X"
+        },
+        "y": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Y"
+        },
+        "z": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Z"
+        }
+      },
+      "title": "Cofusion matrix spec definition"
     },
     "v1EventCurve": {
       "type": "object",
@@ -23737,10 +23773,6 @@
           "type": "string",
           "title": "Optional a readme text describing this entity"
         },
-        "kind": {
-          "$ref": "#/definitions/v1ProjectKind",
-          "title": "Optional project kind"
-        },
         "excluded_runtimes": {
           "type": "array",
           "items": {
@@ -23763,16 +23795,6 @@
         }
       },
       "title": "Project specification"
-    },
-    "v1ProjectKind": {
-      "type": "string",
-      "enum": [
-        "any",
-        "hub",
-        "registry",
-        "data"
-      ],
-      "default": "any"
     },
     "v1ProjectSettings": {
       "type": "object",
@@ -23826,13 +23848,6 @@
             "type": "string"
           },
           "title": "Authorized teams"
-        },
-        "projects": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized projects"
         }
       },
       "title": "Project Settings specification"

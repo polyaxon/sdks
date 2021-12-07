@@ -64,7 +64,7 @@ public class V1ListComponentHubsResponse {
 
 
   public V1ListComponentHubsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListComponentHubsResponse {
 
 
   public V1ListComponentHubsResponse results(List<V1ComponentHub> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListComponentHubsResponse {
 
 
   public V1ListComponentHubsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListComponentHubsResponse {
 
 
   public V1ListComponentHubsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

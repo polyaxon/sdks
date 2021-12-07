@@ -200,7 +200,7 @@ public class V1Run {
 
 
   public V1Run uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1Run {
 
 
   public V1Run name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -246,7 +246,7 @@ public class V1Run {
 
 
   public V1Run description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -269,7 +269,7 @@ public class V1Run {
 
 
   public V1Run tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -300,7 +300,7 @@ public class V1Run {
 
 
   public V1Run user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -323,7 +323,7 @@ public class V1Run {
 
 
   public V1Run owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -346,7 +346,7 @@ public class V1Run {
 
 
   public V1Run project(String project) {
-    
+
     this.project = project;
     return this;
   }
@@ -369,7 +369,7 @@ public class V1Run {
 
 
   public V1Run scheduleAt(OffsetDateTime scheduleAt) {
-    
+
     this.scheduleAt = scheduleAt;
     return this;
   }
@@ -392,7 +392,7 @@ public class V1Run {
 
 
   public V1Run createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -415,7 +415,7 @@ public class V1Run {
 
 
   public V1Run updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -438,7 +438,7 @@ public class V1Run {
 
 
   public V1Run startedAt(OffsetDateTime startedAt) {
-    
+
     this.startedAt = startedAt;
     return this;
   }
@@ -461,7 +461,7 @@ public class V1Run {
 
 
   public V1Run finishedAt(OffsetDateTime finishedAt) {
-    
+
     this.finishedAt = finishedAt;
     return this;
   }
@@ -484,7 +484,7 @@ public class V1Run {
 
 
   public V1Run waitTime(Integer waitTime) {
-    
+
     this.waitTime = waitTime;
     return this;
   }
@@ -507,7 +507,7 @@ public class V1Run {
 
 
   public V1Run duration(Integer duration) {
-    
+
     this.duration = duration;
     return this;
   }
@@ -530,7 +530,7 @@ public class V1Run {
 
 
   public V1Run isManaged(Boolean isManaged) {
-    
+
     this.isManaged = isManaged;
     return this;
   }
@@ -553,7 +553,7 @@ public class V1Run {
 
 
   public V1Run isApproved(Boolean isApproved) {
-    
+
     this.isApproved = isApproved;
     return this;
   }
@@ -576,7 +576,7 @@ public class V1Run {
 
 
   public V1Run pending(V1RunPending pending) {
-    
+
     this.pending = pending;
     return this;
   }
@@ -599,7 +599,7 @@ public class V1Run {
 
 
   public V1Run content(String content) {
-    
+
     this.content = content;
     return this;
   }
@@ -622,7 +622,7 @@ public class V1Run {
 
 
   public V1Run rawContent(String rawContent) {
-    
+
     this.rawContent = rawContent;
     return this;
   }
@@ -645,7 +645,7 @@ public class V1Run {
 
 
   public V1Run status(V1Statuses status) {
-    
+
     this.status = status;
     return this;
   }
@@ -668,7 +668,7 @@ public class V1Run {
 
 
   public V1Run bookmarked(Boolean bookmarked) {
-    
+
     this.bookmarked = bookmarked;
     return this;
   }
@@ -691,7 +691,7 @@ public class V1Run {
 
 
   public V1Run liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -714,7 +714,7 @@ public class V1Run {
 
 
   public V1Run readme(String readme) {
-    
+
     this.readme = readme;
     return this;
   }
@@ -737,7 +737,7 @@ public class V1Run {
 
 
   public V1Run metaInfo(Object metaInfo) {
-    
+
     this.metaInfo = metaInfo;
     return this;
   }
@@ -760,7 +760,7 @@ public class V1Run {
 
 
   public V1Run kind(V1RunKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -783,7 +783,7 @@ public class V1Run {
 
 
   public V1Run runtime(V1RunKind runtime) {
-    
+
     this.runtime = runtime;
     return this;
   }
@@ -806,7 +806,7 @@ public class V1Run {
 
 
   public V1Run inputs(Object inputs) {
-    
+
     this.inputs = inputs;
     return this;
   }
@@ -829,7 +829,7 @@ public class V1Run {
 
 
   public V1Run outputs(Object outputs) {
-    
+
     this.outputs = outputs;
     return this;
   }
@@ -852,7 +852,7 @@ public class V1Run {
 
 
   public V1Run original(V1Cloning original) {
-    
+
     this.original = original;
     return this;
   }
@@ -875,7 +875,7 @@ public class V1Run {
 
 
   public V1Run pipeline(V1Pipeline pipeline) {
-    
+
     this.pipeline = pipeline;
     return this;
   }
@@ -898,7 +898,7 @@ public class V1Run {
 
 
   public V1Run statusConditions(List<V1StatusCondition> statusConditions) {
-    
+
     this.statusConditions = statusConditions;
     return this;
   }
@@ -929,7 +929,7 @@ public class V1Run {
 
 
   public V1Run role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -952,7 +952,7 @@ public class V1Run {
 
 
   public V1Run settings(V1RunSettings settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -975,7 +975,7 @@ public class V1Run {
 
 
   public V1Run resources(V1RunResources resources) {
-    
+
     this.resources = resources;
     return this;
   }
@@ -998,7 +998,7 @@ public class V1Run {
 
 
   public V1Run graph(Object graph) {
-    
+
     this.graph = graph;
     return this;
   }
@@ -1021,7 +1021,7 @@ public class V1Run {
 
 
   public V1Run merge(Boolean merge) {
-    
+
     this.merge = merge;
     return this;
   }

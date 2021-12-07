@@ -53,7 +53,7 @@ public class V1PathRef {
 
 
   public V1PathRef kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1PathRef {
 
 
   public V1PathRef path(String path) {
-    
+
     this.path = path;
     return this;
   }

@@ -80,7 +80,7 @@ public class V1Matrix {
 
 
   public V1Matrix random(V1RandomSearch random) {
-    
+
     this.random = random;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1Matrix {
 
 
   public V1Matrix grid(V1GridSearch grid) {
-    
+
     this.grid = grid;
     return this;
   }
@@ -126,7 +126,7 @@ public class V1Matrix {
 
 
   public V1Matrix hyperband(V1Hyperband hyperband) {
-    
+
     this.hyperband = hyperband;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1Matrix {
 
 
   public V1Matrix bayes(V1Bayes bayes) {
-    
+
     this.bayes = bayes;
     return this;
   }
@@ -172,7 +172,7 @@ public class V1Matrix {
 
 
   public V1Matrix hyperopt(V1Hyperopt hyperopt) {
-    
+
     this.hyperopt = hyperopt;
     return this;
   }
@@ -195,7 +195,7 @@ public class V1Matrix {
 
 
   public V1Matrix iterative(V1Iterative iterative) {
-    
+
     this.iterative = iterative;
     return this;
   }
@@ -218,7 +218,7 @@ public class V1Matrix {
 
 
   public V1Matrix mapping(V1Mapping mapping) {
-    
+
     this.mapping = mapping;
     return this;
   }

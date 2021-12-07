@@ -60,8 +60,7 @@ class V1ProjectSettings(object):
         'queues': 'list[str]',
         'agents': 'list[str]',
         'user_accesses': 'list[V1ProjectUserAccess]',
-        'teams': 'list[str]',
-        'projects': 'list[str]'
+        'teams': 'list[str]'
     }
 
     attribute_map = {
@@ -72,11 +71,10 @@ class V1ProjectSettings(object):
         'queues': 'queues',
         'agents': 'agents',
         'user_accesses': 'user_accesses',
-        'teams': 'teams',
-        'projects': 'projects'
+        'teams': 'teams'
     }
 
-    def __init__(self, connections=None, preset=None, presets=None, queue=None, queues=None, agents=None, user_accesses=None, teams=None, projects=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, connections=None, preset=None, presets=None, queue=None, queues=None, agents=None, user_accesses=None, teams=None, local_vars_configuration=None):  # noqa: E501
         """V1ProjectSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -90,7 +88,6 @@ class V1ProjectSettings(object):
         self._agents = None
         self._user_accesses = None
         self._teams = None
-        self._projects = None
         self.discriminator = None
 
         if connections is not None:
@@ -109,8 +106,6 @@ class V1ProjectSettings(object):
             self.user_accesses = user_accesses
         if teams is not None:
             self.teams = teams
-        if projects is not None:
-            self.projects = projects
 
     @property
     def connections(self):
@@ -279,27 +274,6 @@ class V1ProjectSettings(object):
         """
 
         self._teams = teams
-
-    @property
-    def projects(self):
-        """Gets the projects of this V1ProjectSettings.  # noqa: E501
-
-
-        :return: The projects of this V1ProjectSettings.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._projects
-
-    @projects.setter
-    def projects(self, projects):
-        """Sets the projects of this V1ProjectSettings.
-
-
-        :param projects: The projects of this V1ProjectSettings.  # noqa: E501
-        :type projects: list[str]
-        """
-
-        self._projects = projects
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

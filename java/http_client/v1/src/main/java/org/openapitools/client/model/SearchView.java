@@ -43,13 +43,13 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(SearchView.Adapter.class)
 public enum SearchView {
-  
+
   ANY("any"),
-  
+
   RUNS("runs"),
-  
+
   ANALYTICS("analytics"),
-  
+
   PROJECTS("projects");
 
   private String value;

@@ -61,7 +61,7 @@ public class V1Stage {
 
 
   public V1Stage uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1Stage {
 
 
   public V1Stage stage(V1Stages stage) {
-    
+
     this.stage = stage;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1Stage {
 
 
   public V1Stage stageConditions(List<V1StageCondition> stageConditions) {
-    
+
     this.stageConditions = stageConditions;
     return this;
   }

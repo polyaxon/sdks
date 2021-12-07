@@ -53,7 +53,7 @@ public class V1SettingsCatalog {
 
 
   public V1SettingsCatalog uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1SettingsCatalog {
 
 
   public V1SettingsCatalog name(String name) {
-    
+
     this.name = name;
     return this;
   }

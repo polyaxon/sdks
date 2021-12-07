@@ -53,7 +53,7 @@ public class V1HpLogSpace {
 
 
   public V1HpLogSpace kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1HpLogSpace {
 
 
   public V1HpLogSpace value(Object value) {
-    
+
     this.value = value;
     return this;
   }

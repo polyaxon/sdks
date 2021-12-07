@@ -52,7 +52,7 @@ public class V1RunArtifacts {
 
 
   public V1RunArtifacts artifacts(List<V1RunArtifact> artifacts) {
-    
+
     this.artifacts = artifacts;
     return this;
   }

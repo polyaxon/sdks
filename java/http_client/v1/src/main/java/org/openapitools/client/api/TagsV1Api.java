@@ -121,17 +121,17 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTagValidateBeforeCall(String owner, V1Tag body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createTag(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createTag(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createTagCall(owner, body, _callback);
         return localVarCall;
@@ -140,7 +140,7 @@ public class TagsV1Api {
 
     /**
      * Create tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Tag body (required)
      * @return V1Tag
@@ -162,7 +162,7 @@ public class TagsV1Api {
 
     /**
      * Create tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Tag body (required)
      * @return ApiResponse&lt;V1Tag&gt;
@@ -185,7 +185,7 @@ public class TagsV1Api {
 
     /**
      * Create tag (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Tag body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -253,7 +253,7 @@ public class TagsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -264,17 +264,17 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTagValidateBeforeCall(String owner, String uuid, Boolean cascade, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteTag(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteTag(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteTagCall(owner, uuid, cascade, _callback);
         return localVarCall;
@@ -283,7 +283,7 @@ public class TagsV1Api {
 
     /**
      * Delete tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param cascade Flag to handle sub-entities. (optional)
@@ -304,7 +304,7 @@ public class TagsV1Api {
 
     /**
      * Delete tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param cascade Flag to handle sub-entities. (optional)
@@ -327,7 +327,7 @@ public class TagsV1Api {
 
     /**
      * Delete tag (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param cascade Flag to handle sub-entities. (optional)
@@ -390,7 +390,7 @@ public class TagsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -401,17 +401,17 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTagValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getTag(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getTag(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getTagCall(owner, uuid, _callback);
         return localVarCall;
@@ -420,7 +420,7 @@ public class TagsV1Api {
 
     /**
      * Get tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Tag
@@ -442,7 +442,7 @@ public class TagsV1Api {
 
     /**
      * Get tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Tag&gt;
@@ -465,7 +465,7 @@ public class TagsV1Api {
 
     /**
      * Get tag (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -561,7 +561,7 @@ public class TagsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -572,12 +572,12 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTagsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listTags(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listTagsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -586,7 +586,7 @@ public class TagsV1Api {
 
     /**
      * List tags
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -614,7 +614,7 @@ public class TagsV1Api {
 
     /**
      * List tags
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -643,7 +643,7 @@ public class TagsV1Api {
 
     /**
      * List tags (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -745,7 +745,7 @@ public class TagsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -756,12 +756,12 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call loadTagsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling loadTags(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = loadTagsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -770,7 +770,7 @@ public class TagsV1Api {
 
     /**
      * Load tags
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -798,7 +798,7 @@ public class TagsV1Api {
 
     /**
      * Load tags
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -827,7 +827,7 @@ public class TagsV1Api {
 
     /**
      * Load tags (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -908,22 +908,22 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchTagValidateBeforeCall(String owner, String tagUuid, V1Tag body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchTag(Async)");
         }
-        
+
         // verify the required parameter 'tagUuid' is set
         if (tagUuid == null) {
             throw new ApiException("Missing the required parameter 'tagUuid' when calling patchTag(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchTag(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchTagCall(owner, tagUuid, body, _callback);
         return localVarCall;
@@ -932,7 +932,7 @@ public class TagsV1Api {
 
     /**
      * Patch tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -955,7 +955,7 @@ public class TagsV1Api {
 
     /**
      * Patch tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -979,7 +979,7 @@ public class TagsV1Api {
 
     /**
      * Patch tag (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1053,17 +1053,17 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call syncTagsValidateBeforeCall(String owner, V1EntitiesTags body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling syncTags(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling syncTags(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = syncTagsCall(owner, body, _callback);
         return localVarCall;
@@ -1072,7 +1072,7 @@ public class TagsV1Api {
 
     /**
      * Sync tags
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1092,7 +1092,7 @@ public class TagsV1Api {
 
     /**
      * Sync tags
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1114,7 +1114,7 @@ public class TagsV1Api {
 
     /**
      * Sync tags (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1188,22 +1188,22 @@ public class TagsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTagValidateBeforeCall(String owner, String tagUuid, V1Tag body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateTag(Async)");
         }
-        
+
         // verify the required parameter 'tagUuid' is set
         if (tagUuid == null) {
             throw new ApiException("Missing the required parameter 'tagUuid' when calling updateTag(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateTag(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateTagCall(owner, tagUuid, body, _callback);
         return localVarCall;
@@ -1212,7 +1212,7 @@ public class TagsV1Api {
 
     /**
      * Update tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1235,7 +1235,7 @@ public class TagsV1Api {
 
     /**
      * Update tag
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1259,7 +1259,7 @@ public class TagsV1Api {
 
     /**
      * Update tag (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)

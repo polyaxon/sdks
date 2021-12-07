@@ -32,63 +32,63 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1RunEdgeKind {
-    
+
         /**
          * value: "action"
          * @const
          */
         "action" = "action";
 
-    
+
         /**
          * value: "event"
          * @const
          */
         "event" = "event";
 
-    
+
         /**
          * value: "hook"
          * @const
          */
         "hook" = "hook";
 
-    
+
         /**
          * value: "dag"
          * @const
          */
         "dag" = "dag";
 
-    
+
         /**
          * value: "join"
          * @const
          */
         "join" = "join";
 
-    
+
         /**
          * value: "run"
          * @const
          */
         "run" = "run";
 
-    
+
         /**
          * value: "tb"
          * @const
          */
         "tb" = "tb";
 
-    
+
         /**
          * value: "build"
          * @const
          */
         "build" = "build";
 
-    
+
 
     /**
     * Returns a <code>V1RunEdgeKind</code> enum value from a Javascript object name.

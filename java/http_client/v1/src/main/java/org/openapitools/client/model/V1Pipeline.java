@@ -58,7 +58,7 @@ public class V1Pipeline {
 
 
   public V1Pipeline uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -81,7 +81,7 @@ public class V1Pipeline {
 
 
   public V1Pipeline name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -104,7 +104,7 @@ public class V1Pipeline {
 
 
   public V1Pipeline kind(V1PipelineKind kind) {
-    
+
     this.kind = kind;
     return this;
   }

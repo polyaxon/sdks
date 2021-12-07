@@ -64,7 +64,7 @@ public class V1ListRunArtifactsResponse {
 
 
   public V1ListRunArtifactsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListRunArtifactsResponse {
 
 
   public V1ListRunArtifactsResponse results(List<V1RunArtifact> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListRunArtifactsResponse {
 
 
   public V1ListRunArtifactsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListRunArtifactsResponse {
 
 
   public V1ListRunArtifactsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

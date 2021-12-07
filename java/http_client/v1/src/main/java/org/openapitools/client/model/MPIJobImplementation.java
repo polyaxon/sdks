@@ -42,9 +42,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(MPIJobImplementation.Adapter.class)
 public enum MPIJobImplementation {
-  
+
   OPENMPI("OpenMPI"),
-  
+
   INTEL("Intel");
 
   private String value;

@@ -99,17 +99,23 @@ enum ArtifactKind {
     // Curve event
     curve = 24;
 
+    // Confusion matrix event
+    confusion = 25;
+
     // Analysis lineage
-    analysis = 25;
+    analysis = 26;
 
     // Iteration lineage
-    iteration = 26;
+    iteration = 27;
 
     // Mardown event
-    markdown = 27;
+    markdown = 28;
 
     // System event
-    system = 28;
+    system = 29;
+
+    // Generic artifact
+    artifact = 30;
 }
 
 // Run Artifact spec definition

@@ -53,7 +53,7 @@ public class V1S3Type {
 
 
   public V1S3Type bucket(String bucket) {
-    
+
     this.bucket = bucket;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1S3Type {
 
 
   public V1S3Type key(String key) {
-    
+
     this.key = key;
     return this;
   }

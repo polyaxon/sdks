@@ -53,7 +53,7 @@ public class V1Credentials {
 
 
   public V1Credentials username(String username) {
-    
+
     this.username = username;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1Credentials {
 
 
   public V1Credentials password(String password) {
-    
+
     this.password = password;
     return this;
   }

@@ -38,6 +38,7 @@ import java.io.IOException;
 import org.openapitools.client.model.V1EventArtifact;
 import org.openapitools.client.model.V1EventAudio;
 import org.openapitools.client.model.V1EventChart;
+import org.openapitools.client.model.V1EventConfusionMatrix;
 import org.openapitools.client.model.V1EventCurve;
 import org.openapitools.client.model.V1EventDataframe;
 import org.openapitools.client.model.V1EventHistogram;
@@ -174,6 +175,14 @@ public class V1EventTest {
     @Test
     public void curveTest() {
         // TODO: test curve
+    }
+
+    /**
+     * Test the property 'confusion'
+     */
+    @Test
+    public void confusionTest() {
+        // TODO: test confusion
     }
 
 }

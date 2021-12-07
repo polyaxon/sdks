@@ -53,7 +53,7 @@ public class V1UrlRef {
 
 
   public V1UrlRef kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1UrlRef {
 
 
   public V1UrlRef url(String url) {
-    
+
     this.url = url;
     return this;
   }

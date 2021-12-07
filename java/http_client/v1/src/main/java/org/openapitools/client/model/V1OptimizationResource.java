@@ -54,7 +54,7 @@ public class V1OptimizationResource {
 
 
   public V1OptimizationResource name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -77,7 +77,7 @@ public class V1OptimizationResource {
 
 
   public V1OptimizationResource type(V1ResourceType type) {
-    
+
     this.type = type;
     return this;
   }

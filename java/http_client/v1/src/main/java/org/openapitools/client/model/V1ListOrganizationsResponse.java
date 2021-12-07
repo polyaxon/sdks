@@ -64,7 +64,7 @@ public class V1ListOrganizationsResponse {
 
 
   public V1ListOrganizationsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListOrganizationsResponse {
 
 
   public V1ListOrganizationsResponse results(List<V1Organization> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListOrganizationsResponse {
 
 
   public V1ListOrganizationsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListOrganizationsResponse {
 
 
   public V1ListOrganizationsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

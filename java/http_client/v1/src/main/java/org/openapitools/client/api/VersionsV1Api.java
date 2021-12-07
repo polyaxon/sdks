@@ -113,7 +113,7 @@ public class VersionsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -124,22 +124,22 @@ public class VersionsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCompatibilityValidateBeforeCall(String uuid, String version, String service, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getCompatibility(Async)");
         }
-        
+
         // verify the required parameter 'version' is set
         if (version == null) {
             throw new ApiException("Missing the required parameter 'version' when calling getCompatibility(Async)");
         }
-        
+
         // verify the required parameter 'service' is set
         if (service == null) {
             throw new ApiException("Missing the required parameter 'service' when calling getCompatibility(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getCompatibilityCall(uuid, version, service, _callback);
         return localVarCall;
@@ -148,7 +148,7 @@ public class VersionsV1Api {
 
     /**
      * Get compatibility versions
-     * 
+     *
      * @param uuid UUid (required)
      * @param version Version (required)
      * @param service Service (required)
@@ -171,7 +171,7 @@ public class VersionsV1Api {
 
     /**
      * Get compatibility versions
-     * 
+     *
      * @param uuid UUid (required)
      * @param version Version (required)
      * @param service Service (required)
@@ -195,7 +195,7 @@ public class VersionsV1Api {
 
     /**
      * Get compatibility versions (asynchronously)
-     * 
+     *
      * @param uuid UUid (required)
      * @param version Version (required)
      * @param service Service (required)
@@ -260,7 +260,7 @@ public class VersionsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -271,7 +271,7 @@ public class VersionsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getInstallationValidateBeforeCall(Boolean auth, final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = getInstallationCall(auth, _callback);
         return localVarCall;
@@ -280,7 +280,7 @@ public class VersionsV1Api {
 
     /**
      * Get installation versions
-     * 
+     *
      * @param auth auth. (optional)
      * @return V1Installation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,7 +301,7 @@ public class VersionsV1Api {
 
     /**
      * Get installation versions
-     * 
+     *
      * @param auth auth. (optional)
      * @return ApiResponse&lt;V1Installation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -323,7 +323,7 @@ public class VersionsV1Api {
 
     /**
      * Get installation versions (asynchronously)
-     * 
+     *
      * @param auth auth. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -381,7 +381,7 @@ public class VersionsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -392,7 +392,7 @@ public class VersionsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getLogHandlerValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = getLogHandlerCall(_callback);
         return localVarCall;
@@ -401,7 +401,7 @@ public class VersionsV1Api {
 
     /**
      * Get log handler versions
-     * 
+     *
      * @return V1LogHandler
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -421,7 +421,7 @@ public class VersionsV1Api {
 
     /**
      * Get log handler versions
-     * 
+     *
      * @return ApiResponse&lt;V1LogHandler&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -442,7 +442,7 @@ public class VersionsV1Api {
 
     /**
      * Get log handler versions (asynchronously)
-     * 
+     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

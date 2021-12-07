@@ -61,7 +61,7 @@ public class V1PolyaxonInitContainer {
 
 
   public V1PolyaxonInitContainer image(String image) {
-    
+
     this.image = image;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1PolyaxonInitContainer {
 
 
   public V1PolyaxonInitContainer imageTag(String imageTag) {
-    
+
     this.imageTag = imageTag;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1PolyaxonInitContainer {
 
 
   public V1PolyaxonInitContainer imagePullPolicy(String imagePullPolicy) {
-    
+
     this.imagePullPolicy = imagePullPolicy;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1PolyaxonInitContainer {
 
 
   public V1PolyaxonInitContainer resources(Object resources) {
-    
+
     this.resources = resources;
     return this;
   }

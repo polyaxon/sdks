@@ -60,7 +60,7 @@ public class V1Schedule {
 
 
   public V1Schedule cron(V1CronSchedule cron) {
-    
+
     this.cron = cron;
     return this;
   }
@@ -83,7 +83,7 @@ public class V1Schedule {
 
 
   public V1Schedule datetime(V1DateTimeSchedule datetime) {
-    
+
     this.datetime = datetime;
     return this;
   }
@@ -106,7 +106,7 @@ public class V1Schedule {
 
 
   public V1Schedule interval(V1IntervalSchedule interval) {
-    
+
     this.interval = interval;
     return this;
   }

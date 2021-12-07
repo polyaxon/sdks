@@ -43,9 +43,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1ResourceType.Adapter.class)
 public enum V1ResourceType {
-  
+
   INT("int"),
-  
+
   FLOAT("float");
 
   private String value;

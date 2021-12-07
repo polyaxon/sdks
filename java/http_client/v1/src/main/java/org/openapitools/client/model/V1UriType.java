@@ -57,7 +57,7 @@ public class V1UriType {
 
 
   public V1UriType user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1UriType {
 
 
   public V1UriType password(String password) {
-    
+
     this.password = password;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1UriType {
 
 
   public V1UriType host(Boolean host) {
-    
+
     this.host = host;
     return this;
   }

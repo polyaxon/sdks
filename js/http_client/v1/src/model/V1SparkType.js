@@ -32,35 +32,35 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1SparkType {
-    
+
         /**
          * value: "java"
          * @const
          */
         "java" = "java";
 
-    
+
         /**
          * value: "scala"
          * @const
          */
         "scala" = "scala";
 
-    
+
         /**
          * value: "python"
          * @const
          */
         "python" = "python";
 
-    
+
         /**
          * value: "r"
          * @const
          */
         "r" = "r";
 
-    
+
 
     /**
     * Returns a <code>V1SparkType</code> enum value from a Javascript object name.

@@ -64,7 +64,7 @@ public class V1ListRunConnectionsResponse {
 
 
   public V1ListRunConnectionsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListRunConnectionsResponse {
 
 
   public V1ListRunConnectionsResponse results(List<V1RunConnection> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListRunConnectionsResponse {
 
 
   public V1ListRunConnectionsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListRunConnectionsResponse {
 
 
   public V1ListRunConnectionsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

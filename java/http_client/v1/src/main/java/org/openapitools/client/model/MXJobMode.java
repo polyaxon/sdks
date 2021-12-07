@@ -42,9 +42,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(MXJobMode.Adapter.class)
 public enum MXJobMode {
-  
+
   MXTRAIN("MXTrain"),
-  
+
   MXTUNE("MXTune");
 
   private String value;

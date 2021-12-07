@@ -71,7 +71,7 @@ public class V1StageCondition {
 
 
   public V1StageCondition type(V1Stages type) {
-    
+
     this.type = type;
     return this;
   }
@@ -94,7 +94,7 @@ public class V1StageCondition {
 
 
   public V1StageCondition status(String status) {
-    
+
     this.status = status;
     return this;
   }
@@ -117,7 +117,7 @@ public class V1StageCondition {
 
 
   public V1StageCondition reason(String reason) {
-    
+
     this.reason = reason;
     return this;
   }
@@ -140,7 +140,7 @@ public class V1StageCondition {
 
 
   public V1StageCondition message(String message) {
-    
+
     this.message = message;
     return this;
   }
@@ -163,7 +163,7 @@ public class V1StageCondition {
 
 
   public V1StageCondition lastUpdateTime(OffsetDateTime lastUpdateTime) {
-    
+
     this.lastUpdateTime = lastUpdateTime;
     return this;
   }
@@ -186,7 +186,7 @@ public class V1StageCondition {
 
 
   public V1StageCondition lastTransitionTime(OffsetDateTime lastTransitionTime) {
-    
+
     this.lastTransitionTime = lastTransitionTime;
     return this;
   }

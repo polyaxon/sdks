@@ -51,7 +51,7 @@ public class V1Uuids {
 
 
   public V1Uuids uuids(List<String> uuids) {
-    
+
     this.uuids = uuids;
     return this;
   }

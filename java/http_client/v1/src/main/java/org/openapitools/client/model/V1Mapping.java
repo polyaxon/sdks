@@ -63,7 +63,7 @@ public class V1Mapping {
 
 
   public V1Mapping kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1Mapping {
 
 
   public V1Mapping values(List<Object> values) {
-    
+
     this.values = values;
     return this;
   }
@@ -117,7 +117,7 @@ public class V1Mapping {
 
 
   public V1Mapping concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -140,7 +140,7 @@ public class V1Mapping {
 
 
   public V1Mapping earlyStopping(List<Object> earlyStopping) {
-    
+
     this.earlyStopping = earlyStopping;
     return this;
   }

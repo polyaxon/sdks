@@ -51,11 +51,11 @@ public class AuthV1ApiTest {
 
     private final AuthV1Api api = new AuthV1Api();
 
-    
+
     /**
      * Change password
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -66,11 +66,11 @@ public class AuthV1ApiTest {
                 api.changePassword(body);
         // TODO: test validations
     }
-    
+
     /**
      * Login
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,11 +81,11 @@ public class AuthV1ApiTest {
                 V1Auth response = api.login(body);
         // TODO: test validations
     }
-    
+
     /**
      * Reset password
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -96,11 +96,11 @@ public class AuthV1ApiTest {
                 api.resetPassword(body);
         // TODO: test validations
     }
-    
+
     /**
      * Reset password confirm
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -111,11 +111,11 @@ public class AuthV1ApiTest {
                 V1Auth response = api.resetPasswordConfirm(body);
         // TODO: test validations
     }
-    
+
     /**
      * Signup
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -126,11 +126,11 @@ public class AuthV1ApiTest {
                 V1Auth response = api.signup(body);
         // TODO: test validations
     }
-    
+
     /**
      * Trial Start
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -141,5 +141,5 @@ public class AuthV1ApiTest {
                 api.trial(body);
         // TODO: test validations
     }
-    
+
 }

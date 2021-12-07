@@ -73,6 +73,18 @@ message EventCurve {
     string annotation = 4;
 }
 
+// Cofusion matrix spec definition
+message EventConfusionMatrix {
+  // X
+  repeated google.protobuf.Struct x = 1;
+
+  // Y
+  repeated google.protobuf.Struct y = 2;
+
+  // Z
+  repeated google.protobuf.Struct z = 3;
+}
+
 // Histogram spec definition
 message EventHistogram {
     repeated double values = 1;
@@ -194,6 +206,7 @@ message Event {
         EventArtifact artifact = 12;
         EventDataframe dataframe = 13;
         EventCurve curve = 14;
+        EventConfusionMatrix confusion = 15;
     }
 }
 

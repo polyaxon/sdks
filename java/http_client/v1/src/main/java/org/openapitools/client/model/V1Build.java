@@ -84,7 +84,7 @@ public class V1Build {
 
 
   public V1Build hubRef(String hubRef) {
-    
+
     this.hubRef = hubRef;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1Build {
 
 
   public V1Build connection(String connection) {
-    
+
     this.connection = connection;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1Build {
 
 
   public V1Build queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -153,7 +153,7 @@ public class V1Build {
 
 
   public V1Build presets(List<String> presets) {
-    
+
     this.presets = presets;
     return this;
   }
@@ -184,7 +184,7 @@ public class V1Build {
 
 
   public V1Build cache(V1Cache cache) {
-    
+
     this.cache = cache;
     return this;
   }
@@ -207,7 +207,7 @@ public class V1Build {
 
 
   public V1Build params(Map<String, V1Param> params) {
-    
+
     this.params = params;
     return this;
   }
@@ -238,7 +238,7 @@ public class V1Build {
 
 
   public V1Build runPatch(Object runPatch) {
-    
+
     this.runPatch = runPatch;
     return this;
   }
@@ -261,7 +261,7 @@ public class V1Build {
 
 
   public V1Build patchStrategy(V1PatchStrategy patchStrategy) {
-    
+
     this.patchStrategy = patchStrategy;
     return this;
   }

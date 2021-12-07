@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **agents** | **list[str]** |  | [optional] 
 **user_accesses** | [**list[V1ProjectUserAccess]**](V1ProjectUserAccess.md) |  | [optional] 
 **teams** | **list[str]** |  | [optional] 
-**projects** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

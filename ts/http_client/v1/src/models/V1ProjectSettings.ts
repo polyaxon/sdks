@@ -88,12 +88,6 @@ export interface V1ProjectSettings {
      * @memberof V1ProjectSettings
      */
     teams?: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1ProjectSettings
-     */
-    projects?: Array<string>;
 }
 
 export function V1ProjectSettingsFromJSON(json: any): V1ProjectSettings {
@@ -114,7 +108,6 @@ export function V1ProjectSettingsFromJSONTyped(json: any, ignoreDiscriminator: b
         'agents': !exists(json, 'agents') ? undefined : json['agents'],
         'user_accesses': !exists(json, 'user_accesses') ? undefined : ((json['user_accesses'] as Array<any>).map(V1ProjectUserAccessFromJSON)),
         'teams': !exists(json, 'teams') ? undefined : json['teams'],
-        'projects': !exists(json, 'projects') ? undefined : json['projects'],
     };
 }
 
@@ -135,7 +128,6 @@ export function V1ProjectSettingsToJSON(value?: V1ProjectSettings | null): any {
         'agents': value.agents,
         'user_accesses': value.user_accesses === undefined ? undefined : ((value.user_accesses as Array<any>).map(V1ProjectUserAccessToJSON)),
         'teams': value.teams,
-        'projects': value.projects,
     };
 }
 

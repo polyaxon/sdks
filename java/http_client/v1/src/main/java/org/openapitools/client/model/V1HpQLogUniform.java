@@ -53,7 +53,7 @@ public class V1HpQLogUniform {
 
 
   public V1HpQLogUniform kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1HpQLogUniform {
 
 
   public V1HpQLogUniform value(Object value) {
-    
+
     this.value = value;
     return this;
   }

@@ -81,7 +81,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -104,7 +104,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob cleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
-    
+
     this.cleanPodPolicy = cleanPodPolicy;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
-    
+
     this.schedulingPolicy = schedulingPolicy;
     return this;
   }
@@ -150,7 +150,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob sshAuthMountPath(String sshAuthMountPath) {
-    
+
     this.sshAuthMountPath = sshAuthMountPath;
     return this;
   }
@@ -173,7 +173,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob implementation(MPIJobImplementation implementation) {
-    
+
     this.implementation = implementation;
     return this;
   }
@@ -196,7 +196,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob slotsPerWorker(Integer slotsPerWorker) {
-    
+
     this.slotsPerWorker = slotsPerWorker;
     return this;
   }
@@ -219,7 +219,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob worker(V1KFReplica worker) {
-    
+
     this.worker = worker;
     return this;
   }
@@ -242,7 +242,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob launcher(V1KFReplica launcher) {
-    
+
     this.launcher = launcher;
     return this;
   }

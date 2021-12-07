@@ -65,7 +65,7 @@ public class V1JoinParam {
 
 
   public V1JoinParam value(String value) {
-    
+
     this.value = value;
     return this;
   }
@@ -88,7 +88,7 @@ public class V1JoinParam {
 
 
   public V1JoinParam connection(String connection) {
-    
+
     this.connection = connection;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1JoinParam {
 
 
   public V1JoinParam toInit(Boolean toInit) {
-    
+
     this.toInit = toInit;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1JoinParam {
 
 
   public V1JoinParam toEnv(String toEnv) {
-    
+
     this.toEnv = toEnv;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1JoinParam {
 
 
   public V1JoinParam contextOnly(Boolean contextOnly) {
-    
+
     this.contextOnly = contextOnly;
     return this;
   }

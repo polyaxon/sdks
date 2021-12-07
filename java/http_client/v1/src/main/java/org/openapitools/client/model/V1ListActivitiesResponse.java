@@ -64,7 +64,7 @@ public class V1ListActivitiesResponse {
 
 
   public V1ListActivitiesResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListActivitiesResponse {
 
 
   public V1ListActivitiesResponse results(List<V1Activity> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListActivitiesResponse {
 
 
   public V1ListActivitiesResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListActivitiesResponse {
 
 
   public V1ListActivitiesResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

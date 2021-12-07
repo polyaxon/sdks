@@ -105,7 +105,7 @@ public class SchemasV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -116,7 +116,7 @@ public class SchemasV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call noOpValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = noOpCall(_callback);
         return localVarCall;
@@ -125,7 +125,7 @@ public class SchemasV1Api {
 
     /**
      * NoOp
-     * 
+     *
      * @return V1Schemas
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -145,7 +145,7 @@ public class SchemasV1Api {
 
     /**
      * NoOp
-     * 
+     *
      * @return ApiResponse&lt;V1Schemas&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -166,7 +166,7 @@ public class SchemasV1Api {
 
     /**
      * NoOp (asynchronously)
-     * 
+     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

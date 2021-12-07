@@ -55,7 +55,7 @@ public class V1EntitiesTransfer {
 
 
   public V1EntitiesTransfer uuids(List<String> uuids) {
-    
+
     this.uuids = uuids;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1EntitiesTransfer {
 
 
   public V1EntitiesTransfer project(String project) {
-    
+
     this.project = project;
     return this;
   }

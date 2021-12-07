@@ -43,11 +43,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1EventCurveKind.Adapter.class)
 public enum V1EventCurveKind {
-  
+
   ROC("roc"),
-  
+
   PR("pr"),
-  
+
   CUSTOM("custom");
 
   private String value;

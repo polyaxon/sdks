@@ -42,11 +42,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(SparkDeployMode.Adapter.class)
 public enum SparkDeployMode {
-  
+
   CLUSTER("cluster"),
-  
+
   CLIENT("client"),
-  
+
   IN_CLUSTER_CLIENT("in_cluster_client");
 
   private String value;

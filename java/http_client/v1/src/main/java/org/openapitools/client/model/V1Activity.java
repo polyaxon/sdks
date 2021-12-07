@@ -78,7 +78,7 @@ public class V1Activity {
 
 
   public V1Activity actor(String actor) {
-    
+
     this.actor = actor;
     return this;
   }
@@ -101,7 +101,7 @@ public class V1Activity {
 
 
   public V1Activity owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -124,7 +124,7 @@ public class V1Activity {
 
 
   public V1Activity createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -147,7 +147,7 @@ public class V1Activity {
 
 
   public V1Activity eventAction(String eventAction) {
-    
+
     this.eventAction = eventAction;
     return this;
   }
@@ -170,7 +170,7 @@ public class V1Activity {
 
 
   public V1Activity eventSubject(String eventSubject) {
-    
+
     this.eventSubject = eventSubject;
     return this;
   }
@@ -193,7 +193,7 @@ public class V1Activity {
 
 
   public V1Activity objectName(String objectName) {
-    
+
     this.objectName = objectName;
     return this;
   }
@@ -216,7 +216,7 @@ public class V1Activity {
 
 
   public V1Activity objectUuid(String objectUuid) {
-    
+
     this.objectUuid = objectUuid;
     return this;
   }
@@ -239,7 +239,7 @@ public class V1Activity {
 
 
   public V1Activity objectParent(String objectParent) {
-    
+
     this.objectParent = objectParent;
     return this;
   }

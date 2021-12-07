@@ -82,7 +82,7 @@ public class V1Dag {
 
 
   public V1Dag kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -105,7 +105,7 @@ public class V1Dag {
 
 
   public V1Dag operations(List<V1Operation> operations) {
-    
+
     this.operations = operations;
     return this;
   }
@@ -136,7 +136,7 @@ public class V1Dag {
 
 
   public V1Dag components(List<V1Component> components) {
-    
+
     this.components = components;
     return this;
   }
@@ -167,7 +167,7 @@ public class V1Dag {
 
 
   public V1Dag concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -190,7 +190,7 @@ public class V1Dag {
 
 
   public V1Dag earlyStopping(List<Object> earlyStopping) {
-    
+
     this.earlyStopping = earlyStopping;
     return this;
   }
@@ -221,7 +221,7 @@ public class V1Dag {
 
 
   public V1Dag environment(V1Environment environment) {
-    
+
     this.environment = environment;
     return this;
   }
@@ -244,7 +244,7 @@ public class V1Dag {
 
 
   public V1Dag connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }
@@ -275,7 +275,7 @@ public class V1Dag {
 
 
   public V1Dag volumes(List<Object> volumes) {
-    
+
     this.volumes = volumes;
     return this;
   }

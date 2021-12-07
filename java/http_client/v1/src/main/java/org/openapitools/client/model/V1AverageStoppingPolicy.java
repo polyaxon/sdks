@@ -49,7 +49,7 @@ public class V1AverageStoppingPolicy {
 
 
   public V1AverageStoppingPolicy kind(Object kind) {
-    
+
     this.kind = kind;
     return this;
   }

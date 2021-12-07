@@ -39,68 +39,72 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * - model: Model asset/event  - audio: Audio asset/event  - video: Vidio asset/event  - histogram: Histogram asset/event  - image: Image asset/event  - tensor: Tensor asset/event  - dataframe: Dataframe asset/event  - chart: plotly/bokeh/vega chart  - csv: Comma separated values  - tsv: Tab separated values  - psv: Pipe separated values  - ssv: Space separated values  - metric: Metric asset/event  - env: Env file  - html: HTML asset/event  - text: Text asset/event  - file: File asset/lineage  - dir: Dir asset/lineage  - dockerfile: Dockerfile asset  - docker_image: Docker image  - data: Data asset/event  - coderef: Coderef lineage  - table: Table asset/event  - tensorboard: Tensorboard lineage  - curve: Curve event  - analysis: Analysis lineage  - iteration: Iteration lineage  - markdown: Mardown event  - system: System event
+ * - model: Model asset/event  - audio: Audio asset/event  - video: Vidio asset/event  - histogram: Histogram asset/event  - image: Image asset/event  - tensor: Tensor asset/event  - dataframe: Dataframe asset/event  - chart: plotly/bokeh/vega chart  - csv: Comma separated values  - tsv: Tab separated values  - psv: Pipe separated values  - ssv: Space separated values  - metric: Metric asset/event  - env: Env file  - html: HTML asset/event  - text: Text asset/event  - file: File asset/lineage  - dir: Dir asset/lineage  - dockerfile: Dockerfile asset  - docker_image: Docker image  - data: Data asset/event  - coderef: Coderef lineage  - table: Table asset/event  - tensorboard: Tensorboard lineage  - curve: Curve event  - confusion: Confusion matrix event  - analysis: Analysis lineage  - iteration: Iteration lineage  - markdown: Mardown event  - system: System event  - artifact: Generic artifact
  */
 @JsonAdapter(V1ArtifactKind.Adapter.class)
 public enum V1ArtifactKind {
-  
+
   MODEL("model"),
-  
+
   AUDIO("audio"),
-  
+
   VIDEO("video"),
-  
+
   HISTOGRAM("histogram"),
-  
+
   IMAGE("image"),
-  
+
   TENSOR("tensor"),
-  
+
   DATAFRAME("dataframe"),
-  
+
   CHART("chart"),
-  
+
   CSV("csv"),
-  
+
   TSV("tsv"),
-  
+
   PSV("psv"),
-  
+
   SSV("ssv"),
-  
+
   METRIC("metric"),
-  
+
   ENV("env"),
-  
+
   HTML("html"),
-  
+
   TEXT("text"),
-  
+
   FILE("file"),
-  
+
   DIR("dir"),
-  
+
   DOCKERFILE("dockerfile"),
-  
+
   DOCKER_IMAGE("docker_image"),
-  
+
   DATA("data"),
-  
+
   CODEREF("coderef"),
-  
+
   TABLE("table"),
-  
+
   TENSORBOARD("tensorboard"),
-  
+
   CURVE("curve"),
-  
+
+  CONFUSION("confusion"),
+
   ANALYSIS("analysis"),
-  
+
   ITERATION("iteration"),
-  
+
   MARKDOWN("markdown"),
-  
-  SYSTEM("system");
+
+  SYSTEM("system"),
+
+  ARTIFACT("artifact");
 
   private String value;
 

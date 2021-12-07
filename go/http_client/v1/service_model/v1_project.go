@@ -49,9 +49,6 @@ type V1Project struct {
 	// Optional flag to tell if this project is public
 	IsPublic bool `json:"is_public,omitempty"`
 
-	// Optional project kind
-	Kind *V1ProjectKind `json:"kind,omitempty"`
-
 	// Current live state
 	LiveState int32 `json:"live_state,omitempty"`
 
@@ -89,10 +86,6 @@ func (m *V1Project) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateKind(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateSettings(formats); err != nil {
 		res = append(res, err)
 	}
@@ -114,25 +107,6 @@ func (m *V1Project) validateCreatedAt(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *V1Project) validateKind(formats strfmt.Registry) error {
-	if swag.IsZero(m.Kind) { // not required
-		return nil
-	}
-
-	if m.Kind != nil {
-		if err := m.Kind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("kind")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -173,10 +147,6 @@ func (m *V1Project) validateUpdatedAt(formats strfmt.Registry) error {
 func (m *V1Project) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateKind(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateSettings(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -184,22 +154,6 @@ func (m *V1Project) ContextValidate(ctx context.Context, formats strfmt.Registry
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *V1Project) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Kind != nil {
-		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("kind")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

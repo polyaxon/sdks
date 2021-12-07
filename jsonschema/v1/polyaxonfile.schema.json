@@ -4423,7 +4423,7 @@
     },
     "v1ArtifactKind": {
       "default": "model",
-      "description": "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event",
+      "description": "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - artifact: Generic artifact",
       "enum": [
         "model",
         "audio",
@@ -4450,10 +4450,12 @@
         "table",
         "tensorboard",
         "curve",
+        "confusion",
         "analysis",
         "iteration",
         "markdown",
-        "system"
+        "system",
+        "artifact"
       ],
       "title": "Artifact kind",
       "type": "string"
@@ -6046,6 +6048,9 @@
         "chart": {
           "$ref": "#/definitions/v1EventChart"
         },
+        "confusion": {
+          "$ref": "#/definitions/v1EventConfusionMatrix"
+        },
         "curve": {
           "$ref": "#/definitions/v1EventCurve"
         },
@@ -6155,6 +6160,33 @@
       ],
       "title": "Chart kind",
       "type": "string"
+    },
+    "v1EventConfusionMatrix": {
+      "properties": {
+        "x": {
+          "items": {
+            "type": "object"
+          },
+          "title": "X",
+          "type": "array"
+        },
+        "y": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Y",
+          "type": "array"
+        },
+        "z": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Z",
+          "type": "array"
+        }
+      },
+      "title": "Cofusion matrix spec definition",
+      "type": "object"
     },
     "v1EventCurve": {
       "properties": {
@@ -9280,10 +9312,6 @@
           "title": "Optional flag to tell if this project is public",
           "type": "boolean"
         },
-        "kind": {
-          "$ref": "#/definitions/v1ProjectKind",
-          "title": "Optional project kind"
-        },
         "live_state": {
           "format": "int32",
           "title": "Current live state",
@@ -9329,16 +9357,6 @@
       "title": "Project specification",
       "type": "object"
     },
-    "v1ProjectKind": {
-      "default": "any",
-      "enum": [
-        "any",
-        "hub",
-        "registry",
-        "data"
-      ],
-      "type": "string"
-    },
     "v1ProjectSettings": {
       "properties": {
         "agents": {
@@ -9364,13 +9382,6 @@
             "type": "string"
           },
           "title": "Authorized Presets",
-          "type": "array"
-        },
-        "projects": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized projects",
           "type": "array"
         },
         "queue": {

@@ -51,11 +51,11 @@ public class ProjectsV1ApiTest {
 
     private final ProjectsV1Api api = new ProjectsV1Api();
 
-    
+
     /**
      * Archive project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -67,11 +67,11 @@ public class ProjectsV1ApiTest {
                 api.archiveProject(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Bookmark project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -83,11 +83,11 @@ public class ProjectsV1ApiTest {
                 api.bookmarkProject(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Create new project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -99,11 +99,11 @@ public class ProjectsV1ApiTest {
                 V1Project response = api.createProject(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -115,11 +115,11 @@ public class ProjectsV1ApiTest {
                 api.deleteProject(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Disbale project CI
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -131,11 +131,11 @@ public class ProjectsV1ApiTest {
                 api.disableProjectCI(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Enable project CI
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -147,11 +147,11 @@ public class ProjectsV1ApiTest {
                 api.enableProjectCI(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -163,11 +163,11 @@ public class ProjectsV1ApiTest {
                 V1Project response = api.getProject(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get project activities
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -186,11 +186,11 @@ public class ProjectsV1ApiTest {
                 V1ListActivitiesResponse response = api.getProjectActivities(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get Project settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -202,11 +202,11 @@ public class ProjectsV1ApiTest {
                 V1ProjectSettings response = api.getProjectSettings(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get project stats
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -227,11 +227,11 @@ public class ProjectsV1ApiTest {
                 Object response = api.getProjectStats(owner, name, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
         // TODO: test validations
     }
-    
+
     /**
      * List archived projects for user
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -247,11 +247,11 @@ public class ProjectsV1ApiTest {
                 V1ListProjectsResponse response = api.listArchivedProjects(user, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List bookmarked projects for user
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -267,11 +267,11 @@ public class ProjectsV1ApiTest {
                 V1ListBookmarksResponse response = api.listBookmarkedProjects(user, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List project names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -289,11 +289,11 @@ public class ProjectsV1ApiTest {
                 V1ListProjectsResponse response = api.listProjectNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List projects
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -311,11 +311,11 @@ public class ProjectsV1ApiTest {
                 V1ListProjectsResponse response = api.listProjects(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -328,11 +328,11 @@ public class ProjectsV1ApiTest {
                 V1Project response = api.patchProject(owner, projectName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch project settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -345,11 +345,11 @@ public class ProjectsV1ApiTest {
                 V1ProjectSettings response = api.patchProjectSettings(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Restore project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -361,11 +361,11 @@ public class ProjectsV1ApiTest {
                 api.restoreProject(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Unbookmark project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -377,11 +377,11 @@ public class ProjectsV1ApiTest {
                 api.unbookmarkProject(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Update project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -394,11 +394,11 @@ public class ProjectsV1ApiTest {
                 V1Project response = api.updateProject(owner, projectName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update project settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -411,11 +411,11 @@ public class ProjectsV1ApiTest {
                 V1ProjectSettings response = api.updateProjectSettings(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Upload artifact to a store via project access
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -431,5 +431,5 @@ public class ProjectsV1ApiTest {
                 api.uploadProjectArtifact(owner, project, uuid, uploadfile, path, overwrite);
         // TODO: test validations
     }
-    
+
 }

@@ -27,22 +27,57 @@
 
 package org.openapitools.client.model;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for V1ProjectKind
+ * Model tests for V1EventConfusionMatrix
  */
-public class V1ProjectKindTest {
+public class V1EventConfusionMatrixTest {
+    private final V1EventConfusionMatrix model = new V1EventConfusionMatrix();
+
     /**
-     * Model tests for V1ProjectKind
+     * Model tests for V1EventConfusionMatrix
      */
     @Test
-    public void testV1ProjectKind() {
-        // TODO: test V1ProjectKind
+    public void testV1EventConfusionMatrix() {
+        // TODO: test V1EventConfusionMatrix
+    }
+
+    /**
+     * Test the property 'x'
+     */
+    @Test
+    public void xTest() {
+        // TODO: test x
+    }
+
+    /**
+     * Test the property 'y'
+     */
+    @Test
+    public void yTest() {
+        // TODO: test y
+    }
+
+    /**
+     * Test the property 'z'
+     */
+    @Test
+    public void zTest() {
+        // TODO: test z
     }
 
 }

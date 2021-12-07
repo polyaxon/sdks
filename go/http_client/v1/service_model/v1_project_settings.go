@@ -45,9 +45,6 @@ type V1ProjectSettings struct {
 	// Authorized Presets
 	Presets []string `json:"presets"`
 
-	// Authorized projects
-	Projects []string `json:"projects"`
-
 	// Default Queue
 	Queue string `json:"queue,omitempty"`
 

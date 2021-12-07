@@ -75,7 +75,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -98,7 +98,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec isMinimized(Boolean isMinimized) {
-    
+
     this.isMinimized = isMinimized;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec columns(Integer columns) {
-    
+
     this.columns = columns;
     return this;
   }
@@ -144,7 +144,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec height(Integer height) {
-    
+
     this.height = height;
     return this;
   }
@@ -167,7 +167,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec widgets(List<Object> widgets) {
-    
+
     this.widgets = widgets;
     return this;
   }
@@ -198,7 +198,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec pageIndex(Integer pageIndex) {
-    
+
     this.pageIndex = pageIndex;
     return this;
   }
@@ -221,7 +221,7 @@ public class V1SectionSpec {
 
 
   public V1SectionSpec pageSize(Integer pageSize) {
-    
+
     this.pageSize = pageSize;
     return this;
   }

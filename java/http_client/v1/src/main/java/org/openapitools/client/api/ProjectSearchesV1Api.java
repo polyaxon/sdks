@@ -122,22 +122,22 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createProjectSearchValidateBeforeCall(String owner, String project, V1Search body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling createProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createProjectSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createProjectSearchCall(owner, project, body, _callback);
         return localVarCall;
@@ -146,7 +146,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Create project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Search body (required)
@@ -169,7 +169,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Create project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Search body (required)
@@ -193,7 +193,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Create project search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Search body (required)
@@ -259,7 +259,7 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -270,22 +270,22 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProjectSearchValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling deleteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteProjectSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteProjectSearchCall(owner, entity, uuid, _callback);
         return localVarCall;
@@ -294,7 +294,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Delete project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -315,7 +315,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Delete project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -338,7 +338,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Delete project search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -403,7 +403,7 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -414,22 +414,22 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectSearchValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getProjectSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getProjectSearchCall(owner, entity, uuid, _callback);
         return localVarCall;
@@ -438,7 +438,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Get project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -461,7 +461,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Get project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -485,7 +485,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Get project search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -584,7 +584,7 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -595,17 +595,17 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectSearchNamesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listProjectSearchNames(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listProjectSearchNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listProjectSearchNamesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -614,7 +614,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * List project search names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -643,7 +643,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * List project search names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -673,7 +673,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * List project search names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -778,7 +778,7 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -789,17 +789,17 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectSearchesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listProjectSearches(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listProjectSearches(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listProjectSearchesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -808,7 +808,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * List project searches
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -837,7 +837,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * List project searches
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -867,7 +867,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * List project searches (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -951,27 +951,27 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchProjectSearchValidateBeforeCall(String owner, String project, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling patchProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'searchUuid' is set
         if (searchUuid == null) {
             throw new ApiException("Missing the required parameter 'searchUuid' when calling patchProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchProjectSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchProjectSearchCall(owner, project, searchUuid, body, _callback);
         return localVarCall;
@@ -980,7 +980,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Patch project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param searchUuid UUID (required)
@@ -1004,7 +1004,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Patch project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param searchUuid UUID (required)
@@ -1029,7 +1029,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Patch project search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param searchUuid UUID (required)
@@ -1096,7 +1096,7 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1107,22 +1107,22 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call promoteProjectSearchValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling promoteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling promoteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling promoteProjectSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = promoteProjectSearchCall(owner, entity, uuid, _callback);
         return localVarCall;
@@ -1131,7 +1131,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Promote project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1152,7 +1152,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Promote project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1175,7 +1175,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Promote project search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1252,27 +1252,27 @@ public class ProjectSearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectSearchValidateBeforeCall(String owner, String project, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling updateProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'searchUuid' is set
         if (searchUuid == null) {
             throw new ApiException("Missing the required parameter 'searchUuid' when calling updateProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateProjectSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateProjectSearchCall(owner, project, searchUuid, body, _callback);
         return localVarCall;
@@ -1281,7 +1281,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Update project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param searchUuid UUID (required)
@@ -1305,7 +1305,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Update project search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param searchUuid UUID (required)
@@ -1330,7 +1330,7 @@ public class ProjectSearchesV1Api {
 
     /**
      * Update project search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param searchUuid UUID (required)

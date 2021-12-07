@@ -53,7 +53,7 @@ public class V1EventDataframe {
 
 
   public V1EventDataframe path(String path) {
-    
+
     this.path = path;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1EventDataframe {
 
 
   public V1EventDataframe contentType(String contentType) {
-    
+
     this.contentType = contentType;
     return this;
   }

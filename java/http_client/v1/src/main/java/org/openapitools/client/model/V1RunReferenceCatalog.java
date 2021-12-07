@@ -53,7 +53,7 @@ public class V1RunReferenceCatalog {
 
 
   public V1RunReferenceCatalog name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1RunReferenceCatalog {
 
 
   public V1RunReferenceCatalog version(String version) {
-    
+
     this.version = version;
     return this;
   }

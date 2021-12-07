@@ -42,19 +42,19 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1MatrixKind.Adapter.class)
 public enum V1MatrixKind {
-  
+
   RANDOM("random"),
-  
+
   GRID("grid"),
-  
+
   HYPERBAND("hyperband"),
-  
+
   BAYES("bayes"),
-  
+
   HYPEROPT("hyperopt"),
-  
+
   ITERATIVE("iterative"),
-  
+
   MAPPING("mapping");
 
   private String value;

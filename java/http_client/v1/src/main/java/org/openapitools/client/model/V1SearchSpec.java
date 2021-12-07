@@ -103,7 +103,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec query(String query) {
-    
+
     this.query = query;
     return this;
   }
@@ -126,7 +126,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec sort(String sort) {
-    
+
     this.sort = sort;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec limit(Integer limit) {
-    
+
     this.limit = limit;
     return this;
   }
@@ -172,7 +172,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec offset(Integer offset) {
-    
+
     this.offset = offset;
     return this;
   }
@@ -195,7 +195,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec groupby(String groupby) {
-    
+
     this.groupby = groupby;
     return this;
   }
@@ -218,7 +218,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec columns(String columns) {
-    
+
     this.columns = columns;
     return this;
   }
@@ -241,7 +241,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec layout(String layout) {
-    
+
     this.layout = layout;
     return this;
   }
@@ -264,7 +264,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec sections(String sections) {
-    
+
     this.sections = sections;
     return this;
   }
@@ -287,7 +287,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec compares(String compares) {
-    
+
     this.compares = compares;
     return this;
   }
@@ -310,7 +310,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec heat(String heat) {
-    
+
     this.heat = heat;
     return this;
   }
@@ -333,7 +333,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec events(V1DashboardSpec events) {
-    
+
     this.events = events;
     return this;
   }
@@ -356,7 +356,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec histograms(Object histograms) {
-    
+
     this.histograms = histograms;
     return this;
   }
@@ -379,7 +379,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec trends(Object trends) {
-    
+
     this.trends = trends;
     return this;
   }
@@ -402,7 +402,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec analytics(V1AnalyticsSpec analytics) {
-    
+
     this.analytics = analytics;
     return this;
   }

@@ -121,12 +121,4 @@ public class V1ProjectSettingsTest {
         // TODO: test teams
     }
 
-    /**
-     * Test the property 'projects'
-     */
-    @Test
-    public void projectsTest() {
-        // TODO: test projects
-    }
-
 }

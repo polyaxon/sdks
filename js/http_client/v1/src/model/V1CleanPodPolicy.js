@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1CleanPodPolicy {
-    
+
         /**
          * value: "All"
          * @const
          */
         "All" = "All";
 
-    
+
         /**
          * value: "Running"
          * @const
          */
         "Running" = "Running";
 
-    
+
         /**
          * value: "None"
          * @const
          */
         "None" = "None";
 
-    
+
 
     /**
     * Returns a <code>V1CleanPodPolicy</code> enum value from a Javascript object name.

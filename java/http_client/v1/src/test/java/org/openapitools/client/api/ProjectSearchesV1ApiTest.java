@@ -47,11 +47,11 @@ public class ProjectSearchesV1ApiTest {
 
     private final ProjectSearchesV1Api api = new ProjectSearchesV1Api();
 
-    
+
     /**
      * Create project search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -64,11 +64,11 @@ public class ProjectSearchesV1ApiTest {
                 V1Search response = api.createProjectSearch(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete project search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,11 +81,11 @@ public class ProjectSearchesV1ApiTest {
                 api.deleteProjectSearch(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get project search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,11 +98,11 @@ public class ProjectSearchesV1ApiTest {
                 V1Search response = api.getProjectSearch(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List project search names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -121,11 +121,11 @@ public class ProjectSearchesV1ApiTest {
                 V1ListSearchesResponse response = api.listProjectSearchNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List project searches
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -144,11 +144,11 @@ public class ProjectSearchesV1ApiTest {
                 V1ListSearchesResponse response = api.listProjectSearches(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch project search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -162,11 +162,11 @@ public class ProjectSearchesV1ApiTest {
                 V1Search response = api.patchProjectSearch(owner, project, searchUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Promote project search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -179,11 +179,11 @@ public class ProjectSearchesV1ApiTest {
                 api.promoteProjectSearch(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Update project search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -197,5 +197,5 @@ public class ProjectSearchesV1ApiTest {
                 V1Search response = api.updateProjectSearch(owner, project, searchUuid, body);
         // TODO: test validations
     }
-    
+
 }

@@ -64,7 +64,7 @@ public class V1ListComponentVersionsResponse {
 
 
   public V1ListComponentVersionsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListComponentVersionsResponse {
 
 
   public V1ListComponentVersionsResponse results(List<V1ComponentVersion> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListComponentVersionsResponse {
 
 
   public V1ListComponentVersionsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListComponentVersionsResponse {
 
 
   public V1ListComponentVersionsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

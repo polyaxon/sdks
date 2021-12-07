@@ -54,7 +54,7 @@ public class V1FailureEarlyStopping {
 
 
   public V1FailureEarlyStopping kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -77,7 +77,7 @@ public class V1FailureEarlyStopping {
 
 
   public V1FailureEarlyStopping percent(Integer percent) {
-    
+
     this.percent = percent;
     return this;
   }

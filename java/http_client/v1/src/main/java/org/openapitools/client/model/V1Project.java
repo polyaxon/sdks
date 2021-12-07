@@ -39,7 +39,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.V1ProjectKind;
 import org.openapitools.client.model.V1ProjectSettings;
 import org.threeten.bp.OffsetDateTime;
 
@@ -88,10 +87,6 @@ public class V1Project {
   @SerializedName(SERIALIZED_NAME_README)
   private String readme;
 
-  public static final String SERIALIZED_NAME_KIND = "kind";
-  @SerializedName(SERIALIZED_NAME_KIND)
-  private V1ProjectKind kind = V1ProjectKind.ANY;
-
   public static final String SERIALIZED_NAME_EXCLUDED_RUNTIMES = "excluded_runtimes";
   @SerializedName(SERIALIZED_NAME_EXCLUDED_RUNTIMES)
   private List<String> excludedRuntimes = null;
@@ -110,7 +105,7 @@ public class V1Project {
 
 
   public V1Project uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -133,7 +128,7 @@ public class V1Project {
 
 
   public V1Project owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -156,7 +151,7 @@ public class V1Project {
 
 
   public V1Project name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -179,7 +174,7 @@ public class V1Project {
 
 
   public V1Project description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -202,7 +197,7 @@ public class V1Project {
 
 
   public V1Project tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -233,7 +228,7 @@ public class V1Project {
 
 
   public V1Project createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -256,7 +251,7 @@ public class V1Project {
 
 
   public V1Project updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -279,7 +274,7 @@ public class V1Project {
 
 
   public V1Project isPublic(Boolean isPublic) {
-    
+
     this.isPublic = isPublic;
     return this;
   }
@@ -302,7 +297,7 @@ public class V1Project {
 
 
   public V1Project bookmarked(Boolean bookmarked) {
-    
+
     this.bookmarked = bookmarked;
     return this;
   }
@@ -325,7 +320,7 @@ public class V1Project {
 
 
   public V1Project readme(String readme) {
-    
+
     this.readme = readme;
     return this;
   }
@@ -347,31 +342,8 @@ public class V1Project {
   }
 
 
-  public V1Project kind(V1ProjectKind kind) {
-    
-    this.kind = kind;
-    return this;
-  }
-
-   /**
-   * Get kind
-   * @return kind
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public V1ProjectKind getKind() {
-    return kind;
-  }
-
-
-  public void setKind(V1ProjectKind kind) {
-    this.kind = kind;
-  }
-
-
   public V1Project excludedRuntimes(List<String> excludedRuntimes) {
-    
+
     this.excludedRuntimes = excludedRuntimes;
     return this;
   }
@@ -402,7 +374,7 @@ public class V1Project {
 
 
   public V1Project settings(V1ProjectSettings settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -425,7 +397,7 @@ public class V1Project {
 
 
   public V1Project role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -448,7 +420,7 @@ public class V1Project {
 
 
   public V1Project liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -489,7 +461,6 @@ public class V1Project {
         Objects.equals(this.isPublic, v1Project.isPublic) &&
         Objects.equals(this.bookmarked, v1Project.bookmarked) &&
         Objects.equals(this.readme, v1Project.readme) &&
-        Objects.equals(this.kind, v1Project.kind) &&
         Objects.equals(this.excludedRuntimes, v1Project.excludedRuntimes) &&
         Objects.equals(this.settings, v1Project.settings) &&
         Objects.equals(this.role, v1Project.role) &&
@@ -498,7 +469,7 @@ public class V1Project {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, description, tags, createdAt, updatedAt, isPublic, bookmarked, readme, kind, excludedRuntimes, settings, role, liveState);
+    return Objects.hash(uuid, owner, name, description, tags, createdAt, updatedAt, isPublic, bookmarked, readme, excludedRuntimes, settings, role, liveState);
   }
 
   @Override
@@ -515,7 +486,6 @@ public class V1Project {
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    bookmarked: ").append(toIndentedString(bookmarked)).append("\n");
     sb.append("    readme: ").append(toIndentedString(readme)).append("\n");
-    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    excludedRuntimes: ").append(toIndentedString(excludedRuntimes)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

@@ -55,7 +55,7 @@ public class V1EntitiesTags {
 
 
   public V1EntitiesTags uuids(List<String> uuids) {
-    
+
     this.uuids = uuids;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1EntitiesTags {
 
 
   public V1EntitiesTags tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }

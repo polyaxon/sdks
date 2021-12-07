@@ -55,7 +55,7 @@ public class V1ComponentHubSettings {
 
 
   public V1ComponentHubSettings users(List<String> users) {
-    
+
     this.users = users;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1ComponentHubSettings {
 
 
   public V1ComponentHubSettings teams(List<String> teams) {
-    
+
     this.teams = teams;
     return this;
   }

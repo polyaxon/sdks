@@ -42,6 +42,7 @@
   var instance;
 
   beforeEach(function() {
+    instance = new PolyaxonSdk.V1EventConfusionMatrix();
   });
 
   var getProperty = function(object, getter, property) {
@@ -60,11 +61,29 @@
       object[property] = value;
   }
 
-  describe('V1ProjectKind', function() {
-    it('should create an instance of V1ProjectKind', function() {
-      // uncomment below and update the code to test V1ProjectKind
-      //var instance = new PolyaxonSdk.V1ProjectKind();
-      //expect(instance).to.be.a(PolyaxonSdk.V1ProjectKind);
+  describe('V1EventConfusionMatrix', function() {
+    it('should create an instance of V1EventConfusionMatrix', function() {
+      // uncomment below and update the code to test V1EventConfusionMatrix
+      //var instance = new PolyaxonSdk.V1EventConfusionMatrix();
+      //expect(instance).to.be.a(PolyaxonSdk.V1EventConfusionMatrix);
+    });
+
+    it('should have the property x (base name: "x")', function() {
+      // uncomment below and update the code to test the property x
+      //var instance = new PolyaxonSdk.V1EventConfusionMatrix();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property y (base name: "y")', function() {
+      // uncomment below and update the code to test the property y
+      //var instance = new PolyaxonSdk.V1EventConfusionMatrix();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property z (base name: "z")', function() {
+      // uncomment below and update the code to test the property z
+      //var instance = new PolyaxonSdk.V1EventConfusionMatrix();
+      //expect(instance).to.be();
     });
 
   });

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **artifact** | [**V1EventArtifact**](V1EventArtifact.md) |  | [optional] 
 **dataframe** | [**V1EventDataframe**](V1EventDataframe.md) |  | [optional] 
 **curve** | [**V1EventCurve**](V1EventCurve.md) |  | [optional] 
+**confusion** | [**V1EventConfusionMatrix**](V1EventConfusionMatrix.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

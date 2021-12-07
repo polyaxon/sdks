@@ -66,7 +66,8 @@ class V1Event(object):
         'model': 'V1EventModel',
         'artifact': 'V1EventArtifact',
         'dataframe': 'V1EventDataframe',
-        'curve': 'V1EventCurve'
+        'curve': 'V1EventCurve',
+        'confusion': 'V1EventConfusionMatrix'
     }
 
     attribute_map = {
@@ -83,10 +84,11 @@ class V1Event(object):
         'model': 'model',
         'artifact': 'artifact',
         'dataframe': 'dataframe',
-        'curve': 'curve'
+        'curve': 'curve',
+        'confusion': 'confusion'
     }
 
-    def __init__(self, timestamp=None, step=None, metric=None, image=None, histogram=None, audio=None, video=None, html=None, text=None, chart=None, model=None, artifact=None, dataframe=None, curve=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, timestamp=None, step=None, metric=None, image=None, histogram=None, audio=None, video=None, html=None, text=None, chart=None, model=None, artifact=None, dataframe=None, curve=None, confusion=None, local_vars_configuration=None):  # noqa: E501
         """V1Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -106,6 +108,7 @@ class V1Event(object):
         self._artifact = None
         self._dataframe = None
         self._curve = None
+        self._confusion = None
         self.discriminator = None
 
         if timestamp is not None:
@@ -136,6 +139,8 @@ class V1Event(object):
             self.dataframe = dataframe
         if curve is not None:
             self.curve = curve
+        if confusion is not None:
+            self.confusion = confusion
 
     @property
     def timestamp(self):
@@ -432,6 +437,27 @@ class V1Event(object):
         """
 
         self._curve = curve
+
+    @property
+    def confusion(self):
+        """Gets the confusion of this V1Event.  # noqa: E501
+
+
+        :return: The confusion of this V1Event.  # noqa: E501
+        :rtype: V1EventConfusionMatrix
+        """
+        return self._confusion
+
+    @confusion.setter
+    def confusion(self, confusion):
+        """Sets the confusion of this V1Event.
+
+
+        :param confusion: The confusion of this V1Event.  # noqa: E501
+        :type confusion: V1EventConfusionMatrix
+        """
+
+        self._confusion = confusion
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

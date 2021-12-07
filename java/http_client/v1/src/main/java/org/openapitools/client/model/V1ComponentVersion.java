@@ -94,7 +94,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -117,7 +117,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -140,7 +140,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -163,7 +163,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -194,7 +194,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -217,7 +217,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -240,7 +240,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -263,7 +263,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion stage(V1Stages stage) {
-    
+
     this.stage = stage;
     return this;
   }
@@ -286,7 +286,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion stageConditions(List<V1StageCondition> stageConditions) {
-    
+
     this.stageConditions = stageConditions;
     return this;
   }
@@ -317,7 +317,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion content(String content) {
-    
+
     this.content = content;
     return this;
   }
@@ -340,7 +340,7 @@ public class V1ComponentVersion {
 
 
   public V1ComponentVersion role(String role) {
-    
+
     this.role = role;
     return this;
   }

@@ -43,11 +43,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1EventChartKind.Adapter.class)
 public enum V1EventChartKind {
-  
+
   PLOTLY("plotly"),
-  
+
   BOKEH("bokeh"),
-  
+
   VEGA("vega");
 
   private String value;

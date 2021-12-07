@@ -53,7 +53,7 @@ public class V1HpNormal {
 
 
   public V1HpNormal kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1HpNormal {
 
 
   public V1HpNormal value(Object value) {
-    
+
     this.value = value;
     return this;
   }

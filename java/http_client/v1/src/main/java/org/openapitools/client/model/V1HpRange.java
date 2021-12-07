@@ -53,7 +53,7 @@ public class V1HpRange {
 
 
   public V1HpRange kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1HpRange {
 
 
   public V1HpRange value(Object value) {
-    
+
     this.value = value;
     return this;
   }

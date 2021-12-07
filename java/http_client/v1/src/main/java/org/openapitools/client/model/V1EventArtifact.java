@@ -54,7 +54,7 @@ public class V1EventArtifact {
 
 
   public V1EventArtifact kind(V1ArtifactKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -77,7 +77,7 @@ public class V1EventArtifact {
 
 
   public V1EventArtifact path(String path) {
-    
+
     this.path = path;
     return this;
   }

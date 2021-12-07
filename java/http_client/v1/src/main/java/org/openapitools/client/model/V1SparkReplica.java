@@ -69,7 +69,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica replicas(Integer replicas) {
-    
+
     this.replicas = replicas;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica environment(V1Environment environment) {
-    
+
     this.environment = environment;
     return this;
   }
@@ -115,7 +115,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica init(List<V1Init> init) {
-    
+
     this.init = init;
     return this;
   }
@@ -146,7 +146,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica sidecars(List<Object> sidecars) {
-    
+
     this.sidecars = sidecars;
     return this;
   }
@@ -177,7 +177,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica container(Object container) {
-    
+
     this.container = container;
     return this;
   }

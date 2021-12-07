@@ -65,7 +65,7 @@ public class V1Logs {
 
 
   public V1Logs logs(List<V1Log> logs) {
-    
+
     this.logs = logs;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1Logs {
 
 
   public V1Logs lastTime(OffsetDateTime lastTime) {
-    
+
     this.lastTime = lastTime;
     return this;
   }
@@ -119,7 +119,7 @@ public class V1Logs {
 
 
   public V1Logs lastFile(String lastFile) {
-    
+
     this.lastFile = lastFile;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1Logs {
 
 
   public V1Logs files(List<String> files) {
-    
+
     this.files = files;
     return this;
   }

@@ -57,7 +57,7 @@ public class V1OwnerSubEntityResourceRequestByUid {
 
 
   public V1OwnerSubEntityResourceRequestByUid owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1OwnerSubEntityResourceRequestByUid {
 
 
   public V1OwnerSubEntityResourceRequestByUid entity(String entity) {
-    
+
     this.entity = entity;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1OwnerSubEntityResourceRequestByUid {
 
 
   public V1OwnerSubEntityResourceRequestByUid uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }

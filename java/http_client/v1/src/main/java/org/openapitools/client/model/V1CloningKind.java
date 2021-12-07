@@ -42,11 +42,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1CloningKind.Adapter.class)
 public enum V1CloningKind {
-  
+
   COPY("copy"),
-  
+
   RESTART("restart"),
-  
+
   CACHE("cache");
 
   private String value;

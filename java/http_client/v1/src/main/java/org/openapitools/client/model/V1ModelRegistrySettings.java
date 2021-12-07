@@ -59,7 +59,7 @@ public class V1ModelRegistrySettings {
 
 
   public V1ModelRegistrySettings users(List<String> users) {
-    
+
     this.users = users;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1ModelRegistrySettings {
 
 
   public V1ModelRegistrySettings teams(List<String> teams) {
-    
+
     this.teams = teams;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1ModelRegistrySettings {
 
 
   public V1ModelRegistrySettings projects(List<String> projects) {
-    
+
     this.projects = projects;
     return this;
   }

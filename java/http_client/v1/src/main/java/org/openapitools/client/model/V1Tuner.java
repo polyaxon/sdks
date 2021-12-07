@@ -66,7 +66,7 @@ public class V1Tuner {
 
 
   public V1Tuner hubRef(String hubRef) {
-    
+
     this.hubRef = hubRef;
     return this;
   }
@@ -89,7 +89,7 @@ public class V1Tuner {
 
 
   public V1Tuner queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1Tuner {
 
 
   public V1Tuner presets(List<String> presets) {
-    
+
     this.presets = presets;
     return this;
   }
@@ -143,7 +143,7 @@ public class V1Tuner {
 
 
   public V1Tuner params(Map<String, V1Param> params) {
-    
+
     this.params = params;
     return this;
   }

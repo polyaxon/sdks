@@ -3733,10 +3733,12 @@ export enum GetMultiRunEventsKindEnum {
     Table = 'table',
     Tensorboard = 'tensorboard',
     Curve = 'curve',
+    Confusion = 'confusion',
     Analysis = 'analysis',
     Iteration = 'iteration',
     Markdown = 'markdown',
-    System = 'system'
+    System = 'system',
+    Artifact = 'artifact'
 }
 /**
     * @export
@@ -3768,8 +3770,10 @@ export enum GetRunEventsKindEnum {
     Table = 'table',
     Tensorboard = 'tensorboard',
     Curve = 'curve',
+    Confusion = 'confusion',
     Analysis = 'analysis',
     Iteration = 'iteration',
     Markdown = 'markdown',
-    System = 'system'
+    System = 'system',
+    Artifact = 'artifact'
 }

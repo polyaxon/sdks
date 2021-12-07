@@ -53,6 +53,8 @@
 
 * `curve` (value: `"curve"`)
 
+* `confusion` (value: `"confusion"`)
+
 * `analysis` (value: `"analysis"`)
 
 * `iteration` (value: `"iteration"`)
@@ -60,5 +62,7 @@
 * `markdown` (value: `"markdown"`)
 
 * `system` (value: `"system"`)
+
+* `artifact` (value: `"artifact"`)
 
 

@@ -116,12 +116,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property projects (base name: "projects")', function() {
-      // uncomment below and update the code to test the property projects
-      //var instance = new PolyaxonSdk.V1ProjectSettings();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

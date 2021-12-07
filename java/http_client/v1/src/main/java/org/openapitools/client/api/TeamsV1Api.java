@@ -122,17 +122,17 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTeamValidateBeforeCall(String owner, V1Team body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createTeam(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createTeam(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createTeamCall(owner, body, _callback);
         return localVarCall;
@@ -141,7 +141,7 @@ public class TeamsV1Api {
 
     /**
      * Create team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Team body (required)
      * @return V1Team
@@ -163,7 +163,7 @@ public class TeamsV1Api {
 
     /**
      * Create team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Team body (required)
      * @return ApiResponse&lt;V1Team&gt;
@@ -186,7 +186,7 @@ public class TeamsV1Api {
 
     /**
      * Create team (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Team body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -261,22 +261,22 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTeamMemberValidateBeforeCall(String owner, String team, V1TeamMember body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'team' is set
         if (team == null) {
             throw new ApiException("Missing the required parameter 'team' when calling createTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createTeamMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createTeamMemberCall(owner, team, body, _callback);
         return localVarCall;
@@ -285,7 +285,7 @@ public class TeamsV1Api {
 
     /**
      * Create team member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param body Team body (required)
@@ -308,7 +308,7 @@ public class TeamsV1Api {
 
     /**
      * Create team member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param body Team body (required)
@@ -332,7 +332,7 @@ public class TeamsV1Api {
 
     /**
      * Create team member (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param body Team body (required)
@@ -396,7 +396,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -407,17 +407,17 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTeamValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteTeam(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteTeam(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteTeamCall(owner, name, _callback);
         return localVarCall;
@@ -426,7 +426,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -446,7 +446,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -468,7 +468,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -532,7 +532,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -543,22 +543,22 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTeamMemberValidateBeforeCall(String owner, String team, String user, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'team' is set
         if (team == null) {
             throw new ApiException("Missing the required parameter 'team' when calling deleteTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'user' is set
         if (user == null) {
             throw new ApiException("Missing the required parameter 'user' when calling deleteTeamMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteTeamMemberCall(owner, team, user, _callback);
         return localVarCall;
@@ -567,7 +567,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -588,7 +588,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -611,7 +611,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team member details (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -674,7 +674,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -685,17 +685,17 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTeamValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getTeam(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getTeam(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getTeamCall(owner, name, _callback);
         return localVarCall;
@@ -704,7 +704,7 @@ public class TeamsV1Api {
 
     /**
      * Get team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1Team
@@ -726,7 +726,7 @@ public class TeamsV1Api {
 
     /**
      * Get team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1Team&gt;
@@ -749,7 +749,7 @@ public class TeamsV1Api {
 
     /**
      * Get team (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -814,7 +814,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -825,22 +825,22 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTeamMemberValidateBeforeCall(String owner, String team, String user, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'team' is set
         if (team == null) {
             throw new ApiException("Missing the required parameter 'team' when calling getTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'user' is set
         if (user == null) {
             throw new ApiException("Missing the required parameter 'user' when calling getTeamMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getTeamMemberCall(owner, team, user, _callback);
         return localVarCall;
@@ -849,7 +849,7 @@ public class TeamsV1Api {
 
     /**
      * Get team member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -872,7 +872,7 @@ public class TeamsV1Api {
 
     /**
      * Get team member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -896,7 +896,7 @@ public class TeamsV1Api {
 
     /**
      * Get team member details (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -995,7 +995,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1006,17 +1006,17 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTeamMembersValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listTeamMembers(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listTeamMembers(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listTeamMembersCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1025,7 +1025,7 @@ public class TeamsV1Api {
 
     /**
      * Get team members
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1054,7 +1054,7 @@ public class TeamsV1Api {
 
     /**
      * Get team members
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1084,7 +1084,7 @@ public class TeamsV1Api {
 
     /**
      * Get team members (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1187,7 +1187,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1198,12 +1198,12 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTeamNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listTeamNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listTeamNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1212,7 +1212,7 @@ public class TeamsV1Api {
 
     /**
      * List teams names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1240,7 +1240,7 @@ public class TeamsV1Api {
 
     /**
      * List teams names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1269,7 +1269,7 @@ public class TeamsV1Api {
 
     /**
      * List teams names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1371,7 +1371,7 @@ public class TeamsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1382,12 +1382,12 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTeamsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listTeams(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listTeamsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1396,7 +1396,7 @@ public class TeamsV1Api {
 
     /**
      * List teams
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1424,7 +1424,7 @@ public class TeamsV1Api {
 
     /**
      * List teams
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1453,7 +1453,7 @@ public class TeamsV1Api {
 
     /**
      * List teams (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1534,22 +1534,22 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchTeamValidateBeforeCall(String owner, String teamName, V1Team body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchTeam(Async)");
         }
-        
+
         // verify the required parameter 'teamName' is set
         if (teamName == null) {
             throw new ApiException("Missing the required parameter 'teamName' when calling patchTeam(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchTeam(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchTeamCall(owner, teamName, body, _callback);
         return localVarCall;
@@ -1558,7 +1558,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1581,7 +1581,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1605,7 +1605,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1683,27 +1683,27 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchTeamMemberValidateBeforeCall(String owner, String team, String memberUser, V1TeamMember body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'team' is set
         if (team == null) {
             throw new ApiException("Missing the required parameter 'team' when calling patchTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'memberUser' is set
         if (memberUser == null) {
             throw new ApiException("Missing the required parameter 'memberUser' when calling patchTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchTeamMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchTeamMemberCall(owner, team, memberUser, body, _callback);
         return localVarCall;
@@ -1712,7 +1712,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -1736,7 +1736,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -1761,7 +1761,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team member (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -1838,22 +1838,22 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTeamValidateBeforeCall(String owner, String teamName, V1Team body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateTeam(Async)");
         }
-        
+
         // verify the required parameter 'teamName' is set
         if (teamName == null) {
             throw new ApiException("Missing the required parameter 'teamName' when calling updateTeam(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateTeam(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateTeamCall(owner, teamName, body, _callback);
         return localVarCall;
@@ -1862,7 +1862,7 @@ public class TeamsV1Api {
 
     /**
      * Update team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1885,7 +1885,7 @@ public class TeamsV1Api {
 
     /**
      * Update team
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1909,7 +1909,7 @@ public class TeamsV1Api {
 
     /**
      * Update team (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1987,27 +1987,27 @@ public class TeamsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTeamMemberValidateBeforeCall(String owner, String team, String memberUser, V1TeamMember body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'team' is set
         if (team == null) {
             throw new ApiException("Missing the required parameter 'team' when calling updateTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'memberUser' is set
         if (memberUser == null) {
             throw new ApiException("Missing the required parameter 'memberUser' when calling updateTeamMember(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateTeamMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateTeamMemberCall(owner, team, memberUser, body, _callback);
         return localVarCall;
@@ -2016,7 +2016,7 @@ public class TeamsV1Api {
 
     /**
      * Update team member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -2040,7 +2040,7 @@ public class TeamsV1Api {
 
     /**
      * Update team member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -2065,7 +2065,7 @@ public class TeamsV1Api {
 
     /**
      * Update team member (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)

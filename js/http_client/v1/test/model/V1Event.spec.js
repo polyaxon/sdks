@@ -152,6 +152,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property confusion (base name: "confusion")', function() {
+      // uncomment below and update the code to test the property confusion
+      //var instance = new PolyaxonSdk.V1Event();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

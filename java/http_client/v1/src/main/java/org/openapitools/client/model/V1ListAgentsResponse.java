@@ -64,7 +64,7 @@ public class V1ListAgentsResponse {
 
 
   public V1ListAgentsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListAgentsResponse {
 
 
   public V1ListAgentsResponse results(List<V1Agent> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListAgentsResponse {
 
 
   public V1ListAgentsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListAgentsResponse {
 
 
   public V1ListAgentsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

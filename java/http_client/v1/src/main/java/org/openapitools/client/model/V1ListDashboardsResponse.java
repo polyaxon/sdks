@@ -64,7 +64,7 @@ public class V1ListDashboardsResponse {
 
 
   public V1ListDashboardsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListDashboardsResponse {
 
 
   public V1ListDashboardsResponse results(List<V1Dashboard> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListDashboardsResponse {
 
 
   public V1ListDashboardsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListDashboardsResponse {
 
 
   public V1ListDashboardsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

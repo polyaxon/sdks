@@ -128,12 +128,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property kind (base name: "kind")', function() {
-      // uncomment below and update the code to test the property kind
-      //var instance = new PolyaxonSdk.V1Project();
-      //expect(instance).to.be();
-    });
-
     it('should have the property excluded_runtimes (base name: "excluded_runtimes")', function() {
       // uncomment below and update the code to test the property excluded_runtimes
       //var instance = new PolyaxonSdk.V1Project();

@@ -51,7 +51,7 @@ public class V1EventsResponse {
 
 
   public V1EventsResponse data(List<Object> data) {
-    
+
     this.data = data;
     return this;
   }

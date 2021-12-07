@@ -40,6 +40,10 @@ import {
     V1EventChartFromJSON,
     V1EventChartFromJSONTyped,
     V1EventChartToJSON,
+    V1EventConfusionMatrix,
+    V1EventConfusionMatrixFromJSON,
+    V1EventConfusionMatrixFromJSONTyped,
+    V1EventConfusionMatrixToJSON,
     V1EventCurve,
     V1EventCurveFromJSON,
     V1EventCurveFromJSONTyped,
@@ -156,6 +160,12 @@ export interface V1Event {
      * @memberof V1Event
      */
     curve?: V1EventCurve;
+    /**
+     * 
+     * @type {V1EventConfusionMatrix}
+     * @memberof V1Event
+     */
+    confusion?: V1EventConfusionMatrix;
 }
 
 export function V1EventFromJSON(json: any): V1Event {
@@ -182,6 +192,7 @@ export function V1EventFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'artifact': !exists(json, 'artifact') ? undefined : V1EventArtifactFromJSON(json['artifact']),
         'dataframe': !exists(json, 'dataframe') ? undefined : V1EventDataframeFromJSON(json['dataframe']),
         'curve': !exists(json, 'curve') ? undefined : V1EventCurveFromJSON(json['curve']),
+        'confusion': !exists(json, 'confusion') ? undefined : V1EventConfusionMatrixFromJSON(json['confusion']),
     };
 }
 
@@ -208,6 +219,7 @@ export function V1EventToJSON(value?: V1Event | null): any {
         'artifact': V1EventArtifactToJSON(value.artifact),
         'dataframe': V1EventDataframeToJSON(value.dataframe),
         'curve': V1EventCurveToJSON(value.curve),
+        'confusion': V1EventConfusionMatrixToJSON(value.confusion),
     };
 }
 

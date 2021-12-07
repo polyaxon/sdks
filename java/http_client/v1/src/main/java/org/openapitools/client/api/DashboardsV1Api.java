@@ -120,17 +120,17 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDashboardValidateBeforeCall(String owner, V1Dashboard body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createDashboard(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createDashboard(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createDashboardCall(owner, body, _callback);
         return localVarCall;
@@ -139,7 +139,7 @@ public class DashboardsV1Api {
 
     /**
      * Create dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Dashboard body (required)
      * @return V1Dashboard
@@ -161,7 +161,7 @@ public class DashboardsV1Api {
 
     /**
      * Create dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Dashboard body (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
@@ -184,7 +184,7 @@ public class DashboardsV1Api {
 
     /**
      * Create dashboard (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Dashboard body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -247,7 +247,7 @@ public class DashboardsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -258,17 +258,17 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteDashboardValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteDashboard(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteDashboard(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteDashboardCall(owner, uuid, _callback);
         return localVarCall;
@@ -277,7 +277,7 @@ public class DashboardsV1Api {
 
     /**
      * Delete dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -297,7 +297,7 @@ public class DashboardsV1Api {
 
     /**
      * Delete dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;Void&gt;
@@ -319,7 +319,7 @@ public class DashboardsV1Api {
 
     /**
      * Delete dashboard (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -381,7 +381,7 @@ public class DashboardsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -392,17 +392,17 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDashboardValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getDashboard(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getDashboard(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getDashboardCall(owner, uuid, _callback);
         return localVarCall;
@@ -411,7 +411,7 @@ public class DashboardsV1Api {
 
     /**
      * Get dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Dashboard
@@ -433,7 +433,7 @@ public class DashboardsV1Api {
 
     /**
      * Get dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
@@ -456,7 +456,7 @@ public class DashboardsV1Api {
 
     /**
      * Get dashboard (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -552,7 +552,7 @@ public class DashboardsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -563,12 +563,12 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDashboardNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listDashboardNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listDashboardNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -577,7 +577,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboard names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -605,7 +605,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboard names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -634,7 +634,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboard names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -736,7 +736,7 @@ public class DashboardsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -747,12 +747,12 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDashboardsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listDashboards(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listDashboardsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -761,7 +761,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboards
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -789,7 +789,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboards
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -818,7 +818,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboards (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -899,22 +899,22 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchDashboardValidateBeforeCall(String owner, String dashboardUuid, V1Dashboard body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchDashboard(Async)");
         }
-        
+
         // verify the required parameter 'dashboardUuid' is set
         if (dashboardUuid == null) {
             throw new ApiException("Missing the required parameter 'dashboardUuid' when calling patchDashboard(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchDashboard(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchDashboardCall(owner, dashboardUuid, body, _callback);
         return localVarCall;
@@ -923,7 +923,7 @@ public class DashboardsV1Api {
 
     /**
      * Patch dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -946,7 +946,7 @@ public class DashboardsV1Api {
 
     /**
      * Patch dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -970,7 +970,7 @@ public class DashboardsV1Api {
 
     /**
      * Patch dashboard (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1046,22 +1046,22 @@ public class DashboardsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateDashboardValidateBeforeCall(String owner, String dashboardUuid, V1Dashboard body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateDashboard(Async)");
         }
-        
+
         // verify the required parameter 'dashboardUuid' is set
         if (dashboardUuid == null) {
             throw new ApiException("Missing the required parameter 'dashboardUuid' when calling updateDashboard(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateDashboard(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateDashboardCall(owner, dashboardUuid, body, _callback);
         return localVarCall;
@@ -1070,7 +1070,7 @@ public class DashboardsV1Api {
 
     /**
      * Update dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1093,7 +1093,7 @@ public class DashboardsV1Api {
 
     /**
      * Update dashboard
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1117,7 +1117,7 @@ public class DashboardsV1Api {
 
     /**
      * Update dashboard (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)

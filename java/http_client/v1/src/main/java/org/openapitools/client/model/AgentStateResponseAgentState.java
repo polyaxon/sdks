@@ -81,7 +81,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState schedules(Object schedules) {
-    
+
     this.schedules = schedules;
     return this;
   }
@@ -104,7 +104,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState hooks(Object hooks) {
-    
+
     this.hooks = hooks;
     return this;
   }
@@ -127,7 +127,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState watchdogs(Object watchdogs) {
-    
+
     this.watchdogs = watchdogs;
     return this;
   }
@@ -150,7 +150,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState tuners(Object tuners) {
-    
+
     this.tuners = tuners;
     return this;
   }
@@ -173,7 +173,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState queued(Object queued) {
-    
+
     this.queued = queued;
     return this;
   }
@@ -196,7 +196,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState stopping(Object stopping) {
-    
+
     this.stopping = stopping;
     return this;
   }
@@ -219,7 +219,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState deleting(Object deleting) {
-    
+
     this.deleting = deleting;
     return this;
   }
@@ -242,7 +242,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState apply(Object apply) {
-    
+
     this.apply = apply;
     return this;
   }
@@ -265,7 +265,7 @@ public class AgentStateResponseAgentState {
 
 
   public AgentStateResponseAgentState full(Boolean full) {
-    
+
     this.full = full;
     return this;
   }

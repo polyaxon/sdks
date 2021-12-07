@@ -42,6 +42,9 @@ type V1Event struct {
 	// chart
 	Chart *V1EventChart `json:"chart,omitempty"`
 
+	// confusion
+	Confusion *V1EventConfusionMatrix `json:"confusion,omitempty"`
+
 	// curve
 	Curve *V1EventCurve `json:"curve,omitempty"`
 
@@ -90,6 +93,10 @@ func (m *V1Event) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateChart(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConfusion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -176,6 +183,25 @@ func (m *V1Event) validateChart(formats strfmt.Registry) error {
 				return ve.ValidateName("chart")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("chart")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Event) validateConfusion(formats strfmt.Registry) error {
+	if swag.IsZero(m.Confusion) { // not required
+		return nil
+	}
+
+	if m.Confusion != nil {
+		if err := m.Confusion.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("confusion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("confusion")
 			}
 			return err
 		}
@@ -326,6 +352,10 @@ func (m *V1Event) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateConfusion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCurve(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -396,6 +426,22 @@ func (m *V1Event) contextValidateChart(ctx context.Context, formats strfmt.Regis
 				return ve.ValidateName("chart")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("chart")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Event) contextValidateConfusion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Confusion != nil {
+		if err := m.Confusion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("confusion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("confusion")
 			}
 			return err
 		}

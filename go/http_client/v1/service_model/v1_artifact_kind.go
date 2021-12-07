@@ -55,10 +55,12 @@ import (
 //  - table: Table asset/event
 //  - tensorboard: Tensorboard lineage
 //  - curve: Curve event
+//  - confusion: Confusion matrix event
 //  - analysis: Analysis lineage
 //  - iteration: Iteration lineage
 //  - markdown: Mardown event
 //  - system: System event
+//  - artifact: Generic artifact
 //
 // swagger:model v1ArtifactKind
 type V1ArtifactKind string
@@ -145,6 +147,9 @@ const (
 	// V1ArtifactKindCurve captures enum value "curve"
 	V1ArtifactKindCurve V1ArtifactKind = "curve"
 
+	// V1ArtifactKindConfusion captures enum value "confusion"
+	V1ArtifactKindConfusion V1ArtifactKind = "confusion"
+
 	// V1ArtifactKindAnalysis captures enum value "analysis"
 	V1ArtifactKindAnalysis V1ArtifactKind = "analysis"
 
@@ -156,6 +161,9 @@ const (
 
 	// V1ArtifactKindSystem captures enum value "system"
 	V1ArtifactKindSystem V1ArtifactKind = "system"
+
+	// V1ArtifactKindArtifact captures enum value "artifact"
+	V1ArtifactKindArtifact V1ArtifactKind = "artifact"
 )
 
 // for schema
@@ -163,7 +171,7 @@ var v1ArtifactKindEnum []interface{}
 
 func init() {
 	var res []V1ArtifactKind
-	if err := json.Unmarshal([]byte(`["model","audio","video","histogram","image","tensor","dataframe","chart","csv","tsv","psv","ssv","metric","env","html","text","file","dir","dockerfile","docker_image","data","coderef","table","tensorboard","curve","analysis","iteration","markdown","system"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["model","audio","video","histogram","image","tensor","dataframe","chart","csv","tsv","psv","ssv","metric","env","html","text","file","dir","dockerfile","docker_image","data","coderef","table","tensorboard","curve","confusion","analysis","iteration","markdown","system","artifact"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

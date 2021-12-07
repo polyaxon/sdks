@@ -57,7 +57,7 @@ public class V1RunConnection {
 
 
   public V1RunConnection uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1RunConnection {
 
 
   public V1RunConnection name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1RunConnection {
 
 
   public V1RunConnection kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }

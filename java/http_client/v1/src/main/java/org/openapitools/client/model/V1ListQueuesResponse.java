@@ -64,7 +64,7 @@ public class V1ListQueuesResponse {
 
 
   public V1ListQueuesResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListQueuesResponse {
 
 
   public V1ListQueuesResponse results(List<V1Queue> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListQueuesResponse {
 
 
   public V1ListQueuesResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListQueuesResponse {
 
 
   public V1ListQueuesResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

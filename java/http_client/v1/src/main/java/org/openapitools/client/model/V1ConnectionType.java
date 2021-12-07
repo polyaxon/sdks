@@ -75,7 +75,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -98,7 +98,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType tags(String tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -144,7 +144,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType kind(V1ConnectionKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -167,7 +167,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType schema(Object schema) {
-    
+
     this.schema = schema;
     return this;
   }
@@ -190,7 +190,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType secret(V1K8sResourceSchema secret) {
-    
+
     this.secret = secret;
     return this;
   }
@@ -213,7 +213,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType configMap(V1K8sResourceSchema configMap) {
-    
+
     this.configMap = configMap;
     return this;
   }

@@ -52,10 +52,12 @@
  *  - table: Table asset/event
  *  - tensorboard: Tensorboard lineage
  *  - curve: Curve event
+ *  - confusion: Confusion matrix event
  *  - analysis: Analysis lineage
  *  - iteration: Iteration lineage
  *  - markdown: Mardown event
  *  - system: System event
+ *  - artifact: Generic artifact
  * @export
  * @enum {string}
  */
@@ -85,10 +87,12 @@ export enum V1ArtifactKind {
     Table = 'table',
     Tensorboard = 'tensorboard',
     Curve = 'curve',
+    Confusion = 'confusion',
     Analysis = 'analysis',
     Iteration = 'iteration',
     Markdown = 'markdown',
-    System = 'system'
+    System = 'system',
+    Artifact = 'artifact'
 }
 
 export function V1ArtifactKindFromJSON(json: any): V1ArtifactKind {

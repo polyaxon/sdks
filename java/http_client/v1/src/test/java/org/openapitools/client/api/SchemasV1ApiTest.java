@@ -46,11 +46,11 @@ public class SchemasV1ApiTest {
 
     private final SchemasV1Api api = new SchemasV1Api();
 
-    
+
     /**
      * NoOp
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -60,5 +60,5 @@ public class SchemasV1ApiTest {
                 V1Schemas response = api.noOp();
         // TODO: test validations
     }
-    
+
 }

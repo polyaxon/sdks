@@ -116,7 +116,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -127,17 +127,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call archiveModelRegistryValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling archiveModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling archiveModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = archiveModelRegistryCall(owner, name, _callback);
         return localVarCall;
@@ -146,7 +146,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Archive registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -166,7 +166,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Archive registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -188,7 +188,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Archive registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -250,7 +250,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -261,17 +261,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call bookmarkModelRegistryValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling bookmarkModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling bookmarkModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = bookmarkModelRegistryCall(owner, name, _callback);
         return localVarCall;
@@ -280,7 +280,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Bookmark registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -300,7 +300,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Bookmark registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -322,7 +322,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Bookmark registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -394,17 +394,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createModelRegistryValidateBeforeCall(String owner, V1ModelRegistry body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createModelRegistryCall(owner, body, _callback);
         return localVarCall;
@@ -413,7 +413,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Model body (required)
      * @return V1ModelRegistry
@@ -435,7 +435,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Model body (required)
      * @return ApiResponse&lt;V1ModelRegistry&gt;
@@ -458,7 +458,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Model body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -533,22 +533,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createModelVersionValidateBeforeCall(String owner, String model, V1ModelVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'model' is set
         if (model == null) {
             throw new ApiException("Missing the required parameter 'model' when calling createModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createModelVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createModelVersionCall(owner, model, body, _callback);
         return localVarCall;
@@ -557,7 +557,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model version body (required)
@@ -580,7 +580,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model version body (required)
@@ -604,7 +604,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create model version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model version body (required)
@@ -682,27 +682,27 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createModelVersionStageValidateBeforeCall(String owner, String entity, String name, V1EntityStageBodyRequest body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createModelVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling createModelVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling createModelVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createModelVersionStage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createModelVersionStageCall(owner, entity, name, body, _callback);
         return localVarCall;
@@ -711,7 +711,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create new model version stage
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity namespace (required)
      * @param name Name of the version to apply the stage to (required)
@@ -735,7 +735,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create new model version stage
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity namespace (required)
      * @param name Name of the version to apply the stage to (required)
@@ -760,7 +760,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Create new model version stage (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity namespace (required)
      * @param name Name of the version to apply the stage to (required)
@@ -825,7 +825,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -836,17 +836,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteModelRegistryValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteModelRegistryCall(owner, name, _callback);
         return localVarCall;
@@ -855,7 +855,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Delete registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -875,7 +875,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Delete registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -897,7 +897,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Delete registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -961,7 +961,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -972,22 +972,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteModelVersionValidateBeforeCall(String owner, String entity, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling deleteModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteModelVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteModelVersionCall(owner, entity, name, _callback);
         return localVarCall;
@@ -996,7 +996,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Delete model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1017,7 +1017,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Delete model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1040,7 +1040,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Delete model version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1103,7 +1103,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1114,17 +1114,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelRegistryValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getModelRegistryCall(owner, name, _callback);
         return localVarCall;
@@ -1133,7 +1133,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1ModelRegistry
@@ -1155,7 +1155,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1ModelRegistry&gt;
@@ -1178,7 +1178,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1276,7 +1276,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1287,17 +1287,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelRegistryActivitiesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getModelRegistryActivities(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getModelRegistryActivities(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getModelRegistryActivitiesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1306,7 +1306,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model activities
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1335,7 +1335,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model activities
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1365,7 +1365,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model activities (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1435,7 +1435,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1446,17 +1446,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelRegistrySettingsValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getModelRegistrySettings(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getModelRegistrySettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getModelRegistrySettingsCall(owner, name, _callback);
         return localVarCall;
@@ -1465,7 +1465,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get registry model settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1ModelRegistrySettings
@@ -1487,7 +1487,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get registry model settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1ModelRegistrySettings&gt;
@@ -1510,7 +1510,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get registry model settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1575,7 +1575,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1586,22 +1586,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelVersionValidateBeforeCall(String owner, String entity, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getModelVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getModelVersionCall(owner, entity, name, _callback);
         return localVarCall;
@@ -1610,7 +1610,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1633,7 +1633,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1657,7 +1657,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1723,7 +1723,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1734,22 +1734,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelVersionStagesValidateBeforeCall(String owner, String entity, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getModelVersionStages(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getModelVersionStages(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getModelVersionStages(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getModelVersionStagesCall(owner, entity, name, _callback);
         return localVarCall;
@@ -1758,7 +1758,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model version stages
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1781,7 +1781,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model version stages
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1805,7 +1805,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Get model version stages (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param name Sub-entity name (required)
@@ -1902,7 +1902,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1913,12 +1913,12 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listModelRegistriesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listModelRegistries(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listModelRegistriesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1927,7 +1927,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List registry models
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1955,7 +1955,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List registry models
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1984,7 +1984,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List registry models (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2086,7 +2086,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2097,12 +2097,12 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listModelRegistryNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listModelRegistryNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listModelRegistryNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2111,7 +2111,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List registry model names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2139,7 +2139,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List registry model names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2168,7 +2168,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List registry model names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2272,7 +2272,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2283,17 +2283,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listModelVersionNamesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listModelVersionNames(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listModelVersionNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listModelVersionNamesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2302,7 +2302,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List model versions names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2331,7 +2331,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List model versions names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2361,7 +2361,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List model versions names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2466,7 +2466,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2477,17 +2477,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listModelVersionsValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listModelVersions(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listModelVersions(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listModelVersionsCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2496,7 +2496,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List model versions
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2525,7 +2525,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List model versions
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2555,7 +2555,7 @@ public class ModelRegistryV1Api {
 
     /**
      * List model versions (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2637,22 +2637,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchModelRegistryValidateBeforeCall(String owner, String modelName, V1ModelRegistry body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'modelName' is set
         if (modelName == null) {
             throw new ApiException("Missing the required parameter 'modelName' when calling patchModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchModelRegistryCall(owner, modelName, body, _callback);
         return localVarCall;
@@ -2661,7 +2661,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param modelName Optional component name, should be a valid fully qualified value: name[:version] (required)
      * @param body Model body (required)
@@ -2684,7 +2684,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param modelName Optional component name, should be a valid fully qualified value: name[:version] (required)
      * @param body Model body (required)
@@ -2708,7 +2708,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param modelName Optional component name, should be a valid fully qualified value: name[:version] (required)
      * @param body Model body (required)
@@ -2784,22 +2784,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchModelRegistrySettingsValidateBeforeCall(String owner, String model, V1ModelRegistrySettings body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchModelRegistrySettings(Async)");
         }
-        
+
         // verify the required parameter 'model' is set
         if (model == null) {
             throw new ApiException("Missing the required parameter 'model' when calling patchModelRegistrySettings(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchModelRegistrySettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchModelRegistrySettingsCall(owner, model, body, _callback);
         return localVarCall;
@@ -2808,7 +2808,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch registry model settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model settings body (required)
@@ -2831,7 +2831,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch registry model settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model settings body (required)
@@ -2855,7 +2855,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch registry model settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model settings body (required)
@@ -2933,27 +2933,27 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchModelVersionValidateBeforeCall(String owner, String model, String versionName, V1ModelVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'model' is set
         if (model == null) {
             throw new ApiException("Missing the required parameter 'model' when calling patchModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionName' is set
         if (versionName == null) {
             throw new ApiException("Missing the required parameter 'versionName' when calling patchModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchModelVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchModelVersionCall(owner, model, versionName, body, _callback);
         return localVarCall;
@@ -2962,7 +2962,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param versionName Optional component name, should be a valid fully qualified value: name[:version] (required)
@@ -2986,7 +2986,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param versionName Optional component name, should be a valid fully qualified value: name[:version] (required)
@@ -3011,7 +3011,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Patch model version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param versionName Optional component name, should be a valid fully qualified value: name[:version] (required)
@@ -3076,7 +3076,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3087,17 +3087,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call restoreModelRegistryValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling restoreModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling restoreModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = restoreModelRegistryCall(owner, name, _callback);
         return localVarCall;
@@ -3106,7 +3106,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Restore registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3126,7 +3126,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Restore registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -3148,7 +3148,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Restore registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3210,7 +3210,7 @@ public class ModelRegistryV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3221,17 +3221,17 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call unbookmarkModelRegistryValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling unbookmarkModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling unbookmarkModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = unbookmarkModelRegistryCall(owner, name, _callback);
         return localVarCall;
@@ -3240,7 +3240,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Unbookmark registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3260,7 +3260,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Unbookmark registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -3282,7 +3282,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Unbookmark registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3356,22 +3356,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateModelRegistryValidateBeforeCall(String owner, String modelName, V1ModelRegistry body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'modelName' is set
         if (modelName == null) {
             throw new ApiException("Missing the required parameter 'modelName' when calling updateModelRegistry(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateModelRegistry(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateModelRegistryCall(owner, modelName, body, _callback);
         return localVarCall;
@@ -3380,7 +3380,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param modelName Optional component name, should be a valid fully qualified value: name[:version] (required)
      * @param body Model body (required)
@@ -3403,7 +3403,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update registry model
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param modelName Optional component name, should be a valid fully qualified value: name[:version] (required)
      * @param body Model body (required)
@@ -3427,7 +3427,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update registry model (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param modelName Optional component name, should be a valid fully qualified value: name[:version] (required)
      * @param body Model body (required)
@@ -3503,22 +3503,22 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateModelRegistrySettingsValidateBeforeCall(String owner, String model, V1ModelRegistrySettings body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateModelRegistrySettings(Async)");
         }
-        
+
         // verify the required parameter 'model' is set
         if (model == null) {
             throw new ApiException("Missing the required parameter 'model' when calling updateModelRegistrySettings(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateModelRegistrySettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateModelRegistrySettingsCall(owner, model, body, _callback);
         return localVarCall;
@@ -3527,7 +3527,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update registry model settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model settings body (required)
@@ -3550,7 +3550,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update registry model settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model settings body (required)
@@ -3574,7 +3574,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update registry model settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param body Model settings body (required)
@@ -3652,27 +3652,27 @@ public class ModelRegistryV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateModelVersionValidateBeforeCall(String owner, String model, String versionName, V1ModelVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'model' is set
         if (model == null) {
             throw new ApiException("Missing the required parameter 'model' when calling updateModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionName' is set
         if (versionName == null) {
             throw new ApiException("Missing the required parameter 'versionName' when calling updateModelVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateModelVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateModelVersionCall(owner, model, versionName, body, _callback);
         return localVarCall;
@@ -3681,7 +3681,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param versionName Optional component name, should be a valid fully qualified value: name[:version] (required)
@@ -3705,7 +3705,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update model version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param versionName Optional component name, should be a valid fully qualified value: name[:version] (required)
@@ -3730,7 +3730,7 @@ public class ModelRegistryV1Api {
 
     /**
      * Update model version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param model Model name (required)
      * @param versionName Optional component name, should be a valid fully qualified value: name[:version] (required)

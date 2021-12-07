@@ -101,7 +101,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -124,7 +124,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -147,7 +147,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -170,7 +170,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -193,7 +193,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -224,7 +224,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry isPublic(Boolean isPublic) {
-    
+
     this.isPublic = isPublic;
     return this;
   }
@@ -247,7 +247,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry bookmarked(Boolean bookmarked) {
-    
+
     this.bookmarked = bookmarked;
     return this;
   }
@@ -270,7 +270,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -293,7 +293,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -316,7 +316,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -339,7 +339,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry readme(String readme) {
-    
+
     this.readme = readme;
     return this;
   }
@@ -362,7 +362,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry settings(V1ModelRegistrySettings settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -385,7 +385,7 @@ public class V1ModelRegistry {
 
 
   public V1ModelRegistry role(String role) {
-    
+
     this.role = role;
     return this;
   }

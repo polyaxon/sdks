@@ -57,7 +57,7 @@ public class V1WasbType {
 
 
   public V1WasbType container(String container) {
-    
+
     this.container = container;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1WasbType {
 
 
   public V1WasbType storageAccount(String storageAccount) {
-    
+
     this.storageAccount = storageAccount;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1WasbType {
 
 
   public V1WasbType path(Boolean path) {
-    
+
     this.path = path;
     return this;
   }

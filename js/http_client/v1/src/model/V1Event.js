@@ -29,6 +29,7 @@ import ApiClient from '../ApiClient';
 import V1EventArtifact from './V1EventArtifact';
 import V1EventAudio from './V1EventAudio';
 import V1EventChart from './V1EventChart';
+import V1EventConfusionMatrix from './V1EventConfusionMatrix';
 import V1EventCurve from './V1EventCurve';
 import V1EventDataframe from './V1EventDataframe';
 import V1EventHistogram from './V1EventHistogram';
@@ -112,6 +113,9 @@ class V1Event {
             if (data.hasOwnProperty('curve')) {
                 obj['curve'] = V1EventCurve.constructFromObject(data['curve']);
             }
+            if (data.hasOwnProperty('confusion')) {
+                obj['confusion'] = V1EventConfusionMatrix.constructFromObject(data['confusion']);
+            }
         }
         return obj;
     }
@@ -189,6 +193,11 @@ V1Event.prototype['dataframe'] = undefined;
  * @member {module:model/V1EventCurve} curve
  */
 V1Event.prototype['curve'] = undefined;
+
+/**
+ * @member {module:model/V1EventConfusionMatrix} confusion
+ */
+V1Event.prototype['confusion'] = undefined;
 
 
 

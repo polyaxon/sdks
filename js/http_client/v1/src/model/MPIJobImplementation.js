@@ -32,21 +32,21 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class MPIJobImplementation {
-    
+
         /**
          * value: "OpenMPI"
          * @const
          */
         "OpenMPI" = "OpenMPI";
 
-    
+
         /**
          * value: "Intel"
          * @const
          */
         "Intel" = "Intel";
 
-    
+
 
     /**
     * Returns a <code>MPIJobImplementation</code> enum value from a Javascript object name.

@@ -70,7 +70,7 @@ public class V1ConnectionSchema {
 
 
   public V1ConnectionSchema bucketConnection(V1BucketConnection bucketConnection) {
-    
+
     this.bucketConnection = bucketConnection;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1ConnectionSchema {
 
 
   public V1ConnectionSchema hostPathConnection(V1HostPathConnection hostPathConnection) {
-    
+
     this.hostPathConnection = hostPathConnection;
     return this;
   }
@@ -116,7 +116,7 @@ public class V1ConnectionSchema {
 
 
   public V1ConnectionSchema claimConnection(V1ClaimConnection claimConnection) {
-    
+
     this.claimConnection = claimConnection;
     return this;
   }
@@ -139,7 +139,7 @@ public class V1ConnectionSchema {
 
 
   public V1ConnectionSchema hostConnection(V1HostConnection hostConnection) {
-    
+
     this.hostConnection = hostConnection;
     return this;
   }
@@ -162,7 +162,7 @@ public class V1ConnectionSchema {
 
 
   public V1ConnectionSchema gitConnection(V1GitConnection gitConnection) {
-    
+
     this.gitConnection = gitConnection;
     return this;
   }

@@ -64,7 +64,7 @@ public class V1ListModelRegistriesResponse {
 
 
   public V1ListModelRegistriesResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListModelRegistriesResponse {
 
 
   public V1ListModelRegistriesResponse results(List<V1ModelRegistry> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListModelRegistriesResponse {
 
 
   public V1ListModelRegistriesResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListModelRegistriesResponse {
 
 
   public V1ListModelRegistriesResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

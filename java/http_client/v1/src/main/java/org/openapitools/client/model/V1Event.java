@@ -40,6 +40,7 @@ import java.io.IOException;
 import org.openapitools.client.model.V1EventArtifact;
 import org.openapitools.client.model.V1EventAudio;
 import org.openapitools.client.model.V1EventChart;
+import org.openapitools.client.model.V1EventConfusionMatrix;
 import org.openapitools.client.model.V1EventCurve;
 import org.openapitools.client.model.V1EventDataframe;
 import org.openapitools.client.model.V1EventHistogram;
@@ -109,9 +110,13 @@ public class V1Event {
   @SerializedName(SERIALIZED_NAME_CURVE)
   private V1EventCurve curve;
 
+  public static final String SERIALIZED_NAME_CONFUSION = "confusion";
+  @SerializedName(SERIALIZED_NAME_CONFUSION)
+  private V1EventConfusionMatrix confusion;
+
 
   public V1Event timestamp(OffsetDateTime timestamp) {
-    
+
     this.timestamp = timestamp;
     return this;
   }
@@ -134,7 +139,7 @@ public class V1Event {
 
 
   public V1Event step(Integer step) {
-    
+
     this.step = step;
     return this;
   }
@@ -157,7 +162,7 @@ public class V1Event {
 
 
   public V1Event metric(Float metric) {
-    
+
     this.metric = metric;
     return this;
   }
@@ -180,7 +185,7 @@ public class V1Event {
 
 
   public V1Event image(V1EventImage image) {
-    
+
     this.image = image;
     return this;
   }
@@ -203,7 +208,7 @@ public class V1Event {
 
 
   public V1Event histogram(V1EventHistogram histogram) {
-    
+
     this.histogram = histogram;
     return this;
   }
@@ -226,7 +231,7 @@ public class V1Event {
 
 
   public V1Event audio(V1EventAudio audio) {
-    
+
     this.audio = audio;
     return this;
   }
@@ -249,7 +254,7 @@ public class V1Event {
 
 
   public V1Event video(V1EventVideo video) {
-    
+
     this.video = video;
     return this;
   }
@@ -272,7 +277,7 @@ public class V1Event {
 
 
   public V1Event html(String html) {
-    
+
     this.html = html;
     return this;
   }
@@ -295,7 +300,7 @@ public class V1Event {
 
 
   public V1Event text(String text) {
-    
+
     this.text = text;
     return this;
   }
@@ -318,7 +323,7 @@ public class V1Event {
 
 
   public V1Event chart(V1EventChart chart) {
-    
+
     this.chart = chart;
     return this;
   }
@@ -341,7 +346,7 @@ public class V1Event {
 
 
   public V1Event model(V1EventModel model) {
-    
+
     this.model = model;
     return this;
   }
@@ -364,7 +369,7 @@ public class V1Event {
 
 
   public V1Event artifact(V1EventArtifact artifact) {
-    
+
     this.artifact = artifact;
     return this;
   }
@@ -387,7 +392,7 @@ public class V1Event {
 
 
   public V1Event dataframe(V1EventDataframe dataframe) {
-    
+
     this.dataframe = dataframe;
     return this;
   }
@@ -410,7 +415,7 @@ public class V1Event {
 
 
   public V1Event curve(V1EventCurve curve) {
-    
+
     this.curve = curve;
     return this;
   }
@@ -429,6 +434,29 @@ public class V1Event {
 
   public void setCurve(V1EventCurve curve) {
     this.curve = curve;
+  }
+
+
+  public V1Event confusion(V1EventConfusionMatrix confusion) {
+
+    this.confusion = confusion;
+    return this;
+  }
+
+   /**
+   * Get confusion
+   * @return confusion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1EventConfusionMatrix getConfusion() {
+    return confusion;
+  }
+
+
+  public void setConfusion(V1EventConfusionMatrix confusion) {
+    this.confusion = confusion;
   }
 
 
@@ -454,12 +482,13 @@ public class V1Event {
         Objects.equals(this.model, v1Event.model) &&
         Objects.equals(this.artifact, v1Event.artifact) &&
         Objects.equals(this.dataframe, v1Event.dataframe) &&
-        Objects.equals(this.curve, v1Event.curve);
+        Objects.equals(this.curve, v1Event.curve) &&
+        Objects.equals(this.confusion, v1Event.confusion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timestamp, step, metric, image, histogram, audio, video, html, text, chart, model, artifact, dataframe, curve);
+    return Objects.hash(timestamp, step, metric, image, histogram, audio, video, html, text, chart, model, artifact, dataframe, curve, confusion);
   }
 
   @Override
@@ -480,6 +509,7 @@ public class V1Event {
     sb.append("    artifact: ").append(toIndentedString(artifact)).append("\n");
     sb.append("    dataframe: ").append(toIndentedString(dataframe)).append("\n");
     sb.append("    curve: ").append(toIndentedString(curve)).append("\n");
+    sb.append("    confusion: ").append(toIndentedString(confusion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

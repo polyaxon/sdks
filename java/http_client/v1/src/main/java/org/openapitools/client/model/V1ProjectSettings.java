@@ -78,13 +78,9 @@ public class V1ProjectSettings {
   @SerializedName(SERIALIZED_NAME_TEAMS)
   private List<String> teams = null;
 
-  public static final String SERIALIZED_NAME_PROJECTS = "projects";
-  @SerializedName(SERIALIZED_NAME_PROJECTS)
-  private List<String> projects = null;
-
 
   public V1ProjectSettings connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }
@@ -115,7 +111,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings preset(String preset) {
-    
+
     this.preset = preset;
     return this;
   }
@@ -138,7 +134,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings presets(List<String> presets) {
-    
+
     this.presets = presets;
     return this;
   }
@@ -169,7 +165,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -192,7 +188,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings queues(List<String> queues) {
-    
+
     this.queues = queues;
     return this;
   }
@@ -223,7 +219,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings agents(List<String> agents) {
-    
+
     this.agents = agents;
     return this;
   }
@@ -254,7 +250,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings userAccesses(List<V1ProjectUserAccess> userAccesses) {
-    
+
     this.userAccesses = userAccesses;
     return this;
   }
@@ -285,7 +281,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings teams(List<String> teams) {
-    
+
     this.teams = teams;
     return this;
   }
@@ -315,37 +311,6 @@ public class V1ProjectSettings {
   }
 
 
-  public V1ProjectSettings projects(List<String> projects) {
-    
-    this.projects = projects;
-    return this;
-  }
-
-  public V1ProjectSettings addProjectsItem(String projectsItem) {
-    if (this.projects == null) {
-      this.projects = new ArrayList<String>();
-    }
-    this.projects.add(projectsItem);
-    return this;
-  }
-
-   /**
-   * Get projects
-   * @return projects
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getProjects() {
-    return projects;
-  }
-
-
-  public void setProjects(List<String> projects) {
-    this.projects = projects;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -362,13 +327,12 @@ public class V1ProjectSettings {
         Objects.equals(this.queues, v1ProjectSettings.queues) &&
         Objects.equals(this.agents, v1ProjectSettings.agents) &&
         Objects.equals(this.userAccesses, v1ProjectSettings.userAccesses) &&
-        Objects.equals(this.teams, v1ProjectSettings.teams) &&
-        Objects.equals(this.projects, v1ProjectSettings.projects);
+        Objects.equals(this.teams, v1ProjectSettings.teams);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connections, preset, presets, queue, queues, agents, userAccesses, teams, projects);
+    return Objects.hash(connections, preset, presets, queue, queues, agents, userAccesses, teams);
   }
 
   @Override
@@ -383,7 +347,6 @@ public class V1ProjectSettings {
     sb.append("    agents: ").append(toIndentedString(agents)).append("\n");
     sb.append("    userAccesses: ").append(toIndentedString(userAccesses)).append("\n");
     sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
-    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

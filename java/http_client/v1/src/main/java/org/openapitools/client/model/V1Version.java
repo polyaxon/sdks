@@ -53,7 +53,7 @@ public class V1Version {
 
 
   public V1Version min(String min) {
-    
+
     this.min = min;
     return this;
   }
@@ -76,7 +76,7 @@ public class V1Version {
 
 
   public V1Version latest(String latest) {
-    
+
     this.latest = latest;
     return this;
   }

@@ -42,9 +42,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1PipelineKind.Adapter.class)
 public enum V1PipelineKind {
-  
+
   DAG("dag"),
-  
+
   MATRIX("matrix");
 
   private String value;

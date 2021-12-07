@@ -16813,10 +16813,12 @@ paths:
           - table
           - tensorboard
           - curve
+          - confusion
           - analysis
           - iteration
           - markdown
           - system
+          - artifact
           type: string
       - description: Names query param.
         in: query
@@ -17273,10 +17275,12 @@ paths:
           - table
           - tensorboard
           - curve
+          - confusion
           - analysis
           - iteration
           - markdown
           - system
+          - artifact
           type: string
       - description: Names query param.
         in: query
@@ -18361,10 +18365,12 @@ components:
          - table: Table asset/event
          - tensorboard: Tensorboard lineage
          - curve: Curve event
+         - confusion: Confusion matrix event
          - analysis: Analysis lineage
          - iteration: Iteration lineage
          - markdown: Mardown event
          - system: System event
+         - artifact: Generic artifact
       enum:
       - model
       - audio
@@ -18391,10 +18397,12 @@ components:
       - table
       - tensorboard
       - curve
+      - confusion
       - analysis
       - iteration
       - markdown
       - system
+      - artifact
       title: Artifact kind
       type: string
     v1ArtifactTree:
@@ -21562,6 +21570,16 @@ components:
           content_type: content_type
         chart:
           figure: '{}'
+        confusion:
+          x:
+          - '{}'
+          - '{}'
+          y:
+          - '{}'
+          - '{}'
+          z:
+          - '{}'
+          - '{}'
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         timestamp:
@@ -21597,6 +21615,8 @@ components:
           $ref: '#/components/schemas/v1EventDataframe'
         curve:
           $ref: '#/components/schemas/v1EventCurve'
+        confusion:
+          $ref: '#/components/schemas/v1EventConfusionMatrix'
       title: Event spec definition
       type: object
     v1EventArtifact:
@@ -21662,6 +21682,38 @@ components:
       - vega
       title: Chart kind
       type: string
+    v1EventConfusionMatrix:
+      example:
+        x:
+        - '{}'
+        - '{}'
+        y:
+        - '{}'
+        - '{}'
+        z:
+        - '{}'
+        - '{}'
+      properties:
+        x:
+          items:
+            properties: {}
+            type: object
+          title: X
+          type: array
+        y:
+          items:
+            properties: {}
+            type: object
+          title: "Y"
+          type: array
+        z:
+          items:
+            properties: {}
+            type: object
+          title: Z
+          type: array
+      title: Cofusion matrix spec definition
+      type: object
     v1EventCurve:
       example:
         annotation: annotation
@@ -24021,9 +24073,6 @@ components:
             presets:
             - presets
             - presets
-            projects:
-            - projects
-            - projects
             teams:
             - teams
             - teams
@@ -24066,9 +24115,6 @@ components:
             presets:
             - presets
             - presets
-            projects:
-            - projects
-            - projects
             teams:
             - teams
             - teams
@@ -27702,9 +27748,6 @@ components:
           presets:
           - presets
           - presets
-          projects:
-          - projects
-          - projects
           teams:
           - teams
           - teams
@@ -27777,8 +27820,6 @@ components:
         readme:
           title: Optional a readme text describing this entity
           type: string
-        kind:
-          $ref: '#/components/schemas/v1ProjectKind'
         excluded_runtimes:
           items:
             type: string
@@ -27795,22 +27836,11 @@ components:
           type: integer
       title: Project specification
       type: object
-    v1ProjectKind:
-      default: any
-      enum:
-      - any
-      - hub
-      - registry
-      - data
-      type: string
     v1ProjectSettings:
       example:
         presets:
         - presets
         - presets
-        projects:
-        - projects
-        - projects
         teams:
         - teams
         - teams
@@ -27868,11 +27898,6 @@ components:
           items:
             type: string
           title: Authorized teams
-          type: array
-        projects:
-          items:
-            type: string
-          title: Authorized projects
           type: array
       title: Project Settings specification
       type: object
@@ -37299,6 +37324,16 @@ components:
             content_type: content_type
           chart:
             figure: '{}'
+          confusion:
+            x:
+            - '{}'
+            - '{}'
+            y:
+            - '{}'
+            - '{}'
+            z:
+            - '{}'
+            - '{}'
           timestamp: 2000-01-23T04:56:07.000+00:00
         earlyStopping:
           median:

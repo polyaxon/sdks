@@ -87,6 +87,7 @@ import V1EventArtifact from './model/V1EventArtifact';
 import V1EventAudio from './model/V1EventAudio';
 import V1EventChart from './model/V1EventChart';
 import V1EventChartKind from './model/V1EventChartKind';
+import V1EventConfusionMatrix from './model/V1EventConfusionMatrix';
 import V1EventCurve from './model/V1EventCurve';
 import V1EventCurveKind from './model/V1EventCurveKind';
 import V1EventDataframe from './model/V1EventDataframe';
@@ -197,7 +198,6 @@ import V1PolyaxonInitContainer from './model/V1PolyaxonInitContainer';
 import V1PolyaxonSidecarContainer from './model/V1PolyaxonSidecarContainer';
 import V1Preset from './model/V1Preset';
 import V1Project from './model/V1Project';
-import V1ProjectKind from './model/V1ProjectKind';
 import V1ProjectSettings from './model/V1ProjectSettings';
 import V1ProjectUserAccess from './model/V1ProjectUserAccess';
 import V1PytorchJob from './model/V1PytorchJob';
@@ -679,6 +679,12 @@ export {
      * @property {module:model/V1EventChartKind}
      */
     V1EventChartKind,
+
+    /**
+     * The V1EventConfusionMatrix model constructor.
+     * @property {module:model/V1EventConfusionMatrix}
+     */
+    V1EventConfusionMatrix,
 
     /**
      * The V1EventCurve model constructor.
@@ -1339,12 +1345,6 @@ export {
      * @property {module:model/V1Project}
      */
     V1Project,
-
-    /**
-     * The V1ProjectKind model constructor.
-     * @property {module:model/V1ProjectKind}
-     */
-    V1ProjectKind,
 
     /**
      * The V1ProjectSettings model constructor.
