@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **is_public** | **Boolean** |  | [optional] 
 **bookmarked** | **Boolean** |  | [optional] 
 **readme** | **String** |  | [optional] 
+**excluded_features** | **[String]** |  | [optional] 
 **excluded_runtimes** | **[String]** |  | [optional] 
 **settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  | [optional] 
 **role** | **String** |  | [optional] 

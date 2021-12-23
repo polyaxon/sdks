@@ -41,9 +41,7 @@ import "v1/api/status.proto";
 import "v1/api/stage.proto";
 import "v1/api/tag.proto";
 import "v1/api/team.proto";
-import "v1/api/hub.proto";
 import "v1/api/service_account.proto";
-import "v1/api/registry.proto";
 import "v1/polyboard/log.proto";
 import "v1/polyboard/artifact.proto";
 import "v1/polyboard/event.proto";
@@ -54,7 +52,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "1.13.0";
+        version: "1.14.0";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -670,6 +668,81 @@ service ProjectsV1 {
       body: "settings"
     };
   }
+
+  // Create version
+  rpc CreateVersion(ProjectVersionBodyRequest) returns (ProjectVersion) {
+    option (google.api.http) = {
+      post: "/api/v1/{owner}/{project}/versions/{version.kind}"
+      body: "version"
+    };
+  }
+
+  // List versions
+  rpc ListVersions(OwnerEntityVersionResourceListRequestByName) returns (ListProjectVersionsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/{owner}/{entity}/versions/{kind}"
+    };
+  }
+
+  // List versions names
+  rpc ListVersionNames(OwnerEntityVersionResourceListRequestByName) returns (ListProjectVersionsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/{owner}/{entity}/versions/{kind}/names"
+    };
+  }
+
+  // Get version
+  rpc GetVersion(OwnerEntityVersionResourceRequestByName) returns (ProjectVersion) {
+    option (google.api.http) = {
+      get: "/api/v1/{owner}/{entity}/versions/{kind}/{name}"
+    };
+  }
+
+  // Update version
+  rpc UpdateVersion(ProjectVersionBodyRequest) returns (ProjectVersion) {
+    option (google.api.http) = {
+      put: "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}"
+      body: "version"
+    };
+  }
+
+  // Patch version
+  rpc PatchVersion(ProjectVersionBodyRequest) returns (ProjectVersion) {
+    option (google.api.http) = {
+      patch: "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}"
+      body: "version"
+    };
+  }
+
+  // Delete version
+  rpc DeleteVersion(OwnerEntityVersionResourceRequestByName) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/api/v1/{owner}/{entity}/versions/{kind}/{name}"
+    };
+  }
+
+  // Transfer version
+  rpc TransferVersion(ProjectVersionBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer"
+      body: "version"
+    };
+  }
+
+  // Get version stages
+  rpc GetVersionStages(OwnerEntityVersionResourceRequestByName) returns (Stage) {
+    option (google.api.http) = {
+      get: "/api/v1/{owner}/{entity}/versions/{kind}/{name}/stages"
+    };
+  }
+
+  // Create new artifact version stage
+  rpc CreateVersionStage(EntityStageBodyRequest) returns (Stage) {
+    option (google.api.http) = {
+      post: "/api/v1/{owner}/{entity}/versions/{kind}/{name}/stages"
+      body: "*"
+    };
+  }
 }
 
 // Service to manage connections
@@ -960,367 +1033,6 @@ service DashboardsV1 {
     };
   }
 }
-
-// Service to manage models on a hosted polyaxon hub
-service ModelRegistryV1 {
-  // Create registry model
-  rpc CreateModelRegistry(ModelRegistryBodyRequest) returns (ModelRegistry) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/registry/create"
-      body: "model"
-    };
-  }
-
-  // List registry models
-  rpc ListModelRegistries(OwnerResourceListRequest) returns (ListModelRegistriesResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/list"
-    };
-  }
-
-  // List registry model names
-  rpc ListModelRegistryNames(OwnerResourceListRequest) returns (ListModelRegistriesResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/names"
-    };
-  }
-
-  // Get registry model
-  rpc GetModelRegistry(OwnerEntityResourceRequestByName) returns (ModelRegistry) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{name}"
-    };
-  }
-
-  // Update registry model
-  rpc UpdateModelRegistry(ModelRegistryBodyRequest) returns (ModelRegistry) {
-    option (google.api.http) = {
-      put: "/api/v1/{owner}/registry/{model.name}"
-      body: "model"
-    };
-  }
-
-  // Patch registry model
-  rpc PatchModelRegistry(ModelRegistryBodyRequest) returns (ModelRegistry) {
-    option (google.api.http) = {
-      patch: "/api/v1/{owner}/registry/{model.name}"
-      body: "model"
-    };
-  }
-
-  // Delete registry model
-  rpc DeleteModelRegistry(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/api/v1/{owner}/registry/{name}"
-    };
-  }
-
-  // Archive registry model
-  rpc ArchiveModelRegistry(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/registry/{name}/archive"
-    };
-  }
-
-  // Restore registry model
-  rpc RestoreModelRegistry(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/registry/{name}/restore"
-    };
-  }
-
-  // Bookmark registry model
-  rpc BookmarkModelRegistry(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/registry/{name}/bookmark"
-    };
-  }
-
-  // Unbookmark registry model
-  rpc UnbookmarkModelRegistry(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/api/v1/{owner}/registry/{name}/unbookmark"
-    };
-  }
-
-  // Get registry model settings
-  rpc GetModelRegistrySettings(OwnerEntityResourceRequestByName) returns (ModelRegistrySettings) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{name}/settings"
-    };
-  }
-
-  // Update registry model settings
-  rpc UpdateModelRegistrySettings(ModelRegistrySettingsBodyRequest) returns (ModelRegistrySettings) {
-    option (google.api.http) = {
-      put: "/api/v1/{owner}/registry/{model}/settings"
-      body: "settings"
-    };
-  }
-
-  // Patch registry model settings
-  rpc PatchModelRegistrySettings(ModelRegistrySettingsBodyRequest) returns (ModelRegistrySettings) {
-    option (google.api.http) = {
-      patch: "/api/v1/{owner}/registry/{model}/settings"
-      body: "settings"
-    };
-  }
-
-  // Get model activities
-  rpc GetModelRegistryActivities(OwnerEntityResourceListRequestByName) returns (ListActivitiesResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{name}/activities"
-    };
-  }
-
-  // Create model version
-  rpc CreateModelVersion(ModelVersionBodyRequest) returns (ModelVersion) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/registry/{model}/versions"
-      body: "version"
-    };
-  }
-
-  // List model versions
-  rpc ListModelVersions(OwnerEntityResourceListRequestByName) returns (ListModelVersionsResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{name}/versions"
-    };
-  }
-
-  // List model versions names
-  rpc ListModelVersionNames(OwnerEntityResourceListRequestByName) returns (ListModelVersionsResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{name}/versions/names"
-    };
-  }
-
-  // Get model version
-  rpc GetModelVersion(OwnerSubEntityResourceRequestByName) returns (ModelVersion) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{entity}/versions/{name}"
-    };
-  }
-
-  // Update model version
-  rpc UpdateModelVersion(ModelVersionBodyRequest) returns (ModelVersion) {
-    option (google.api.http) = {
-      put: "/api/v1/{owner}/registry/{model}/versions/{version.name}"
-      body: "version"
-    };
-  }
-
-  // Patch model version
-  rpc PatchModelVersion(ModelVersionBodyRequest) returns (ModelVersion) {
-    option (google.api.http) = {
-      patch: "/api/v1/{owner}/registry/{model}/versions/{version.name}"
-      body: "version"
-    };
-  }
-
-  // Delete model version
-  rpc DeleteModelVersion(OwnerSubEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/api/v1/{owner}/registry/{entity}/versions/{name}"
-    };
-  }
-
-  // Get model version stages
-  rpc GetModelVersionStages(OwnerSubEntityResourceRequestByName) returns (Stage) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/registry/{entity}/versions/{name}/stages"
-    };
-  }
-
-  // Create new model version stage
-  rpc CreateModelVersionStage(EntityStageBodyRequest) returns (Stage) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/registry/{entity}/versions/{name}/stages"
-      body: "*"
-    };
-  }
-}
-
-// Service to manage component on a hosted polyaxon hub
-service ComponentHubV1 {
-  // Create hub component
-  rpc CreateComponentHub(ComponentHubBodyRequest) returns (ComponentHub) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/hub/create"
-      body: "component"
-    };
-  }
-
-  // List hub components
-  rpc ListComponentHubs(OwnerResourceListRequest) returns (ListComponentHubsResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/list"
-    };
-  }
-
-  // List hub component names
-  rpc ListComponentHubNames(OwnerResourceListRequest) returns (ListComponentHubsResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/names"
-    };
-  }
-
-  // Get hub component
-  rpc GetComponentHub(OwnerEntityResourceRequestByName) returns (ComponentHub) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{name}"
-    };
-  }
-
-  // Update hub component
-  rpc UpdateComponentHub(ComponentHubBodyRequest) returns (ComponentHub) {
-    option (google.api.http) = {
-      put: "/api/v1/{owner}/hub/{component.name}"
-      body: "component"
-    };
-  }
-
-  // Patch hub component
-  rpc PatchComponentHub(ComponentHubBodyRequest) returns (ComponentHub) {
-    option (google.api.http) = {
-      patch: "/api/v1/{owner}/hub/{component.name}"
-      body: "component"
-    };
-  }
-
-  // Delete hub component
-  rpc DeleteComponentHub(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/api/v1/{owner}/hub/{name}"
-    };
-  }
-
-  // Archive hub component
-  rpc ArchiveComponentHub(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/hub/{name}/archive"
-    };
-  }
-
-  // Restore hub component
-  rpc RestoreComponentHub(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/hub/{name}/restore"
-    };
-  }
-
-  // Bookmark component hub
-  rpc BookmarkComponentHub(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/hub/{name}/bookmark"
-    };
-  }
-
-  // Unbookmark component hub
-  rpc UnbookmarkComponentHub(OwnerEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/api/v1/{owner}/hub/{name}/unbookmark"
-    };
-  }
-
-  // Get hub component settings
-  rpc GetComponentHubSettings(OwnerEntityResourceRequestByName) returns (ComponentHubSettings) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{name}/settings"
-    };
-  }
-
-  // Update hub component settings
-  rpc UpdateComponentHubSettings(ComponentHubSettingsBodyRequest) returns (ComponentHubSettings) {
-    option (google.api.http) = {
-      put: "/api/v1/{owner}/hub/{component}/settings"
-      body: "settings"
-    };
-  }
-
-  // Patch hub component settings
-  rpc PatchComponentHubSettings(ComponentHubSettingsBodyRequest) returns (ComponentHubSettings) {
-    option (google.api.http) = {
-      patch: "/api/v1/{owner}/hub/{component}/settings"
-      body: "settings"
-    };
-  }
-
-  // Get hub activities
-  rpc GetComponentHubActivities(OwnerEntityResourceListRequestByName) returns (ListActivitiesResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{name}/activities"
-    };
-  }
-
-  // Create component version
-  rpc CreateComponentVersion(ComponentVersionBodyRequest) returns (ComponentVersion) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/hub/{component}/versions"
-      body: "version"
-    };
-  }
-
-  // List component versions
-  rpc ListComponentVersions(OwnerEntityResourceListRequestByName) returns (ListComponentVersionsResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{name}/versions"
-    };
-  }
-
-  // List component version names
-  rpc ListComponentVersionNames(OwnerEntityResourceListRequestByName) returns (ListComponentVersionsResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{name}/versions/names"
-    };
-  }
-
-  // Get component version
-  rpc GetComponentVersion(OwnerSubEntityResourceRequestByName) returns (ComponentVersion) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{entity}/versions/{name}"
-    };
-  }
-
-  // Update component version
-  rpc UpdateComponentVersion(ComponentVersionBodyRequest) returns (ComponentVersion) {
-    option (google.api.http) = {
-      put: "/api/v1/{owner}/hub/{component}/versions/{version.name}"
-      body: "version"
-    };
-  }
-
-  // Patch component version
-  rpc PatchComponentVersion(ComponentVersionBodyRequest) returns (ComponentVersion) {
-    option (google.api.http) = {
-      patch: "/api/v1/{owner}/hub/{component}/versions/{version.name}"
-      body: "version"
-    };
-  }
-
-  // Delete component version
-  rpc DeleteComponentVersion(OwnerSubEntityResourceRequestByName) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete: "/api/v1/{owner}/hub/{entity}/versions/{name}"
-    };
-  }
-
-  // Get component version stages
-  rpc GetComponentVersionStages(OwnerSubEntityResourceRequestByName) returns (Stage) {
-    option (google.api.http) = {
-      get: "/api/v1/{owner}/hub/{entity}/versions/{name}/stages"
-    };
-  }
-
-  // Create new component version stage
-  rpc CreateComponentVersionStage(EntityStageBodyRequest) returns (Stage) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/hub/{entity}/versions/{name}/stages"
-      body: "*"
-    };
-  }
-}
-
 
 // Service to manage tags
 service TagsV1 {

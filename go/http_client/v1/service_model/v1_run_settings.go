@@ -36,17 +36,20 @@ type V1RunSettings struct {
 	// Agent
 	Agent *V1SettingsCatalog `json:"agent,omitempty"`
 
+	// Artifact version references
+	Artifacts []*V1RunReferenceCatalog `json:"artifacts"`
+
 	// Artifacts Store
 	ArtifactsStore *V1SettingsCatalog `json:"artifacts_store,omitempty"`
 
 	// Build reference, if it exists
 	Build interface{} `json:"build,omitempty"`
 
-	// Component version reference
-	ComponentVersion *V1RunReferenceCatalog `json:"component_version,omitempty"`
+	// Component reference
+	Component *V1RunReferenceCatalog `json:"component,omitempty"`
 
-	// Model registry version references
-	ModelVersions []*V1RunReferenceCatalog `json:"model_versions"`
+	// Model version references
+	Models []*V1RunReferenceCatalog `json:"models"`
 
 	// Namespace
 	Namespace string `json:"namespace,omitempty"`
@@ -66,15 +69,19 @@ func (m *V1RunSettings) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateArtifacts(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateArtifactsStore(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateComponentVersion(formats); err != nil {
+	if err := m.validateComponent(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateModelVersions(formats); err != nil {
+	if err := m.validateModels(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -107,6 +114,32 @@ func (m *V1RunSettings) validateAgent(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1RunSettings) validateArtifacts(formats strfmt.Registry) error {
+	if swag.IsZero(m.Artifacts) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Artifacts); i++ {
+		if swag.IsZero(m.Artifacts[i]) { // not required
+			continue
+		}
+
+		if m.Artifacts[i] != nil {
+			if err := m.Artifacts[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("artifacts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("artifacts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1RunSettings) validateArtifactsStore(formats strfmt.Registry) error {
 	if swag.IsZero(m.ArtifactsStore) { // not required
 		return nil
@@ -126,17 +159,17 @@ func (m *V1RunSettings) validateArtifactsStore(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSettings) validateComponentVersion(formats strfmt.Registry) error {
-	if swag.IsZero(m.ComponentVersion) { // not required
+func (m *V1RunSettings) validateComponent(formats strfmt.Registry) error {
+	if swag.IsZero(m.Component) { // not required
 		return nil
 	}
 
-	if m.ComponentVersion != nil {
-		if err := m.ComponentVersion.Validate(formats); err != nil {
+	if m.Component != nil {
+		if err := m.Component.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("component_version")
+				return ve.ValidateName("component")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("component_version")
+				return ce.ValidateName("component")
 			}
 			return err
 		}
@@ -145,22 +178,22 @@ func (m *V1RunSettings) validateComponentVersion(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *V1RunSettings) validateModelVersions(formats strfmt.Registry) error {
-	if swag.IsZero(m.ModelVersions) { // not required
+func (m *V1RunSettings) validateModels(formats strfmt.Registry) error {
+	if swag.IsZero(m.Models) { // not required
 		return nil
 	}
 
-	for i := 0; i < len(m.ModelVersions); i++ {
-		if swag.IsZero(m.ModelVersions[i]) { // not required
+	for i := 0; i < len(m.Models); i++ {
+		if swag.IsZero(m.Models[i]) { // not required
 			continue
 		}
 
-		if m.ModelVersions[i] != nil {
-			if err := m.ModelVersions[i].Validate(formats); err != nil {
+		if m.Models[i] != nil {
+			if err := m.Models[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("model_versions" + "." + strconv.Itoa(i))
+					return ve.ValidateName("models" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("model_versions" + "." + strconv.Itoa(i))
+					return ce.ValidateName("models" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -198,15 +231,19 @@ func (m *V1RunSettings) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateArtifacts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateArtifactsStore(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateComponentVersion(ctx, formats); err != nil {
+	if err := m.contextValidateComponent(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateModelVersions(ctx, formats); err != nil {
+	if err := m.contextValidateModels(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -236,6 +273,26 @@ func (m *V1RunSettings) contextValidateAgent(ctx context.Context, formats strfmt
 	return nil
 }
 
+func (m *V1RunSettings) contextValidateArtifacts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Artifacts); i++ {
+
+		if m.Artifacts[i] != nil {
+			if err := m.Artifacts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("artifacts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("artifacts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1RunSettings) contextValidateArtifactsStore(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ArtifactsStore != nil {
@@ -252,14 +309,14 @@ func (m *V1RunSettings) contextValidateArtifactsStore(ctx context.Context, forma
 	return nil
 }
 
-func (m *V1RunSettings) contextValidateComponentVersion(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSettings) contextValidateComponent(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.ComponentVersion != nil {
-		if err := m.ComponentVersion.ContextValidate(ctx, formats); err != nil {
+	if m.Component != nil {
+		if err := m.Component.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("component_version")
+				return ve.ValidateName("component")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("component_version")
+				return ce.ValidateName("component")
 			}
 			return err
 		}
@@ -268,16 +325,16 @@ func (m *V1RunSettings) contextValidateComponentVersion(ctx context.Context, for
 	return nil
 }
 
-func (m *V1RunSettings) contextValidateModelVersions(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSettings) contextValidateModels(ctx context.Context, formats strfmt.Registry) error {
 
-	for i := 0; i < len(m.ModelVersions); i++ {
+	for i := 0; i < len(m.Models); i++ {
 
-		if m.ModelVersions[i] != nil {
-			if err := m.ModelVersions[i].ContextValidate(ctx, formats); err != nil {
+		if m.Models[i] != nil {
+			if err := m.Models[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("model_versions" + "." + strconv.Itoa(i))
+					return ve.ValidateName("models" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("model_versions" + "." + strconv.Itoa(i))
+					return ce.ValidateName("models" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

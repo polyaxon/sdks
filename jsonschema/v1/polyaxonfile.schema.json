@@ -5121,149 +5121,6 @@
       "title": "Component specification",
       "type": "object"
     },
-    "v1ComponentHub": {
-      "properties": {
-        "bookmarked": {
-          "title": "Optional if this entity was bookmarked",
-          "type": "boolean"
-        },
-        "created_at": {
-          "format": "date-time",
-          "title": "Optional time when the entity was created",
-          "type": "string"
-        },
-        "description": {
-          "title": "Optional description",
-          "type": "string"
-        },
-        "is_public": {
-          "title": "Optional flag to tell if this project is public",
-          "type": "boolean"
-        },
-        "live_state": {
-          "format": "int32",
-          "title": "Current live state",
-          "type": "integer"
-        },
-        "name": {
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]",
-          "type": "string"
-        },
-        "owner": {
-          "title": "Owner/namespace where the component hub was created",
-          "type": "string"
-        },
-        "readme": {
-          "title": "Markdown description/readme",
-          "type": "string"
-        },
-        "role": {
-          "title": "Current user's role in this (org/teams)/project",
-          "type": "string"
-        },
-        "settings": {
-          "$ref": "#/definitions/v1ComponentHubSettings",
-          "title": "Settings"
-        },
-        "tags": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity",
-          "type": "array"
-        },
-        "updated_at": {
-          "format": "date-time",
-          "title": "Optional last time the entity was updated",
-          "type": "string"
-        },
-        "uuid": {
-          "title": "UUID",
-          "type": "string"
-        }
-      },
-      "title": "component hub specification",
-      "type": "object"
-    },
-    "v1ComponentHubSettings": {
-      "properties": {
-        "teams": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized teams",
-          "type": "array"
-        },
-        "users": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized users",
-          "type": "array"
-        }
-      },
-      "title": "Hub Settings specification",
-      "type": "object"
-    },
-    "v1ComponentVersion": {
-      "properties": {
-        "content": {
-          "title": "The Component body content",
-          "type": "string"
-        },
-        "created_at": {
-          "format": "date-time",
-          "title": "Optional time when the entity was created",
-          "type": "string"
-        },
-        "description": {
-          "title": "Optional description",
-          "type": "string"
-        },
-        "live_state": {
-          "format": "int32",
-          "title": "Current live state",
-          "type": "integer"
-        },
-        "name": {
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]",
-          "type": "string"
-        },
-        "role": {
-          "title": "Current user's role in this (org/teams)/hub/version",
-          "type": "string"
-        },
-        "stage": {
-          "$ref": "#/definitions/v1Stages",
-          "title": "Optional latest stage of this entity"
-        },
-        "stage_conditions": {
-          "items": {
-            "$ref": "#/definitions/v1StageCondition"
-          },
-          "title": "The status conditions timeline",
-          "type": "array"
-        },
-        "tags": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity",
-          "type": "array"
-        },
-        "updated_at": {
-          "format": "date-time",
-          "title": "Optional last time the entity was updated",
-          "type": "string"
-        },
-        "uuid": {
-          "title": "UUID",
-          "type": "string"
-        }
-      },
-      "title": "component hub specification",
-      "type": "object"
-    },
     "v1ConnectionKind": {
       "default": "host_path",
       "enum": [
@@ -5902,8 +5759,12 @@
           "title": "Entity namespace",
           "type": "string"
         },
+        "kind": {
+          "title": "Optional kind, only required for an version entity",
+          "type": "string"
+        },
         "name": {
-          "title": "Name of the version to apply the stage to",
+          "title": "Name of the entity to apply the stage to",
           "type": "string"
         },
         "owner": {
@@ -7597,58 +7458,6 @@
       "title": "Contains list of of bookmarks",
       "type": "object"
     },
-    "v1ListComponentHubsResponse": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "title": "Count of the entities",
-          "type": "integer"
-        },
-        "next": {
-          "title": "Next page",
-          "type": "string"
-        },
-        "previous": {
-          "title": "Previous page",
-          "type": "string"
-        },
-        "results": {
-          "items": {
-            "$ref": "#/definitions/v1ComponentHub"
-          },
-          "title": "List of all entities",
-          "type": "array"
-        }
-      },
-      "title": "Contains list of component hub",
-      "type": "object"
-    },
-    "v1ListComponentVersionsResponse": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "title": "Count of the entities",
-          "type": "integer"
-        },
-        "next": {
-          "title": "Next page",
-          "type": "string"
-        },
-        "previous": {
-          "title": "Previous page",
-          "type": "string"
-        },
-        "results": {
-          "items": {
-            "$ref": "#/definitions/v1ComponentVersion"
-          },
-          "title": "List of all entities",
-          "type": "array"
-        }
-      },
-      "title": "Contains list of component hub",
-      "type": "object"
-    },
     "v1ListConnectionsResponse": {
       "properties": {
         "count": {
@@ -7699,58 +7508,6 @@
         }
       },
       "title": "Contains list of dashboards",
-      "type": "object"
-    },
-    "v1ListModelRegistriesResponse": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "title": "Count of the entities",
-          "type": "integer"
-        },
-        "next": {
-          "title": "Next page",
-          "type": "string"
-        },
-        "previous": {
-          "title": "Previous page",
-          "type": "string"
-        },
-        "results": {
-          "items": {
-            "$ref": "#/definitions/v1ModelRegistry"
-          },
-          "title": "List of all entities",
-          "type": "array"
-        }
-      },
-      "title": "Contains list of model registries",
-      "type": "object"
-    },
-    "v1ListModelVersionsResponse": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "title": "Count of the entities",
-          "type": "integer"
-        },
-        "next": {
-          "title": "Next page",
-          "type": "string"
-        },
-        "previous": {
-          "title": "Previous page",
-          "type": "string"
-        },
-        "results": {
-          "items": {
-            "$ref": "#/definitions/v1ModelVersion"
-          },
-          "title": "List of all entities",
-          "type": "array"
-        }
-      },
-      "title": "Contains list of model versions",
       "type": "object"
     },
     "v1ListOrganizationMembersResponse": {
@@ -7829,6 +7586,32 @@
         }
       },
       "title": "Contains list of scheduling presets",
+      "type": "object"
+    },
+    "v1ListProjectVersionsResponse": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "title": "Count of the entities",
+          "type": "integer"
+        },
+        "next": {
+          "title": "Next page",
+          "type": "string"
+        },
+        "previous": {
+          "title": "Previous page",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/v1ProjectVersion"
+          },
+          "title": "List of all entities",
+          "type": "array"
+        }
+      },
+      "title": "Contains list of component hub",
       "type": "object"
     },
     "v1ListProjectsResponse": {
@@ -8426,164 +8209,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "v1ModelRegistry": {
-      "properties": {
-        "bookmarked": {
-          "title": "Optional if this entity was bookmarked",
-          "type": "boolean"
-        },
-        "created_at": {
-          "format": "date-time",
-          "title": "Optional time when the entity was created",
-          "type": "string"
-        },
-        "description": {
-          "title": "Optional description",
-          "type": "string"
-        },
-        "is_public": {
-          "title": "Optional flag to tell if this project is public",
-          "type": "boolean"
-        },
-        "live_state": {
-          "format": "int32",
-          "title": "Current live state",
-          "type": "integer"
-        },
-        "name": {
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]",
-          "type": "string"
-        },
-        "owner": {
-          "title": "Owner/namespace where the model regitry was created",
-          "type": "string"
-        },
-        "readme": {
-          "title": "Markdown description/readme",
-          "type": "string"
-        },
-        "role": {
-          "title": "Current user's role in this (org/teams)/project",
-          "type": "string"
-        },
-        "settings": {
-          "$ref": "#/definitions/v1ModelRegistrySettings",
-          "title": "Settings"
-        },
-        "tags": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity",
-          "type": "array"
-        },
-        "updated_at": {
-          "format": "date-time",
-          "title": "Optional last time the entity was updated",
-          "type": "string"
-        },
-        "uuid": {
-          "title": "UUID",
-          "type": "string"
-        }
-      },
-      "title": "Model regsitry specification",
-      "type": "object"
-    },
-    "v1ModelRegistrySettings": {
-      "properties": {
-        "projects": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized projects",
-          "type": "array"
-        },
-        "teams": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized teams",
-          "type": "array"
-        },
-        "users": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized users",
-          "type": "array"
-        }
-      },
-      "title": "Model registry Settings specification",
-      "type": "object"
-    },
-    "v1ModelVersion": {
-      "properties": {
-        "created_at": {
-          "format": "date-time",
-          "title": "Optional time when the entity was created",
-          "type": "string"
-        },
-        "description": {
-          "title": "Optional description",
-          "type": "string"
-        },
-        "live_state": {
-          "format": "int32",
-          "title": "Current live state",
-          "type": "integer"
-        },
-        "metadata": {
-          "title": "Model spec metadata",
-          "type": "string"
-        },
-        "name": {
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]",
-          "type": "string"
-        },
-        "role": {
-          "title": "Current user's role in this (org/teams)/model/version",
-          "type": "string"
-        },
-        "run": {
-          "title": "Run lineage",
-          "type": "string"
-        },
-        "run_info": {
-          "title": "Extra information related to the run (lineage, project, ...)",
-          "type": "object"
-        },
-        "stage": {
-          "$ref": "#/definitions/v1Stages",
-          "title": "Optional latest stage of this entity"
-        },
-        "stage_conditions": {
-          "items": {
-            "$ref": "#/definitions/v1StageCondition"
-          },
-          "title": "The status conditions timeline",
-          "type": "array"
-        },
-        "tags": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity",
-          "type": "array"
-        },
-        "updated_at": {
-          "format": "date-time",
-          "title": "Optional last time the entity was updated",
-          "type": "string"
-        },
-        "uuid": {
-          "title": "UUID",
-          "type": "string"
-        }
-      },
-      "title": "Model Version specification",
       "type": "object"
     },
     "v1Notification": {
@@ -9301,11 +8926,18 @@
           "title": "Optional description",
           "type": "string"
         },
+        "excluded_features": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional project excluded features",
+          "type": "array"
+        },
         "excluded_runtimes": {
           "items": {
             "type": "string"
           },
-          "title": "Optional project definition",
+          "title": "Optional project excluded runtimes",
           "type": "array"
         },
         "is_public": {
@@ -9384,6 +9016,13 @@
           "title": "Authorized Presets",
           "type": "array"
         },
+        "projects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized projects",
+          "type": "array"
+        },
         "queue": {
           "title": "Default Queue",
           "type": "string"
@@ -9429,6 +9068,100 @@
         }
       },
       "type": "object"
+    },
+    "v1ProjectVersion": {
+      "properties": {
+        "artifacts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artifacts lineage",
+          "type": "array"
+        },
+        "connection": {
+          "title": "Connection name",
+          "type": "string"
+        },
+        "content": {
+          "title": "The metadata/content body",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Optional time when the entity was created",
+          "type": "string"
+        },
+        "description": {
+          "title": "Optional description",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1ProjectVersionKind",
+          "title": "Optional kind to tell the kind of this version"
+        },
+        "meta_info": {
+          "title": "Extra information related to the run (lineage, artifacts, ...)",
+          "type": "object"
+        },
+        "name": {
+          "title": "Optional component name, should be a valid fully qualified value: name[:version]",
+          "type": "string"
+        },
+        "owner": {
+          "title": "Owner of this entity",
+          "type": "string"
+        },
+        "project": {
+          "title": "Project name",
+          "type": "string"
+        },
+        "role": {
+          "title": "Current user's role in this (org/teams)/hub/version",
+          "type": "string"
+        },
+        "run": {
+          "title": "Run lineage",
+          "type": "string"
+        },
+        "stage": {
+          "$ref": "#/definitions/v1Stages",
+          "title": "Optional latest stage of this entity"
+        },
+        "stage_conditions": {
+          "items": {
+            "$ref": "#/definitions/v1StageCondition"
+          },
+          "title": "The status conditions timeline",
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity",
+          "type": "array"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        }
+      },
+      "title": "component hub specification",
+      "type": "object"
+    },
+    "v1ProjectVersionKind": {
+      "default": "component",
+      "enum": [
+        "component",
+        "model",
+        "artifact"
+      ],
+      "type": "string"
     },
     "v1PytorchJob": {
       "properties": {
@@ -10005,6 +9738,13 @@
           "$ref": "#/definitions/v1SettingsCatalog",
           "title": "Agent"
         },
+        "artifacts": {
+          "items": {
+            "$ref": "#/definitions/v1RunReferenceCatalog"
+          },
+          "title": "Artifact version references",
+          "type": "array"
+        },
         "artifacts_store": {
           "$ref": "#/definitions/v1SettingsCatalog",
           "title": "Artifacts Store"
@@ -10013,15 +9753,15 @@
           "title": "Build reference, if it exists",
           "type": "object"
         },
-        "component_version": {
+        "component": {
           "$ref": "#/definitions/v1RunReferenceCatalog",
-          "title": "Component version reference"
+          "title": "Component reference"
         },
-        "model_versions": {
+        "models": {
           "items": {
             "$ref": "#/definitions/v1RunReferenceCatalog"
           },
-          "title": "Model registry version references",
+          "title": "Model version references",
           "type": "array"
         },
         "namespace": {

@@ -22,10 +22,8 @@ from __future__ import absolute_import
 from polyaxon_sdk.api.agents_v1_api import AgentsV1Api
 from polyaxon_sdk.api.artifacts_stores_v1_api import ArtifactsStoresV1Api
 from polyaxon_sdk.api.auth_v1_api import AuthV1Api
-from polyaxon_sdk.api.component_hub_v1_api import ComponentHubV1Api
 from polyaxon_sdk.api.connections_v1_api import ConnectionsV1Api
 from polyaxon_sdk.api.dashboards_v1_api import DashboardsV1Api
-from polyaxon_sdk.api.model_registry_v1_api import ModelRegistryV1Api
 from polyaxon_sdk.api.organizations_v1_api import OrganizationsV1Api
 from polyaxon_sdk.api.presets_v1_api import PresetsV1Api
 from polyaxon_sdk.api.project_dashboards_v1_api import ProjectDashboardsV1Api

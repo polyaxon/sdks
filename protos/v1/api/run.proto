@@ -305,11 +305,14 @@ message RunSettings {
     // Build reference, if it exists
     google.protobuf.Struct build = 6;
 
-    // Component version reference
-    RunReferenceCatalog component_version = 7;
+    // Component reference
+    RunReferenceCatalog component = 7;
 
-    // Model registry version references
-    repeated RunReferenceCatalog model_versions = 8;
+    // Model version references
+    repeated RunReferenceCatalog models = 8;
+
+    // Artifact version references
+    repeated RunReferenceCatalog artifacts = 9;
 }
 
 

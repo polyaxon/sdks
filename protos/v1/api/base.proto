@@ -101,6 +101,21 @@ message OwnerSubEntityResourceRequestByName {
   string name = 3;
 }
 
+// Request data with owner/entity/sub-entity namespace
+message OwnerEntityVersionResourceRequestByName {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Entity: project name, hub name, registry name, ...
+  string entity = 2;
+
+  // Version Kind
+  string kind = 3;
+
+  // Sub-entity name
+  string name = 4;
+}
+
 // Request data with owner/team/member namespace
 message TeamMemeberResourceRequest {
   // Owner of the namespace
@@ -395,6 +410,33 @@ message OwnerSubEntityResourceListRequestByName {
 
   // SubEntity name
   string name = 3;
+
+  // Pagination offset
+  int32 offset = 4;
+
+  // Limit size
+  int32 limit = 5;
+
+  // Sort to order the search
+  string sort = 6;
+
+  // Query filter the search
+  string query = 7;
+
+  // No pagination
+  bool no_page = 8;
+}
+
+// Request list data with owner/project/kind namespace
+message OwnerEntityVersionResourceListRequestByName {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Entity name under namesapce
+  string entity = 2;
+
+  // Version Kind
+  string kind = 3;
 
   // Pagination offset
   int32 offset = 4;

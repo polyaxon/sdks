@@ -65,9 +65,12 @@ message EntityStageBodyRequest {
     // Entity namespace
     string entity = 2;
 
-    // Name of the version to apply the stage to
-    string name = 3;
+    // Optional kind, only required for an version entity
+    string kind = 3;
+
+    // Name of the entity to apply the stage to
+    string name = 4;
 
     // Stage to set
-    StageCondition condition = 4;
+    StageCondition condition = 5;
 }

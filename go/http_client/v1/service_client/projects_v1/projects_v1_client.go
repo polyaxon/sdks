@@ -50,7 +50,13 @@ type ClientService interface {
 
 	CreateProject(params *CreateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateProjectOK, *CreateProjectNoContent, error)
 
+	CreateVersion(params *CreateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionOK, *CreateVersionNoContent, error)
+
+	CreateVersionStage(params *CreateVersionStageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionStageOK, *CreateVersionStageNoContent, error)
+
 	DeleteProject(params *DeleteProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteProjectOK, *DeleteProjectNoContent, error)
+
+	DeleteVersion(params *DeleteVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteVersionOK, *DeleteVersionNoContent, error)
 
 	DisableProjectCI(params *DisableProjectCIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DisableProjectCIOK, *DisableProjectCINoContent, error)
 
@@ -64,6 +70,10 @@ type ClientService interface {
 
 	GetProjectStats(params *GetProjectStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectStatsOK, *GetProjectStatsNoContent, error)
 
+	GetVersion(params *GetVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionOK, *GetVersionNoContent, error)
+
+	GetVersionStages(params *GetVersionStagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionStagesOK, *GetVersionStagesNoContent, error)
+
 	ListArchivedProjects(params *ListArchivedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListArchivedProjectsOK, *ListArchivedProjectsNoContent, error)
 
 	ListBookmarkedProjects(params *ListBookmarkedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListBookmarkedProjectsOK, *ListBookmarkedProjectsNoContent, error)
@@ -72,17 +82,27 @@ type ClientService interface {
 
 	ListProjects(params *ListProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectsOK, *ListProjectsNoContent, error)
 
+	ListVersionNames(params *ListVersionNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionNamesOK, *ListVersionNamesNoContent, error)
+
+	ListVersions(params *ListVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionsOK, *ListVersionsNoContent, error)
+
 	PatchProject(params *PatchProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectOK, *PatchProjectNoContent, error)
 
 	PatchProjectSettings(params *PatchProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectSettingsOK, *PatchProjectSettingsNoContent, error)
 
+	PatchVersion(params *PatchVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchVersionOK, *PatchVersionNoContent, error)
+
 	RestoreProject(params *RestoreProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreProjectOK, *RestoreProjectNoContent, error)
+
+	TransferVersion(params *TransferVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferVersionOK, *TransferVersionNoContent, error)
 
 	UnbookmarkProject(params *UnbookmarkProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UnbookmarkProjectOK, *UnbookmarkProjectNoContent, error)
 
 	UpdateProject(params *UpdateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectOK, *UpdateProjectNoContent, error)
 
 	UpdateProjectSettings(params *UpdateProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectSettingsOK, *UpdateProjectSettingsNoContent, error)
+
+	UpdateVersion(params *UpdateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateVersionOK, *UpdateVersionNoContent, error)
 
 	UploadProjectArtifact(params *UploadProjectArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadProjectArtifactOK, *UploadProjectArtifactNoContent, error)
 
@@ -210,6 +230,86 @@ func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.Cli
 }
 
 /*
+  CreateVersion creates version
+*/
+func (a *Client) CreateVersion(params *CreateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionOK, *CreateVersionNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateVersion",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{project}/versions/{version.kind}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CreateVersionOK:
+		return value, nil, nil
+	case *CreateVersionNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreateVersionDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  CreateVersionStage creates new artifact version stage
+*/
+func (a *Client) CreateVersionStage(params *CreateVersionStageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionStageOK, *CreateVersionStageNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateVersionStageParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateVersionStage",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{entity}/versions/{kind}/{name}/stages",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateVersionStageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CreateVersionStageOK:
+		return value, nil, nil
+	case *CreateVersionStageNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreateVersionStageDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   DeleteProject deletes project
 */
 func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteProjectOK, *DeleteProjectNoContent, error) {
@@ -246,6 +346,46 @@ func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.Cli
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteProjectDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  DeleteVersion deletes version
+*/
+func (a *Client) DeleteVersion(params *DeleteVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteVersionOK, *DeleteVersionNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeleteVersion",
+		Method:             "DELETE",
+		PathPattern:        "/api/v1/{owner}/{entity}/versions/{kind}/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteVersionOK:
+		return value, nil, nil
+	case *DeleteVersionNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*DeleteVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -490,6 +630,86 @@ func (a *Client) GetProjectStats(params *GetProjectStatsParams, authInfo runtime
 }
 
 /*
+  GetVersion gets version
+*/
+func (a *Client) GetVersion(params *GetVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionOK, *GetVersionNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetVersion",
+		Method:             "GET",
+		PathPattern:        "/api/v1/{owner}/{entity}/versions/{kind}/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetVersionOK:
+		return value, nil, nil
+	case *GetVersionNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetVersionDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetVersionStages gets version stages
+*/
+func (a *Client) GetVersionStages(params *GetVersionStagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionStagesOK, *GetVersionStagesNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetVersionStagesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetVersionStages",
+		Method:             "GET",
+		PathPattern:        "/api/v1/{owner}/{entity}/versions/{kind}/{name}/stages",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetVersionStagesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetVersionStagesOK:
+		return value, nil, nil
+	case *GetVersionStagesNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetVersionStagesDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   ListArchivedProjects lists archived projects for user
 */
 func (a *Client) ListArchivedProjects(params *ListArchivedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListArchivedProjectsOK, *ListArchivedProjectsNoContent, error) {
@@ -650,6 +870,86 @@ func (a *Client) ListProjects(params *ListProjectsParams, authInfo runtime.Clien
 }
 
 /*
+  ListVersionNames lists versions names
+*/
+func (a *Client) ListVersionNames(params *ListVersionNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionNamesOK, *ListVersionNamesNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListVersionNamesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListVersionNames",
+		Method:             "GET",
+		PathPattern:        "/api/v1/{owner}/{entity}/versions/{kind}/names",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ListVersionNamesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ListVersionNamesOK:
+		return value, nil, nil
+	case *ListVersionNamesNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ListVersionNamesDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  ListVersions lists versions
+*/
+func (a *Client) ListVersions(params *ListVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionsOK, *ListVersionsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListVersionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ListVersions",
+		Method:             "GET",
+		PathPattern:        "/api/v1/{owner}/{entity}/versions/{kind}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ListVersionsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ListVersionsOK:
+		return value, nil, nil
+	case *ListVersionsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ListVersionsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   PatchProject patches project
 */
 func (a *Client) PatchProject(params *PatchProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectOK, *PatchProjectNoContent, error) {
@@ -730,6 +1030,46 @@ func (a *Client) PatchProjectSettings(params *PatchProjectSettingsParams, authIn
 }
 
 /*
+  PatchVersion patches version
+*/
+func (a *Client) PatchVersion(params *PatchVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchVersionOK, *PatchVersionNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPatchVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PatchVersion",
+		Method:             "PATCH",
+		PathPattern:        "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PatchVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchVersionOK:
+		return value, nil, nil
+	case *PatchVersionNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*PatchVersionDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
   RestoreProject restores project
 */
 func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreProjectOK, *RestoreProjectNoContent, error) {
@@ -766,6 +1106,46 @@ func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.C
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*RestoreProjectDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  TransferVersion transfers version
+*/
+func (a *Client) TransferVersion(params *TransferVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferVersionOK, *TransferVersionNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewTransferVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "TransferVersion",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &TransferVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *TransferVersionOK:
+		return value, nil, nil
+	case *TransferVersionNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*TransferVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -886,6 +1266,46 @@ func (a *Client) UpdateProjectSettings(params *UpdateProjectSettingsParams, auth
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*UpdateProjectSettingsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  UpdateVersion updates version
+*/
+func (a *Client) UpdateVersion(params *UpdateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateVersionOK, *UpdateVersionNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateVersionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "UpdateVersion",
+		Method:             "PUT",
+		PathPattern:        "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &UpdateVersionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *UpdateVersionOK:
+		return value, nil, nil
+	case *UpdateVersionNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*UpdateVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

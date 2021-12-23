@@ -43,7 +43,10 @@ type V1Project struct {
 	// Optional description
 	Description string `json:"description,omitempty"`
 
-	// Optional project definition
+	// Optional project excluded features
+	ExcludedFeatures []string `json:"excluded_features"`
+
+	// Optional project excluded runtimes
 	ExcludedRuntimes []string `json:"excluded_runtimes"`
 
 	// Optional flag to tell if this project is public

@@ -38,7 +38,10 @@ type V1EntityStageBodyRequest struct {
 	// Entity namespace
 	Entity string `json:"entity,omitempty"`
 
-	// Name of the version to apply the stage to
+	// Optional kind, only required for an version entity
+	Kind string `json:"kind,omitempty"`
+
+	// Name of the entity to apply the stage to
 	Name string `json:"name,omitempty"`
 
 	// Owner of the namespace

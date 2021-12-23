@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 1.13.0
+- API version: 1.14.0
 
 Polyaxon SDKs and REST API specification.
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>1.13.0</version>
+  <version>1.14.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.13.0"
+compile "org.openapitools:openapi-java-client:1.14.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.13.0.jar`
+* `target/openapi-java-client-1.14.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -137,30 +137,6 @@ Class | Method | HTTP request | Description
 *AuthV1Api* | [**resetPasswordConfirm**](docs/AuthV1Api.md#resetPasswordConfirm) | **POST** /api/v1/auth/reset-password-confirm | Reset password confirm
 *AuthV1Api* | [**signup**](docs/AuthV1Api.md#signup) | **POST** /api/v1/auth/signup | Signup
 *AuthV1Api* | [**trial**](docs/AuthV1Api.md#trial) | **POST** /api/v1/auth/trial | Trial Start
-*ComponentHubV1Api* | [**archiveComponentHub**](docs/ComponentHubV1Api.md#archiveComponentHub) | **POST** /api/v1/{owner}/hub/{name}/archive | Archive hub component
-*ComponentHubV1Api* | [**bookmarkComponentHub**](docs/ComponentHubV1Api.md#bookmarkComponentHub) | **POST** /api/v1/{owner}/hub/{name}/bookmark | Bookmark component hub
-*ComponentHubV1Api* | [**createComponentHub**](docs/ComponentHubV1Api.md#createComponentHub) | **POST** /api/v1/{owner}/hub/create | Create hub component
-*ComponentHubV1Api* | [**createComponentVersion**](docs/ComponentHubV1Api.md#createComponentVersion) | **POST** /api/v1/{owner}/hub/{component}/versions | Create component version
-*ComponentHubV1Api* | [**createComponentVersionStage**](docs/ComponentHubV1Api.md#createComponentVersionStage) | **POST** /api/v1/{owner}/hub/{entity}/versions/{name}/stages | Create new component version stage
-*ComponentHubV1Api* | [**deleteComponentHub**](docs/ComponentHubV1Api.md#deleteComponentHub) | **DELETE** /api/v1/{owner}/hub/{name} | Delete hub component
-*ComponentHubV1Api* | [**deleteComponentVersion**](docs/ComponentHubV1Api.md#deleteComponentVersion) | **DELETE** /api/v1/{owner}/hub/{entity}/versions/{name} | Delete component version
-*ComponentHubV1Api* | [**getComponentHub**](docs/ComponentHubV1Api.md#getComponentHub) | **GET** /api/v1/{owner}/hub/{name} | Get hub component
-*ComponentHubV1Api* | [**getComponentHubActivities**](docs/ComponentHubV1Api.md#getComponentHubActivities) | **GET** /api/v1/{owner}/hub/{name}/activities | Get hub activities
-*ComponentHubV1Api* | [**getComponentHubSettings**](docs/ComponentHubV1Api.md#getComponentHubSettings) | **GET** /api/v1/{owner}/hub/{name}/settings | Get hub component settings
-*ComponentHubV1Api* | [**getComponentVersion**](docs/ComponentHubV1Api.md#getComponentVersion) | **GET** /api/v1/{owner}/hub/{entity}/versions/{name} | Get component version
-*ComponentHubV1Api* | [**getComponentVersionStages**](docs/ComponentHubV1Api.md#getComponentVersionStages) | **GET** /api/v1/{owner}/hub/{entity}/versions/{name}/stages | Get component version stages
-*ComponentHubV1Api* | [**listComponentHubNames**](docs/ComponentHubV1Api.md#listComponentHubNames) | **GET** /api/v1/{owner}/hub/names | List hub component names
-*ComponentHubV1Api* | [**listComponentHubs**](docs/ComponentHubV1Api.md#listComponentHubs) | **GET** /api/v1/{owner}/hub/list | List hub components
-*ComponentHubV1Api* | [**listComponentVersionNames**](docs/ComponentHubV1Api.md#listComponentVersionNames) | **GET** /api/v1/{owner}/hub/{name}/versions/names | List component version names
-*ComponentHubV1Api* | [**listComponentVersions**](docs/ComponentHubV1Api.md#listComponentVersions) | **GET** /api/v1/{owner}/hub/{name}/versions | List component versions
-*ComponentHubV1Api* | [**patchComponentHub**](docs/ComponentHubV1Api.md#patchComponentHub) | **PATCH** /api/v1/{owner}/hub/{component.name} | Patch hub component
-*ComponentHubV1Api* | [**patchComponentHubSettings**](docs/ComponentHubV1Api.md#patchComponentHubSettings) | **PATCH** /api/v1/{owner}/hub/{component}/settings | Patch hub component settings
-*ComponentHubV1Api* | [**patchComponentVersion**](docs/ComponentHubV1Api.md#patchComponentVersion) | **PATCH** /api/v1/{owner}/hub/{component}/versions/{version.name} | Patch component version
-*ComponentHubV1Api* | [**restoreComponentHub**](docs/ComponentHubV1Api.md#restoreComponentHub) | **POST** /api/v1/{owner}/hub/{name}/restore | Restore hub component
-*ComponentHubV1Api* | [**unbookmarkComponentHub**](docs/ComponentHubV1Api.md#unbookmarkComponentHub) | **DELETE** /api/v1/{owner}/hub/{name}/unbookmark | Unbookmark component hub
-*ComponentHubV1Api* | [**updateComponentHub**](docs/ComponentHubV1Api.md#updateComponentHub) | **PUT** /api/v1/{owner}/hub/{component.name} | Update hub component
-*ComponentHubV1Api* | [**updateComponentHubSettings**](docs/ComponentHubV1Api.md#updateComponentHubSettings) | **PUT** /api/v1/{owner}/hub/{component}/settings | Update hub component settings
-*ComponentHubV1Api* | [**updateComponentVersion**](docs/ComponentHubV1Api.md#updateComponentVersion) | **PUT** /api/v1/{owner}/hub/{component}/versions/{version.name} | Update component version
 *ConnectionsV1Api* | [**createConnection**](docs/ConnectionsV1Api.md#createConnection) | **POST** /api/v1/orgs/{owner}/connections | Create connection
 *ConnectionsV1Api* | [**deleteConnection**](docs/ConnectionsV1Api.md#deleteConnection) | **DELETE** /api/v1/orgs/{owner}/connections/{uuid} | Delete connection
 *ConnectionsV1Api* | [**getConnection**](docs/ConnectionsV1Api.md#getConnection) | **GET** /api/v1/orgs/{owner}/connections/{uuid} | Get connection
@@ -175,30 +151,6 @@ Class | Method | HTTP request | Description
 *DashboardsV1Api* | [**listDashboards**](docs/DashboardsV1Api.md#listDashboards) | **GET** /api/v1/orgs/{owner}/dashboards | List dashboards
 *DashboardsV1Api* | [**patchDashboard**](docs/DashboardsV1Api.md#patchDashboard) | **PATCH** /api/v1/orgs/{owner}/dashboards/{dashboard.uuid} | Patch dashboard
 *DashboardsV1Api* | [**updateDashboard**](docs/DashboardsV1Api.md#updateDashboard) | **PUT** /api/v1/orgs/{owner}/dashboards/{dashboard.uuid} | Update dashboard
-*ModelRegistryV1Api* | [**archiveModelRegistry**](docs/ModelRegistryV1Api.md#archiveModelRegistry) | **POST** /api/v1/{owner}/registry/{name}/archive | Archive registry model
-*ModelRegistryV1Api* | [**bookmarkModelRegistry**](docs/ModelRegistryV1Api.md#bookmarkModelRegistry) | **POST** /api/v1/{owner}/registry/{name}/bookmark | Bookmark registry model
-*ModelRegistryV1Api* | [**createModelRegistry**](docs/ModelRegistryV1Api.md#createModelRegistry) | **POST** /api/v1/{owner}/registry/create | Create registry model
-*ModelRegistryV1Api* | [**createModelVersion**](docs/ModelRegistryV1Api.md#createModelVersion) | **POST** /api/v1/{owner}/registry/{model}/versions | Create model version
-*ModelRegistryV1Api* | [**createModelVersionStage**](docs/ModelRegistryV1Api.md#createModelVersionStage) | **POST** /api/v1/{owner}/registry/{entity}/versions/{name}/stages | Create new model version stage
-*ModelRegistryV1Api* | [**deleteModelRegistry**](docs/ModelRegistryV1Api.md#deleteModelRegistry) | **DELETE** /api/v1/{owner}/registry/{name} | Delete registry model
-*ModelRegistryV1Api* | [**deleteModelVersion**](docs/ModelRegistryV1Api.md#deleteModelVersion) | **DELETE** /api/v1/{owner}/registry/{entity}/versions/{name} | Delete model version
-*ModelRegistryV1Api* | [**getModelRegistry**](docs/ModelRegistryV1Api.md#getModelRegistry) | **GET** /api/v1/{owner}/registry/{name} | Get registry model
-*ModelRegistryV1Api* | [**getModelRegistryActivities**](docs/ModelRegistryV1Api.md#getModelRegistryActivities) | **GET** /api/v1/{owner}/registry/{name}/activities | Get model activities
-*ModelRegistryV1Api* | [**getModelRegistrySettings**](docs/ModelRegistryV1Api.md#getModelRegistrySettings) | **GET** /api/v1/{owner}/registry/{name}/settings | Get registry model settings
-*ModelRegistryV1Api* | [**getModelVersion**](docs/ModelRegistryV1Api.md#getModelVersion) | **GET** /api/v1/{owner}/registry/{entity}/versions/{name} | Get model version
-*ModelRegistryV1Api* | [**getModelVersionStages**](docs/ModelRegistryV1Api.md#getModelVersionStages) | **GET** /api/v1/{owner}/registry/{entity}/versions/{name}/stages | Get model version stages
-*ModelRegistryV1Api* | [**listModelRegistries**](docs/ModelRegistryV1Api.md#listModelRegistries) | **GET** /api/v1/{owner}/registry/list | List registry models
-*ModelRegistryV1Api* | [**listModelRegistryNames**](docs/ModelRegistryV1Api.md#listModelRegistryNames) | **GET** /api/v1/{owner}/registry/names | List registry model names
-*ModelRegistryV1Api* | [**listModelVersionNames**](docs/ModelRegistryV1Api.md#listModelVersionNames) | **GET** /api/v1/{owner}/registry/{name}/versions/names | List model versions names
-*ModelRegistryV1Api* | [**listModelVersions**](docs/ModelRegistryV1Api.md#listModelVersions) | **GET** /api/v1/{owner}/registry/{name}/versions | List model versions
-*ModelRegistryV1Api* | [**patchModelRegistry**](docs/ModelRegistryV1Api.md#patchModelRegistry) | **PATCH** /api/v1/{owner}/registry/{model.name} | Patch registry model
-*ModelRegistryV1Api* | [**patchModelRegistrySettings**](docs/ModelRegistryV1Api.md#patchModelRegistrySettings) | **PATCH** /api/v1/{owner}/registry/{model}/settings | Patch registry model settings
-*ModelRegistryV1Api* | [**patchModelVersion**](docs/ModelRegistryV1Api.md#patchModelVersion) | **PATCH** /api/v1/{owner}/registry/{model}/versions/{version.name} | Patch model version
-*ModelRegistryV1Api* | [**restoreModelRegistry**](docs/ModelRegistryV1Api.md#restoreModelRegistry) | **POST** /api/v1/{owner}/registry/{name}/restore | Restore registry model
-*ModelRegistryV1Api* | [**unbookmarkModelRegistry**](docs/ModelRegistryV1Api.md#unbookmarkModelRegistry) | **DELETE** /api/v1/{owner}/registry/{name}/unbookmark | Unbookmark registry model
-*ModelRegistryV1Api* | [**updateModelRegistry**](docs/ModelRegistryV1Api.md#updateModelRegistry) | **PUT** /api/v1/{owner}/registry/{model.name} | Update registry model
-*ModelRegistryV1Api* | [**updateModelRegistrySettings**](docs/ModelRegistryV1Api.md#updateModelRegistrySettings) | **PUT** /api/v1/{owner}/registry/{model}/settings | Update registry model settings
-*ModelRegistryV1Api* | [**updateModelVersion**](docs/ModelRegistryV1Api.md#updateModelVersion) | **PUT** /api/v1/{owner}/registry/{model}/versions/{version.name} | Update model version
 *OrganizationsV1Api* | [**approveOrganizationRuns**](docs/OrganizationsV1Api.md#approveOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/approve | Approve cross-project runs selection
 *OrganizationsV1Api* | [**archiveOrganizationRuns**](docs/OrganizationsV1Api.md#archiveOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/archive | Archive cross-project runs selection
 *OrganizationsV1Api* | [**bookmarkOrganizationRuns**](docs/OrganizationsV1Api.md#bookmarkOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/bookmark | Bookmark cross-project runs selection
@@ -260,23 +212,33 @@ Class | Method | HTTP request | Description
 *ProjectsV1Api* | [**archiveProject**](docs/ProjectsV1Api.md#archiveProject) | **POST** /api/v1/{owner}/{name}/archive | Archive project
 *ProjectsV1Api* | [**bookmarkProject**](docs/ProjectsV1Api.md#bookmarkProject) | **POST** /api/v1/{owner}/{name}/bookmark | Bookmark project
 *ProjectsV1Api* | [**createProject**](docs/ProjectsV1Api.md#createProject) | **POST** /api/v1/{owner}/projects/create | Create new project
+*ProjectsV1Api* | [**createVersion**](docs/ProjectsV1Api.md#createVersion) | **POST** /api/v1/{owner}/{project}/versions/{version.kind} | Create version
+*ProjectsV1Api* | [**createVersionStage**](docs/ProjectsV1Api.md#createVersionStage) | **POST** /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages | Create new artifact version stage
 *ProjectsV1Api* | [**deleteProject**](docs/ProjectsV1Api.md#deleteProject) | **DELETE** /api/v1/{owner}/{name} | Delete project
+*ProjectsV1Api* | [**deleteVersion**](docs/ProjectsV1Api.md#deleteVersion) | **DELETE** /api/v1/{owner}/{entity}/versions/{kind}/{name} | Delete version
 *ProjectsV1Api* | [**disableProjectCI**](docs/ProjectsV1Api.md#disableProjectCI) | **DELETE** /api/v1/{owner}/{name}/ci | Disbale project CI
 *ProjectsV1Api* | [**enableProjectCI**](docs/ProjectsV1Api.md#enableProjectCI) | **POST** /api/v1/{owner}/{name}/ci | Enable project CI
 *ProjectsV1Api* | [**getProject**](docs/ProjectsV1Api.md#getProject) | **GET** /api/v1/{owner}/{name} | Get project
 *ProjectsV1Api* | [**getProjectActivities**](docs/ProjectsV1Api.md#getProjectActivities) | **GET** /api/v1/{owner}/{name}/activities | Get project activities
 *ProjectsV1Api* | [**getProjectSettings**](docs/ProjectsV1Api.md#getProjectSettings) | **GET** /api/v1/{owner}/{name}/settings | Get Project settings
 *ProjectsV1Api* | [**getProjectStats**](docs/ProjectsV1Api.md#getProjectStats) | **GET** /api/v1/{owner}/{name}/stats | Get project stats
+*ProjectsV1Api* | [**getVersion**](docs/ProjectsV1Api.md#getVersion) | **GET** /api/v1/{owner}/{entity}/versions/{kind}/{name} | Get version
+*ProjectsV1Api* | [**getVersionStages**](docs/ProjectsV1Api.md#getVersionStages) | **GET** /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages | Get version stages
 *ProjectsV1Api* | [**listArchivedProjects**](docs/ProjectsV1Api.md#listArchivedProjects) | **GET** /api/v1/archives/{user}/projects | List archived projects for user
 *ProjectsV1Api* | [**listBookmarkedProjects**](docs/ProjectsV1Api.md#listBookmarkedProjects) | **GET** /api/v1/bookmarks/{user}/projects | List bookmarked projects for user
 *ProjectsV1Api* | [**listProjectNames**](docs/ProjectsV1Api.md#listProjectNames) | **GET** /api/v1/{owner}/projects/names | List project names
 *ProjectsV1Api* | [**listProjects**](docs/ProjectsV1Api.md#listProjects) | **GET** /api/v1/{owner}/projects/list | List projects
+*ProjectsV1Api* | [**listVersionNames**](docs/ProjectsV1Api.md#listVersionNames) | **GET** /api/v1/{owner}/{entity}/versions/{kind}/names | List versions names
+*ProjectsV1Api* | [**listVersions**](docs/ProjectsV1Api.md#listVersions) | **GET** /api/v1/{owner}/{entity}/versions/{kind} | List versions
 *ProjectsV1Api* | [**patchProject**](docs/ProjectsV1Api.md#patchProject) | **PATCH** /api/v1/{owner}/{project.name} | Patch project
 *ProjectsV1Api* | [**patchProjectSettings**](docs/ProjectsV1Api.md#patchProjectSettings) | **PATCH** /api/v1/{owner}/{project}/settings | Patch project settings
+*ProjectsV1Api* | [**patchVersion**](docs/ProjectsV1Api.md#patchVersion) | **PATCH** /api/v1/{owner}/{project}/versions/{version.kind}/{version.name} | Patch version
 *ProjectsV1Api* | [**restoreProject**](docs/ProjectsV1Api.md#restoreProject) | **POST** /api/v1/{owner}/{name}/restore | Restore project
+*ProjectsV1Api* | [**transferVersion**](docs/ProjectsV1Api.md#transferVersion) | **POST** /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer | Transfer version
 *ProjectsV1Api* | [**unbookmarkProject**](docs/ProjectsV1Api.md#unbookmarkProject) | **DELETE** /api/v1/{owner}/{name}/unbookmark | Unbookmark project
 *ProjectsV1Api* | [**updateProject**](docs/ProjectsV1Api.md#updateProject) | **PUT** /api/v1/{owner}/{project.name} | Update project
 *ProjectsV1Api* | [**updateProjectSettings**](docs/ProjectsV1Api.md#updateProjectSettings) | **PUT** /api/v1/{owner}/{project}/settings | Update project settings
+*ProjectsV1Api* | [**updateVersion**](docs/ProjectsV1Api.md#updateVersion) | **PUT** /api/v1/{owner}/{project}/versions/{version.kind}/{version.name} | Update version
 *ProjectsV1Api* | [**uploadProjectArtifact**](docs/ProjectsV1Api.md#uploadProjectArtifact) | **POST** /api/v1/{owner}/{project}/artifacts/{uuid}/upload | Upload artifact to a store via project access
 *QueuesV1Api* | [**createQueue**](docs/QueuesV1Api.md#createQueue) | **POST** /api/v1/orgs/{owner}/agents/{agent}/queues | Create queue
 *QueuesV1Api* | [**deleteQueue**](docs/QueuesV1Api.md#deleteQueue) | **DELETE** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Delete queue
@@ -437,9 +399,6 @@ Class | Method | HTTP request | Description
  - [V1Compatibility](docs/V1Compatibility.md)
  - [V1CompiledOperation](docs/V1CompiledOperation.md)
  - [V1Component](docs/V1Component.md)
- - [V1ComponentHub](docs/V1ComponentHub.md)
- - [V1ComponentHubSettings](docs/V1ComponentHubSettings.md)
- - [V1ComponentVersion](docs/V1ComponentVersion.md)
  - [V1ConnectionKind](docs/V1ConnectionKind.md)
  - [V1ConnectionResponse](docs/V1ConnectionResponse.md)
  - [V1ConnectionSchema](docs/V1ConnectionSchema.md)
@@ -523,15 +482,12 @@ Class | Method | HTTP request | Description
  - [V1ListActivitiesResponse](docs/V1ListActivitiesResponse.md)
  - [V1ListAgentsResponse](docs/V1ListAgentsResponse.md)
  - [V1ListBookmarksResponse](docs/V1ListBookmarksResponse.md)
- - [V1ListComponentHubsResponse](docs/V1ListComponentHubsResponse.md)
- - [V1ListComponentVersionsResponse](docs/V1ListComponentVersionsResponse.md)
  - [V1ListConnectionsResponse](docs/V1ListConnectionsResponse.md)
  - [V1ListDashboardsResponse](docs/V1ListDashboardsResponse.md)
- - [V1ListModelRegistriesResponse](docs/V1ListModelRegistriesResponse.md)
- - [V1ListModelVersionsResponse](docs/V1ListModelVersionsResponse.md)
  - [V1ListOrganizationMembersResponse](docs/V1ListOrganizationMembersResponse.md)
  - [V1ListOrganizationsResponse](docs/V1ListOrganizationsResponse.md)
  - [V1ListPresetsResponse](docs/V1ListPresetsResponse.md)
+ - [V1ListProjectVersionsResponse](docs/V1ListProjectVersionsResponse.md)
  - [V1ListProjectsResponse](docs/V1ListProjectsResponse.md)
  - [V1ListQueuesResponse](docs/V1ListQueuesResponse.md)
  - [V1ListRunArtifactsResponse](docs/V1ListRunArtifactsResponse.md)
@@ -554,9 +510,6 @@ Class | Method | HTTP request | Description
  - [V1MatrixKind](docs/V1MatrixKind.md)
  - [V1MedianStoppingPolicy](docs/V1MedianStoppingPolicy.md)
  - [V1MetricEarlyStopping](docs/V1MetricEarlyStopping.md)
- - [V1ModelRegistry](docs/V1ModelRegistry.md)
- - [V1ModelRegistrySettings](docs/V1ModelRegistrySettings.md)
- - [V1ModelVersion](docs/V1ModelVersion.md)
  - [V1Notification](docs/V1Notification.md)
  - [V1Operation](docs/V1Operation.md)
  - [V1OperationBody](docs/V1OperationBody.md)
@@ -579,6 +532,8 @@ Class | Method | HTTP request | Description
  - [V1Project](docs/V1Project.md)
  - [V1ProjectSettings](docs/V1ProjectSettings.md)
  - [V1ProjectUserAccess](docs/V1ProjectUserAccess.md)
+ - [V1ProjectVersion](docs/V1ProjectVersion.md)
+ - [V1ProjectVersionKind](docs/V1ProjectVersionKind.md)
  - [V1PytorchJob](docs/V1PytorchJob.md)
  - [V1Queue](docs/V1Queue.md)
  - [V1RandomSearch](docs/V1RandomSearch.md)

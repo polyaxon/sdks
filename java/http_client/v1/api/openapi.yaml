@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: Polyaxon SDKs and REST API specification.
   title: Polyaxon SDKs and REST API specification.
-  version: 1.13.0
+  version: 1.14.0
 servers:
 - url: /
 security:
@@ -8645,1493 +8645,6 @@ paths:
       tags:
       - UsersV1
       x-accepts: application/json
-  /api/v1/{owner}/hub/create:
-    post:
-      operationId: CreateComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentHub'
-        description: Component body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHub'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Create hub component
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/hub/list:
-    get:
-      operationId: ListComponentHubs
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListComponentHubsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List hub components
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/names:
-    get:
-      operationId: ListComponentHubNames
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListComponentHubsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List hub component names
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{component.name}:
-    patch:
-      operationId: PatchComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: component.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentHub'
-        description: Component body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHub'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch hub component
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: component.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentHub'
-        description: Component body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHub'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update hub component
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{component}/settings:
-    patch:
-      operationId: PatchComponentHubSettings
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Hub name
-        in: path
-        name: component
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentHubSettings'
-        description: Hub settings body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHubSettings'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch hub component settings
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateComponentHubSettings
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Hub name
-        in: path
-        name: component
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentHubSettings'
-        description: Hub settings body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHubSettings'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update hub component settings
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{component}/versions:
-    post:
-      operationId: CreateComponentVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component name
-        in: path
-        name: component
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentVersion'
-        description: Component version body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Create component version
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{component}/versions/{version.name}:
-    patch:
-      operationId: PatchComponentVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component name
-        in: path
-        name: component
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: version.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentVersion'
-        description: Component version body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch component version
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateComponentVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component name
-        in: path
-        name: component
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: version.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ComponentVersion'
-        description: Component version body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update component version
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{entity}/versions/{name}:
-    delete:
-      operationId: DeleteComponentVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Entity: project name, hub name, registry name, ...'
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Sub-entity name
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Delete component version
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-    get:
-      operationId: GetComponentVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Entity: project name, hub name, registry name, ...'
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Sub-entity name
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get component version
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{entity}/versions/{name}/stages:
-    get:
-      operationId: GetComponentVersionStages
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Entity: project name, hub name, registry name, ...'
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Sub-entity name
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Stage'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get component version stages
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-    post:
-      operationId: CreateComponentVersionStage
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity namespace
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Name of the version to apply the stage to
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1EntityStageBodyRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Stage'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Create new component version stage
-      tags:
-      - ComponentHubV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}:
-    delete:
-      operationId: DeleteComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Delete hub component
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-    get:
-      operationId: GetComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHub'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get hub component
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/activities:
-    get:
-      operationId: GetComponentHubActivities
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity managing the resource
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListActivitiesResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get hub activities
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/archive:
-    post:
-      operationId: ArchiveComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Archive hub component
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/bookmark:
-    post:
-      operationId: BookmarkComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Bookmark component hub
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/restore:
-    post:
-      operationId: RestoreComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Restore hub component
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/settings:
-    get:
-      operationId: GetComponentHubSettings
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ComponentHubSettings'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get hub component settings
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/unbookmark:
-    delete:
-      operationId: UnbookmarkComponentHub
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Unbookmark component hub
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/versions:
-    get:
-      operationId: ListComponentVersions
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity managing the resource
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListComponentVersionsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List component versions
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
-  /api/v1/{owner}/hub/{name}/versions/names:
-    get:
-      operationId: ListComponentVersionNames
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity managing the resource
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListComponentVersionsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List component version names
-      tags:
-      - ComponentHubV1
-      x-accepts: application/json
   /api/v1/{owner}/projects/create:
     post:
       operationId: CreateProject
@@ -10349,1493 +8862,6 @@ paths:
       summary: List project names
       tags:
       - ProjectsV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/create:
-    post:
-      operationId: CreateModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelRegistry'
-        description: Model body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistry'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Create registry model
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/registry/list:
-    get:
-      operationId: ListModelRegistries
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListModelRegistriesResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List registry models
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/names:
-    get:
-      operationId: ListModelRegistryNames
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListModelRegistriesResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List registry model names
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{entity}/versions/{name}:
-    delete:
-      operationId: DeleteModelVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Entity: project name, hub name, registry name, ...'
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Sub-entity name
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Delete model version
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-    get:
-      operationId: GetModelVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Entity: project name, hub name, registry name, ...'
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Sub-entity name
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get model version
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{entity}/versions/{name}/stages:
-    get:
-      operationId: GetModelVersionStages
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Entity: project name, hub name, registry name, ...'
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Sub-entity name
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Stage'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get model version stages
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-    post:
-      operationId: CreateModelVersionStage
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity namespace
-        in: path
-        name: entity
-        required: true
-        schema:
-          type: string
-      - description: Name of the version to apply the stage to
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1EntityStageBodyRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Stage'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Create new model version stage
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{model.name}:
-    patch:
-      operationId: PatchModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: model.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelRegistry'
-        description: Model body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistry'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch registry model
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: model.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelRegistry'
-        description: Model body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistry'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update registry model
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{model}/settings:
-    patch:
-      operationId: PatchModelRegistrySettings
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Model name
-        in: path
-        name: model
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelRegistrySettings'
-        description: Model settings body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistrySettings'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch registry model settings
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateModelRegistrySettings
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Model name
-        in: path
-        name: model
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelRegistrySettings'
-        description: Model settings body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistrySettings'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update registry model settings
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{model}/versions:
-    post:
-      operationId: CreateModelVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Model name
-        in: path
-        name: model
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelVersion'
-        description: Model version body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Create model version
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{model}/versions/{version.name}:
-    patch:
-      operationId: PatchModelVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Model name
-        in: path
-        name: model
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: version.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelVersion'
-        description: Model version body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Patch model version
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-    put:
-      operationId: UpdateModelVersion
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Model name
-        in: path
-        name: model
-        required: true
-        schema:
-          type: string
-      - description: 'Optional component name, should be a valid fully qualified value:
-          name[:version]'
-        in: path
-        name: version.name
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1ModelVersion'
-        description: Model version body
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelVersion'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Update model version
-      tags:
-      - ModelRegistryV1
-      x-codegen-request-body-name: body
-      x-contentType: application/json
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}:
-    delete:
-      operationId: DeleteModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Delete registry model
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-    get:
-      operationId: GetModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistry'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get registry model
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/activities:
-    get:
-      operationId: GetModelRegistryActivities
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity managing the resource
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListActivitiesResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get model activities
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/archive:
-    post:
-      operationId: ArchiveModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Archive registry model
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/bookmark:
-    post:
-      operationId: BookmarkModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Bookmark registry model
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/restore:
-    post:
-      operationId: RestoreModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Restore registry model
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/settings:
-    get:
-      operationId: GetModelRegistrySettings
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ModelRegistrySettings'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get registry model settings
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/unbookmark:
-    delete:
-      operationId: UnbookmarkModelRegistry
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Component under namesapce
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Unbookmark registry model
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/versions:
-    get:
-      operationId: ListModelVersions
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity managing the resource
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListModelVersionsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List model versions
-      tags:
-      - ModelRegistryV1
-      x-accepts: application/json
-  /api/v1/{owner}/registry/{name}/versions/names:
-    get:
-      operationId: ListModelVersionNames
-      parameters:
-      - description: Owner of the namespace
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-      - description: Entity managing the resource
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-      - description: Pagination offset.
-        in: query
-        name: offset
-        schema:
-          format: int32
-          type: integer
-      - description: Limit size.
-        in: query
-        name: limit
-        schema:
-          format: int32
-          type: integer
-      - description: Sort to order the search.
-        in: query
-        name: sort
-        schema:
-          type: string
-      - description: Query filter the search.
-        in: query
-        name: query
-        schema:
-          type: string
-      - description: Filter by bookmarks.
-        in: query
-        name: bookmarks
-        schema:
-          type: boolean
-      - description: Mode of the search.
-        in: query
-        name: mode
-        schema:
-          type: string
-      - description: No pagination.
-        in: query
-        name: no_page
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1ListModelVersionsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: List model versions names
-      tags:
-      - ModelRegistryV1
       x-accepts: application/json
   /api/v1/{owner}/{entity}/dashboards/{uuid}:
     delete:
@@ -13604,6 +10630,429 @@ paths:
       summary: Promote project search
       tags:
       - ProjectSearchesV1
+      x-accepts: application/json
+  /api/v1/{owner}/{entity}/versions/{kind}:
+    get:
+      operationId: ListVersions
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Entity name under namesapce
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Version Kind
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListProjectVersionsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List versions
+      tags:
+      - ProjectsV1
+      x-accepts: application/json
+  /api/v1/{owner}/{entity}/versions/{kind}/names:
+    get:
+      operationId: ListVersionNames
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Entity name under namesapce
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Version Kind
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListProjectVersionsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List versions names
+      tags:
+      - ProjectsV1
+      x-accepts: application/json
+  /api/v1/{owner}/{entity}/versions/{kind}/{name}:
+    delete:
+      operationId: DeleteVersion
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: 'Entity: project name, hub name, registry name, ...'
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Version Kind
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+      - description: Sub-entity name
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Delete version
+      tags:
+      - ProjectsV1
+      x-accepts: application/json
+    get:
+      operationId: GetVersion
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: 'Entity: project name, hub name, registry name, ...'
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Version Kind
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+      - description: Sub-entity name
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ProjectVersion'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get version
+      tags:
+      - ProjectsV1
+      x-accepts: application/json
+  /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages:
+    get:
+      operationId: GetVersionStages
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: 'Entity: project name, hub name, registry name, ...'
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Version Kind
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+      - description: Sub-entity name
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Stage'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get version stages
+      tags:
+      - ProjectsV1
+      x-accepts: application/json
+    post:
+      operationId: CreateVersionStage
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Entity namespace
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+      - description: Optional kind, only required for an version entity
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+      - description: Name of the entity to apply the stage to
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1EntityStageBodyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Stage'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Create new artifact version stage
+      tags:
+      - ProjectsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
       x-accepts: application/json
   /api/v1/{owner}/{name}:
     delete:
@@ -16657,6 +14106,303 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /api/v1/{owner}/{project}/versions/{version.kind}:
+    post:
+      operationId: CreateVersion
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Project name
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+      - description: Optional kind to tell the kind of this version
+        in: path
+        name: version.kind
+        required: true
+        schema:
+          enum:
+          - component
+          - model
+          - artifact
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ProjectVersion'
+        description: Project version body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ProjectVersion'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Create version
+      tags:
+      - ProjectsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}:
+    patch:
+      operationId: PatchVersion
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Project name
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+      - description: Optional kind to tell the kind of this version
+        in: path
+        name: version.kind
+        required: true
+        schema:
+          enum:
+          - component
+          - model
+          - artifact
+          type: string
+      - description: 'Optional component name, should be a valid fully qualified value:
+          name[:version]'
+        in: path
+        name: version.name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ProjectVersion'
+        description: Project version body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ProjectVersion'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Patch version
+      tags:
+      - ProjectsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      operationId: UpdateVersion
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Project name
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+      - description: Optional kind to tell the kind of this version
+        in: path
+        name: version.kind
+        required: true
+        schema:
+          enum:
+          - component
+          - model
+          - artifact
+          type: string
+      - description: 'Optional component name, should be a valid fully qualified value:
+          name[:version]'
+        in: path
+        name: version.name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ProjectVersion'
+        description: Project version body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ProjectVersion'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Update version
+      tags:
+      - ProjectsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer:
+    post:
+      operationId: TransferVersion
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Project name
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+      - description: Optional kind to tell the kind of this version
+        in: path
+        name: version.kind
+        required: true
+        schema:
+          enum:
+          - component
+          - model
+          - artifact
+          type: string
+      - description: 'Optional component name, should be a valid fully qualified value:
+          name[:version]'
+        in: path
+        name: version.name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ProjectVersion'
+        description: Project version body
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Transfer version
+      tags:
+      - ProjectsV1
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
   /schemas:
     get:
       operationId: NoOp
@@ -19330,164 +17076,6 @@ components:
           type: number
       title: Component specification
       type: object
-    v1ComponentHub:
-      example:
-        owner: owner
-        settings:
-          teams:
-          - teams
-          - teams
-          users:
-          - users
-          - users
-        role: role
-        bookmarked: true
-        description: description
-        created_at: 2000-01-23T04:56:07.000+00:00
-        live_state: 0
-        readme: readme
-        uuid: uuid
-        tags:
-        - tags
-        - tags
-        updated_at: 2000-01-23T04:56:07.000+00:00
-        name: name
-        is_public: true
-      properties:
-        uuid:
-          title: UUID
-          type: string
-        owner:
-          title: Owner/namespace where the component hub was created
-          type: string
-        name:
-          title: 'Optional component name, should be a valid fully qualified value:
-            name[:version]'
-          type: string
-        description:
-          title: Optional description
-          type: string
-        tags:
-          items:
-            type: string
-          title: Optional tags of this entity
-          type: array
-        is_public:
-          title: Optional flag to tell if this project is public
-          type: boolean
-        bookmarked:
-          title: Optional if this entity was bookmarked
-          type: boolean
-        live_state:
-          format: int32
-          title: Current live state
-          type: integer
-        created_at:
-          format: date-time
-          title: Optional time when the entity was created
-          type: string
-        updated_at:
-          format: date-time
-          title: Optional last time the entity was updated
-          type: string
-        readme:
-          title: Markdown description/readme
-          type: string
-        settings:
-          $ref: '#/components/schemas/v1ComponentHubSettings'
-        role:
-          title: Current user's role in this (org/teams)/project
-          type: string
-      title: component hub specification
-      type: object
-    v1ComponentHubSettings:
-      example:
-        teams:
-        - teams
-        - teams
-        users:
-        - users
-        - users
-      properties:
-        users:
-          items:
-            type: string
-          title: Authorized users
-          type: array
-        teams:
-          items:
-            type: string
-          title: Authorized teams
-          type: array
-      title: Hub Settings specification
-      type: object
-    v1ComponentVersion:
-      example:
-        role: role
-        updated_at: 2000-01-23T04:56:07.000+00:00
-        stage_conditions:
-        - reason: reason
-          last_update_time: 2000-01-23T04:56:07.000+00:00
-          last_transition_time: 2000-01-23T04:56:07.000+00:00
-          message: message
-          status: status
-        - reason: reason
-          last_update_time: 2000-01-23T04:56:07.000+00:00
-          last_transition_time: 2000-01-23T04:56:07.000+00:00
-          message: message
-          status: status
-        name: name
-        description: description
-        created_at: 2000-01-23T04:56:07.000+00:00
-        live_state: 0
-        uuid: uuid
-        content: content
-        tags:
-        - tags
-        - tags
-      properties:
-        uuid:
-          title: UUID
-          type: string
-        name:
-          title: 'Optional component name, should be a valid fully qualified value:
-            name[:version]'
-          type: string
-        description:
-          title: Optional description
-          type: string
-        tags:
-          items:
-            type: string
-          title: Optional tags of this entity
-          type: array
-        live_state:
-          format: int32
-          title: Current live state
-          type: integer
-        created_at:
-          format: date-time
-          title: Optional time when the entity was created
-          type: string
-        updated_at:
-          format: date-time
-          title: Optional last time the entity was updated
-          type: string
-        stage:
-          $ref: '#/components/schemas/v1Stages'
-        stage_conditions:
-          items:
-            $ref: '#/components/schemas/v1StageCondition'
-          title: The status conditions timeline
-          type: array
-        content:
-          title: The Component body content
-          type: string
-        role:
-          title: Current user's role in this (org/teams)/hub/version
-          type: string
-      title: component hub specification
-      type: object
     v1ConnectionKind:
       default: host_path
       enum:
@@ -21363,8 +18951,11 @@ components:
         entity:
           title: Entity namespace
           type: string
+        kind:
+          title: Optional kind, only required for an version entity
+          type: string
         name:
-          title: Name of the version to apply the stage to
+          title: Name of the entity to apply the stage to
           type: string
         condition:
           $ref: '#/components/schemas/v1StageCondition'
@@ -23520,140 +21111,6 @@ components:
           type: string
       title: Contains list of of bookmarks
       type: object
-    v1ListComponentHubsResponse:
-      example:
-        next: next
-        previous: previous
-        count: 0
-        results:
-        - owner: owner
-          settings:
-            teams:
-            - teams
-            - teams
-            users:
-            - users
-            - users
-          role: role
-          bookmarked: true
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          readme: readme
-          uuid: uuid
-          tags:
-          - tags
-          - tags
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          name: name
-          is_public: true
-        - owner: owner
-          settings:
-            teams:
-            - teams
-            - teams
-            users:
-            - users
-            - users
-          role: role
-          bookmarked: true
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          readme: readme
-          uuid: uuid
-          tags:
-          - tags
-          - tags
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          name: name
-          is_public: true
-      properties:
-        count:
-          format: int32
-          title: Count of the entities
-          type: integer
-        results:
-          items:
-            $ref: '#/components/schemas/v1ComponentHub'
-          title: List of all entities
-          type: array
-        previous:
-          title: Previous page
-          type: string
-        next:
-          title: Next page
-          type: string
-      title: Contains list of component hub
-      type: object
-    v1ListComponentVersionsResponse:
-      example:
-        next: next
-        previous: previous
-        count: 0
-        results:
-        - role: role
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          stage_conditions:
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          name: name
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          uuid: uuid
-          content: content
-          tags:
-          - tags
-          - tags
-        - role: role
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          stage_conditions:
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          name: name
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          uuid: uuid
-          content: content
-          tags:
-          - tags
-          - tags
-      properties:
-        count:
-          format: int32
-          title: Count of the entities
-          type: integer
-        results:
-          items:
-            $ref: '#/components/schemas/v1ComponentVersion'
-          title: List of all entities
-          type: array
-        previous:
-          title: Previous page
-          type: string
-        next:
-          title: Next page
-          type: string
-      title: Contains list of component hub
-      type: object
     v1ListConnectionsResponse:
       example:
         next: next
@@ -23781,150 +21238,6 @@ components:
           title: Next page
           type: string
       title: Contains list of dashboards
-      type: object
-    v1ListModelRegistriesResponse:
-      example:
-        next: next
-        previous: previous
-        count: 0
-        results:
-        - owner: owner
-          settings:
-            projects:
-            - projects
-            - projects
-            teams:
-            - teams
-            - teams
-            users:
-            - users
-            - users
-          role: role
-          bookmarked: true
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          readme: readme
-          uuid: uuid
-          tags:
-          - tags
-          - tags
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          name: name
-          is_public: true
-        - owner: owner
-          settings:
-            projects:
-            - projects
-            - projects
-            teams:
-            - teams
-            - teams
-            users:
-            - users
-            - users
-          role: role
-          bookmarked: true
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          readme: readme
-          uuid: uuid
-          tags:
-          - tags
-          - tags
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          name: name
-          is_public: true
-      properties:
-        count:
-          format: int32
-          title: Count of the entities
-          type: integer
-        results:
-          items:
-            $ref: '#/components/schemas/v1ModelRegistry'
-          title: List of all entities
-          type: array
-        previous:
-          title: Previous page
-          type: string
-        next:
-          title: Next page
-          type: string
-      title: Contains list of model registries
-      type: object
-    v1ListModelVersionsResponse:
-      example:
-        next: next
-        previous: previous
-        count: 0
-        results:
-        - run_info: '{}'
-          metadata: metadata
-          role: role
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          run: run
-          uuid: uuid
-          tags:
-          - tags
-          - tags
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          stage_conditions:
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          name: name
-        - run_info: '{}'
-          metadata: metadata
-          role: role
-          description: description
-          created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 0
-          run: run
-          uuid: uuid
-          tags:
-          - tags
-          - tags
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          stage_conditions:
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          - reason: reason
-            last_update_time: 2000-01-23T04:56:07.000+00:00
-            last_transition_time: 2000-01-23T04:56:07.000+00:00
-            message: message
-            status: status
-          name: name
-      properties:
-        count:
-          format: int32
-          title: Count of the entities
-          type: integer
-        results:
-          items:
-            $ref: '#/components/schemas/v1ModelVersion'
-          title: List of all entities
-          type: array
-        previous:
-          title: Previous page
-          type: string
-        next:
-          title: Next page
-          type: string
-      title: Contains list of model versions
       type: object
     v1ListOrganizationMembersResponse:
       example:
@@ -24062,6 +21375,88 @@ components:
           type: string
       title: Contains list of scheduling presets
       type: object
+    v1ListProjectVersionsResponse:
+      example:
+        next: next
+        previous: previous
+        count: 0
+        results:
+        - owner: owner
+          role: role
+          description: description
+          project: project
+          created_at: 2000-01-23T04:56:07.000+00:00
+          run: run
+          uuid: uuid
+          content: content
+          tags:
+          - tags
+          - tags
+          updated_at: 2000-01-23T04:56:07.000+00:00
+          stage_conditions:
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            message: message
+            status: status
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            message: message
+            status: status
+          meta_info: '{}'
+          name: name
+          connection: connection
+          artifacts:
+          - artifacts
+          - artifacts
+        - owner: owner
+          role: role
+          description: description
+          project: project
+          created_at: 2000-01-23T04:56:07.000+00:00
+          run: run
+          uuid: uuid
+          content: content
+          tags:
+          - tags
+          - tags
+          updated_at: 2000-01-23T04:56:07.000+00:00
+          stage_conditions:
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            message: message
+            status: status
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            message: message
+            status: status
+          meta_info: '{}'
+          name: name
+          connection: connection
+          artifacts:
+          - artifacts
+          - artifacts
+      properties:
+        count:
+          format: int32
+          title: Count of the entities
+          type: integer
+        results:
+          items:
+            $ref: '#/components/schemas/v1ProjectVersion'
+          title: List of all entities
+          type: array
+        previous:
+          title: Previous page
+          type: string
+        next:
+          title: Next page
+          type: string
+      title: Contains list of component hub
+      type: object
     v1ListProjectsResponse:
       example:
         next: next
@@ -24069,10 +21464,16 @@ components:
         count: 0
         results:
         - owner: owner
+          excluded_features:
+          - excluded_features
+          - excluded_features
           settings:
             presets:
             - presets
             - presets
+            projects:
+            - projects
+            - projects
             teams:
             - teams
             - teams
@@ -24111,10 +21512,16 @@ components:
           - excluded_runtimes
           - excluded_runtimes
         - owner: owner
+          excluded_features:
+          - excluded_features
+          - excluded_features
           settings:
             presets:
             - presets
             - presets
+            projects:
+            - projects
+            - projects
             teams:
             - teams
             - teams
@@ -24310,25 +21717,30 @@ components:
             merge: true
             owner: owner
             settings:
+              models:
+              - name: name
+                version: version
+              - name: name
+                version: version
               agent:
                 name: name
                 uuid: uuid
+              component:
+                name: name
+                version: version
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
               artifacts_store:
                 name: name
                 uuid: uuid
-              model_versions:
-              - name: name
-                version: version
-              - name: name
-                version: version
               queue:
                 name: name
                 uuid: uuid
-              component_version:
-                name: name
+              artifacts:
+              - name: name
+                version: version
+              - name: name
                 version: version
             raw_content: raw_content
             original:
@@ -24385,25 +21797,30 @@ components:
             merge: true
             owner: owner
             settings:
+              models:
+              - name: name
+                version: version
+              - name: name
+                version: version
               agent:
                 name: name
                 uuid: uuid
+              component:
+                name: name
+                version: version
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
               artifacts_store:
                 name: name
                 uuid: uuid
-              model_versions:
-              - name: name
-                version: version
-              - name: name
-                version: version
               queue:
                 name: name
                 uuid: uuid
-              component_version:
-                name: name
+              artifacts:
+              - name: name
+                version: version
+              - name: name
                 version: version
             raw_content: raw_content
             original:
@@ -24462,25 +21879,30 @@ components:
             merge: true
             owner: owner
             settings:
+              models:
+              - name: name
+                version: version
+              - name: name
+                version: version
               agent:
                 name: name
                 uuid: uuid
+              component:
+                name: name
+                version: version
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
               artifacts_store:
                 name: name
                 uuid: uuid
-              model_versions:
-              - name: name
-                version: version
-              - name: name
-                version: version
               queue:
                 name: name
                 uuid: uuid
-              component_version:
-                name: name
+              artifacts:
+              - name: name
+                version: version
+              - name: name
                 version: version
             raw_content: raw_content
             original:
@@ -24537,25 +21959,30 @@ components:
             merge: true
             owner: owner
             settings:
+              models:
+              - name: name
+                version: version
+              - name: name
+                version: version
               agent:
                 name: name
                 uuid: uuid
+              component:
+                name: name
+                version: version
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
               artifacts_store:
                 name: name
                 uuid: uuid
-              model_versions:
-              - name: name
-                version: version
-              - name: name
-                version: version
               queue:
                 name: name
                 uuid: uuid
-              component_version:
-                name: name
+              artifacts:
+              - name: name
+                version: version
+              - name: name
                 version: version
             raw_content: raw_content
             original:
@@ -24637,25 +22064,30 @@ components:
           merge: true
           owner: owner
           settings:
+            models:
+            - name: name
+              version: version
+            - name: name
+              version: version
             agent:
               name: name
               uuid: uuid
+            component:
+              name: name
+              version: version
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
             artifacts_store:
               name: name
               uuid: uuid
-            model_versions:
-            - name: name
-              version: version
-            - name: name
-              version: version
             queue:
               name: name
               uuid: uuid
-            component_version:
-              name: name
+            artifacts:
+            - name: name
+              version: version
+            - name: name
               version: version
           raw_content: raw_content
           original:
@@ -24710,25 +22142,30 @@ components:
           merge: true
           owner: owner
           settings:
+            models:
+            - name: name
+              version: version
+            - name: name
+              version: version
             agent:
               name: name
               uuid: uuid
+            component:
+              name: name
+              version: version
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
             artifacts_store:
               name: name
               uuid: uuid
-            model_versions:
-            - name: name
-              version: version
-            - name: name
-              version: version
             queue:
               name: name
               uuid: uuid
-            component_version:
-              name: name
+            artifacts:
+            - name: name
+              version: version
+            - name: name
               version: version
           raw_content: raw_content
           original:
@@ -26645,184 +24082,6 @@ components:
             MedianStoppingPolicy, AverageStoppingPolicy, TruncationStoppingPolicy
           type: object
       type: object
-    v1ModelRegistry:
-      example:
-        owner: owner
-        settings:
-          projects:
-          - projects
-          - projects
-          teams:
-          - teams
-          - teams
-          users:
-          - users
-          - users
-        role: role
-        bookmarked: true
-        description: description
-        created_at: 2000-01-23T04:56:07.000+00:00
-        live_state: 0
-        readme: readme
-        uuid: uuid
-        tags:
-        - tags
-        - tags
-        updated_at: 2000-01-23T04:56:07.000+00:00
-        name: name
-        is_public: true
-      properties:
-        uuid:
-          title: UUID
-          type: string
-        owner:
-          title: Owner/namespace where the model regitry was created
-          type: string
-        name:
-          title: 'Optional component name, should be a valid fully qualified value:
-            name[:version]'
-          type: string
-        description:
-          title: Optional description
-          type: string
-        tags:
-          items:
-            type: string
-          title: Optional tags of this entity
-          type: array
-        is_public:
-          title: Optional flag to tell if this project is public
-          type: boolean
-        bookmarked:
-          title: Optional if this entity was bookmarked
-          type: boolean
-        live_state:
-          format: int32
-          title: Current live state
-          type: integer
-        created_at:
-          format: date-time
-          title: Optional time when the entity was created
-          type: string
-        updated_at:
-          format: date-time
-          title: Optional last time the entity was updated
-          type: string
-        readme:
-          title: Markdown description/readme
-          type: string
-        settings:
-          $ref: '#/components/schemas/v1ModelRegistrySettings'
-        role:
-          title: Current user's role in this (org/teams)/project
-          type: string
-      title: Model regsitry specification
-      type: object
-    v1ModelRegistrySettings:
-      example:
-        projects:
-        - projects
-        - projects
-        teams:
-        - teams
-        - teams
-        users:
-        - users
-        - users
-      properties:
-        users:
-          items:
-            type: string
-          title: Authorized users
-          type: array
-        teams:
-          items:
-            type: string
-          title: Authorized teams
-          type: array
-        projects:
-          items:
-            type: string
-          title: Authorized projects
-          type: array
-      title: Model registry Settings specification
-      type: object
-    v1ModelVersion:
-      example:
-        run_info: '{}'
-        metadata: metadata
-        role: role
-        description: description
-        created_at: 2000-01-23T04:56:07.000+00:00
-        live_state: 0
-        run: run
-        uuid: uuid
-        tags:
-        - tags
-        - tags
-        updated_at: 2000-01-23T04:56:07.000+00:00
-        stage_conditions:
-        - reason: reason
-          last_update_time: 2000-01-23T04:56:07.000+00:00
-          last_transition_time: 2000-01-23T04:56:07.000+00:00
-          message: message
-          status: status
-        - reason: reason
-          last_update_time: 2000-01-23T04:56:07.000+00:00
-          last_transition_time: 2000-01-23T04:56:07.000+00:00
-          message: message
-          status: status
-        name: name
-      properties:
-        uuid:
-          title: UUID
-          type: string
-        name:
-          title: 'Optional component name, should be a valid fully qualified value:
-            name[:version]'
-          type: string
-        description:
-          title: Optional description
-          type: string
-        tags:
-          items:
-            type: string
-          title: Optional tags of this entity
-          type: array
-        live_state:
-          format: int32
-          title: Current live state
-          type: integer
-        created_at:
-          format: date-time
-          title: Optional time when the entity was created
-          type: string
-        updated_at:
-          format: date-time
-          title: Optional last time the entity was updated
-          type: string
-        stage:
-          $ref: '#/components/schemas/v1Stages'
-        stage_conditions:
-          items:
-            $ref: '#/components/schemas/v1StageCondition'
-          title: The status conditions timeline
-          type: array
-        run:
-          title: Run lineage
-          type: string
-        run_info:
-          properties: {}
-          title: Extra information related to the run (lineage, project, ...)
-          type: object
-        metadata:
-          title: Model spec metadata
-          type: string
-        role:
-          title: Current user's role in this (org/teams)/model/version
-          type: string
-      title: Model Version specification
-      type: object
     v1Notification:
       example:
         connections:
@@ -27744,10 +25003,16 @@ components:
     v1Project:
       example:
         owner: owner
+        excluded_features:
+        - excluded_features
+        - excluded_features
         settings:
           presets:
           - presets
           - presets
+          projects:
+          - projects
+          - projects
           teams:
           - teams
           - teams
@@ -27820,10 +25085,15 @@ components:
         readme:
           title: Optional a readme text describing this entity
           type: string
+        excluded_features:
+          items:
+            type: string
+          title: Optional project excluded features
+          type: array
         excluded_runtimes:
           items:
             type: string
-          title: Optional project definition
+          title: Optional project excluded runtimes
           type: array
         settings:
           $ref: '#/components/schemas/v1ProjectSettings'
@@ -27841,6 +25111,9 @@ components:
         presets:
         - presets
         - presets
+        projects:
+        - projects
+        - projects
         teams:
         - teams
         - teams
@@ -27899,6 +25172,11 @@ components:
             type: string
           title: Authorized teams
           type: array
+        projects:
+          items:
+            type: string
+          title: Authorized projects
+          type: array
       title: Project Settings specification
       type: object
     v1ProjectUserAccess:
@@ -27917,6 +25195,106 @@ components:
           title: Optional preset to configure for user
           type: string
       type: object
+    v1ProjectVersion:
+      example:
+        owner: owner
+        role: role
+        description: description
+        project: project
+        created_at: 2000-01-23T04:56:07.000+00:00
+        run: run
+        uuid: uuid
+        content: content
+        tags:
+        - tags
+        - tags
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        stage_conditions:
+        - reason: reason
+          last_update_time: 2000-01-23T04:56:07.000+00:00
+          last_transition_time: 2000-01-23T04:56:07.000+00:00
+          message: message
+          status: status
+        - reason: reason
+          last_update_time: 2000-01-23T04:56:07.000+00:00
+          last_transition_time: 2000-01-23T04:56:07.000+00:00
+          message: message
+          status: status
+        meta_info: '{}'
+        name: name
+        connection: connection
+        artifacts:
+        - artifacts
+        - artifacts
+      properties:
+        uuid:
+          title: UUID
+          type: string
+        name:
+          title: 'Optional component name, should be a valid fully qualified value:
+            name[:version]'
+          type: string
+        description:
+          title: Optional description
+          type: string
+        tags:
+          items:
+            type: string
+          title: Optional tags of this entity
+          type: array
+        owner:
+          title: Owner of this entity
+          type: string
+        project:
+          title: Project name
+          type: string
+        connection:
+          title: Connection name
+          type: string
+        run:
+          title: Run lineage
+          type: string
+        artifacts:
+          items:
+            type: string
+          title: Artifacts lineage
+          type: array
+        meta_info:
+          properties: {}
+          title: Extra information related to the run (lineage, artifacts, ...)
+          type: object
+        created_at:
+          format: date-time
+          title: Optional time when the entity was created
+          type: string
+        updated_at:
+          format: date-time
+          title: Optional last time the entity was updated
+          type: string
+        stage:
+          $ref: '#/components/schemas/v1Stages'
+        kind:
+          $ref: '#/components/schemas/v1ProjectVersionKind'
+        stage_conditions:
+          items:
+            $ref: '#/components/schemas/v1StageCondition'
+          title: The status conditions timeline
+          type: array
+        content:
+          title: The metadata/content body
+          type: string
+        role:
+          title: Current user's role in this (org/teams)/hub/version
+          type: string
+      title: component hub specification
+      type: object
+    v1ProjectVersionKind:
+      default: component
+      enum:
+      - component
+      - model
+      - artifact
+      type: string
     v1PytorchJob:
       example:
         kind: pytorch_job
@@ -28383,25 +25761,30 @@ components:
         merge: true
         owner: owner
         settings:
+          models:
+          - name: name
+            version: version
+          - name: name
+            version: version
           agent:
             name: name
             uuid: uuid
+          component:
+            name: name
+            version: version
           tensorboard: '{}'
           build: '{}'
           namespace: namespace
           artifacts_store:
             name: name
             uuid: uuid
-          model_versions:
-          - name: name
-            version: version
-          - name: name
-            version: version
           queue:
             name: name
             uuid: uuid
-          component_version:
-            name: name
+          artifacts:
+          - name: name
+            version: version
+          - name: name
             version: version
         raw_content: raw_content
         original:
@@ -28636,25 +26019,30 @@ components:
           merge: true
           owner: owner
           settings:
+            models:
+            - name: name
+              version: version
+            - name: name
+              version: version
             agent:
               name: name
               uuid: uuid
+            component:
+              name: name
+              version: version
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
             artifacts_store:
               name: name
               uuid: uuid
-            model_versions:
-            - name: name
-              version: version
-            - name: name
-              version: version
             queue:
               name: name
               uuid: uuid
-            component_version:
-              name: name
+            artifacts:
+            - name: name
+              version: version
+            - name: name
               version: version
           raw_content: raw_content
           original:
@@ -28711,25 +26099,30 @@ components:
           merge: true
           owner: owner
           settings:
+            models:
+            - name: name
+              version: version
+            - name: name
+              version: version
             agent:
               name: name
               uuid: uuid
+            component:
+              name: name
+              version: version
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
             artifacts_store:
               name: name
               uuid: uuid
-            model_versions:
-            - name: name
-              version: version
-            - name: name
-              version: version
             queue:
               name: name
               uuid: uuid
-            component_version:
-              name: name
+            artifacts:
+            - name: name
+              version: version
+            - name: name
               version: version
           raw_content: raw_content
           original:
@@ -32882,25 +30275,30 @@ components:
       type: object
     v1RunSettings:
       example:
+        models:
+        - name: name
+          version: version
+        - name: name
+          version: version
         agent:
           name: name
           uuid: uuid
+        component:
+          name: name
+          version: version
         tensorboard: '{}'
         build: '{}'
         namespace: namespace
         artifacts_store:
           name: name
           uuid: uuid
-        model_versions:
-        - name: name
-          version: version
-        - name: name
-          version: version
         queue:
           name: name
           uuid: uuid
-        component_version:
-          name: name
+        artifacts:
+        - name: name
+          version: version
+        - name: name
           version: version
       properties:
         namespace:
@@ -32920,12 +30318,17 @@ components:
           properties: {}
           title: Build reference, if it exists
           type: object
-        component_version:
+        component:
           $ref: '#/components/schemas/v1RunReferenceCatalog'
-        model_versions:
+        models:
           items:
             $ref: '#/components/schemas/v1RunReferenceCatalog'
-          title: Model registry version references
+          title: Model version references
+          type: array
+        artifacts:
+          items:
+            $ref: '#/components/schemas/v1RunReferenceCatalog'
+          title: Artifact version references
           type: array
       title: Run Settings specification
       type: object

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **owner** | **str** |  | [optional] 
 **entity** | **str** |  | [optional] 
+**kind** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **condition** | [**V1StageCondition**](V1StageCondition.md) |  | [optional] 
 

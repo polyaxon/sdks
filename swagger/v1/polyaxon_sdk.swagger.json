@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "1.13.0",
+    "version": "1.14.0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -9042,1556 +9042,6 @@
         ]
       }
     },
-    "/api/v1/{owner}/hub/create": {
-      "post": {
-        "summary": "Create hub component",
-        "operationId": "CreateComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Component body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/list": {
-      "get": {
-        "summary": "List hub components",
-        "operationId": "ListComponentHubs",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListComponentHubsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/names": {
-      "get": {
-        "summary": "List hub component names",
-        "operationId": "ListComponentHubNames",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListComponentHubsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{component.name}": {
-      "put": {
-        "summary": "Update hub component",
-        "operationId": "UpdateComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Component body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch hub component",
-        "operationId": "PatchComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Component body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{component}/settings": {
-      "put": {
-        "summary": "Update hub component settings",
-        "operationId": "UpdateComponentHubSettings",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHubSettings"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component",
-            "description": "Hub name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Hub settings body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHubSettings"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch hub component settings",
-        "operationId": "PatchComponentHubSettings",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHubSettings"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component",
-            "description": "Hub name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Hub settings body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHubSettings"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{component}/versions": {
-      "post": {
-        "summary": "Create component version",
-        "operationId": "CreateComponentVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component",
-            "description": "Component name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Component version body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{component}/versions/{version.name}": {
-      "put": {
-        "summary": "Update component version",
-        "operationId": "UpdateComponentVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component",
-            "description": "Component name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "version.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Component version body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch component version",
-        "operationId": "PatchComponentVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "component",
-            "description": "Component name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "version.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Component version body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{entity}/versions/{name}": {
-      "get": {
-        "summary": "Get component version",
-        "operationId": "GetComponentVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Sub-entity name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      },
-      "delete": {
-        "summary": "Delete component version",
-        "operationId": "DeleteComponentVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Sub-entity name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{entity}/versions/{name}/stages": {
-      "get": {
-        "summary": "Get component version stages",
-        "operationId": "GetComponentVersionStages",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Stage"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Sub-entity name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      },
-      "post": {
-        "summary": "Create new component version stage",
-        "operationId": "CreateComponentVersionStage",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Stage"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Name of the version to apply the stage to",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1EntityStageBodyRequest"
-            }
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}": {
-      "get": {
-        "summary": "Get hub component",
-        "operationId": "GetComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHub"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      },
-      "delete": {
-        "summary": "Delete hub component",
-        "operationId": "DeleteComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/activities": {
-      "get": {
-        "summary": "Get hub activities",
-        "operationId": "GetComponentHubActivities",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListActivitiesResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity managing the resource",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/archive": {
-      "post": {
-        "summary": "Archive hub component",
-        "operationId": "ArchiveComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/bookmark": {
-      "post": {
-        "summary": "Bookmark component hub",
-        "operationId": "BookmarkComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/restore": {
-      "post": {
-        "summary": "Restore hub component",
-        "operationId": "RestoreComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/settings": {
-      "get": {
-        "summary": "Get hub component settings",
-        "operationId": "GetComponentHubSettings",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ComponentHubSettings"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/unbookmark": {
-      "delete": {
-        "summary": "Unbookmark component hub",
-        "operationId": "UnbookmarkComponentHub",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/versions": {
-      "get": {
-        "summary": "List component versions",
-        "operationId": "ListComponentVersions",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListComponentVersionsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity managing the resource",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/hub/{name}/versions/names": {
-      "get": {
-        "summary": "List component version names",
-        "operationId": "ListComponentVersionNames",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListComponentVersionsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity managing the resource",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ComponentHubV1"
-        ]
-      }
-    },
     "/api/v1/{owner}/projects/create": {
       "post": {
         "summary": "Create new project",
@@ -10832,1556 +9282,6 @@
         ],
         "tags": [
           "ProjectsV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/create": {
-      "post": {
-        "summary": "Create registry model",
-        "operationId": "CreateModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/list": {
-      "get": {
-        "summary": "List registry models",
-        "operationId": "ListModelRegistries",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListModelRegistriesResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/names": {
-      "get": {
-        "summary": "List registry model names",
-        "operationId": "ListModelRegistryNames",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListModelRegistriesResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{entity}/versions/{name}": {
-      "get": {
-        "summary": "Get model version",
-        "operationId": "GetModelVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Sub-entity name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      },
-      "delete": {
-        "summary": "Delete model version",
-        "operationId": "DeleteModelVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Sub-entity name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{entity}/versions/{name}/stages": {
-      "get": {
-        "summary": "Get model version stages",
-        "operationId": "GetModelVersionStages",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Stage"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Sub-entity name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      },
-      "post": {
-        "summary": "Create new model version stage",
-        "operationId": "CreateModelVersionStage",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Stage"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "entity",
-            "description": "Entity namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Name of the version to apply the stage to",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1EntityStageBodyRequest"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{model.name}": {
-      "put": {
-        "summary": "Update registry model",
-        "operationId": "UpdateModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch registry model",
-        "operationId": "PatchModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{model}/settings": {
-      "put": {
-        "summary": "Update registry model settings",
-        "operationId": "UpdateModelRegistrySettings",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistrySettings"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model",
-            "description": "Model name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model settings body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistrySettings"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch registry model settings",
-        "operationId": "PatchModelRegistrySettings",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistrySettings"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model",
-            "description": "Model name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model settings body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistrySettings"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{model}/versions": {
-      "post": {
-        "summary": "Create model version",
-        "operationId": "CreateModelVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model",
-            "description": "Model name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model version body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{model}/versions/{version.name}": {
-      "put": {
-        "summary": "Update model version",
-        "operationId": "UpdateModelVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model",
-            "description": "Model name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "version.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model version body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      },
-      "patch": {
-        "summary": "Patch model version",
-        "operationId": "PatchModelVersion",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "model",
-            "description": "Model name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "version.name",
-            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Model version body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1ModelVersion"
-            }
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}": {
-      "get": {
-        "summary": "Get registry model",
-        "operationId": "GetModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistry"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      },
-      "delete": {
-        "summary": "Delete registry model",
-        "operationId": "DeleteModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/activities": {
-      "get": {
-        "summary": "Get model activities",
-        "operationId": "GetModelRegistryActivities",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListActivitiesResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity managing the resource",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/archive": {
-      "post": {
-        "summary": "Archive registry model",
-        "operationId": "ArchiveModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/bookmark": {
-      "post": {
-        "summary": "Bookmark registry model",
-        "operationId": "BookmarkModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/restore": {
-      "post": {
-        "summary": "Restore registry model",
-        "operationId": "RestoreModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/settings": {
-      "get": {
-        "summary": "Get registry model settings",
-        "operationId": "GetModelRegistrySettings",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ModelRegistrySettings"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/unbookmark": {
-      "delete": {
-        "summary": "Unbookmark registry model",
-        "operationId": "UnbookmarkModelRegistry",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Component under namesapce",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/versions": {
-      "get": {
-        "summary": "List model versions",
-        "operationId": "ListModelVersions",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListModelVersionsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity managing the resource",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
-        ]
-      }
-    },
-    "/api/v1/{owner}/registry/{name}/versions/names": {
-      "get": {
-        "summary": "List model versions names",
-        "operationId": "ListModelVersionNames",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1ListModelVersionsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity managing the resource",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "offset",
-            "description": "Pagination offset.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Limit size.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "sort",
-            "description": "Sort to order the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "query",
-            "description": "Query filter the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bookmarks",
-            "description": "Filter by bookmarks.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "mode",
-            "description": "Mode of the search.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "no_page",
-            "description": "No pagination.",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ModelRegistryV1"
         ]
       }
     },
@@ -14253,6 +11153,457 @@
         ],
         "tags": [
           "ProjectSearchesV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{entity}/versions/{kind}": {
+      "get": {
+        "summary": "List versions",
+        "operationId": "ListVersions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListProjectVersionsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity name under namesapce",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Version Kind",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{entity}/versions/{kind}/names": {
+      "get": {
+        "summary": "List versions names",
+        "operationId": "ListVersionNames",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListProjectVersionsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity name under namesapce",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Version Kind",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{entity}/versions/{kind}/{name}": {
+      "get": {
+        "summary": "Get version",
+        "operationId": "GetVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Version Kind",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Sub-entity name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      },
+      "delete": {
+        "summary": "Delete version",
+        "operationId": "DeleteVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Version Kind",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Sub-entity name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{entity}/versions/{kind}/{name}/stages": {
+      "get": {
+        "summary": "Get version stages",
+        "operationId": "GetVersionStages",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Stage"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Version Kind",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Sub-entity name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      },
+      "post": {
+        "summary": "Create new artifact version stage",
+        "operationId": "CreateVersionStage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Stage"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Optional kind, only required for an version entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Name of the entity to apply the stage to",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1EntityStageBodyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
         ]
       }
     },
@@ -17436,6 +14787,310 @@
         ]
       }
     },
+    "/api/v1/{owner}/{project}/versions/{version.kind}": {
+      "post": {
+        "summary": "Create version",
+        "operationId": "CreateVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version.kind",
+            "description": "Optional kind to tell the kind of this version",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "component",
+              "model",
+              "artifact"
+            ]
+          },
+          {
+            "name": "body",
+            "description": "Project version body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}": {
+      "put": {
+        "summary": "Update version",
+        "operationId": "UpdateVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version.kind",
+            "description": "Optional kind to tell the kind of this version",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "component",
+              "model",
+              "artifact"
+            ]
+          },
+          {
+            "name": "version.name",
+            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Project version body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      },
+      "patch": {
+        "summary": "Patch version",
+        "operationId": "PatchVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version.kind",
+            "description": "Optional kind to tell the kind of this version",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "component",
+              "model",
+              "artifact"
+            ]
+          },
+          {
+            "name": "version.name",
+            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Project version body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer": {
+      "post": {
+        "summary": "Transfer version",
+        "operationId": "TransferVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version.kind",
+            "description": "Optional kind to tell the kind of this version",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "component",
+              "model",
+              "artifact"
+            ]
+          },
+          {
+            "name": "version.name",
+            "description": "Optional component name, should be a valid fully qualified value: name[:version]",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Project version body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProjectVersion"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectsV1"
+        ]
+      }
+    },
     "/schemas": {
       "get": {
         "summary": "NoOp",
@@ -19681,149 +17336,6 @@
       },
       "title": "Component specification"
     },
-    "v1ComponentHub": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "title": "UUID"
-        },
-        "owner": {
-          "type": "string",
-          "title": "Owner/namespace where the component hub was created"
-        },
-        "name": {
-          "type": "string",
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]"
-        },
-        "description": {
-          "type": "string",
-          "title": "Optional description"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity"
-        },
-        "is_public": {
-          "type": "boolean",
-          "title": "Optional flag to tell if this project is public"
-        },
-        "bookmarked": {
-          "type": "boolean",
-          "title": "Optional if this entity was bookmarked"
-        },
-        "live_state": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Current live state"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional time when the entity was created"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional last time the entity was updated"
-        },
-        "readme": {
-          "type": "string",
-          "title": "Markdown description/readme"
-        },
-        "settings": {
-          "$ref": "#/definitions/v1ComponentHubSettings",
-          "title": "Settings"
-        },
-        "role": {
-          "type": "string",
-          "title": "Current user's role in this (org/teams)/project"
-        }
-      },
-      "title": "component hub specification"
-    },
-    "v1ComponentHubSettings": {
-      "type": "object",
-      "properties": {
-        "users": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized users"
-        },
-        "teams": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized teams"
-        }
-      },
-      "title": "Hub Settings specification"
-    },
-    "v1ComponentVersion": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "title": "UUID"
-        },
-        "name": {
-          "type": "string",
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]"
-        },
-        "description": {
-          "type": "string",
-          "title": "Optional description"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity"
-        },
-        "live_state": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Current live state"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional time when the entity was created"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional last time the entity was updated"
-        },
-        "stage": {
-          "$ref": "#/definitions/v1Stages",
-          "title": "Optional latest stage of this entity"
-        },
-        "stage_conditions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1StageCondition"
-          },
-          "title": "The status conditions timeline"
-        },
-        "content": {
-          "type": "string",
-          "title": "The Component body content"
-        },
-        "role": {
-          "type": "string",
-          "title": "Current user's role in this (org/teams)/hub/version"
-        }
-      },
-      "title": "component hub specification"
-    },
     "v1ConnectionKind": {
       "type": "string",
       "enum": [
@@ -20455,9 +17967,13 @@
           "type": "string",
           "title": "Entity namespace"
         },
+        "kind": {
+          "type": "string",
+          "title": "Optional kind, only required for an version entity"
+        },
         "name": {
           "type": "string",
-          "title": "Name of the version to apply the stage to"
+          "title": "Name of the entity to apply the stage to"
         },
         "condition": {
           "$ref": "#/definitions/v1StageCondition",
@@ -22116,58 +19632,6 @@
       },
       "title": "Contains list of of bookmarks"
     },
-    "v1ListComponentHubsResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Count of the entities"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1ComponentHub"
-          },
-          "title": "List of all entities"
-        },
-        "previous": {
-          "type": "string",
-          "title": "Previous page"
-        },
-        "next": {
-          "type": "string",
-          "title": "Next page"
-        }
-      },
-      "title": "Contains list of component hub"
-    },
-    "v1ListComponentVersionsResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Count of the entities"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1ComponentVersion"
-          },
-          "title": "List of all entities"
-        },
-        "previous": {
-          "type": "string",
-          "title": "Previous page"
-        },
-        "next": {
-          "type": "string",
-          "title": "Next page"
-        }
-      },
-      "title": "Contains list of component hub"
-    },
     "v1ListConnectionsResponse": {
       "type": "object",
       "properties": {
@@ -22219,58 +19683,6 @@
         }
       },
       "title": "Contains list of dashboards"
-    },
-    "v1ListModelRegistriesResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Count of the entities"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1ModelRegistry"
-          },
-          "title": "List of all entities"
-        },
-        "previous": {
-          "type": "string",
-          "title": "Previous page"
-        },
-        "next": {
-          "type": "string",
-          "title": "Next page"
-        }
-      },
-      "title": "Contains list of model registries"
-    },
-    "v1ListModelVersionsResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Count of the entities"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1ModelVersion"
-          },
-          "title": "List of all entities"
-        },
-        "previous": {
-          "type": "string",
-          "title": "Previous page"
-        },
-        "next": {
-          "type": "string",
-          "title": "Next page"
-        }
-      },
-      "title": "Contains list of model versions"
     },
     "v1ListOrganizationMembersResponse": {
       "type": "object",
@@ -22349,6 +19761,32 @@
         }
       },
       "title": "Contains list of scheduling presets"
+    },
+    "v1ListProjectVersionsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Count of the entities"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProjectVersion"
+          },
+          "title": "List of all entities"
+        },
+        "previous": {
+          "type": "string",
+          "title": "Previous page"
+        },
+        "next": {
+          "type": "string",
+          "title": "Next page"
+        }
+      },
+      "title": "Contains list of component hub"
     },
     "v1ListProjectsResponse": {
       "type": "object",
@@ -22938,164 +20376,6 @@
         }
       },
       "description": "MetricEarlyStoppingSchema specification\nEarly stopping based on metric config."
-    },
-    "v1ModelRegistry": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "title": "UUID"
-        },
-        "owner": {
-          "type": "string",
-          "title": "Owner/namespace where the model regitry was created"
-        },
-        "name": {
-          "type": "string",
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]"
-        },
-        "description": {
-          "type": "string",
-          "title": "Optional description"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity"
-        },
-        "is_public": {
-          "type": "boolean",
-          "title": "Optional flag to tell if this project is public"
-        },
-        "bookmarked": {
-          "type": "boolean",
-          "title": "Optional if this entity was bookmarked"
-        },
-        "live_state": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Current live state"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional time when the entity was created"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional last time the entity was updated"
-        },
-        "readme": {
-          "type": "string",
-          "title": "Markdown description/readme"
-        },
-        "settings": {
-          "$ref": "#/definitions/v1ModelRegistrySettings",
-          "title": "Settings"
-        },
-        "role": {
-          "type": "string",
-          "title": "Current user's role in this (org/teams)/project"
-        }
-      },
-      "title": "Model regsitry specification"
-    },
-    "v1ModelRegistrySettings": {
-      "type": "object",
-      "properties": {
-        "users": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized users"
-        },
-        "teams": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized teams"
-        },
-        "projects": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Authorized projects"
-        }
-      },
-      "title": "Model registry Settings specification"
-    },
-    "v1ModelVersion": {
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "title": "UUID"
-        },
-        "name": {
-          "type": "string",
-          "title": "Optional component name, should be a valid fully qualified value: name[:version]"
-        },
-        "description": {
-          "type": "string",
-          "title": "Optional description"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional tags of this entity"
-        },
-        "live_state": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Current live state"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional time when the entity was created"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional last time the entity was updated"
-        },
-        "stage": {
-          "$ref": "#/definitions/v1Stages",
-          "title": "Optional latest stage of this entity"
-        },
-        "stage_conditions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1StageCondition"
-          },
-          "title": "The status conditions timeline"
-        },
-        "run": {
-          "type": "string",
-          "title": "Run lineage"
-        },
-        "run_info": {
-          "type": "object",
-          "title": "Extra information related to the run (lineage, project, ...)"
-        },
-        "metadata": {
-          "type": "string",
-          "title": "Model spec metadata"
-        },
-        "role": {
-          "type": "string",
-          "title": "Current user's role in this (org/teams)/model/version"
-        }
-      },
-      "title": "Model Version specification"
     },
     "v1Notification": {
       "type": "object",
@@ -23773,12 +21053,19 @@
           "type": "string",
           "title": "Optional a readme text describing this entity"
         },
+        "excluded_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional project excluded features"
+        },
         "excluded_runtimes": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "title": "Optional project definition"
+          "title": "Optional project excluded runtimes"
         },
         "settings": {
           "$ref": "#/definitions/v1ProjectSettings",
@@ -23848,6 +21135,13 @@
             "type": "string"
           },
           "title": "Authorized teams"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized projects"
         }
       },
       "title": "Project Settings specification"
@@ -23868,6 +21162,100 @@
           "title": "Optional preset to configure for user"
         }
       }
+    },
+    "v1ProjectVersion": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "UUID"
+        },
+        "name": {
+          "type": "string",
+          "title": "Optional component name, should be a valid fully qualified value: name[:version]"
+        },
+        "description": {
+          "type": "string",
+          "title": "Optional description"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity"
+        },
+        "owner": {
+          "type": "string",
+          "title": "Owner of this entity"
+        },
+        "project": {
+          "type": "string",
+          "title": "Project name"
+        },
+        "connection": {
+          "type": "string",
+          "title": "Connection name"
+        },
+        "run": {
+          "type": "string",
+          "title": "Run lineage"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Artifacts lineage"
+        },
+        "meta_info": {
+          "type": "object",
+          "title": "Extra information related to the run (lineage, artifacts, ...)"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional time when the entity was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional last time the entity was updated"
+        },
+        "stage": {
+          "$ref": "#/definitions/v1Stages",
+          "title": "Optional latest stage of this entity"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1ProjectVersionKind",
+          "title": "Optional kind to tell the kind of this version"
+        },
+        "stage_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1StageCondition"
+          },
+          "title": "The status conditions timeline"
+        },
+        "content": {
+          "type": "string",
+          "title": "The metadata/content body"
+        },
+        "role": {
+          "type": "string",
+          "title": "Current user's role in this (org/teams)/hub/version"
+        }
+      },
+      "title": "component hub specification"
+    },
+    "v1ProjectVersionKind": {
+      "type": "string",
+      "enum": [
+        "component",
+        "model",
+        "artifact"
+      ],
+      "default": "component"
     },
     "v1PytorchJob": {
       "type": "object",
@@ -24457,16 +21845,23 @@
           "type": "object",
           "title": "Build reference, if it exists"
         },
-        "component_version": {
+        "component": {
           "$ref": "#/definitions/v1RunReferenceCatalog",
-          "title": "Component version reference"
+          "title": "Component reference"
         },
-        "model_versions": {
+        "models": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1RunReferenceCatalog"
           },
-          "title": "Model registry version references"
+          "title": "Model version references"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1RunReferenceCatalog"
+          },
+          "title": "Artifact version references"
         }
       },
       "title": "Run Settings specification"
