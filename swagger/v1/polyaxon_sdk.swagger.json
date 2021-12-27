@@ -19235,9 +19235,13 @@
           "$ref": "#/definitions/v1FileType",
           "title": "File intializer"
         },
-        "model": {
+        "artifactRef": {
           "type": "string",
-          "title": "Model intializer"
+          "title": "Artifact version intializer"
+        },
+        "modelRef": {
+          "type": "string",
+          "title": "Model version intializer"
         },
         "connection": {
           "type": "string",
@@ -21740,11 +21744,15 @@
     "v1RunReferenceCatalog": {
       "type": "object",
       "properties": {
-        "name": {
+        "owner": {
           "type": "string",
-          "title": "Name"
+          "title": "Owner"
         },
-        "version": {
+        "project": {
+          "type": "string",
+          "title": "Project"
+        },
+        "name": {
           "type": "string",
           "title": "Name"
         }
@@ -21846,7 +21854,7 @@
           "title": "Build reference, if it exists"
         },
         "component": {
-          "$ref": "#/definitions/v1RunReferenceCatalog",
+          "type": "object",
           "title": "Component reference"
         },
         "models": {

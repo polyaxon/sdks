@@ -82,10 +82,10 @@ export interface V1RunSettings {
     build?: object;
     /**
      * 
-     * @type {V1RunReferenceCatalog}
+     * @type {object}
      * @memberof V1RunSettings
      */
-    component?: V1RunReferenceCatalog;
+    component?: object;
     /**
      * 
      * @type {Array<V1RunReferenceCatalog>}
@@ -116,7 +116,7 @@ export function V1RunSettingsFromJSONTyped(json: any, ignoreDiscriminator: boole
         'artifacts_store': !exists(json, 'artifacts_store') ? undefined : V1SettingsCatalogFromJSON(json['artifacts_store']),
         'tensorboard': !exists(json, 'tensorboard') ? undefined : json['tensorboard'],
         'build': !exists(json, 'build') ? undefined : json['build'],
-        'component': !exists(json, 'component') ? undefined : V1RunReferenceCatalogFromJSON(json['component']),
+        'component': !exists(json, 'component') ? undefined : json['component'],
         'models': !exists(json, 'models') ? undefined : ((json['models'] as Array<any>).map(V1RunReferenceCatalogFromJSON)),
         'artifacts': !exists(json, 'artifacts') ? undefined : ((json['artifacts'] as Array<any>).map(V1RunReferenceCatalogFromJSON)),
     };
@@ -137,7 +137,7 @@ export function V1RunSettingsToJSON(value?: V1RunSettings | null): any {
         'artifacts_store': V1SettingsCatalogToJSON(value.artifacts_store),
         'tensorboard': value.tensorboard,
         'build': value.build,
-        'component': V1RunReferenceCatalogToJSON(value.component),
+        'component': value.component,
         'models': value.models === undefined ? undefined : ((value.models as Array<any>).map(V1RunReferenceCatalogToJSON)),
         'artifacts': value.artifacts === undefined ? undefined : ((value.artifacts as Array<any>).map(V1RunReferenceCatalogToJSON)),
     };

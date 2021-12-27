@@ -32,6 +32,9 @@ import (
 // swagger:model v1Init
 type V1Init struct {
 
+	// Artifact version intializer
+	ArtifactRef string `json:"artifactRef,omitempty"`
+
 	// Override Schema for artifacts/mounts connections
 	Artifacts *V1ArtifactsType `json:"artifacts,omitempty"`
 
@@ -50,8 +53,8 @@ type V1Init struct {
 	// Override for git connections
 	Git *V1GitType `json:"git,omitempty"`
 
-	// Model intializer
-	Model string `json:"model,omitempty"`
+	// Model version intializer
+	ModelRef string `json:"modelRef,omitempty"`
 
 	// Optional context path, the path to mount to main the container
 	Path string `json:"path,omitempty"`

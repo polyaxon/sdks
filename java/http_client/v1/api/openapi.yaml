@@ -18531,7 +18531,8 @@ components:
       example:
         container: '{}'
         init:
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -18544,6 +18545,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -18568,7 +18570,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -18578,7 +18579,8 @@ components:
             - '{}'
             - '{}'
             workers: 3
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -18591,6 +18593,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -18615,7 +18618,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -20350,6 +20352,7 @@ components:
       type: object
     v1Init:
       example:
+        modelRef: modelRef
         container: '{}'
         path: path
         git:
@@ -20363,6 +20366,7 @@ components:
           kind: kind
           chmod: chmod
           content: content
+        artifactRef: artifactRef
         dockerfile:
           image: image
           gid: 0
@@ -20387,7 +20391,6 @@ components:
           - '{}'
           - '{}'
           username: 7
-        model: model
         connection: connection
         artifacts:
           files:
@@ -20406,8 +20409,11 @@ components:
           $ref: '#/components/schemas/v1DockerfileType'
         file:
           $ref: '#/components/schemas/v1FileType'
-        model:
-          title: Model intializer
+        artifactRef:
+          title: Artifact version intializer
+          type: string
+        modelRef:
+          title: Model version intializer
           type: string
         connection:
           title: Optional, connection to use with this initializer
@@ -20544,7 +20550,8 @@ components:
       example:
         container: '{}'
         init:
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -20557,6 +20564,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -20581,7 +20589,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -20591,7 +20598,8 @@ components:
             - '{}'
             - '{}'
             workers: 3
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -20604,6 +20612,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -20628,7 +20637,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -20824,7 +20832,8 @@ components:
       example:
         container: '{}'
         init:
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -20837,6 +20846,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -20861,7 +20871,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -20871,7 +20880,8 @@ components:
             - '{}'
             - '{}'
             workers: 3
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -20884,6 +20894,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -20908,7 +20919,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -21718,16 +21728,16 @@ components:
             owner: owner
             settings:
               models:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
               agent:
                 name: name
                 uuid: uuid
-              component:
-                name: name
-                version: version
+              component: '{}'
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
@@ -21738,10 +21748,12 @@ components:
                 name: name
                 uuid: uuid
               artifacts:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
             raw_content: raw_content
             original:
               name: name
@@ -21798,16 +21810,16 @@ components:
             owner: owner
             settings:
               models:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
               agent:
                 name: name
                 uuid: uuid
-              component:
-                name: name
-                version: version
+              component: '{}'
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
@@ -21818,10 +21830,12 @@ components:
                 name: name
                 uuid: uuid
               artifacts:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
             raw_content: raw_content
             original:
               name: name
@@ -21880,16 +21894,16 @@ components:
             owner: owner
             settings:
               models:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
               agent:
                 name: name
                 uuid: uuid
-              component:
-                name: name
-                version: version
+              component: '{}'
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
@@ -21900,10 +21914,12 @@ components:
                 name: name
                 uuid: uuid
               artifacts:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
             raw_content: raw_content
             original:
               name: name
@@ -21960,16 +21976,16 @@ components:
             owner: owner
             settings:
               models:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
               agent:
                 name: name
                 uuid: uuid
-              component:
-                name: name
-                version: version
+              component: '{}'
               tensorboard: '{}'
               build: '{}'
               namespace: namespace
@@ -21980,10 +21996,12 @@ components:
                 name: name
                 uuid: uuid
               artifacts:
-              - name: name
-                version: version
-              - name: name
-                version: version
+              - owner: owner
+                name: name
+                project: project
+              - owner: owner
+                name: name
+                project: project
             raw_content: raw_content
             original:
               name: name
@@ -22065,16 +22083,16 @@ components:
           owner: owner
           settings:
             models:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
             agent:
               name: name
               uuid: uuid
-            component:
-              name: name
-              version: version
+            component: '{}'
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
@@ -22085,10 +22103,12 @@ components:
               name: name
               uuid: uuid
             artifacts:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
           raw_content: raw_content
           original:
             name: name
@@ -22143,16 +22163,16 @@ components:
           owner: owner
           settings:
             models:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
             agent:
               name: name
               uuid: uuid
-            component:
-              name: name
-              version: version
+            component: '{}'
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
@@ -22163,10 +22183,12 @@ components:
               name: name
               uuid: uuid
             artifacts:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
           raw_content: raw_content
           original:
             name: name
@@ -22685,7 +22707,8 @@ components:
         worker:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -22698,6 +22721,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -22722,7 +22746,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -22732,7 +22755,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -22745,6 +22769,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -22769,7 +22794,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -22824,7 +22848,8 @@ components:
         launcher:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -22837,6 +22862,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -22861,7 +22887,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -22871,7 +22896,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -22884,6 +22910,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -22908,7 +22935,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -22985,7 +23011,8 @@ components:
         scheduler:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -22998,6 +23025,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23022,7 +23050,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23032,7 +23059,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23045,6 +23073,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23069,7 +23098,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23120,7 +23148,8 @@ components:
         server:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23133,6 +23162,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23157,7 +23187,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23167,7 +23196,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23180,6 +23210,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23204,7 +23235,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23255,7 +23285,8 @@ components:
         tuner_server:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23268,6 +23299,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23292,7 +23324,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23302,7 +23333,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23315,6 +23347,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23339,7 +23372,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23390,7 +23422,8 @@ components:
         tuner:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23403,6 +23436,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23427,7 +23461,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23437,7 +23470,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23450,6 +23484,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23474,7 +23509,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23525,7 +23559,8 @@ components:
         tuner_tracker:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23538,6 +23573,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23562,7 +23598,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23572,7 +23607,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23585,6 +23621,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23609,7 +23646,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23661,7 +23697,8 @@ components:
         worker:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23674,6 +23711,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23698,7 +23736,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -23708,7 +23745,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -23721,6 +23759,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -23745,7 +23784,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -25301,7 +25339,8 @@ components:
         worker:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -25314,6 +25353,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -25338,7 +25378,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -25348,7 +25387,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -25361,6 +25401,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -25385,7 +25426,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -25440,7 +25480,8 @@ components:
         master:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -25453,6 +25494,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -25477,7 +25519,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -25487,7 +25528,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -25500,6 +25542,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -25524,7 +25567,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -25762,16 +25804,16 @@ components:
         owner: owner
         settings:
           models:
-          - name: name
-            version: version
-          - name: name
-            version: version
+          - owner: owner
+            name: name
+            project: project
+          - owner: owner
+            name: name
+            project: project
           agent:
             name: name
             uuid: uuid
-          component:
-            name: name
-            version: version
+          component: '{}'
           tensorboard: '{}'
           build: '{}'
           namespace: namespace
@@ -25782,10 +25824,12 @@ components:
             name: name
             uuid: uuid
           artifacts:
-          - name: name
-            version: version
-          - name: name
-            version: version
+          - owner: owner
+            name: name
+            project: project
+          - owner: owner
+            name: name
+            project: project
         raw_content: raw_content
         original:
           name: name
@@ -26020,16 +26064,16 @@ components:
           owner: owner
           settings:
             models:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
             agent:
               name: name
               uuid: uuid
-            component:
-              name: name
-              version: version
+            component: '{}'
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
@@ -26040,10 +26084,12 @@ components:
               name: name
               uuid: uuid
             artifacts:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
           raw_content: raw_content
           original:
             name: name
@@ -26100,16 +26146,16 @@ components:
           owner: owner
           settings:
             models:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
             agent:
               name: name
               uuid: uuid
-            component:
-              name: name
-              version: version
+            component: '{}'
             tensorboard: '{}'
             build: '{}'
             namespace: namespace
@@ -26120,10 +26166,12 @@ components:
               name: name
               uuid: uuid
             artifacts:
-            - name: name
-              version: version
-            - name: name
-              version: version
+            - owner: owner
+              name: name
+              project: project
+            - owner: owner
+              name: name
+              project: project
           raw_content: raw_content
           original:
             name: name
@@ -26232,13 +26280,17 @@ components:
       type: string
     v1RunReferenceCatalog:
       example:
+        owner: owner
         name: name
-        version: version
+        project: project
       properties:
-        name:
-          title: Name
+        owner:
+          title: Owner
           type: string
-        version:
+        project:
+          title: Project
+          type: string
+        name:
           title: Name
           type: string
       title: Run Settings catalog specification
@@ -26277,7 +26329,8 @@ components:
           scheduler:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26290,6 +26343,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26314,7 +26368,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26324,7 +26377,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26337,6 +26391,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26361,7 +26416,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26412,7 +26466,8 @@ components:
           server:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26425,6 +26480,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26449,7 +26505,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26459,7 +26514,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26472,6 +26528,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26496,7 +26553,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26547,7 +26603,8 @@ components:
           tuner_server:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26560,6 +26617,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26584,7 +26642,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26594,7 +26651,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26607,6 +26665,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26631,7 +26690,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26682,7 +26740,8 @@ components:
           tuner:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26695,6 +26754,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26719,7 +26779,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26729,7 +26788,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26742,6 +26802,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26766,7 +26827,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26817,7 +26877,8 @@ components:
           tuner_tracker:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26830,6 +26891,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26854,7 +26916,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26864,7 +26925,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26877,6 +26939,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26901,7 +26964,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -26953,7 +27015,8 @@ components:
           worker:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -26966,6 +27029,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -26990,7 +27054,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27000,7 +27063,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27013,6 +27077,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27037,7 +27102,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27106,7 +27170,8 @@ components:
           driver:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27119,6 +27184,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27143,7 +27209,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27153,7 +27218,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27166,6 +27232,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27190,7 +27257,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27235,7 +27301,8 @@ components:
           executor:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27248,6 +27315,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27272,7 +27340,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27282,7 +27349,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27295,6 +27363,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27319,7 +27388,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27371,7 +27439,8 @@ components:
         service:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -27384,6 +27453,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -27408,7 +27478,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -27418,7 +27487,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -27431,6 +27501,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -27455,7 +27526,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -27514,7 +27584,8 @@ components:
           ps:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27527,6 +27598,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27551,7 +27623,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27561,7 +27632,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27574,6 +27646,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27598,7 +27671,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27650,7 +27722,8 @@ components:
           chief:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27663,6 +27736,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27687,7 +27761,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27697,7 +27770,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27710,6 +27784,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27734,7 +27809,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27785,7 +27859,8 @@ components:
           worker:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27798,6 +27873,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27822,7 +27898,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27832,7 +27907,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27845,6 +27921,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27869,7 +27946,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27924,7 +28000,8 @@ components:
           evaluator:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27937,6 +28014,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -27961,7 +28039,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -27971,7 +28048,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -27984,6 +28062,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -28008,7 +28087,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -28061,7 +28139,8 @@ components:
           worker:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -28074,6 +28153,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -28098,7 +28178,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -28108,7 +28187,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -28121,6 +28201,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -28145,7 +28226,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -28200,7 +28280,8 @@ components:
           master:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -28213,6 +28294,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -28237,7 +28319,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -28247,7 +28328,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -28260,6 +28342,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -28284,7 +28367,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -29423,7 +29505,8 @@ components:
           worker:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -29436,6 +29519,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -29460,7 +29544,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -29470,7 +29553,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -29483,6 +29567,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -29507,7 +29592,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -29562,7 +29646,8 @@ components:
           master:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -29575,6 +29660,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -29599,7 +29685,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -29609,7 +29694,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -29622,6 +29708,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -29646,7 +29733,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -29697,7 +29783,8 @@ components:
         dask:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -29710,6 +29797,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -29734,7 +29822,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -29744,7 +29831,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -29757,6 +29845,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -29781,7 +29870,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -29837,7 +29925,8 @@ components:
         job:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -29850,6 +29939,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -29874,7 +29964,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -29884,7 +29973,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -29897,6 +29987,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -29921,7 +30012,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -29976,7 +30066,8 @@ components:
           worker:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -29989,6 +30080,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -30013,7 +30105,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -30023,7 +30114,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -30036,6 +30128,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -30060,7 +30153,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -30115,7 +30207,8 @@ components:
           launcher:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -30128,6 +30221,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -30152,7 +30246,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -30162,7 +30255,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -30175,6 +30269,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -30199,7 +30294,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -30276,16 +30370,16 @@ components:
     v1RunSettings:
       example:
         models:
-        - name: name
-          version: version
-        - name: name
-          version: version
+        - owner: owner
+          name: name
+          project: project
+        - owner: owner
+          name: name
+          project: project
         agent:
           name: name
           uuid: uuid
-        component:
-          name: name
-          version: version
+        component: '{}'
         tensorboard: '{}'
         build: '{}'
         namespace: namespace
@@ -30296,10 +30390,12 @@ components:
           name: name
           uuid: uuid
         artifacts:
-        - name: name
-          version: version
-        - name: name
-          version: version
+        - owner: owner
+          name: name
+          project: project
+        - owner: owner
+          name: name
+          project: project
       properties:
         namespace:
           title: Namespace
@@ -30319,7 +30415,9 @@ components:
           title: Build reference, if it exists
           type: object
         component:
-          $ref: '#/components/schemas/v1RunReferenceCatalog'
+          properties: {}
+          title: Component reference
+          type: object
         models:
           items:
             $ref: '#/components/schemas/v1RunReferenceCatalog'
@@ -30432,7 +30530,8 @@ components:
             scheduler:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30445,6 +30544,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30469,7 +30569,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30479,7 +30578,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30492,6 +30592,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30516,7 +30617,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30567,7 +30667,8 @@ components:
             server:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30580,6 +30681,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30604,7 +30706,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30614,7 +30715,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30627,6 +30729,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30651,7 +30754,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30702,7 +30804,8 @@ components:
             tuner_server:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30715,6 +30818,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30739,7 +30843,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30749,7 +30852,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30762,6 +30866,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30786,7 +30891,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30837,7 +30941,8 @@ components:
             tuner:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30850,6 +30955,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30874,7 +30980,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30884,7 +30989,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30897,6 +31003,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -30921,7 +31028,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -30972,7 +31078,8 @@ components:
             tuner_tracker:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -30985,6 +31092,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31009,7 +31117,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31019,7 +31126,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31032,6 +31140,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31056,7 +31165,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31108,7 +31216,8 @@ components:
             worker:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31121,6 +31230,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31145,7 +31255,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31155,7 +31264,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31168,6 +31278,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31192,7 +31303,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31261,7 +31371,8 @@ components:
             driver:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31274,6 +31385,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31298,7 +31410,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31308,7 +31419,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31321,6 +31433,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31345,7 +31458,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31390,7 +31502,8 @@ components:
             executor:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31403,6 +31516,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31427,7 +31541,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31437,7 +31550,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31450,6 +31564,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31474,7 +31589,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31526,7 +31640,8 @@ components:
           service:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -31539,6 +31654,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -31563,7 +31679,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -31573,7 +31688,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -31586,6 +31702,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -31610,7 +31727,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -31669,7 +31785,8 @@ components:
             ps:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31682,6 +31799,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31706,7 +31824,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31716,7 +31833,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31729,6 +31847,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31753,7 +31872,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31805,7 +31923,8 @@ components:
             chief:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31818,6 +31937,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31842,7 +31962,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31852,7 +31971,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31865,6 +31985,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31889,7 +32010,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31940,7 +32060,8 @@ components:
             worker:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -31953,6 +32074,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -31977,7 +32099,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -31987,7 +32108,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32000,6 +32122,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32024,7 +32147,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -32079,7 +32201,8 @@ components:
             evaluator:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32092,6 +32215,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32116,7 +32240,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -32126,7 +32249,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32139,6 +32263,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32163,7 +32288,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -32216,7 +32340,8 @@ components:
             worker:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32229,6 +32354,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32253,7 +32379,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -32263,7 +32388,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32276,6 +32402,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32300,7 +32427,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -32355,7 +32481,8 @@ components:
             master:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32368,6 +32495,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32392,7 +32520,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -32402,7 +32529,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -32415,6 +32543,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -32439,7 +32568,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -33578,7 +33706,8 @@ components:
             worker:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -33591,6 +33720,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -33615,7 +33745,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -33625,7 +33754,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -33638,6 +33768,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -33662,7 +33793,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -33717,7 +33847,8 @@ components:
             master:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -33730,6 +33861,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -33754,7 +33886,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -33764,7 +33895,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -33777,6 +33909,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -33801,7 +33934,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -33852,7 +33984,8 @@ components:
           dask:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -33865,6 +33998,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -33889,7 +34023,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -33899,7 +34032,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -33912,6 +34046,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -33936,7 +34071,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -33992,7 +34126,8 @@ components:
           job:
             container: '{}'
             init:
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -34005,6 +34140,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -34029,7 +34165,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -34039,7 +34174,8 @@ components:
                 - '{}'
                 - '{}'
                 workers: 3
-            - container: '{}'
+            - modelRef: modelRef
+              container: '{}'
               path: path
               git:
                 flags:
@@ -34052,6 +34188,7 @@ components:
                 kind: kind
                 chmod: chmod
                 content: content
+              artifactRef: artifactRef
               dockerfile:
                 image: image
                 gid: 0
@@ -34076,7 +34213,6 @@ components:
                 - '{}'
                 - '{}'
                 username: 7
-              model: model
               connection: connection
               artifacts:
                 files:
@@ -34131,7 +34267,8 @@ components:
             worker:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -34144,6 +34281,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -34168,7 +34306,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -34178,7 +34315,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -34191,6 +34329,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -34215,7 +34354,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -34270,7 +34408,8 @@ components:
             launcher:
               container: '{}'
               init:
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -34283,6 +34422,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -34307,7 +34447,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -34317,7 +34456,8 @@ components:
                   - '{}'
                   - '{}'
                   workers: 3
-              - container: '{}'
+              - modelRef: modelRef
+                container: '{}'
                 path: path
                 git:
                   flags:
@@ -34330,6 +34470,7 @@ components:
                   kind: kind
                   chmod: chmod
                   content: content
+                artifactRef: artifactRef
                 dockerfile:
                   image: image
                   gid: 0
@@ -34354,7 +34495,6 @@ components:
                   - '{}'
                   - '{}'
                   username: 7
-                model: model
                 connection: connection
                 artifacts:
                   files:
@@ -35622,7 +35762,8 @@ components:
       example:
         container: '{}'
         init:
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -35635,6 +35776,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -35659,7 +35801,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -35669,7 +35810,8 @@ components:
             - '{}'
             - '{}'
             workers: 3
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -35682,6 +35824,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -35706,7 +35849,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -35888,7 +36030,8 @@ components:
         driver:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -35901,6 +36044,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -35925,7 +36069,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -35935,7 +36078,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -35948,6 +36092,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -35972,7 +36117,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36017,7 +36161,8 @@ components:
         executor:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36030,6 +36175,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36054,7 +36200,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36064,7 +36209,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36077,6 +36223,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36101,7 +36248,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36225,7 +36371,8 @@ components:
       example:
         container: '{}'
         init:
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -36238,6 +36385,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -36262,7 +36410,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -36272,7 +36419,8 @@ components:
             - '{}'
             - '{}'
             workers: 3
-        - container: '{}'
+        - modelRef: modelRef
+          container: '{}'
           path: path
           git:
             flags:
@@ -36285,6 +36433,7 @@ components:
             kind: kind
             chmod: chmod
             content: content
+          artifactRef: artifactRef
           dockerfile:
             image: image
             gid: 0
@@ -36309,7 +36458,6 @@ components:
             - '{}'
             - '{}'
             username: 7
-          model: model
           connection: connection
           artifacts:
             files:
@@ -36530,7 +36678,8 @@ components:
         ps:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36543,6 +36692,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36567,7 +36717,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36577,7 +36726,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36590,6 +36740,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36614,7 +36765,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36666,7 +36816,8 @@ components:
         chief:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36679,6 +36830,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36703,7 +36855,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36713,7 +36864,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36726,6 +36878,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36750,7 +36903,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36801,7 +36953,8 @@ components:
         worker:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36814,6 +36967,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36838,7 +36992,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36848,7 +37001,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36861,6 +37015,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36885,7 +37040,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36940,7 +37094,8 @@ components:
         evaluator:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -36953,6 +37108,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -36977,7 +37133,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -36987,7 +37142,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -37000,6 +37156,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -37024,7 +37181,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -37594,7 +37750,8 @@ components:
         worker:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -37607,6 +37764,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -37631,7 +37789,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -37641,7 +37798,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -37654,6 +37812,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -37678,7 +37837,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -37733,7 +37891,8 @@ components:
         master:
           container: '{}'
           init:
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -37746,6 +37905,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -37770,7 +37930,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:
@@ -37780,7 +37939,8 @@ components:
               - '{}'
               - '{}'
               workers: 3
-          - container: '{}'
+          - modelRef: modelRef
+            container: '{}'
             path: path
             git:
               flags:
@@ -37793,6 +37953,7 @@ components:
               kind: kind
               chmod: chmod
               content: content
+            artifactRef: artifactRef
             dockerfile:
               image: image
               gid: 0
@@ -37817,7 +37978,6 @@ components:
               - '{}'
               - '{}'
               username: 7
-            model: model
             connection: connection
             artifacts:
               files:

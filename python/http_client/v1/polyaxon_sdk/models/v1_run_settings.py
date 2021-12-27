@@ -59,7 +59,7 @@ class V1RunSettings(object):
         'artifacts_store': 'V1SettingsCatalog',
         'tensorboard': 'object',
         'build': 'object',
-        'component': 'V1RunReferenceCatalog',
+        'component': 'object',
         'models': 'list[V1RunReferenceCatalog]',
         'artifacts': 'list[V1RunReferenceCatalog]'
     }
@@ -244,7 +244,7 @@ class V1RunSettings(object):
 
 
         :return: The component of this V1RunSettings.  # noqa: E501
-        :rtype: V1RunReferenceCatalog
+        :rtype: object
         """
         return self._component
 
@@ -254,7 +254,7 @@ class V1RunSettings(object):
 
 
         :param component: The component of this V1RunSettings.  # noqa: E501
-        :type component: V1RunReferenceCatalog
+        :type component: object
         """
 
         self._component = component

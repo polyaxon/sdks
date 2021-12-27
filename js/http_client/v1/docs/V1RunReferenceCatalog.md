@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**owner** | **String** |  | [optional] 
+**project** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
-**version** | **String** |  | [optional] 
 
 

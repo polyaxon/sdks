@@ -77,8 +77,11 @@ class V1Init {
             if (data.hasOwnProperty('file')) {
                 obj['file'] = V1FileType.constructFromObject(data['file']);
             }
-            if (data.hasOwnProperty('model')) {
-                obj['model'] = ApiClient.convertToType(data['model'], 'String');
+            if (data.hasOwnProperty('artifactRef')) {
+                obj['artifactRef'] = ApiClient.convertToType(data['artifactRef'], 'String');
+            }
+            if (data.hasOwnProperty('modelRef')) {
+                obj['modelRef'] = ApiClient.convertToType(data['modelRef'], 'String');
             }
             if (data.hasOwnProperty('connection')) {
                 obj['connection'] = ApiClient.convertToType(data['connection'], 'String');
@@ -117,9 +120,14 @@ V1Init.prototype['dockerfile'] = undefined;
 V1Init.prototype['file'] = undefined;
 
 /**
- * @member {String} model
+ * @member {String} artifactRef
  */
-V1Init.prototype['model'] = undefined;
+V1Init.prototype['artifactRef'] = undefined;
+
+/**
+ * @member {String} modelRef
+ */
+V1Init.prototype['modelRef'] = undefined;
 
 /**
  * @member {String} connection

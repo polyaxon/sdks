@@ -82,7 +82,7 @@ class V1RunSettings {
                 obj['build'] = ApiClient.convertToType(data['build'], Object);
             }
             if (data.hasOwnProperty('component')) {
-                obj['component'] = V1RunReferenceCatalog.constructFromObject(data['component']);
+                obj['component'] = ApiClient.convertToType(data['component'], Object);
             }
             if (data.hasOwnProperty('models')) {
                 obj['models'] = ApiClient.convertToType(data['models'], [V1RunReferenceCatalog]);
@@ -128,7 +128,7 @@ V1RunSettings.prototype['tensorboard'] = undefined;
 V1RunSettings.prototype['build'] = undefined;
 
 /**
- * @member {module:model/V1RunReferenceCatalog} component
+ * @member {Object} component
  */
 V1RunSettings.prototype['component'] = undefined;
 

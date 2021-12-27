@@ -34,8 +34,11 @@ type V1RunReferenceCatalog struct {
 	// Name
 	Name string `json:"name,omitempty"`
 
-	// Name
-	Version string `json:"version,omitempty"`
+	// Owner
+	Owner string `json:"owner,omitempty"`
+
+	// Project
+	Project string `json:"project,omitempty"`
 }
 
 // Validate validates this v1 run reference catalog

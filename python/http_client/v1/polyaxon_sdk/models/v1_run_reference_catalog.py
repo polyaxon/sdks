@@ -53,29 +53,76 @@ class V1RunReferenceCatalog(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
-        'version': 'str'
+        'owner': 'str',
+        'project': 'str',
+        'name': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
-        'version': 'version'
+        'owner': 'owner',
+        'project': 'project',
+        'name': 'name'
     }
 
-    def __init__(self, name=None, version=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, owner=None, project=None, name=None, local_vars_configuration=None):  # noqa: E501
         """V1RunReferenceCatalog - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._owner = None
+        self._project = None
         self._name = None
-        self._version = None
         self.discriminator = None
 
+        if owner is not None:
+            self.owner = owner
+        if project is not None:
+            self.project = project
         if name is not None:
             self.name = name
-        if version is not None:
-            self.version = version
+
+    @property
+    def owner(self):
+        """Gets the owner of this V1RunReferenceCatalog.  # noqa: E501
+
+
+        :return: The owner of this V1RunReferenceCatalog.  # noqa: E501
+        :rtype: str
+        """
+        return self._owner
+
+    @owner.setter
+    def owner(self, owner):
+        """Sets the owner of this V1RunReferenceCatalog.
+
+
+        :param owner: The owner of this V1RunReferenceCatalog.  # noqa: E501
+        :type owner: str
+        """
+
+        self._owner = owner
+
+    @property
+    def project(self):
+        """Gets the project of this V1RunReferenceCatalog.  # noqa: E501
+
+
+        :return: The project of this V1RunReferenceCatalog.  # noqa: E501
+        :rtype: str
+        """
+        return self._project
+
+    @project.setter
+    def project(self, project):
+        """Sets the project of this V1RunReferenceCatalog.
+
+
+        :param project: The project of this V1RunReferenceCatalog.  # noqa: E501
+        :type project: str
+        """
+
+        self._project = project
 
     @property
     def name(self):
@@ -97,27 +144,6 @@ class V1RunReferenceCatalog(object):
         """
 
         self._name = name
-
-    @property
-    def version(self):
-        """Gets the version of this V1RunReferenceCatalog.  # noqa: E501
-
-
-        :return: The version of this V1RunReferenceCatalog.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this V1RunReferenceCatalog.
-
-
-        :param version: The version of this V1RunReferenceCatalog.  # noqa: E501
-        :type version: str
-        """
-
-        self._version = version
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

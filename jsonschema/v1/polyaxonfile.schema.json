@@ -7035,6 +7035,10 @@
     },
     "v1Init": {
       "properties": {
+        "artifactRef": {
+          "title": "Artifact version intializer",
+          "type": "string"
+        },
         "artifacts": {
           "$ref": "#/definitions/v1ArtifactsType",
           "title": "Override Schema for artifacts/mounts connections"
@@ -7059,8 +7063,8 @@
           "$ref": "#/definitions/v1GitType",
           "title": "Override for git connections"
         },
-        "model": {
-          "title": "Model intializer",
+        "modelRef": {
+          "title": "Model version intializer",
           "type": "string"
         },
         "path": {
@@ -9657,8 +9661,12 @@
           "title": "Name",
           "type": "string"
         },
-        "version": {
-          "title": "Name",
+        "owner": {
+          "title": "Owner",
+          "type": "string"
+        },
+        "project": {
+          "title": "Project",
           "type": "string"
         }
       },
@@ -9754,8 +9762,8 @@
           "type": "object"
         },
         "component": {
-          "$ref": "#/definitions/v1RunReferenceCatalog",
-          "title": "Component reference"
+          "title": "Component reference",
+          "type": "object"
         },
         "models": {
           "items": {

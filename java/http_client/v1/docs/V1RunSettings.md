@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **artifactsStore** | [**V1SettingsCatalog**](V1SettingsCatalog.md) |  |  [optional]
 **tensorboard** | **Object** |  |  [optional]
 **build** | **Object** |  |  [optional]
-**component** | [**V1RunReferenceCatalog**](V1RunReferenceCatalog.md) |  |  [optional]
+**component** | **Object** |  |  [optional]
 **models** | [**List&lt;V1RunReferenceCatalog&gt;**](V1RunReferenceCatalog.md) |  |  [optional]
 **artifacts** | [**List&lt;V1RunReferenceCatalog&gt;**](V1RunReferenceCatalog.md) |  |  [optional]
 

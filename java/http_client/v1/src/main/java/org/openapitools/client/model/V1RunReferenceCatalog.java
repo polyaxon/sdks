@@ -43,13 +43,63 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class V1RunReferenceCatalog {
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  private String owner;
+
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  private String project;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+
+  public V1RunReferenceCatalog owner(String owner) {
+    
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * Get owner
+   * @return owner
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getOwner() {
+    return owner;
+  }
+
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
+
+  public V1RunReferenceCatalog project(String project) {
+    
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProject() {
+    return project;
+  }
+
+
+  public void setProject(String project) {
+    this.project = project;
+  }
 
 
   public V1RunReferenceCatalog name(String name) {
@@ -75,29 +125,6 @@ public class V1RunReferenceCatalog {
   }
 
 
-  public V1RunReferenceCatalog version(String version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,21 +134,23 @@ public class V1RunReferenceCatalog {
       return false;
     }
     V1RunReferenceCatalog v1RunReferenceCatalog = (V1RunReferenceCatalog) o;
-    return Objects.equals(this.name, v1RunReferenceCatalog.name) &&
-        Objects.equals(this.version, v1RunReferenceCatalog.version);
+    return Objects.equals(this.owner, v1RunReferenceCatalog.owner) &&
+        Objects.equals(this.project, v1RunReferenceCatalog.project) &&
+        Objects.equals(this.name, v1RunReferenceCatalog.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(owner, project, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1RunReferenceCatalog {\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -63,9 +63,13 @@ public class V1Init {
   @SerializedName(SERIALIZED_NAME_FILE)
   private V1FileType file;
 
-  public static final String SERIALIZED_NAME_MODEL = "model";
-  @SerializedName(SERIALIZED_NAME_MODEL)
-  private String model;
+  public static final String SERIALIZED_NAME_ARTIFACT_REF = "artifactRef";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_REF)
+  private String artifactRef;
+
+  public static final String SERIALIZED_NAME_MODEL_REF = "modelRef";
+  @SerializedName(SERIALIZED_NAME_MODEL_REF)
+  private String modelRef;
 
   public static final String SERIALIZED_NAME_CONNECTION = "connection";
   @SerializedName(SERIALIZED_NAME_CONNECTION)
@@ -172,26 +176,49 @@ public class V1Init {
   }
 
 
-  public V1Init model(String model) {
+  public V1Init artifactRef(String artifactRef) {
     
-    this.model = model;
+    this.artifactRef = artifactRef;
     return this;
   }
 
    /**
-   * Get model
-   * @return model
+   * Get artifactRef
+   * @return artifactRef
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getModel() {
-    return model;
+  public String getArtifactRef() {
+    return artifactRef;
   }
 
 
-  public void setModel(String model) {
-    this.model = model;
+  public void setArtifactRef(String artifactRef) {
+    this.artifactRef = artifactRef;
+  }
+
+
+  public V1Init modelRef(String modelRef) {
+    
+    this.modelRef = modelRef;
+    return this;
+  }
+
+   /**
+   * Get modelRef
+   * @return modelRef
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getModelRef() {
+    return modelRef;
+  }
+
+
+  public void setModelRef(String modelRef) {
+    this.modelRef = modelRef;
   }
 
 
@@ -277,7 +304,8 @@ public class V1Init {
         Objects.equals(this.git, v1Init.git) &&
         Objects.equals(this.dockerfile, v1Init.dockerfile) &&
         Objects.equals(this.file, v1Init.file) &&
-        Objects.equals(this.model, v1Init.model) &&
+        Objects.equals(this.artifactRef, v1Init.artifactRef) &&
+        Objects.equals(this.modelRef, v1Init.modelRef) &&
         Objects.equals(this.connection, v1Init.connection) &&
         Objects.equals(this.path, v1Init.path) &&
         Objects.equals(this.container, v1Init.container);
@@ -285,7 +313,7 @@ public class V1Init {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifacts, git, dockerfile, file, model, connection, path, container);
+    return Objects.hash(artifacts, git, dockerfile, file, artifactRef, modelRef, connection, path, container);
   }
 
   @Override
@@ -296,7 +324,8 @@ public class V1Init {
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    dockerfile: ").append(toIndentedString(dockerfile)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
-    sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    artifactRef: ").append(toIndentedString(artifactRef)).append("\n");
+    sb.append("    modelRef: ").append(toIndentedString(modelRef)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    container: ").append(toIndentedString(container)).append("\n");

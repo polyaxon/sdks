@@ -55,19 +55,27 @@ public class V1RunReferenceCatalogTest {
     }
 
     /**
+     * Test the property 'owner'
+     */
+    @Test
+    public void ownerTest() {
+        // TODO: test owner
+    }
+
+    /**
+     * Test the property 'project'
+     */
+    @Test
+    public void projectTest() {
+        // TODO: test project
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
     public void nameTest() {
         // TODO: test name
-    }
-
-    /**
-     * Test the property 'version'
-     */
-    @Test
-    public void versionTest() {
-        // TODO: test version
     }
 
 }

@@ -73,7 +73,7 @@ public class V1RunSettings {
 
   public static final String SERIALIZED_NAME_COMPONENT = "component";
   @SerializedName(SERIALIZED_NAME_COMPONENT)
-  private V1RunReferenceCatalog component;
+  private Object component;
 
   public static final String SERIALIZED_NAME_MODELS = "models";
   @SerializedName(SERIALIZED_NAME_MODELS)
@@ -222,7 +222,7 @@ public class V1RunSettings {
   }
 
 
-  public V1RunSettings component(V1RunReferenceCatalog component) {
+  public V1RunSettings component(Object component) {
     
     this.component = component;
     return this;
@@ -235,12 +235,12 @@ public class V1RunSettings {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public V1RunReferenceCatalog getComponent() {
+  public Object getComponent() {
     return component;
   }
 
 
-  public void setComponent(V1RunReferenceCatalog component) {
+  public void setComponent(Object component) {
     this.component = component;
   }
 

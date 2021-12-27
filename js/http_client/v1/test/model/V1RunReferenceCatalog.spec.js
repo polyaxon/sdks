@@ -68,14 +68,20 @@
       //expect(instance).to.be.a(PolyaxonSdk.V1RunReferenceCatalog);
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
+    it('should have the property owner (base name: "owner")', function() {
+      // uncomment below and update the code to test the property owner
       //var instance = new PolyaxonSdk.V1RunReferenceCatalog();
       //expect(instance).to.be();
     });
 
-    it('should have the property version (base name: "version")', function() {
-      // uncomment below and update the code to test the property version
+    it('should have the property project (base name: "project")', function() {
+      // uncomment below and update the code to test the property project
+      //var instance = new PolyaxonSdk.V1RunReferenceCatalog();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
       //var instance = new PolyaxonSdk.V1RunReferenceCatalog();
       //expect(instance).to.be();
     });

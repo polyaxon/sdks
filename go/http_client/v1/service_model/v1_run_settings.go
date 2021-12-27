@@ -46,7 +46,7 @@ type V1RunSettings struct {
 	Build interface{} `json:"build,omitempty"`
 
 	// Component reference
-	Component *V1RunReferenceCatalog `json:"component,omitempty"`
+	Component interface{} `json:"component,omitempty"`
 
 	// Model version references
 	Models []*V1RunReferenceCatalog `json:"models"`
@@ -74,10 +74,6 @@ func (m *V1RunSettings) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateArtifactsStore(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateComponent(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -159,25 +155,6 @@ func (m *V1RunSettings) validateArtifactsStore(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSettings) validateComponent(formats strfmt.Registry) error {
-	if swag.IsZero(m.Component) { // not required
-		return nil
-	}
-
-	if m.Component != nil {
-		if err := m.Component.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("component")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("component")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1RunSettings) validateModels(formats strfmt.Registry) error {
 	if swag.IsZero(m.Models) { // not required
 		return nil
@@ -239,10 +216,6 @@ func (m *V1RunSettings) ContextValidate(ctx context.Context, formats strfmt.Regi
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateComponent(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateModels(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -301,22 +274,6 @@ func (m *V1RunSettings) contextValidateArtifactsStore(ctx context.Context, forma
 				return ve.ValidateName("artifacts_store")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("artifacts_store")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1RunSettings) contextValidateComponent(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Component != nil {
-		if err := m.Component.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("component")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("component")
 			}
 			return err
 		}

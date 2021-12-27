@@ -61,11 +61,14 @@ class V1RunReferenceCatalog {
         if (data) {
             obj = obj || new V1RunReferenceCatalog();
 
+            if (data.hasOwnProperty('owner')) {
+                obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+            }
+            if (data.hasOwnProperty('project')) {
+                obj['project'] = ApiClient.convertToType(data['project'], 'String');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('version')) {
-                obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
         }
         return obj;
@@ -75,14 +78,19 @@ class V1RunReferenceCatalog {
 }
 
 /**
+ * @member {String} owner
+ */
+V1RunReferenceCatalog.prototype['owner'] = undefined;
+
+/**
+ * @member {String} project
+ */
+V1RunReferenceCatalog.prototype['project'] = undefined;
+
+/**
  * @member {String} name
  */
 V1RunReferenceCatalog.prototype['name'] = undefined;
-
-/**
- * @member {String} version
- */
-V1RunReferenceCatalog.prototype['version'] = undefined;
 
 
 

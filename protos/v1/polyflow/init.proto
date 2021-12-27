@@ -40,15 +40,18 @@ message Init {
     // File intializer
     FileType file = 4;
 
-    // Model intializer
-    string model = 5;
+    // Artifact version intializer
+    string artifactRef = 5;
+
+    // Model version intializer
+    string modelRef = 6;
 
     // Optional, connection to use with this initializer
-    string connection = 6;
+    string connection = 7;
 
     // Optional context path, the path to mount to main the container
-    string path = 7;
+    string path = 8;
 
     // Container to override
-    Container container = 8;
+    Container container = 9;
 }

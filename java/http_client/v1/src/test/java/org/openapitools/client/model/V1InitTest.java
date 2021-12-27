@@ -91,11 +91,19 @@ public class V1InitTest {
     }
 
     /**
-     * Test the property 'model'
+     * Test the property 'artifactRef'
      */
     @Test
-    public void modelTest() {
-        // TODO: test model
+    public void artifactRefTest() {
+        // TODO: test artifactRef
+    }
+
+    /**
+     * Test the property 'modelRef'
+     */
+    @Test
+    public void modelRefTest() {
+        // TODO: test modelRef
     }
 
     /**

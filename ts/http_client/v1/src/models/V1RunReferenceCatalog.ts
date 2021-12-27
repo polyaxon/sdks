@@ -38,13 +38,19 @@ export interface V1RunReferenceCatalog {
      * @type {string}
      * @memberof V1RunReferenceCatalog
      */
-    name?: string;
+    owner?: string;
     /**
      * 
      * @type {string}
      * @memberof V1RunReferenceCatalog
      */
-    version?: string;
+    project?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1RunReferenceCatalog
+     */
+    name?: string;
 }
 
 export function V1RunReferenceCatalogFromJSON(json: any): V1RunReferenceCatalog {
@@ -57,8 +63,9 @@ export function V1RunReferenceCatalogFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
+        'owner': !exists(json, 'owner') ? undefined : json['owner'],
+        'project': !exists(json, 'project') ? undefined : json['project'],
         'name': !exists(json, 'name') ? undefined : json['name'],
-        'version': !exists(json, 'version') ? undefined : json['version'],
     };
 }
 
@@ -71,8 +78,9 @@ export function V1RunReferenceCatalogToJSON(value?: V1RunReferenceCatalog | null
     }
     return {
         
+        'owner': value.owner,
+        'project': value.project,
         'name': value.name,
-        'version': value.version,
     };
 }
 

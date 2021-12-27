@@ -269,11 +269,14 @@ message RunBodyRequest {
 
 // Run Settings catalog specification
 message RunReferenceCatalog {
-  // Name
-  string name = 1;
+  // Owner
+  string owner = 1;
+
+  // Project
+  string project = 2;
 
   // Name
-  string version = 2;
+  string name = 3;
 }
 
 // Run Resources specification
@@ -306,7 +309,7 @@ message RunSettings {
     google.protobuf.Struct build = 6;
 
     // Component reference
-    RunReferenceCatalog component = 7;
+    google.protobuf.Struct component = 7;
 
     // Model version references
     repeated RunReferenceCatalog models = 8;

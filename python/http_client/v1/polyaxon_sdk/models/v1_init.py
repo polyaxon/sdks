@@ -57,7 +57,8 @@ class V1Init(object):
         'git': 'V1GitType',
         'dockerfile': 'V1DockerfileType',
         'file': 'V1FileType',
-        'model': 'str',
+        'artifact_ref': 'str',
+        'model_ref': 'str',
         'connection': 'str',
         'path': 'str',
         'container': 'V1Container'
@@ -68,13 +69,14 @@ class V1Init(object):
         'git': 'git',
         'dockerfile': 'dockerfile',
         'file': 'file',
-        'model': 'model',
+        'artifact_ref': 'artifactRef',
+        'model_ref': 'modelRef',
         'connection': 'connection',
         'path': 'path',
         'container': 'container'
     }
 
-    def __init__(self, artifacts=None, git=None, dockerfile=None, file=None, model=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, artifacts=None, git=None, dockerfile=None, file=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
         """V1Init - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -84,7 +86,8 @@ class V1Init(object):
         self._git = None
         self._dockerfile = None
         self._file = None
-        self._model = None
+        self._artifact_ref = None
+        self._model_ref = None
         self._connection = None
         self._path = None
         self._container = None
@@ -98,8 +101,10 @@ class V1Init(object):
             self.dockerfile = dockerfile
         if file is not None:
             self.file = file
-        if model is not None:
-            self.model = model
+        if artifact_ref is not None:
+            self.artifact_ref = artifact_ref
+        if model_ref is not None:
+            self.model_ref = model_ref
         if connection is not None:
             self.connection = connection
         if path is not None:
@@ -192,25 +197,46 @@ class V1Init(object):
         self._file = file
 
     @property
-    def model(self):
-        """Gets the model of this V1Init.  # noqa: E501
+    def artifact_ref(self):
+        """Gets the artifact_ref of this V1Init.  # noqa: E501
 
 
-        :return: The model of this V1Init.  # noqa: E501
+        :return: The artifact_ref of this V1Init.  # noqa: E501
         :rtype: str
         """
-        return self._model
+        return self._artifact_ref
 
-    @model.setter
-    def model(self, model):
-        """Sets the model of this V1Init.
+    @artifact_ref.setter
+    def artifact_ref(self, artifact_ref):
+        """Sets the artifact_ref of this V1Init.
 
 
-        :param model: The model of this V1Init.  # noqa: E501
-        :type model: str
+        :param artifact_ref: The artifact_ref of this V1Init.  # noqa: E501
+        :type artifact_ref: str
         """
 
-        self._model = model
+        self._artifact_ref = artifact_ref
+
+    @property
+    def model_ref(self):
+        """Gets the model_ref of this V1Init.  # noqa: E501
+
+
+        :return: The model_ref of this V1Init.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_ref
+
+    @model_ref.setter
+    def model_ref(self, model_ref):
+        """Sets the model_ref of this V1Init.
+
+
+        :param model_ref: The model_ref of this V1Init.  # noqa: E501
+        :type model_ref: str
+        """
+
+        self._model_ref = model_ref
 
     @property
     def connection(self):
