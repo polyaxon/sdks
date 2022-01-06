@@ -40,6 +40,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1ProjectVersionKind;
+import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1StageCondition;
 import org.openapitools.client.model.V1Stages;
 import org.threeten.bp.OffsetDateTime;
@@ -116,6 +117,10 @@ public class V1ProjectVersion {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
+
+  public static final String SERIALIZED_NAME_RUNS = "runs";
+  @SerializedName(SERIALIZED_NAME_RUNS)
+  private List<V1Run> runs = null;
 
 
   public V1ProjectVersion uuid(String uuid) {
@@ -533,6 +538,37 @@ public class V1ProjectVersion {
   }
 
 
+  public V1ProjectVersion runs(List<V1Run> runs) {
+    
+    this.runs = runs;
+    return this;
+  }
+
+  public V1ProjectVersion addRunsItem(V1Run runsItem) {
+    if (this.runs == null) {
+      this.runs = new ArrayList<V1Run>();
+    }
+    this.runs.add(runsItem);
+    return this;
+  }
+
+   /**
+   * Get runs
+   * @return runs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<V1Run> getRuns() {
+    return runs;
+  }
+
+
+  public void setRuns(List<V1Run> runs) {
+    this.runs = runs;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -558,12 +594,13 @@ public class V1ProjectVersion {
         Objects.equals(this.kind, v1ProjectVersion.kind) &&
         Objects.equals(this.stageConditions, v1ProjectVersion.stageConditions) &&
         Objects.equals(this.content, v1ProjectVersion.content) &&
-        Objects.equals(this.role, v1ProjectVersion.role);
+        Objects.equals(this.role, v1ProjectVersion.role) &&
+        Objects.equals(this.runs, v1ProjectVersion.runs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, role);
+    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, role, runs);
   }
 
   @Override
@@ -587,6 +624,7 @@ public class V1ProjectVersion {
     sb.append("    stageConditions: ").append(toIndentedString(stageConditions)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    runs: ").append(toIndentedString(runs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

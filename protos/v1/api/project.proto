@@ -23,6 +23,7 @@ import "google/protobuf/timestamp.proto";
 
 import "v1/polyflow/stage.proto";
 import "v1/api/stage.proto";
+import "v1/api/run.proto";
 
 option go_package = "v1/api";
 
@@ -212,6 +213,9 @@ message ProjectVersion {
 
   // Current user's role in this (org/teams)/hub/version
   string role = 17;
+
+  // Latest runs
+  repeated Run runs = 18;
 }
 
 

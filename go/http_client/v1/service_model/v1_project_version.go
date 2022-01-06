@@ -71,6 +71,9 @@ type V1ProjectVersion struct {
 	// Run lineage
 	Run string `json:"run,omitempty"`
 
+	// Latest runs
+	Runs []*V1Run `json:"runs"`
+
 	// Optional latest stage of this entity
 	Stage *V1Stages `json:"stage,omitempty"`
 
@@ -97,6 +100,10 @@ func (m *V1ProjectVersion) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateKind(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRuns(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -144,6 +151,32 @@ func (m *V1ProjectVersion) validateKind(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *V1ProjectVersion) validateRuns(formats strfmt.Registry) error {
+	if swag.IsZero(m.Runs) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Runs); i++ {
+		if swag.IsZero(m.Runs[i]) { // not required
+			continue
+		}
+
+		if m.Runs[i] != nil {
+			if err := m.Runs[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("runs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("runs" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -214,6 +247,10 @@ func (m *V1ProjectVersion) ContextValidate(ctx context.Context, formats strfmt.R
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateRuns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateStage(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -239,6 +276,26 @@ func (m *V1ProjectVersion) contextValidateKind(ctx context.Context, formats strf
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *V1ProjectVersion) contextValidateRuns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Runs); i++ {
+
+		if m.Runs[i] != nil {
+			if err := m.Runs[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("runs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("runs" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

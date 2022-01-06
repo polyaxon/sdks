@@ -170,6 +170,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property runs (base name: "runs")', function() {
+      // uncomment below and update the code to test the property runs
+      //var instance = new PolyaxonSdk.V1ProjectVersion();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

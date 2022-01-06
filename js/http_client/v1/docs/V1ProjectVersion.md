@@ -21,5 +21,6 @@ Name | Type | Description | Notes
 **stage_conditions** | [**[V1StageCondition]**](V1StageCondition.md) |  | [optional] 
 **content** | **String** |  | [optional] 
 **role** | **String** |  | [optional] 
+**runs** | [**[V1Run]**](V1Run.md) |  | [optional] 
 
 

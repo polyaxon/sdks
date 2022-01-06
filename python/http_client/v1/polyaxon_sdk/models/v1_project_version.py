@@ -69,7 +69,8 @@ class V1ProjectVersion(object):
         'kind': 'V1ProjectVersionKind',
         'stage_conditions': 'list[V1StageCondition]',
         'content': 'str',
-        'role': 'str'
+        'role': 'str',
+        'runs': 'list[V1Run]'
     }
 
     attribute_map = {
@@ -89,10 +90,11 @@ class V1ProjectVersion(object):
         'kind': 'kind',
         'stage_conditions': 'stage_conditions',
         'content': 'content',
-        'role': 'role'
+        'role': 'role',
+        'runs': 'runs'
     }
 
-    def __init__(self, uuid=None, name=None, description=None, tags=None, owner=None, project=None, connection=None, run=None, artifacts=None, meta_info=None, created_at=None, updated_at=None, stage=None, kind=None, stage_conditions=None, content=None, role=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uuid=None, name=None, description=None, tags=None, owner=None, project=None, connection=None, run=None, artifacts=None, meta_info=None, created_at=None, updated_at=None, stage=None, kind=None, stage_conditions=None, content=None, role=None, runs=None, local_vars_configuration=None):  # noqa: E501
         """V1ProjectVersion - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -115,6 +117,7 @@ class V1ProjectVersion(object):
         self._stage_conditions = None
         self._content = None
         self._role = None
+        self._runs = None
         self.discriminator = None
 
         if uuid is not None:
@@ -151,6 +154,8 @@ class V1ProjectVersion(object):
             self.content = content
         if role is not None:
             self.role = role
+        if runs is not None:
+            self.runs = runs
 
     @property
     def uuid(self):
@@ -508,6 +513,27 @@ class V1ProjectVersion(object):
         """
 
         self._role = role
+
+    @property
+    def runs(self):
+        """Gets the runs of this V1ProjectVersion.  # noqa: E501
+
+
+        :return: The runs of this V1ProjectVersion.  # noqa: E501
+        :rtype: list[V1Run]
+        """
+        return self._runs
+
+    @runs.setter
+    def runs(self, runs):
+        """Sets the runs of this V1ProjectVersion.
+
+
+        :param runs: The runs of this V1ProjectVersion.  # noqa: E501
+        :type runs: list[V1Run]
+        """
+
+        self._runs = runs
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

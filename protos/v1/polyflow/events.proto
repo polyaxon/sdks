@@ -18,10 +18,6 @@ syntax = "proto3";
 
 package v1;
 
-import "google/protobuf/struct.proto";
-
-import "v1/polyflow/io.proto";
-
 option go_package = "v1/polyflow";
 
 enum EventKind {
