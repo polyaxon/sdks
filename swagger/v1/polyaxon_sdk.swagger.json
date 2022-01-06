@@ -21248,13 +21248,6 @@
         "role": {
           "type": "string",
           "title": "Current user's role in this (org/teams)/hub/version"
-        },
-        "runs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1Run"
-          },
-          "title": "Latest runs"
         }
       },
       "title": "component hub specification"

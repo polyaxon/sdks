@@ -9127,13 +9127,6 @@
           "title": "Run lineage",
           "type": "string"
         },
-        "runs": {
-          "items": {
-            "$ref": "#/definitions/v1Run"
-          },
-          "title": "Latest runs",
-          "type": "array"
-        },
         "stage": {
           "$ref": "#/definitions/v1Stages",
           "title": "Optional latest stage of this entity"

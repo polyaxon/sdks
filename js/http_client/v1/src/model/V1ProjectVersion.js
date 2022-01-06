@@ -27,7 +27,6 @@
 
 import ApiClient from '../ApiClient';
 import V1ProjectVersionKind from './V1ProjectVersionKind';
-import V1Run from './V1Run';
 import V1StageCondition from './V1StageCondition';
 import V1Stages from './V1Stages';
 
@@ -115,9 +114,6 @@ class V1ProjectVersion {
             }
             if (data.hasOwnProperty('role')) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
-            }
-            if (data.hasOwnProperty('runs')) {
-                obj['runs'] = ApiClient.convertToType(data['runs'], [V1Run]);
             }
         }
         return obj;
@@ -210,11 +206,6 @@ V1ProjectVersion.prototype['content'] = undefined;
  * @member {String} role
  */
 V1ProjectVersion.prototype['role'] = undefined;
-
-/**
- * @member {Array.<module:model/V1Run>} runs
- */
-V1ProjectVersion.prototype['runs'] = undefined;
 
 
 

@@ -38,7 +38,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1ProjectVersionKind;
-import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1StageCondition;
 import org.openapitools.client.model.V1Stages;
 import org.threeten.bp.OffsetDateTime;
@@ -195,14 +194,6 @@ public class V1ProjectVersionTest {
     @Test
     public void roleTest() {
         // TODO: test role
-    }
-
-    /**
-     * Test the property 'runs'
-     */
-    @Test
-    public void runsTest() {
-        // TODO: test runs
     }
 
 }

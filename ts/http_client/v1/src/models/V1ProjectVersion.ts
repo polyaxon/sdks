@@ -32,10 +32,6 @@ import {
     V1ProjectVersionKindFromJSON,
     V1ProjectVersionKindFromJSONTyped,
     V1ProjectVersionKindToJSON,
-    V1Run,
-    V1RunFromJSON,
-    V1RunFromJSONTyped,
-    V1RunToJSON,
     V1StageCondition,
     V1StageConditionFromJSON,
     V1StageConditionFromJSONTyped,
@@ -154,12 +150,6 @@ export interface V1ProjectVersion {
      * @memberof V1ProjectVersion
      */
     role?: string;
-    /**
-     * 
-     * @type {Array<V1Run>}
-     * @memberof V1ProjectVersion
-     */
-    runs?: Array<V1Run>;
 }
 
 export function V1ProjectVersionFromJSON(json: any): V1ProjectVersion {
@@ -189,7 +179,6 @@ export function V1ProjectVersionFromJSONTyped(json: any, ignoreDiscriminator: bo
         'stage_conditions': !exists(json, 'stage_conditions') ? undefined : ((json['stage_conditions'] as Array<any>).map(V1StageConditionFromJSON)),
         'content': !exists(json, 'content') ? undefined : json['content'],
         'role': !exists(json, 'role') ? undefined : json['role'],
-        'runs': !exists(json, 'runs') ? undefined : ((json['runs'] as Array<any>).map(V1RunFromJSON)),
     };
 }
 
@@ -219,7 +208,6 @@ export function V1ProjectVersionToJSON(value?: V1ProjectVersion | null): any {
         'stage_conditions': value.stage_conditions === undefined ? undefined : ((value.stage_conditions as Array<any>).map(V1StageConditionToJSON)),
         'content': value.content,
         'role': value.role,
-        'runs': value.runs === undefined ? undefined : ((value.runs as Array<any>).map(V1RunToJSON)),
     };
 }
 

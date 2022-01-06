@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **stage_conditions** | [**list[V1StageCondition]**](V1StageCondition.md) |  | [optional] 
 **content** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
-**runs** | [**list[V1Run]**](V1Run.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
