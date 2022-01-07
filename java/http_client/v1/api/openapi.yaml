@@ -21417,6 +21417,7 @@ components:
           meta_info: '{}'
           name: name
           connection: connection
+          state: state
           artifacts:
           - artifacts
           - artifacts
@@ -21446,6 +21447,7 @@ components:
           meta_info: '{}'
           name: name
           connection: connection
+          state: state
           artifacts:
           - artifacts
           - artifacts
@@ -25261,6 +25263,7 @@ components:
         meta_info: '{}'
         name: name
         connection: connection
+        state: state
         artifacts:
         - artifacts
         - artifacts
@@ -25320,6 +25323,9 @@ components:
           type: array
         content:
           title: The metadata/content body
+          type: string
+        state:
+          title: The version state read-only
           type: string
         role:
           title: Current user's role in this (org/teams)/hub/version

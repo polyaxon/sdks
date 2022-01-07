@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **kind** | **V1ProjectVersionKind** |  |  [optional]
 **stageConditions** | [**List&lt;V1StageCondition&gt;**](V1StageCondition.md) |  |  [optional]
 **content** | **String** |  |  [optional]
+**state** | **String** |  |  [optional]
 **role** | **String** |  |  [optional]
 
 

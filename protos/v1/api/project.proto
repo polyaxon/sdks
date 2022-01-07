@@ -210,8 +210,11 @@ message ProjectVersion {
   // The metadata/content body
   string content = 16;
 
+  // The version state read-only
+  string state = 17;
+
   // Current user's role in this (org/teams)/hub/version
-  string role = 17;
+  string role = 18;
 }
 
 

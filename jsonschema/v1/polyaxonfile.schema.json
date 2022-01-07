@@ -9138,6 +9138,10 @@
           "title": "The status conditions timeline",
           "type": "array"
         },
+        "state": {
+          "title": "The version state read-only",
+          "type": "string"
+        },
         "tags": {
           "items": {
             "type": "string"

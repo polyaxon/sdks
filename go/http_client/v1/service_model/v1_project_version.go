@@ -77,6 +77,9 @@ type V1ProjectVersion struct {
 	// The status conditions timeline
 	StageConditions []*V1StageCondition `json:"stage_conditions"`
 
+	// The version state read-only
+	State string `json:"state,omitempty"`
+
 	// Optional tags of this entity
 	Tags []string `json:"tags"`
 

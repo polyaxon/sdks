@@ -112,6 +112,9 @@ class V1ProjectVersion {
             if (data.hasOwnProperty('content')) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
             if (data.hasOwnProperty('role')) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
             }
@@ -201,6 +204,11 @@ V1ProjectVersion.prototype['stage_conditions'] = undefined;
  * @member {String} content
  */
 V1ProjectVersion.prototype['content'] = undefined;
+
+/**
+ * @member {String} state
+ */
+V1ProjectVersion.prototype['state'] = undefined;
 
 /**
  * @member {String} role

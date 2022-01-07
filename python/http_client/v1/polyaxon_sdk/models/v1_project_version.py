@@ -69,6 +69,7 @@ class V1ProjectVersion(object):
         'kind': 'V1ProjectVersionKind',
         'stage_conditions': 'list[V1StageCondition]',
         'content': 'str',
+        'state': 'str',
         'role': 'str'
     }
 
@@ -89,10 +90,11 @@ class V1ProjectVersion(object):
         'kind': 'kind',
         'stage_conditions': 'stage_conditions',
         'content': 'content',
+        'state': 'state',
         'role': 'role'
     }
 
-    def __init__(self, uuid=None, name=None, description=None, tags=None, owner=None, project=None, connection=None, run=None, artifacts=None, meta_info=None, created_at=None, updated_at=None, stage=None, kind=None, stage_conditions=None, content=None, role=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uuid=None, name=None, description=None, tags=None, owner=None, project=None, connection=None, run=None, artifacts=None, meta_info=None, created_at=None, updated_at=None, stage=None, kind=None, stage_conditions=None, content=None, state=None, role=None, local_vars_configuration=None):  # noqa: E501
         """V1ProjectVersion - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -114,6 +116,7 @@ class V1ProjectVersion(object):
         self._kind = None
         self._stage_conditions = None
         self._content = None
+        self._state = None
         self._role = None
         self.discriminator = None
 
@@ -149,6 +152,8 @@ class V1ProjectVersion(object):
             self.stage_conditions = stage_conditions
         if content is not None:
             self.content = content
+        if state is not None:
+            self.state = state
         if role is not None:
             self.role = role
 
@@ -487,6 +492,27 @@ class V1ProjectVersion(object):
         """
 
         self._content = content
+
+    @property
+    def state(self):
+        """Gets the state of this V1ProjectVersion.  # noqa: E501
+
+
+        :return: The state of this V1ProjectVersion.  # noqa: E501
+        :rtype: str
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this V1ProjectVersion.
+
+
+        :param state: The state of this V1ProjectVersion.  # noqa: E501
+        :type state: str
+        """
+
+        self._state = state
 
     @property
     def role(self):

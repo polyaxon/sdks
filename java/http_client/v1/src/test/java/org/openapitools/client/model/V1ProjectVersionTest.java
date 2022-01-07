@@ -189,6 +189,14 @@ public class V1ProjectVersionTest {
     }
 
     /**
+     * Test the property 'state'
+     */
+    @Test
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
      * Test the property 'role'
      */
     @Test

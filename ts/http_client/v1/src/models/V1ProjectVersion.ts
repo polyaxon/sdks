@@ -149,6 +149,12 @@ export interface V1ProjectVersion {
      * @type {string}
      * @memberof V1ProjectVersion
      */
+    state?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1ProjectVersion
+     */
     role?: string;
 }
 
@@ -178,6 +184,7 @@ export function V1ProjectVersionFromJSONTyped(json: any, ignoreDiscriminator: bo
         'kind': !exists(json, 'kind') ? undefined : V1ProjectVersionKindFromJSON(json['kind']),
         'stage_conditions': !exists(json, 'stage_conditions') ? undefined : ((json['stage_conditions'] as Array<any>).map(V1StageConditionFromJSON)),
         'content': !exists(json, 'content') ? undefined : json['content'],
+        'state': !exists(json, 'state') ? undefined : json['state'],
         'role': !exists(json, 'role') ? undefined : json['role'],
     };
 }
@@ -207,6 +214,7 @@ export function V1ProjectVersionToJSON(value?: V1ProjectVersion | null): any {
         'kind': V1ProjectVersionKindToJSON(value.kind),
         'stage_conditions': value.stage_conditions === undefined ? undefined : ((value.stage_conditions as Array<any>).map(V1StageConditionToJSON)),
         'content': value.content,
+        'state': value.state,
         'role': value.role,
     };
 }

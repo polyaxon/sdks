@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **kind** | [**V1ProjectVersionKind**](V1ProjectVersionKind.md) |  | [optional] 
 **stage_conditions** | [**list[V1StageCondition]**](V1StageCondition.md) |  | [optional] 
 **content** | **str** |  | [optional] 
+**state** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
