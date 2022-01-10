@@ -85,6 +85,9 @@ class AgentStateResponseAgentState {
             if (data.hasOwnProperty('apply')) {
                 obj['apply'] = ApiClient.convertToType(data['apply'], Object);
             }
+            if (data.hasOwnProperty('checks')) {
+                obj['checks'] = ApiClient.convertToType(data['checks'], Object);
+            }
             if (data.hasOwnProperty('full')) {
                 obj['full'] = ApiClient.convertToType(data['full'], 'Boolean');
             }
@@ -134,6 +137,11 @@ AgentStateResponseAgentState.prototype['deleting'] = undefined;
  * @member {Object} apply
  */
 AgentStateResponseAgentState.prototype['apply'] = undefined;
+
+/**
+ * @member {Object} checks
+ */
+AgentStateResponseAgentState.prototype['checks'] = undefined;
 
 /**
  * @member {Boolean} full

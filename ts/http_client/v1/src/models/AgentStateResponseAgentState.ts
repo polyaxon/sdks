@@ -83,6 +83,12 @@ export interface AgentStateResponseAgentState {
     apply?: object;
     /**
      * 
+     * @type {object}
+     * @memberof AgentStateResponseAgentState
+     */
+    checks?: object;
+    /**
+     * 
      * @type {boolean}
      * @memberof AgentStateResponseAgentState
      */
@@ -107,6 +113,7 @@ export function AgentStateResponseAgentStateFromJSONTyped(json: any, ignoreDiscr
         'stopping': !exists(json, 'stopping') ? undefined : json['stopping'],
         'deleting': !exists(json, 'deleting') ? undefined : json['deleting'],
         'apply': !exists(json, 'apply') ? undefined : json['apply'],
+        'checks': !exists(json, 'checks') ? undefined : json['checks'],
         'full': !exists(json, 'full') ? undefined : json['full'],
     };
 }
@@ -128,6 +135,7 @@ export function AgentStateResponseAgentStateToJSON(value?: AgentStateResponseAge
         'stopping': value.stopping,
         'deleting': value.deleting,
         'apply': value.apply,
+        'checks': value.checks,
         'full': value.full,
     };
 }

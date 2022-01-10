@@ -61,6 +61,7 @@ class AgentStateResponseAgentState(object):
         'stopping': 'object',
         'deleting': 'object',
         'apply': 'object',
+        'checks': 'object',
         'full': 'bool'
     }
 
@@ -73,10 +74,11 @@ class AgentStateResponseAgentState(object):
         'stopping': 'stopping',
         'deleting': 'deleting',
         'apply': 'apply',
+        'checks': 'checks',
         'full': 'full'
     }
 
-    def __init__(self, schedules=None, hooks=None, watchdogs=None, tuners=None, queued=None, stopping=None, deleting=None, apply=None, full=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, schedules=None, hooks=None, watchdogs=None, tuners=None, queued=None, stopping=None, deleting=None, apply=None, checks=None, full=None, local_vars_configuration=None):  # noqa: E501
         """AgentStateResponseAgentState - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -90,6 +92,7 @@ class AgentStateResponseAgentState(object):
         self._stopping = None
         self._deleting = None
         self._apply = None
+        self._checks = None
         self._full = None
         self.discriminator = None
 
@@ -109,6 +112,8 @@ class AgentStateResponseAgentState(object):
             self.deleting = deleting
         if apply is not None:
             self.apply = apply
+        if checks is not None:
+            self.checks = checks
         if full is not None:
             self.full = full
 
@@ -279,6 +284,27 @@ class AgentStateResponseAgentState(object):
         """
 
         self._apply = apply
+
+    @property
+    def checks(self):
+        """Gets the checks of this AgentStateResponseAgentState.  # noqa: E501
+
+
+        :return: The checks of this AgentStateResponseAgentState.  # noqa: E501
+        :rtype: object
+        """
+        return self._checks
+
+    @checks.setter
+    def checks(self, checks):
+        """Sets the checks of this AgentStateResponseAgentState.
+
+
+        :param checks: The checks of this AgentStateResponseAgentState.  # noqa: E501
+        :type checks: object
+        """
+
+        self._checks = checks
 
     @property
     def full(self):

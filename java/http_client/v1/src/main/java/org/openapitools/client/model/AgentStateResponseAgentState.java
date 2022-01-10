@@ -75,6 +75,10 @@ public class AgentStateResponseAgentState {
   @SerializedName(SERIALIZED_NAME_APPLY)
   private Object apply;
 
+  public static final String SERIALIZED_NAME_CHECKS = "checks";
+  @SerializedName(SERIALIZED_NAME_CHECKS)
+  private Object checks;
+
   public static final String SERIALIZED_NAME_FULL = "full";
   @SerializedName(SERIALIZED_NAME_FULL)
   private Boolean full;
@@ -264,6 +268,29 @@ public class AgentStateResponseAgentState {
   }
 
 
+  public AgentStateResponseAgentState checks(Object checks) {
+    
+    this.checks = checks;
+    return this;
+  }
+
+   /**
+   * Get checks
+   * @return checks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getChecks() {
+    return checks;
+  }
+
+
+  public void setChecks(Object checks) {
+    this.checks = checks;
+  }
+
+
   public AgentStateResponseAgentState full(Boolean full) {
     
     this.full = full;
@@ -304,12 +331,13 @@ public class AgentStateResponseAgentState {
         Objects.equals(this.stopping, agentStateResponseAgentState.stopping) &&
         Objects.equals(this.deleting, agentStateResponseAgentState.deleting) &&
         Objects.equals(this.apply, agentStateResponseAgentState.apply) &&
+        Objects.equals(this.checks, agentStateResponseAgentState.checks) &&
         Objects.equals(this.full, agentStateResponseAgentState.full);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schedules, hooks, watchdogs, tuners, queued, stopping, deleting, apply, full);
+    return Objects.hash(schedules, hooks, watchdogs, tuners, queued, stopping, deleting, apply, checks, full);
   }
 
   @Override
@@ -324,6 +352,7 @@ public class AgentStateResponseAgentState {
     sb.append("    stopping: ").append(toIndentedString(stopping)).append("\n");
     sb.append("    deleting: ").append(toIndentedString(deleting)).append("\n");
     sb.append("    apply: ").append(toIndentedString(apply)).append("\n");
+    sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
     sb.append("    full: ").append(toIndentedString(full)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -194,8 +194,11 @@ message AgentStateResponse {
         // List of apply runs
         google.protobuf.Struct apply = 8;
 
+        // List of run checks
+        google.protobuf.Struct checks = 9;
+
         // A flag to tell the agent that the queues are still full
-        bool full = 9;
+        bool full = 10;
     }
 
     Statuses status = 1;

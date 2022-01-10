@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **stopping** | **object** |  | [optional] 
 **deleting** | **object** |  | [optional] 
 **apply** | **object** |  | [optional] 
+**checks** | **object** |  | [optional] 
 **full** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

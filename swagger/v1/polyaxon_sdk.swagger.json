@@ -16499,6 +16499,10 @@
           "type": "object",
           "title": "List of apply runs"
         },
+        "checks": {
+          "type": "object",
+          "title": "List of run checks"
+        },
         "full": {
           "type": "boolean",
           "title": "A flag to tell the agent that the queues are still full"

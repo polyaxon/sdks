@@ -15681,6 +15681,7 @@ components:
     AgentStateResponseAgentState:
       example:
         deleting: '{}'
+        checks: '{}'
         apply: '{}'
         stopping: '{}'
         schedules: '{}'
@@ -15721,6 +15722,10 @@ components:
         apply:
           properties: {}
           title: List of apply runs
+          type: object
+        checks:
+          properties: {}
+          title: List of run checks
           type: object
         full:
           title: A flag to tell the agent that the queues are still full
@@ -16029,6 +16034,7 @@ components:
         live_state: 0
         state:
           deleting: '{}'
+          checks: '{}'
           apply: '{}'
           stopping: '{}'
           schedules: '{}'

@@ -34,6 +34,9 @@ type AgentStateResponseAgentState struct {
 	// List of apply runs
 	Apply interface{} `json:"apply,omitempty"`
 
+	// List of run checks
+	Checks interface{} `json:"checks,omitempty"`
+
 	// List of deleting runs
 	Deleting interface{} `json:"deleting,omitempty"`
 

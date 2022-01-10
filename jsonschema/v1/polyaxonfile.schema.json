@@ -8,6 +8,10 @@
           "title": "List of apply runs",
           "type": "object"
         },
+        "checks": {
+          "title": "List of run checks",
+          "type": "object"
+        },
         "deleting": {
           "title": "List of deleting runs",
           "type": "object"

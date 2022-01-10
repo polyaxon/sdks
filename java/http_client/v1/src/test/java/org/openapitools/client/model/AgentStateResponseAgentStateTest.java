@@ -119,6 +119,14 @@ public class AgentStateResponseAgentStateTest {
     }
 
     /**
+     * Test the property 'checks'
+     */
+    @Test
+    public void checksTest() {
+        // TODO: test checks
+    }
+
+    /**
      * Test the property 'full'
      */
     @Test

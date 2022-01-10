@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **stopping** | **Object** |  | [optional] 
 **deleting** | **Object** |  | [optional] 
 **apply** | **Object** |  | [optional] 
+**checks** | **Object** |  | [optional] 
 **full** | **Boolean** |  | [optional] 
 
 

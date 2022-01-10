@@ -116,6 +116,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property checks (base name: "checks")', function() {
+      // uncomment below and update the code to test the property checks
+      //var instance = new PolyaxonSdk.AgentStateResponseAgentState();
+      //expect(instance).to.be();
+    });
+
     it('should have the property full (base name: "full")', function() {
       // uncomment below and update the code to test the property full
       //var instance = new PolyaxonSdk.AgentStateResponseAgentState();
