@@ -45,11 +45,18 @@ type V1Service struct {
 	// Optional init connections/containers section
 	Init []*V1Init `json:"init"`
 
+	// Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth
+	// Default is false, the service will be controlled by Polyaxon's auth.
+	IsExternal bool `json:"isExternal,omitempty"`
+
 	// Optional component kind, should be equal to 'service'
 	Kind *string `json:"kind,omitempty"`
 
 	// Optional service section
 	Ports []int32 `json:"ports"`
+
+	// Optional value to provision more than a single replica for the service
+	Replicas int32 `json:"replicas,omitempty"`
 
 	// Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).
 	// Default is false, the service shoud handle a base url.

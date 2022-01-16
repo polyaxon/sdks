@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "1.14.0",
+    "version": "1.14.2",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -22224,6 +22224,15 @@
         "rewritePath": {
           "type": "boolean",
           "description": "Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).\nDefault is false, the service shoud handle a base url."
+        },
+        "isExternal": {
+          "type": "boolean",
+          "description": "Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth\nDefault is false, the service will be controlled by Polyaxon's auth."
+        },
+        "replicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Optional value to provision more than a single replica for the service"
         }
       },
       "title": "Service specification"

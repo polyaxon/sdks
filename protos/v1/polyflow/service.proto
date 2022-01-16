@@ -41,8 +41,8 @@ message Service {
     // Optional init connections/containers section
     repeated Init init = 5;
 
-     // Optional sidecars section
-     repeated Container sidecars = 6;
+    // Optional sidecars section
+    repeated Container sidecars = 6;
 
     // Optional container to notification
     Container container = 7;
@@ -53,4 +53,11 @@ message Service {
     // Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).
     // Default is false, the service shoud handle a base url.
     bool rewritePath = 9;
+
+    // Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth
+    // Default is false, the service will be controlled by Polyaxon's auth.
+    bool isExternal = 10;
+
+    // Optional value to provision more than a single replica for the service
+    int32 replicas = 11;
 }

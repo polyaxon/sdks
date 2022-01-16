@@ -10107,6 +10107,10 @@
           "title": "Optional init connections/containers section",
           "type": "array"
         },
+        "isExternal": {
+          "description": "Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth\nDefault is false, the service will be controlled by Polyaxon's auth.",
+          "type": "boolean"
+        },
         "kind": {
           "default": "service",
           "title": "Optional component kind, should be equal to 'service'",
@@ -10119,6 +10123,11 @@
           },
           "title": "Optional service section",
           "type": "array"
+        },
+        "replicas": {
+          "format": "int32",
+          "title": "Optional value to provision more than a single replica for the service",
+          "type": "integer"
         },
         "rewritePath": {
           "description": "Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).\nDefault is false, the service shoud handle a base url.",

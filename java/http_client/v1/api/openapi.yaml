@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: Polyaxon SDKs and REST API specification.
   title: Polyaxon SDKs and REST API specification.
-  version: 1.14.0
+  version: 1.14.2
 servers:
 - url: /
 security:
@@ -16335,7 +16335,7 @@ components:
           io:
           - io
           - io
-          ttl: 4
+          ttl: 8
           sections:
           - sections
           - sections
@@ -16391,7 +16391,7 @@ components:
         io:
         - io
         - io
-        ttl: 4
+        ttl: 8
         sections:
         - sections
         - sections
@@ -16499,9 +16499,9 @@ components:
         joins:
           key:
             ref: ref
-            offset: 3
+            offset: 4
             query: query
-            limit: 5
+            limit: 3
             sort: sort
             params:
               key:
@@ -16553,10 +16553,10 @@ components:
           logLevel: logLevel
           autoResume: true
           sidecar:
-            sleepInterval: 3
+            sleepInterval: 7
             image: image
             imagePullPolicy: imagePullPolicy
-            syncInterval: 7
+            syncInterval: 5
             resources: '{}'
             monitorLogs: true
             imageTag: imageTag
@@ -16677,21 +16677,21 @@ components:
           - null
           - null
         termination:
-          maxRetries: 8
-          ttl: 7
+          maxRetries: 7
+          ttl: 3
           timeout: 3
         cache:
           disable: true
           io:
           - io
           - io
-          ttl: 4
+          ttl: 8
           sections:
           - sections
           - sections
-        cost: 4.863159
+        cost: 6.0738983
         kind: kind
-        version: 5.507387
+        version: 4.863159
         tags:
         - tags
         - tags
@@ -16709,7 +16709,7 @@ components:
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
@@ -16836,8 +16836,8 @@ components:
     v1Component:
       example:
         termination:
-          maxRetries: 8
-          ttl: 7
+          maxRetries: 7
+          ttl: 3
           timeout: 3
         outputs:
         - delayValidation: true
@@ -16881,11 +16881,11 @@ components:
           io:
           - io
           - io
-          ttl: 4
+          ttl: 8
           sections:
           - sections
           - sections
-        cost: 6.628464
+        cost: 4.2587733
         kind: kind
         plugins:
           mountArtifactsStore: true
@@ -16899,10 +16899,10 @@ components:
           logLevel: logLevel
           autoResume: true
           sidecar:
-            sleepInterval: 3
+            sleepInterval: 7
             image: image
             imagePullPolicy: imagePullPolicy
-            syncInterval: 7
+            syncInterval: 5
             resources: '{}'
             monitorLogs: true
             imageTag: imageTag
@@ -16947,7 +16947,7 @@ components:
           value: '{}'
         description: description
         run: '{}'
-        version: 0.20253241
+        version: 6.628464
         tags:
         - tags
         - tags
@@ -16960,7 +16960,7 @@ components:
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
@@ -17216,7 +17216,7 @@ components:
         schema: '{}'
         configMap:
           mountPath: mountPath
-          defaultMode: 3
+          defaultMode: 0
           name: name
           items:
           - items
@@ -17225,7 +17225,7 @@ components:
         description: description
         secret:
           mountPath: mountPath
-          defaultMode: 3
+          defaultMode: 0
           name: name
           items:
           - items
@@ -17269,7 +17269,7 @@ components:
       example:
         cron: cron
         dependsOnPast: true
-        maxRuns: 6
+        maxRuns: 8
         kind: cron
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
@@ -17302,8 +17302,8 @@ components:
       example:
         components:
         - termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           outputs:
           - delayValidation: true
@@ -17347,11 +17347,11 @@ components:
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 6.628464
+          cost: 4.2587733
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -17365,10 +17365,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -17413,7 +17413,7 @@ components:
             value: '{}'
           description: description
           run: '{}'
-          version: 0.20253241
+          version: 6.628464
           tags:
           - tags
           - tags
@@ -17426,7 +17426,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -17482,8 +17482,8 @@ components:
             queue: queue
           queue: queue
         - termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           outputs:
           - delayValidation: true
@@ -17527,11 +17527,11 @@ components:
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 6.628464
+          cost: 4.2587733
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -17545,10 +17545,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -17593,7 +17593,7 @@ components:
             value: '{}'
           description: description
           run: '{}'
-          version: 0.20253241
+          version: 6.628464
           tags:
           - tags
           - tags
@@ -17606,7 +17606,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -17693,9 +17693,9 @@ components:
         - joins:
             key:
               ref: ref
-              offset: 3
+              offset: 4
               query: query
-              limit: 5
+              limit: 3
               sort: sort
               params:
                 key:
@@ -17723,10 +17723,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -17785,19 +17785,19 @@ components:
             - null
             - null
           termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           cache:
             disable: true
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 4.078846
+          cost: 0.20253241
           kind: kind
           isPreset: true
           params:
@@ -17808,7 +17808,7 @@ components:
               connection: connection
               toInit: true
               value: '{}'
-          version: 0.10263654
+          version: 4.652396
           tags:
           - tags
           - tags
@@ -17818,8 +17818,8 @@ components:
           schedule: '{}'
           component:
             termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             outputs:
             - delayValidation: true
@@ -17863,11 +17863,11 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 4.2587733
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -17881,10 +17881,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -17929,7 +17929,7 @@ components:
               value: '{}'
             description: description
             run: '{}'
-            version: 0.20253241
+            version: 6.628464
             tags:
             - tags
             - tags
@@ -17942,7 +17942,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -18008,7 +18008,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -18035,9 +18035,9 @@ components:
         - joins:
             key:
               ref: ref
-              offset: 3
+              offset: 4
               query: query
-              limit: 5
+              limit: 3
               sort: sort
               params:
                 key:
@@ -18065,10 +18065,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -18127,19 +18127,19 @@ components:
             - null
             - null
           termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           cache:
             disable: true
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 4.078846
+          cost: 0.20253241
           kind: kind
           isPreset: true
           params:
@@ -18150,7 +18150,7 @@ components:
               connection: connection
               toInit: true
               value: '{}'
-          version: 0.10263654
+          version: 4.652396
           tags:
           - tags
           - tags
@@ -18160,8 +18160,8 @@ components:
           schedule: '{}'
           component:
             termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             outputs:
             - delayValidation: true
@@ -18205,11 +18205,11 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 4.2587733
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -18223,10 +18223,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -18271,7 +18271,7 @@ components:
               value: '{}'
             description: description
             run: '{}'
-            version: 0.20253241
+            version: 6.628464
             tags:
             - tags
             - tags
@@ -18284,7 +18284,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -18350,7 +18350,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -18384,7 +18384,7 @@ components:
         connections:
         - connections
         - connections
-        concurrency: 4
+        concurrency: 1
       properties:
         kind:
           default: dag
@@ -18664,15 +18664,15 @@ components:
           schedulerName: schedulerName
           affinity: '{}'
           hostPID: hostPID
-        adaptMax: 0
+        adaptMax: 7
         kind: dask
-        adaptMin: 9
+        adaptMin: 0
         adaptInterval: adaptInterval
         volumes:
         - null
         - null
-        threads: 9
-        scale: 0
+        threads: 0
+        scale: 9
         connections:
         - connections
         - connections
@@ -19124,44 +19124,44 @@ components:
       example:
         image:
           path: path
-          colorspace: 6
-          width: 8
-          height: 1
+          colorspace: 4
+          width: 6
+          height: 8
         curve:
           annotation: annotation
           x:
-          - 5.299144
-          - 5.299144
+          - 5.3124895
+          - 5.3124895
           y:
-          - 5.3124895
-          - 5.3124895
+          - 8.378238
+          - 8.378238
         video:
           path: path
           content_type: content_type
-          colorspace: 0
-          width: 8
-          height: 9
+          colorspace: 5
+          width: 0
+          height: 8
         histogram:
           counts:
-          - 8.863729185622827
-          - 8.863729185622827
+          - 9.254183946267839
+          - 9.254183946267839
           values:
-          - 4.573936264232251
-          - 4.573936264232251
+          - 8.863729185622827
+          - 8.863729185622827
         artifact:
           path: path
-        metric: 2.9409642
-        step: 0
+        metric: 1.7325933
+        step: 2
         html: html
         model:
           path: path
           framework: framework
           spec: '{}'
         audio:
-          num_channels: 1
+          num_channels: 3
           path: path
-          length_frames: 3
-          sample_rate: 9.254184
+          length_frames: 9
+          sample_rate: 1.8268702
           content_type: content_type
         text: text
         dataframe:
@@ -19231,10 +19231,10 @@ components:
       type: object
     v1EventAudio:
       example:
-        num_channels: 1
+        num_channels: 3
         path: path
-        length_frames: 3
-        sample_rate: 9.254184
+        length_frames: 9
+        sample_rate: 1.8268702
         content_type: content_type
       properties:
         sample_rate:
@@ -19317,11 +19317,11 @@ components:
       example:
         annotation: annotation
         x:
-        - 5.299144
-        - 5.299144
+        - 5.3124895
+        - 5.3124895
         y:
-        - 5.3124895
-        - 5.3124895
+        - 8.378238
+        - 8.378238
       properties:
         kind:
           $ref: '#/components/schemas/v1EventCurveKind'
@@ -19370,11 +19370,11 @@ components:
     v1EventHistogram:
       example:
         counts:
-        - 8.863729185622827
-        - 8.863729185622827
+        - 9.254183946267839
+        - 9.254183946267839
         values:
-        - 4.573936264232251
-        - 4.573936264232251
+        - 8.863729185622827
+        - 8.863729185622827
       properties:
         values:
           items:
@@ -19391,9 +19391,9 @@ components:
     v1EventImage:
       example:
         path: path
-        colorspace: 6
-        width: 8
-        height: 1
+        colorspace: 4
+        width: 6
+        height: 8
       properties:
         height:
           description: Height of the image.
@@ -19505,9 +19505,9 @@ components:
       example:
         path: path
         content_type: content_type
-        colorspace: 0
-        width: 8
-        height: 9
+        colorspace: 5
+        width: 0
+        height: 8
       properties:
         height:
           description: Height of the video.
@@ -20461,11 +20461,11 @@ components:
     v1IntervalSchedule:
       example:
         dependsOnPast: true
-        maxRuns: 8
+        maxRuns: 4
         kind: interval
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
-        frequency: 4
+        frequency: 3
       properties:
         kind:
           default: interval
@@ -20725,9 +20725,9 @@ components:
     v1Join:
       example:
         ref: ref
-        offset: 3
+        offset: 4
         query: query
-        limit: 5
+        limit: 3
         sort: sort
         params:
           key:
@@ -20793,7 +20793,7 @@ components:
     v1K8sResourceSchema:
       example:
         mountPath: mountPath
-        defaultMode: 3
+        defaultMode: 0
         name: name
         items:
         - items
@@ -20816,7 +20816,7 @@ components:
       example:
         schema:
           mountPath: mountPath
-          defaultMode: 3
+          defaultMode: 0
           name: name
           items:
           - items
@@ -20965,7 +20965,7 @@ components:
           schedulerName: schedulerName
           affinity: '{}'
           hostPID: hostPID
-        replicas: 4
+        replicas: 7
         volumes:
         - null
         - null
@@ -22709,7 +22709,7 @@ components:
       type: object
     v1MPIJob:
       example:
-        slotsPerWorker: 7
+        slotsPerWorker: 9
         sshAuthMountPath: sshAuthMountPath
         kind: mpi_job
         worker:
@@ -22842,7 +22842,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -22850,7 +22850,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 1
+          minAvailable: 4
           priorityClass: priorityClass
           queue: queue
         launcher:
@@ -22983,7 +22983,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23146,7 +23146,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23283,7 +23283,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23420,7 +23420,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23557,7 +23557,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23694,7 +23694,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23832,7 +23832,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -23840,7 +23840,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 1
+          minAvailable: 4
           priorityClass: priorityClass
           queue: queue
       properties:
@@ -24148,9 +24148,9 @@ components:
         joins:
           key:
             ref: ref
-            offset: 3
+            offset: 4
             query: query
-            limit: 5
+            limit: 3
             sort: sort
             params:
               key:
@@ -24178,10 +24178,10 @@ components:
           logLevel: logLevel
           autoResume: true
           sidecar:
-            sleepInterval: 3
+            sleepInterval: 7
             image: image
             imagePullPolicy: imagePullPolicy
-            syncInterval: 7
+            syncInterval: 5
             resources: '{}'
             monitorLogs: true
             imageTag: imageTag
@@ -24240,19 +24240,19 @@ components:
           - null
           - null
         termination:
-          maxRetries: 8
-          ttl: 7
+          maxRetries: 7
+          ttl: 3
           timeout: 3
         cache:
           disable: true
           io:
           - io
           - io
-          ttl: 4
+          ttl: 8
           sections:
           - sections
           - sections
-        cost: 4.078846
+        cost: 0.20253241
         kind: kind
         isPreset: true
         params:
@@ -24263,7 +24263,7 @@ components:
             connection: connection
             toInit: true
             value: '{}'
-        version: 0.10263654
+        version: 4.652396
         tags:
         - tags
         - tags
@@ -24273,8 +24273,8 @@ components:
         schedule: '{}'
         component:
           termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           outputs:
           - delayValidation: true
@@ -24318,11 +24318,11 @@ components:
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 6.628464
+          cost: 4.2587733
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -24336,10 +24336,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -24384,7 +24384,7 @@ components:
             value: '{}'
           description: description
           run: '{}'
-          version: 0.20253241
+          version: 6.628464
           tags:
           - tags
           - tags
@@ -24397,7 +24397,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -24463,7 +24463,7 @@ components:
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
@@ -24882,10 +24882,10 @@ components:
         logLevel: logLevel
         autoResume: true
         sidecar:
-          sleepInterval: 3
+          sleepInterval: 7
           image: image
           imagePullPolicy: imagePullPolicy
-          syncInterval: 7
+          syncInterval: 5
           resources: '{}'
           monitorLogs: true
           imageTag: imageTag
@@ -24971,10 +24971,10 @@ components:
       type: object
     v1PolyaxonSidecarContainer:
       example:
-        sleepInterval: 3
+        sleepInterval: 7
         image: image
         imagePullPolicy: imagePullPolicy
-        syncInterval: 7
+        syncInterval: 5
         resources: '{}'
         monitorLogs: true
         imageTag: imageTag
@@ -25478,7 +25478,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -25486,7 +25486,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 1
+          minAvailable: 4
           priorityClass: priorityClass
           queue: queue
         master:
@@ -25619,7 +25619,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -26468,7 +26468,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -26605,7 +26605,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -26742,7 +26742,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -26879,7 +26879,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -27016,7 +27016,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -27154,7 +27154,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -27162,7 +27162,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 1
+            minAvailable: 4
             priorityClass: priorityClass
             queue: queue
         spark:
@@ -27309,7 +27309,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 7
+            replicas: 5
           executor:
             container: '{}'
             init:
@@ -27440,7 +27440,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 7
+            replicas: 5
           arguments:
           - arguments
           - arguments
@@ -27578,7 +27578,9 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
+          isExternal: true
           kind: service
+          replicas: 0
           volumes:
           - null
           - null
@@ -27723,7 +27725,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -27861,7 +27863,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -27998,7 +28000,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -28006,7 +28008,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 1
+            minAvailable: 4
             priorityClass: priorityClass
             queue: queue
           evaluator:
@@ -28139,7 +28141,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -28278,7 +28280,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -28286,7 +28288,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 1
+            minAvailable: 4
             priorityClass: priorityClass
             queue: queue
           master:
@@ -28419,7 +28421,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -28429,8 +28431,8 @@ components:
         dag:
           components:
           - termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             outputs:
             - delayValidation: true
@@ -28474,11 +28476,11 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 4.2587733
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -28492,10 +28494,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -28540,7 +28542,7 @@ components:
               value: '{}'
             description: description
             run: '{}'
-            version: 0.20253241
+            version: 6.628464
             tags:
             - tags
             - tags
@@ -28553,7 +28555,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -28609,8 +28611,8 @@ components:
               queue: queue
             queue: queue
           - termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             outputs:
             - delayValidation: true
@@ -28654,11 +28656,11 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 4.2587733
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -28672,10 +28674,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -28720,7 +28722,7 @@ components:
               value: '{}'
             description: description
             run: '{}'
-            version: 0.20253241
+            version: 6.628464
             tags:
             - tags
             - tags
@@ -28733,7 +28735,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -28820,9 +28822,9 @@ components:
           - joins:
               key:
                 ref: ref
-                offset: 3
+                offset: 4
                 query: query
-                limit: 5
+                limit: 3
                 sort: sort
                 params:
                   key:
@@ -28850,10 +28852,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -28912,19 +28914,19 @@ components:
               - null
               - null
             termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             cache:
               disable: true
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 4.078846
+            cost: 0.20253241
             kind: kind
             isPreset: true
             params:
@@ -28935,7 +28937,7 @@ components:
                 connection: connection
                 toInit: true
                 value: '{}'
-            version: 0.10263654
+            version: 4.652396
             tags:
             - tags
             - tags
@@ -28945,8 +28947,8 @@ components:
             schedule: '{}'
             component:
               termination:
-                maxRetries: 8
-                ttl: 7
+                maxRetries: 7
+                ttl: 3
                 timeout: 3
               outputs:
               - delayValidation: true
@@ -28990,11 +28992,11 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
-              cost: 6.628464
+              cost: 4.2587733
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -29008,10 +29010,10 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 3
+                  sleepInterval: 7
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 7
+                  syncInterval: 5
                   resources: '{}'
                   monitorLogs: true
                   imageTag: imageTag
@@ -29056,7 +29058,7 @@ components:
                 value: '{}'
               description: description
               run: '{}'
-              version: 0.20253241
+              version: 6.628464
               tags:
               - tags
               - tags
@@ -29069,7 +29071,7 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
@@ -29135,7 +29137,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -29162,9 +29164,9 @@ components:
           - joins:
               key:
                 ref: ref
-                offset: 3
+                offset: 4
                 query: query
-                limit: 5
+                limit: 3
                 sort: sort
                 params:
                   key:
@@ -29192,10 +29194,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -29254,19 +29256,19 @@ components:
               - null
               - null
             termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             cache:
               disable: true
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 4.078846
+            cost: 0.20253241
             kind: kind
             isPreset: true
             params:
@@ -29277,7 +29279,7 @@ components:
                 connection: connection
                 toInit: true
                 value: '{}'
-            version: 0.10263654
+            version: 4.652396
             tags:
             - tags
             - tags
@@ -29287,8 +29289,8 @@ components:
             schedule: '{}'
             component:
               termination:
-                maxRetries: 8
-                ttl: 7
+                maxRetries: 7
+                ttl: 3
                 timeout: 3
               outputs:
               - delayValidation: true
@@ -29332,11 +29334,11 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
-              cost: 6.628464
+              cost: 4.2587733
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -29350,10 +29352,10 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 3
+                  sleepInterval: 7
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 7
+                  syncInterval: 5
                   resources: '{}'
                   monitorLogs: true
                   imageTag: imageTag
@@ -29398,7 +29400,7 @@ components:
                 value: '{}'
               description: description
               run: '{}'
-              version: 0.20253241
+              version: 6.628464
               tags:
               - tags
               - tags
@@ -29411,7 +29413,7 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
@@ -29477,7 +29479,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -29511,7 +29513,7 @@ components:
           connections:
           - connections
           - connections
-          concurrency: 4
+          concurrency: 1
         pytorchJob:
           kind: pytorch_job
           worker:
@@ -29644,7 +29646,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -29652,7 +29654,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 1
+            minAvailable: 4
             priorityClass: priorityClass
             queue: queue
           master:
@@ -29785,7 +29787,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -29922,15 +29924,15 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          adaptMax: 0
+          adaptMax: 7
           kind: dask
-          adaptMin: 9
+          adaptMin: 0
           adaptInterval: adaptInterval
           volumes:
           - null
           - null
-          threads: 9
-          scale: 0
+          threads: 0
+          scale: 9
           connections:
           - connections
           - connections
@@ -30072,7 +30074,7 @@ components:
           - connections
           - connections
         mpiJob:
-          slotsPerWorker: 7
+          slotsPerWorker: 9
           sshAuthMountPath: sshAuthMountPath
           kind: mpi_job
           worker:
@@ -30205,7 +30207,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -30213,7 +30215,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 1
+            minAvailable: 4
             priorityClass: priorityClass
             queue: queue
           launcher:
@@ -30346,7 +30348,7 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            replicas: 4
+            replicas: 7
             volumes:
             - null
             - null
@@ -30460,7 +30462,7 @@ components:
         cron:
           cron: cron
           dependsOnPast: true
-          maxRuns: 6
+          maxRuns: 8
           kind: cron
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
@@ -30469,11 +30471,11 @@ components:
           startAt: 2000-01-23T04:56:07.000+00:00
         interval:
           dependsOnPast: true
-          maxRuns: 8
+          maxRuns: 4
           kind: interval
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
-          frequency: 4
+          frequency: 3
       properties:
         cron:
           $ref: '#/components/schemas/v1CronSchedule'
@@ -30492,7 +30494,7 @@ components:
       type: string
     v1SchedulingPolicy:
       example:
-        minAvailable: 1
+        minAvailable: 4
         priorityClass: priorityClass
         queue: queue
       properties:
@@ -30669,7 +30671,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -30806,7 +30808,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -30943,7 +30945,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -31080,7 +31082,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -31217,7 +31219,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -31355,7 +31357,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -31363,7 +31365,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 1
+              minAvailable: 4
               priorityClass: priorityClass
               queue: queue
           spark:
@@ -31510,7 +31512,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 7
+              replicas: 5
             executor:
               container: '{}'
               init:
@@ -31641,7 +31643,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 7
+              replicas: 5
             arguments:
             - arguments
             - arguments
@@ -31779,7 +31781,9 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
+            isExternal: true
             kind: service
+            replicas: 0
             volumes:
             - null
             - null
@@ -31924,7 +31928,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -32062,7 +32066,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -32199,7 +32203,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -32207,7 +32211,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 1
+              minAvailable: 4
               priorityClass: priorityClass
               queue: queue
             evaluator:
@@ -32340,7 +32344,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -32479,7 +32483,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -32487,7 +32491,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 1
+              minAvailable: 4
               priorityClass: priorityClass
               queue: queue
             master:
@@ -32620,7 +32624,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -32630,8 +32634,8 @@ components:
           dag:
             components:
             - termination:
-                maxRetries: 8
-                ttl: 7
+                maxRetries: 7
+                ttl: 3
                 timeout: 3
               outputs:
               - delayValidation: true
@@ -32675,11 +32679,11 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
-              cost: 6.628464
+              cost: 4.2587733
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -32693,10 +32697,10 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 3
+                  sleepInterval: 7
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 7
+                  syncInterval: 5
                   resources: '{}'
                   monitorLogs: true
                   imageTag: imageTag
@@ -32741,7 +32745,7 @@ components:
                 value: '{}'
               description: description
               run: '{}'
-              version: 0.20253241
+              version: 6.628464
               tags:
               - tags
               - tags
@@ -32754,7 +32758,7 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
@@ -32810,8 +32814,8 @@ components:
                 queue: queue
               queue: queue
             - termination:
-                maxRetries: 8
-                ttl: 7
+                maxRetries: 7
+                ttl: 3
                 timeout: 3
               outputs:
               - delayValidation: true
@@ -32855,11 +32859,11 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
-              cost: 6.628464
+              cost: 4.2587733
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -32873,10 +32877,10 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 3
+                  sleepInterval: 7
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 7
+                  syncInterval: 5
                   resources: '{}'
                   monitorLogs: true
                   imageTag: imageTag
@@ -32921,7 +32925,7 @@ components:
                 value: '{}'
               description: description
               run: '{}'
-              version: 0.20253241
+              version: 6.628464
               tags:
               - tags
               - tags
@@ -32934,7 +32938,7 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
@@ -33021,9 +33025,9 @@ components:
             - joins:
                 key:
                   ref: ref
-                  offset: 3
+                  offset: 4
                   query: query
-                  limit: 5
+                  limit: 3
                   sort: sort
                   params:
                     key:
@@ -33051,10 +33055,10 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 3
+                  sleepInterval: 7
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 7
+                  syncInterval: 5
                   resources: '{}'
                   monitorLogs: true
                   imageTag: imageTag
@@ -33113,19 +33117,19 @@ components:
                 - null
                 - null
               termination:
-                maxRetries: 8
-                ttl: 7
+                maxRetries: 7
+                ttl: 3
                 timeout: 3
               cache:
                 disable: true
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
-              cost: 4.078846
+              cost: 0.20253241
               kind: kind
               isPreset: true
               params:
@@ -33136,7 +33140,7 @@ components:
                   connection: connection
                   toInit: true
                   value: '{}'
-              version: 0.10263654
+              version: 4.652396
               tags:
               - tags
               - tags
@@ -33146,8 +33150,8 @@ components:
               schedule: '{}'
               component:
                 termination:
-                  maxRetries: 8
-                  ttl: 7
+                  maxRetries: 7
+                  ttl: 3
                   timeout: 3
                 outputs:
                 - delayValidation: true
@@ -33191,11 +33195,11 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
-                cost: 6.628464
+                cost: 4.2587733
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -33209,10 +33213,10 @@ components:
                   logLevel: logLevel
                   autoResume: true
                   sidecar:
-                    sleepInterval: 3
+                    sleepInterval: 7
                     image: image
                     imagePullPolicy: imagePullPolicy
-                    syncInterval: 7
+                    syncInterval: 5
                     resources: '{}'
                     monitorLogs: true
                     imageTag: imageTag
@@ -33257,7 +33261,7 @@ components:
                   value: '{}'
                 description: description
                 run: '{}'
-                version: 0.20253241
+                version: 6.628464
                 tags:
                 - tags
                 - tags
@@ -33270,7 +33274,7 @@ components:
                     io:
                     - io
                     - io
-                    ttl: 4
+                    ttl: 8
                     sections:
                     - sections
                     - sections
@@ -33336,7 +33340,7 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
@@ -33363,9 +33367,9 @@ components:
             - joins:
                 key:
                   ref: ref
-                  offset: 3
+                  offset: 4
                   query: query
-                  limit: 5
+                  limit: 3
                   sort: sort
                   params:
                     key:
@@ -33393,10 +33397,10 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 3
+                  sleepInterval: 7
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 7
+                  syncInterval: 5
                   resources: '{}'
                   monitorLogs: true
                   imageTag: imageTag
@@ -33455,19 +33459,19 @@ components:
                 - null
                 - null
               termination:
-                maxRetries: 8
-                ttl: 7
+                maxRetries: 7
+                ttl: 3
                 timeout: 3
               cache:
                 disable: true
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
-              cost: 4.078846
+              cost: 0.20253241
               kind: kind
               isPreset: true
               params:
@@ -33478,7 +33482,7 @@ components:
                   connection: connection
                   toInit: true
                   value: '{}'
-              version: 0.10263654
+              version: 4.652396
               tags:
               - tags
               - tags
@@ -33488,8 +33492,8 @@ components:
               schedule: '{}'
               component:
                 termination:
-                  maxRetries: 8
-                  ttl: 7
+                  maxRetries: 7
+                  ttl: 3
                   timeout: 3
                 outputs:
                 - delayValidation: true
@@ -33533,11 +33537,11 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
-                cost: 6.628464
+                cost: 4.2587733
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -33551,10 +33555,10 @@ components:
                   logLevel: logLevel
                   autoResume: true
                   sidecar:
-                    sleepInterval: 3
+                    sleepInterval: 7
                     image: image
                     imagePullPolicy: imagePullPolicy
-                    syncInterval: 7
+                    syncInterval: 5
                     resources: '{}'
                     monitorLogs: true
                     imageTag: imageTag
@@ -33599,7 +33603,7 @@ components:
                   value: '{}'
                 description: description
                 run: '{}'
-                version: 0.20253241
+                version: 6.628464
                 tags:
                 - tags
                 - tags
@@ -33612,7 +33616,7 @@ components:
                     io:
                     - io
                     - io
-                    ttl: 4
+                    ttl: 8
                     sections:
                     - sections
                     - sections
@@ -33678,7 +33682,7 @@ components:
                   io:
                   - io
                   - io
-                  ttl: 4
+                  ttl: 8
                   sections:
                   - sections
                   - sections
@@ -33712,7 +33716,7 @@ components:
             connections:
             - connections
             - connections
-            concurrency: 4
+            concurrency: 1
           pytorchJob:
             kind: pytorch_job
             worker:
@@ -33845,7 +33849,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -33853,7 +33857,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 1
+              minAvailable: 4
               priorityClass: priorityClass
               queue: queue
             master:
@@ -33986,7 +33990,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -34123,15 +34127,15 @@ components:
               schedulerName: schedulerName
               affinity: '{}'
               hostPID: hostPID
-            adaptMax: 0
+            adaptMax: 7
             kind: dask
-            adaptMin: 9
+            adaptMin: 0
             adaptInterval: adaptInterval
             volumes:
             - null
             - null
-            threads: 9
-            scale: 0
+            threads: 0
+            scale: 9
             connections:
             - connections
             - connections
@@ -34273,7 +34277,7 @@ components:
             - connections
             - connections
           mpiJob:
-            slotsPerWorker: 7
+            slotsPerWorker: 9
             sshAuthMountPath: sshAuthMountPath
             kind: mpi_job
             worker:
@@ -34406,7 +34410,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -34414,7 +34418,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 1
+              minAvailable: 4
               priorityClass: priorityClass
               queue: queue
             launcher:
@@ -34547,7 +34551,7 @@ components:
                 schedulerName: schedulerName
                 affinity: '{}'
                 hostPID: hostPID
-              replicas: 4
+              replicas: 7
               volumes:
               - null
               - null
@@ -34774,7 +34778,7 @@ components:
           cron:
             cron: cron
             dependsOnPast: true
-            maxRuns: 6
+            maxRuns: 8
             kind: cron
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
@@ -34783,16 +34787,16 @@ components:
             startAt: 2000-01-23T04:56:07.000+00:00
           interval:
             dependsOnPast: true
-            maxRuns: 8
+            maxRuns: 4
             kind: interval
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
-            frequency: 4
+            frequency: 3
         polyaxonSidecarContainer:
-          sleepInterval: 3
+          sleepInterval: 7
           image: image
           imagePullPolicy: imagePullPolicy
-          syncInterval: 7
+          syncInterval: 5
           resources: '{}'
           monitorLogs: true
           imageTag: imageTag
@@ -34811,7 +34815,7 @@ components:
           schema: '{}'
           configMap:
             mountPath: mountPath
-            defaultMode: 3
+            defaultMode: 0
             name: name
             items:
             - items
@@ -34820,7 +34824,7 @@ components:
           description: description
           secret:
             mountPath: mountPath
-            defaultMode: 3
+            defaultMode: 0
             name: name
             items:
             - items
@@ -34834,44 +34838,44 @@ components:
         event:
           image:
             path: path
-            colorspace: 6
-            width: 8
-            height: 1
+            colorspace: 4
+            width: 6
+            height: 8
           curve:
             annotation: annotation
             x:
-            - 5.299144
-            - 5.299144
+            - 5.3124895
+            - 5.3124895
             y:
-            - 5.3124895
-            - 5.3124895
+            - 8.378238
+            - 8.378238
           video:
             path: path
             content_type: content_type
-            colorspace: 0
-            width: 8
-            height: 9
+            colorspace: 5
+            width: 0
+            height: 8
           histogram:
             counts:
-            - 8.863729185622827
-            - 8.863729185622827
+            - 9.254183946267839
+            - 9.254183946267839
             values:
-            - 4.573936264232251
-            - 4.573936264232251
+            - 8.863729185622827
+            - 8.863729185622827
           artifact:
             path: path
-          metric: 2.9409642
-          step: 0
+          metric: 1.7325933
+          step: 2
           html: html
           model:
             path: path
             framework: framework
             spec: '{}'
           audio:
-            num_channels: 1
+            num_channels: 3
             path: path
-            length_frames: 3
-            sample_rate: 9.254184
+            length_frames: 9
+            sample_rate: 1.8268702
             content_type: content_type
           text: text
           dataframe:
@@ -34921,9 +34925,9 @@ components:
           joins:
             key:
               ref: ref
-              offset: 3
+              offset: 4
               query: query
-              limit: 5
+              limit: 3
               sort: sort
               params:
                 key:
@@ -34951,10 +34955,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -35013,19 +35017,19 @@ components:
             - null
             - null
           termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           cache:
             disable: true
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 4.078846
+          cost: 0.20253241
           kind: kind
           isPreset: true
           params:
@@ -35036,7 +35040,7 @@ components:
               connection: connection
               toInit: true
               value: '{}'
-          version: 0.10263654
+          version: 4.652396
           tags:
           - tags
           - tags
@@ -35046,8 +35050,8 @@ components:
           schedule: '{}'
           component:
             termination:
-              maxRetries: 8
-              ttl: 7
+              maxRetries: 7
+              ttl: 3
               timeout: 3
             outputs:
             - delayValidation: true
@@ -35091,11 +35095,11 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 4.2587733
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -35109,10 +35113,10 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 3
+                sleepInterval: 7
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 7
+                syncInterval: 5
                 resources: '{}'
                 monitorLogs: true
                 imageTag: imageTag
@@ -35157,7 +35161,7 @@ components:
               value: '{}'
             description: description
             run: '{}'
-            version: 0.20253241
+            version: 6.628464
             tags:
             - tags
             - tags
@@ -35170,7 +35174,7 @@ components:
                 io:
                 - io
                 - io
-                ttl: 4
+                ttl: 8
                 sections:
                 - sections
                 - sections
@@ -35236,7 +35240,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -35264,9 +35268,9 @@ components:
           joins:
             key:
               ref: ref
-              offset: 3
+              offset: 4
               query: query
-              limit: 5
+              limit: 3
               sort: sort
               params:
                 key:
@@ -35318,10 +35322,10 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 3
+              sleepInterval: 7
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 7
+              syncInterval: 5
               resources: '{}'
               monitorLogs: true
               imageTag: imageTag
@@ -35442,21 +35446,21 @@ components:
             - null
             - null
           termination:
-            maxRetries: 8
-            ttl: 7
+            maxRetries: 7
+            ttl: 3
             timeout: 3
           cache:
             disable: true
             io:
             - io
             - io
-            ttl: 4
+            ttl: 8
             sections:
             - sections
             - sections
-          cost: 4.863159
+          cost: 6.0738983
           kind: kind
-          version: 5.507387
+          version: 4.863159
           tags:
           - tags
           - tags
@@ -35474,7 +35478,7 @@ components:
               io:
               - io
               - io
-              ttl: 4
+              ttl: 8
               sections:
               - sections
               - sections
@@ -35499,7 +35503,7 @@ components:
         k8sResource:
           schema:
             mountPath: mountPath
-            defaultMode: 3
+            defaultMode: 0
             name: name
             items:
             - items
@@ -35901,7 +35905,9 @@ components:
           schedulerName: schedulerName
           affinity: '{}'
           hostPID: hostPID
+        isExternal: true
         kind: service
+        replicas: 0
         volumes:
         - null
         - null
@@ -35953,6 +35959,15 @@ components:
             Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).
             Default is false, the service shoud handle a base url.
           type: boolean
+        isExternal:
+          description: |-
+            Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth
+            Default is false, the service will be controlled by Polyaxon's auth.
+          type: boolean
+        replicas:
+          format: int32
+          title: Optional value to provision more than a single replica for the service
+          type: integer
       title: Service specification
       type: object
     v1ServiceAccount:
@@ -36169,7 +36184,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 7
+          replicas: 5
         executor:
           container: '{}'
           init:
@@ -36300,7 +36315,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 7
+          replicas: 5
         arguments:
         - arguments
         - arguments
@@ -36510,7 +36525,7 @@ components:
           schedulerName: schedulerName
           affinity: '{}'
           hostPID: hostPID
-        replicas: 7
+        replicas: 5
       properties:
         replicas:
           format: int32
@@ -36817,7 +36832,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -36955,7 +36970,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -37092,7 +37107,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -37100,7 +37115,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 1
+          minAvailable: 4
           priorityClass: priorityClass
           queue: queue
         evaluator:
@@ -37233,7 +37248,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -37444,8 +37459,8 @@ components:
       description: Termination specification, it defines how to handle failures, job
         runtime, and cleanup policy.
       example:
-        maxRetries: 8
-        ttl: 7
+        maxRetries: 7
+        ttl: 3
         timeout: 3
       properties:
         maxRetries:
@@ -37889,7 +37904,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null
@@ -37897,7 +37912,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 1
+          minAvailable: 4
           priorityClass: priorityClass
           queue: queue
         master:
@@ -38030,7 +38045,7 @@ components:
             schedulerName: schedulerName
             affinity: '{}'
             hostPID: hostPID
-          replicas: 4
+          replicas: 7
           volumes:
           - null
           - null

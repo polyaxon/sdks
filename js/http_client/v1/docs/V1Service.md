@@ -13,5 +13,7 @@ Name | Type | Description | Notes
 **container** | **Object** |  | [optional] 
 **ports** | **[Number]** |  | [optional] 
 **rewritePath** | **Boolean** | Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/). Default is false, the service shoud handle a base url. | [optional] 
+**isExternal** | **Boolean** | Optional flag to signal to Polyaxon that this service should not go through Polyaxon&#39;s auth Default is false, the service will be controlled by Polyaxon&#39;s auth. | [optional] 
+**replicas** | **Number** |  | [optional] 
 
 
