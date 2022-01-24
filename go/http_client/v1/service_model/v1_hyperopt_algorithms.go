@@ -38,8 +38,12 @@ import (
 type V1HyperoptAlgorithms string
 
 func NewV1HyperoptAlgorithms(value V1HyperoptAlgorithms) *V1HyperoptAlgorithms {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1HyperoptAlgorithms.
+func (m V1HyperoptAlgorithms) Pointer() *V1HyperoptAlgorithms {
+	return &m
 }
 
 const (

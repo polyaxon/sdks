@@ -37,8 +37,12 @@ import (
 type V1RunKind string
 
 func NewV1RunKind(value V1RunKind) *V1RunKind {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1RunKind.
+func (m V1RunKind) Pointer() *V1RunKind {
+	return &m
 }
 
 const (

@@ -311,6 +311,11 @@ func (m *V1Operation) validateJoins(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Joins[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("joins" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("joins" + "." + k)
+				}
 				return err
 			}
 		}
@@ -332,6 +337,11 @@ func (m *V1Operation) validateParams(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Params[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("params" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("params" + "." + k)
+				}
 				return err
 			}
 		}

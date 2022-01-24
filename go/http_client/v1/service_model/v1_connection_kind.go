@@ -34,8 +34,12 @@ import (
 type V1ConnectionKind string
 
 func NewV1ConnectionKind(value V1ConnectionKind) *V1ConnectionKind {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1ConnectionKind.
+func (m V1ConnectionKind) Pointer() *V1ConnectionKind {
+	return &m
 }
 
 const (

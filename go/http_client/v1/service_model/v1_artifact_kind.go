@@ -66,8 +66,12 @@ import (
 type V1ArtifactKind string
 
 func NewV1ArtifactKind(value V1ArtifactKind) *V1ArtifactKind {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1ArtifactKind.
+func (m V1ArtifactKind) Pointer() *V1ArtifactKind {
+	return &m
 }
 
 const (

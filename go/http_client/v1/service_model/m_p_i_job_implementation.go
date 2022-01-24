@@ -34,8 +34,12 @@ import (
 type MPIJobImplementation string
 
 func NewMPIJobImplementation(value MPIJobImplementation) *MPIJobImplementation {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated MPIJobImplementation.
+func (m MPIJobImplementation) Pointer() *MPIJobImplementation {
+	return &m
 }
 
 const (

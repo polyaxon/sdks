@@ -34,8 +34,12 @@ import (
 type V1EventKind string
 
 func NewV1EventKind(value V1EventKind) *V1EventKind {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1EventKind.
+func (m V1EventKind) Pointer() *V1EventKind {
+	return &m
 }
 
 const (

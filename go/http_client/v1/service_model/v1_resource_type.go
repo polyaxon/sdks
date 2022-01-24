@@ -37,8 +37,12 @@ import (
 type V1ResourceType string
 
 func NewV1ResourceType(value V1ResourceType) *V1ResourceType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1ResourceType.
+func (m V1ResourceType) Pointer() *V1ResourceType {
+	return &m
 }
 
 const (
