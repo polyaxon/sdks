@@ -28,6 +28,7 @@
 
 import ApiClient from "../ApiClient";
 import RuntimeError from '../model/RuntimeError';
+import V1ListActivitiesResponse from '../model/V1ListActivitiesResponse';
 import V1ListTokenResponse from '../model/V1ListTokenResponse';
 import V1Token from '../model/V1Token';
 import V1User from '../model/V1User';
@@ -129,6 +130,102 @@ export default class UsersV1Api {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v1/users/tokens/{uuid}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getHistory operation.
+     * @callback module:api/UsersV1Api~getHistoryCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1ListActivitiesResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * User History
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.offset Pagination offset.
+     * @param {Number} opts.limit Limit size.
+     * @param {String} opts.sort Sort to order the search.
+     * @param {String} opts.query Query filter the search.
+     * @param {Boolean} opts.no_page No pagination.
+     * @param {module:api/UsersV1Api~getHistoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1ListActivitiesResponse}
+     */
+    getHistory(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1ListActivitiesResponse;
+      return this.apiClient.callApi(
+        '/api/v1/users/history', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getSuggestions operation.
+     * @callback module:api/UsersV1Api~getSuggestionsCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * User suggestions
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.offset Pagination offset.
+     * @param {Number} opts.limit Limit size.
+     * @param {String} opts.sort Sort to order the search.
+     * @param {String} opts.query Query filter the search.
+     * @param {Boolean} opts.no_page No pagination.
+     * @param {module:api/UsersV1Api~getSuggestionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getSuggestions(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/api/v1/users/suggestions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

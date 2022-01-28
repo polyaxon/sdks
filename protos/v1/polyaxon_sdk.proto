@@ -1556,6 +1556,20 @@ service UsersV1 {
       delete: "/api/v1/users/tokens/{uuid}"
     };
   }
+
+  // User suggestions
+  rpc GetSuggestions(ResourceListRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      get: "/api/v1/users/suggestions"
+    };
+  }
+
+  // User History
+  rpc GetHistory(ResourceListRequest) returns (ListActivitiesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/users/history"
+    };
+  }
 }
 
 // Service to get versions
@@ -1647,6 +1661,13 @@ service OrganizationsV1 {
   rpc GetOrganizationRuns(OwnerResourceListRequest) returns (ListRunsResponse) {
     option (google.api.http) = {
       get: "/api/v1/orgs/{owner}/runs"
+    };
+  }
+
+  // Get a run in an organization
+  rpc GetOrganizationRun(OwnerEntityResourceRequestByUid) returns (Run) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/runs/{uuid}"
     };
   }
 

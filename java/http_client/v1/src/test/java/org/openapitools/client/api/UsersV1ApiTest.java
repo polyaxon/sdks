@@ -29,6 +29,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.RuntimeError;
+import org.openapitools.client.model.V1ListActivitiesResponse;
 import org.openapitools.client.model.V1ListTokenResponse;
 import org.openapitools.client.model.V1Token;
 import org.openapitools.client.model.V1User;
@@ -76,6 +77,44 @@ public class UsersV1ApiTest {
     public void deleteTokenTest() throws ApiException {
         String uuid = null;
                 api.deleteToken(uuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * User History
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getHistoryTest() throws ApiException {
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean noPage = null;
+                V1ListActivitiesResponse response = api.getHistory(offset, limit, sort, query, noPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * User suggestions
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSuggestionsTest() throws ApiException {
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean noPage = null;
+                Object response = api.getSuggestions(offset, limit, sort, query, noPage);
         // TODO: test validations
     }
     

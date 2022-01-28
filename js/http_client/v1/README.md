@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationActivities**](docs/OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationInvitation**](docs/OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationMember**](docs/OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
+*PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationRun**](docs/OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationRuns**](docs/OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationSettings**](docs/OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationStats**](docs/OrganizationsV1Api.md#getOrganizationStats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats
@@ -367,6 +368,8 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.TeamsV1Api* | [**updateTeamMember**](docs/TeamsV1Api.md#updateTeamMember) | **PUT** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Update team member
 *PolyaxonSdk.UsersV1Api* | [**createToken**](docs/UsersV1Api.md#createToken) | **POST** /api/v1/users/tokens | Create token
 *PolyaxonSdk.UsersV1Api* | [**deleteToken**](docs/UsersV1Api.md#deleteToken) | **DELETE** /api/v1/users/tokens/{uuid} | Delete token
+*PolyaxonSdk.UsersV1Api* | [**getHistory**](docs/UsersV1Api.md#getHistory) | **GET** /api/v1/users/history | User History
+*PolyaxonSdk.UsersV1Api* | [**getSuggestions**](docs/UsersV1Api.md#getSuggestions) | **GET** /api/v1/users/suggestions | User suggestions
 *PolyaxonSdk.UsersV1Api* | [**getToken**](docs/UsersV1Api.md#getToken) | **GET** /api/v1/users/tokens/{uuid} | Get token
 *PolyaxonSdk.UsersV1Api* | [**getUser**](docs/UsersV1Api.md#getUser) | **GET** /api/v1/users | Get current user
 *PolyaxonSdk.UsersV1Api* | [**listTokens**](docs/UsersV1Api.md#listTokens) | **GET** /api/v1/users/tokens | List tokens

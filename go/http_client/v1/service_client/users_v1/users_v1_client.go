@@ -46,6 +46,10 @@ type ClientService interface {
 
 	DeleteToken(params *DeleteTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTokenOK, *DeleteTokenNoContent, error)
 
+	GetHistory(params *GetHistoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetHistoryOK, *GetHistoryNoContent, error)
+
+	GetSuggestions(params *GetSuggestionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSuggestionsOK, *GetSuggestionsNoContent, error)
+
 	GetToken(params *GetTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTokenOK, *GetTokenNoContent, error)
 
 	GetUser(params *GetUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetUserOK, *GetUserNoContent, error)
@@ -140,6 +144,86 @@ func (a *Client) DeleteToken(params *DeleteTokenParams, authInfo runtime.ClientA
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteTokenDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetHistory users history
+*/
+func (a *Client) GetHistory(params *GetHistoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetHistoryOK, *GetHistoryNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetHistoryParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetHistory",
+		Method:             "GET",
+		PathPattern:        "/api/v1/users/history",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetHistoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetHistoryOK:
+		return value, nil, nil
+	case *GetHistoryNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetHistoryDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetSuggestions users suggestions
+*/
+func (a *Client) GetSuggestions(params *GetSuggestionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSuggestionsOK, *GetSuggestionsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSuggestionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSuggestions",
+		Method:             "GET",
+		PathPattern:        "/api/v1/users/suggestions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSuggestionsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetSuggestionsOK:
+		return value, nil, nil
+	case *GetSuggestionsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetSuggestionsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

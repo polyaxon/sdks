@@ -82,6 +82,26 @@
         done();
       });
     });
+    describe('getHistory', function() {
+      it('should call getHistory successfully', function(done) {
+        //uncomment below and update the code to test getHistory
+        //instance.getHistory(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getSuggestions', function() {
+      it('should call getSuggestions successfully', function(done) {
+        //uncomment below and update the code to test getSuggestions
+        //instance.getSuggestions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getToken', function() {
       it('should call getToken successfully', function(done) {
         //uncomment below and update the code to test getToken

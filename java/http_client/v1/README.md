@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**getOrganizationActivities**](docs/OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 *OrganizationsV1Api* | [**getOrganizationInvitation**](docs/OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 *OrganizationsV1Api* | [**getOrganizationMember**](docs/OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
+*OrganizationsV1Api* | [**getOrganizationRun**](docs/OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 *OrganizationsV1Api* | [**getOrganizationRuns**](docs/OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 *OrganizationsV1Api* | [**getOrganizationSettings**](docs/OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
 *OrganizationsV1Api* | [**getOrganizationStats**](docs/OrganizationsV1Api.md#getOrganizationStats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats
@@ -354,6 +355,8 @@ Class | Method | HTTP request | Description
 *TeamsV1Api* | [**updateTeamMember**](docs/TeamsV1Api.md#updateTeamMember) | **PUT** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Update team member
 *UsersV1Api* | [**createToken**](docs/UsersV1Api.md#createToken) | **POST** /api/v1/users/tokens | Create token
 *UsersV1Api* | [**deleteToken**](docs/UsersV1Api.md#deleteToken) | **DELETE** /api/v1/users/tokens/{uuid} | Delete token
+*UsersV1Api* | [**getHistory**](docs/UsersV1Api.md#getHistory) | **GET** /api/v1/users/history | User History
+*UsersV1Api* | [**getSuggestions**](docs/UsersV1Api.md#getSuggestions) | **GET** /api/v1/users/suggestions | User suggestions
 *UsersV1Api* | [**getToken**](docs/UsersV1Api.md#getToken) | **GET** /api/v1/users/tokens/{uuid} | Get token
 *UsersV1Api* | [**getUser**](docs/UsersV1Api.md#getUser) | **GET** /api/v1/users | Get current user
 *UsersV1Api* | [**listTokens**](docs/UsersV1Api.md#listTokens) | **GET** /api/v1/users/tokens | List tokens

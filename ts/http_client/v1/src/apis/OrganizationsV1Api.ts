@@ -56,6 +56,9 @@ import {
     V1OrganizationMember,
     V1OrganizationMemberFromJSON,
     V1OrganizationMemberToJSON,
+    V1Run,
+    V1RunFromJSON,
+    V1RunToJSON,
     V1Uuids,
     V1UuidsFromJSON,
     V1UuidsToJSON,
@@ -142,6 +145,11 @@ export interface GetOrganizationInvitationRequest {
 export interface GetOrganizationMemberRequest {
     owner: string;
     name: string;
+}
+
+export interface GetOrganizationRunRequest {
+    owner: string;
+    uuid: string;
 }
 
 export interface GetOrganizationRunsRequest {
@@ -867,6 +875,44 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
      */
     async getOrganizationMember(requestParameters: GetOrganizationMemberRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
         const response = await this.getOrganizationMemberRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get a run in an organization
+     */
+    async getOrganizationRunRaw(requestParameters: GetOrganizationRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationRun.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getOrganizationRun.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/runs/{uuid}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1RunFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a run in an organization
+     */
+    async getOrganizationRun(requestParameters: GetOrganizationRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+        const response = await this.getOrganizationRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

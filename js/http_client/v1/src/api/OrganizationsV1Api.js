@@ -36,6 +36,7 @@ import V1ListOrganizationsResponse from '../model/V1ListOrganizationsResponse';
 import V1ListRunsResponse from '../model/V1ListRunsResponse';
 import V1Organization from '../model/V1Organization';
 import V1OrganizationMember from '../model/V1OrganizationMember';
+import V1Run from '../model/V1Run';
 import V1Uuids from '../model/V1Uuids';
 
 /**
@@ -688,6 +689,54 @@ export default class OrganizationsV1Api {
       let returnType = V1OrganizationMember;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/members/{name}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getOrganizationRun operation.
+     * @callback module:api/OrganizationsV1Api~getOrganizationRunCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1Run} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a run in an organization
+     * @param {String} owner Owner of the namespace
+     * @param {String} uuid Uuid identifier of the entity
+     * @param {module:api/OrganizationsV1Api~getOrganizationRunCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1Run}
+     */
+    getOrganizationRun(owner, uuid, callback) {
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getOrganizationRun");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling getOrganizationRun");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'uuid': uuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1Run;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/runs/{uuid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

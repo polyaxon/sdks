@@ -8,6 +8,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createToken**](UsersV1Api.md#createToken) | **POST** /api/v1/users/tokens | Create token
 [**deleteToken**](UsersV1Api.md#deleteToken) | **DELETE** /api/v1/users/tokens/{uuid} | Delete token
+[**getHistory**](UsersV1Api.md#getHistory) | **GET** /api/v1/users/history | User History
+[**getSuggestions**](UsersV1Api.md#getSuggestions) | **GET** /api/v1/users/suggestions | User suggestions
 [**getToken**](UsersV1Api.md#getToken) | **GET** /api/v1/users/tokens/{uuid} | Get token
 [**getUser**](UsersV1Api.md#getUser) | **GET** /api/v1/users | Get current user
 [**listTokens**](UsersV1Api.md#listTokens) | **GET** /api/v1/users/tokens | List tokens
@@ -105,6 +107,124 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getHistory
+
+> V1ListActivitiesResponse getHistory(opts)
+
+User History
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.UsersV1Api();
+let opts = {
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'no_page': true // Boolean | No pagination.
+};
+apiInstance.getHistory(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **no_page** | **Boolean**| No pagination. | [optional] 
+
+### Return type
+
+[**V1ListActivitiesResponse**](V1ListActivitiesResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getSuggestions
+
+> Object getSuggestions(opts)
+
+User suggestions
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.UsersV1Api();
+let opts = {
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'no_page': true // Boolean | No pagination.
+};
+apiInstance.getSuggestions(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **no_page** | **Boolean**| No pagination. | [optional] 
+
+### Return type
+
+**Object**
 
 ### Authorization
 

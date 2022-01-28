@@ -5340,6 +5340,57 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
+  /api/v1/orgs/{owner}/runs/{uuid}:
+    get:
+      operationId: GetOrganizationRun
+      parameters:
+      - description: Owner of the namespace
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+      - description: Uuid identifier of the entity
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Run'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get a run in an organization
+      tags:
+      - OrganizationsV1
+      x-accepts: application/json
   /api/v1/orgs/{owner}/sa:
     get:
       operationId: ListServiceAccounts
@@ -8339,6 +8390,138 @@ paths:
       - UsersV1
       x-codegen-request-body-name: body
       x-contentType: application/json
+      x-accepts: application/json
+  /api/v1/users/history:
+    get:
+      operationId: GetHistory
+      parameters:
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListActivitiesResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: User History
+      tags:
+      - UsersV1
+      x-accepts: application/json
+  /api/v1/users/suggestions:
+    get:
+      operationId: GetSuggestions
+      parameters:
+      - description: Pagination offset.
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: Limit size.
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - description: Sort to order the search.
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: Query filter the search.
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: No pagination.
+        in: query
+        name: no_page
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: User suggestions
+      tags:
+      - UsersV1
       x-accepts: application/json
   /api/v1/users/tokens:
     get:

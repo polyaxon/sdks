@@ -38,6 +38,7 @@ import org.openapitools.client.model.V1ListOrganizationsResponse;
 import org.openapitools.client.model.V1ListRunsResponse;
 import org.openapitools.client.model.V1Organization;
 import org.openapitools.client.model.V1OrganizationMember;
+import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1Uuids;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -279,6 +280,22 @@ public class OrganizationsV1ApiTest {
         String owner = null;
         String name = null;
                 V1OrganizationMember response = api.getOrganizationMember(owner, name);
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a run in an organization
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getOrganizationRunTest() throws ApiException {
+        String owner = null;
+        String uuid = null;
+                V1Run response = api.getOrganizationRun(owner, uuid);
         // TODO: test validations
     }
     

@@ -192,6 +192,16 @@
         done();
       });
     });
+    describe('getOrganizationRun', function() {
+      it('should call getOrganizationRun successfully', function(done) {
+        //uncomment below and update the code to test getOrganizationRun
+        //instance.getOrganizationRun(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getOrganizationRuns', function() {
       it('should call getOrganizationRuns successfully', function(done) {
         //uncomment below and update the code to test getOrganizationRuns

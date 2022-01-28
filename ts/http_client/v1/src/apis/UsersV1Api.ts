@@ -32,6 +32,9 @@ import {
     RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
+    V1ListActivitiesResponse,
+    V1ListActivitiesResponseFromJSON,
+    V1ListActivitiesResponseToJSON,
     V1ListTokenResponse,
     V1ListTokenResponseFromJSON,
     V1ListTokenResponseToJSON,
@@ -49,6 +52,22 @@ export interface CreateTokenRequest {
 
 export interface DeleteTokenRequest {
     uuid: string;
+}
+
+export interface GetHistoryRequest {
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    noPage?: boolean;
+}
+
+export interface GetSuggestionsRequest {
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    noPage?: boolean;
 }
 
 export interface GetTokenRequest {
@@ -154,6 +173,106 @@ export class UsersV1Api extends runtime.BaseAPI {
      */
     async deleteToken(requestParameters: DeleteTokenRequest, initOverrides?: RequestInit): Promise<void> {
         await this.deleteTokenRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * User History
+     */
+    async getHistoryRaw(requestParameters: GetHistoryRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/users/history`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ListActivitiesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * User History
+     */
+    async getHistory(requestParameters: GetHistoryRequest, initOverrides?: RequestInit): Promise<V1ListActivitiesResponse> {
+        const response = await this.getHistoryRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * User suggestions
+     */
+    async getSuggestionsRaw(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/users/suggestions`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * User suggestions
+     */
+    async getSuggestions(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit): Promise<object> {
+        const response = await this.getSuggestionsRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
