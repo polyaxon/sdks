@@ -1,6 +1,6 @@
 # SearchView
 
-- any: Any view  - runs: Runs view  - analytics: Analytics view  - projects: Projects view
+- any: Any view  - runs: Runs view  - selection: Selection view  - analytics: Analytics view  - components: Components view  - models: Models view  - artifacts: Artifacts view  - projects: Projects view
 
 ## Properties
 Name | Type | Description | Notes

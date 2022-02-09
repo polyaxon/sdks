@@ -49,11 +49,23 @@ message Search {
       // Runs view
       runs = 1;
 
+      // Selection view
+      selection = 2;
+
       // Analytics view
-      analytics = 2;
+      analytics = 4;
+
+      // Components view
+      components = 5;
+
+      // Models view
+      models = 6;
+
+      // Artifacts view
+      artifacts = 7;
 
       // Projects view
-      projects = 3;
+      projects = 8;
     }
 
     // Optional search view

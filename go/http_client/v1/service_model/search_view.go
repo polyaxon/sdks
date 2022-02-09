@@ -32,7 +32,11 @@ import (
 //
 // - any: Any view
 //  - runs: Runs view
+//  - selection: Selection view
 //  - analytics: Analytics view
+//  - components: Components view
+//  - models: Models view
+//  - artifacts: Artifacts view
 //  - projects: Projects view
 //
 // swagger:model SearchView
@@ -55,8 +59,20 @@ const (
 	// SearchViewRuns captures enum value "runs"
 	SearchViewRuns SearchView = "runs"
 
+	// SearchViewSelection captures enum value "selection"
+	SearchViewSelection SearchView = "selection"
+
 	// SearchViewAnalytics captures enum value "analytics"
 	SearchViewAnalytics SearchView = "analytics"
+
+	// SearchViewComponents captures enum value "components"
+	SearchViewComponents SearchView = "components"
+
+	// SearchViewModels captures enum value "models"
+	SearchViewModels SearchView = "models"
+
+	// SearchViewArtifacts captures enum value "artifacts"
+	SearchViewArtifacts SearchView = "artifacts"
 
 	// SearchViewProjects captures enum value "projects"
 	SearchViewProjects SearchView = "projects"
@@ -67,7 +83,7 @@ var searchViewEnum []interface{}
 
 func init() {
 	var res []SearchView
-	if err := json.Unmarshal([]byte(`["any","runs","analytics","projects"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["any","runs","selection","analytics","components","models","artifacts","projects"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

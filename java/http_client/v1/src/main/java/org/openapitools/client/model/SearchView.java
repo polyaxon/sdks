@@ -39,7 +39,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * - any: Any view  - runs: Runs view  - analytics: Analytics view  - projects: Projects view
+ * - any: Any view  - runs: Runs view  - selection: Selection view  - analytics: Analytics view  - components: Components view  - models: Models view  - artifacts: Artifacts view  - projects: Projects view
  */
 @JsonAdapter(SearchView.Adapter.class)
 public enum SearchView {
@@ -48,7 +48,15 @@ public enum SearchView {
   
   RUNS("runs"),
   
+  SELECTION("selection"),
+  
   ANALYTICS("analytics"),
+  
+  COMPONENTS("components"),
+  
+  MODELS("models"),
+  
+  ARTIFACTS("artifacts"),
   
   PROJECTS("projects");
 

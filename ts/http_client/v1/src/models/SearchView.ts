@@ -29,7 +29,11 @@
 /**
  * - any: Any view
  *  - runs: Runs view
+ *  - selection: Selection view
  *  - analytics: Analytics view
+ *  - components: Components view
+ *  - models: Models view
+ *  - artifacts: Artifacts view
  *  - projects: Projects view
  * @export
  * @enum {string}
@@ -37,7 +41,11 @@
 export enum SearchView {
     Any = 'any',
     Runs = 'runs',
+    Selection = 'selection',
     Analytics = 'analytics',
+    Components = 'components',
+    Models = 'models',
+    Artifacts = 'artifacts',
     Projects = 'projects'
 }
 

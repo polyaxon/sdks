@@ -66,11 +66,15 @@
     },
     "SearchView": {
       "default": "any",
-      "description": "- any: Any view\n - runs: Runs view\n - analytics: Analytics view\n - projects: Projects view",
+      "description": "- any: Any view\n - runs: Runs view\n - selection: Selection view\n - analytics: Analytics view\n - components: Components view\n - models: Models view\n - artifacts: Artifacts view\n - projects: Projects view",
       "enum": [
         "any",
         "runs",
+        "selection",
         "analytics",
+        "components",
+        "models",
+        "artifacts",
         "projects"
       ],
       "title": "Search view",

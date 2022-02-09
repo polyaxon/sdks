@@ -48,10 +48,38 @@ export default class SearchView {
 
     
         /**
+         * value: "selection"
+         * @const
+         */
+        "selection" = "selection";
+
+    
+        /**
          * value: "analytics"
          * @const
          */
         "analytics" = "analytics";
+
+    
+        /**
+         * value: "components"
+         * @const
+         */
+        "components" = "components";
+
+    
+        /**
+         * value: "models"
+         * @const
+         */
+        "models" = "models";
+
+    
+        /**
+         * value: "artifacts"
+         * @const
+         */
+        "artifacts" = "artifacts";
 
     
         /**

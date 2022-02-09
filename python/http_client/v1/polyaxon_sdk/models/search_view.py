@@ -50,10 +50,14 @@ class SearchView(object):
     """
     ANY = "any"
     RUNS = "runs"
+    SELECTION = "selection"
     ANALYTICS = "analytics"
+    COMPONENTS = "components"
+    MODELS = "models"
+    ARTIFACTS = "artifacts"
     PROJECTS = "projects"
 
-    allowable_values = [ANY, RUNS, ANALYTICS, PROJECTS]  # noqa: E501
+    allowable_values = [ANY, RUNS, SELECTION, ANALYTICS, COMPONENTS, MODELS, ARTIFACTS, PROJECTS]  # noqa: E501
 
     """
     Attributes:
