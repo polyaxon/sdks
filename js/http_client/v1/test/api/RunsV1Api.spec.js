@@ -552,30 +552,10 @@
         done();
       });
     });
-    describe('startRunTensorboard', function() {
-      it('should call startRunTensorboard successfully', function(done) {
-        //uncomment below and update the code to test startRunTensorboard
-        //instance.startRunTensorboard(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('stopRun', function() {
       it('should call stopRun successfully', function(done) {
         //uncomment below and update the code to test stopRun
         //instance.stopRun(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('stopRunTensorboard', function() {
-      it('should call stopRunTensorboard successfully', function(done) {
-        //uncomment below and update the code to test stopRunTensorboard
-        //instance.stopRunTensorboard(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

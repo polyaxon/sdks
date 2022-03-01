@@ -55,9 +55,7 @@ Method | HTTP request | Description
 [**restoreRun**](RunsV1Api.md#restoreRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 [**restoreRuns**](RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 [**resumeRun**](RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
-[**startRunTensorboard**](RunsV1Api.md#startRunTensorboard) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start | Start run tensorboard
 [**stopRun**](RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
-[**stopRunTensorboard**](RunsV1Api.md#stopRunTensorboard) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop | Stop run tensorboard
 [**stopRuns**](RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 [**syncRun**](RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
 [**tagRuns**](RunsV1Api.md#tagRuns) | **POST** /api/v1/{owner}/{project}/runs/tag | Tag runs
@@ -2933,61 +2931,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## startRunTensorboard
-
-> startRunTensorboard(owner, entity, uuid, body)
-
-Start run tensorboard
-
-### Example
-
-```javascript
-import PolyaxonSdk from 'polyaxon-sdk';
-let defaultClient = PolyaxonSdk.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new PolyaxonSdk.RunsV1Api();
-let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
-let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
-let body = new PolyaxonSdk.V1OwnerSubEntityResourceRequestByUid(); // V1OwnerSubEntityResourceRequestByUid | 
-apiInstance.startRunTensorboard(owner, entity, uuid, body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Entity: project name, hub name, registry name, ... | 
- **uuid** | **String**| Uuid identifier of the sub-entity | 
- **body** | [**V1OwnerSubEntityResourceRequestByUid**](V1OwnerSubEntityResourceRequestByUid.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## stopRun
 
 > stopRun(owner, entity, uuid)
@@ -3010,59 +2953,6 @@ let owner = "owner_example"; // String | Owner of the namespace
 let entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
 let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
 apiInstance.stopRun(owner, entity, uuid, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Entity: project name, hub name, registry name, ... | 
- **uuid** | **String**| Uuid identifier of the sub-entity | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## stopRunTensorboard
-
-> stopRunTensorboard(owner, entity, uuid)
-
-Stop run tensorboard
-
-### Example
-
-```javascript
-import PolyaxonSdk from 'polyaxon-sdk';
-let defaultClient = PolyaxonSdk.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new PolyaxonSdk.RunsV1Api();
-let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
-let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
-apiInstance.stopRunTensorboard(owner, entity, uuid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

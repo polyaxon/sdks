@@ -74,9 +74,6 @@ import {
     V1OperationBody,
     V1OperationBodyFromJSON,
     V1OperationBodyToJSON,
-    V1OwnerSubEntityResourceRequestByUid,
-    V1OwnerSubEntityResourceRequestByUidFromJSON,
-    V1OwnerSubEntityResourceRequestByUidToJSON,
     V1Run,
     V1RunFromJSON,
     V1RunToJSON,
@@ -501,20 +498,7 @@ export interface ResumeRunRequest {
     body: V1Run;
 }
 
-export interface StartRunTensorboardRequest {
-    owner: string;
-    entity: string;
-    uuid: string;
-    body: V1OwnerSubEntityResourceRequestByUid;
-}
-
 export interface StopRunRequest {
-    owner: string;
-    entity: string;
-    uuid: string;
-}
-
-export interface StopRunTensorboardRequest {
     owner: string;
     entity: string;
     uuid: string;
@@ -3110,54 +3094,6 @@ export class RunsV1Api extends runtime.BaseAPI {
     }
 
     /**
-     * Start run tensorboard
-     */
-    async startRunTensorboardRaw(requestParameters: StartRunTensorboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.owner === null || requestParameters.owner === undefined) {
-            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling startRunTensorboard.');
-        }
-
-        if (requestParameters.entity === null || requestParameters.entity === undefined) {
-            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling startRunTensorboard.');
-        }
-
-        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
-            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling startRunTensorboard.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling startRunTensorboard.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        const response = await this.request({
-            path: `/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1OwnerSubEntityResourceRequestByUidToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Start run tensorboard
-     */
-    async startRunTensorboard(requestParameters: StartRunTensorboardRequest, initOverrides?: RequestInit): Promise<void> {
-        await this.startRunTensorboardRaw(requestParameters, initOverrides);
-    }
-
-    /**
      * Stop run
      */
     async stopRunRaw(requestParameters: StopRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
@@ -3196,47 +3132,6 @@ export class RunsV1Api extends runtime.BaseAPI {
      */
     async stopRun(requestParameters: StopRunRequest, initOverrides?: RequestInit): Promise<void> {
         await this.stopRunRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Stop run tensorboard
-     */
-    async stopRunTensorboardRaw(requestParameters: StopRunTensorboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.owner === null || requestParameters.owner === undefined) {
-            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling stopRunTensorboard.');
-        }
-
-        if (requestParameters.entity === null || requestParameters.entity === undefined) {
-            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling stopRunTensorboard.');
-        }
-
-        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
-            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling stopRunTensorboard.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        const response = await this.request({
-            path: `/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Stop run tensorboard
-     */
-    async stopRunTensorboard(requestParameters: StopRunTensorboardRequest, initOverrides?: RequestInit): Promise<void> {
-        await this.stopRunTensorboardRaw(requestParameters, initOverrides);
     }
 
     /**

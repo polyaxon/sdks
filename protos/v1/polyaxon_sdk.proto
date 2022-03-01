@@ -321,21 +321,6 @@ service RunsV1 {
     };
   }
 
-  // Start run tensorboard
-  rpc StartRunTensorboard(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {  // TODO: should be a tensorboard object
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start"
-      body: "*"
-    };
-  }
-
-  // Stop run tensorboard
-  rpc StopRunTensorboard(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop"
-    };
-  }
-
   // Get run statuses
   rpc GetRunStatuses(OwnerSubEntityResourceRequestByUid) returns (Status) {
     option (google.api.http) = {

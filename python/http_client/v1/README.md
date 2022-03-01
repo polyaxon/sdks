@@ -277,9 +277,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**restore_run**](docs/RunsV1Api.md#restore_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 *RunsV1Api* | [**restore_runs**](docs/RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 *RunsV1Api* | [**resume_run**](docs/RunsV1Api.md#resume_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
-*RunsV1Api* | [**start_run_tensorboard**](docs/RunsV1Api.md#start_run_tensorboard) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start | Start run tensorboard
 *RunsV1Api* | [**stop_run**](docs/RunsV1Api.md#stop_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
-*RunsV1Api* | [**stop_run_tensorboard**](docs/RunsV1Api.md#stop_run_tensorboard) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop | Stop run tensorboard
 *RunsV1Api* | [**stop_runs**](docs/RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 *RunsV1Api* | [**sync_run**](docs/RunsV1Api.md#sync_run) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
 *RunsV1Api* | [**tag_runs**](docs/RunsV1Api.md#tag_runs) | **POST** /api/v1/{owner}/{project}/runs/tag | Tag runs
@@ -499,7 +497,6 @@ Class | Method | HTTP request | Description
  - [V1OptimizationResource](docs/V1OptimizationResource.md)
  - [V1Organization](docs/V1Organization.md)
  - [V1OrganizationMember](docs/V1OrganizationMember.md)
- - [V1OwnerSubEntityResourceRequestByUid](docs/V1OwnerSubEntityResourceRequestByUid.md)
  - [V1Param](docs/V1Param.md)
  - [V1PasswordChange](docs/V1PasswordChange.md)
  - [V1PatchStrategy](docs/V1PatchStrategy.md)

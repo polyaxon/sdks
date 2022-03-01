@@ -312,9 +312,7 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.RunsV1Api* | [**restoreRun**](docs/RunsV1Api.md#restoreRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 *PolyaxonSdk.RunsV1Api* | [**restoreRuns**](docs/RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 *PolyaxonSdk.RunsV1Api* | [**resumeRun**](docs/RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
-*PolyaxonSdk.RunsV1Api* | [**startRunTensorboard**](docs/RunsV1Api.md#startRunTensorboard) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start | Start run tensorboard
 *PolyaxonSdk.RunsV1Api* | [**stopRun**](docs/RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
-*PolyaxonSdk.RunsV1Api* | [**stopRunTensorboard**](docs/RunsV1Api.md#stopRunTensorboard) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop | Stop run tensorboard
 *PolyaxonSdk.RunsV1Api* | [**stopRuns**](docs/RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 *PolyaxonSdk.RunsV1Api* | [**syncRun**](docs/RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
 *PolyaxonSdk.RunsV1Api* | [**tagRuns**](docs/RunsV1Api.md#tagRuns) | **POST** /api/v1/{owner}/{project}/runs/tag | Tag runs
@@ -534,7 +532,6 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1OptimizationResource](docs/V1OptimizationResource.md)
  - [PolyaxonSdk.V1Organization](docs/V1Organization.md)
  - [PolyaxonSdk.V1OrganizationMember](docs/V1OrganizationMember.md)
- - [PolyaxonSdk.V1OwnerSubEntityResourceRequestByUid](docs/V1OwnerSubEntityResourceRequestByUid.md)
  - [PolyaxonSdk.V1Param](docs/V1Param.md)
  - [PolyaxonSdk.V1PasswordChange](docs/V1PasswordChange.md)
  - [PolyaxonSdk.V1PatchStrategy](docs/V1PatchStrategy.md)

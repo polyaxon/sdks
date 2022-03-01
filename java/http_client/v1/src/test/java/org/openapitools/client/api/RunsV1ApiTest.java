@@ -45,7 +45,6 @@ import org.openapitools.client.model.V1ListRunEdgesResponse;
 import org.openapitools.client.model.V1ListRunsResponse;
 import org.openapitools.client.model.V1Logs;
 import org.openapitools.client.model.V1OperationBody;
-import org.openapitools.client.model.V1OwnerSubEntityResourceRequestByUid;
 import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1RunArtifact;
 import org.openapitools.client.model.V1RunArtifacts;
@@ -1013,24 +1012,6 @@ public class RunsV1ApiTest {
     }
     
     /**
-     * Start run tensorboard
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void startRunTensorboardTest() throws ApiException {
-        String owner = null;
-        String entity = null;
-        String uuid = null;
-        V1OwnerSubEntityResourceRequestByUid body = null;
-                api.startRunTensorboard(owner, entity, uuid, body);
-        // TODO: test validations
-    }
-    
-    /**
      * Stop run
      *
      * 
@@ -1044,23 +1025,6 @@ public class RunsV1ApiTest {
         String entity = null;
         String uuid = null;
                 api.stopRun(owner, entity, uuid);
-        // TODO: test validations
-    }
-    
-    /**
-     * Stop run tensorboard
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void stopRunTensorboardTest() throws ApiException {
-        String owner = null;
-        String entity = null;
-        String uuid = null;
-                api.stopRunTensorboard(owner, entity, uuid);
         // TODO: test validations
     }
     

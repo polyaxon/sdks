@@ -8641,24 +8641,6 @@
       "title": "Organization member specification",
       "type": "object"
     },
-    "v1OwnerSubEntityResourceRequestByUid": {
-      "properties": {
-        "entity": {
-          "description": "Entity: project name, hub name, registry name, ...",
-          "type": "string"
-        },
-        "owner": {
-          "title": "Owner of the namespace",
-          "type": "string"
-        },
-        "uuid": {
-          "title": "Uuid identifier of the sub-entity",
-          "type": "string"
-        }
-      },
-      "title": "Request data to get/delete sub-entity",
-      "type": "object"
-    },
     "v1Param": {
       "properties": {
         "connection": {

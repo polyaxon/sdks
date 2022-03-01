@@ -142,11 +142,7 @@ type ClientService interface {
 
 	ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResumeRunOK, *ResumeRunNoContent, error)
 
-	StartRunTensorboard(params *StartRunTensorboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StartRunTensorboardOK, *StartRunTensorboardNoContent, error)
-
 	StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunOK, *StopRunNoContent, error)
-
-	StopRunTensorboard(params *StopRunTensorboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunTensorboardOK, *StopRunTensorboardNoContent, error)
 
 	StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunsOK, *StopRunsNoContent, error)
 
@@ -2130,46 +2126,6 @@ func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  StartRunTensorboard starts run tensorboard
-*/
-func (a *Client) StartRunTensorboard(params *StartRunTensorboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StartRunTensorboardOK, *StartRunTensorboardNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewStartRunTensorboardParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "StartRunTensorboard",
-		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &StartRunTensorboardReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *StartRunTensorboardOK:
-		return value, nil, nil
-	case *StartRunTensorboardNoContent:
-		return nil, value, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*StartRunTensorboardDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
   StopRun stops run
 */
 func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunOK, *StopRunNoContent, error) {
@@ -2206,46 +2162,6 @@ func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoW
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*StopRunDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-  StopRunTensorboard stops run tensorboard
-*/
-func (a *Client) StopRunTensorboard(params *StopRunTensorboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunTensorboardOK, *StopRunTensorboardNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewStopRunTensorboardParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "StopRunTensorboard",
-		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &StopRunTensorboardReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *StopRunTensorboardOK:
-		return value, nil, nil
-	case *StopRunTensorboardNoContent:
-		return nil, value, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*StopRunTensorboardDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

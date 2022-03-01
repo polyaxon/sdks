@@ -42,7 +42,6 @@ import V1ListRunEdgesResponse from '../model/V1ListRunEdgesResponse';
 import V1ListRunsResponse from '../model/V1ListRunsResponse';
 import V1Logs from '../model/V1Logs';
 import V1OperationBody from '../model/V1OperationBody';
-import V1OwnerSubEntityResourceRequestByUid from '../model/V1OwnerSubEntityResourceRequestByUid';
 import V1Run from '../model/V1Run';
 import V1RunArtifact from '../model/V1RunArtifact';
 import V1RunArtifacts from '../model/V1RunArtifacts';
@@ -3019,64 +3018,6 @@ export default class RunsV1Api {
     }
 
     /**
-     * Callback function to receive the result of the startRunTensorboard operation.
-     * @callback module:api/RunsV1Api~startRunTensorboardCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Start run tensorboard
-     * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity: project name, hub name, registry name, ...
-     * @param {String} uuid Uuid identifier of the sub-entity
-     * @param {module:model/V1OwnerSubEntityResourceRequestByUid} body 
-     * @param {module:api/RunsV1Api~startRunTensorboardCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    startRunTensorboard(owner, entity, uuid, body, callback) {
-      let postBody = body;
-      // verify the required parameter 'owner' is set
-      if (owner === undefined || owner === null) {
-        throw new Error("Missing the required parameter 'owner' when calling startRunTensorboard");
-      }
-      // verify the required parameter 'entity' is set
-      if (entity === undefined || entity === null) {
-        throw new Error("Missing the required parameter 'entity' when calling startRunTensorboard");
-      }
-      // verify the required parameter 'uuid' is set
-      if (uuid === undefined || uuid === null) {
-        throw new Error("Missing the required parameter 'uuid' when calling startRunTensorboard");
-      }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling startRunTensorboard");
-      }
-
-      let pathParams = {
-        'owner': owner,
-        'entity': entity,
-        'uuid': uuid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['ApiKey'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/start', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the stopRun operation.
      * @callback module:api/RunsV1Api~stopRunCallback
      * @param {String} error Error message, if any.
@@ -3124,59 +3065,6 @@ export default class RunsV1Api {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v1/{owner}/{entity}/runs/{uuid}/stop', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the stopRunTensorboard operation.
-     * @callback module:api/RunsV1Api~stopRunTensorboardCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Stop run tensorboard
-     * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity: project name, hub name, registry name, ...
-     * @param {String} uuid Uuid identifier of the sub-entity
-     * @param {module:api/RunsV1Api~stopRunTensorboardCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    stopRunTensorboard(owner, entity, uuid, callback) {
-      let postBody = null;
-      // verify the required parameter 'owner' is set
-      if (owner === undefined || owner === null) {
-        throw new Error("Missing the required parameter 'owner' when calling stopRunTensorboard");
-      }
-      // verify the required parameter 'entity' is set
-      if (entity === undefined || entity === null) {
-        throw new Error("Missing the required parameter 'entity' when calling stopRunTensorboard");
-      }
-      // verify the required parameter 'uuid' is set
-      if (uuid === undefined || uuid === null) {
-        throw new Error("Missing the required parameter 'uuid' when calling stopRunTensorboard");
-      }
-
-      let pathParams = {
-        'owner': owner,
-        'entity': entity,
-        'uuid': uuid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['ApiKey'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/v1/{owner}/{entity}/runs/{uuid}/tensorboard/stop', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

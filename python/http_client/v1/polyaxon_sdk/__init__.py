@@ -214,7 +214,6 @@ from polyaxon_sdk.models.v1_optimization_metric import V1OptimizationMetric
 from polyaxon_sdk.models.v1_optimization_resource import V1OptimizationResource
 from polyaxon_sdk.models.v1_organization import V1Organization
 from polyaxon_sdk.models.v1_organization_member import V1OrganizationMember
-from polyaxon_sdk.models.v1_owner_sub_entity_resource_request_by_uid import V1OwnerSubEntityResourceRequestByUid
 from polyaxon_sdk.models.v1_param import V1Param
 from polyaxon_sdk.models.v1_password_change import V1PasswordChange
 from polyaxon_sdk.models.v1_patch_strategy import V1PatchStrategy

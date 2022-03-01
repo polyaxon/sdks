@@ -177,7 +177,6 @@ import V1OptimizationMetric from './model/V1OptimizationMetric';
 import V1OptimizationResource from './model/V1OptimizationResource';
 import V1Organization from './model/V1Organization';
 import V1OrganizationMember from './model/V1OrganizationMember';
-import V1OwnerSubEntityResourceRequestByUid from './model/V1OwnerSubEntityResourceRequestByUid';
 import V1Param from './model/V1Param';
 import V1PasswordChange from './model/V1PasswordChange';
 import V1PatchStrategy from './model/V1PatchStrategy';
@@ -1210,12 +1209,6 @@ export {
      * @property {module:model/V1OrganizationMember}
      */
     V1OrganizationMember,
-
-    /**
-     * The V1OwnerSubEntityResourceRequestByUid model constructor.
-     * @property {module:model/V1OwnerSubEntityResourceRequestByUid}
-     */
-    V1OwnerSubEntityResourceRequestByUid,
 
     /**
      * The V1Param model constructor.

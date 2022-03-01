@@ -164,7 +164,6 @@ export * from './V1OptimizationMetric';
 export * from './V1OptimizationResource';
 export * from './V1Organization';
 export * from './V1OrganizationMember';
-export * from './V1OwnerSubEntityResourceRequestByUid';
 export * from './V1Param';
 export * from './V1PasswordChange';
 export * from './V1PatchStrategy';
