@@ -55,16 +55,18 @@ class V1Status(object):
     openapi_types = {
         'uuid': 'str',
         'status': 'V1Statuses',
-        'status_conditions': 'list[V1StatusCondition]'
+        'status_conditions': 'list[V1StatusCondition]',
+        'meta_info': 'object'
     }
 
     attribute_map = {
         'uuid': 'uuid',
         'status': 'status',
-        'status_conditions': 'status_conditions'
+        'status_conditions': 'status_conditions',
+        'meta_info': 'meta_info'
     }
 
-    def __init__(self, uuid=None, status=None, status_conditions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uuid=None, status=None, status_conditions=None, meta_info=None, local_vars_configuration=None):  # noqa: E501
         """V1Status - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -73,6 +75,7 @@ class V1Status(object):
         self._uuid = None
         self._status = None
         self._status_conditions = None
+        self._meta_info = None
         self.discriminator = None
 
         if uuid is not None:
@@ -81,6 +84,8 @@ class V1Status(object):
             self.status = status
         if status_conditions is not None:
             self.status_conditions = status_conditions
+        if meta_info is not None:
+            self.meta_info = meta_info
 
     @property
     def uuid(self):
@@ -144,6 +149,27 @@ class V1Status(object):
         """
 
         self._status_conditions = status_conditions
+
+    @property
+    def meta_info(self):
+        """Gets the meta_info of this V1Status.  # noqa: E501
+
+
+        :return: The meta_info of this V1Status.  # noqa: E501
+        :rtype: object
+        """
+        return self._meta_info
+
+    @meta_info.setter
+    def meta_info(self, meta_info):
+        """Sets the meta_info of this V1Status.
+
+
+        :param meta_info: The meta_info of this V1Status.  # noqa: E501
+        :type meta_info: object
+        """
+
+        self._meta_info = meta_info
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -82,4 +82,12 @@ public class V1StatusTest {
         // TODO: test statusConditions
     }
 
+    /**
+     * Test the property 'metaInfo'
+     */
+    @Test
+    public void metaInfoTest() {
+        // TODO: test metaInfo
+    }
+
 }

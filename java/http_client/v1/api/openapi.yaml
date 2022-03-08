@@ -36684,6 +36684,7 @@ components:
       type: string
     v1Status:
       example:
+        meta_info: '{}'
         uuid: uuid
         status_conditions:
         - reason: reason
@@ -36707,6 +36708,10 @@ components:
             $ref: '#/components/schemas/v1StatusCondition'
           title: The status conditions timeline
           type: array
+        meta_info:
+          properties: {}
+          title: Additional optional meta_info
+          type: object
       title: Status specification
       type: object
     v1StatusCondition:

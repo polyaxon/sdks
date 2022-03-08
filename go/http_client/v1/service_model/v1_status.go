@@ -33,6 +33,9 @@ import (
 // swagger:model v1Status
 type V1Status struct {
 
+	// Additional optional meta_info
+	MetaInfo interface{} `json:"meta_info,omitempty"`
+
 	// The current status
 	Status *V1Statuses `json:"status,omitempty"`
 

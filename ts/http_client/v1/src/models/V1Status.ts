@@ -62,6 +62,12 @@ export interface V1Status {
      * @memberof V1Status
      */
     status_conditions?: Array<V1StatusCondition>;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1Status
+     */
+    meta_info?: object;
 }
 
 export function V1StatusFromJSON(json: any): V1Status {
@@ -77,6 +83,7 @@ export function V1StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'status': !exists(json, 'status') ? undefined : V1StatusesFromJSON(json['status']),
         'status_conditions': !exists(json, 'status_conditions') ? undefined : ((json['status_conditions'] as Array<any>).map(V1StatusConditionFromJSON)),
+        'meta_info': !exists(json, 'meta_info') ? undefined : json['meta_info'],
     };
 }
 
@@ -92,6 +99,7 @@ export function V1StatusToJSON(value?: V1Status | null): any {
         'uuid': value.uuid,
         'status': V1StatusesToJSON(value.status),
         'status_conditions': value.status_conditions === undefined ? undefined : ((value.status_conditions as Array<any>).map(V1StatusConditionToJSON)),
+        'meta_info': value.meta_info,
     };
 }
 

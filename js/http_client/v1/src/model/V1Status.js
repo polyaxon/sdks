@@ -72,6 +72,9 @@ class V1Status {
             if (data.hasOwnProperty('status_conditions')) {
                 obj['status_conditions'] = ApiClient.convertToType(data['status_conditions'], [V1StatusCondition]);
             }
+            if (data.hasOwnProperty('meta_info')) {
+                obj['meta_info'] = ApiClient.convertToType(data['meta_info'], Object);
+            }
         }
         return obj;
     }
@@ -93,6 +96,11 @@ V1Status.prototype['status'] = undefined;
  * @member {Array.<module:model/V1StatusCondition>} status_conditions
  */
 V1Status.prototype['status_conditions'] = undefined;
+
+/**
+ * @member {Object} meta_info
+ */
+V1Status.prototype['meta_info'] = undefined;
 
 
 

@@ -59,6 +59,10 @@ public class V1Status {
   @SerializedName(SERIALIZED_NAME_STATUS_CONDITIONS)
   private List<V1StatusCondition> statusConditions = null;
 
+  public static final String SERIALIZED_NAME_META_INFO = "meta_info";
+  @SerializedName(SERIALIZED_NAME_META_INFO)
+  private Object metaInfo;
+
 
   public V1Status uuid(String uuid) {
     
@@ -137,6 +141,29 @@ public class V1Status {
   }
 
 
+  public V1Status metaInfo(Object metaInfo) {
+    
+    this.metaInfo = metaInfo;
+    return this;
+  }
+
+   /**
+   * Get metaInfo
+   * @return metaInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getMetaInfo() {
+    return metaInfo;
+  }
+
+
+  public void setMetaInfo(Object metaInfo) {
+    this.metaInfo = metaInfo;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -148,12 +175,13 @@ public class V1Status {
     V1Status v1Status = (V1Status) o;
     return Objects.equals(this.uuid, v1Status.uuid) &&
         Objects.equals(this.status, v1Status.status) &&
-        Objects.equals(this.statusConditions, v1Status.statusConditions);
+        Objects.equals(this.statusConditions, v1Status.statusConditions) &&
+        Objects.equals(this.metaInfo, v1Status.metaInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, status, statusConditions);
+    return Objects.hash(uuid, status, statusConditions, metaInfo);
   }
 
   @Override
@@ -163,6 +191,7 @@ public class V1Status {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusConditions: ").append(toIndentedString(statusConditions)).append("\n");
+    sb.append("    metaInfo: ").append(toIndentedString(metaInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

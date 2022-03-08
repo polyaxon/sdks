@@ -22581,6 +22581,10 @@
             "$ref": "#/definitions/v1StatusCondition"
           },
           "title": "The status conditions timeline"
+        },
+        "meta_info": {
+          "type": "object",
+          "title": "Additional optional meta_info"
         }
       },
       "title": "Status specification"

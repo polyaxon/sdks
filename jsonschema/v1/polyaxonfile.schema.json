@@ -10399,6 +10399,10 @@
     },
     "v1Status": {
       "properties": {
+        "meta_info": {
+          "title": "Additional optional meta_info",
+          "type": "object"
+        },
         "status": {
           "$ref": "#/definitions/v1Statuses",
           "title": "The current status"

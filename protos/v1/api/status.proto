@@ -18,6 +18,7 @@ syntax = "proto3";
 
 package v1;
 
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 import "v1/polyflow/status.proto";
@@ -55,6 +56,9 @@ message Status {
 
     // The status conditions timeline
     repeated StatusCondition status_conditions = 3;
+
+    // Additional optional meta_info
+    google.protobuf.Struct meta_info = 4;
 }
 
 // Request data to create/update entity status
