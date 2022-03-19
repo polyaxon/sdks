@@ -53,6 +53,9 @@ type V1Init struct {
 	// Override for git connections
 	Git *V1GitType `json:"git,omitempty"`
 
+	// Lineage reference intializer
+	LineageRef string `json:"lineageRef,omitempty"`
+
 	// Model version intializer
 	ModelRef string `json:"modelRef,omitempty"`
 

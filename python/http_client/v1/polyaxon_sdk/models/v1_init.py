@@ -57,6 +57,7 @@ class V1Init(object):
         'git': 'V1GitType',
         'dockerfile': 'V1DockerfileType',
         'file': 'V1FileType',
+        'lineage_ref': 'str',
         'artifact_ref': 'str',
         'model_ref': 'str',
         'connection': 'str',
@@ -69,6 +70,7 @@ class V1Init(object):
         'git': 'git',
         'dockerfile': 'dockerfile',
         'file': 'file',
+        'lineage_ref': 'lineageRef',
         'artifact_ref': 'artifactRef',
         'model_ref': 'modelRef',
         'connection': 'connection',
@@ -76,7 +78,7 @@ class V1Init(object):
         'container': 'container'
     }
 
-    def __init__(self, artifacts=None, git=None, dockerfile=None, file=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, artifacts=None, git=None, dockerfile=None, file=None, lineage_ref=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
         """V1Init - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -86,6 +88,7 @@ class V1Init(object):
         self._git = None
         self._dockerfile = None
         self._file = None
+        self._lineage_ref = None
         self._artifact_ref = None
         self._model_ref = None
         self._connection = None
@@ -101,6 +104,8 @@ class V1Init(object):
             self.dockerfile = dockerfile
         if file is not None:
             self.file = file
+        if lineage_ref is not None:
+            self.lineage_ref = lineage_ref
         if artifact_ref is not None:
             self.artifact_ref = artifact_ref
         if model_ref is not None:
@@ -195,6 +200,27 @@ class V1Init(object):
         """
 
         self._file = file
+
+    @property
+    def lineage_ref(self):
+        """Gets the lineage_ref of this V1Init.  # noqa: E501
+
+
+        :return: The lineage_ref of this V1Init.  # noqa: E501
+        :rtype: str
+        """
+        return self._lineage_ref
+
+    @lineage_ref.setter
+    def lineage_ref(self, lineage_ref):
+        """Sets the lineage_ref of this V1Init.
+
+
+        :param lineage_ref: The lineage_ref of this V1Init.  # noqa: E501
+        :type lineage_ref: str
+        """
+
+        self._lineage_ref = lineage_ref
 
     @property
     def artifact_ref(self):

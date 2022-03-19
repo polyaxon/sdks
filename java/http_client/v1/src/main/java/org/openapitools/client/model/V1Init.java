@@ -63,6 +63,10 @@ public class V1Init {
   @SerializedName(SERIALIZED_NAME_FILE)
   private V1FileType file;
 
+  public static final String SERIALIZED_NAME_LINEAGE_REF = "lineageRef";
+  @SerializedName(SERIALIZED_NAME_LINEAGE_REF)
+  private String lineageRef;
+
   public static final String SERIALIZED_NAME_ARTIFACT_REF = "artifactRef";
   @SerializedName(SERIALIZED_NAME_ARTIFACT_REF)
   private String artifactRef;
@@ -173,6 +177,29 @@ public class V1Init {
 
   public void setFile(V1FileType file) {
     this.file = file;
+  }
+
+
+  public V1Init lineageRef(String lineageRef) {
+    
+    this.lineageRef = lineageRef;
+    return this;
+  }
+
+   /**
+   * Get lineageRef
+   * @return lineageRef
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLineageRef() {
+    return lineageRef;
+  }
+
+
+  public void setLineageRef(String lineageRef) {
+    this.lineageRef = lineageRef;
   }
 
 
@@ -304,6 +331,7 @@ public class V1Init {
         Objects.equals(this.git, v1Init.git) &&
         Objects.equals(this.dockerfile, v1Init.dockerfile) &&
         Objects.equals(this.file, v1Init.file) &&
+        Objects.equals(this.lineageRef, v1Init.lineageRef) &&
         Objects.equals(this.artifactRef, v1Init.artifactRef) &&
         Objects.equals(this.modelRef, v1Init.modelRef) &&
         Objects.equals(this.connection, v1Init.connection) &&
@@ -313,7 +341,7 @@ public class V1Init {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifacts, git, dockerfile, file, artifactRef, modelRef, connection, path, container);
+    return Objects.hash(artifacts, git, dockerfile, file, lineageRef, artifactRef, modelRef, connection, path, container);
   }
 
   @Override
@@ -324,6 +352,7 @@ public class V1Init {
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    dockerfile: ").append(toIndentedString(dockerfile)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    lineageRef: ").append(toIndentedString(lineageRef)).append("\n");
     sb.append("    artifactRef: ").append(toIndentedString(artifactRef)).append("\n");
     sb.append("    modelRef: ").append(toIndentedString(modelRef)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");

@@ -19324,6 +19324,10 @@
           "$ref": "#/definitions/v1FileType",
           "title": "File intializer"
         },
+        "lineageRef": {
+          "type": "string",
+          "title": "Lineage reference intializer"
+        },
         "artifactRef": {
           "type": "string",
           "title": "Artifact version intializer"

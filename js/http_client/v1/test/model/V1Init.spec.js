@@ -92,6 +92,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property lineageRef (base name: "lineageRef")', function() {
+      // uncomment below and update the code to test the property lineageRef
+      //var instance = new PolyaxonSdk.V1Init();
+      //expect(instance).to.be();
+    });
+
     it('should have the property artifactRef (base name: "artifactRef")', function() {
       // uncomment below and update the code to test the property artifactRef
       //var instance = new PolyaxonSdk.V1Init();

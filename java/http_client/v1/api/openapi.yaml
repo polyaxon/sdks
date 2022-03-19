@@ -18652,6 +18652,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -18700,6 +18701,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -20473,6 +20475,7 @@ components:
           - '{}'
           username: 7
         connection: connection
+        lineageRef: lineageRef
         artifacts:
           files:
           - '{}'
@@ -20490,6 +20493,9 @@ components:
           $ref: '#/components/schemas/v1DockerfileType'
         file:
           $ref: '#/components/schemas/v1FileType'
+        lineageRef:
+          title: Lineage reference intializer
+          type: string
         artifactRef:
           title: Artifact version intializer
           type: string
@@ -20671,6 +20677,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -20719,6 +20726,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -20953,6 +20961,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -21001,6 +21010,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -22830,6 +22840,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -22878,6 +22889,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -22971,6 +22983,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23019,6 +23032,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23134,6 +23148,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23182,6 +23197,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23271,6 +23287,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23319,6 +23336,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23408,6 +23426,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23456,6 +23475,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23545,6 +23565,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23593,6 +23614,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23682,6 +23704,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23730,6 +23753,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23820,6 +23844,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -23868,6 +23893,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -25453,6 +25479,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -25501,6 +25528,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -25594,6 +25622,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -25642,6 +25671,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -26443,6 +26473,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26491,6 +26522,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26580,6 +26612,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26628,6 +26661,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26717,6 +26751,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26765,6 +26800,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26854,6 +26890,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26902,6 +26939,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -26991,6 +27029,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27039,6 +27078,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27129,6 +27169,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27177,6 +27218,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27284,6 +27326,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27332,6 +27375,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27415,6 +27459,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27463,6 +27508,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27553,6 +27599,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -27601,6 +27648,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -27700,6 +27748,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27748,6 +27797,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27838,6 +27888,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27886,6 +27937,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -27975,6 +28027,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28023,6 +28076,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28116,6 +28170,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28164,6 +28219,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28255,6 +28311,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28303,6 +28360,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28396,6 +28454,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -28444,6 +28503,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -29621,6 +29681,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -29669,6 +29730,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -29762,6 +29824,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -29810,6 +29873,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -29899,6 +29963,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -29947,6 +30012,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -30041,6 +30107,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -30089,6 +30156,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -30182,6 +30250,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -30230,6 +30299,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -30323,6 +30393,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -30371,6 +30442,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -30646,6 +30718,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -30694,6 +30767,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -30783,6 +30857,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -30831,6 +30906,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -30920,6 +30996,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -30968,6 +31045,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31057,6 +31135,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31105,6 +31184,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31194,6 +31274,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31242,6 +31323,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31332,6 +31414,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31380,6 +31463,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31487,6 +31571,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31535,6 +31620,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31618,6 +31704,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31666,6 +31753,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31756,6 +31844,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -31804,6 +31893,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -31903,6 +31993,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -31951,6 +32042,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32041,6 +32133,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32089,6 +32182,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32178,6 +32272,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32226,6 +32321,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32319,6 +32415,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32367,6 +32464,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32458,6 +32556,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32506,6 +32605,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32599,6 +32699,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -32647,6 +32748,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -33824,6 +33926,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -33872,6 +33975,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -33965,6 +34069,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -34013,6 +34118,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -34102,6 +34208,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -34150,6 +34257,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -34244,6 +34352,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -34292,6 +34401,7 @@ components:
                 - '{}'
                 username: 7
               connection: connection
+              lineageRef: lineageRef
               artifacts:
                 files:
                 - '{}'
@@ -34385,6 +34495,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -34433,6 +34544,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -34526,6 +34638,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -34574,6 +34687,7 @@ components:
                   - '{}'
                   username: 7
                 connection: connection
+                lineageRef: lineageRef
                 artifacts:
                   files:
                   - '{}'
@@ -35880,6 +35994,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -35928,6 +36043,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -36159,6 +36275,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36207,6 +36324,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36290,6 +36408,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36338,6 +36457,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36500,6 +36620,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -36548,6 +36669,7 @@ components:
             - '{}'
             username: 7
           connection: connection
+          lineageRef: lineageRef
           artifacts:
             files:
             - '{}'
@@ -36812,6 +36934,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36860,6 +36983,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36950,6 +37074,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -36998,6 +37123,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -37087,6 +37213,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -37135,6 +37262,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -37228,6 +37356,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -37276,6 +37405,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -37884,6 +38014,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -37932,6 +38063,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -38025,6 +38157,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'
@@ -38073,6 +38206,7 @@ components:
               - '{}'
               username: 7
             connection: connection
+            lineageRef: lineageRef
             artifacts:
               files:
               - '{}'

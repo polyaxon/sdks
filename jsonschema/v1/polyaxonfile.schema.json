@@ -7071,6 +7071,10 @@
           "$ref": "#/definitions/v1GitType",
           "title": "Override for git connections"
         },
+        "lineageRef": {
+          "title": "Lineage reference intializer",
+          "type": "string"
+        },
         "modelRef": {
           "title": "Model version intializer",
           "type": "string"

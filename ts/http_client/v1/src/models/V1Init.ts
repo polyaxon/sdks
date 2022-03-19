@@ -81,6 +81,12 @@ export interface V1Init {
      * @type {string}
      * @memberof V1Init
      */
+    lineageRef?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Init
+     */
     artifactRef?: string;
     /**
      * 
@@ -122,6 +128,7 @@ export function V1InitFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         'git': !exists(json, 'git') ? undefined : V1GitTypeFromJSON(json['git']),
         'dockerfile': !exists(json, 'dockerfile') ? undefined : V1DockerfileTypeFromJSON(json['dockerfile']),
         'file': !exists(json, 'file') ? undefined : V1FileTypeFromJSON(json['file']),
+        'lineageRef': !exists(json, 'lineageRef') ? undefined : json['lineageRef'],
         'artifactRef': !exists(json, 'artifactRef') ? undefined : json['artifactRef'],
         'modelRef': !exists(json, 'modelRef') ? undefined : json['modelRef'],
         'connection': !exists(json, 'connection') ? undefined : json['connection'],
@@ -143,6 +150,7 @@ export function V1InitToJSON(value?: V1Init | null): any {
         'git': V1GitTypeToJSON(value.git),
         'dockerfile': V1DockerfileTypeToJSON(value.dockerfile),
         'file': V1FileTypeToJSON(value.file),
+        'lineageRef': value.lineageRef,
         'artifactRef': value.artifactRef,
         'modelRef': value.modelRef,
         'connection': value.connection,

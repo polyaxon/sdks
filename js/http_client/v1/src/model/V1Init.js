@@ -77,6 +77,9 @@ class V1Init {
             if (data.hasOwnProperty('file')) {
                 obj['file'] = V1FileType.constructFromObject(data['file']);
             }
+            if (data.hasOwnProperty('lineageRef')) {
+                obj['lineageRef'] = ApiClient.convertToType(data['lineageRef'], 'String');
+            }
             if (data.hasOwnProperty('artifactRef')) {
                 obj['artifactRef'] = ApiClient.convertToType(data['artifactRef'], 'String');
             }
@@ -118,6 +121,11 @@ V1Init.prototype['dockerfile'] = undefined;
  * @member {module:model/V1FileType} file
  */
 V1Init.prototype['file'] = undefined;
+
+/**
+ * @member {String} lineageRef
+ */
+V1Init.prototype['lineageRef'] = undefined;
 
 /**
  * @member {String} artifactRef

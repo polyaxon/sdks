@@ -91,6 +91,14 @@ public class V1InitTest {
     }
 
     /**
+     * Test the property 'lineageRef'
+     */
+    @Test
+    public void lineageRefTest() {
+        // TODO: test lineageRef
+    }
+
+    /**
      * Test the property 'artifactRef'
      */
     @Test
