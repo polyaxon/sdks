@@ -18,6 +18,8 @@ syntax = "proto3";
 
 package v1;
 
+import "google/protobuf/struct.proto";
+
 import "v1/polyflow/k8s.proto";
 import "v1/types/dockerfile.proto";
 import "v1/types/file.proto";
@@ -26,35 +28,38 @@ import "v1/types/artifacts.proto";
 
 option go_package = "v1/polyflow";
 
-// Artifacts initializer specification
+// Initializer specification
 message Init {
-    // Override Schema for artifacts/mounts connections
+    // Artifacts initializer
     ArtifactsType artifacts = 1;
 
+    // Paths initializer
+    repeated google.protobuf.Struct paths = 2;
+
     // Override for git connections
-    GitType git = 2;
+    GitType git = 3;
 
     // Schema of the dockerfile to init
-    DockerfileType dockerfile = 3;
+    DockerfileType dockerfile = 4;
 
     // File intializer
-    FileType file = 4;
+    FileType file = 5;
 
     // Lineage reference intializer
-    string lineageRef = 5;
+    string lineageRef = 6;
 
     // Artifact version intializer
-    string artifactRef = 6;
+    string artifactRef = 7;
 
     // Model version intializer
-    string modelRef = 7;
+    string modelRef = 8;
 
     // Optional, connection to use with this initializer
-    string connection = 8;
+    string connection = 9;
 
     // Optional context path, the path to mount to main the container
-    string path = 9;
+    string path = 10;
 
     // Container to override
-    Container container = 10;
+    Container container = 11;
 }

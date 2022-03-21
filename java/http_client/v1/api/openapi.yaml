@@ -18627,6 +18627,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -18676,6 +18679,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -20450,6 +20456,9 @@ components:
           chmod: chmod
           content: content
         artifactRef: artifactRef
+        paths:
+        - '{}'
+        - '{}'
         dockerfile:
           image: image
           gid: 0
@@ -20487,6 +20496,12 @@ components:
       properties:
         artifacts:
           $ref: '#/components/schemas/v1ArtifactsType'
+        paths:
+          items:
+            properties: {}
+            type: object
+          title: Paths initializer
+          type: array
         git:
           $ref: '#/components/schemas/v1GitType'
         dockerfile:
@@ -20511,7 +20526,7 @@ components:
         container:
           title: Placeholder for Container
           type: object
-      title: Artifacts initializer specification
+      title: Initializer specification
       type: object
     v1Installation:
       example:
@@ -20652,6 +20667,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -20701,6 +20719,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -20936,6 +20957,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -20985,6 +21009,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -22815,6 +22842,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -22864,6 +22894,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -22958,6 +22991,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23007,6 +23043,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23123,6 +23162,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23172,6 +23214,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23262,6 +23307,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23311,6 +23359,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23401,6 +23452,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23450,6 +23504,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23540,6 +23597,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23589,6 +23649,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23679,6 +23742,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23728,6 +23794,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23819,6 +23888,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -23868,6 +23940,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -25454,6 +25529,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -25503,6 +25581,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -25597,6 +25678,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -25646,6 +25730,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -26448,6 +26535,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26497,6 +26587,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26587,6 +26680,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26636,6 +26732,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26726,6 +26825,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26775,6 +26877,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26865,6 +26970,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -26914,6 +27022,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27004,6 +27115,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27053,6 +27167,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27144,6 +27261,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27193,6 +27313,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27301,6 +27424,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27350,6 +27476,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27434,6 +27563,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27483,6 +27615,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27574,6 +27709,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -27623,6 +27761,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -27723,6 +27864,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27772,6 +27916,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27863,6 +28010,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -27912,6 +28062,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28002,6 +28155,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28051,6 +28207,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28145,6 +28304,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28194,6 +28356,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28286,6 +28451,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28335,6 +28503,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28429,6 +28600,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -28478,6 +28652,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -29656,6 +29833,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -29705,6 +29885,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -29799,6 +29982,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -29848,6 +30034,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -29938,6 +30127,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -29987,6 +30179,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -30082,6 +30277,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -30131,6 +30329,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -30225,6 +30426,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -30274,6 +30478,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -30368,6 +30575,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -30417,6 +30627,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -30693,6 +30906,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -30742,6 +30958,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -30832,6 +31051,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -30881,6 +31103,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -30971,6 +31196,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31020,6 +31248,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31110,6 +31341,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31159,6 +31393,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31249,6 +31486,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31298,6 +31538,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31389,6 +31632,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31438,6 +31684,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31546,6 +31795,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31595,6 +31847,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31679,6 +31934,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31728,6 +31986,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -31819,6 +32080,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -31868,6 +32132,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -31968,6 +32235,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32017,6 +32287,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32108,6 +32381,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32157,6 +32433,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32247,6 +32526,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32296,6 +32578,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32390,6 +32675,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32439,6 +32727,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32531,6 +32822,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32580,6 +32874,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32674,6 +32971,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -32723,6 +33023,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -33901,6 +34204,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -33950,6 +34256,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -34044,6 +34353,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -34093,6 +34405,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -34183,6 +34498,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -34232,6 +34550,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -34327,6 +34648,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -34376,6 +34700,9 @@ components:
                 chmod: chmod
                 content: content
               artifactRef: artifactRef
+              paths:
+              - '{}'
+              - '{}'
               dockerfile:
                 image: image
                 gid: 0
@@ -34470,6 +34797,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -34519,6 +34849,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -34613,6 +34946,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -34662,6 +34998,9 @@ components:
                   chmod: chmod
                   content: content
                 artifactRef: artifactRef
+                paths:
+                - '{}'
+                - '{}'
                 dockerfile:
                   image: image
                   gid: 0
@@ -35969,6 +36308,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -36018,6 +36360,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -36250,6 +36595,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -36299,6 +36647,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -36383,6 +36734,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -36432,6 +36786,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -36595,6 +36952,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -36644,6 +37004,9 @@ components:
             chmod: chmod
             content: content
           artifactRef: artifactRef
+          paths:
+          - '{}'
+          - '{}'
           dockerfile:
             image: image
             gid: 0
@@ -36909,6 +37272,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -36958,6 +37324,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37049,6 +37418,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37098,6 +37470,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37188,6 +37563,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37237,6 +37615,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37331,6 +37712,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37380,6 +37764,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -37989,6 +38376,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -38038,6 +38428,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -38132,6 +38525,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0
@@ -38181,6 +38577,9 @@ components:
               chmod: chmod
               content: content
             artifactRef: artifactRef
+            paths:
+            - '{}'
+            - '{}'
             dockerfile:
               image: image
               gid: 0

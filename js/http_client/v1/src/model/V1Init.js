@@ -68,6 +68,9 @@ class V1Init {
             if (data.hasOwnProperty('artifacts')) {
                 obj['artifacts'] = V1ArtifactsType.constructFromObject(data['artifacts']);
             }
+            if (data.hasOwnProperty('paths')) {
+                obj['paths'] = ApiClient.convertToType(data['paths'], [Object]);
+            }
             if (data.hasOwnProperty('git')) {
                 obj['git'] = V1GitType.constructFromObject(data['git']);
             }
@@ -106,6 +109,11 @@ class V1Init {
  * @member {module:model/V1ArtifactsType} artifacts
  */
 V1Init.prototype['artifacts'] = undefined;
+
+/**
+ * @member {Array.<Object>} paths
+ */
+V1Init.prototype['paths'] = undefined;
 
 /**
  * @member {module:model/V1GitType} git

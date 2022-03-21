@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property paths (base name: "paths")', function() {
+      // uncomment below and update the code to test the property paths
+      //var instance = new PolyaxonSdk.V1Init();
+      //expect(instance).to.be();
+    });
+
     it('should have the property git (base name: "git")', function() {
       // uncomment below and update the code to test the property git
       //var instance = new PolyaxonSdk.V1Init();

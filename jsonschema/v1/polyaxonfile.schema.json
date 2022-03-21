@@ -7049,7 +7049,7 @@
         },
         "artifacts": {
           "$ref": "#/definitions/v1ArtifactsType",
-          "title": "Override Schema for artifacts/mounts connections"
+          "title": "Artifacts initializer"
         },
         "connection": {
           "title": "Optional, connection to use with this initializer",
@@ -7082,9 +7082,16 @@
         "path": {
           "title": "Optional context path, the path to mount to main the container",
           "type": "string"
+        },
+        "paths": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Paths initializer",
+          "type": "array"
         }
       },
-      "title": "Artifacts initializer specification",
+      "title": "Initializer specification",
       "type": "object"
     },
     "v1Installation": {

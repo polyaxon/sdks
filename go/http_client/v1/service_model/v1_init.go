@@ -27,7 +27,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1Init Artifacts initializer specification
+// V1Init Initializer specification
 //
 // swagger:model v1Init
 type V1Init struct {
@@ -35,7 +35,7 @@ type V1Init struct {
 	// Artifact version intializer
 	ArtifactRef string `json:"artifactRef,omitempty"`
 
-	// Override Schema for artifacts/mounts connections
+	// Artifacts initializer
 	Artifacts *V1ArtifactsType `json:"artifacts,omitempty"`
 
 	// Optional, connection to use with this initializer
@@ -61,6 +61,9 @@ type V1Init struct {
 
 	// Optional context path, the path to mount to main the container
 	Path string `json:"path,omitempty"`
+
+	// Paths initializer
+	Paths []interface{} `json:"paths"`
 }
 
 // Validate validates this v1 init

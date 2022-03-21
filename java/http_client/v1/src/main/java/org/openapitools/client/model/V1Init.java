@@ -37,6 +37,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.client.model.V1ArtifactsType;
 import org.openapitools.client.model.V1DockerfileType;
 import org.openapitools.client.model.V1FileType;
@@ -50,6 +52,10 @@ public class V1Init {
   public static final String SERIALIZED_NAME_ARTIFACTS = "artifacts";
   @SerializedName(SERIALIZED_NAME_ARTIFACTS)
   private V1ArtifactsType artifacts;
+
+  public static final String SERIALIZED_NAME_PATHS = "paths";
+  @SerializedName(SERIALIZED_NAME_PATHS)
+  private List<Object> paths = null;
 
   public static final String SERIALIZED_NAME_GIT = "git";
   @SerializedName(SERIALIZED_NAME_GIT)
@@ -108,6 +114,37 @@ public class V1Init {
 
   public void setArtifacts(V1ArtifactsType artifacts) {
     this.artifacts = artifacts;
+  }
+
+
+  public V1Init paths(List<Object> paths) {
+    
+    this.paths = paths;
+    return this;
+  }
+
+  public V1Init addPathsItem(Object pathsItem) {
+    if (this.paths == null) {
+      this.paths = new ArrayList<Object>();
+    }
+    this.paths.add(pathsItem);
+    return this;
+  }
+
+   /**
+   * Get paths
+   * @return paths
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Object> getPaths() {
+    return paths;
+  }
+
+
+  public void setPaths(List<Object> paths) {
+    this.paths = paths;
   }
 
 
@@ -328,6 +365,7 @@ public class V1Init {
     }
     V1Init v1Init = (V1Init) o;
     return Objects.equals(this.artifacts, v1Init.artifacts) &&
+        Objects.equals(this.paths, v1Init.paths) &&
         Objects.equals(this.git, v1Init.git) &&
         Objects.equals(this.dockerfile, v1Init.dockerfile) &&
         Objects.equals(this.file, v1Init.file) &&
@@ -341,7 +379,7 @@ public class V1Init {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifacts, git, dockerfile, file, lineageRef, artifactRef, modelRef, connection, path, container);
+    return Objects.hash(artifacts, paths, git, dockerfile, file, lineageRef, artifactRef, modelRef, connection, path, container);
   }
 
   @Override
@@ -349,6 +387,7 @@ public class V1Init {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1Init {\n");
     sb.append("    artifacts: ").append(toIndentedString(artifacts)).append("\n");
+    sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    dockerfile: ").append(toIndentedString(dockerfile)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");

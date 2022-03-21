@@ -60,6 +60,12 @@ export interface V1Init {
     artifacts?: V1ArtifactsType;
     /**
      * 
+     * @type {Array<object>}
+     * @memberof V1Init
+     */
+    paths?: Array<object>;
+    /**
+     * 
      * @type {V1GitType}
      * @memberof V1Init
      */
@@ -125,6 +131,7 @@ export function V1InitFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
     return {
         
         'artifacts': !exists(json, 'artifacts') ? undefined : V1ArtifactsTypeFromJSON(json['artifacts']),
+        'paths': !exists(json, 'paths') ? undefined : json['paths'],
         'git': !exists(json, 'git') ? undefined : V1GitTypeFromJSON(json['git']),
         'dockerfile': !exists(json, 'dockerfile') ? undefined : V1DockerfileTypeFromJSON(json['dockerfile']),
         'file': !exists(json, 'file') ? undefined : V1FileTypeFromJSON(json['file']),
@@ -147,6 +154,7 @@ export function V1InitToJSON(value?: V1Init | null): any {
     return {
         
         'artifacts': V1ArtifactsTypeToJSON(value.artifacts),
+        'paths': value.paths,
         'git': V1GitTypeToJSON(value.git),
         'dockerfile': V1DockerfileTypeToJSON(value.dockerfile),
         'file': V1FileTypeToJSON(value.file),

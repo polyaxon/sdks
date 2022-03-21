@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **artifacts** | [**V1ArtifactsType**](V1ArtifactsType.md) |  | [optional] 
+**paths** | **list[object]** |  | [optional] 
 **git** | [**V1GitType**](V1GitType.md) |  | [optional] 
 **dockerfile** | [**V1DockerfileType**](V1DockerfileType.md) |  | [optional] 
 **file** | [**V1FileType**](V1FileType.md) |  | [optional] 

@@ -54,6 +54,7 @@ class V1Init(object):
     """
     openapi_types = {
         'artifacts': 'V1ArtifactsType',
+        'paths': 'list[object]',
         'git': 'V1GitType',
         'dockerfile': 'V1DockerfileType',
         'file': 'V1FileType',
@@ -67,6 +68,7 @@ class V1Init(object):
 
     attribute_map = {
         'artifacts': 'artifacts',
+        'paths': 'paths',
         'git': 'git',
         'dockerfile': 'dockerfile',
         'file': 'file',
@@ -78,13 +80,14 @@ class V1Init(object):
         'container': 'container'
     }
 
-    def __init__(self, artifacts=None, git=None, dockerfile=None, file=None, lineage_ref=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, artifacts=None, paths=None, git=None, dockerfile=None, file=None, lineage_ref=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
         """V1Init - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._artifacts = None
+        self._paths = None
         self._git = None
         self._dockerfile = None
         self._file = None
@@ -98,6 +101,8 @@ class V1Init(object):
 
         if artifacts is not None:
             self.artifacts = artifacts
+        if paths is not None:
+            self.paths = paths
         if git is not None:
             self.git = git
         if dockerfile is not None:
@@ -137,6 +142,27 @@ class V1Init(object):
         """
 
         self._artifacts = artifacts
+
+    @property
+    def paths(self):
+        """Gets the paths of this V1Init.  # noqa: E501
+
+
+        :return: The paths of this V1Init.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._paths
+
+    @paths.setter
+    def paths(self, paths):
+        """Sets the paths of this V1Init.
+
+
+        :param paths: The paths of this V1Init.  # noqa: E501
+        :type paths: list[object]
+        """
+
+        self._paths = paths
 
     @property
     def git(self):

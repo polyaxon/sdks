@@ -35,6 +35,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.client.model.V1ArtifactsType;
 import org.openapitools.client.model.V1DockerfileType;
 import org.openapitools.client.model.V1FileType;
@@ -64,6 +66,14 @@ public class V1InitTest {
     @Test
     public void artifactsTest() {
         // TODO: test artifacts
+    }
+
+    /**
+     * Test the property 'paths'
+     */
+    @Test
+    public void pathsTest() {
+        // TODO: test paths
     }
 
     /**

@@ -19310,7 +19310,14 @@
       "properties": {
         "artifacts": {
           "$ref": "#/definitions/v1ArtifactsType",
-          "title": "Override Schema for artifacts/mounts connections"
+          "title": "Artifacts initializer"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Paths initializer"
         },
         "git": {
           "$ref": "#/definitions/v1GitType",
@@ -19349,7 +19356,7 @@
           "title": "Container to override"
         }
       },
-      "title": "Artifacts initializer specification"
+      "title": "Initializer specification"
     },
     "v1Installation": {
       "type": "object",
