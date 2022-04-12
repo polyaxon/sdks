@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **kind** | [**V1ArtifactKind**](V1ArtifactKind.md) |  | [optional] 
 **path** | **str** |  | [optional] 
 **connection** | **str** |  | [optional] 
+**run** | **str** |  | [optional] 
 **summary** | **object** |  | [optional] 
 **is_input** | **bool** |  | [optional] 
 

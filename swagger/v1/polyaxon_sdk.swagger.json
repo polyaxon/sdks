@@ -21706,7 +21706,11 @@
         },
         "connection": {
           "type": "string",
-          "title": "Connection"
+          "title": "Optional Connection"
+        },
+        "run": {
+          "type": "string",
+          "title": "Optional Run"
         },
         "summary": {
           "type": "object",

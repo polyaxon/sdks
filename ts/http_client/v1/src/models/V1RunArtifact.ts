@@ -72,6 +72,12 @@ export interface V1RunArtifact {
     connection?: string;
     /**
      * 
+     * @type {string}
+     * @memberof V1RunArtifact
+     */
+    run?: string;
+    /**
+     * 
      * @type {object}
      * @memberof V1RunArtifact
      */
@@ -99,6 +105,7 @@ export function V1RunArtifactFromJSONTyped(json: any, ignoreDiscriminator: boole
         'kind': !exists(json, 'kind') ? undefined : V1ArtifactKindFromJSON(json['kind']),
         'path': !exists(json, 'path') ? undefined : json['path'],
         'connection': !exists(json, 'connection') ? undefined : json['connection'],
+        'run': !exists(json, 'run') ? undefined : json['run'],
         'summary': !exists(json, 'summary') ? undefined : json['summary'],
         'is_input': !exists(json, 'is_input') ? undefined : json['is_input'],
     };
@@ -118,6 +125,7 @@ export function V1RunArtifactToJSON(value?: V1RunArtifact | null): any {
         'kind': V1ArtifactKindToJSON(value.kind),
         'path': value.path,
         'connection': value.connection,
+        'run': value.run,
         'summary': value.summary,
         'is_input': value.is_input,
     };

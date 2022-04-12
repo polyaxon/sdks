@@ -9521,7 +9521,7 @@
     "v1RunArtifact": {
       "properties": {
         "connection": {
-          "title": "Connection",
+          "title": "Optional Connection",
           "type": "string"
         },
         "is_input": {
@@ -9538,6 +9538,10 @@
         },
         "path": {
           "title": "Artifact path",
+          "type": "string"
+        },
+        "run": {
+          "title": "Optional Run",
           "type": "string"
         },
         "state": {

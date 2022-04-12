@@ -98,6 +98,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property run (base name: "run")', function() {
+      // uncomment below and update the code to test the property run
+      //var instance = new PolyaxonSdk.V1RunArtifact();
+      //expect(instance).to.be();
+    });
+
     it('should have the property summary (base name: "summary")', function() {
       // uncomment below and update the code to test the property summary
       //var instance = new PolyaxonSdk.V1RunArtifact();

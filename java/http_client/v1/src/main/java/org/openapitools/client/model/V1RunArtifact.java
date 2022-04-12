@@ -64,6 +64,10 @@ public class V1RunArtifact {
   @SerializedName(SERIALIZED_NAME_CONNECTION)
   private String connection;
 
+  public static final String SERIALIZED_NAME_RUN = "run";
+  @SerializedName(SERIALIZED_NAME_RUN)
+  private String run;
+
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
   @SerializedName(SERIALIZED_NAME_SUMMARY)
   private Object summary;
@@ -188,6 +192,29 @@ public class V1RunArtifact {
   }
 
 
+  public V1RunArtifact run(String run) {
+    
+    this.run = run;
+    return this;
+  }
+
+   /**
+   * Get run
+   * @return run
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRun() {
+    return run;
+  }
+
+
+  public void setRun(String run) {
+    this.run = run;
+  }
+
+
   public V1RunArtifact summary(Object summary) {
     
     this.summary = summary;
@@ -248,13 +275,14 @@ public class V1RunArtifact {
         Objects.equals(this.kind, v1RunArtifact.kind) &&
         Objects.equals(this.path, v1RunArtifact.path) &&
         Objects.equals(this.connection, v1RunArtifact.connection) &&
+        Objects.equals(this.run, v1RunArtifact.run) &&
         Objects.equals(this.summary, v1RunArtifact.summary) &&
         Objects.equals(this.isInput, v1RunArtifact.isInput);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, state, kind, path, connection, summary, isInput);
+    return Objects.hash(name, state, kind, path, connection, run, summary, isInput);
   }
 
   @Override
@@ -266,6 +294,7 @@ public class V1RunArtifact {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
+    sb.append("    run: ").append(toIndentedString(run)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    isInput: ").append(toIndentedString(isInput)).append("\n");
     sb.append("}");

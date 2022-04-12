@@ -32,7 +32,7 @@ import (
 // swagger:model v1RunArtifact
 type V1RunArtifact struct {
 
-	// Connection
+	// Optional Connection
 	Connection string `json:"connection,omitempty"`
 
 	// Optional flag to check the use of the artifact in a context
@@ -46,6 +46,9 @@ type V1RunArtifact struct {
 
 	// Artifact path
 	Path string `json:"path,omitempty"`
+
+	// Optional Run
+	Run string `json:"run,omitempty"`
 
 	// State
 	State string `json:"state,omitempty"`

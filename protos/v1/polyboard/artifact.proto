@@ -132,14 +132,17 @@ message RunArtifact {
     // Artifact path
     string path = 4;
 
-    // Connection
+    // Optional Connection
     string connection = 5;
 
+    // Optional Run
+    string run = 6;
+
     // Artifact schema
-    google.protobuf.Struct summary = 6;
+    google.protobuf.Struct summary = 7;
 
     // Optional flag to check the use of the artifact in a context
-    bool is_input = 7;
+    bool is_input = 8;
 }
 
 // Run Artifacts spec definition

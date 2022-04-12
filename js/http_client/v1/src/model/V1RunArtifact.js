@@ -77,6 +77,9 @@ class V1RunArtifact {
             if (data.hasOwnProperty('connection')) {
                 obj['connection'] = ApiClient.convertToType(data['connection'], 'String');
             }
+            if (data.hasOwnProperty('run')) {
+                obj['run'] = ApiClient.convertToType(data['run'], 'String');
+            }
             if (data.hasOwnProperty('summary')) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], Object);
             }
@@ -114,6 +117,11 @@ V1RunArtifact.prototype['path'] = undefined;
  * @member {String} connection
  */
 V1RunArtifact.prototype['connection'] = undefined;
+
+/**
+ * @member {String} run
+ */
+V1RunArtifact.prototype['run'] = undefined;
 
 /**
  * @member {Object} summary

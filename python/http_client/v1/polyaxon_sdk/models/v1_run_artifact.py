@@ -58,6 +58,7 @@ class V1RunArtifact(object):
         'kind': 'V1ArtifactKind',
         'path': 'str',
         'connection': 'str',
+        'run': 'str',
         'summary': 'object',
         'is_input': 'bool'
     }
@@ -68,11 +69,12 @@ class V1RunArtifact(object):
         'kind': 'kind',
         'path': 'path',
         'connection': 'connection',
+        'run': 'run',
         'summary': 'summary',
         'is_input': 'is_input'
     }
 
-    def __init__(self, name=None, state=None, kind=None, path=None, connection=None, summary=None, is_input=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, state=None, kind=None, path=None, connection=None, run=None, summary=None, is_input=None, local_vars_configuration=None):  # noqa: E501
         """V1RunArtifact - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -83,6 +85,7 @@ class V1RunArtifact(object):
         self._kind = None
         self._path = None
         self._connection = None
+        self._run = None
         self._summary = None
         self._is_input = None
         self.discriminator = None
@@ -97,6 +100,8 @@ class V1RunArtifact(object):
             self.path = path
         if connection is not None:
             self.connection = connection
+        if run is not None:
+            self.run = run
         if summary is not None:
             self.summary = summary
         if is_input is not None:
@@ -206,6 +211,27 @@ class V1RunArtifact(object):
         """
 
         self._connection = connection
+
+    @property
+    def run(self):
+        """Gets the run of this V1RunArtifact.  # noqa: E501
+
+
+        :return: The run of this V1RunArtifact.  # noqa: E501
+        :rtype: str
+        """
+        return self._run
+
+    @run.setter
+    def run(self, run):
+        """Sets the run of this V1RunArtifact.
+
+
+        :param run: The run of this V1RunArtifact.  # noqa: E501
+        :type run: str
+        """
+
+        self._run = run
 
     @property
     def summary(self):

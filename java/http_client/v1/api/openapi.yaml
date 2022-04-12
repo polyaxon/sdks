@@ -21769,12 +21769,14 @@ components:
           path: path
           name: name
           connection: connection
+          run: run
           is_input: true
           state: state
         - summary: '{}'
           path: path
           name: name
           connection: connection
+          run: run
           is_input: true
           state: state
       properties:
@@ -26185,6 +26187,7 @@ components:
         path: path
         name: name
         connection: connection
+        run: run
         is_input: true
         state: state
       properties:
@@ -26200,7 +26203,10 @@ components:
           title: Artifact path
           type: string
         connection:
-          title: Connection
+          title: Optional Connection
+          type: string
+        run:
+          title: Optional Run
           type: string
         summary:
           properties: {}

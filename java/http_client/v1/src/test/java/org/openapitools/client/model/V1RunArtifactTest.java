@@ -96,6 +96,14 @@ public class V1RunArtifactTest {
     }
 
     /**
+     * Test the property 'run'
+     */
+    @Test
+    public void runTest() {
+        // TODO: test run
+    }
+
+    /**
      * Test the property 'summary'
      */
     @Test

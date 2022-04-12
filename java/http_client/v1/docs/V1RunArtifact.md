@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **kind** | **V1ArtifactKind** |  |  [optional]
 **path** | **String** |  |  [optional]
 **connection** | **String** |  |  [optional]
+**run** | **String** |  |  [optional]
 **summary** | **Object** |  |  [optional]
 **isInput** | **Boolean** |  |  [optional]
 
