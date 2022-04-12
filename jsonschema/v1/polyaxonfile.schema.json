@@ -9532,6 +9532,10 @@
           "$ref": "#/definitions/v1ArtifactKind",
           "title": "Artifact type"
         },
+        "meta_info": {
+          "title": "Optional meta information",
+          "type": "object"
+        },
         "name": {
           "title": "Artifact name",
           "type": "string"

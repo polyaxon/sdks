@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **run** | **String** |  | [optional] 
 **summary** | **Object** |  | [optional] 
 **is_input** | **Boolean** |  | [optional] 
+**meta_info** | **Object** |  | [optional] 
 
 

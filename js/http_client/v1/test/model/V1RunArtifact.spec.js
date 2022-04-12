@@ -116,6 +116,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property meta_info (base name: "meta_info")', function() {
+      // uncomment below and update the code to test the property meta_info
+      //var instance = new PolyaxonSdk.V1RunArtifact();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

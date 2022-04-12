@@ -21767,6 +21767,7 @@ components:
         results:
         - summary: '{}'
           path: path
+          meta_info: '{}'
           name: name
           connection: connection
           run: run
@@ -21774,6 +21775,7 @@ components:
           state: state
         - summary: '{}'
           path: path
+          meta_info: '{}'
           name: name
           connection: connection
           run: run
@@ -26185,6 +26187,7 @@ components:
       example:
         summary: '{}'
         path: path
+        meta_info: '{}'
         name: name
         connection: connection
         run: run
@@ -26215,6 +26218,10 @@ components:
         is_input:
           title: Optional flag to check the use of the artifact in a context
           type: boolean
+        meta_info:
+          properties: {}
+          title: Optional meta information
+          type: object
       title: Run Artifact spec definition
       type: object
     v1RunArtifacts:

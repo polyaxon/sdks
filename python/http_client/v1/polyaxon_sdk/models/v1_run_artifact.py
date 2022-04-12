@@ -60,7 +60,8 @@ class V1RunArtifact(object):
         'connection': 'str',
         'run': 'str',
         'summary': 'object',
-        'is_input': 'bool'
+        'is_input': 'bool',
+        'meta_info': 'object'
     }
 
     attribute_map = {
@@ -71,10 +72,11 @@ class V1RunArtifact(object):
         'connection': 'connection',
         'run': 'run',
         'summary': 'summary',
-        'is_input': 'is_input'
+        'is_input': 'is_input',
+        'meta_info': 'meta_info'
     }
 
-    def __init__(self, name=None, state=None, kind=None, path=None, connection=None, run=None, summary=None, is_input=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, state=None, kind=None, path=None, connection=None, run=None, summary=None, is_input=None, meta_info=None, local_vars_configuration=None):  # noqa: E501
         """V1RunArtifact - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -88,6 +90,7 @@ class V1RunArtifact(object):
         self._run = None
         self._summary = None
         self._is_input = None
+        self._meta_info = None
         self.discriminator = None
 
         if name is not None:
@@ -106,6 +109,8 @@ class V1RunArtifact(object):
             self.summary = summary
         if is_input is not None:
             self.is_input = is_input
+        if meta_info is not None:
+            self.meta_info = meta_info
 
     @property
     def name(self):
@@ -274,6 +279,27 @@ class V1RunArtifact(object):
         """
 
         self._is_input = is_input
+
+    @property
+    def meta_info(self):
+        """Gets the meta_info of this V1RunArtifact.  # noqa: E501
+
+
+        :return: The meta_info of this V1RunArtifact.  # noqa: E501
+        :rtype: object
+        """
+        return self._meta_info
+
+    @meta_info.setter
+    def meta_info(self, meta_info):
+        """Sets the meta_info of this V1RunArtifact.
+
+
+        :param meta_info: The meta_info of this V1RunArtifact.  # noqa: E501
+        :type meta_info: object
+        """
+
+        self._meta_info = meta_info
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

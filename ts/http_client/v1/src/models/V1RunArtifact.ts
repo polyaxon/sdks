@@ -88,6 +88,12 @@ export interface V1RunArtifact {
      * @memberof V1RunArtifact
      */
     is_input?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1RunArtifact
+     */
+    meta_info?: object;
 }
 
 export function V1RunArtifactFromJSON(json: any): V1RunArtifact {
@@ -108,6 +114,7 @@ export function V1RunArtifactFromJSONTyped(json: any, ignoreDiscriminator: boole
         'run': !exists(json, 'run') ? undefined : json['run'],
         'summary': !exists(json, 'summary') ? undefined : json['summary'],
         'is_input': !exists(json, 'is_input') ? undefined : json['is_input'],
+        'meta_info': !exists(json, 'meta_info') ? undefined : json['meta_info'],
     };
 }
 
@@ -128,6 +135,7 @@ export function V1RunArtifactToJSON(value?: V1RunArtifact | null): any {
         'run': value.run,
         'summary': value.summary,
         'is_input': value.is_input,
+        'meta_info': value.meta_info,
     };
 }
 

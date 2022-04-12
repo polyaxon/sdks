@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **run** | **String** |  |  [optional]
 **summary** | **Object** |  |  [optional]
 **isInput** | **Boolean** |  |  [optional]
+**metaInfo** | **Object** |  |  [optional]
 
 
 

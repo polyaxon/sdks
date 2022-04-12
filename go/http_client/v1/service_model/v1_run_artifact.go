@@ -41,6 +41,9 @@ type V1RunArtifact struct {
 	// Artifact type
 	Kind *V1ArtifactKind `json:"kind,omitempty"`
 
+	// Optional meta information
+	MetaInfo interface{} `json:"meta_info,omitempty"`
+
 	// Artifact name
 	Name string `json:"name,omitempty"`
 

@@ -86,6 +86,9 @@ class V1RunArtifact {
             if (data.hasOwnProperty('is_input')) {
                 obj['is_input'] = ApiClient.convertToType(data['is_input'], 'Boolean');
             }
+            if (data.hasOwnProperty('meta_info')) {
+                obj['meta_info'] = ApiClient.convertToType(data['meta_info'], Object);
+            }
         }
         return obj;
     }
@@ -132,6 +135,11 @@ V1RunArtifact.prototype['summary'] = undefined;
  * @member {Boolean} is_input
  */
 V1RunArtifact.prototype['is_input'] = undefined;
+
+/**
+ * @member {Object} meta_info
+ */
+V1RunArtifact.prototype['meta_info'] = undefined;
 
 
 

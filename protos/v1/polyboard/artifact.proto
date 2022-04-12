@@ -143,6 +143,9 @@ message RunArtifact {
 
     // Optional flag to check the use of the artifact in a context
     bool is_input = 8;
+
+    // Optional meta information
+    google.protobuf.Struct meta_info = 9;
 }
 
 // Run Artifacts spec definition

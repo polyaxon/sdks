@@ -21719,6 +21719,10 @@
         "is_input": {
           "type": "boolean",
           "title": "Optional flag to check the use of the artifact in a context"
+        },
+        "meta_info": {
+          "type": "object",
+          "title": "Optional meta information"
         }
       },
       "title": "Run Artifact spec definition"

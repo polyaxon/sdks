@@ -119,4 +119,12 @@ public class V1RunArtifactTest {
         // TODO: test isInput
     }
 
+    /**
+     * Test the property 'metaInfo'
+     */
+    @Test
+    public void metaInfoTest() {
+        // TODO: test metaInfo
+    }
+
 }

@@ -76,6 +76,10 @@ public class V1RunArtifact {
   @SerializedName(SERIALIZED_NAME_IS_INPUT)
   private Boolean isInput;
 
+  public static final String SERIALIZED_NAME_META_INFO = "meta_info";
+  @SerializedName(SERIALIZED_NAME_META_INFO)
+  private Object metaInfo;
+
 
   public V1RunArtifact name(String name) {
     
@@ -261,6 +265,29 @@ public class V1RunArtifact {
   }
 
 
+  public V1RunArtifact metaInfo(Object metaInfo) {
+    
+    this.metaInfo = metaInfo;
+    return this;
+  }
+
+   /**
+   * Get metaInfo
+   * @return metaInfo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getMetaInfo() {
+    return metaInfo;
+  }
+
+
+  public void setMetaInfo(Object metaInfo) {
+    this.metaInfo = metaInfo;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -277,12 +304,13 @@ public class V1RunArtifact {
         Objects.equals(this.connection, v1RunArtifact.connection) &&
         Objects.equals(this.run, v1RunArtifact.run) &&
         Objects.equals(this.summary, v1RunArtifact.summary) &&
-        Objects.equals(this.isInput, v1RunArtifact.isInput);
+        Objects.equals(this.isInput, v1RunArtifact.isInput) &&
+        Objects.equals(this.metaInfo, v1RunArtifact.metaInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, state, kind, path, connection, run, summary, isInput);
+    return Objects.hash(name, state, kind, path, connection, run, summary, isInput, metaInfo);
   }
 
   @Override
@@ -297,6 +325,7 @@ public class V1RunArtifact {
     sb.append("    run: ").append(toIndentedString(run)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    isInput: ").append(toIndentedString(isInput)).append("\n");
+    sb.append("    metaInfo: ").append(toIndentedString(metaInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
