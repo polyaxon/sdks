@@ -171,6 +171,7 @@ V1ProjectVersion.prototype['run'] = undefined;
 V1ProjectVersion.prototype['artifacts'] = undefined;
 
 /**
+ * Extra information related to the run, lineage, artifacts, ...
  * @member {Object} meta_info
  */
 V1ProjectVersion.prototype['meta_info'] = undefined;

@@ -21296,7 +21296,7 @@
         },
         "meta_info": {
           "type": "object",
-          "title": "Extra information related to the run (lineage, artifacts, ...)"
+          "description": "Extra information related to the run, lineage, artifacts, ..."
         },
         "created_at": {
           "type": "string",

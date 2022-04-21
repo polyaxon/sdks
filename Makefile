@@ -114,6 +114,8 @@ generate-java-swagger:
 	$(DOCKER_RUN) find ./ -name "*.java" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2022 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-py-swagger:
+	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g python-legacy -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json --library asyncio
+	./py-client.sh async
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g python-legacy -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json
 	$(DOCKER_RUN) rm -rf python/$(HTTP_CLIENT)/$(VERSION)/test
 	$(DOCKER_RUN) find ./ -name "*.py" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2022 -c $(LICENSE_OWNER) -l apache {} \;

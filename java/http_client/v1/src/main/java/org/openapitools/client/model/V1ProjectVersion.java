@@ -352,11 +352,11 @@ public class V1ProjectVersion {
   }
 
    /**
-   * Get metaInfo
+   * Extra information related to the run, lineage, artifacts, ...
    * @return metaInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Extra information related to the run, lineage, artifacts, ...")
 
   public Object getMetaInfo() {
     return metaInfo;

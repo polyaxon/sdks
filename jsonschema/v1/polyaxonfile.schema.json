@@ -9105,7 +9105,7 @@
           "title": "Optional kind to tell the kind of this version"
         },
         "meta_info": {
-          "title": "Extra information related to the run (lineage, artifacts, ...)",
+          "description": "Extra information related to the run, lineage, artifacts, ...",
           "type": "object"
         },
         "name": {

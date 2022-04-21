@@ -53,7 +53,7 @@ type V1ProjectVersion struct {
 	// Optional kind to tell the kind of this version
 	Kind *V1ProjectVersionKind `json:"kind,omitempty"`
 
-	// Extra information related to the run (lineage, artifacts, ...)
+	// Extra information related to the run, lineage, artifacts, ...
 	MetaInfo interface{} `json:"meta_info,omitempty"`
 
 	// Optional component name, should be a valid fully qualified value: name[:version]

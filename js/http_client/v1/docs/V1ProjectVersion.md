@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **connection** | **String** |  | [optional] 
 **run** | **String** |  | [optional] 
 **artifacts** | **[String]** |  | [optional] 
-**meta_info** | **Object** |  | [optional] 
+**meta_info** | **Object** | Extra information related to the run, lineage, artifacts, ... | [optional] 
 **created_at** | **Date** |  | [optional] 
 **updated_at** | **Date** |  | [optional] 
 **stage** | [**V1Stages**](V1Stages.md) |  | [optional] 

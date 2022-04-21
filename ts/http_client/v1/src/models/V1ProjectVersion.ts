@@ -103,7 +103,7 @@ export interface V1ProjectVersion {
      */
     artifacts?: Array<string>;
     /**
-     * 
+     * Extra information related to the run, lineage, artifacts, ...
      * @type {object}
      * @memberof V1ProjectVersion
      */

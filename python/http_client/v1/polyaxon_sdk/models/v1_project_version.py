@@ -350,6 +350,7 @@ class V1ProjectVersion(object):
     def meta_info(self):
         """Gets the meta_info of this V1ProjectVersion.  # noqa: E501
 
+        Extra information related to the run, lineage, artifacts, ...  # noqa: E501
 
         :return: The meta_info of this V1ProjectVersion.  # noqa: E501
         :rtype: object
@@ -360,6 +361,7 @@ class V1ProjectVersion(object):
     def meta_info(self, meta_info):
         """Sets the meta_info of this V1ProjectVersion.
 
+        Extra information related to the run, lineage, artifacts, ...  # noqa: E501
 
         :param meta_info: The meta_info of this V1ProjectVersion.  # noqa: E501
         :type meta_info: object

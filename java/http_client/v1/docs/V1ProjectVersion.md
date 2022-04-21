@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **connection** | **String** |  |  [optional]
 **run** | **String** |  |  [optional]
 **artifacts** | **List&lt;String&gt;** |  |  [optional]
-**metaInfo** | **Object** |  |  [optional]
+**metaInfo** | **Object** | Extra information related to the run, lineage, artifacts, ... |  [optional]
 **createdAt** | **OffsetDateTime** |  |  [optional]
 **updatedAt** | **OffsetDateTime** |  |  [optional]
 **stage** | **V1Stages** |  |  [optional]

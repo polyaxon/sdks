@@ -25474,8 +25474,8 @@ components:
           title: Artifacts lineage
           type: array
         meta_info:
+          description: Extra information related to the run, lineage, artifacts, ...
           properties: {}
-          title: Extra information related to the run (lineage, artifacts, ...)
           type: object
         created_at:
           format: date-time

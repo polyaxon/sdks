@@ -189,7 +189,7 @@ message ProjectVersion {
   // Artifacts lineage
   repeated string artifacts = 9;
 
-  // Extra information related to the run (lineage, artifacts, ...)
+  // Extra information related to the run, lineage, artifacts, ...
   google.protobuf.Struct meta_info = 10;
 
   // Optional time when the entity was created
