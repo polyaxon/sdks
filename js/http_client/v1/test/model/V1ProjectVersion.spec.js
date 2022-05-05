@@ -164,6 +164,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property readme (base name: "readme")', function() {
+      // uncomment below and update the code to test the property readme
+      //var instance = new PolyaxonSdk.V1ProjectVersion();
+      //expect(instance).to.be();
+    });
+
     it('should have the property state (base name: "state")', function() {
       // uncomment below and update the code to test the property state
       //var instance = new PolyaxonSdk.V1ProjectVersion();

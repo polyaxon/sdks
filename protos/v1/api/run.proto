@@ -161,7 +161,7 @@ message Run {
     // Current live state
     int32 live_state = 22;
 
-    // Markdown description/readme
+    // Optional Markdown description/readme
     string readme = 23;
 
     // Optional run meta info

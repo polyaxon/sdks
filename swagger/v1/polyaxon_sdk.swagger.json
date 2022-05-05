@@ -21137,7 +21137,7 @@
         },
         "readme": {
           "type": "string",
-          "title": "Optional a readme text describing this entity"
+          "title": "Optional Markdown description/readme"
         },
         "excluded_features": {
           "type": "array",
@@ -21326,6 +21326,10 @@
         "content": {
           "type": "string",
           "title": "The metadata/content body"
+        },
+        "readme": {
+          "type": "string",
+          "title": "Optional Markdown description/readme"
         },
         "state": {
           "type": "string",
@@ -21625,7 +21629,7 @@
         },
         "readme": {
           "type": "string",
-          "title": "Markdown description/readme"
+          "title": "Optional Markdown description/readme"
         },
         "meta_info": {
           "type": "object",

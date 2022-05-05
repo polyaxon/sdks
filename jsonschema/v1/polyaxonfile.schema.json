@@ -8963,7 +8963,7 @@
           "type": "string"
         },
         "readme": {
-          "title": "Optional a readme text describing this entity",
+          "title": "Optional Markdown description/readme",
           "type": "string"
         },
         "role": {
@@ -9118,6 +9118,10 @@
         },
         "project": {
           "title": "Project name",
+          "type": "string"
+        },
+        "readme": {
+          "title": "Optional Markdown description/readme",
           "type": "string"
         },
         "role": {
@@ -9449,7 +9453,7 @@
           "type": "string"
         },
         "readme": {
-          "title": "Markdown description/readme",
+          "title": "Optional Markdown description/readme",
           "type": "string"
         },
         "resources": {

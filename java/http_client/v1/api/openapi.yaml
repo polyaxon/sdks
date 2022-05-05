@@ -21515,6 +21515,7 @@ components:
           project: project
           created_at: 2000-01-23T04:56:07.000+00:00
           run: run
+          readme: readme
           uuid: uuid
           content: content
           tags:
@@ -21545,6 +21546,7 @@ components:
           project: project
           created_at: 2000-01-23T04:56:07.000+00:00
           run: run
+          readme: readme
           uuid: uuid
           content: content
           tags:
@@ -25296,7 +25298,7 @@ components:
           title: Optional if this entity was bookmarked
           type: boolean
         readme:
-          title: Optional a readme text describing this entity
+          title: Optional Markdown description/readme
           type: string
         excluded_features:
           items:
@@ -25416,6 +25418,7 @@ components:
         project: project
         created_at: 2000-01-23T04:56:07.000+00:00
         run: run
+        readme: readme
         uuid: uuid
         content: content
         tags:
@@ -25496,6 +25499,9 @@ components:
           type: array
         content:
           title: The metadata/content body
+          type: string
+        readme:
+          title: Optional Markdown description/readme
           type: string
         state:
           title: The version state read-only
@@ -26140,7 +26146,7 @@ components:
           title: Current live state
           type: integer
         readme:
-          title: Markdown description/readme
+          title: Optional Markdown description/readme
           type: string
         meta_info:
           properties: {}

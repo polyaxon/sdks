@@ -69,6 +69,7 @@ class V1ProjectVersion(object):
         'kind': 'V1ProjectVersionKind',
         'stage_conditions': 'list[V1StageCondition]',
         'content': 'str',
+        'readme': 'str',
         'state': 'str',
         'role': 'str'
     }
@@ -90,11 +91,12 @@ class V1ProjectVersion(object):
         'kind': 'kind',
         'stage_conditions': 'stage_conditions',
         'content': 'content',
+        'readme': 'readme',
         'state': 'state',
         'role': 'role'
     }
 
-    def __init__(self, uuid=None, name=None, description=None, tags=None, owner=None, project=None, connection=None, run=None, artifacts=None, meta_info=None, created_at=None, updated_at=None, stage=None, kind=None, stage_conditions=None, content=None, state=None, role=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uuid=None, name=None, description=None, tags=None, owner=None, project=None, connection=None, run=None, artifacts=None, meta_info=None, created_at=None, updated_at=None, stage=None, kind=None, stage_conditions=None, content=None, readme=None, state=None, role=None, local_vars_configuration=None):  # noqa: E501
         """V1ProjectVersion - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -116,6 +118,7 @@ class V1ProjectVersion(object):
         self._kind = None
         self._stage_conditions = None
         self._content = None
+        self._readme = None
         self._state = None
         self._role = None
         self.discriminator = None
@@ -152,6 +155,8 @@ class V1ProjectVersion(object):
             self.stage_conditions = stage_conditions
         if content is not None:
             self.content = content
+        if readme is not None:
+            self.readme = readme
         if state is not None:
             self.state = state
         if role is not None:
@@ -494,6 +499,27 @@ class V1ProjectVersion(object):
         """
 
         self._content = content
+
+    @property
+    def readme(self):
+        """Gets the readme of this V1ProjectVersion.  # noqa: E501
+
+
+        :return: The readme of this V1ProjectVersion.  # noqa: E501
+        :rtype: str
+        """
+        return self._readme
+
+    @readme.setter
+    def readme(self, readme):
+        """Sets the readme of this V1ProjectVersion.
+
+
+        :param readme: The readme of this V1ProjectVersion.  # noqa: E501
+        :type readme: str
+        """
+
+        self._readme = readme
 
     @property
     def state(self):

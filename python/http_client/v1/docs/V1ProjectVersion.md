@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **kind** | [**V1ProjectVersionKind**](V1ProjectVersionKind.md) |  | [optional] 
 **stage_conditions** | [**list[V1StageCondition]**](V1StageCondition.md) |  | [optional] 
 **content** | **str** |  | [optional] 
+**readme** | **str** |  | [optional] 
 **state** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
 

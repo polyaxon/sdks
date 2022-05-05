@@ -113,6 +113,10 @@ public class V1ProjectVersion {
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
 
+  public static final String SERIALIZED_NAME_README = "readme";
+  @SerializedName(SERIALIZED_NAME_README)
+  private String readme;
+
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
@@ -514,6 +518,29 @@ public class V1ProjectVersion {
   }
 
 
+  public V1ProjectVersion readme(String readme) {
+    
+    this.readme = readme;
+    return this;
+  }
+
+   /**
+   * Get readme
+   * @return readme
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getReadme() {
+    return readme;
+  }
+
+
+  public void setReadme(String readme) {
+    this.readme = readme;
+  }
+
+
   public V1ProjectVersion state(String state) {
     
     this.state = state;
@@ -585,13 +612,14 @@ public class V1ProjectVersion {
         Objects.equals(this.kind, v1ProjectVersion.kind) &&
         Objects.equals(this.stageConditions, v1ProjectVersion.stageConditions) &&
         Objects.equals(this.content, v1ProjectVersion.content) &&
+        Objects.equals(this.readme, v1ProjectVersion.readme) &&
         Objects.equals(this.state, v1ProjectVersion.state) &&
         Objects.equals(this.role, v1ProjectVersion.role);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, state, role);
+    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, readme, state, role);
   }
 
   @Override
@@ -614,6 +642,7 @@ public class V1ProjectVersion {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    stageConditions: ").append(toIndentedString(stageConditions)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    readme: ").append(toIndentedString(readme)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("}");

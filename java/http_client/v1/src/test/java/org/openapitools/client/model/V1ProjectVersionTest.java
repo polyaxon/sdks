@@ -189,6 +189,14 @@ public class V1ProjectVersionTest {
     }
 
     /**
+     * Test the property 'readme'
+     */
+    @Test
+    public void readmeTest() {
+        // TODO: test readme
+    }
+
+    /**
      * Test the property 'state'
      */
     @Test

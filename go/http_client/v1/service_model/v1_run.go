@@ -102,7 +102,7 @@ type V1Run struct {
 	// Optional content of the entity's spec
 	RawContent string `json:"raw_content,omitempty"`
 
-	// Markdown description/readme
+	// Optional Markdown description/readme
 	Readme string `json:"readme,omitempty"`
 
 	// Options resources

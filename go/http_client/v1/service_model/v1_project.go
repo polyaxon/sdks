@@ -61,7 +61,7 @@ type V1Project struct {
 	// Owner/namespace where the project was created
 	Owner string `json:"owner,omitempty"`
 
-	// Optional a readme text describing this entity
+	// Optional Markdown description/readme
 	Readme string `json:"readme,omitempty"`
 
 	// Current user's role in this (org/teams)/project

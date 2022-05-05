@@ -65,6 +65,9 @@ type V1ProjectVersion struct {
 	// Project name
 	Project string `json:"project,omitempty"`
 
+	// Optional Markdown description/readme
+	Readme string `json:"readme,omitempty"`
+
 	// Current user's role in this (org/teams)/hub/version
 	Role string `json:"role,omitempty"`
 
