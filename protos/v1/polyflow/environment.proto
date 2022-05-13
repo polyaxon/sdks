@@ -24,10 +24,10 @@ option go_package = "v1/polyflow";
 
 // Environment specification
 message Environment {
-    // Optional Metadata labels to pass to the k8s
+    // Optional Metadata labels to pass to k8s
     map<string, string> labels = 1;
 
-    // Optional Metadata annotations to pass to the k8s
+    // Optional Metadata annotations to pass to k8s
     map<string, string> annotations = 2;
 
     // Optional NodeSelector is a selector which must be true for the pod to fit on a node.

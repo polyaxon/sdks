@@ -96,6 +96,12 @@ message ConnectionType {
 
     // ConfigMap resource schema
     K8sResourceSchema configMap = 7;
+
+    // Environment variables
+    repeated google.protobuf.Struct env = 8;
+
+    // Optional Metadata annotations to pass to k8s
+    map<string, string> annotations = 9;
 }
 
 message ConnectionSchema {

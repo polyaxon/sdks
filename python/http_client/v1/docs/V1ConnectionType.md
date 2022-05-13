@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **schema** | **object** |  | [optional] 
 **secret** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  | [optional] 
 **config_map** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  | [optional] 
+**env** | **list[object]** |  | [optional] 
+**annotations** | **dict(str, str)** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

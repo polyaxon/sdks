@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "1.17.1",
+    "version": "1.18.0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -17573,6 +17573,20 @@
         "configMap": {
           "$ref": "#/definitions/v1K8sResourceSchema",
           "title": "ConfigMap resource schema"
+        },
+        "env": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Environment variables"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Optional Metadata annotations to pass to k8s"
         }
       }
     },
@@ -18105,14 +18119,14 @@
           "additionalProperties": {
             "type": "string"
           },
-          "title": "Optional Metadata labels to pass to the k8s"
+          "title": "Optional Metadata labels to pass to k8s"
         },
         "annotations": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "title": "Optional Metadata annotations to pass to the k8s"
+          "title": "Optional Metadata annotations to pass to k8s"
         },
         "nodeSelector": {
           "type": "object",

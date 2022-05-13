@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: Polyaxon SDKs and REST API specification.
   title: Polyaxon SDKs and REST API specification.
-  version: 1.17.1
+  version: 1.18.0
 servers:
 - url: /
 security:
@@ -17298,6 +17298,8 @@ components:
           - items
         name: name
         description: description
+        annotations:
+          key: annotations
         secret:
           mountPath: mountPath
           defaultMode: 0
@@ -17305,6 +17307,9 @@ components:
           items:
           - items
           - items
+        env:
+        - '{}'
+        - '{}'
         tags: tags
       properties:
         name:
@@ -17326,6 +17331,17 @@ components:
           $ref: '#/components/schemas/v1K8sResourceSchema'
         configMap:
           $ref: '#/components/schemas/v1K8sResourceSchema'
+        env:
+          items:
+            properties: {}
+            type: object
+          title: Environment variables
+          type: array
+        annotations:
+          additionalProperties:
+            type: string
+          title: Optional Metadata annotations to pass to k8s
+          type: object
       type: object
     v1Container:
       title: Placeholder for Container
@@ -19103,12 +19119,12 @@ components:
         labels:
           additionalProperties:
             type: string
-          title: Optional Metadata labels to pass to the k8s
+          title: Optional Metadata labels to pass to k8s
           type: object
         annotations:
           additionalProperties:
             type: string
-          title: Optional Metadata annotations to pass to the k8s
+          title: Optional Metadata annotations to pass to k8s
           type: object
         nodeSelector:
           additionalProperties:
@@ -35356,6 +35372,8 @@ components:
             - items
           name: name
           description: description
+          annotations:
+            key: annotations
           secret:
             mountPath: mountPath
             defaultMode: 0
@@ -35363,6 +35381,9 @@ components:
             items:
             - items
             - items
+          env:
+          - '{}'
+          - '{}'
           tags: tags
         polyaxonInitContainer:
           image: image

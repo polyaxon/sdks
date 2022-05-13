@@ -32,11 +32,17 @@ import (
 // swagger:model v1ConnectionType
 type V1ConnectionType struct {
 
+	// Optional Metadata annotations to pass to k8s
+	Annotations map[string]string `json:"annotations,omitempty"`
+
 	// ConfigMap resource schema
 	ConfigMap *V1K8sResourceSchema `json:"configMap,omitempty"`
 
 	// Optional connection description
 	Description string `json:"description,omitempty"`
+
+	// Environment variables
+	Env []interface{} `json:"env"`
 
 	// Connection kind
 	Kind *V1ConnectionKind `json:"kind,omitempty"`

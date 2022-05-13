@@ -34,7 +34,7 @@ type V1Environment struct {
 	// Optional Affinity sets the scheduling constraints.
 	Affinity V1Affinity `json:"affinity,omitempty"`
 
-	// Optional Metadata annotations to pass to the k8s
+	// Optional Metadata annotations to pass to k8s
 	Annotations map[string]string `json:"annotations,omitempty"`
 
 	// PodDNSConfig defines the DNS parameters of a pod in addition to
@@ -65,7 +65,7 @@ type V1Environment struct {
 	// More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
 	ImagePullSecrets []string `json:"imagePullSecrets"`
 
-	// Optional Metadata labels to pass to the k8s
+	// Optional Metadata labels to pass to k8s
 	Labels map[string]string `json:"labels,omitempty"`
 
 	// Optional NodeName is a request to schedule this pod onto a specific node. If it is non-empty,

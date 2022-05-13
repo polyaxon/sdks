@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **schema** | **Object** |  | [optional] 
 **secret** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  | [optional] 
 **configMap** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  | [optional] 
+**env** | **[Object]** |  | [optional] 
+**annotations** | **{String: String}** |  | [optional] 
 
 

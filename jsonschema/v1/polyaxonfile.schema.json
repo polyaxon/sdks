@@ -5249,6 +5249,13 @@
     },
     "v1ConnectionType": {
       "properties": {
+        "annotations": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Optional Metadata annotations to pass to k8s",
+          "type": "object"
+        },
         "configMap": {
           "$ref": "#/definitions/v1K8sResourceSchema",
           "title": "ConfigMap resource schema"
@@ -5256,6 +5263,13 @@
         "description": {
           "title": "Optional connection description",
           "type": "string"
+        },
+        "env": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Environment variables",
+          "type": "array"
         },
         "kind": {
           "$ref": "#/definitions/v1ConnectionKind",
@@ -5819,7 +5833,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "title": "Optional Metadata annotations to pass to the k8s",
+          "title": "Optional Metadata annotations to pass to k8s",
           "type": "object"
         },
         "dnsConfig": {
@@ -5856,7 +5870,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "title": "Optional Metadata labels to pass to the k8s",
+          "title": "Optional Metadata labels to pass to k8s",
           "type": "object"
         },
         "nodeName": {
