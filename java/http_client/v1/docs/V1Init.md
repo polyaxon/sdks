@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **git** | [**V1GitType**](V1GitType.md) |  |  [optional]
 **dockerfile** | [**V1DockerfileType**](V1DockerfileType.md) |  |  [optional]
 **file** | [**V1FileType**](V1FileType.md) |  |  [optional]
+**tensorboard** | [**V1TensorboardType**](V1TensorboardType.md) |  |  [optional]
 **lineageRef** | **String** |  |  [optional]
 **artifactRef** | **String** |  |  [optional]
 **modelRef** | **String** |  |  [optional]

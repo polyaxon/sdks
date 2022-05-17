@@ -41,6 +41,7 @@ import org.openapitools.client.model.V1ArtifactsType;
 import org.openapitools.client.model.V1DockerfileType;
 import org.openapitools.client.model.V1FileType;
 import org.openapitools.client.model.V1GitType;
+import org.openapitools.client.model.V1TensorboardType;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -98,6 +99,14 @@ public class V1InitTest {
     @Test
     public void fileTest() {
         // TODO: test file
+    }
+
+    /**
+     * Test the property 'tensorboard'
+     */
+    @Test
+    public void tensorboardTest() {
+        // TODO: test tensorboard
     }
 
     /**

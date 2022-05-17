@@ -4669,6 +4669,173 @@ public class RunsV1Api {
         return localVarCall;
     }
     /**
+     * Build call for getRunImportance
+     * @param namespace namespace (required)
+     * @param owner Owner of the namespace (required)
+     * @param project Project where the run will be assigned (required)
+     * @param uuid Uuid identifier of the entity (required)
+     * @param body Params/Metrics data (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getRunImportanceCall(String namespace, String owner, String project, String uuid, Object body, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance"
+            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()))
+            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "project" + "\\}", localVarApiClient.escapeString(project.toString()))
+            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRunImportanceValidateBeforeCall(String namespace, String owner, String project, String uuid, Object body, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling getRunImportance(Async)");
+        }
+        
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getRunImportance(Async)");
+        }
+        
+        // verify the required parameter 'project' is set
+        if (project == null) {
+            throw new ApiException("Missing the required parameter 'project' when calling getRunImportance(Async)");
+        }
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling getRunImportance(Async)");
+        }
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getRunImportance(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getRunImportanceCall(namespace, owner, project, uuid, body, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get run importance
+     * 
+     * @param namespace namespace (required)
+     * @param owner Owner of the namespace (required)
+     * @param project Project where the run will be assigned (required)
+     * @param uuid Uuid identifier of the entity (required)
+     * @param body Params/Metrics data (required)
+     * @return V1EventsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public V1EventsResponse getRunImportance(String namespace, String owner, String project, String uuid, Object body) throws ApiException {
+        ApiResponse<V1EventsResponse> localVarResp = getRunImportanceWithHttpInfo(namespace, owner, project, uuid, body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get run importance
+     * 
+     * @param namespace namespace (required)
+     * @param owner Owner of the namespace (required)
+     * @param project Project where the run will be assigned (required)
+     * @param uuid Uuid identifier of the entity (required)
+     * @param body Params/Metrics data (required)
+     * @return ApiResponse&lt;V1EventsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<V1EventsResponse> getRunImportanceWithHttpInfo(String namespace, String owner, String project, String uuid, Object body) throws ApiException {
+        okhttp3.Call localVarCall = getRunImportanceValidateBeforeCall(namespace, owner, project, uuid, body, null);
+        Type localVarReturnType = new TypeToken<V1EventsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get run importance (asynchronously)
+     * 
+     * @param namespace namespace (required)
+     * @param owner Owner of the namespace (required)
+     * @param project Project where the run will be assigned (required)
+     * @param uuid Uuid identifier of the entity (required)
+     * @param body Params/Metrics data (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getRunImportanceAsync(String namespace, String owner, String project, String uuid, Object body, final ApiCallback<V1EventsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getRunImportanceValidateBeforeCall(namespace, owner, project, uuid, body, _callback);
+        Type localVarReturnType = new TypeToken<V1EventsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getRunLogs
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)

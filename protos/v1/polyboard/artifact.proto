@@ -324,3 +324,21 @@ message RunResourcesRequest {
     // Sample query param
     int32 sample = 8;
 }
+
+// Request data to get run importance correlation
+message RunImportanceCorrelationRequest {
+  // namespace
+  string namespace = 1;
+
+  // Owner of the namespace
+  string owner = 2;
+
+  // Project where the run will be assigned
+  string project = 3;
+
+  // Uuid identifier of the entity
+  string uuid = 4;
+
+  // Params/Metrics data
+  google.protobuf.Struct data = 5;
+}

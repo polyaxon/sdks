@@ -1767,6 +1767,71 @@ export default class RunsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the getRunImportance operation.
+     * @callback module:api/RunsV1Api~getRunImportanceCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1EventsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get run importance
+     * @param {String} namespace namespace
+     * @param {String} owner Owner of the namespace
+     * @param {String} project Project where the run will be assigned
+     * @param {String} uuid Uuid identifier of the entity
+     * @param {Object.<String, Object>} body Params/Metrics data
+     * @param {module:api/RunsV1Api~getRunImportanceCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1EventsResponse}
+     */
+    getRunImportance(namespace, owner, project, uuid, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling getRunImportance");
+      }
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getRunImportance");
+      }
+      // verify the required parameter 'project' is set
+      if (project === undefined || project === null) {
+        throw new Error("Missing the required parameter 'project' when calling getRunImportance");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling getRunImportance");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling getRunImportance");
+      }
+
+      let pathParams = {
+        'namespace': namespace,
+        'owner': owner,
+        'project': project,
+        'uuid': uuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1EventsResponse;
+      return this.apiClient.callApi(
+        '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getRunLogs operation.
      * @callback module:api/RunsV1Api~getRunLogsCallback
      * @param {String} error Error message, if any.

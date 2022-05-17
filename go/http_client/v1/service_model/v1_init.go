@@ -32,7 +32,7 @@ import (
 // swagger:model v1Init
 type V1Init struct {
 
-	// Artifact version intializer
+	// Artifact version initializer
 	ArtifactRef string `json:"artifactRef,omitempty"`
 
 	// Artifacts initializer
@@ -47,16 +47,16 @@ type V1Init struct {
 	// Schema of the dockerfile to init
 	Dockerfile *V1DockerfileType `json:"dockerfile,omitempty"`
 
-	// File intializer
+	// File initializer
 	File *V1FileType `json:"file,omitempty"`
 
 	// Override for git connections
 	Git *V1GitType `json:"git,omitempty"`
 
-	// Lineage reference intializer
+	// Lineage reference initializer
 	LineageRef string `json:"lineageRef,omitempty"`
 
-	// Model version intializer
+	// Model version initializer
 	ModelRef string `json:"modelRef,omitempty"`
 
 	// Optional context path, the path to mount to main the container
@@ -64,6 +64,9 @@ type V1Init struct {
 
 	// Paths initializer
 	Paths []interface{} `json:"paths"`
+
+	// Tensorboard initializer
+	Tensorboard *V1TensorboardType `json:"tensorboard,omitempty"`
 }
 
 // Validate validates this v1 init
@@ -83,6 +86,10 @@ func (m *V1Init) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateGit(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTensorboard(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -168,6 +175,25 @@ func (m *V1Init) validateGit(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Init) validateTensorboard(formats strfmt.Registry) error {
+	if swag.IsZero(m.Tensorboard) { // not required
+		return nil
+	}
+
+	if m.Tensorboard != nil {
+		if err := m.Tensorboard.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tensorboard")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tensorboard")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this v1 init based on the context it is used
 func (m *V1Init) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -185,6 +211,10 @@ func (m *V1Init) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 	}
 
 	if err := m.contextValidateGit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTensorboard(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -250,6 +280,22 @@ func (m *V1Init) contextValidateGit(ctx context.Context, formats strfmt.Registry
 				return ve.ValidateName("git")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("git")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Init) contextValidateTensorboard(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Tensorboard != nil {
+		if err := m.Tensorboard.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("tensorboard")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tensorboard")
 			}
 			return err
 		}

@@ -100,6 +100,8 @@ type ClientService interface {
 
 	GetRunEvents(params *GetRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunEventsOK, *GetRunEventsNoContent, error)
 
+	GetRunImportance(params *GetRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunImportanceOK, *GetRunImportanceNoContent, error)
+
 	GetRunLogs(params *GetRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunLogsOK, *GetRunLogsNoContent, error)
 
 	GetRunNamespace(params *GetRunNamespaceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunNamespaceOK, *GetRunNamespaceNoContent, error)
@@ -1282,6 +1284,46 @@ func (a *Client) GetRunEvents(params *GetRunEventsParams, authInfo runtime.Clien
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetRunEventsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  GetRunImportance gets run importance
+*/
+func (a *Client) GetRunImportance(params *GetRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunImportanceOK, *GetRunImportanceNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRunImportanceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetRunImportance",
+		Method:             "POST",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRunImportanceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetRunImportanceOK:
+		return value, nil, nil
+	case *GetRunImportanceNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetRunImportanceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

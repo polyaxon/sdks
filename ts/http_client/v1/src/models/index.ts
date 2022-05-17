@@ -223,6 +223,7 @@ export * from './V1Team';
 export * from './V1TeamMember';
 export * from './V1TeamSettings';
 export * from './V1Template';
+export * from './V1TensorboardType';
 export * from './V1Termination';
 export * from './V1Token';
 export * from './V1TrialStart';

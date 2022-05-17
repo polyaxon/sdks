@@ -15902,6 +15902,80 @@
         ]
       }
     },
+    "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance": {
+      "post": {
+        "summary": "Get run importance",
+        "operationId": "GetRunImportance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1EventsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project where the run will be assigned",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Params/Metrics data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "RunsV1"
+        ]
+      }
+    },
     "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect": {
       "get": {
         "summary": "Inspect an active run full conditions",
@@ -19343,19 +19417,23 @@
         },
         "file": {
           "$ref": "#/definitions/v1FileType",
-          "title": "File intializer"
+          "title": "File initializer"
+        },
+        "tensorboard": {
+          "$ref": "#/definitions/v1TensorboardType",
+          "title": "Tensorboard initializer"
         },
         "lineageRef": {
           "type": "string",
-          "title": "Lineage reference intializer"
+          "title": "Lineage reference initializer"
         },
         "artifactRef": {
           "type": "string",
-          "title": "Artifact version intializer"
+          "title": "Artifact version initializer"
         },
         "modelRef": {
           "type": "string",
-          "title": "Model version intializer"
+          "title": "Model version initializer"
         },
         "connection": {
           "type": "string",
@@ -22876,6 +22954,33 @@
         }
       },
       "title": "Template specification"
+    },
+    "v1TensorboardType": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Port to expose the tensorboard service"
+        },
+        "uuids": {
+          "type": "string",
+          "title": "A comma separated list of operation's uuids to load the tensorboard logs from"
+        },
+        "use_names": {
+          "type": "boolean",
+          "title": "A flag to initialize the paths under the operation's names"
+        },
+        "path_prefix": {
+          "type": "string",
+          "title": "An optional path prefix to use for exposing the service"
+        },
+        "plugins": {
+          "type": "string",
+          "title": "An optional comma separated list of plugins to install before starting the tensorboard service"
+        }
+      },
+      "title": "Tensorboard type specification"
     },
     "v1Termination": {
       "type": "object",

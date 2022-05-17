@@ -604,6 +604,25 @@ public class RunsV1ApiTest {
     }
     
     /**
+     * Get run importance
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getRunImportanceTest() throws ApiException {
+        String namespace = null;
+        String owner = null;
+        String project = null;
+        String uuid = null;
+        Object body = null;
+                V1EventsResponse response = api.getRunImportance(namespace, owner, project, uuid, body);
+        // TODO: test validations
+    }
+    
+    /**
      * Get run logs
      *
      * 

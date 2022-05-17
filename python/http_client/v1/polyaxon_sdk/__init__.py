@@ -273,6 +273,7 @@ from polyaxon_sdk.models.v1_team import V1Team
 from polyaxon_sdk.models.v1_team_member import V1TeamMember
 from polyaxon_sdk.models.v1_team_settings import V1TeamSettings
 from polyaxon_sdk.models.v1_template import V1Template
+from polyaxon_sdk.models.v1_tensorboard_type import V1TensorboardType
 from polyaxon_sdk.models.v1_termination import V1Termination
 from polyaxon_sdk.models.v1_token import V1Token
 from polyaxon_sdk.models.v1_trial_start import V1TrialStart

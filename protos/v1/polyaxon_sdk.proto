@@ -464,6 +464,14 @@ service RunsV1 {
     };
   }
 
+  // Get run importance
+  rpc GetRunImportance(RunImportanceCorrelationRequest) returns (EventsResponse) {
+    option (google.api.http) = {
+      post: "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance"
+      body: "data",
+    };
+  }
+
   // Get run events
   rpc GetRunEvents(RunEventRequest) returns (EventsResponse) {
     option (google.api.http) = {

@@ -30,6 +30,7 @@ import V1ArtifactsType from './V1ArtifactsType';
 import V1DockerfileType from './V1DockerfileType';
 import V1FileType from './V1FileType';
 import V1GitType from './V1GitType';
+import V1TensorboardType from './V1TensorboardType';
 
 /**
  * The V1Init model module.
@@ -80,6 +81,9 @@ class V1Init {
             if (data.hasOwnProperty('file')) {
                 obj['file'] = V1FileType.constructFromObject(data['file']);
             }
+            if (data.hasOwnProperty('tensorboard')) {
+                obj['tensorboard'] = V1TensorboardType.constructFromObject(data['tensorboard']);
+            }
             if (data.hasOwnProperty('lineageRef')) {
                 obj['lineageRef'] = ApiClient.convertToType(data['lineageRef'], 'String');
             }
@@ -129,6 +133,11 @@ V1Init.prototype['dockerfile'] = undefined;
  * @member {module:model/V1FileType} file
  */
 V1Init.prototype['file'] = undefined;
+
+/**
+ * @member {module:model/V1TensorboardType} tensorboard
+ */
+V1Init.prototype['tensorboard'] = undefined;
 
 /**
  * @member {String} lineageRef

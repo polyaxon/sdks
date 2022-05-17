@@ -321,6 +321,14 @@ export interface GetRunEventsRequest {
     sample?: number;
 }
 
+export interface GetRunImportanceRequest {
+    namespace: string;
+    owner: string;
+    project: string;
+    uuid: string;
+    body: object;
+}
+
 export interface GetRunLogsRequest {
     namespace: string;
     owner: string;
@@ -1991,6 +1999,59 @@ export class RunsV1Api extends runtime.BaseAPI {
      */
     async getRunEvents(requestParameters: GetRunEventsRequest, initOverrides?: RequestInit): Promise<V1EventsResponse> {
         const response = await this.getRunEventsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get run importance
+     */
+    async getRunImportanceRaw(requestParameters: GetRunImportanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1EventsResponse>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunImportance.');
+        }
+
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunImportance.');
+        }
+
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling getRunImportance.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getRunImportance.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling getRunImportance.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1EventsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get run importance
+     */
+    async getRunImportance(requestParameters: GetRunImportanceRequest, initOverrides?: RequestInit): Promise<V1EventsResponse> {
+        const response = await this.getRunImportanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

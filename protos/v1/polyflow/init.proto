@@ -23,6 +23,7 @@ import "google/protobuf/struct.proto";
 import "v1/polyflow/k8s.proto";
 import "v1/types/dockerfile.proto";
 import "v1/types/file.proto";
+import "v1/types/tensorboard.proto";
 import "v1/types/git.proto";
 import "v1/types/artifacts.proto";
 
@@ -42,24 +43,27 @@ message Init {
     // Schema of the dockerfile to init
     DockerfileType dockerfile = 4;
 
-    // File intializer
+    // File initializer
     FileType file = 5;
 
-    // Lineage reference intializer
-    string lineageRef = 6;
+    // Tensorboard initializer
+    TensorboardType tensorboard = 6;
 
-    // Artifact version intializer
-    string artifactRef = 7;
+    // Lineage reference initializer
+    string lineageRef = 7;
 
-    // Model version intializer
-    string modelRef = 8;
+    // Artifact version initializer
+    string artifactRef = 8;
+
+    // Model version initializer
+    string modelRef = 9;
 
     // Optional, connection to use with this initializer
-    string connection = 9;
+    string connection = 10;
 
     // Optional context path, the path to mount to main the container
-    string path = 10;
+    string path = 11;
 
     // Container to override
-    Container container = 11;
+    Container container = 12;
 }

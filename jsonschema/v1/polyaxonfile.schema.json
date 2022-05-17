@@ -7058,7 +7058,7 @@
     "v1Init": {
       "properties": {
         "artifactRef": {
-          "title": "Artifact version intializer",
+          "title": "Artifact version initializer",
           "type": "string"
         },
         "artifacts": {
@@ -7079,18 +7079,18 @@
         },
         "file": {
           "$ref": "#/definitions/v1FileType",
-          "title": "File intializer"
+          "title": "File initializer"
         },
         "git": {
           "$ref": "#/definitions/v1GitType",
           "title": "Override for git connections"
         },
         "lineageRef": {
-          "title": "Lineage reference intializer",
+          "title": "Lineage reference initializer",
           "type": "string"
         },
         "modelRef": {
-          "title": "Model version intializer",
+          "title": "Model version initializer",
           "type": "string"
         },
         "path": {
@@ -7103,6 +7103,10 @@
           },
           "title": "Paths initializer",
           "type": "array"
+        },
+        "tensorboard": {
+          "$ref": "#/definitions/v1TensorboardType",
+          "title": "Tensorboard initializer"
         }
       },
       "title": "Initializer specification",
@@ -10708,6 +10712,33 @@
         }
       },
       "title": "Template specification",
+      "type": "object"
+    },
+    "v1TensorboardType": {
+      "properties": {
+        "path_prefix": {
+          "title": "An optional path prefix to use for exposing the service",
+          "type": "string"
+        },
+        "plugins": {
+          "title": "An optional comma separated list of plugins to install before starting the tensorboard service",
+          "type": "string"
+        },
+        "port": {
+          "format": "int32",
+          "title": "Port to expose the tensorboard service",
+          "type": "integer"
+        },
+        "use_names": {
+          "title": "A flag to initialize the paths under the operation's names",
+          "type": "boolean"
+        },
+        "uuids": {
+          "title": "A comma separated list of operation's uuids to load the tensorboard logs from",
+          "type": "string"
+        }
+      },
+      "title": "Tensorboard type specification",
       "type": "object"
     },
     "v1Termination": {

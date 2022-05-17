@@ -236,6 +236,7 @@ import V1Team from './model/V1Team';
 import V1TeamMember from './model/V1TeamMember';
 import V1TeamSettings from './model/V1TeamSettings';
 import V1Template from './model/V1Template';
+import V1TensorboardType from './model/V1TensorboardType';
 import V1Termination from './model/V1Termination';
 import V1Token from './model/V1Token';
 import V1TrialStart from './model/V1TrialStart';
@@ -1563,6 +1564,12 @@ export {
      * @property {module:model/V1Template}
      */
     V1Template,
+
+    /**
+     * The V1TensorboardType model constructor.
+     * @property {module:model/V1TensorboardType}
+     */
+    V1TensorboardType,
 
     /**
      * The V1Termination model constructor.

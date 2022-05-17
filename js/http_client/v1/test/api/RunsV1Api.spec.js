@@ -342,6 +342,16 @@
         done();
       });
     });
+    describe('getRunImportance', function() {
+      it('should call getRunImportance successfully', function(done) {
+        //uncomment below and update the code to test getRunImportance
+        //instance.getRunImportance(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getRunLogs', function() {
       it('should call getRunLogs successfully', function(done) {
         //uncomment below and update the code to test getRunLogs

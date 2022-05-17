@@ -256,6 +256,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**get_run_connections_lineage**](docs/RunsV1Api.md#get_run_connections_lineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections | Get run connections lineage
 *RunsV1Api* | [**get_run_downstream_lineage**](docs/RunsV1Api.md#get_run_downstream_lineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream | Get run downstream lineage
 *RunsV1Api* | [**get_run_events**](docs/RunsV1Api.md#get_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind} | Get run events
+*RunsV1Api* | [**get_run_importance**](docs/RunsV1Api.md#get_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance | Get run importance
 *RunsV1Api* | [**get_run_logs**](docs/RunsV1Api.md#get_run_logs) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs | Get run logs
 *RunsV1Api* | [**get_run_namespace**](docs/RunsV1Api.md#get_run_namespace) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/namespace | Get Run namespace
 *RunsV1Api* | [**get_run_resources**](docs/RunsV1Api.md#get_run_resources) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources | Get run resources events
@@ -556,6 +557,7 @@ Class | Method | HTTP request | Description
  - [V1TeamMember](docs/V1TeamMember.md)
  - [V1TeamSettings](docs/V1TeamSettings.md)
  - [V1Template](docs/V1Template.md)
+ - [V1TensorboardType](docs/V1TensorboardType.md)
  - [V1Termination](docs/V1Termination.md)
  - [V1Token](docs/V1Token.md)
  - [V1TrialStart](docs/V1TrialStart.md)

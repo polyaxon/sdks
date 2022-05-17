@@ -58,6 +58,7 @@ class V1Init(object):
         'git': 'V1GitType',
         'dockerfile': 'V1DockerfileType',
         'file': 'V1FileType',
+        'tensorboard': 'V1TensorboardType',
         'lineage_ref': 'str',
         'artifact_ref': 'str',
         'model_ref': 'str',
@@ -72,6 +73,7 @@ class V1Init(object):
         'git': 'git',
         'dockerfile': 'dockerfile',
         'file': 'file',
+        'tensorboard': 'tensorboard',
         'lineage_ref': 'lineageRef',
         'artifact_ref': 'artifactRef',
         'model_ref': 'modelRef',
@@ -80,7 +82,7 @@ class V1Init(object):
         'container': 'container'
     }
 
-    def __init__(self, artifacts=None, paths=None, git=None, dockerfile=None, file=None, lineage_ref=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, artifacts=None, paths=None, git=None, dockerfile=None, file=None, tensorboard=None, lineage_ref=None, artifact_ref=None, model_ref=None, connection=None, path=None, container=None, local_vars_configuration=None):  # noqa: E501
         """V1Init - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -91,6 +93,7 @@ class V1Init(object):
         self._git = None
         self._dockerfile = None
         self._file = None
+        self._tensorboard = None
         self._lineage_ref = None
         self._artifact_ref = None
         self._model_ref = None
@@ -109,6 +112,8 @@ class V1Init(object):
             self.dockerfile = dockerfile
         if file is not None:
             self.file = file
+        if tensorboard is not None:
+            self.tensorboard = tensorboard
         if lineage_ref is not None:
             self.lineage_ref = lineage_ref
         if artifact_ref is not None:
@@ -226,6 +231,27 @@ class V1Init(object):
         """
 
         self._file = file
+
+    @property
+    def tensorboard(self):
+        """Gets the tensorboard of this V1Init.  # noqa: E501
+
+
+        :return: The tensorboard of this V1Init.  # noqa: E501
+        :rtype: V1TensorboardType
+        """
+        return self._tensorboard
+
+    @tensorboard.setter
+    def tensorboard(self, tensorboard):
+        """Sets the tensorboard of this V1Init.
+
+
+        :param tensorboard: The tensorboard of this V1Init.  # noqa: E501
+        :type tensorboard: V1TensorboardType
+        """
+
+        self._tensorboard = tensorboard
 
     @property
     def lineage_ref(self):

@@ -291,6 +291,7 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.RunsV1Api* | [**getRunConnectionsLineage**](docs/RunsV1Api.md#getRunConnectionsLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections | Get run connections lineage
 *PolyaxonSdk.RunsV1Api* | [**getRunDownstreamLineage**](docs/RunsV1Api.md#getRunDownstreamLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream | Get run downstream lineage
 *PolyaxonSdk.RunsV1Api* | [**getRunEvents**](docs/RunsV1Api.md#getRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind} | Get run events
+*PolyaxonSdk.RunsV1Api* | [**getRunImportance**](docs/RunsV1Api.md#getRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance | Get run importance
 *PolyaxonSdk.RunsV1Api* | [**getRunLogs**](docs/RunsV1Api.md#getRunLogs) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs | Get run logs
 *PolyaxonSdk.RunsV1Api* | [**getRunNamespace**](docs/RunsV1Api.md#getRunNamespace) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/namespace | Get Run namespace
 *PolyaxonSdk.RunsV1Api* | [**getRunResources**](docs/RunsV1Api.md#getRunResources) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources | Get run resources events
@@ -591,6 +592,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1TeamMember](docs/V1TeamMember.md)
  - [PolyaxonSdk.V1TeamSettings](docs/V1TeamSettings.md)
  - [PolyaxonSdk.V1Template](docs/V1Template.md)
+ - [PolyaxonSdk.V1TensorboardType](docs/V1TensorboardType.md)
  - [PolyaxonSdk.V1Termination](docs/V1Termination.md)
  - [PolyaxonSdk.V1Token](docs/V1Token.md)
  - [PolyaxonSdk.V1TrialStart](docs/V1TrialStart.md)

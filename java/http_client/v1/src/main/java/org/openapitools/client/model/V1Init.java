@@ -43,6 +43,7 @@ import org.openapitools.client.model.V1ArtifactsType;
 import org.openapitools.client.model.V1DockerfileType;
 import org.openapitools.client.model.V1FileType;
 import org.openapitools.client.model.V1GitType;
+import org.openapitools.client.model.V1TensorboardType;
 
 /**
  * V1Init
@@ -68,6 +69,10 @@ public class V1Init {
   public static final String SERIALIZED_NAME_FILE = "file";
   @SerializedName(SERIALIZED_NAME_FILE)
   private V1FileType file;
+
+  public static final String SERIALIZED_NAME_TENSORBOARD = "tensorboard";
+  @SerializedName(SERIALIZED_NAME_TENSORBOARD)
+  private V1TensorboardType tensorboard;
 
   public static final String SERIALIZED_NAME_LINEAGE_REF = "lineageRef";
   @SerializedName(SERIALIZED_NAME_LINEAGE_REF)
@@ -214,6 +219,29 @@ public class V1Init {
 
   public void setFile(V1FileType file) {
     this.file = file;
+  }
+
+
+  public V1Init tensorboard(V1TensorboardType tensorboard) {
+    
+    this.tensorboard = tensorboard;
+    return this;
+  }
+
+   /**
+   * Get tensorboard
+   * @return tensorboard
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1TensorboardType getTensorboard() {
+    return tensorboard;
+  }
+
+
+  public void setTensorboard(V1TensorboardType tensorboard) {
+    this.tensorboard = tensorboard;
   }
 
 
@@ -369,6 +397,7 @@ public class V1Init {
         Objects.equals(this.git, v1Init.git) &&
         Objects.equals(this.dockerfile, v1Init.dockerfile) &&
         Objects.equals(this.file, v1Init.file) &&
+        Objects.equals(this.tensorboard, v1Init.tensorboard) &&
         Objects.equals(this.lineageRef, v1Init.lineageRef) &&
         Objects.equals(this.artifactRef, v1Init.artifactRef) &&
         Objects.equals(this.modelRef, v1Init.modelRef) &&
@@ -379,7 +408,7 @@ public class V1Init {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifacts, paths, git, dockerfile, file, lineageRef, artifactRef, modelRef, connection, path, container);
+    return Objects.hash(artifacts, paths, git, dockerfile, file, tensorboard, lineageRef, artifactRef, modelRef, connection, path, container);
   }
 
   @Override
@@ -391,6 +420,7 @@ public class V1Init {
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    dockerfile: ").append(toIndentedString(dockerfile)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    tensorboard: ").append(toIndentedString(tensorboard)).append("\n");
     sb.append("    lineageRef: ").append(toIndentedString(lineageRef)).append("\n");
     sb.append("    artifactRef: ").append(toIndentedString(artifactRef)).append("\n");
     sb.append("    modelRef: ").append(toIndentedString(modelRef)).append("\n");

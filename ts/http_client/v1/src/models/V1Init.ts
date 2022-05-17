@@ -44,6 +44,10 @@ import {
     V1GitTypeFromJSON,
     V1GitTypeFromJSONTyped,
     V1GitTypeToJSON,
+    V1TensorboardType,
+    V1TensorboardTypeFromJSON,
+    V1TensorboardTypeFromJSONTyped,
+    V1TensorboardTypeToJSON,
 } from './';
 
 /**
@@ -82,6 +86,12 @@ export interface V1Init {
      * @memberof V1Init
      */
     file?: V1FileType;
+    /**
+     * 
+     * @type {V1TensorboardType}
+     * @memberof V1Init
+     */
+    tensorboard?: V1TensorboardType;
     /**
      * 
      * @type {string}
@@ -135,6 +145,7 @@ export function V1InitFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         'git': !exists(json, 'git') ? undefined : V1GitTypeFromJSON(json['git']),
         'dockerfile': !exists(json, 'dockerfile') ? undefined : V1DockerfileTypeFromJSON(json['dockerfile']),
         'file': !exists(json, 'file') ? undefined : V1FileTypeFromJSON(json['file']),
+        'tensorboard': !exists(json, 'tensorboard') ? undefined : V1TensorboardTypeFromJSON(json['tensorboard']),
         'lineageRef': !exists(json, 'lineageRef') ? undefined : json['lineageRef'],
         'artifactRef': !exists(json, 'artifactRef') ? undefined : json['artifactRef'],
         'modelRef': !exists(json, 'modelRef') ? undefined : json['modelRef'],
@@ -158,6 +169,7 @@ export function V1InitToJSON(value?: V1Init | null): any {
         'git': V1GitTypeToJSON(value.git),
         'dockerfile': V1DockerfileTypeToJSON(value.dockerfile),
         'file': V1FileTypeToJSON(value.file),
+        'tensorboard': V1TensorboardTypeToJSON(value.tensorboard),
         'lineageRef': value.lineageRef,
         'artifactRef': value.artifactRef,
         'modelRef': value.modelRef,
