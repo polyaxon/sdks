@@ -26,7 +26,7 @@ message TensorboardType {
     int32 port = 1;
 
     // A comma separated list of operation's uuids to load the tensorboard logs from
-    string uuids = 2;
+    repeated string uuids = 2;
 
     // A flag to initialize the paths under the operation's names
     bool use_names = 3;

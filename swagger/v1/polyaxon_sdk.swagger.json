@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "1.18.0",
+    "version": "1.18.2",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -22964,7 +22964,10 @@
           "title": "Port to expose the tensorboard service"
         },
         "uuids": {
-          "type": "string",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "title": "A comma separated list of operation's uuids to load the tensorboard logs from"
         },
         "use_names": {

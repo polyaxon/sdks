@@ -10734,8 +10734,11 @@
           "type": "boolean"
         },
         "uuids": {
+          "items": {
+            "type": "string"
+          },
           "title": "A comma separated list of operation's uuids to load the tensorboard logs from",
-          "type": "string"
+          "type": "array"
         }
       },
       "title": "Tensorboard type specification",

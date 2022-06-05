@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **port** | **int** |  | [optional] 
-**uuids** | **str** |  | [optional] 
+**uuids** | **list[str]** |  | [optional] 
 **use_names** | **bool** |  | [optional] 
 **path_prefix** | **str** |  | [optional] 
 **plugins** | **str** |  | [optional] 

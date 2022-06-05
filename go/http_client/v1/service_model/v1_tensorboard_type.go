@@ -44,7 +44,7 @@ type V1TensorboardType struct {
 	UseNames bool `json:"use_names,omitempty"`
 
 	// A comma separated list of operation's uuids to load the tensorboard logs from
-	Uuids string `json:"uuids,omitempty"`
+	Uuids []string `json:"uuids"`
 }
 
 // Validate validates this v1 tensorboard type
