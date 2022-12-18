@@ -86,9 +86,39 @@ type GetSuggestionsOK struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get suggestions o k response has a 2xx status code
+func (o *GetSuggestionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get suggestions o k response has a 3xx status code
+func (o *GetSuggestionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get suggestions o k response has a 4xx status code
+func (o *GetSuggestionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get suggestions o k response has a 5xx status code
+func (o *GetSuggestionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get suggestions o k response a status code equal to that given
+func (o *GetSuggestionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSuggestionsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSuggestionsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSuggestionsOK) GetPayload() interface{} {
 	return o.Payload
 }
@@ -116,9 +146,39 @@ type GetSuggestionsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get suggestions no content response has a 2xx status code
+func (o *GetSuggestionsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get suggestions no content response has a 3xx status code
+func (o *GetSuggestionsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get suggestions no content response has a 4xx status code
+func (o *GetSuggestionsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get suggestions no content response has a 5xx status code
+func (o *GetSuggestionsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get suggestions no content response a status code equal to that given
+func (o *GetSuggestionsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetSuggestionsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetSuggestionsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetSuggestionsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -146,9 +206,39 @@ type GetSuggestionsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get suggestions forbidden response has a 2xx status code
+func (o *GetSuggestionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get suggestions forbidden response has a 3xx status code
+func (o *GetSuggestionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get suggestions forbidden response has a 4xx status code
+func (o *GetSuggestionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get suggestions forbidden response has a 5xx status code
+func (o *GetSuggestionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get suggestions forbidden response a status code equal to that given
+func (o *GetSuggestionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSuggestionsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSuggestionsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSuggestionsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -176,9 +266,39 @@ type GetSuggestionsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get suggestions not found response has a 2xx status code
+func (o *GetSuggestionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get suggestions not found response has a 3xx status code
+func (o *GetSuggestionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get suggestions not found response has a 4xx status code
+func (o *GetSuggestionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get suggestions not found response has a 5xx status code
+func (o *GetSuggestionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get suggestions not found response a status code equal to that given
+func (o *GetSuggestionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSuggestionsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetSuggestionsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetSuggestionsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -215,9 +335,39 @@ func (o *GetSuggestionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get suggestions default response has a 2xx status code
+func (o *GetSuggestionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get suggestions default response has a 3xx status code
+func (o *GetSuggestionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get suggestions default response has a 4xx status code
+func (o *GetSuggestionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get suggestions default response has a 5xx status code
+func (o *GetSuggestionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get suggestions default response a status code equal to that given
+func (o *GetSuggestionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSuggestionsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] GetSuggestions default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSuggestionsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] GetSuggestions default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSuggestionsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

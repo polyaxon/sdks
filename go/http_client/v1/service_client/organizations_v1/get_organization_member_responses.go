@@ -86,9 +86,39 @@ type GetOrganizationMemberOK struct {
 	Payload *service_model.V1OrganizationMember
 }
 
+// IsSuccess returns true when this get organization member o k response has a 2xx status code
+func (o *GetOrganizationMemberOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organization member o k response has a 3xx status code
+func (o *GetOrganizationMemberOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization member o k response has a 4xx status code
+func (o *GetOrganizationMemberOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organization member o k response has a 5xx status code
+func (o *GetOrganizationMemberOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization member o k response a status code equal to that given
+func (o *GetOrganizationMemberOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationMemberOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberOK  %+v", 200, o.Payload)
 }
+
+func (o *GetOrganizationMemberOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberOK  %+v", 200, o.Payload)
+}
+
 func (o *GetOrganizationMemberOK) GetPayload() *service_model.V1OrganizationMember {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetOrganizationMemberNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get organization member no content response has a 2xx status code
+func (o *GetOrganizationMemberNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organization member no content response has a 3xx status code
+func (o *GetOrganizationMemberNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization member no content response has a 4xx status code
+func (o *GetOrganizationMemberNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organization member no content response has a 5xx status code
+func (o *GetOrganizationMemberNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization member no content response a status code equal to that given
+func (o *GetOrganizationMemberNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetOrganizationMemberNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetOrganizationMemberNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetOrganizationMemberNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetOrganizationMemberForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get organization member forbidden response has a 2xx status code
+func (o *GetOrganizationMemberForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organization member forbidden response has a 3xx status code
+func (o *GetOrganizationMemberForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization member forbidden response has a 4xx status code
+func (o *GetOrganizationMemberForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organization member forbidden response has a 5xx status code
+func (o *GetOrganizationMemberForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization member forbidden response a status code equal to that given
+func (o *GetOrganizationMemberForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationMemberForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetOrganizationMemberForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetOrganizationMemberForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetOrganizationMemberNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get organization member not found response has a 2xx status code
+func (o *GetOrganizationMemberNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organization member not found response has a 3xx status code
+func (o *GetOrganizationMemberNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization member not found response has a 4xx status code
+func (o *GetOrganizationMemberNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organization member not found response has a 5xx status code
+func (o *GetOrganizationMemberNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization member not found response a status code equal to that given
+func (o *GetOrganizationMemberNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationMemberNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetOrganizationMemberNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetOrganizationMemberNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetOrganizationMemberDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get organization member default response has a 2xx status code
+func (o *GetOrganizationMemberDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get organization member default response has a 3xx status code
+func (o *GetOrganizationMemberDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get organization member default response has a 4xx status code
+func (o *GetOrganizationMemberDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get organization member default response has a 5xx status code
+func (o *GetOrganizationMemberDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get organization member default response a status code equal to that given
+func (o *GetOrganizationMemberDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetOrganizationMemberDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] GetOrganizationMember default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetOrganizationMemberDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] GetOrganizationMember default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetOrganizationMemberDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

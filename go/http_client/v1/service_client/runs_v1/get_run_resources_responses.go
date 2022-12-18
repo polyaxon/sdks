@@ -86,9 +86,39 @@ type GetRunResourcesOK struct {
 	Payload *service_model.V1EventsResponse
 }
 
+// IsSuccess returns true when this get run resources o k response has a 2xx status code
+func (o *GetRunResourcesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run resources o k response has a 3xx status code
+func (o *GetRunResourcesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run resources o k response has a 4xx status code
+func (o *GetRunResourcesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run resources o k response has a 5xx status code
+func (o *GetRunResourcesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run resources o k response a status code equal to that given
+func (o *GetRunResourcesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRunResourcesOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunResourcesOK) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunResourcesOK) GetPayload() *service_model.V1EventsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetRunResourcesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run resources no content response has a 2xx status code
+func (o *GetRunResourcesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run resources no content response has a 3xx status code
+func (o *GetRunResourcesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run resources no content response has a 4xx status code
+func (o *GetRunResourcesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run resources no content response has a 5xx status code
+func (o *GetRunResourcesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run resources no content response a status code equal to that given
+func (o *GetRunResourcesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetRunResourcesNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunResourcesNoContent) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunResourcesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetRunResourcesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run resources forbidden response has a 2xx status code
+func (o *GetRunResourcesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run resources forbidden response has a 3xx status code
+func (o *GetRunResourcesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run resources forbidden response has a 4xx status code
+func (o *GetRunResourcesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run resources forbidden response has a 5xx status code
+func (o *GetRunResourcesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run resources forbidden response a status code equal to that given
+func (o *GetRunResourcesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRunResourcesForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunResourcesForbidden) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunResourcesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetRunResourcesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run resources not found response has a 2xx status code
+func (o *GetRunResourcesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run resources not found response has a 3xx status code
+func (o *GetRunResourcesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run resources not found response has a 4xx status code
+func (o *GetRunResourcesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run resources not found response has a 5xx status code
+func (o *GetRunResourcesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run resources not found response a status code equal to that given
+func (o *GetRunResourcesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRunResourcesNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunResourcesNotFound) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunResourcesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetRunResourcesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get run resources default response has a 2xx status code
+func (o *GetRunResourcesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get run resources default response has a 3xx status code
+func (o *GetRunResourcesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get run resources default response has a 4xx status code
+func (o *GetRunResourcesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get run resources default response has a 5xx status code
+func (o *GetRunResourcesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get run resources default response a status code equal to that given
+func (o *GetRunResourcesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRunResourcesDefault) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRunResourcesDefault) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRunResourcesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

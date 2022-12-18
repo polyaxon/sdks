@@ -86,9 +86,39 @@ type ListProjectSearchNamesOK struct {
 	Payload *service_model.V1ListSearchesResponse
 }
 
+// IsSuccess returns true when this list project search names o k response has a 2xx status code
+func (o *ListProjectSearchNamesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list project search names o k response has a 3xx status code
+func (o *ListProjectSearchNamesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project search names o k response has a 4xx status code
+func (o *ListProjectSearchNamesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list project search names o k response has a 5xx status code
+func (o *ListProjectSearchNamesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project search names o k response a status code equal to that given
+func (o *ListProjectSearchNamesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListProjectSearchNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesOK  %+v", 200, o.Payload)
 }
+
+func (o *ListProjectSearchNamesOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesOK  %+v", 200, o.Payload)
+}
+
 func (o *ListProjectSearchNamesOK) GetPayload() *service_model.V1ListSearchesResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListProjectSearchNamesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list project search names no content response has a 2xx status code
+func (o *ListProjectSearchNamesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list project search names no content response has a 3xx status code
+func (o *ListProjectSearchNamesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project search names no content response has a 4xx status code
+func (o *ListProjectSearchNamesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list project search names no content response has a 5xx status code
+func (o *ListProjectSearchNamesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project search names no content response a status code equal to that given
+func (o *ListProjectSearchNamesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListProjectSearchNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListProjectSearchNamesNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListProjectSearchNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListProjectSearchNamesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list project search names forbidden response has a 2xx status code
+func (o *ListProjectSearchNamesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list project search names forbidden response has a 3xx status code
+func (o *ListProjectSearchNamesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project search names forbidden response has a 4xx status code
+func (o *ListProjectSearchNamesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list project search names forbidden response has a 5xx status code
+func (o *ListProjectSearchNamesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project search names forbidden response a status code equal to that given
+func (o *ListProjectSearchNamesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListProjectSearchNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListProjectSearchNamesForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListProjectSearchNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListProjectSearchNamesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list project search names not found response has a 2xx status code
+func (o *ListProjectSearchNamesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list project search names not found response has a 3xx status code
+func (o *ListProjectSearchNamesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project search names not found response has a 4xx status code
+func (o *ListProjectSearchNamesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list project search names not found response has a 5xx status code
+func (o *ListProjectSearchNamesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project search names not found response a status code equal to that given
+func (o *ListProjectSearchNamesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListProjectSearchNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListProjectSearchNamesNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListProjectSearchNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListProjectSearchNamesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list project search names default response has a 2xx status code
+func (o *ListProjectSearchNamesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list project search names default response has a 3xx status code
+func (o *ListProjectSearchNamesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list project search names default response has a 4xx status code
+func (o *ListProjectSearchNamesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list project search names default response has a 5xx status code
+func (o *ListProjectSearchNamesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list project search names default response a status code equal to that given
+func (o *ListProjectSearchNamesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListProjectSearchNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] ListProjectSearchNames default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListProjectSearchNamesDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] ListProjectSearchNames default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListProjectSearchNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

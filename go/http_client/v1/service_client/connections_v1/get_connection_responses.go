@@ -86,9 +86,39 @@ type GetConnectionOK struct {
 	Payload *service_model.V1ConnectionResponse
 }
 
+// IsSuccess returns true when this get connection o k response has a 2xx status code
+func (o *GetConnectionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get connection o k response has a 3xx status code
+func (o *GetConnectionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get connection o k response has a 4xx status code
+func (o *GetConnectionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get connection o k response has a 5xx status code
+func (o *GetConnectionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get connection o k response a status code equal to that given
+func (o *GetConnectionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConnectionOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK  %+v", 200, o.Payload)
 }
+
+func (o *GetConnectionOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK  %+v", 200, o.Payload)
+}
+
 func (o *GetConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetConnectionNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get connection no content response has a 2xx status code
+func (o *GetConnectionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get connection no content response has a 3xx status code
+func (o *GetConnectionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get connection no content response has a 4xx status code
+func (o *GetConnectionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get connection no content response has a 5xx status code
+func (o *GetConnectionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get connection no content response a status code equal to that given
+func (o *GetConnectionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetConnectionNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetConnectionNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetConnectionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetConnectionForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get connection forbidden response has a 2xx status code
+func (o *GetConnectionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get connection forbidden response has a 3xx status code
+func (o *GetConnectionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get connection forbidden response has a 4xx status code
+func (o *GetConnectionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get connection forbidden response has a 5xx status code
+func (o *GetConnectionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get connection forbidden response a status code equal to that given
+func (o *GetConnectionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConnectionForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetConnectionForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetConnectionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetConnectionNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get connection not found response has a 2xx status code
+func (o *GetConnectionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get connection not found response has a 3xx status code
+func (o *GetConnectionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get connection not found response has a 4xx status code
+func (o *GetConnectionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get connection not found response has a 5xx status code
+func (o *GetConnectionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get connection not found response a status code equal to that given
+func (o *GetConnectionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConnectionNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetConnectionNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetConnectionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetConnectionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get connection default response has a 2xx status code
+func (o *GetConnectionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get connection default response has a 3xx status code
+func (o *GetConnectionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get connection default response has a 4xx status code
+func (o *GetConnectionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get connection default response has a 5xx status code
+func (o *GetConnectionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get connection default response a status code equal to that given
+func (o *GetConnectionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetConnectionDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] GetConnection default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetConnectionDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] GetConnection default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetConnectionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

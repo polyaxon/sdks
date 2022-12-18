@@ -86,9 +86,39 @@ type ListQueueNamesOK struct {
 	Payload *service_model.V1ListQueuesResponse
 }
 
+// IsSuccess returns true when this list queue names o k response has a 2xx status code
+func (o *ListQueueNamesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list queue names o k response has a 3xx status code
+func (o *ListQueueNamesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list queue names o k response has a 4xx status code
+func (o *ListQueueNamesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list queue names o k response has a 5xx status code
+func (o *ListQueueNamesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list queue names o k response a status code equal to that given
+func (o *ListQueueNamesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListQueueNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesOK  %+v", 200, o.Payload)
 }
+
+func (o *ListQueueNamesOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesOK  %+v", 200, o.Payload)
+}
+
 func (o *ListQueueNamesOK) GetPayload() *service_model.V1ListQueuesResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListQueueNamesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list queue names no content response has a 2xx status code
+func (o *ListQueueNamesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list queue names no content response has a 3xx status code
+func (o *ListQueueNamesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list queue names no content response has a 4xx status code
+func (o *ListQueueNamesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list queue names no content response has a 5xx status code
+func (o *ListQueueNamesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list queue names no content response a status code equal to that given
+func (o *ListQueueNamesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListQueueNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListQueueNamesNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListQueueNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListQueueNamesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list queue names forbidden response has a 2xx status code
+func (o *ListQueueNamesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list queue names forbidden response has a 3xx status code
+func (o *ListQueueNamesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list queue names forbidden response has a 4xx status code
+func (o *ListQueueNamesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list queue names forbidden response has a 5xx status code
+func (o *ListQueueNamesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list queue names forbidden response a status code equal to that given
+func (o *ListQueueNamesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListQueueNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListQueueNamesForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListQueueNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListQueueNamesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list queue names not found response has a 2xx status code
+func (o *ListQueueNamesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list queue names not found response has a 3xx status code
+func (o *ListQueueNamesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list queue names not found response has a 4xx status code
+func (o *ListQueueNamesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list queue names not found response has a 5xx status code
+func (o *ListQueueNamesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list queue names not found response a status code equal to that given
+func (o *ListQueueNamesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListQueueNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListQueueNamesNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] listQueueNamesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListQueueNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListQueueNamesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list queue names default response has a 2xx status code
+func (o *ListQueueNamesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list queue names default response has a 3xx status code
+func (o *ListQueueNamesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list queue names default response has a 4xx status code
+func (o *ListQueueNamesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list queue names default response has a 5xx status code
+func (o *ListQueueNamesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list queue names default response a status code equal to that given
+func (o *ListQueueNamesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListQueueNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] ListQueueNames default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListQueueNamesDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues/names][%d] ListQueueNames default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListQueueNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

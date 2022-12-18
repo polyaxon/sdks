@@ -85,7 +85,36 @@ A successful response.
 type DeleteProjectDashboardOK struct {
 }
 
+// IsSuccess returns true when this delete project dashboard o k response has a 2xx status code
+func (o *DeleteProjectDashboardOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete project dashboard o k response has a 3xx status code
+func (o *DeleteProjectDashboardOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project dashboard o k response has a 4xx status code
+func (o *DeleteProjectDashboardOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete project dashboard o k response has a 5xx status code
+func (o *DeleteProjectDashboardOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project dashboard o k response a status code equal to that given
+func (o *DeleteProjectDashboardOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteProjectDashboardOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK ", 200)
+}
+
+func (o *DeleteProjectDashboardOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type DeleteProjectDashboardNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete project dashboard no content response has a 2xx status code
+func (o *DeleteProjectDashboardNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete project dashboard no content response has a 3xx status code
+func (o *DeleteProjectDashboardNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project dashboard no content response has a 4xx status code
+func (o *DeleteProjectDashboardNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete project dashboard no content response has a 5xx status code
+func (o *DeleteProjectDashboardNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project dashboard no content response a status code equal to that given
+func (o *DeleteProjectDashboardNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteProjectDashboardNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteProjectDashboardNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteProjectDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type DeleteProjectDashboardForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete project dashboard forbidden response has a 2xx status code
+func (o *DeleteProjectDashboardForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete project dashboard forbidden response has a 3xx status code
+func (o *DeleteProjectDashboardForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project dashboard forbidden response has a 4xx status code
+func (o *DeleteProjectDashboardForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete project dashboard forbidden response has a 5xx status code
+func (o *DeleteProjectDashboardForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project dashboard forbidden response a status code equal to that given
+func (o *DeleteProjectDashboardForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteProjectDashboardForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteProjectDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type DeleteProjectDashboardNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete project dashboard not found response has a 2xx status code
+func (o *DeleteProjectDashboardNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete project dashboard not found response has a 3xx status code
+func (o *DeleteProjectDashboardNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project dashboard not found response has a 4xx status code
+func (o *DeleteProjectDashboardNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete project dashboard not found response has a 5xx status code
+func (o *DeleteProjectDashboardNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project dashboard not found response a status code equal to that given
+func (o *DeleteProjectDashboardNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteProjectDashboardNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteProjectDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *DeleteProjectDashboardDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete project dashboard default response has a 2xx status code
+func (o *DeleteProjectDashboardDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete project dashboard default response has a 3xx status code
+func (o *DeleteProjectDashboardDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete project dashboard default response has a 4xx status code
+func (o *DeleteProjectDashboardDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete project dashboard default response has a 5xx status code
+func (o *DeleteProjectDashboardDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete project dashboard default response a status code equal to that given
+func (o *DeleteProjectDashboardDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteProjectDashboardDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] DeleteProjectDashboard default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteProjectDashboardDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] DeleteProjectDashboard default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

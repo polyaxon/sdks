@@ -85,7 +85,36 @@ A successful response.
 type DeleteRunsOK struct {
 }
 
+// IsSuccess returns true when this delete runs o k response has a 2xx status code
+func (o *DeleteRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete runs o k response has a 3xx status code
+func (o *DeleteRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete runs o k response has a 4xx status code
+func (o *DeleteRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete runs o k response has a 5xx status code
+func (o *DeleteRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete runs o k response a status code equal to that given
+func (o *DeleteRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRunsOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsOK ", 200)
+}
+
+func (o *DeleteRunsOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type DeleteRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete runs no content response has a 2xx status code
+func (o *DeleteRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete runs no content response has a 3xx status code
+func (o *DeleteRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete runs no content response has a 4xx status code
+func (o *DeleteRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete runs no content response has a 5xx status code
+func (o *DeleteRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete runs no content response a status code equal to that given
+func (o *DeleteRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteRunsNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteRunsNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type DeleteRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete runs forbidden response has a 2xx status code
+func (o *DeleteRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete runs forbidden response has a 3xx status code
+func (o *DeleteRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete runs forbidden response has a 4xx status code
+func (o *DeleteRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete runs forbidden response has a 5xx status code
+func (o *DeleteRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete runs forbidden response a status code equal to that given
+func (o *DeleteRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRunsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteRunsForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type DeleteRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete runs not found response has a 2xx status code
+func (o *DeleteRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete runs not found response has a 3xx status code
+func (o *DeleteRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete runs not found response has a 4xx status code
+func (o *DeleteRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete runs not found response has a 5xx status code
+func (o *DeleteRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete runs not found response a status code equal to that given
+func (o *DeleteRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRunsNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteRunsNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *DeleteRunsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete runs default response has a 2xx status code
+func (o *DeleteRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete runs default response has a 3xx status code
+func (o *DeleteRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete runs default response has a 4xx status code
+func (o *DeleteRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete runs default response has a 5xx status code
+func (o *DeleteRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete runs default response a status code equal to that given
+func (o *DeleteRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteRunsDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteRunsDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

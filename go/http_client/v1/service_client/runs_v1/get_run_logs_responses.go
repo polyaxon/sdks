@@ -86,9 +86,39 @@ type GetRunLogsOK struct {
 	Payload *service_model.V1Logs
 }
 
+// IsSuccess returns true when this get run logs o k response has a 2xx status code
+func (o *GetRunLogsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run logs o k response has a 3xx status code
+func (o *GetRunLogsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run logs o k response has a 4xx status code
+func (o *GetRunLogsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run logs o k response has a 5xx status code
+func (o *GetRunLogsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run logs o k response a status code equal to that given
+func (o *GetRunLogsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRunLogsOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunLogsOK) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunLogsOK) GetPayload() *service_model.V1Logs {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetRunLogsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run logs no content response has a 2xx status code
+func (o *GetRunLogsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run logs no content response has a 3xx status code
+func (o *GetRunLogsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run logs no content response has a 4xx status code
+func (o *GetRunLogsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run logs no content response has a 5xx status code
+func (o *GetRunLogsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run logs no content response a status code equal to that given
+func (o *GetRunLogsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetRunLogsNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunLogsNoContent) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunLogsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetRunLogsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run logs forbidden response has a 2xx status code
+func (o *GetRunLogsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run logs forbidden response has a 3xx status code
+func (o *GetRunLogsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run logs forbidden response has a 4xx status code
+func (o *GetRunLogsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run logs forbidden response has a 5xx status code
+func (o *GetRunLogsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run logs forbidden response a status code equal to that given
+func (o *GetRunLogsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRunLogsForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunLogsForbidden) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunLogsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetRunLogsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run logs not found response has a 2xx status code
+func (o *GetRunLogsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run logs not found response has a 3xx status code
+func (o *GetRunLogsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run logs not found response has a 4xx status code
+func (o *GetRunLogsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run logs not found response has a 5xx status code
+func (o *GetRunLogsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run logs not found response a status code equal to that given
+func (o *GetRunLogsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRunLogsNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunLogsNotFound) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] getRunLogsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunLogsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetRunLogsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get run logs default response has a 2xx status code
+func (o *GetRunLogsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get run logs default response has a 3xx status code
+func (o *GetRunLogsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get run logs default response has a 4xx status code
+func (o *GetRunLogsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get run logs default response has a 5xx status code
+func (o *GetRunLogsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get run logs default response a status code equal to that given
+func (o *GetRunLogsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRunLogsDefault) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] GetRunLogs default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRunLogsDefault) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs][%d] GetRunLogs default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRunLogsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

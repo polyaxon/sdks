@@ -52,7 +52,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "1.20.0";
+        version: "1.21.0";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -450,10 +450,10 @@ service RunsV1 {
     };
   }
 
-  // Collect run logs
+  // Internal API to collect run logs
   rpc CollectRunLogs(CollectRunLogsRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs"
+      post: "/internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs"
     };
   }
 

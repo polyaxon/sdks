@@ -85,7 +85,36 @@ A successful response.
 type StopOrganizationRunsOK struct {
 }
 
+// IsSuccess returns true when this stop organization runs o k response has a 2xx status code
+func (o *StopOrganizationRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stop organization runs o k response has a 3xx status code
+func (o *StopOrganizationRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop organization runs o k response has a 4xx status code
+func (o *StopOrganizationRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stop organization runs o k response has a 5xx status code
+func (o *StopOrganizationRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop organization runs o k response a status code equal to that given
+func (o *StopOrganizationRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StopOrganizationRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsOK ", 200)
+}
+
+func (o *StopOrganizationRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type StopOrganizationRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop organization runs no content response has a 2xx status code
+func (o *StopOrganizationRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stop organization runs no content response has a 3xx status code
+func (o *StopOrganizationRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop organization runs no content response has a 4xx status code
+func (o *StopOrganizationRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stop organization runs no content response has a 5xx status code
+func (o *StopOrganizationRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop organization runs no content response a status code equal to that given
+func (o *StopOrganizationRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StopOrganizationRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *StopOrganizationRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *StopOrganizationRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type StopOrganizationRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop organization runs forbidden response has a 2xx status code
+func (o *StopOrganizationRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this stop organization runs forbidden response has a 3xx status code
+func (o *StopOrganizationRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop organization runs forbidden response has a 4xx status code
+func (o *StopOrganizationRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this stop organization runs forbidden response has a 5xx status code
+func (o *StopOrganizationRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop organization runs forbidden response a status code equal to that given
+func (o *StopOrganizationRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *StopOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *StopOrganizationRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *StopOrganizationRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type StopOrganizationRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop organization runs not found response has a 2xx status code
+func (o *StopOrganizationRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this stop organization runs not found response has a 3xx status code
+func (o *StopOrganizationRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop organization runs not found response has a 4xx status code
+func (o *StopOrganizationRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this stop organization runs not found response has a 5xx status code
+func (o *StopOrganizationRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop organization runs not found response a status code equal to that given
+func (o *StopOrganizationRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *StopOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *StopOrganizationRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *StopOrganizationRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *StopOrganizationRunsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this stop organization runs default response has a 2xx status code
+func (o *StopOrganizationRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this stop organization runs default response has a 3xx status code
+func (o *StopOrganizationRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this stop organization runs default response has a 4xx status code
+func (o *StopOrganizationRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this stop organization runs default response has a 5xx status code
+func (o *StopOrganizationRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this stop organization runs default response a status code equal to that given
+func (o *StopOrganizationRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *StopOrganizationRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] StopOrganizationRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *StopOrganizationRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] StopOrganizationRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *StopOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

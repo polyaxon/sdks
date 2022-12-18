@@ -85,7 +85,36 @@ A successful response.
 type StopRunOK struct {
 }
 
+// IsSuccess returns true when this stop run o k response has a 2xx status code
+func (o *StopRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stop run o k response has a 3xx status code
+func (o *StopRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop run o k response has a 4xx status code
+func (o *StopRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stop run o k response has a 5xx status code
+func (o *StopRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop run o k response a status code equal to that given
+func (o *StopRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *StopRunOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunOK ", 200)
+}
+
+func (o *StopRunOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type StopRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop run no content response has a 2xx status code
+func (o *StopRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stop run no content response has a 3xx status code
+func (o *StopRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop run no content response has a 4xx status code
+func (o *StopRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stop run no content response has a 5xx status code
+func (o *StopRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop run no content response a status code equal to that given
+func (o *StopRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *StopRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *StopRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *StopRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type StopRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop run forbidden response has a 2xx status code
+func (o *StopRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this stop run forbidden response has a 3xx status code
+func (o *StopRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop run forbidden response has a 4xx status code
+func (o *StopRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this stop run forbidden response has a 5xx status code
+func (o *StopRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop run forbidden response a status code equal to that given
+func (o *StopRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *StopRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *StopRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *StopRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type StopRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop run not found response has a 2xx status code
+func (o *StopRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this stop run not found response has a 3xx status code
+func (o *StopRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop run not found response has a 4xx status code
+func (o *StopRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this stop run not found response has a 5xx status code
+func (o *StopRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop run not found response a status code equal to that given
+func (o *StopRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *StopRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *StopRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *StopRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *StopRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this stop run default response has a 2xx status code
+func (o *StopRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this stop run default response has a 3xx status code
+func (o *StopRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this stop run default response has a 4xx status code
+func (o *StopRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this stop run default response has a 5xx status code
+func (o *StopRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this stop run default response a status code equal to that given
+func (o *StopRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *StopRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] StopRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *StopRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] StopRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *StopRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

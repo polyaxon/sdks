@@ -86,9 +86,39 @@ type ListServiceAccountNamesOK struct {
 	Payload *service_model.V1ListServiceAccountsResponse
 }
 
+// IsSuccess returns true when this list service account names o k response has a 2xx status code
+func (o *ListServiceAccountNamesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list service account names o k response has a 3xx status code
+func (o *ListServiceAccountNamesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account names o k response has a 4xx status code
+func (o *ListServiceAccountNamesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list service account names o k response has a 5xx status code
+func (o *ListServiceAccountNamesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account names o k response a status code equal to that given
+func (o *ListServiceAccountNamesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListServiceAccountNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesOK  %+v", 200, o.Payload)
 }
+
+func (o *ListServiceAccountNamesOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesOK  %+v", 200, o.Payload)
+}
+
 func (o *ListServiceAccountNamesOK) GetPayload() *service_model.V1ListServiceAccountsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListServiceAccountNamesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list service account names no content response has a 2xx status code
+func (o *ListServiceAccountNamesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list service account names no content response has a 3xx status code
+func (o *ListServiceAccountNamesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account names no content response has a 4xx status code
+func (o *ListServiceAccountNamesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list service account names no content response has a 5xx status code
+func (o *ListServiceAccountNamesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account names no content response a status code equal to that given
+func (o *ListServiceAccountNamesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListServiceAccountNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListServiceAccountNamesNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListServiceAccountNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListServiceAccountNamesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list service account names forbidden response has a 2xx status code
+func (o *ListServiceAccountNamesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list service account names forbidden response has a 3xx status code
+func (o *ListServiceAccountNamesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account names forbidden response has a 4xx status code
+func (o *ListServiceAccountNamesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list service account names forbidden response has a 5xx status code
+func (o *ListServiceAccountNamesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account names forbidden response a status code equal to that given
+func (o *ListServiceAccountNamesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListServiceAccountNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListServiceAccountNamesForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListServiceAccountNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListServiceAccountNamesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list service account names not found response has a 2xx status code
+func (o *ListServiceAccountNamesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list service account names not found response has a 3xx status code
+func (o *ListServiceAccountNamesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account names not found response has a 4xx status code
+func (o *ListServiceAccountNamesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list service account names not found response has a 5xx status code
+func (o *ListServiceAccountNamesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account names not found response a status code equal to that given
+func (o *ListServiceAccountNamesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListServiceAccountNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListServiceAccountNamesNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] listServiceAccountNamesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListServiceAccountNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListServiceAccountNamesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list service account names default response has a 2xx status code
+func (o *ListServiceAccountNamesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list service account names default response has a 3xx status code
+func (o *ListServiceAccountNamesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list service account names default response has a 4xx status code
+func (o *ListServiceAccountNamesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list service account names default response has a 5xx status code
+func (o *ListServiceAccountNamesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list service account names default response a status code equal to that given
+func (o *ListServiceAccountNamesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListServiceAccountNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] ListServiceAccountNames default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListServiceAccountNamesDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/names][%d] ListServiceAccountNames default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListServiceAccountNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

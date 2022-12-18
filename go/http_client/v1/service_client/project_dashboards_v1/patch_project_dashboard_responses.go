@@ -86,9 +86,39 @@ type PatchProjectDashboardOK struct {
 	Payload *service_model.V1Dashboard
 }
 
+// IsSuccess returns true when this patch project dashboard o k response has a 2xx status code
+func (o *PatchProjectDashboardOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch project dashboard o k response has a 3xx status code
+func (o *PatchProjectDashboardOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project dashboard o k response has a 4xx status code
+func (o *PatchProjectDashboardOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch project dashboard o k response has a 5xx status code
+func (o *PatchProjectDashboardOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project dashboard o k response a status code equal to that given
+func (o *PatchProjectDashboardOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchProjectDashboardOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchProjectDashboardOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchProjectDashboardOK) GetPayload() *service_model.V1Dashboard {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type PatchProjectDashboardNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project dashboard no content response has a 2xx status code
+func (o *PatchProjectDashboardNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch project dashboard no content response has a 3xx status code
+func (o *PatchProjectDashboardNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project dashboard no content response has a 4xx status code
+func (o *PatchProjectDashboardNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch project dashboard no content response has a 5xx status code
+func (o *PatchProjectDashboardNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project dashboard no content response a status code equal to that given
+func (o *PatchProjectDashboardNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchProjectDashboardNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchProjectDashboardNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchProjectDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type PatchProjectDashboardForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project dashboard forbidden response has a 2xx status code
+func (o *PatchProjectDashboardForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch project dashboard forbidden response has a 3xx status code
+func (o *PatchProjectDashboardForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project dashboard forbidden response has a 4xx status code
+func (o *PatchProjectDashboardForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch project dashboard forbidden response has a 5xx status code
+func (o *PatchProjectDashboardForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project dashboard forbidden response a status code equal to that given
+func (o *PatchProjectDashboardForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchProjectDashboardForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchProjectDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type PatchProjectDashboardNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project dashboard not found response has a 2xx status code
+func (o *PatchProjectDashboardNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch project dashboard not found response has a 3xx status code
+func (o *PatchProjectDashboardNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project dashboard not found response has a 4xx status code
+func (o *PatchProjectDashboardNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch project dashboard not found response has a 5xx status code
+func (o *PatchProjectDashboardNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project dashboard not found response a status code equal to that given
+func (o *PatchProjectDashboardNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchProjectDashboardNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchProjectDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *PatchProjectDashboardDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this patch project dashboard default response has a 2xx status code
+func (o *PatchProjectDashboardDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch project dashboard default response has a 3xx status code
+func (o *PatchProjectDashboardDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch project dashboard default response has a 4xx status code
+func (o *PatchProjectDashboardDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch project dashboard default response has a 5xx status code
+func (o *PatchProjectDashboardDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch project dashboard default response a status code equal to that given
+func (o *PatchProjectDashboardDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PatchProjectDashboardDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] PatchProjectDashboard default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchProjectDashboardDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] PatchProjectDashboard default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

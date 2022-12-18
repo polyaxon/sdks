@@ -86,9 +86,39 @@ type GetProjectActivitiesOK struct {
 	Payload *service_model.V1ListActivitiesResponse
 }
 
+// IsSuccess returns true when this get project activities o k response has a 2xx status code
+func (o *GetProjectActivitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get project activities o k response has a 3xx status code
+func (o *GetProjectActivitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project activities o k response has a 4xx status code
+func (o *GetProjectActivitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get project activities o k response has a 5xx status code
+func (o *GetProjectActivitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project activities o k response a status code equal to that given
+func (o *GetProjectActivitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetProjectActivitiesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesOK  %+v", 200, o.Payload)
 }
+
+func (o *GetProjectActivitiesOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesOK  %+v", 200, o.Payload)
+}
+
 func (o *GetProjectActivitiesOK) GetPayload() *service_model.V1ListActivitiesResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetProjectActivitiesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get project activities no content response has a 2xx status code
+func (o *GetProjectActivitiesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get project activities no content response has a 3xx status code
+func (o *GetProjectActivitiesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project activities no content response has a 4xx status code
+func (o *GetProjectActivitiesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get project activities no content response has a 5xx status code
+func (o *GetProjectActivitiesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project activities no content response a status code equal to that given
+func (o *GetProjectActivitiesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetProjectActivitiesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetProjectActivitiesNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetProjectActivitiesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetProjectActivitiesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get project activities forbidden response has a 2xx status code
+func (o *GetProjectActivitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get project activities forbidden response has a 3xx status code
+func (o *GetProjectActivitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project activities forbidden response has a 4xx status code
+func (o *GetProjectActivitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get project activities forbidden response has a 5xx status code
+func (o *GetProjectActivitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project activities forbidden response a status code equal to that given
+func (o *GetProjectActivitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetProjectActivitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetProjectActivitiesForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetProjectActivitiesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetProjectActivitiesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get project activities not found response has a 2xx status code
+func (o *GetProjectActivitiesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get project activities not found response has a 3xx status code
+func (o *GetProjectActivitiesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project activities not found response has a 4xx status code
+func (o *GetProjectActivitiesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get project activities not found response has a 5xx status code
+func (o *GetProjectActivitiesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project activities not found response a status code equal to that given
+func (o *GetProjectActivitiesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetProjectActivitiesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetProjectActivitiesNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetProjectActivitiesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetProjectActivitiesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get project activities default response has a 2xx status code
+func (o *GetProjectActivitiesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get project activities default response has a 3xx status code
+func (o *GetProjectActivitiesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get project activities default response has a 4xx status code
+func (o *GetProjectActivitiesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get project activities default response has a 5xx status code
+func (o *GetProjectActivitiesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get project activities default response a status code equal to that given
+func (o *GetProjectActivitiesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetProjectActivitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] GetProjectActivities default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetProjectActivitiesDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] GetProjectActivities default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetProjectActivitiesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

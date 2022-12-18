@@ -86,9 +86,39 @@ type UpdateAgentOK struct {
 	Payload *service_model.V1Agent
 }
 
+// IsSuccess returns true when this update agent o k response has a 2xx status code
+func (o *UpdateAgentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update agent o k response has a 3xx status code
+func (o *UpdateAgentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update agent o k response has a 4xx status code
+func (o *UpdateAgentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update agent o k response has a 5xx status code
+func (o *UpdateAgentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update agent o k response a status code equal to that given
+func (o *UpdateAgentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateAgentOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateAgentOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateAgentOK) GetPayload() *service_model.V1Agent {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateAgentNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update agent no content response has a 2xx status code
+func (o *UpdateAgentNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update agent no content response has a 3xx status code
+func (o *UpdateAgentNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update agent no content response has a 4xx status code
+func (o *UpdateAgentNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update agent no content response has a 5xx status code
+func (o *UpdateAgentNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update agent no content response a status code equal to that given
+func (o *UpdateAgentNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateAgentNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateAgentNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateAgentNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateAgentForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update agent forbidden response has a 2xx status code
+func (o *UpdateAgentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update agent forbidden response has a 3xx status code
+func (o *UpdateAgentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update agent forbidden response has a 4xx status code
+func (o *UpdateAgentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update agent forbidden response has a 5xx status code
+func (o *UpdateAgentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update agent forbidden response a status code equal to that given
+func (o *UpdateAgentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateAgentForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateAgentForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateAgentForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateAgentNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update agent not found response has a 2xx status code
+func (o *UpdateAgentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update agent not found response has a 3xx status code
+func (o *UpdateAgentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update agent not found response has a 4xx status code
+func (o *UpdateAgentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update agent not found response has a 5xx status code
+func (o *UpdateAgentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update agent not found response a status code equal to that given
+func (o *UpdateAgentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateAgentNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateAgentNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] updateAgentNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateAgentNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateAgentDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update agent default response has a 2xx status code
+func (o *UpdateAgentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update agent default response has a 3xx status code
+func (o *UpdateAgentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update agent default response has a 4xx status code
+func (o *UpdateAgentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update agent default response has a 5xx status code
+func (o *UpdateAgentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update agent default response a status code equal to that given
+func (o *UpdateAgentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateAgentDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] UpdateAgent default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateAgentDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] UpdateAgent default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateAgentDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

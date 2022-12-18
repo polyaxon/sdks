@@ -86,9 +86,39 @@ type UpdateOrganizationMemberOK struct {
 	Payload *service_model.V1OrganizationMember
 }
 
+// IsSuccess returns true when this update organization member o k response has a 2xx status code
+func (o *UpdateOrganizationMemberOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update organization member o k response has a 3xx status code
+func (o *UpdateOrganizationMemberOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization member o k response has a 4xx status code
+func (o *UpdateOrganizationMemberOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update organization member o k response has a 5xx status code
+func (o *UpdateOrganizationMemberOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization member o k response a status code equal to that given
+func (o *UpdateOrganizationMemberOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateOrganizationMemberOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateOrganizationMemberOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateOrganizationMemberOK) GetPayload() *service_model.V1OrganizationMember {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateOrganizationMemberNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update organization member no content response has a 2xx status code
+func (o *UpdateOrganizationMemberNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update organization member no content response has a 3xx status code
+func (o *UpdateOrganizationMemberNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization member no content response has a 4xx status code
+func (o *UpdateOrganizationMemberNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update organization member no content response has a 5xx status code
+func (o *UpdateOrganizationMemberNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization member no content response a status code equal to that given
+func (o *UpdateOrganizationMemberNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateOrganizationMemberNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateOrganizationMemberNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateOrganizationMemberNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateOrganizationMemberForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update organization member forbidden response has a 2xx status code
+func (o *UpdateOrganizationMemberForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update organization member forbidden response has a 3xx status code
+func (o *UpdateOrganizationMemberForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization member forbidden response has a 4xx status code
+func (o *UpdateOrganizationMemberForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update organization member forbidden response has a 5xx status code
+func (o *UpdateOrganizationMemberForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization member forbidden response a status code equal to that given
+func (o *UpdateOrganizationMemberForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateOrganizationMemberForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateOrganizationMemberForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateOrganizationMemberForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateOrganizationMemberNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update organization member not found response has a 2xx status code
+func (o *UpdateOrganizationMemberNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update organization member not found response has a 3xx status code
+func (o *UpdateOrganizationMemberNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization member not found response has a 4xx status code
+func (o *UpdateOrganizationMemberNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update organization member not found response has a 5xx status code
+func (o *UpdateOrganizationMemberNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization member not found response a status code equal to that given
+func (o *UpdateOrganizationMemberNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateOrganizationMemberNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateOrganizationMemberNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] updateOrganizationMemberNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateOrganizationMemberNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateOrganizationMemberDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update organization member default response has a 2xx status code
+func (o *UpdateOrganizationMemberDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update organization member default response has a 3xx status code
+func (o *UpdateOrganizationMemberDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update organization member default response has a 4xx status code
+func (o *UpdateOrganizationMemberDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update organization member default response has a 5xx status code
+func (o *UpdateOrganizationMemberDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update organization member default response a status code equal to that given
+func (o *UpdateOrganizationMemberDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateOrganizationMemberDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] UpdateOrganizationMember default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateOrganizationMemberDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/members/{member.user}][%d] UpdateOrganizationMember default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateOrganizationMemberDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

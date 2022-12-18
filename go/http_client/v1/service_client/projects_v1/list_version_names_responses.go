@@ -86,9 +86,39 @@ type ListVersionNamesOK struct {
 	Payload *service_model.V1ListProjectVersionsResponse
 }
 
+// IsSuccess returns true when this list version names o k response has a 2xx status code
+func (o *ListVersionNamesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list version names o k response has a 3xx status code
+func (o *ListVersionNamesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list version names o k response has a 4xx status code
+func (o *ListVersionNamesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list version names o k response has a 5xx status code
+func (o *ListVersionNamesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list version names o k response a status code equal to that given
+func (o *ListVersionNamesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListVersionNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesOK  %+v", 200, o.Payload)
 }
+
+func (o *ListVersionNamesOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesOK  %+v", 200, o.Payload)
+}
+
 func (o *ListVersionNamesOK) GetPayload() *service_model.V1ListProjectVersionsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListVersionNamesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list version names no content response has a 2xx status code
+func (o *ListVersionNamesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list version names no content response has a 3xx status code
+func (o *ListVersionNamesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list version names no content response has a 4xx status code
+func (o *ListVersionNamesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list version names no content response has a 5xx status code
+func (o *ListVersionNamesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list version names no content response a status code equal to that given
+func (o *ListVersionNamesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListVersionNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListVersionNamesNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListVersionNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListVersionNamesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list version names forbidden response has a 2xx status code
+func (o *ListVersionNamesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list version names forbidden response has a 3xx status code
+func (o *ListVersionNamesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list version names forbidden response has a 4xx status code
+func (o *ListVersionNamesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list version names forbidden response has a 5xx status code
+func (o *ListVersionNamesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list version names forbidden response a status code equal to that given
+func (o *ListVersionNamesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListVersionNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListVersionNamesForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListVersionNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListVersionNamesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list version names not found response has a 2xx status code
+func (o *ListVersionNamesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list version names not found response has a 3xx status code
+func (o *ListVersionNamesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list version names not found response has a 4xx status code
+func (o *ListVersionNamesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list version names not found response has a 5xx status code
+func (o *ListVersionNamesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list version names not found response a status code equal to that given
+func (o *ListVersionNamesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListVersionNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListVersionNamesNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListVersionNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListVersionNamesDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list version names default response has a 2xx status code
+func (o *ListVersionNamesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list version names default response has a 3xx status code
+func (o *ListVersionNamesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list version names default response has a 4xx status code
+func (o *ListVersionNamesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list version names default response has a 5xx status code
+func (o *ListVersionNamesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list version names default response a status code equal to that given
+func (o *ListVersionNamesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListVersionNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] ListVersionNames default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListVersionNamesDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] ListVersionNames default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListVersionNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

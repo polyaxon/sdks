@@ -86,9 +86,39 @@ type PatchAgentTokenOK struct {
 	Payload *service_model.V1Token
 }
 
+// IsSuccess returns true when this patch agent token o k response has a 2xx status code
+func (o *PatchAgentTokenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch agent token o k response has a 3xx status code
+func (o *PatchAgentTokenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch agent token o k response has a 4xx status code
+func (o *PatchAgentTokenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch agent token o k response has a 5xx status code
+func (o *PatchAgentTokenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch agent token o k response a status code equal to that given
+func (o *PatchAgentTokenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchAgentTokenOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchAgentTokenOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchAgentTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type PatchAgentTokenNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch agent token no content response has a 2xx status code
+func (o *PatchAgentTokenNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch agent token no content response has a 3xx status code
+func (o *PatchAgentTokenNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch agent token no content response has a 4xx status code
+func (o *PatchAgentTokenNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch agent token no content response has a 5xx status code
+func (o *PatchAgentTokenNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch agent token no content response a status code equal to that given
+func (o *PatchAgentTokenNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchAgentTokenNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchAgentTokenNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchAgentTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type PatchAgentTokenForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch agent token forbidden response has a 2xx status code
+func (o *PatchAgentTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch agent token forbidden response has a 3xx status code
+func (o *PatchAgentTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch agent token forbidden response has a 4xx status code
+func (o *PatchAgentTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch agent token forbidden response has a 5xx status code
+func (o *PatchAgentTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch agent token forbidden response a status code equal to that given
+func (o *PatchAgentTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchAgentTokenForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchAgentTokenForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchAgentTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type PatchAgentTokenNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch agent token not found response has a 2xx status code
+func (o *PatchAgentTokenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch agent token not found response has a 3xx status code
+func (o *PatchAgentTokenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch agent token not found response has a 4xx status code
+func (o *PatchAgentTokenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch agent token not found response has a 5xx status code
+func (o *PatchAgentTokenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch agent token not found response a status code equal to that given
+func (o *PatchAgentTokenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchAgentTokenNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchAgentTokenNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchAgentTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *PatchAgentTokenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this patch agent token default response has a 2xx status code
+func (o *PatchAgentTokenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch agent token default response has a 3xx status code
+func (o *PatchAgentTokenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch agent token default response has a 4xx status code
+func (o *PatchAgentTokenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch agent token default response has a 5xx status code
+func (o *PatchAgentTokenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch agent token default response a status code equal to that given
+func (o *PatchAgentTokenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PatchAgentTokenDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] PatchAgentToken default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchAgentTokenDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] PatchAgentToken default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchAgentTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

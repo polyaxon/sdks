@@ -85,7 +85,36 @@ A successful response.
 type DeleteTokenOK struct {
 }
 
+// IsSuccess returns true when this delete token o k response has a 2xx status code
+func (o *DeleteTokenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete token o k response has a 3xx status code
+func (o *DeleteTokenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token o k response has a 4xx status code
+func (o *DeleteTokenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete token o k response has a 5xx status code
+func (o *DeleteTokenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token o k response a status code equal to that given
+func (o *DeleteTokenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteTokenOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK ", 200)
+}
+
+func (o *DeleteTokenOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type DeleteTokenNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete token no content response has a 2xx status code
+func (o *DeleteTokenNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete token no content response has a 3xx status code
+func (o *DeleteTokenNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token no content response has a 4xx status code
+func (o *DeleteTokenNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete token no content response has a 5xx status code
+func (o *DeleteTokenNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token no content response a status code equal to that given
+func (o *DeleteTokenNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteTokenNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteTokenNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type DeleteTokenForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete token forbidden response has a 2xx status code
+func (o *DeleteTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token forbidden response has a 3xx status code
+func (o *DeleteTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token forbidden response has a 4xx status code
+func (o *DeleteTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token forbidden response has a 5xx status code
+func (o *DeleteTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token forbidden response a status code equal to that given
+func (o *DeleteTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteTokenForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteTokenForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type DeleteTokenNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete token not found response has a 2xx status code
+func (o *DeleteTokenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token not found response has a 3xx status code
+func (o *DeleteTokenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token not found response has a 4xx status code
+func (o *DeleteTokenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token not found response has a 5xx status code
+func (o *DeleteTokenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token not found response a status code equal to that given
+func (o *DeleteTokenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteTokenNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteTokenNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *DeleteTokenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete token default response has a 2xx status code
+func (o *DeleteTokenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete token default response has a 3xx status code
+func (o *DeleteTokenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete token default response has a 4xx status code
+func (o *DeleteTokenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete token default response has a 5xx status code
+func (o *DeleteTokenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete token default response a status code equal to that given
+func (o *DeleteTokenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteTokenDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] DeleteToken default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteTokenDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] DeleteToken default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

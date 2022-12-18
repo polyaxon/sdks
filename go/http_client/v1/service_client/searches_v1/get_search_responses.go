@@ -86,9 +86,39 @@ type GetSearchOK struct {
 	Payload *service_model.V1Search
 }
 
+// IsSuccess returns true when this get search o k response has a 2xx status code
+func (o *GetSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get search o k response has a 3xx status code
+func (o *GetSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search o k response has a 4xx status code
+func (o *GetSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search o k response has a 5xx status code
+func (o *GetSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search o k response a status code equal to that given
+func (o *GetSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSearchOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchOK  %+v", 200, o.Payload)
 }
+
+func (o *GetSearchOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchOK  %+v", 200, o.Payload)
+}
+
 func (o *GetSearchOK) GetPayload() *service_model.V1Search {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetSearchNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get search no content response has a 2xx status code
+func (o *GetSearchNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get search no content response has a 3xx status code
+func (o *GetSearchNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search no content response has a 4xx status code
+func (o *GetSearchNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search no content response has a 5xx status code
+func (o *GetSearchNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search no content response a status code equal to that given
+func (o *GetSearchNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetSearchNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetSearchNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetSearchForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get search forbidden response has a 2xx status code
+func (o *GetSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search forbidden response has a 3xx status code
+func (o *GetSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search forbidden response has a 4xx status code
+func (o *GetSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search forbidden response has a 5xx status code
+func (o *GetSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search forbidden response a status code equal to that given
+func (o *GetSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSearchForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetSearchForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetSearchNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get search not found response has a 2xx status code
+func (o *GetSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search not found response has a 3xx status code
+func (o *GetSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search not found response has a 4xx status code
+func (o *GetSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search not found response has a 5xx status code
+func (o *GetSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search not found response a status code equal to that given
+func (o *GetSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSearchNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetSearchNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetSearchDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get search default response has a 2xx status code
+func (o *GetSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get search default response has a 3xx status code
+func (o *GetSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get search default response has a 4xx status code
+func (o *GetSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get search default response has a 5xx status code
+func (o *GetSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get search default response a status code equal to that given
+func (o *GetSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetSearchDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] GetSearch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetSearchDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] GetSearch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

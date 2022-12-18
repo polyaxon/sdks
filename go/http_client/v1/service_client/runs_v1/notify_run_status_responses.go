@@ -85,7 +85,36 @@ A successful response.
 type NotifyRunStatusOK struct {
 }
 
+// IsSuccess returns true when this notify run status o k response has a 2xx status code
+func (o *NotifyRunStatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this notify run status o k response has a 3xx status code
+func (o *NotifyRunStatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this notify run status o k response has a 4xx status code
+func (o *NotifyRunStatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this notify run status o k response has a 5xx status code
+func (o *NotifyRunStatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this notify run status o k response a status code equal to that given
+func (o *NotifyRunStatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *NotifyRunStatusOK) Error() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK ", 200)
+}
+
+func (o *NotifyRunStatusOK) String() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type NotifyRunStatusNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this notify run status no content response has a 2xx status code
+func (o *NotifyRunStatusNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this notify run status no content response has a 3xx status code
+func (o *NotifyRunStatusNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this notify run status no content response has a 4xx status code
+func (o *NotifyRunStatusNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this notify run status no content response has a 5xx status code
+func (o *NotifyRunStatusNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this notify run status no content response a status code equal to that given
+func (o *NotifyRunStatusNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *NotifyRunStatusNoContent) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNoContent  %+v", 204, o.Payload)
 }
+
+func (o *NotifyRunStatusNoContent) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNoContent  %+v", 204, o.Payload)
+}
+
 func (o *NotifyRunStatusNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type NotifyRunStatusForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this notify run status forbidden response has a 2xx status code
+func (o *NotifyRunStatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this notify run status forbidden response has a 3xx status code
+func (o *NotifyRunStatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this notify run status forbidden response has a 4xx status code
+func (o *NotifyRunStatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this notify run status forbidden response has a 5xx status code
+func (o *NotifyRunStatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this notify run status forbidden response a status code equal to that given
+func (o *NotifyRunStatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *NotifyRunStatusForbidden) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden  %+v", 403, o.Payload)
 }
+
+func (o *NotifyRunStatusForbidden) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden  %+v", 403, o.Payload)
+}
+
 func (o *NotifyRunStatusForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type NotifyRunStatusNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this notify run status not found response has a 2xx status code
+func (o *NotifyRunStatusNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this notify run status not found response has a 3xx status code
+func (o *NotifyRunStatusNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this notify run status not found response has a 4xx status code
+func (o *NotifyRunStatusNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this notify run status not found response has a 5xx status code
+func (o *NotifyRunStatusNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this notify run status not found response a status code equal to that given
+func (o *NotifyRunStatusNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *NotifyRunStatusNotFound) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound  %+v", 404, o.Payload)
 }
+
+func (o *NotifyRunStatusNotFound) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound  %+v", 404, o.Payload)
+}
+
 func (o *NotifyRunStatusNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *NotifyRunStatusDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this notify run status default response has a 2xx status code
+func (o *NotifyRunStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this notify run status default response has a 3xx status code
+func (o *NotifyRunStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this notify run status default response has a 4xx status code
+func (o *NotifyRunStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this notify run status default response has a 5xx status code
+func (o *NotifyRunStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this notify run status default response a status code equal to that given
+func (o *NotifyRunStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *NotifyRunStatusDefault) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] NotifyRunStatus default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *NotifyRunStatusDefault) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] NotifyRunStatus default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *NotifyRunStatusDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

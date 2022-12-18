@@ -86,9 +86,39 @@ type CreateProjectDashboardOK struct {
 	Payload *service_model.V1Dashboard
 }
 
+// IsSuccess returns true when this create project dashboard o k response has a 2xx status code
+func (o *CreateProjectDashboardOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create project dashboard o k response has a 3xx status code
+func (o *CreateProjectDashboardOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project dashboard o k response has a 4xx status code
+func (o *CreateProjectDashboardOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create project dashboard o k response has a 5xx status code
+func (o *CreateProjectDashboardOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project dashboard o k response a status code equal to that given
+func (o *CreateProjectDashboardOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateProjectDashboardOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateProjectDashboardOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateProjectDashboardOK) GetPayload() *service_model.V1Dashboard {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type CreateProjectDashboardNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project dashboard no content response has a 2xx status code
+func (o *CreateProjectDashboardNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create project dashboard no content response has a 3xx status code
+func (o *CreateProjectDashboardNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project dashboard no content response has a 4xx status code
+func (o *CreateProjectDashboardNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create project dashboard no content response has a 5xx status code
+func (o *CreateProjectDashboardNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project dashboard no content response a status code equal to that given
+func (o *CreateProjectDashboardNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreateProjectDashboardNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateProjectDashboardNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateProjectDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type CreateProjectDashboardForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project dashboard forbidden response has a 2xx status code
+func (o *CreateProjectDashboardForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create project dashboard forbidden response has a 3xx status code
+func (o *CreateProjectDashboardForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project dashboard forbidden response has a 4xx status code
+func (o *CreateProjectDashboardForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create project dashboard forbidden response has a 5xx status code
+func (o *CreateProjectDashboardForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project dashboard forbidden response a status code equal to that given
+func (o *CreateProjectDashboardForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateProjectDashboardForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateProjectDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type CreateProjectDashboardNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project dashboard not found response has a 2xx status code
+func (o *CreateProjectDashboardNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create project dashboard not found response has a 3xx status code
+func (o *CreateProjectDashboardNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project dashboard not found response has a 4xx status code
+func (o *CreateProjectDashboardNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create project dashboard not found response has a 5xx status code
+func (o *CreateProjectDashboardNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project dashboard not found response a status code equal to that given
+func (o *CreateProjectDashboardNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateProjectDashboardNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] createProjectDashboardNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateProjectDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *CreateProjectDashboardDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create project dashboard default response has a 2xx status code
+func (o *CreateProjectDashboardDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create project dashboard default response has a 3xx status code
+func (o *CreateProjectDashboardDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create project dashboard default response has a 4xx status code
+func (o *CreateProjectDashboardDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create project dashboard default response has a 5xx status code
+func (o *CreateProjectDashboardDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create project dashboard default response a status code equal to that given
+func (o *CreateProjectDashboardDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateProjectDashboardDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] CreateProjectDashboard default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateProjectDashboardDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/dashboards][%d] CreateProjectDashboard default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

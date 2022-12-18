@@ -86,9 +86,39 @@ type CreateRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this create run o k response has a 2xx status code
+func (o *CreateRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create run o k response has a 3xx status code
+func (o *CreateRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run o k response has a 4xx status code
+func (o *CreateRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create run o k response has a 5xx status code
+func (o *CreateRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run o k response a status code equal to that given
+func (o *CreateRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateRunOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type CreateRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create run no content response has a 2xx status code
+func (o *CreateRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create run no content response has a 3xx status code
+func (o *CreateRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run no content response has a 4xx status code
+func (o *CreateRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create run no content response has a 5xx status code
+func (o *CreateRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run no content response a status code equal to that given
+func (o *CreateRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreateRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type CreateRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create run forbidden response has a 2xx status code
+func (o *CreateRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create run forbidden response has a 3xx status code
+func (o *CreateRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run forbidden response has a 4xx status code
+func (o *CreateRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create run forbidden response has a 5xx status code
+func (o *CreateRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run forbidden response a status code equal to that given
+func (o *CreateRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type CreateRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create run not found response has a 2xx status code
+func (o *CreateRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create run not found response has a 3xx status code
+func (o *CreateRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run not found response has a 4xx status code
+func (o *CreateRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create run not found response has a 5xx status code
+func (o *CreateRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run not found response a status code equal to that given
+func (o *CreateRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *CreateRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create run default response has a 2xx status code
+func (o *CreateRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create run default response has a 3xx status code
+func (o *CreateRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create run default response has a 4xx status code
+func (o *CreateRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create run default response has a 5xx status code
+func (o *CreateRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create run default response a status code equal to that given
+func (o *CreateRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] CreateRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] CreateRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

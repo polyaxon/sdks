@@ -85,7 +85,36 @@ A successful response.
 type CreateRunArtifactsLineageOK struct {
 }
 
+// IsSuccess returns true when this create run artifacts lineage o k response has a 2xx status code
+func (o *CreateRunArtifactsLineageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create run artifacts lineage o k response has a 3xx status code
+func (o *CreateRunArtifactsLineageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run artifacts lineage o k response has a 4xx status code
+func (o *CreateRunArtifactsLineageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create run artifacts lineage o k response has a 5xx status code
+func (o *CreateRunArtifactsLineageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run artifacts lineage o k response a status code equal to that given
+func (o *CreateRunArtifactsLineageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateRunArtifactsLineageOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK ", 200)
+}
+
+func (o *CreateRunArtifactsLineageOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type CreateRunArtifactsLineageNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create run artifacts lineage no content response has a 2xx status code
+func (o *CreateRunArtifactsLineageNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create run artifacts lineage no content response has a 3xx status code
+func (o *CreateRunArtifactsLineageNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run artifacts lineage no content response has a 4xx status code
+func (o *CreateRunArtifactsLineageNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create run artifacts lineage no content response has a 5xx status code
+func (o *CreateRunArtifactsLineageNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run artifacts lineage no content response a status code equal to that given
+func (o *CreateRunArtifactsLineageNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreateRunArtifactsLineageNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateRunArtifactsLineageNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateRunArtifactsLineageNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type CreateRunArtifactsLineageForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create run artifacts lineage forbidden response has a 2xx status code
+func (o *CreateRunArtifactsLineageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create run artifacts lineage forbidden response has a 3xx status code
+func (o *CreateRunArtifactsLineageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run artifacts lineage forbidden response has a 4xx status code
+func (o *CreateRunArtifactsLineageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create run artifacts lineage forbidden response has a 5xx status code
+func (o *CreateRunArtifactsLineageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run artifacts lineage forbidden response a status code equal to that given
+func (o *CreateRunArtifactsLineageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateRunArtifactsLineageForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateRunArtifactsLineageForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateRunArtifactsLineageForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type CreateRunArtifactsLineageNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create run artifacts lineage not found response has a 2xx status code
+func (o *CreateRunArtifactsLineageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create run artifacts lineage not found response has a 3xx status code
+func (o *CreateRunArtifactsLineageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create run artifacts lineage not found response has a 4xx status code
+func (o *CreateRunArtifactsLineageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create run artifacts lineage not found response has a 5xx status code
+func (o *CreateRunArtifactsLineageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create run artifacts lineage not found response a status code equal to that given
+func (o *CreateRunArtifactsLineageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateRunArtifactsLineageNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateRunArtifactsLineageNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateRunArtifactsLineageNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *CreateRunArtifactsLineageDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create run artifacts lineage default response has a 2xx status code
+func (o *CreateRunArtifactsLineageDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create run artifacts lineage default response has a 3xx status code
+func (o *CreateRunArtifactsLineageDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create run artifacts lineage default response has a 4xx status code
+func (o *CreateRunArtifactsLineageDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create run artifacts lineage default response has a 5xx status code
+func (o *CreateRunArtifactsLineageDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create run artifacts lineage default response a status code equal to that given
+func (o *CreateRunArtifactsLineageDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateRunArtifactsLineageDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] CreateRunArtifactsLineage default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateRunArtifactsLineageDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] CreateRunArtifactsLineage default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateRunArtifactsLineageDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

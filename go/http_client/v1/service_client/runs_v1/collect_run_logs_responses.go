@@ -85,8 +85,37 @@ A successful response.
 type CollectRunLogsOK struct {
 }
 
+// IsSuccess returns true when this collect run logs o k response has a 2xx status code
+func (o *CollectRunLogsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this collect run logs o k response has a 3xx status code
+func (o *CollectRunLogsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this collect run logs o k response has a 4xx status code
+func (o *CollectRunLogsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this collect run logs o k response has a 5xx status code
+func (o *CollectRunLogsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this collect run logs o k response a status code equal to that given
+func (o *CollectRunLogsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CollectRunLogsOK) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK ", 200)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK ", 200)
+}
+
+func (o *CollectRunLogsOK) String() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK ", 200)
 }
 
 func (o *CollectRunLogsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -107,9 +136,39 @@ type CollectRunLogsNoContent struct {
 	Payload interface{}
 }
 
-func (o *CollectRunLogsNoContent) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent  %+v", 204, o.Payload)
+// IsSuccess returns true when this collect run logs no content response has a 2xx status code
+func (o *CollectRunLogsNoContent) IsSuccess() bool {
+	return true
 }
+
+// IsRedirect returns true when this collect run logs no content response has a 3xx status code
+func (o *CollectRunLogsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this collect run logs no content response has a 4xx status code
+func (o *CollectRunLogsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this collect run logs no content response has a 5xx status code
+func (o *CollectRunLogsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this collect run logs no content response a status code equal to that given
+func (o *CollectRunLogsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+func (o *CollectRunLogsNoContent) Error() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent  %+v", 204, o.Payload)
+}
+
+func (o *CollectRunLogsNoContent) String() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CollectRunLogsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type CollectRunLogsForbidden struct {
 	Payload interface{}
 }
 
-func (o *CollectRunLogsForbidden) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden  %+v", 403, o.Payload)
+// IsSuccess returns true when this collect run logs forbidden response has a 2xx status code
+func (o *CollectRunLogsForbidden) IsSuccess() bool {
+	return false
 }
+
+// IsRedirect returns true when this collect run logs forbidden response has a 3xx status code
+func (o *CollectRunLogsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this collect run logs forbidden response has a 4xx status code
+func (o *CollectRunLogsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this collect run logs forbidden response has a 5xx status code
+func (o *CollectRunLogsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this collect run logs forbidden response a status code equal to that given
+func (o *CollectRunLogsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+func (o *CollectRunLogsForbidden) Error() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *CollectRunLogsForbidden) String() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CollectRunLogsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type CollectRunLogsNotFound struct {
 	Payload interface{}
 }
 
-func (o *CollectRunLogsNotFound) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound  %+v", 404, o.Payload)
+// IsSuccess returns true when this collect run logs not found response has a 2xx status code
+func (o *CollectRunLogsNotFound) IsSuccess() bool {
+	return false
 }
+
+// IsRedirect returns true when this collect run logs not found response has a 3xx status code
+func (o *CollectRunLogsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this collect run logs not found response has a 4xx status code
+func (o *CollectRunLogsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this collect run logs not found response has a 5xx status code
+func (o *CollectRunLogsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this collect run logs not found response a status code equal to that given
+func (o *CollectRunLogsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+func (o *CollectRunLogsNotFound) Error() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *CollectRunLogsNotFound) String() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CollectRunLogsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *CollectRunLogsDefault) Code() int {
 	return o._statusCode
 }
 
-func (o *CollectRunLogsDefault) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default  %+v", o._statusCode, o.Payload)
+// IsSuccess returns true when this collect run logs default response has a 2xx status code
+func (o *CollectRunLogsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
 }
+
+// IsRedirect returns true when this collect run logs default response has a 3xx status code
+func (o *CollectRunLogsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this collect run logs default response has a 4xx status code
+func (o *CollectRunLogsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this collect run logs default response has a 5xx status code
+func (o *CollectRunLogsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this collect run logs default response a status code equal to that given
+func (o *CollectRunLogsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+func (o *CollectRunLogsDefault) Error() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default  %+v", o._statusCode, o.Payload)
+}
+
+func (o *CollectRunLogsDefault) String() string {
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CollectRunLogsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

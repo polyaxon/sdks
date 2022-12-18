@@ -85,7 +85,36 @@ A successful response.
 type DeleteSearchOK struct {
 }
 
+// IsSuccess returns true when this delete search o k response has a 2xx status code
+func (o *DeleteSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete search o k response has a 3xx status code
+func (o *DeleteSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete search o k response has a 4xx status code
+func (o *DeleteSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete search o k response has a 5xx status code
+func (o *DeleteSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete search o k response a status code equal to that given
+func (o *DeleteSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteSearchOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchOK ", 200)
+}
+
+func (o *DeleteSearchOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type DeleteSearchNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete search no content response has a 2xx status code
+func (o *DeleteSearchNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete search no content response has a 3xx status code
+func (o *DeleteSearchNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete search no content response has a 4xx status code
+func (o *DeleteSearchNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete search no content response has a 5xx status code
+func (o *DeleteSearchNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete search no content response a status code equal to that given
+func (o *DeleteSearchNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteSearchNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteSearchNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type DeleteSearchForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete search forbidden response has a 2xx status code
+func (o *DeleteSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete search forbidden response has a 3xx status code
+func (o *DeleteSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete search forbidden response has a 4xx status code
+func (o *DeleteSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete search forbidden response has a 5xx status code
+func (o *DeleteSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete search forbidden response a status code equal to that given
+func (o *DeleteSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteSearchForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteSearchForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type DeleteSearchNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete search not found response has a 2xx status code
+func (o *DeleteSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete search not found response has a 3xx status code
+func (o *DeleteSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete search not found response has a 4xx status code
+func (o *DeleteSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete search not found response has a 5xx status code
+func (o *DeleteSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete search not found response a status code equal to that given
+func (o *DeleteSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteSearchNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteSearchNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *DeleteSearchDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete search default response has a 2xx status code
+func (o *DeleteSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete search default response has a 3xx status code
+func (o *DeleteSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete search default response has a 4xx status code
+func (o *DeleteSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete search default response has a 5xx status code
+func (o *DeleteSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete search default response a status code equal to that given
+func (o *DeleteSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteSearchDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] DeleteSearch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteSearchDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] DeleteSearch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

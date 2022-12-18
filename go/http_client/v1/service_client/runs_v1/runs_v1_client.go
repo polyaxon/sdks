@@ -408,7 +408,7 @@ func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.Clien
 }
 
 /*
-  CollectRunLogs collects run logs
+  CollectRunLogs internals API to collect run logs
 */
 func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectRunLogsOK, *CollectRunLogsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -418,7 +418,7 @@ func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.C
 	op := &runtime.ClientOperation{
 		ID:                 "CollectRunLogs",
 		Method:             "POST",
-		PathPattern:        "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs",
+		PathPattern:        "/internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

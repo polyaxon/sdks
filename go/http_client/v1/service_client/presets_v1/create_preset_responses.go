@@ -86,9 +86,39 @@ type CreatePresetOK struct {
 	Payload *service_model.V1Preset
 }
 
+// IsSuccess returns true when this create preset o k response has a 2xx status code
+func (o *CreatePresetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create preset o k response has a 3xx status code
+func (o *CreatePresetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create preset o k response has a 4xx status code
+func (o *CreatePresetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create preset o k response has a 5xx status code
+func (o *CreatePresetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create preset o k response a status code equal to that given
+func (o *CreatePresetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreatePresetOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK  %+v", 200, o.Payload)
 }
+
+func (o *CreatePresetOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK  %+v", 200, o.Payload)
+}
+
 func (o *CreatePresetOK) GetPayload() *service_model.V1Preset {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type CreatePresetNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create preset no content response has a 2xx status code
+func (o *CreatePresetNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create preset no content response has a 3xx status code
+func (o *CreatePresetNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create preset no content response has a 4xx status code
+func (o *CreatePresetNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create preset no content response has a 5xx status code
+func (o *CreatePresetNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create preset no content response a status code equal to that given
+func (o *CreatePresetNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreatePresetNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreatePresetNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreatePresetNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type CreatePresetForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create preset forbidden response has a 2xx status code
+func (o *CreatePresetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create preset forbidden response has a 3xx status code
+func (o *CreatePresetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create preset forbidden response has a 4xx status code
+func (o *CreatePresetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create preset forbidden response has a 5xx status code
+func (o *CreatePresetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create preset forbidden response a status code equal to that given
+func (o *CreatePresetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreatePresetForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreatePresetForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreatePresetForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type CreatePresetNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create preset not found response has a 2xx status code
+func (o *CreatePresetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create preset not found response has a 3xx status code
+func (o *CreatePresetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create preset not found response has a 4xx status code
+func (o *CreatePresetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create preset not found response has a 5xx status code
+func (o *CreatePresetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create preset not found response a status code equal to that given
+func (o *CreatePresetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreatePresetNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreatePresetNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreatePresetNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *CreatePresetDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create preset default response has a 2xx status code
+func (o *CreatePresetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create preset default response has a 3xx status code
+func (o *CreatePresetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create preset default response has a 4xx status code
+func (o *CreatePresetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create preset default response has a 5xx status code
+func (o *CreatePresetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create preset default response a status code equal to that given
+func (o *CreatePresetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreatePresetDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] CreatePreset default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreatePresetDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] CreatePreset default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreatePresetDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

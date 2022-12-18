@@ -86,9 +86,39 @@ type ListTeamMembersOK struct {
 	Payload *service_model.V1ListTeamMembersResponse
 }
 
+// IsSuccess returns true when this list team members o k response has a 2xx status code
+func (o *ListTeamMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list team members o k response has a 3xx status code
+func (o *ListTeamMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list team members o k response has a 4xx status code
+func (o *ListTeamMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list team members o k response has a 5xx status code
+func (o *ListTeamMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list team members o k response a status code equal to that given
+func (o *ListTeamMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListTeamMembersOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersOK  %+v", 200, o.Payload)
 }
+
+func (o *ListTeamMembersOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersOK  %+v", 200, o.Payload)
+}
+
 func (o *ListTeamMembersOK) GetPayload() *service_model.V1ListTeamMembersResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListTeamMembersNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list team members no content response has a 2xx status code
+func (o *ListTeamMembersNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list team members no content response has a 3xx status code
+func (o *ListTeamMembersNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list team members no content response has a 4xx status code
+func (o *ListTeamMembersNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list team members no content response has a 5xx status code
+func (o *ListTeamMembersNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list team members no content response a status code equal to that given
+func (o *ListTeamMembersNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListTeamMembersNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListTeamMembersNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListTeamMembersNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListTeamMembersForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list team members forbidden response has a 2xx status code
+func (o *ListTeamMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list team members forbidden response has a 3xx status code
+func (o *ListTeamMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list team members forbidden response has a 4xx status code
+func (o *ListTeamMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list team members forbidden response has a 5xx status code
+func (o *ListTeamMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list team members forbidden response a status code equal to that given
+func (o *ListTeamMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListTeamMembersForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListTeamMembersForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListTeamMembersForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListTeamMembersNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list team members not found response has a 2xx status code
+func (o *ListTeamMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list team members not found response has a 3xx status code
+func (o *ListTeamMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list team members not found response has a 4xx status code
+func (o *ListTeamMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list team members not found response has a 5xx status code
+func (o *ListTeamMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list team members not found response a status code equal to that given
+func (o *ListTeamMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListTeamMembersNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListTeamMembersNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] listTeamMembersNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListTeamMembersNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListTeamMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list team members default response has a 2xx status code
+func (o *ListTeamMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list team members default response has a 3xx status code
+func (o *ListTeamMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list team members default response has a 4xx status code
+func (o *ListTeamMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list team members default response has a 5xx status code
+func (o *ListTeamMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list team members default response a status code equal to that given
+func (o *ListTeamMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListTeamMembersDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] ListTeamMembers default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListTeamMembersDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}/members][%d] ListTeamMembers default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListTeamMembersDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

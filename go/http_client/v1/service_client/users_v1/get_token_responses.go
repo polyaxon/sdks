@@ -86,9 +86,39 @@ type GetTokenOK struct {
 	Payload *service_model.V1Token
 }
 
+// IsSuccess returns true when this get token o k response has a 2xx status code
+func (o *GetTokenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get token o k response has a 3xx status code
+func (o *GetTokenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get token o k response has a 4xx status code
+func (o *GetTokenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get token o k response has a 5xx status code
+func (o *GetTokenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get token o k response a status code equal to that given
+func (o *GetTokenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTokenOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenOK  %+v", 200, o.Payload)
 }
+
+func (o *GetTokenOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenOK  %+v", 200, o.Payload)
+}
+
 func (o *GetTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetTokenNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get token no content response has a 2xx status code
+func (o *GetTokenNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get token no content response has a 3xx status code
+func (o *GetTokenNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get token no content response has a 4xx status code
+func (o *GetTokenNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get token no content response has a 5xx status code
+func (o *GetTokenNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get token no content response a status code equal to that given
+func (o *GetTokenNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetTokenNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetTokenNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetTokenForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get token forbidden response has a 2xx status code
+func (o *GetTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get token forbidden response has a 3xx status code
+func (o *GetTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get token forbidden response has a 4xx status code
+func (o *GetTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get token forbidden response has a 5xx status code
+func (o *GetTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get token forbidden response a status code equal to that given
+func (o *GetTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTokenForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetTokenForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetTokenNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get token not found response has a 2xx status code
+func (o *GetTokenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get token not found response has a 3xx status code
+func (o *GetTokenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get token not found response has a 4xx status code
+func (o *GetTokenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get token not found response has a 5xx status code
+func (o *GetTokenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get token not found response a status code equal to that given
+func (o *GetTokenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTokenNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetTokenNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetTokenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get token default response has a 2xx status code
+func (o *GetTokenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get token default response has a 3xx status code
+func (o *GetTokenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get token default response has a 4xx status code
+func (o *GetTokenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get token default response has a 5xx status code
+func (o *GetTokenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get token default response a status code equal to that given
+func (o *GetTokenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetTokenDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] GetToken default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetTokenDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] GetToken default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

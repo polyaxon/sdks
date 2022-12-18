@@ -86,9 +86,39 @@ type OrganizationPlanOK struct {
 	Payload *service_model.V1Organization
 }
 
+// IsSuccess returns true when this organization plan o k response has a 2xx status code
+func (o *OrganizationPlanOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this organization plan o k response has a 3xx status code
+func (o *OrganizationPlanOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this organization plan o k response has a 4xx status code
+func (o *OrganizationPlanOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this organization plan o k response has a 5xx status code
+func (o *OrganizationPlanOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this organization plan o k response a status code equal to that given
+func (o *OrganizationPlanOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *OrganizationPlanOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanOK  %+v", 200, o.Payload)
 }
+
+func (o *OrganizationPlanOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanOK  %+v", 200, o.Payload)
+}
+
 func (o *OrganizationPlanOK) GetPayload() *service_model.V1Organization {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type OrganizationPlanNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this organization plan no content response has a 2xx status code
+func (o *OrganizationPlanNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this organization plan no content response has a 3xx status code
+func (o *OrganizationPlanNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this organization plan no content response has a 4xx status code
+func (o *OrganizationPlanNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this organization plan no content response has a 5xx status code
+func (o *OrganizationPlanNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this organization plan no content response a status code equal to that given
+func (o *OrganizationPlanNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *OrganizationPlanNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanNoContent  %+v", 204, o.Payload)
 }
+
+func (o *OrganizationPlanNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanNoContent  %+v", 204, o.Payload)
+}
+
 func (o *OrganizationPlanNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type OrganizationPlanForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this organization plan forbidden response has a 2xx status code
+func (o *OrganizationPlanForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this organization plan forbidden response has a 3xx status code
+func (o *OrganizationPlanForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this organization plan forbidden response has a 4xx status code
+func (o *OrganizationPlanForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this organization plan forbidden response has a 5xx status code
+func (o *OrganizationPlanForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this organization plan forbidden response a status code equal to that given
+func (o *OrganizationPlanForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *OrganizationPlanForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanForbidden  %+v", 403, o.Payload)
 }
+
+func (o *OrganizationPlanForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanForbidden  %+v", 403, o.Payload)
+}
+
 func (o *OrganizationPlanForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type OrganizationPlanNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this organization plan not found response has a 2xx status code
+func (o *OrganizationPlanNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this organization plan not found response has a 3xx status code
+func (o *OrganizationPlanNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this organization plan not found response has a 4xx status code
+func (o *OrganizationPlanNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this organization plan not found response has a 5xx status code
+func (o *OrganizationPlanNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this organization plan not found response a status code equal to that given
+func (o *OrganizationPlanNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *OrganizationPlanNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanNotFound  %+v", 404, o.Payload)
 }
+
+func (o *OrganizationPlanNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanNotFound  %+v", 404, o.Payload)
+}
+
 func (o *OrganizationPlanNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *OrganizationPlanDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this organization plan default response has a 2xx status code
+func (o *OrganizationPlanDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this organization plan default response has a 3xx status code
+func (o *OrganizationPlanDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this organization plan default response has a 4xx status code
+func (o *OrganizationPlanDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this organization plan default response has a 5xx status code
+func (o *OrganizationPlanDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this organization plan default response a status code equal to that given
+func (o *OrganizationPlanDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *OrganizationPlanDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] OrganizationPlan default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *OrganizationPlanDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] OrganizationPlan default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *OrganizationPlanDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

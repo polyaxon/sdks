@@ -86,9 +86,39 @@ type GetRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this get run o k response has a 2xx status code
+func (o *GetRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run o k response has a 3xx status code
+func (o *GetRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run o k response has a 4xx status code
+func (o *GetRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run o k response has a 5xx status code
+func (o *GetRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run o k response a status code equal to that given
+func (o *GetRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRunOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run no content response has a 2xx status code
+func (o *GetRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run no content response has a 3xx status code
+func (o *GetRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run no content response has a 4xx status code
+func (o *GetRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run no content response has a 5xx status code
+func (o *GetRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run no content response a status code equal to that given
+func (o *GetRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetRunNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run forbidden response has a 2xx status code
+func (o *GetRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run forbidden response has a 3xx status code
+func (o *GetRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run forbidden response has a 4xx status code
+func (o *GetRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run forbidden response has a 5xx status code
+func (o *GetRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run forbidden response a status code equal to that given
+func (o *GetRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRunForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run not found response has a 2xx status code
+func (o *GetRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run not found response has a 3xx status code
+func (o *GetRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run not found response has a 4xx status code
+func (o *GetRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run not found response has a 5xx status code
+func (o *GetRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run not found response a status code equal to that given
+func (o *GetRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRunNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get run default response has a 2xx status code
+func (o *GetRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get run default response has a 3xx status code
+func (o *GetRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get run default response has a 4xx status code
+func (o *GetRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get run default response has a 5xx status code
+func (o *GetRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get run default response a status code equal to that given
+func (o *GetRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRunDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] GetRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRunDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] GetRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

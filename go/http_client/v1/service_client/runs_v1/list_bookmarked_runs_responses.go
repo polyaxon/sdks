@@ -86,9 +86,39 @@ type ListBookmarkedRunsOK struct {
 	Payload *service_model.V1ListBookmarksResponse
 }
 
+// IsSuccess returns true when this list bookmarked runs o k response has a 2xx status code
+func (o *ListBookmarkedRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list bookmarked runs o k response has a 3xx status code
+func (o *ListBookmarkedRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked runs o k response has a 4xx status code
+func (o *ListBookmarkedRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list bookmarked runs o k response has a 5xx status code
+func (o *ListBookmarkedRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked runs o k response a status code equal to that given
+func (o *ListBookmarkedRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListBookmarkedRunsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListBookmarkedRunsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListBookmarkedRunsOK) GetPayload() *service_model.V1ListBookmarksResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListBookmarkedRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list bookmarked runs no content response has a 2xx status code
+func (o *ListBookmarkedRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list bookmarked runs no content response has a 3xx status code
+func (o *ListBookmarkedRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked runs no content response has a 4xx status code
+func (o *ListBookmarkedRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list bookmarked runs no content response has a 5xx status code
+func (o *ListBookmarkedRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked runs no content response a status code equal to that given
+func (o *ListBookmarkedRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListBookmarkedRunsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListBookmarkedRunsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListBookmarkedRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListBookmarkedRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list bookmarked runs forbidden response has a 2xx status code
+func (o *ListBookmarkedRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list bookmarked runs forbidden response has a 3xx status code
+func (o *ListBookmarkedRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked runs forbidden response has a 4xx status code
+func (o *ListBookmarkedRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list bookmarked runs forbidden response has a 5xx status code
+func (o *ListBookmarkedRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked runs forbidden response a status code equal to that given
+func (o *ListBookmarkedRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListBookmarkedRunsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListBookmarkedRunsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListBookmarkedRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListBookmarkedRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list bookmarked runs not found response has a 2xx status code
+func (o *ListBookmarkedRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list bookmarked runs not found response has a 3xx status code
+func (o *ListBookmarkedRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked runs not found response has a 4xx status code
+func (o *ListBookmarkedRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list bookmarked runs not found response has a 5xx status code
+func (o *ListBookmarkedRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked runs not found response a status code equal to that given
+func (o *ListBookmarkedRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListBookmarkedRunsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListBookmarkedRunsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListBookmarkedRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListBookmarkedRunsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list bookmarked runs default response has a 2xx status code
+func (o *ListBookmarkedRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list bookmarked runs default response has a 3xx status code
+func (o *ListBookmarkedRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list bookmarked runs default response has a 4xx status code
+func (o *ListBookmarkedRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list bookmarked runs default response has a 5xx status code
+func (o *ListBookmarkedRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list bookmarked runs default response a status code equal to that given
+func (o *ListBookmarkedRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListBookmarkedRunsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] ListBookmarkedRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListBookmarkedRunsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] ListBookmarkedRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListBookmarkedRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

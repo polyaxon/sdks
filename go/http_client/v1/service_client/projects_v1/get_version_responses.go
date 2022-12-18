@@ -86,9 +86,39 @@ type GetVersionOK struct {
 	Payload *service_model.V1ProjectVersion
 }
 
+// IsSuccess returns true when this get version o k response has a 2xx status code
+func (o *GetVersionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get version o k response has a 3xx status code
+func (o *GetVersionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get version o k response has a 4xx status code
+func (o *GetVersionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get version o k response has a 5xx status code
+func (o *GetVersionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get version o k response a status code equal to that given
+func (o *GetVersionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetVersionOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionOK  %+v", 200, o.Payload)
 }
+
+func (o *GetVersionOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionOK  %+v", 200, o.Payload)
+}
+
 func (o *GetVersionOK) GetPayload() *service_model.V1ProjectVersion {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetVersionNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get version no content response has a 2xx status code
+func (o *GetVersionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get version no content response has a 3xx status code
+func (o *GetVersionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get version no content response has a 4xx status code
+func (o *GetVersionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get version no content response has a 5xx status code
+func (o *GetVersionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get version no content response a status code equal to that given
+func (o *GetVersionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetVersionNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetVersionNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetVersionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetVersionForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get version forbidden response has a 2xx status code
+func (o *GetVersionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get version forbidden response has a 3xx status code
+func (o *GetVersionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get version forbidden response has a 4xx status code
+func (o *GetVersionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get version forbidden response has a 5xx status code
+func (o *GetVersionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get version forbidden response a status code equal to that given
+func (o *GetVersionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetVersionForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetVersionForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetVersionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetVersionNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get version not found response has a 2xx status code
+func (o *GetVersionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get version not found response has a 3xx status code
+func (o *GetVersionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get version not found response has a 4xx status code
+func (o *GetVersionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get version not found response has a 5xx status code
+func (o *GetVersionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get version not found response a status code equal to that given
+func (o *GetVersionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetVersionNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetVersionNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] getVersionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetVersionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetVersionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get version default response has a 2xx status code
+func (o *GetVersionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get version default response has a 3xx status code
+func (o *GetVersionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get version default response has a 4xx status code
+func (o *GetVersionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get version default response has a 5xx status code
+func (o *GetVersionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get version default response a status code equal to that given
+func (o *GetVersionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetVersionDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] GetVersion default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetVersionDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] GetVersion default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetVersionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

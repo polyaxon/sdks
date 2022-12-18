@@ -86,9 +86,39 @@ type UpdateProjectDashboardOK struct {
 	Payload *service_model.V1Dashboard
 }
 
+// IsSuccess returns true when this update project dashboard o k response has a 2xx status code
+func (o *UpdateProjectDashboardOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update project dashboard o k response has a 3xx status code
+func (o *UpdateProjectDashboardOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project dashboard o k response has a 4xx status code
+func (o *UpdateProjectDashboardOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update project dashboard o k response has a 5xx status code
+func (o *UpdateProjectDashboardOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project dashboard o k response a status code equal to that given
+func (o *UpdateProjectDashboardOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateProjectDashboardOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateProjectDashboardOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateProjectDashboardOK) GetPayload() *service_model.V1Dashboard {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateProjectDashboardNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project dashboard no content response has a 2xx status code
+func (o *UpdateProjectDashboardNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update project dashboard no content response has a 3xx status code
+func (o *UpdateProjectDashboardNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project dashboard no content response has a 4xx status code
+func (o *UpdateProjectDashboardNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update project dashboard no content response has a 5xx status code
+func (o *UpdateProjectDashboardNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project dashboard no content response a status code equal to that given
+func (o *UpdateProjectDashboardNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateProjectDashboardNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateProjectDashboardNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateProjectDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateProjectDashboardForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project dashboard forbidden response has a 2xx status code
+func (o *UpdateProjectDashboardForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update project dashboard forbidden response has a 3xx status code
+func (o *UpdateProjectDashboardForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project dashboard forbidden response has a 4xx status code
+func (o *UpdateProjectDashboardForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update project dashboard forbidden response has a 5xx status code
+func (o *UpdateProjectDashboardForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project dashboard forbidden response a status code equal to that given
+func (o *UpdateProjectDashboardForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateProjectDashboardForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateProjectDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateProjectDashboardNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project dashboard not found response has a 2xx status code
+func (o *UpdateProjectDashboardNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update project dashboard not found response has a 3xx status code
+func (o *UpdateProjectDashboardNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project dashboard not found response has a 4xx status code
+func (o *UpdateProjectDashboardNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update project dashboard not found response has a 5xx status code
+func (o *UpdateProjectDashboardNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project dashboard not found response a status code equal to that given
+func (o *UpdateProjectDashboardNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateProjectDashboardNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] updateProjectDashboardNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateProjectDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateProjectDashboardDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update project dashboard default response has a 2xx status code
+func (o *UpdateProjectDashboardDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update project dashboard default response has a 3xx status code
+func (o *UpdateProjectDashboardDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update project dashboard default response has a 4xx status code
+func (o *UpdateProjectDashboardDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update project dashboard default response has a 5xx status code
+func (o *UpdateProjectDashboardDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update project dashboard default response a status code equal to that given
+func (o *UpdateProjectDashboardDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateProjectDashboardDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] UpdateProjectDashboard default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateProjectDashboardDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] UpdateProjectDashboard default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

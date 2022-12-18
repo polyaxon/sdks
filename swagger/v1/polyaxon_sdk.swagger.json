@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "1.20.0",
+    "version": "1.21.0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -15172,44 +15172,9 @@
         ]
       }
     },
-    "/schemas": {
-      "get": {
-        "summary": "NoOp",
-        "operationId": "NoOp",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1Schemas"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "tags": [
-          "SchemasV1"
-        ]
-      }
-    },
-    "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs": {
+    "/internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs": {
       "post": {
-        "summary": "Collect run logs",
+        "summary": "Internal API to collect run logs",
         "operationId": "CollectRunLogs",
         "responses": {
           "200": {
@@ -15272,6 +15237,41 @@
         ],
         "tags": [
           "RunsV1"
+        ]
+      }
+    },
+    "/schemas": {
+      "get": {
+        "summary": "NoOp",
+        "operationId": "NoOp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Schemas"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "SchemasV1"
         ]
       }
     },

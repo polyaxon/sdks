@@ -86,9 +86,39 @@ type ListArchivedRunsOK struct {
 	Payload *service_model.V1ListRunsResponse
 }
 
+// IsSuccess returns true when this list archived runs o k response has a 2xx status code
+func (o *ListArchivedRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list archived runs o k response has a 3xx status code
+func (o *ListArchivedRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived runs o k response has a 4xx status code
+func (o *ListArchivedRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list archived runs o k response has a 5xx status code
+func (o *ListArchivedRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived runs o k response a status code equal to that given
+func (o *ListArchivedRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListArchivedRunsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListArchivedRunsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListArchivedRunsOK) GetPayload() *service_model.V1ListRunsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListArchivedRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list archived runs no content response has a 2xx status code
+func (o *ListArchivedRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list archived runs no content response has a 3xx status code
+func (o *ListArchivedRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived runs no content response has a 4xx status code
+func (o *ListArchivedRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list archived runs no content response has a 5xx status code
+func (o *ListArchivedRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived runs no content response a status code equal to that given
+func (o *ListArchivedRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListArchivedRunsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListArchivedRunsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListArchivedRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListArchivedRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list archived runs forbidden response has a 2xx status code
+func (o *ListArchivedRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list archived runs forbidden response has a 3xx status code
+func (o *ListArchivedRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived runs forbidden response has a 4xx status code
+func (o *ListArchivedRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list archived runs forbidden response has a 5xx status code
+func (o *ListArchivedRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived runs forbidden response a status code equal to that given
+func (o *ListArchivedRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListArchivedRunsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListArchivedRunsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListArchivedRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListArchivedRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list archived runs not found response has a 2xx status code
+func (o *ListArchivedRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list archived runs not found response has a 3xx status code
+func (o *ListArchivedRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived runs not found response has a 4xx status code
+func (o *ListArchivedRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list archived runs not found response has a 5xx status code
+func (o *ListArchivedRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived runs not found response a status code equal to that given
+func (o *ListArchivedRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListArchivedRunsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListArchivedRunsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListArchivedRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListArchivedRunsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list archived runs default response has a 2xx status code
+func (o *ListArchivedRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list archived runs default response has a 3xx status code
+func (o *ListArchivedRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list archived runs default response has a 4xx status code
+func (o *ListArchivedRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list archived runs default response has a 5xx status code
+func (o *ListArchivedRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list archived runs default response a status code equal to that given
+func (o *ListArchivedRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListArchivedRunsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] ListArchivedRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListArchivedRunsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] ListArchivedRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListArchivedRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

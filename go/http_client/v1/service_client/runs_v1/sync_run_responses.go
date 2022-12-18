@@ -85,7 +85,36 @@ A successful response.
 type SyncRunOK struct {
 }
 
+// IsSuccess returns true when this sync run o k response has a 2xx status code
+func (o *SyncRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this sync run o k response has a 3xx status code
+func (o *SyncRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync run o k response has a 4xx status code
+func (o *SyncRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this sync run o k response has a 5xx status code
+func (o *SyncRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync run o k response a status code equal to that given
+func (o *SyncRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SyncRunOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK ", 200)
+}
+
+func (o *SyncRunOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type SyncRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this sync run no content response has a 2xx status code
+func (o *SyncRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this sync run no content response has a 3xx status code
+func (o *SyncRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync run no content response has a 4xx status code
+func (o *SyncRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this sync run no content response has a 5xx status code
+func (o *SyncRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync run no content response a status code equal to that given
+func (o *SyncRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *SyncRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *SyncRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *SyncRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type SyncRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this sync run forbidden response has a 2xx status code
+func (o *SyncRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this sync run forbidden response has a 3xx status code
+func (o *SyncRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync run forbidden response has a 4xx status code
+func (o *SyncRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this sync run forbidden response has a 5xx status code
+func (o *SyncRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync run forbidden response a status code equal to that given
+func (o *SyncRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SyncRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SyncRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SyncRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type SyncRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this sync run not found response has a 2xx status code
+func (o *SyncRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this sync run not found response has a 3xx status code
+func (o *SyncRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync run not found response has a 4xx status code
+func (o *SyncRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this sync run not found response has a 5xx status code
+func (o *SyncRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync run not found response a status code equal to that given
+func (o *SyncRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *SyncRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *SyncRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *SyncRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *SyncRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this sync run default response has a 2xx status code
+func (o *SyncRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sync run default response has a 3xx status code
+func (o *SyncRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sync run default response has a 4xx status code
+func (o *SyncRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sync run default response has a 5xx status code
+func (o *SyncRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sync run default response a status code equal to that given
+func (o *SyncRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SyncRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] SyncRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SyncRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] SyncRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SyncRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

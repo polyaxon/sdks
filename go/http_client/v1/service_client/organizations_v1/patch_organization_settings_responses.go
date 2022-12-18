@@ -86,9 +86,39 @@ type PatchOrganizationSettingsOK struct {
 	Payload *service_model.V1Organization
 }
 
+// IsSuccess returns true when this patch organization settings o k response has a 2xx status code
+func (o *PatchOrganizationSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch organization settings o k response has a 3xx status code
+func (o *PatchOrganizationSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organization settings o k response has a 4xx status code
+func (o *PatchOrganizationSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch organization settings o k response has a 5xx status code
+func (o *PatchOrganizationSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organization settings o k response a status code equal to that given
+func (o *PatchOrganizationSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchOrganizationSettingsOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchOrganizationSettingsOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchOrganizationSettingsOK) GetPayload() *service_model.V1Organization {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type PatchOrganizationSettingsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch organization settings no content response has a 2xx status code
+func (o *PatchOrganizationSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch organization settings no content response has a 3xx status code
+func (o *PatchOrganizationSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organization settings no content response has a 4xx status code
+func (o *PatchOrganizationSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch organization settings no content response has a 5xx status code
+func (o *PatchOrganizationSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organization settings no content response a status code equal to that given
+func (o *PatchOrganizationSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchOrganizationSettingsNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchOrganizationSettingsNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchOrganizationSettingsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type PatchOrganizationSettingsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch organization settings forbidden response has a 2xx status code
+func (o *PatchOrganizationSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organization settings forbidden response has a 3xx status code
+func (o *PatchOrganizationSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organization settings forbidden response has a 4xx status code
+func (o *PatchOrganizationSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organization settings forbidden response has a 5xx status code
+func (o *PatchOrganizationSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organization settings forbidden response a status code equal to that given
+func (o *PatchOrganizationSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchOrganizationSettingsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchOrganizationSettingsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchOrganizationSettingsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type PatchOrganizationSettingsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch organization settings not found response has a 2xx status code
+func (o *PatchOrganizationSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organization settings not found response has a 3xx status code
+func (o *PatchOrganizationSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organization settings not found response has a 4xx status code
+func (o *PatchOrganizationSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organization settings not found response has a 5xx status code
+func (o *PatchOrganizationSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organization settings not found response a status code equal to that given
+func (o *PatchOrganizationSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchOrganizationSettingsNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchOrganizationSettingsNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] patchOrganizationSettingsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchOrganizationSettingsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *PatchOrganizationSettingsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this patch organization settings default response has a 2xx status code
+func (o *PatchOrganizationSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch organization settings default response has a 3xx status code
+func (o *PatchOrganizationSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch organization settings default response has a 4xx status code
+func (o *PatchOrganizationSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch organization settings default response has a 5xx status code
+func (o *PatchOrganizationSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch organization settings default response a status code equal to that given
+func (o *PatchOrganizationSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PatchOrganizationSettingsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] PatchOrganizationSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchOrganizationSettingsDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/settings][%d] PatchOrganizationSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchOrganizationSettingsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

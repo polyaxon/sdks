@@ -85,7 +85,36 @@ A successful response.
 type SyncTagsOK struct {
 }
 
+// IsSuccess returns true when this sync tags o k response has a 2xx status code
+func (o *SyncTagsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this sync tags o k response has a 3xx status code
+func (o *SyncTagsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync tags o k response has a 4xx status code
+func (o *SyncTagsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this sync tags o k response has a 5xx status code
+func (o *SyncTagsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync tags o k response a status code equal to that given
+func (o *SyncTagsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SyncTagsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK ", 200)
+}
+
+func (o *SyncTagsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type SyncTagsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this sync tags no content response has a 2xx status code
+func (o *SyncTagsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this sync tags no content response has a 3xx status code
+func (o *SyncTagsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync tags no content response has a 4xx status code
+func (o *SyncTagsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this sync tags no content response has a 5xx status code
+func (o *SyncTagsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync tags no content response a status code equal to that given
+func (o *SyncTagsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *SyncTagsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *SyncTagsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *SyncTagsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type SyncTagsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this sync tags forbidden response has a 2xx status code
+func (o *SyncTagsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this sync tags forbidden response has a 3xx status code
+func (o *SyncTagsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync tags forbidden response has a 4xx status code
+func (o *SyncTagsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this sync tags forbidden response has a 5xx status code
+func (o *SyncTagsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync tags forbidden response a status code equal to that given
+func (o *SyncTagsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SyncTagsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SyncTagsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SyncTagsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type SyncTagsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this sync tags not found response has a 2xx status code
+func (o *SyncTagsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this sync tags not found response has a 3xx status code
+func (o *SyncTagsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this sync tags not found response has a 4xx status code
+func (o *SyncTagsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this sync tags not found response has a 5xx status code
+func (o *SyncTagsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this sync tags not found response a status code equal to that given
+func (o *SyncTagsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *SyncTagsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *SyncTagsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *SyncTagsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *SyncTagsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this sync tags default response has a 2xx status code
+func (o *SyncTagsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sync tags default response has a 3xx status code
+func (o *SyncTagsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sync tags default response has a 4xx status code
+func (o *SyncTagsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sync tags default response has a 5xx status code
+func (o *SyncTagsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sync tags default response a status code equal to that given
+func (o *SyncTagsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SyncTagsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] SyncTags default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SyncTagsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] SyncTags default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SyncTagsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

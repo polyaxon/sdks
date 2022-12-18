@@ -86,9 +86,39 @@ type GetInstallationOK struct {
 	Payload *service_model.V1Installation
 }
 
+// IsSuccess returns true when this get installation o k response has a 2xx status code
+func (o *GetInstallationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get installation o k response has a 3xx status code
+func (o *GetInstallationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get installation o k response has a 4xx status code
+func (o *GetInstallationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get installation o k response has a 5xx status code
+func (o *GetInstallationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get installation o k response a status code equal to that given
+func (o *GetInstallationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetInstallationOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK  %+v", 200, o.Payload)
 }
+
+func (o *GetInstallationOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK  %+v", 200, o.Payload)
+}
+
 func (o *GetInstallationOK) GetPayload() *service_model.V1Installation {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetInstallationNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get installation no content response has a 2xx status code
+func (o *GetInstallationNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get installation no content response has a 3xx status code
+func (o *GetInstallationNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get installation no content response has a 4xx status code
+func (o *GetInstallationNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get installation no content response has a 5xx status code
+func (o *GetInstallationNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get installation no content response a status code equal to that given
+func (o *GetInstallationNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetInstallationNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetInstallationNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetInstallationNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetInstallationForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get installation forbidden response has a 2xx status code
+func (o *GetInstallationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get installation forbidden response has a 3xx status code
+func (o *GetInstallationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get installation forbidden response has a 4xx status code
+func (o *GetInstallationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get installation forbidden response has a 5xx status code
+func (o *GetInstallationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get installation forbidden response a status code equal to that given
+func (o *GetInstallationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetInstallationForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetInstallationForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetInstallationForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetInstallationNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get installation not found response has a 2xx status code
+func (o *GetInstallationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get installation not found response has a 3xx status code
+func (o *GetInstallationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get installation not found response has a 4xx status code
+func (o *GetInstallationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get installation not found response has a 5xx status code
+func (o *GetInstallationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get installation not found response a status code equal to that given
+func (o *GetInstallationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetInstallationNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetInstallationNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetInstallationNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetInstallationDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get installation default response has a 2xx status code
+func (o *GetInstallationDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get installation default response has a 3xx status code
+func (o *GetInstallationDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get installation default response has a 4xx status code
+func (o *GetInstallationDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get installation default response has a 5xx status code
+func (o *GetInstallationDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get installation default response a status code equal to that given
+func (o *GetInstallationDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetInstallationDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] GetInstallation default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetInstallationDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/installation][%d] GetInstallation default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetInstallationDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

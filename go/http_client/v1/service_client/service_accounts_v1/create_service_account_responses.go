@@ -86,9 +86,39 @@ type CreateServiceAccountOK struct {
 	Payload *service_model.V1ServiceAccount
 }
 
+// IsSuccess returns true when this create service account o k response has a 2xx status code
+func (o *CreateServiceAccountOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create service account o k response has a 3xx status code
+func (o *CreateServiceAccountOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create service account o k response has a 4xx status code
+func (o *CreateServiceAccountOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create service account o k response has a 5xx status code
+func (o *CreateServiceAccountOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create service account o k response a status code equal to that given
+func (o *CreateServiceAccountOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateServiceAccountOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateServiceAccountOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateServiceAccountOK) GetPayload() *service_model.V1ServiceAccount {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type CreateServiceAccountNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create service account no content response has a 2xx status code
+func (o *CreateServiceAccountNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create service account no content response has a 3xx status code
+func (o *CreateServiceAccountNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create service account no content response has a 4xx status code
+func (o *CreateServiceAccountNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create service account no content response has a 5xx status code
+func (o *CreateServiceAccountNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create service account no content response a status code equal to that given
+func (o *CreateServiceAccountNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreateServiceAccountNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateServiceAccountNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateServiceAccountNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type CreateServiceAccountForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create service account forbidden response has a 2xx status code
+func (o *CreateServiceAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create service account forbidden response has a 3xx status code
+func (o *CreateServiceAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create service account forbidden response has a 4xx status code
+func (o *CreateServiceAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create service account forbidden response has a 5xx status code
+func (o *CreateServiceAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create service account forbidden response a status code equal to that given
+func (o *CreateServiceAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateServiceAccountForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateServiceAccountForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateServiceAccountForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type CreateServiceAccountNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create service account not found response has a 2xx status code
+func (o *CreateServiceAccountNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create service account not found response has a 3xx status code
+func (o *CreateServiceAccountNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create service account not found response has a 4xx status code
+func (o *CreateServiceAccountNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create service account not found response has a 5xx status code
+func (o *CreateServiceAccountNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create service account not found response a status code equal to that given
+func (o *CreateServiceAccountNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateServiceAccountNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateServiceAccountNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateServiceAccountNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *CreateServiceAccountDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create service account default response has a 2xx status code
+func (o *CreateServiceAccountDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create service account default response has a 3xx status code
+func (o *CreateServiceAccountDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create service account default response has a 4xx status code
+func (o *CreateServiceAccountDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create service account default response has a 5xx status code
+func (o *CreateServiceAccountDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create service account default response a status code equal to that given
+func (o *CreateServiceAccountDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateServiceAccountDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] CreateServiceAccount default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateServiceAccountDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] CreateServiceAccount default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateServiceAccountDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

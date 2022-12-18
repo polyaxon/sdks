@@ -86,9 +86,39 @@ type ListTeamsOK struct {
 	Payload *service_model.V1ListTeamsResponse
 }
 
+// IsSuccess returns true when this list teams o k response has a 2xx status code
+func (o *ListTeamsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list teams o k response has a 3xx status code
+func (o *ListTeamsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list teams o k response has a 4xx status code
+func (o *ListTeamsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list teams o k response has a 5xx status code
+func (o *ListTeamsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list teams o k response a status code equal to that given
+func (o *ListTeamsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListTeamsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListTeamsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListTeamsOK) GetPayload() *service_model.V1ListTeamsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListTeamsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list teams no content response has a 2xx status code
+func (o *ListTeamsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list teams no content response has a 3xx status code
+func (o *ListTeamsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list teams no content response has a 4xx status code
+func (o *ListTeamsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list teams no content response has a 5xx status code
+func (o *ListTeamsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list teams no content response a status code equal to that given
+func (o *ListTeamsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListTeamsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListTeamsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListTeamsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListTeamsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list teams forbidden response has a 2xx status code
+func (o *ListTeamsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list teams forbidden response has a 3xx status code
+func (o *ListTeamsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list teams forbidden response has a 4xx status code
+func (o *ListTeamsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list teams forbidden response has a 5xx status code
+func (o *ListTeamsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list teams forbidden response a status code equal to that given
+func (o *ListTeamsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListTeamsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListTeamsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListTeamsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListTeamsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list teams not found response has a 2xx status code
+func (o *ListTeamsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list teams not found response has a 3xx status code
+func (o *ListTeamsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list teams not found response has a 4xx status code
+func (o *ListTeamsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list teams not found response has a 5xx status code
+func (o *ListTeamsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list teams not found response a status code equal to that given
+func (o *ListTeamsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListTeamsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListTeamsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] listTeamsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListTeamsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListTeamsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list teams default response has a 2xx status code
+func (o *ListTeamsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list teams default response has a 3xx status code
+func (o *ListTeamsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list teams default response has a 4xx status code
+func (o *ListTeamsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list teams default response has a 5xx status code
+func (o *ListTeamsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list teams default response a status code equal to that given
+func (o *ListTeamsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListTeamsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] ListTeams default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListTeamsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams][%d] ListTeams default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListTeamsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type ResumeRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this resume run o k response has a 2xx status code
+func (o *ResumeRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this resume run o k response has a 3xx status code
+func (o *ResumeRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this resume run o k response has a 4xx status code
+func (o *ResumeRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this resume run o k response has a 5xx status code
+func (o *ResumeRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this resume run o k response a status code equal to that given
+func (o *ResumeRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ResumeRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunOK  %+v", 200, o.Payload)
 }
+
+func (o *ResumeRunOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunOK  %+v", 200, o.Payload)
+}
+
 func (o *ResumeRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ResumeRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this resume run no content response has a 2xx status code
+func (o *ResumeRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this resume run no content response has a 3xx status code
+func (o *ResumeRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this resume run no content response has a 4xx status code
+func (o *ResumeRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this resume run no content response has a 5xx status code
+func (o *ResumeRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this resume run no content response a status code equal to that given
+func (o *ResumeRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ResumeRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ResumeRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ResumeRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ResumeRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this resume run forbidden response has a 2xx status code
+func (o *ResumeRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this resume run forbidden response has a 3xx status code
+func (o *ResumeRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this resume run forbidden response has a 4xx status code
+func (o *ResumeRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this resume run forbidden response has a 5xx status code
+func (o *ResumeRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this resume run forbidden response a status code equal to that given
+func (o *ResumeRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ResumeRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ResumeRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ResumeRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ResumeRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this resume run not found response has a 2xx status code
+func (o *ResumeRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this resume run not found response has a 3xx status code
+func (o *ResumeRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this resume run not found response has a 4xx status code
+func (o *ResumeRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this resume run not found response has a 5xx status code
+func (o *ResumeRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this resume run not found response a status code equal to that given
+func (o *ResumeRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ResumeRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ResumeRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ResumeRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ResumeRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this resume run default response has a 2xx status code
+func (o *ResumeRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this resume run default response has a 3xx status code
+func (o *ResumeRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this resume run default response has a 4xx status code
+func (o *ResumeRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this resume run default response has a 5xx status code
+func (o *ResumeRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this resume run default response a status code equal to that given
+func (o *ResumeRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ResumeRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] ResumeRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ResumeRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] ResumeRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ResumeRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

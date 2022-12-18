@@ -86,9 +86,39 @@ type RestartRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this restart run o k response has a 2xx status code
+func (o *RestartRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this restart run o k response has a 3xx status code
+func (o *RestartRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restart run o k response has a 4xx status code
+func (o *RestartRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this restart run o k response has a 5xx status code
+func (o *RestartRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restart run o k response a status code equal to that given
+func (o *RestartRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RestartRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK  %+v", 200, o.Payload)
 }
+
+func (o *RestartRunOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK  %+v", 200, o.Payload)
+}
+
 func (o *RestartRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type RestartRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this restart run no content response has a 2xx status code
+func (o *RestartRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this restart run no content response has a 3xx status code
+func (o *RestartRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restart run no content response has a 4xx status code
+func (o *RestartRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this restart run no content response has a 5xx status code
+func (o *RestartRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restart run no content response a status code equal to that given
+func (o *RestartRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *RestartRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *RestartRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *RestartRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type RestartRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this restart run forbidden response has a 2xx status code
+func (o *RestartRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this restart run forbidden response has a 3xx status code
+func (o *RestartRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restart run forbidden response has a 4xx status code
+func (o *RestartRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this restart run forbidden response has a 5xx status code
+func (o *RestartRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restart run forbidden response a status code equal to that given
+func (o *RestartRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RestartRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RestartRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RestartRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type RestartRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this restart run not found response has a 2xx status code
+func (o *RestartRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this restart run not found response has a 3xx status code
+func (o *RestartRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restart run not found response has a 4xx status code
+func (o *RestartRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this restart run not found response has a 5xx status code
+func (o *RestartRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restart run not found response a status code equal to that given
+func (o *RestartRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RestartRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RestartRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RestartRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *RestartRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this restart run default response has a 2xx status code
+func (o *RestartRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this restart run default response has a 3xx status code
+func (o *RestartRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this restart run default response has a 4xx status code
+func (o *RestartRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this restart run default response has a 5xx status code
+func (o *RestartRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this restart run default response a status code equal to that given
+func (o *RestartRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RestartRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] RestartRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RestartRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] RestartRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RestartRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type SignupOK struct {
 	Payload *service_model.V1Auth
 }
 
+// IsSuccess returns true when this signup o k response has a 2xx status code
+func (o *SignupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this signup o k response has a 3xx status code
+func (o *SignupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this signup o k response has a 4xx status code
+func (o *SignupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this signup o k response has a 5xx status code
+func (o *SignupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this signup o k response a status code equal to that given
+func (o *SignupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *SignupOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK  %+v", 200, o.Payload)
 }
+
+func (o *SignupOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK  %+v", 200, o.Payload)
+}
+
 func (o *SignupOK) GetPayload() *service_model.V1Auth {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type SignupNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this signup no content response has a 2xx status code
+func (o *SignupNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this signup no content response has a 3xx status code
+func (o *SignupNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this signup no content response has a 4xx status code
+func (o *SignupNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this signup no content response has a 5xx status code
+func (o *SignupNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this signup no content response a status code equal to that given
+func (o *SignupNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *SignupNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent  %+v", 204, o.Payload)
 }
+
+func (o *SignupNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent  %+v", 204, o.Payload)
+}
+
 func (o *SignupNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type SignupForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this signup forbidden response has a 2xx status code
+func (o *SignupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this signup forbidden response has a 3xx status code
+func (o *SignupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this signup forbidden response has a 4xx status code
+func (o *SignupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this signup forbidden response has a 5xx status code
+func (o *SignupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this signup forbidden response a status code equal to that given
+func (o *SignupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *SignupForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupForbidden  %+v", 403, o.Payload)
 }
+
+func (o *SignupForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupForbidden  %+v", 403, o.Payload)
+}
+
 func (o *SignupForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type SignupNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this signup not found response has a 2xx status code
+func (o *SignupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this signup not found response has a 3xx status code
+func (o *SignupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this signup not found response has a 4xx status code
+func (o *SignupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this signup not found response has a 5xx status code
+func (o *SignupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this signup not found response a status code equal to that given
+func (o *SignupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *SignupNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound  %+v", 404, o.Payload)
 }
+
+func (o *SignupNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound  %+v", 404, o.Payload)
+}
+
 func (o *SignupNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *SignupDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this signup default response has a 2xx status code
+func (o *SignupDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this signup default response has a 3xx status code
+func (o *SignupDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this signup default response has a 4xx status code
+func (o *SignupDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this signup default response has a 5xx status code
+func (o *SignupDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this signup default response a status code equal to that given
+func (o *SignupDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *SignupDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] Signup default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *SignupDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] Signup default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *SignupDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type ListPresetsOK struct {
 	Payload *service_model.V1ListPresetsResponse
 }
 
+// IsSuccess returns true when this list presets o k response has a 2xx status code
+func (o *ListPresetsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list presets o k response has a 3xx status code
+func (o *ListPresetsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list presets o k response has a 4xx status code
+func (o *ListPresetsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list presets o k response has a 5xx status code
+func (o *ListPresetsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list presets o k response a status code equal to that given
+func (o *ListPresetsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListPresetsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListPresetsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListPresetsOK) GetPayload() *service_model.V1ListPresetsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListPresetsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list presets no content response has a 2xx status code
+func (o *ListPresetsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list presets no content response has a 3xx status code
+func (o *ListPresetsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list presets no content response has a 4xx status code
+func (o *ListPresetsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list presets no content response has a 5xx status code
+func (o *ListPresetsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list presets no content response a status code equal to that given
+func (o *ListPresetsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListPresetsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListPresetsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListPresetsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListPresetsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list presets forbidden response has a 2xx status code
+func (o *ListPresetsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list presets forbidden response has a 3xx status code
+func (o *ListPresetsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list presets forbidden response has a 4xx status code
+func (o *ListPresetsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list presets forbidden response has a 5xx status code
+func (o *ListPresetsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list presets forbidden response a status code equal to that given
+func (o *ListPresetsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListPresetsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListPresetsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListPresetsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListPresetsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list presets not found response has a 2xx status code
+func (o *ListPresetsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list presets not found response has a 3xx status code
+func (o *ListPresetsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list presets not found response has a 4xx status code
+func (o *ListPresetsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list presets not found response has a 5xx status code
+func (o *ListPresetsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list presets not found response a status code equal to that given
+func (o *ListPresetsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListPresetsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListPresetsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListPresetsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListPresetsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list presets default response has a 2xx status code
+func (o *ListPresetsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list presets default response has a 3xx status code
+func (o *ListPresetsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list presets default response has a 4xx status code
+func (o *ListPresetsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list presets default response has a 5xx status code
+func (o *ListPresetsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list presets default response a status code equal to that given
+func (o *ListPresetsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListPresetsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] ListPresets default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListPresetsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] ListPresets default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListPresetsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type UpdateRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this update run o k response has a 2xx status code
+func (o *UpdateRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update run o k response has a 3xx status code
+func (o *UpdateRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update run o k response has a 4xx status code
+func (o *UpdateRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update run o k response has a 5xx status code
+func (o *UpdateRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update run o k response a status code equal to that given
+func (o *UpdateRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateRunOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateRunOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update run no content response has a 2xx status code
+func (o *UpdateRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update run no content response has a 3xx status code
+func (o *UpdateRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update run no content response has a 4xx status code
+func (o *UpdateRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update run no content response has a 5xx status code
+func (o *UpdateRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update run no content response a status code equal to that given
+func (o *UpdateRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateRunNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateRunNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update run forbidden response has a 2xx status code
+func (o *UpdateRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update run forbidden response has a 3xx status code
+func (o *UpdateRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update run forbidden response has a 4xx status code
+func (o *UpdateRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update run forbidden response has a 5xx status code
+func (o *UpdateRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update run forbidden response a status code equal to that given
+func (o *UpdateRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateRunForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateRunForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update run not found response has a 2xx status code
+func (o *UpdateRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update run not found response has a 3xx status code
+func (o *UpdateRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update run not found response has a 4xx status code
+func (o *UpdateRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update run not found response has a 5xx status code
+func (o *UpdateRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update run not found response a status code equal to that given
+func (o *UpdateRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateRunNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateRunNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update run default response has a 2xx status code
+func (o *UpdateRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update run default response has a 3xx status code
+func (o *UpdateRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update run default response has a 4xx status code
+func (o *UpdateRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update run default response has a 5xx status code
+func (o *UpdateRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update run default response a status code equal to that given
+func (o *UpdateRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateRunDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] UpdateRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateRunDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] UpdateRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

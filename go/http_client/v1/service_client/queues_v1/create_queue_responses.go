@@ -86,9 +86,39 @@ type CreateQueueOK struct {
 	Payload *service_model.V1Queue
 }
 
+// IsSuccess returns true when this create queue o k response has a 2xx status code
+func (o *CreateQueueOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create queue o k response has a 3xx status code
+func (o *CreateQueueOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create queue o k response has a 4xx status code
+func (o *CreateQueueOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create queue o k response has a 5xx status code
+func (o *CreateQueueOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create queue o k response a status code equal to that given
+func (o *CreateQueueOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateQueueOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateQueueOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateQueueOK) GetPayload() *service_model.V1Queue {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type CreateQueueNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create queue no content response has a 2xx status code
+func (o *CreateQueueNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create queue no content response has a 3xx status code
+func (o *CreateQueueNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create queue no content response has a 4xx status code
+func (o *CreateQueueNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create queue no content response has a 5xx status code
+func (o *CreateQueueNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create queue no content response a status code equal to that given
+func (o *CreateQueueNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreateQueueNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateQueueNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateQueueNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type CreateQueueForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create queue forbidden response has a 2xx status code
+func (o *CreateQueueForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create queue forbidden response has a 3xx status code
+func (o *CreateQueueForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create queue forbidden response has a 4xx status code
+func (o *CreateQueueForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create queue forbidden response has a 5xx status code
+func (o *CreateQueueForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create queue forbidden response a status code equal to that given
+func (o *CreateQueueForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateQueueForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateQueueForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateQueueForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type CreateQueueNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create queue not found response has a 2xx status code
+func (o *CreateQueueNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create queue not found response has a 3xx status code
+func (o *CreateQueueNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create queue not found response has a 4xx status code
+func (o *CreateQueueNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create queue not found response has a 5xx status code
+func (o *CreateQueueNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create queue not found response a status code equal to that given
+func (o *CreateQueueNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateQueueNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateQueueNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateQueueNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *CreateQueueDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create queue default response has a 2xx status code
+func (o *CreateQueueDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create queue default response has a 3xx status code
+func (o *CreateQueueDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create queue default response has a 4xx status code
+func (o *CreateQueueDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create queue default response has a 5xx status code
+func (o *CreateQueueDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create queue default response a status code equal to that given
+func (o *CreateQueueDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateQueueDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] CreateQueue default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateQueueDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] CreateQueue default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateQueueDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type ListArchivedProjectsOK struct {
 	Payload *service_model.V1ListProjectsResponse
 }
 
+// IsSuccess returns true when this list archived projects o k response has a 2xx status code
+func (o *ListArchivedProjectsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list archived projects o k response has a 3xx status code
+func (o *ListArchivedProjectsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived projects o k response has a 4xx status code
+func (o *ListArchivedProjectsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list archived projects o k response has a 5xx status code
+func (o *ListArchivedProjectsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived projects o k response a status code equal to that given
+func (o *ListArchivedProjectsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListArchivedProjectsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListArchivedProjectsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListArchivedProjectsOK) GetPayload() *service_model.V1ListProjectsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListArchivedProjectsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list archived projects no content response has a 2xx status code
+func (o *ListArchivedProjectsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list archived projects no content response has a 3xx status code
+func (o *ListArchivedProjectsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived projects no content response has a 4xx status code
+func (o *ListArchivedProjectsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list archived projects no content response has a 5xx status code
+func (o *ListArchivedProjectsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived projects no content response a status code equal to that given
+func (o *ListArchivedProjectsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListArchivedProjectsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListArchivedProjectsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListArchivedProjectsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListArchivedProjectsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list archived projects forbidden response has a 2xx status code
+func (o *ListArchivedProjectsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list archived projects forbidden response has a 3xx status code
+func (o *ListArchivedProjectsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived projects forbidden response has a 4xx status code
+func (o *ListArchivedProjectsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list archived projects forbidden response has a 5xx status code
+func (o *ListArchivedProjectsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived projects forbidden response a status code equal to that given
+func (o *ListArchivedProjectsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListArchivedProjectsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListArchivedProjectsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListArchivedProjectsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListArchivedProjectsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list archived projects not found response has a 2xx status code
+func (o *ListArchivedProjectsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list archived projects not found response has a 3xx status code
+func (o *ListArchivedProjectsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list archived projects not found response has a 4xx status code
+func (o *ListArchivedProjectsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list archived projects not found response has a 5xx status code
+func (o *ListArchivedProjectsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list archived projects not found response a status code equal to that given
+func (o *ListArchivedProjectsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListArchivedProjectsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListArchivedProjectsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListArchivedProjectsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListArchivedProjectsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list archived projects default response has a 2xx status code
+func (o *ListArchivedProjectsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list archived projects default response has a 3xx status code
+func (o *ListArchivedProjectsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list archived projects default response has a 4xx status code
+func (o *ListArchivedProjectsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list archived projects default response has a 5xx status code
+func (o *ListArchivedProjectsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list archived projects default response a status code equal to that given
+func (o *ListArchivedProjectsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListArchivedProjectsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] ListArchivedProjects default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListArchivedProjectsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] ListArchivedProjects default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListArchivedProjectsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

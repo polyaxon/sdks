@@ -85,7 +85,36 @@ A successful response.
 type UnbookmarkProjectOK struct {
 }
 
+// IsSuccess returns true when this unbookmark project o k response has a 2xx status code
+func (o *UnbookmarkProjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this unbookmark project o k response has a 3xx status code
+func (o *UnbookmarkProjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this unbookmark project o k response has a 4xx status code
+func (o *UnbookmarkProjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this unbookmark project o k response has a 5xx status code
+func (o *UnbookmarkProjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this unbookmark project o k response a status code equal to that given
+func (o *UnbookmarkProjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UnbookmarkProjectOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK ", 200)
+}
+
+func (o *UnbookmarkProjectOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type UnbookmarkProjectNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this unbookmark project no content response has a 2xx status code
+func (o *UnbookmarkProjectNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this unbookmark project no content response has a 3xx status code
+func (o *UnbookmarkProjectNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this unbookmark project no content response has a 4xx status code
+func (o *UnbookmarkProjectNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this unbookmark project no content response has a 5xx status code
+func (o *UnbookmarkProjectNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this unbookmark project no content response a status code equal to that given
+func (o *UnbookmarkProjectNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UnbookmarkProjectNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UnbookmarkProjectNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UnbookmarkProjectNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type UnbookmarkProjectForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this unbookmark project forbidden response has a 2xx status code
+func (o *UnbookmarkProjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this unbookmark project forbidden response has a 3xx status code
+func (o *UnbookmarkProjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this unbookmark project forbidden response has a 4xx status code
+func (o *UnbookmarkProjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this unbookmark project forbidden response has a 5xx status code
+func (o *UnbookmarkProjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this unbookmark project forbidden response a status code equal to that given
+func (o *UnbookmarkProjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UnbookmarkProjectForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UnbookmarkProjectForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UnbookmarkProjectForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type UnbookmarkProjectNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this unbookmark project not found response has a 2xx status code
+func (o *UnbookmarkProjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this unbookmark project not found response has a 3xx status code
+func (o *UnbookmarkProjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this unbookmark project not found response has a 4xx status code
+func (o *UnbookmarkProjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this unbookmark project not found response has a 5xx status code
+func (o *UnbookmarkProjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this unbookmark project not found response a status code equal to that given
+func (o *UnbookmarkProjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UnbookmarkProjectNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UnbookmarkProjectNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UnbookmarkProjectNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *UnbookmarkProjectDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this unbookmark project default response has a 2xx status code
+func (o *UnbookmarkProjectDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this unbookmark project default response has a 3xx status code
+func (o *UnbookmarkProjectDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this unbookmark project default response has a 4xx status code
+func (o *UnbookmarkProjectDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this unbookmark project default response has a 5xx status code
+func (o *UnbookmarkProjectDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this unbookmark project default response a status code equal to that given
+func (o *UnbookmarkProjectDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UnbookmarkProjectDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] UnbookmarkProject default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UnbookmarkProjectDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] UnbookmarkProject default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UnbookmarkProjectDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

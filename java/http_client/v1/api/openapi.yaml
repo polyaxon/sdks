@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: Polyaxon SDKs and REST API specification.
   title: Polyaxon SDKs and REST API specification.
-  version: 1.20.0
+  version: 1.21.0
 servers:
 - url: /
 security:
@@ -14470,45 +14470,7 @@ paths:
       x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
-  /schemas:
-    get:
-      operationId: NoOp
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1Schemas'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: NoOp
-      tags:
-      - SchemasV1
-      x-accepts: application/json
-  /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs:
+  /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs:
     post:
       operationId: CollectRunLogs
       parameters:
@@ -14569,9 +14531,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response.
-      summary: Collect run logs
+      summary: Internal API to collect run logs
       tags:
       - RunsV1
+      x-accepts: application/json
+  /schemas:
+    get:
+      operationId: NoOp
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Schemas'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: NoOp
+      tags:
+      - SchemasV1
       x-accepts: application/json
   /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}:
     get:

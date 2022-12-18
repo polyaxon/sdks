@@ -86,9 +86,39 @@ type CreateTokenOK struct {
 	Payload *service_model.V1Token
 }
 
+// IsSuccess returns true when this create token o k response has a 2xx status code
+func (o *CreateTokenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create token o k response has a 3xx status code
+func (o *CreateTokenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create token o k response has a 4xx status code
+func (o *CreateTokenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create token o k response has a 5xx status code
+func (o *CreateTokenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create token o k response a status code equal to that given
+func (o *CreateTokenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *CreateTokenOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateTokenOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type CreateTokenNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create token no content response has a 2xx status code
+func (o *CreateTokenNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create token no content response has a 3xx status code
+func (o *CreateTokenNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create token no content response has a 4xx status code
+func (o *CreateTokenNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create token no content response has a 5xx status code
+func (o *CreateTokenNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create token no content response a status code equal to that given
+func (o *CreateTokenNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *CreateTokenNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateTokenNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type CreateTokenForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create token forbidden response has a 2xx status code
+func (o *CreateTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create token forbidden response has a 3xx status code
+func (o *CreateTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create token forbidden response has a 4xx status code
+func (o *CreateTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create token forbidden response has a 5xx status code
+func (o *CreateTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create token forbidden response a status code equal to that given
+func (o *CreateTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *CreateTokenForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateTokenForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type CreateTokenNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create token not found response has a 2xx status code
+func (o *CreateTokenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create token not found response has a 3xx status code
+func (o *CreateTokenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create token not found response has a 4xx status code
+func (o *CreateTokenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create token not found response has a 5xx status code
+func (o *CreateTokenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create token not found response a status code equal to that given
+func (o *CreateTokenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *CreateTokenNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateTokenNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *CreateTokenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this create token default response has a 2xx status code
+func (o *CreateTokenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create token default response has a 3xx status code
+func (o *CreateTokenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create token default response has a 4xx status code
+func (o *CreateTokenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create token default response has a 5xx status code
+func (o *CreateTokenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create token default response a status code equal to that given
+func (o *CreateTokenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *CreateTokenDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] CreateToken default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateTokenDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] CreateToken default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

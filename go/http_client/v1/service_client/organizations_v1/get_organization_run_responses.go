@@ -86,9 +86,39 @@ type GetOrganizationRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this get organization run o k response has a 2xx status code
+func (o *GetOrganizationRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organization run o k response has a 3xx status code
+func (o *GetOrganizationRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization run o k response has a 4xx status code
+func (o *GetOrganizationRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organization run o k response has a 5xx status code
+func (o *GetOrganizationRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization run o k response a status code equal to that given
+func (o *GetOrganizationRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationRunOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunOK  %+v", 200, o.Payload)
 }
+
+func (o *GetOrganizationRunOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunOK  %+v", 200, o.Payload)
+}
+
 func (o *GetOrganizationRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetOrganizationRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get organization run no content response has a 2xx status code
+func (o *GetOrganizationRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organization run no content response has a 3xx status code
+func (o *GetOrganizationRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization run no content response has a 4xx status code
+func (o *GetOrganizationRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organization run no content response has a 5xx status code
+func (o *GetOrganizationRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization run no content response a status code equal to that given
+func (o *GetOrganizationRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetOrganizationRunNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetOrganizationRunNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetOrganizationRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetOrganizationRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get organization run forbidden response has a 2xx status code
+func (o *GetOrganizationRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organization run forbidden response has a 3xx status code
+func (o *GetOrganizationRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization run forbidden response has a 4xx status code
+func (o *GetOrganizationRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organization run forbidden response has a 5xx status code
+func (o *GetOrganizationRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization run forbidden response a status code equal to that given
+func (o *GetOrganizationRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationRunForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetOrganizationRunForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetOrganizationRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetOrganizationRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get organization run not found response has a 2xx status code
+func (o *GetOrganizationRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organization run not found response has a 3xx status code
+func (o *GetOrganizationRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organization run not found response has a 4xx status code
+func (o *GetOrganizationRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organization run not found response has a 5xx status code
+func (o *GetOrganizationRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organization run not found response a status code equal to that given
+func (o *GetOrganizationRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationRunNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetOrganizationRunNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetOrganizationRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetOrganizationRunDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get organization run default response has a 2xx status code
+func (o *GetOrganizationRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get organization run default response has a 3xx status code
+func (o *GetOrganizationRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get organization run default response has a 4xx status code
+func (o *GetOrganizationRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get organization run default response has a 5xx status code
+func (o *GetOrganizationRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get organization run default response a status code equal to that given
+func (o *GetOrganizationRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetOrganizationRunDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] GetOrganizationRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetOrganizationRunDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] GetOrganizationRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetOrganizationRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

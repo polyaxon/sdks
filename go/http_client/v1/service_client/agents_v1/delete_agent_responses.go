@@ -85,7 +85,36 @@ A successful response.
 type DeleteAgentOK struct {
 }
 
+// IsSuccess returns true when this delete agent o k response has a 2xx status code
+func (o *DeleteAgentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete agent o k response has a 3xx status code
+func (o *DeleteAgentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete agent o k response has a 4xx status code
+func (o *DeleteAgentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete agent o k response has a 5xx status code
+func (o *DeleteAgentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete agent o k response a status code equal to that given
+func (o *DeleteAgentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteAgentOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentOK ", 200)
+}
+
+func (o *DeleteAgentOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type DeleteAgentNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete agent no content response has a 2xx status code
+func (o *DeleteAgentNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete agent no content response has a 3xx status code
+func (o *DeleteAgentNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete agent no content response has a 4xx status code
+func (o *DeleteAgentNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete agent no content response has a 5xx status code
+func (o *DeleteAgentNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete agent no content response a status code equal to that given
+func (o *DeleteAgentNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteAgentNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteAgentNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteAgentNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type DeleteAgentForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete agent forbidden response has a 2xx status code
+func (o *DeleteAgentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete agent forbidden response has a 3xx status code
+func (o *DeleteAgentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete agent forbidden response has a 4xx status code
+func (o *DeleteAgentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete agent forbidden response has a 5xx status code
+func (o *DeleteAgentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete agent forbidden response a status code equal to that given
+func (o *DeleteAgentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAgentForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteAgentForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteAgentForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type DeleteAgentNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete agent not found response has a 2xx status code
+func (o *DeleteAgentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete agent not found response has a 3xx status code
+func (o *DeleteAgentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete agent not found response has a 4xx status code
+func (o *DeleteAgentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete agent not found response has a 5xx status code
+func (o *DeleteAgentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete agent not found response a status code equal to that given
+func (o *DeleteAgentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteAgentNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteAgentNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteAgentNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *DeleteAgentDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete agent default response has a 2xx status code
+func (o *DeleteAgentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete agent default response has a 3xx status code
+func (o *DeleteAgentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete agent default response has a 4xx status code
+func (o *DeleteAgentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete agent default response has a 5xx status code
+func (o *DeleteAgentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete agent default response a status code equal to that given
+func (o *DeleteAgentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteAgentDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] DeleteAgent default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteAgentDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] DeleteAgent default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteAgentDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type UpdateProjectSettingsOK struct {
 	Payload *service_model.V1ProjectSettings
 }
 
+// IsSuccess returns true when this update project settings o k response has a 2xx status code
+func (o *UpdateProjectSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update project settings o k response has a 3xx status code
+func (o *UpdateProjectSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project settings o k response has a 4xx status code
+func (o *UpdateProjectSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update project settings o k response has a 5xx status code
+func (o *UpdateProjectSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project settings o k response a status code equal to that given
+func (o *UpdateProjectSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateProjectSettingsOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateProjectSettingsOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateProjectSettingsOK) GetPayload() *service_model.V1ProjectSettings {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateProjectSettingsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project settings no content response has a 2xx status code
+func (o *UpdateProjectSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update project settings no content response has a 3xx status code
+func (o *UpdateProjectSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project settings no content response has a 4xx status code
+func (o *UpdateProjectSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update project settings no content response has a 5xx status code
+func (o *UpdateProjectSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project settings no content response a status code equal to that given
+func (o *UpdateProjectSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateProjectSettingsNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateProjectSettingsNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateProjectSettingsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateProjectSettingsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project settings forbidden response has a 2xx status code
+func (o *UpdateProjectSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update project settings forbidden response has a 3xx status code
+func (o *UpdateProjectSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project settings forbidden response has a 4xx status code
+func (o *UpdateProjectSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update project settings forbidden response has a 5xx status code
+func (o *UpdateProjectSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project settings forbidden response a status code equal to that given
+func (o *UpdateProjectSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateProjectSettingsForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateProjectSettingsForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateProjectSettingsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateProjectSettingsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project settings not found response has a 2xx status code
+func (o *UpdateProjectSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update project settings not found response has a 3xx status code
+func (o *UpdateProjectSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project settings not found response has a 4xx status code
+func (o *UpdateProjectSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update project settings not found response has a 5xx status code
+func (o *UpdateProjectSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project settings not found response a status code equal to that given
+func (o *UpdateProjectSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateProjectSettingsNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateProjectSettingsNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] updateProjectSettingsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateProjectSettingsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateProjectSettingsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update project settings default response has a 2xx status code
+func (o *UpdateProjectSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update project settings default response has a 3xx status code
+func (o *UpdateProjectSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update project settings default response has a 4xx status code
+func (o *UpdateProjectSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update project settings default response has a 5xx status code
+func (o *UpdateProjectSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update project settings default response a status code equal to that given
+func (o *UpdateProjectSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateProjectSettingsDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] UpdateProjectSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateProjectSettingsDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/settings][%d] UpdateProjectSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateProjectSettingsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

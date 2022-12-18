@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**archive_runs**](RunsV1Api.md#archive_runs) | **POST** /api/v1/{owner}/{project}/runs/archive | Archive runs
 [**bookmark_run**](RunsV1Api.md#bookmark_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/bookmark | Bookmark run
 [**bookmark_runs**](RunsV1Api.md#bookmark_runs) | **POST** /api/v1/{owner}/{project}/runs/bookmark | Bookmark runs
-[**collect_run_logs**](RunsV1Api.md#collect_run_logs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Collect run logs
+[**collect_run_logs**](RunsV1Api.md#collect_run_logs) | **POST** /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs | Internal API to collect run logs
 [**copy_run**](RunsV1Api.md#copy_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/copy | Restart run with copy
 [**create_run**](RunsV1Api.md#create_run) | **POST** /api/v1/{owner}/{project}/runs | Create new run
 [**create_run_artifacts_lineage**](RunsV1Api.md#create_run_artifacts_lineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts | Create bulk run artifacts lineage
@@ -538,7 +538,7 @@ void (empty response body)
 # **collect_run_logs**
 > collect_run_logs(namespace, owner, project, uuid, kind)
 
-Collect run logs
+Internal API to collect run logs
 
 ### Example
 
@@ -577,7 +577,7 @@ uuid = 'uuid_example' # str | Uuid identifier of the entity
 kind = 'kind_example' # str | Kind of the entity
 
     try:
-        # Collect run logs
+        # Internal API to collect run logs
         api_instance.collect_run_logs(namespace, owner, project, uuid, kind)
     except ApiException as e:
         print("Exception when calling RunsV1Api->collect_run_logs: %s\n" % e)

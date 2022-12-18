@@ -86,9 +86,39 @@ type UpdateProjectSearchOK struct {
 	Payload *service_model.V1Search
 }
 
+// IsSuccess returns true when this update project search o k response has a 2xx status code
+func (o *UpdateProjectSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update project search o k response has a 3xx status code
+func (o *UpdateProjectSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project search o k response has a 4xx status code
+func (o *UpdateProjectSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update project search o k response has a 5xx status code
+func (o *UpdateProjectSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project search o k response a status code equal to that given
+func (o *UpdateProjectSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateProjectSearchOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateProjectSearchOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateProjectSearchOK) GetPayload() *service_model.V1Search {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateProjectSearchNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project search no content response has a 2xx status code
+func (o *UpdateProjectSearchNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update project search no content response has a 3xx status code
+func (o *UpdateProjectSearchNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project search no content response has a 4xx status code
+func (o *UpdateProjectSearchNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update project search no content response has a 5xx status code
+func (o *UpdateProjectSearchNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project search no content response a status code equal to that given
+func (o *UpdateProjectSearchNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateProjectSearchNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateProjectSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateProjectSearchForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project search forbidden response has a 2xx status code
+func (o *UpdateProjectSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update project search forbidden response has a 3xx status code
+func (o *UpdateProjectSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project search forbidden response has a 4xx status code
+func (o *UpdateProjectSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update project search forbidden response has a 5xx status code
+func (o *UpdateProjectSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project search forbidden response a status code equal to that given
+func (o *UpdateProjectSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateProjectSearchForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateProjectSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateProjectSearchNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update project search not found response has a 2xx status code
+func (o *UpdateProjectSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update project search not found response has a 3xx status code
+func (o *UpdateProjectSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update project search not found response has a 4xx status code
+func (o *UpdateProjectSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update project search not found response has a 5xx status code
+func (o *UpdateProjectSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update project search not found response a status code equal to that given
+func (o *UpdateProjectSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateProjectSearchNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateProjectSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateProjectSearchDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update project search default response has a 2xx status code
+func (o *UpdateProjectSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update project search default response has a 3xx status code
+func (o *UpdateProjectSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update project search default response has a 4xx status code
+func (o *UpdateProjectSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update project search default response has a 5xx status code
+func (o *UpdateProjectSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update project search default response a status code equal to that given
+func (o *UpdateProjectSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateProjectSearchDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] UpdateProjectSearch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateProjectSearchDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] UpdateProjectSearch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateProjectSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

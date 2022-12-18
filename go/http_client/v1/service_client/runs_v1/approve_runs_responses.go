@@ -85,7 +85,36 @@ A successful response.
 type ApproveRunsOK struct {
 }
 
+// IsSuccess returns true when this approve runs o k response has a 2xx status code
+func (o *ApproveRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this approve runs o k response has a 3xx status code
+func (o *ApproveRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this approve runs o k response has a 4xx status code
+func (o *ApproveRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this approve runs o k response has a 5xx status code
+func (o *ApproveRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this approve runs o k response a status code equal to that given
+func (o *ApproveRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ApproveRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsOK ", 200)
+}
+
+func (o *ApproveRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type ApproveRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this approve runs no content response has a 2xx status code
+func (o *ApproveRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this approve runs no content response has a 3xx status code
+func (o *ApproveRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this approve runs no content response has a 4xx status code
+func (o *ApproveRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this approve runs no content response has a 5xx status code
+func (o *ApproveRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this approve runs no content response a status code equal to that given
+func (o *ApproveRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ApproveRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ApproveRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ApproveRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type ApproveRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this approve runs forbidden response has a 2xx status code
+func (o *ApproveRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this approve runs forbidden response has a 3xx status code
+func (o *ApproveRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this approve runs forbidden response has a 4xx status code
+func (o *ApproveRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this approve runs forbidden response has a 5xx status code
+func (o *ApproveRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this approve runs forbidden response a status code equal to that given
+func (o *ApproveRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ApproveRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ApproveRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ApproveRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type ApproveRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this approve runs not found response has a 2xx status code
+func (o *ApproveRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this approve runs not found response has a 3xx status code
+func (o *ApproveRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this approve runs not found response has a 4xx status code
+func (o *ApproveRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this approve runs not found response has a 5xx status code
+func (o *ApproveRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this approve runs not found response a status code equal to that given
+func (o *ApproveRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ApproveRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ApproveRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ApproveRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *ApproveRunsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this approve runs default response has a 2xx status code
+func (o *ApproveRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this approve runs default response has a 3xx status code
+func (o *ApproveRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this approve runs default response has a 4xx status code
+func (o *ApproveRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this approve runs default response has a 5xx status code
+func (o *ApproveRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this approve runs default response a status code equal to that given
+func (o *ApproveRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ApproveRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] ApproveRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ApproveRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] ApproveRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ApproveRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type PatchQueueOK struct {
 	Payload *service_model.V1Queue
 }
 
+// IsSuccess returns true when this patch queue o k response has a 2xx status code
+func (o *PatchQueueOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch queue o k response has a 3xx status code
+func (o *PatchQueueOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch queue o k response has a 4xx status code
+func (o *PatchQueueOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch queue o k response has a 5xx status code
+func (o *PatchQueueOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch queue o k response a status code equal to that given
+func (o *PatchQueueOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchQueueOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchQueueOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchQueueOK) GetPayload() *service_model.V1Queue {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type PatchQueueNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch queue no content response has a 2xx status code
+func (o *PatchQueueNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch queue no content response has a 3xx status code
+func (o *PatchQueueNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch queue no content response has a 4xx status code
+func (o *PatchQueueNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch queue no content response has a 5xx status code
+func (o *PatchQueueNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch queue no content response a status code equal to that given
+func (o *PatchQueueNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchQueueNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchQueueNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchQueueNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type PatchQueueForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch queue forbidden response has a 2xx status code
+func (o *PatchQueueForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch queue forbidden response has a 3xx status code
+func (o *PatchQueueForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch queue forbidden response has a 4xx status code
+func (o *PatchQueueForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch queue forbidden response has a 5xx status code
+func (o *PatchQueueForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch queue forbidden response a status code equal to that given
+func (o *PatchQueueForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchQueueForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchQueueForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchQueueForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type PatchQueueNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch queue not found response has a 2xx status code
+func (o *PatchQueueNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch queue not found response has a 3xx status code
+func (o *PatchQueueNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch queue not found response has a 4xx status code
+func (o *PatchQueueNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch queue not found response has a 5xx status code
+func (o *PatchQueueNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch queue not found response a status code equal to that given
+func (o *PatchQueueNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchQueueNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchQueueNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchQueueNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *PatchQueueDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this patch queue default response has a 2xx status code
+func (o *PatchQueueDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch queue default response has a 3xx status code
+func (o *PatchQueueDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch queue default response has a 4xx status code
+func (o *PatchQueueDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch queue default response has a 5xx status code
+func (o *PatchQueueDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch queue default response a status code equal to that given
+func (o *PatchQueueDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PatchQueueDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] PatchQueue default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchQueueDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] PatchQueue default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchQueueDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

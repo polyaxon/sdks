@@ -85,7 +85,36 @@ A successful response.
 type EnableProjectCIOK struct {
 }
 
+// IsSuccess returns true when this enable project c i o k response has a 2xx status code
+func (o *EnableProjectCIOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this enable project c i o k response has a 3xx status code
+func (o *EnableProjectCIOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this enable project c i o k response has a 4xx status code
+func (o *EnableProjectCIOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this enable project c i o k response has a 5xx status code
+func (o *EnableProjectCIOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this enable project c i o k response a status code equal to that given
+func (o *EnableProjectCIOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *EnableProjectCIOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK ", 200)
+}
+
+func (o *EnableProjectCIOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type EnableProjectCINoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this enable project c i no content response has a 2xx status code
+func (o *EnableProjectCINoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this enable project c i no content response has a 3xx status code
+func (o *EnableProjectCINoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this enable project c i no content response has a 4xx status code
+func (o *EnableProjectCINoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this enable project c i no content response has a 5xx status code
+func (o *EnableProjectCINoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this enable project c i no content response a status code equal to that given
+func (o *EnableProjectCINoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *EnableProjectCINoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINoContent  %+v", 204, o.Payload)
 }
+
+func (o *EnableProjectCINoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINoContent  %+v", 204, o.Payload)
+}
+
 func (o *EnableProjectCINoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type EnableProjectCIForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this enable project c i forbidden response has a 2xx status code
+func (o *EnableProjectCIForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this enable project c i forbidden response has a 3xx status code
+func (o *EnableProjectCIForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this enable project c i forbidden response has a 4xx status code
+func (o *EnableProjectCIForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this enable project c i forbidden response has a 5xx status code
+func (o *EnableProjectCIForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this enable project c i forbidden response a status code equal to that given
+func (o *EnableProjectCIForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *EnableProjectCIForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden  %+v", 403, o.Payload)
 }
+
+func (o *EnableProjectCIForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden  %+v", 403, o.Payload)
+}
+
 func (o *EnableProjectCIForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type EnableProjectCINotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this enable project c i not found response has a 2xx status code
+func (o *EnableProjectCINotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this enable project c i not found response has a 3xx status code
+func (o *EnableProjectCINotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this enable project c i not found response has a 4xx status code
+func (o *EnableProjectCINotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this enable project c i not found response has a 5xx status code
+func (o *EnableProjectCINotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this enable project c i not found response a status code equal to that given
+func (o *EnableProjectCINotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *EnableProjectCINotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound  %+v", 404, o.Payload)
 }
+
+func (o *EnableProjectCINotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound  %+v", 404, o.Payload)
+}
+
 func (o *EnableProjectCINotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *EnableProjectCIDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this enable project c i default response has a 2xx status code
+func (o *EnableProjectCIDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this enable project c i default response has a 3xx status code
+func (o *EnableProjectCIDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this enable project c i default response has a 4xx status code
+func (o *EnableProjectCIDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this enable project c i default response has a 5xx status code
+func (o *EnableProjectCIDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this enable project c i default response a status code equal to that given
+func (o *EnableProjectCIDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *EnableProjectCIDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] EnableProjectCI default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *EnableProjectCIDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] EnableProjectCI default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *EnableProjectCIDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

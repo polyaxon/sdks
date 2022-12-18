@@ -85,7 +85,36 @@ A successful response.
 type RestoreProjectOK struct {
 }
 
+// IsSuccess returns true when this restore project o k response has a 2xx status code
+func (o *RestoreProjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this restore project o k response has a 3xx status code
+func (o *RestoreProjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restore project o k response has a 4xx status code
+func (o *RestoreProjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this restore project o k response has a 5xx status code
+func (o *RestoreProjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restore project o k response a status code equal to that given
+func (o *RestoreProjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *RestoreProjectOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK ", 200)
+}
+
+func (o *RestoreProjectOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type RestoreProjectNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this restore project no content response has a 2xx status code
+func (o *RestoreProjectNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this restore project no content response has a 3xx status code
+func (o *RestoreProjectNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restore project no content response has a 4xx status code
+func (o *RestoreProjectNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this restore project no content response has a 5xx status code
+func (o *RestoreProjectNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restore project no content response a status code equal to that given
+func (o *RestoreProjectNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *RestoreProjectNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNoContent  %+v", 204, o.Payload)
 }
+
+func (o *RestoreProjectNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNoContent  %+v", 204, o.Payload)
+}
+
 func (o *RestoreProjectNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type RestoreProjectForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this restore project forbidden response has a 2xx status code
+func (o *RestoreProjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this restore project forbidden response has a 3xx status code
+func (o *RestoreProjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restore project forbidden response has a 4xx status code
+func (o *RestoreProjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this restore project forbidden response has a 5xx status code
+func (o *RestoreProjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restore project forbidden response a status code equal to that given
+func (o *RestoreProjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *RestoreProjectForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden  %+v", 403, o.Payload)
 }
+
+func (o *RestoreProjectForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden  %+v", 403, o.Payload)
+}
+
 func (o *RestoreProjectForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type RestoreProjectNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this restore project not found response has a 2xx status code
+func (o *RestoreProjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this restore project not found response has a 3xx status code
+func (o *RestoreProjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this restore project not found response has a 4xx status code
+func (o *RestoreProjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this restore project not found response has a 5xx status code
+func (o *RestoreProjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this restore project not found response a status code equal to that given
+func (o *RestoreProjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *RestoreProjectNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound  %+v", 404, o.Payload)
 }
+
+func (o *RestoreProjectNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound  %+v", 404, o.Payload)
+}
+
 func (o *RestoreProjectNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *RestoreProjectDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this restore project default response has a 2xx status code
+func (o *RestoreProjectDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this restore project default response has a 3xx status code
+func (o *RestoreProjectDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this restore project default response has a 4xx status code
+func (o *RestoreProjectDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this restore project default response has a 5xx status code
+func (o *RestoreProjectDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this restore project default response a status code equal to that given
+func (o *RestoreProjectDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *RestoreProjectDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] RestoreProject default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *RestoreProjectDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] RestoreProject default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *RestoreProjectDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

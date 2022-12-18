@@ -85,7 +85,36 @@ A successful response.
 type TagRunsOK struct {
 }
 
+// IsSuccess returns true when this tag runs o k response has a 2xx status code
+func (o *TagRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tag runs o k response has a 3xx status code
+func (o *TagRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tag runs o k response has a 4xx status code
+func (o *TagRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tag runs o k response has a 5xx status code
+func (o *TagRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tag runs o k response a status code equal to that given
+func (o *TagRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *TagRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsOK ", 200)
+}
+
+func (o *TagRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsOK ", 200)
 }
 
@@ -107,9 +136,39 @@ type TagRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this tag runs no content response has a 2xx status code
+func (o *TagRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this tag runs no content response has a 3xx status code
+func (o *TagRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tag runs no content response has a 4xx status code
+func (o *TagRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this tag runs no content response has a 5xx status code
+func (o *TagRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tag runs no content response a status code equal to that given
+func (o *TagRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *TagRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *TagRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *TagRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -137,9 +196,39 @@ type TagRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this tag runs forbidden response has a 2xx status code
+func (o *TagRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tag runs forbidden response has a 3xx status code
+func (o *TagRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tag runs forbidden response has a 4xx status code
+func (o *TagRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tag runs forbidden response has a 5xx status code
+func (o *TagRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tag runs forbidden response a status code equal to that given
+func (o *TagRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *TagRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TagRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TagRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -167,9 +256,39 @@ type TagRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this tag runs not found response has a 2xx status code
+func (o *TagRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this tag runs not found response has a 3xx status code
+func (o *TagRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this tag runs not found response has a 4xx status code
+func (o *TagRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this tag runs not found response has a 5xx status code
+func (o *TagRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this tag runs not found response a status code equal to that given
+func (o *TagRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *TagRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *TagRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *TagRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,9 +325,39 @@ func (o *TagRunsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this tag runs default response has a 2xx status code
+func (o *TagRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tag runs default response has a 3xx status code
+func (o *TagRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tag runs default response has a 4xx status code
+func (o *TagRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tag runs default response has a 5xx status code
+func (o *TagRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tag runs default response a status code equal to that given
+func (o *TagRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *TagRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] TagRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TagRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] TagRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TagRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

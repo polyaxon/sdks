@@ -86,9 +86,39 @@ type UpdatePresetOK struct {
 	Payload *service_model.V1Preset
 }
 
+// IsSuccess returns true when this update preset o k response has a 2xx status code
+func (o *UpdatePresetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update preset o k response has a 3xx status code
+func (o *UpdatePresetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update preset o k response has a 4xx status code
+func (o *UpdatePresetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update preset o k response has a 5xx status code
+func (o *UpdatePresetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update preset o k response a status code equal to that given
+func (o *UpdatePresetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdatePresetOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdatePresetOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdatePresetOK) GetPayload() *service_model.V1Preset {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdatePresetNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update preset no content response has a 2xx status code
+func (o *UpdatePresetNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update preset no content response has a 3xx status code
+func (o *UpdatePresetNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update preset no content response has a 4xx status code
+func (o *UpdatePresetNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update preset no content response has a 5xx status code
+func (o *UpdatePresetNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update preset no content response a status code equal to that given
+func (o *UpdatePresetNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdatePresetNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdatePresetNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdatePresetNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdatePresetForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update preset forbidden response has a 2xx status code
+func (o *UpdatePresetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update preset forbidden response has a 3xx status code
+func (o *UpdatePresetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update preset forbidden response has a 4xx status code
+func (o *UpdatePresetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update preset forbidden response has a 5xx status code
+func (o *UpdatePresetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update preset forbidden response a status code equal to that given
+func (o *UpdatePresetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdatePresetForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdatePresetForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdatePresetForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdatePresetNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update preset not found response has a 2xx status code
+func (o *UpdatePresetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update preset not found response has a 3xx status code
+func (o *UpdatePresetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update preset not found response has a 4xx status code
+func (o *UpdatePresetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update preset not found response has a 5xx status code
+func (o *UpdatePresetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update preset not found response a status code equal to that given
+func (o *UpdatePresetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdatePresetNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdatePresetNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdatePresetNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdatePresetDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update preset default response has a 2xx status code
+func (o *UpdatePresetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update preset default response has a 3xx status code
+func (o *UpdatePresetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update preset default response has a 4xx status code
+func (o *UpdatePresetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update preset default response has a 5xx status code
+func (o *UpdatePresetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update preset default response a status code equal to that given
+func (o *UpdatePresetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdatePresetDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] UpdatePreset default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdatePresetDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] UpdatePreset default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdatePresetDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type ListTokensOK struct {
 	Payload *service_model.V1ListTokenResponse
 }
 
+// IsSuccess returns true when this list tokens o k response has a 2xx status code
+func (o *ListTokensOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list tokens o k response has a 3xx status code
+func (o *ListTokensOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list tokens o k response has a 4xx status code
+func (o *ListTokensOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list tokens o k response has a 5xx status code
+func (o *ListTokensOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list tokens o k response a status code equal to that given
+func (o *ListTokensOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ListTokensOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
 }
+
+func (o *ListTokensOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
+}
+
 func (o *ListTokensOK) GetPayload() *service_model.V1ListTokenResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ListTokensNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list tokens no content response has a 2xx status code
+func (o *ListTokensNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list tokens no content response has a 3xx status code
+func (o *ListTokensNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list tokens no content response has a 4xx status code
+func (o *ListTokensNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list tokens no content response has a 5xx status code
+func (o *ListTokensNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list tokens no content response a status code equal to that given
+func (o *ListTokensNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ListTokensNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListTokensNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListTokensNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ListTokensForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list tokens forbidden response has a 2xx status code
+func (o *ListTokensForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list tokens forbidden response has a 3xx status code
+func (o *ListTokensForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list tokens forbidden response has a 4xx status code
+func (o *ListTokensForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list tokens forbidden response has a 5xx status code
+func (o *ListTokensForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list tokens forbidden response a status code equal to that given
+func (o *ListTokensForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ListTokensForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListTokensForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListTokensForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ListTokensNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list tokens not found response has a 2xx status code
+func (o *ListTokensNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list tokens not found response has a 3xx status code
+func (o *ListTokensNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list tokens not found response has a 4xx status code
+func (o *ListTokensNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list tokens not found response has a 5xx status code
+func (o *ListTokensNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list tokens not found response a status code equal to that given
+func (o *ListTokensNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ListTokensNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListTokensNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListTokensNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ListTokensDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this list tokens default response has a 2xx status code
+func (o *ListTokensDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list tokens default response has a 3xx status code
+func (o *ListTokensDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list tokens default response has a 4xx status code
+func (o *ListTokensDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list tokens default response has a 5xx status code
+func (o *ListTokensDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list tokens default response a status code equal to that given
+func (o *ListTokensDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ListTokensDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListTokensDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListTokensDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type GetRunClonesLineageOK struct {
 	Payload *service_model.V1ListRunsResponse
 }
 
+// IsSuccess returns true when this get run clones lineage o k response has a 2xx status code
+func (o *GetRunClonesLineageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run clones lineage o k response has a 3xx status code
+func (o *GetRunClonesLineageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run clones lineage o k response has a 4xx status code
+func (o *GetRunClonesLineageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run clones lineage o k response has a 5xx status code
+func (o *GetRunClonesLineageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run clones lineage o k response a status code equal to that given
+func (o *GetRunClonesLineageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRunClonesLineageOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunClonesLineageOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunClonesLineageOK) GetPayload() *service_model.V1ListRunsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetRunClonesLineageNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run clones lineage no content response has a 2xx status code
+func (o *GetRunClonesLineageNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run clones lineage no content response has a 3xx status code
+func (o *GetRunClonesLineageNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run clones lineage no content response has a 4xx status code
+func (o *GetRunClonesLineageNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run clones lineage no content response has a 5xx status code
+func (o *GetRunClonesLineageNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run clones lineage no content response a status code equal to that given
+func (o *GetRunClonesLineageNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetRunClonesLineageNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunClonesLineageNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunClonesLineageNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetRunClonesLineageForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run clones lineage forbidden response has a 2xx status code
+func (o *GetRunClonesLineageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run clones lineage forbidden response has a 3xx status code
+func (o *GetRunClonesLineageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run clones lineage forbidden response has a 4xx status code
+func (o *GetRunClonesLineageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run clones lineage forbidden response has a 5xx status code
+func (o *GetRunClonesLineageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run clones lineage forbidden response a status code equal to that given
+func (o *GetRunClonesLineageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRunClonesLineageForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunClonesLineageForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunClonesLineageForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetRunClonesLineageNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run clones lineage not found response has a 2xx status code
+func (o *GetRunClonesLineageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run clones lineage not found response has a 3xx status code
+func (o *GetRunClonesLineageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run clones lineage not found response has a 4xx status code
+func (o *GetRunClonesLineageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run clones lineage not found response has a 5xx status code
+func (o *GetRunClonesLineageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run clones lineage not found response a status code equal to that given
+func (o *GetRunClonesLineageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRunClonesLineageNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunClonesLineageNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunClonesLineageNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetRunClonesLineageDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get run clones lineage default response has a 2xx status code
+func (o *GetRunClonesLineageDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get run clones lineage default response has a 3xx status code
+func (o *GetRunClonesLineageDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get run clones lineage default response has a 4xx status code
+func (o *GetRunClonesLineageDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get run clones lineage default response has a 5xx status code
+func (o *GetRunClonesLineageDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get run clones lineage default response a status code equal to that given
+func (o *GetRunClonesLineageDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetRunClonesLineageDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] GetRunClonesLineage default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRunClonesLineageDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] GetRunClonesLineage default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRunClonesLineageDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

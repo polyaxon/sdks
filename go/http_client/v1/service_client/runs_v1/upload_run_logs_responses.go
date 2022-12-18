@@ -76,7 +76,36 @@ A successful response.
 type UploadRunLogsOK struct {
 }
 
+// IsSuccess returns true when this upload run logs o k response has a 2xx status code
+func (o *UploadRunLogsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this upload run logs o k response has a 3xx status code
+func (o *UploadRunLogsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload run logs o k response has a 4xx status code
+func (o *UploadRunLogsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this upload run logs o k response has a 5xx status code
+func (o *UploadRunLogsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload run logs o k response a status code equal to that given
+func (o *UploadRunLogsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UploadRunLogsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK ", 200)
+}
+
+func (o *UploadRunLogsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK ", 200)
 }
 
@@ -98,9 +127,39 @@ type UploadRunLogsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this upload run logs no content response has a 2xx status code
+func (o *UploadRunLogsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this upload run logs no content response has a 3xx status code
+func (o *UploadRunLogsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload run logs no content response has a 4xx status code
+func (o *UploadRunLogsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this upload run logs no content response has a 5xx status code
+func (o *UploadRunLogsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload run logs no content response a status code equal to that given
+func (o *UploadRunLogsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UploadRunLogsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UploadRunLogsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UploadRunLogsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -128,9 +187,39 @@ type UploadRunLogsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this upload run logs forbidden response has a 2xx status code
+func (o *UploadRunLogsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload run logs forbidden response has a 3xx status code
+func (o *UploadRunLogsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload run logs forbidden response has a 4xx status code
+func (o *UploadRunLogsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload run logs forbidden response has a 5xx status code
+func (o *UploadRunLogsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload run logs forbidden response a status code equal to that given
+func (o *UploadRunLogsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UploadRunLogsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UploadRunLogsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UploadRunLogsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -158,9 +247,39 @@ type UploadRunLogsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this upload run logs not found response has a 2xx status code
+func (o *UploadRunLogsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this upload run logs not found response has a 3xx status code
+func (o *UploadRunLogsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this upload run logs not found response has a 4xx status code
+func (o *UploadRunLogsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this upload run logs not found response has a 5xx status code
+func (o *UploadRunLogsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this upload run logs not found response a status code equal to that given
+func (o *UploadRunLogsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UploadRunLogsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UploadRunLogsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UploadRunLogsNotFound) GetPayload() interface{} {
 	return o.Payload
 }

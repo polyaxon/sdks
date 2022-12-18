@@ -86,9 +86,39 @@ type GetProjectSettingsOK struct {
 	Payload *service_model.V1ProjectSettings
 }
 
+// IsSuccess returns true when this get project settings o k response has a 2xx status code
+func (o *GetProjectSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get project settings o k response has a 3xx status code
+func (o *GetProjectSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project settings o k response has a 4xx status code
+func (o *GetProjectSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get project settings o k response has a 5xx status code
+func (o *GetProjectSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project settings o k response a status code equal to that given
+func (o *GetProjectSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetProjectSettingsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetProjectSettingsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetProjectSettingsOK) GetPayload() *service_model.V1ProjectSettings {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetProjectSettingsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get project settings no content response has a 2xx status code
+func (o *GetProjectSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get project settings no content response has a 3xx status code
+func (o *GetProjectSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project settings no content response has a 4xx status code
+func (o *GetProjectSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get project settings no content response has a 5xx status code
+func (o *GetProjectSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project settings no content response a status code equal to that given
+func (o *GetProjectSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetProjectSettingsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetProjectSettingsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetProjectSettingsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetProjectSettingsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get project settings forbidden response has a 2xx status code
+func (o *GetProjectSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get project settings forbidden response has a 3xx status code
+func (o *GetProjectSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project settings forbidden response has a 4xx status code
+func (o *GetProjectSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get project settings forbidden response has a 5xx status code
+func (o *GetProjectSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project settings forbidden response a status code equal to that given
+func (o *GetProjectSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetProjectSettingsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetProjectSettingsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetProjectSettingsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetProjectSettingsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get project settings not found response has a 2xx status code
+func (o *GetProjectSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get project settings not found response has a 3xx status code
+func (o *GetProjectSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get project settings not found response has a 4xx status code
+func (o *GetProjectSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get project settings not found response has a 5xx status code
+func (o *GetProjectSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get project settings not found response a status code equal to that given
+func (o *GetProjectSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetProjectSettingsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetProjectSettingsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetProjectSettingsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetProjectSettingsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get project settings default response has a 2xx status code
+func (o *GetProjectSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get project settings default response has a 3xx status code
+func (o *GetProjectSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get project settings default response has a 4xx status code
+func (o *GetProjectSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get project settings default response has a 5xx status code
+func (o *GetProjectSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get project settings default response a status code equal to that given
+func (o *GetProjectSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetProjectSettingsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] GetProjectSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetProjectSettingsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] GetProjectSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetProjectSettingsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type ResetPasswordConfirmOK struct {
 	Payload *service_model.V1Auth
 }
 
+// IsSuccess returns true when this reset password confirm o k response has a 2xx status code
+func (o *ResetPasswordConfirmOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this reset password confirm o k response has a 3xx status code
+func (o *ResetPasswordConfirmOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password confirm o k response has a 4xx status code
+func (o *ResetPasswordConfirmOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this reset password confirm o k response has a 5xx status code
+func (o *ResetPasswordConfirmOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password confirm o k response a status code equal to that given
+func (o *ResetPasswordConfirmOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *ResetPasswordConfirmOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmOK  %+v", 200, o.Payload)
 }
+
+func (o *ResetPasswordConfirmOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmOK  %+v", 200, o.Payload)
+}
+
 func (o *ResetPasswordConfirmOK) GetPayload() *service_model.V1Auth {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type ResetPasswordConfirmNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this reset password confirm no content response has a 2xx status code
+func (o *ResetPasswordConfirmNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this reset password confirm no content response has a 3xx status code
+func (o *ResetPasswordConfirmNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password confirm no content response has a 4xx status code
+func (o *ResetPasswordConfirmNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this reset password confirm no content response has a 5xx status code
+func (o *ResetPasswordConfirmNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password confirm no content response a status code equal to that given
+func (o *ResetPasswordConfirmNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *ResetPasswordConfirmNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ResetPasswordConfirmNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ResetPasswordConfirmNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type ResetPasswordConfirmForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this reset password confirm forbidden response has a 2xx status code
+func (o *ResetPasswordConfirmForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reset password confirm forbidden response has a 3xx status code
+func (o *ResetPasswordConfirmForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password confirm forbidden response has a 4xx status code
+func (o *ResetPasswordConfirmForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reset password confirm forbidden response has a 5xx status code
+func (o *ResetPasswordConfirmForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password confirm forbidden response a status code equal to that given
+func (o *ResetPasswordConfirmForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *ResetPasswordConfirmForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ResetPasswordConfirmForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ResetPasswordConfirmForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type ResetPasswordConfirmNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this reset password confirm not found response has a 2xx status code
+func (o *ResetPasswordConfirmNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reset password confirm not found response has a 3xx status code
+func (o *ResetPasswordConfirmNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password confirm not found response has a 4xx status code
+func (o *ResetPasswordConfirmNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reset password confirm not found response has a 5xx status code
+func (o *ResetPasswordConfirmNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password confirm not found response a status code equal to that given
+func (o *ResetPasswordConfirmNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *ResetPasswordConfirmNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ResetPasswordConfirmNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ResetPasswordConfirmNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *ResetPasswordConfirmDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this reset password confirm default response has a 2xx status code
+func (o *ResetPasswordConfirmDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this reset password confirm default response has a 3xx status code
+func (o *ResetPasswordConfirmDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this reset password confirm default response has a 4xx status code
+func (o *ResetPasswordConfirmDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this reset password confirm default response has a 5xx status code
+func (o *ResetPasswordConfirmDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this reset password confirm default response a status code equal to that given
+func (o *ResetPasswordConfirmDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *ResetPasswordConfirmDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] ResetPasswordConfirm default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ResetPasswordConfirmDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] ResetPasswordConfirm default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ResetPasswordConfirmDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -86,9 +86,39 @@ type GetMultiRunEventsOK struct {
 	Payload *service_model.V1EventsResponse
 }
 
+// IsSuccess returns true when this get multi run events o k response has a 2xx status code
+func (o *GetMultiRunEventsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get multi run events o k response has a 3xx status code
+func (o *GetMultiRunEventsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get multi run events o k response has a 4xx status code
+func (o *GetMultiRunEventsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get multi run events o k response has a 5xx status code
+func (o *GetMultiRunEventsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get multi run events o k response a status code equal to that given
+func (o *GetMultiRunEventsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetMultiRunEventsOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetMultiRunEventsOK) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetMultiRunEventsOK) GetPayload() *service_model.V1EventsResponse {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetMultiRunEventsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get multi run events no content response has a 2xx status code
+func (o *GetMultiRunEventsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get multi run events no content response has a 3xx status code
+func (o *GetMultiRunEventsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get multi run events no content response has a 4xx status code
+func (o *GetMultiRunEventsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get multi run events no content response has a 5xx status code
+func (o *GetMultiRunEventsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get multi run events no content response a status code equal to that given
+func (o *GetMultiRunEventsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetMultiRunEventsNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetMultiRunEventsNoContent) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetMultiRunEventsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetMultiRunEventsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get multi run events forbidden response has a 2xx status code
+func (o *GetMultiRunEventsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get multi run events forbidden response has a 3xx status code
+func (o *GetMultiRunEventsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get multi run events forbidden response has a 4xx status code
+func (o *GetMultiRunEventsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get multi run events forbidden response has a 5xx status code
+func (o *GetMultiRunEventsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get multi run events forbidden response a status code equal to that given
+func (o *GetMultiRunEventsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetMultiRunEventsForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetMultiRunEventsForbidden) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetMultiRunEventsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetMultiRunEventsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get multi run events not found response has a 2xx status code
+func (o *GetMultiRunEventsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get multi run events not found response has a 3xx status code
+func (o *GetMultiRunEventsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get multi run events not found response has a 4xx status code
+func (o *GetMultiRunEventsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get multi run events not found response has a 5xx status code
+func (o *GetMultiRunEventsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get multi run events not found response a status code equal to that given
+func (o *GetMultiRunEventsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetMultiRunEventsNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetMultiRunEventsNotFound) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetMultiRunEventsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetMultiRunEventsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get multi run events default response has a 2xx status code
+func (o *GetMultiRunEventsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get multi run events default response has a 3xx status code
+func (o *GetMultiRunEventsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get multi run events default response has a 4xx status code
+func (o *GetMultiRunEventsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get multi run events default response has a 5xx status code
+func (o *GetMultiRunEventsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get multi run events default response a status code equal to that given
+func (o *GetMultiRunEventsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetMultiRunEventsDefault) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] GetMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetMultiRunEventsDefault) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] GetMultiRunEvents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetMultiRunEventsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

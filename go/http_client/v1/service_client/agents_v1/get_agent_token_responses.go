@@ -86,9 +86,39 @@ type GetAgentTokenOK struct {
 	Payload *service_model.V1Token
 }
 
+// IsSuccess returns true when this get agent token o k response has a 2xx status code
+func (o *GetAgentTokenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get agent token o k response has a 3xx status code
+func (o *GetAgentTokenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get agent token o k response has a 4xx status code
+func (o *GetAgentTokenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get agent token o k response has a 5xx status code
+func (o *GetAgentTokenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get agent token o k response a status code equal to that given
+func (o *GetAgentTokenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAgentTokenOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenOK  %+v", 200, o.Payload)
 }
+
+func (o *GetAgentTokenOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenOK  %+v", 200, o.Payload)
+}
+
 func (o *GetAgentTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type GetAgentTokenNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get agent token no content response has a 2xx status code
+func (o *GetAgentTokenNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get agent token no content response has a 3xx status code
+func (o *GetAgentTokenNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get agent token no content response has a 4xx status code
+func (o *GetAgentTokenNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get agent token no content response has a 5xx status code
+func (o *GetAgentTokenNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get agent token no content response a status code equal to that given
+func (o *GetAgentTokenNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *GetAgentTokenNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetAgentTokenNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetAgentTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type GetAgentTokenForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get agent token forbidden response has a 2xx status code
+func (o *GetAgentTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get agent token forbidden response has a 3xx status code
+func (o *GetAgentTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get agent token forbidden response has a 4xx status code
+func (o *GetAgentTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get agent token forbidden response has a 5xx status code
+func (o *GetAgentTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get agent token forbidden response a status code equal to that given
+func (o *GetAgentTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAgentTokenForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetAgentTokenForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetAgentTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type GetAgentTokenNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get agent token not found response has a 2xx status code
+func (o *GetAgentTokenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get agent token not found response has a 3xx status code
+func (o *GetAgentTokenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get agent token not found response has a 4xx status code
+func (o *GetAgentTokenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get agent token not found response has a 5xx status code
+func (o *GetAgentTokenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get agent token not found response a status code equal to that given
+func (o *GetAgentTokenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAgentTokenNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetAgentTokenNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] getAgentTokenNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetAgentTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *GetAgentTokenDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this get agent token default response has a 2xx status code
+func (o *GetAgentTokenDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get agent token default response has a 3xx status code
+func (o *GetAgentTokenDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get agent token default response has a 4xx status code
+func (o *GetAgentTokenDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get agent token default response has a 5xx status code
+func (o *GetAgentTokenDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get agent token default response a status code equal to that given
+func (o *GetAgentTokenDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *GetAgentTokenDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] GetAgentToken default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetAgentTokenDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/token][%d] GetAgentToken default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetAgentTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

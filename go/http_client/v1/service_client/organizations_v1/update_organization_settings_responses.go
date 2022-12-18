@@ -86,9 +86,39 @@ type UpdateOrganizationSettingsOK struct {
 	Payload *service_model.V1Organization
 }
 
+// IsSuccess returns true when this update organization settings o k response has a 2xx status code
+func (o *UpdateOrganizationSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update organization settings o k response has a 3xx status code
+func (o *UpdateOrganizationSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization settings o k response has a 4xx status code
+func (o *UpdateOrganizationSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update organization settings o k response has a 5xx status code
+func (o *UpdateOrganizationSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization settings o k response a status code equal to that given
+func (o *UpdateOrganizationSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *UpdateOrganizationSettingsOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateOrganizationSettingsOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateOrganizationSettingsOK) GetPayload() *service_model.V1Organization {
 	return o.Payload
 }
@@ -118,9 +148,39 @@ type UpdateOrganizationSettingsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update organization settings no content response has a 2xx status code
+func (o *UpdateOrganizationSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update organization settings no content response has a 3xx status code
+func (o *UpdateOrganizationSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization settings no content response has a 4xx status code
+func (o *UpdateOrganizationSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update organization settings no content response has a 5xx status code
+func (o *UpdateOrganizationSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization settings no content response a status code equal to that given
+func (o *UpdateOrganizationSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *UpdateOrganizationSettingsNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateOrganizationSettingsNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateOrganizationSettingsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -148,9 +208,39 @@ type UpdateOrganizationSettingsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update organization settings forbidden response has a 2xx status code
+func (o *UpdateOrganizationSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update organization settings forbidden response has a 3xx status code
+func (o *UpdateOrganizationSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization settings forbidden response has a 4xx status code
+func (o *UpdateOrganizationSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update organization settings forbidden response has a 5xx status code
+func (o *UpdateOrganizationSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization settings forbidden response a status code equal to that given
+func (o *UpdateOrganizationSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *UpdateOrganizationSettingsForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateOrganizationSettingsForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateOrganizationSettingsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -178,9 +268,39 @@ type UpdateOrganizationSettingsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update organization settings not found response has a 2xx status code
+func (o *UpdateOrganizationSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update organization settings not found response has a 3xx status code
+func (o *UpdateOrganizationSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update organization settings not found response has a 4xx status code
+func (o *UpdateOrganizationSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update organization settings not found response has a 5xx status code
+func (o *UpdateOrganizationSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update organization settings not found response a status code equal to that given
+func (o *UpdateOrganizationSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *UpdateOrganizationSettingsNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateOrganizationSettingsNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateOrganizationSettingsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,9 +337,39 @@ func (o *UpdateOrganizationSettingsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this update organization settings default response has a 2xx status code
+func (o *UpdateOrganizationSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update organization settings default response has a 3xx status code
+func (o *UpdateOrganizationSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update organization settings default response has a 4xx status code
+func (o *UpdateOrganizationSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update organization settings default response has a 5xx status code
+func (o *UpdateOrganizationSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update organization settings default response a status code equal to that given
+func (o *UpdateOrganizationSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *UpdateOrganizationSettingsDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] UpdateOrganizationSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateOrganizationSettingsDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] UpdateOrganizationSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateOrganizationSettingsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }
