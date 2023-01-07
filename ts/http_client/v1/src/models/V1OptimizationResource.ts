@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,19 +35,19 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1OptimizationResource
  */
 export interface V1OptimizationResource {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1OptimizationResource
      */
     name?: string;
     /**
-     * 
+     *
      * @type {V1ResourceType}
      * @memberof V1OptimizationResource
      */
@@ -63,7 +63,7 @@ export function V1OptimizationResourceFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-        
+
         'name': !exists(json, 'name') ? undefined : json['name'],
         'type': !exists(json, 'type') ? undefined : V1ResourceTypeFromJSON(json['type']),
     };
@@ -77,7 +77,7 @@ export function V1OptimizationResourceToJSON(value?: V1OptimizationResource | nu
         return null;
     }
     return {
-        
+
         'name': value.name,
         'type': V1ResourceTypeToJSON(value.type),
     };

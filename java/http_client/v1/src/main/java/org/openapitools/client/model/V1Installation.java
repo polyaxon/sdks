@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ public class V1Installation {
 
 
   public V1Installation key(String key) {
-    
+
     this.key = key;
     return this;
   }
@@ -94,7 +94,7 @@ public class V1Installation {
 
 
   public V1Installation version(String version) {
-    
+
     this.version = version;
     return this;
   }
@@ -117,7 +117,7 @@ public class V1Installation {
 
 
   public V1Installation dist(String dist) {
-    
+
     this.dist = dist;
     return this;
   }
@@ -140,7 +140,7 @@ public class V1Installation {
 
 
   public V1Installation host(String host) {
-    
+
     this.host = host;
     return this;
   }
@@ -163,7 +163,7 @@ public class V1Installation {
 
 
   public V1Installation hmac(String hmac) {
-    
+
     this.hmac = hmac;
     return this;
   }
@@ -186,7 +186,7 @@ public class V1Installation {
 
 
   public V1Installation auth(List<String> auth) {
-    
+
     this.auth = auth;
     return this;
   }

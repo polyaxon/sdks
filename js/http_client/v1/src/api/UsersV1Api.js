@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ import V1User from '../model/V1User';
 export default class UsersV1Api {
 
     /**
-    * Constructs a new UsersV1Api. 
+    * Constructs a new UsersV1Api.
     * Polyaxon sdk
     * @alias module:api/UsersV1Api
     * @class
@@ -414,7 +414,7 @@ export default class UsersV1Api {
 
     /**
      * Patch current user
-     * @param {module:model/V1User} body 
+     * @param {module:model/V1User} body
      * @param {module:api/UsersV1Api~patchUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1User}
      */
@@ -502,7 +502,7 @@ export default class UsersV1Api {
 
     /**
      * Update current user
-     * @param {module:model/V1User} body 
+     * @param {module:model/V1User} body
      * @param {module:api/UsersV1Api~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1User}
      */

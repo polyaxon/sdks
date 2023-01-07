@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ import V1TeamMember from '../model/V1TeamMember';
 export default class TeamsV1Api {
 
     /**
-    * Constructs a new TeamsV1Api. 
+    * Constructs a new TeamsV1Api.
     * Polyaxon sdk
     * @alias module:api/TeamsV1Api
     * @class

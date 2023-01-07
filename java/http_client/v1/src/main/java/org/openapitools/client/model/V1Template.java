@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ public class V1Template {
 
 
   public V1Template enabled(Boolean enabled) {
-    
+
     this.enabled = enabled;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1Template {
 
 
   public V1Template description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -105,7 +105,7 @@ public class V1Template {
 
 
   public V1Template fields(List<String> fields) {
-    
+
     this.fields = fields;
     return this;
   }

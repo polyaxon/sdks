@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -129,17 +129,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call approveOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling approveOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling approveOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = approveOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -148,7 +148,7 @@ public class OrganizationsV1Api {
 
     /**
      * Approve cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -168,7 +168,7 @@ public class OrganizationsV1Api {
 
     /**
      * Approve cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -190,7 +190,7 @@ public class OrganizationsV1Api {
 
     /**
      * Approve cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -262,17 +262,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call archiveOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling archiveOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling archiveOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = archiveOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -281,7 +281,7 @@ public class OrganizationsV1Api {
 
     /**
      * Archive cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,7 +301,7 @@ public class OrganizationsV1Api {
 
     /**
      * Archive cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -323,7 +323,7 @@ public class OrganizationsV1Api {
 
     /**
      * Archive cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -395,17 +395,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call bookmarkOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling bookmarkOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling bookmarkOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = bookmarkOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -414,7 +414,7 @@ public class OrganizationsV1Api {
 
     /**
      * Bookmark cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -434,7 +434,7 @@ public class OrganizationsV1Api {
 
     /**
      * Bookmark cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -456,7 +456,7 @@ public class OrganizationsV1Api {
 
     /**
      * Bookmark cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -526,12 +526,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createOrganizationValidateBeforeCall(V1Organization body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createOrganization(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createOrganizationCall(body, _callback);
         return localVarCall;
@@ -540,7 +540,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization
-     * 
+     *
      * @param body  (required)
      * @return V1Organization
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -561,7 +561,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization
-     * 
+     *
      * @param body  (required)
      * @return ApiResponse&lt;V1Organization&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -583,7 +583,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization (asynchronously)
-     * 
+     *
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -660,17 +660,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createOrganizationMemberValidateBeforeCall(String owner, V1OrganizationMember body, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createOrganizationMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createOrganizationMemberCall(owner, body, email, _callback);
         return localVarCall;
@@ -679,7 +679,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -702,7 +702,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -726,7 +726,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization member (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -793,7 +793,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -804,12 +804,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteOrganizationValidateBeforeCall(String owner, String usage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteOrganization(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteOrganizationCall(owner, usage, _callback);
         return localVarCall;
@@ -818,7 +818,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -838,7 +838,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -860,7 +860,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -955,7 +955,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -966,12 +966,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteOrganizationInvitationValidateBeforeCall(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteOrganizationInvitation(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteOrganizationInvitationCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, _callback);
         return localVarCall;
@@ -980,7 +980,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization invitation details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1006,7 +1006,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization invitation details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1034,7 +1034,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization invitation details (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1102,7 +1102,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1113,17 +1113,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteOrganizationMemberValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteOrganizationMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteOrganizationMemberCall(owner, name, _callback);
         return localVarCall;
@@ -1132,7 +1132,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1152,7 +1152,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1174,7 +1174,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization member details (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1246,17 +1246,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling deleteOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -1265,7 +1265,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1285,7 +1285,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1307,7 +1307,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1372,7 +1372,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1383,12 +1383,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationValidateBeforeCall(String owner, String usage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganization(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationCall(owner, usage, _callback);
         return localVarCall;
@@ -1397,7 +1397,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @return V1Organization
@@ -1419,7 +1419,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -1442,7 +1442,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1538,7 +1538,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1549,12 +1549,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationActivitiesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationActivities(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationActivitiesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1563,7 +1563,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization activities
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1591,7 +1591,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization activities
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1620,7 +1620,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization activities (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1722,7 +1722,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1733,12 +1733,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationInvitationValidateBeforeCall(String owner, String memberUser, String memberUserEmail, String memberRole, String memberKind, OffsetDateTime memberCreatedAt, OffsetDateTime memberUpdatedAt, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationInvitation(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationInvitationCall(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email, _callback);
         return localVarCall;
@@ -1747,7 +1747,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization invitation details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1775,7 +1775,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization invitation details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1804,7 +1804,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization invitation details (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1873,7 +1873,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1884,17 +1884,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationMemberValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getOrganizationMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationMemberCall(owner, name, _callback);
         return localVarCall;
@@ -1903,7 +1903,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1OrganizationMember
@@ -1925,7 +1925,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member details
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1OrganizationMember&gt;
@@ -1948,7 +1948,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member details (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2011,7 +2011,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2022,17 +2022,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationRunValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationRun(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getOrganizationRun(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationRunCall(owner, uuid, _callback);
         return localVarCall;
@@ -2041,7 +2041,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get a run in an organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Run
@@ -2063,7 +2063,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get a run in an organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Run&gt;
@@ -2086,7 +2086,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get a run in an organization (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2182,7 +2182,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2193,12 +2193,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationRunsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationRunsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2207,7 +2207,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get all runs in an organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2235,7 +2235,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get all runs in an organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2264,7 +2264,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get all runs in an organization (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2391,7 +2391,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2402,12 +2402,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationSettingsValidateBeforeCall(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationSettingsCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, _callback);
         return localVarCall;
@@ -2416,7 +2416,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param organizationUser User. (optional)
      * @param organizationUserEmail Read-only User email. (optional)
@@ -2449,7 +2449,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param organizationUser User. (optional)
      * @param organizationUserEmail Read-only User email. (optional)
@@ -2483,7 +2483,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param organizationUser User. (optional)
      * @param organizationUserEmail Read-only User email. (optional)
@@ -2600,7 +2600,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2611,12 +2611,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOrganizationStatsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationStats(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getOrganizationStatsCall(owner, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, _callback);
         return localVarCall;
@@ -2625,7 +2625,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization stats
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2655,7 +2655,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization stats
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2686,7 +2686,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization stats (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2767,17 +2767,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call invalidateOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling invalidateOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling invalidateOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = invalidateOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -2786,7 +2786,7 @@ public class OrganizationsV1Api {
 
     /**
      * Invalidate cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2806,7 +2806,7 @@ public class OrganizationsV1Api {
 
     /**
      * Invalidate cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -2828,7 +2828,7 @@ public class OrganizationsV1Api {
 
     /**
      * Invalidate cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2923,7 +2923,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2934,12 +2934,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listOrganizationMemberNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listOrganizationMemberNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listOrganizationMemberNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2948,7 +2948,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2976,7 +2976,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3005,7 +3005,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3107,7 +3107,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3118,12 +3118,12 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listOrganizationMembersValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listOrganizationMembers(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listOrganizationMembersCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -3132,7 +3132,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization members
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3160,7 +3160,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization members
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3189,7 +3189,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization members (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3254,7 +3254,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3265,7 +3265,7 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listOrganizationNamesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listOrganizationNamesCall(_callback);
         return localVarCall;
@@ -3274,7 +3274,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations names
-     * 
+     *
      * @return V1ListOrganizationsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3294,7 +3294,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations names
-     * 
+     *
      * @return ApiResponse&lt;V1ListOrganizationsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3315,7 +3315,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations names (asynchronously)
-     * 
+     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3372,7 +3372,7 @@ public class OrganizationsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3383,7 +3383,7 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listOrganizationsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
+
 
         okhttp3.Call localVarCall = listOrganizationsCall(_callback);
         return localVarCall;
@@ -3392,7 +3392,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations
-     * 
+     *
      * @return V1ListOrganizationsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3412,7 +3412,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations
-     * 
+     *
      * @return ApiResponse&lt;V1ListOrganizationsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3433,7 +3433,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations (asynchronously)
-     * 
+     *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3504,17 +3504,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call organizationPlanValidateBeforeCall(String owner, V1Organization body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling organizationPlan(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling organizationPlan(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = organizationPlanCall(owner, body, _callback);
         return localVarCall;
@@ -3523,7 +3523,7 @@ public class OrganizationsV1Api {
 
     /**
      * Organization plan
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -3545,7 +3545,7 @@ public class OrganizationsV1Api {
 
     /**
      * Organization plan
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -3568,7 +3568,7 @@ public class OrganizationsV1Api {
 
     /**
      * Organization plan (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3641,17 +3641,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchOrganizationValidateBeforeCall(String owner, V1Organization body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchOrganization(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchOrganization(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchOrganizationCall(owner, body, _callback);
         return localVarCall;
@@ -3660,7 +3660,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -3682,7 +3682,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -3705,7 +3705,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3783,17 +3783,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchOrganizationInvitationValidateBeforeCall(String owner, V1OrganizationMember body, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchOrganizationInvitation(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchOrganizationInvitation(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchOrganizationInvitationCall(owner, body, email, _callback);
         return localVarCall;
@@ -3802,7 +3802,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization invitation
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -3825,7 +3825,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization invitation
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -3849,7 +3849,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization invitation (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -3930,22 +3930,22 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchOrganizationMemberValidateBeforeCall(String owner, String memberUser, V1OrganizationMember body, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'memberUser' is set
         if (memberUser == null) {
             throw new ApiException("Missing the required parameter 'memberUser' when calling patchOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchOrganizationMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchOrganizationMemberCall(owner, memberUser, body, email, _callback);
         return localVarCall;
@@ -3954,7 +3954,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -3978,7 +3978,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -4003,7 +4003,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization member (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -4078,17 +4078,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchOrganizationSettingsValidateBeforeCall(String owner, V1Organization body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchOrganizationSettings(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchOrganizationSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchOrganizationSettingsCall(owner, body, _callback);
         return localVarCall;
@@ -4097,7 +4097,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch oranization settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -4119,7 +4119,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch oranization settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -4142,7 +4142,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch oranization settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4220,17 +4220,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call resendOrganizationInvitationValidateBeforeCall(String owner, V1OrganizationMember body, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling resendOrganizationInvitation(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling resendOrganizationInvitation(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = resendOrganizationInvitationCall(owner, body, email, _callback);
         return localVarCall;
@@ -4239,7 +4239,7 @@ public class OrganizationsV1Api {
 
     /**
      * Resend organization invitation
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4262,7 +4262,7 @@ public class OrganizationsV1Api {
 
     /**
      * Resend organization invitation
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4286,7 +4286,7 @@ public class OrganizationsV1Api {
 
     /**
      * Resend organization invitation (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4360,17 +4360,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call restoreOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling restoreOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling restoreOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = restoreOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -4379,7 +4379,7 @@ public class OrganizationsV1Api {
 
     /**
      * Restore cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4399,7 +4399,7 @@ public class OrganizationsV1Api {
 
     /**
      * Restore cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4421,7 +4421,7 @@ public class OrganizationsV1Api {
 
     /**
      * Restore cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4493,17 +4493,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call stopOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling stopOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling stopOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = stopOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -4512,7 +4512,7 @@ public class OrganizationsV1Api {
 
     /**
      * Stop cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4532,7 +4532,7 @@ public class OrganizationsV1Api {
 
     /**
      * Stop cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4554,7 +4554,7 @@ public class OrganizationsV1Api {
 
     /**
      * Stop cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4626,17 +4626,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call tagOrganizationRunsValidateBeforeCall(String owner, V1EntitiesTags body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling tagOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling tagOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = tagOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -4645,7 +4645,7 @@ public class OrganizationsV1Api {
 
     /**
      * Tag cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4665,7 +4665,7 @@ public class OrganizationsV1Api {
 
     /**
      * Tag cross-project runs selection
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4687,7 +4687,7 @@ public class OrganizationsV1Api {
 
     /**
      * Tag cross-project runs selection (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4759,17 +4759,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call transferOrganizationRunsValidateBeforeCall(String owner, V1EntitiesTransfer body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling transferOrganizationRuns(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling transferOrganizationRuns(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = transferOrganizationRunsCall(owner, body, _callback);
         return localVarCall;
@@ -4778,7 +4778,7 @@ public class OrganizationsV1Api {
 
     /**
      * Transfer cross-project runs selection to a new project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4798,7 +4798,7 @@ public class OrganizationsV1Api {
 
     /**
      * Transfer cross-project runs selection to a new project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4820,7 +4820,7 @@ public class OrganizationsV1Api {
 
     /**
      * Transfer cross-project runs selection to a new project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4892,17 +4892,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateOrganizationValidateBeforeCall(String owner, V1Organization body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateOrganization(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateOrganization(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateOrganizationCall(owner, body, _callback);
         return localVarCall;
@@ -4911,7 +4911,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -4933,7 +4933,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -4956,7 +4956,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5034,17 +5034,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateOrganizationInvitationValidateBeforeCall(String owner, V1OrganizationMember body, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateOrganizationInvitation(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateOrganizationInvitation(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateOrganizationInvitationCall(owner, body, email, _callback);
         return localVarCall;
@@ -5053,7 +5053,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization invitation
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -5076,7 +5076,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization invitation
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -5100,7 +5100,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization invitation (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -5181,22 +5181,22 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateOrganizationMemberValidateBeforeCall(String owner, String memberUser, V1OrganizationMember body, String email, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'memberUser' is set
         if (memberUser == null) {
             throw new ApiException("Missing the required parameter 'memberUser' when calling updateOrganizationMember(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateOrganizationMember(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateOrganizationMemberCall(owner, memberUser, body, email, _callback);
         return localVarCall;
@@ -5205,7 +5205,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -5229,7 +5229,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization member
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -5254,7 +5254,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization member (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -5329,17 +5329,17 @@ public class OrganizationsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateOrganizationSettingsValidateBeforeCall(String owner, V1Organization body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateOrganizationSettings(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateOrganizationSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateOrganizationSettingsCall(owner, body, _callback);
         return localVarCall;
@@ -5348,7 +5348,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -5370,7 +5370,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -5393,7 +5393,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes

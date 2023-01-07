@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve kind(V1EventCurveKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve x(List<Float> x) {
-    
+
     this.x = x;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve y(List<Float> y) {
-    
+
     this.y = y;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve annotation(String annotation) {
-    
+
     this.annotation = annotation;
     return this;
   }

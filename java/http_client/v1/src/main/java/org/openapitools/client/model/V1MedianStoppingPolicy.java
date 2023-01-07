@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -62,7 +62,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -85,7 +85,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy evaluationInterval(Integer evaluationInterval) {
-    
+
     this.evaluationInterval = evaluationInterval;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy minInterval(Integer minInterval) {
-    
+
     this.minInterval = minInterval;
     return this;
   }
@@ -131,7 +131,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy minSamples(Integer minSamples) {
-    
+
     this.minSamples = minSamples;
     return this;
   }

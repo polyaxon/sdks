@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,13 +35,13 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1DashboardSpec
  */
 export interface V1DashboardSpec {
     /**
-     * 
+     *
      * @type {Array<V1SectionSpec>}
      * @memberof V1DashboardSpec
      */
@@ -57,7 +57,7 @@ export function V1DashboardSpecFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-        
+
         'sections': !exists(json, 'sections') ? undefined : ((json['sections'] as Array<any>).map(V1SectionSpecFromJSON)),
     };
 }
@@ -70,7 +70,7 @@ export function V1DashboardSpecToJSON(value?: V1DashboardSpec | null): any {
         return null;
     }
     return {
-        
+
         'sections': value.sections === undefined ? undefined : ((value.sections as Array<any>).map(V1SectionSpecToJSON)),
     };
 }

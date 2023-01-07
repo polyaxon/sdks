@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,37 +28,37 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1UserSingup
  */
 export interface V1UserSingup {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UserSingup
      */
     username?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UserSingup
      */
     email?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UserSingup
      */
     organization?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UserSingup
      */
     password?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UserSingup
      */
@@ -74,7 +74,7 @@ export function V1UserSingupFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'username': !exists(json, 'username') ? undefined : json['username'],
         'email': !exists(json, 'email') ? undefined : json['email'],
         'organization': !exists(json, 'organization') ? undefined : json['organization'],
@@ -91,7 +91,7 @@ export function V1UserSingupToJSON(value?: V1UserSingup | null): any {
         return null;
     }
     return {
-        
+
         'username': value.username,
         'email': value.email,
         'organization': value.organization,

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ import V1Token from '../model/V1Token';
 export default class ServiceAccountsV1Api {
 
     /**
-    * Constructs a new ServiceAccountsV1Api. 
+    * Constructs a new ServiceAccountsV1Api.
     * Polyaxon sdk
     * @alias module:api/ServiceAccountsV1Api
     * @class

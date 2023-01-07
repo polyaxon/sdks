@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ import V1ListDashboardsResponse from '../model/V1ListDashboardsResponse';
 export default class DashboardsV1Api {
 
     /**
-    * Constructs a new DashboardsV1Api. 
+    * Constructs a new DashboardsV1Api.
     * Polyaxon sdk
     * @alias module:api/DashboardsV1Api
     * @class

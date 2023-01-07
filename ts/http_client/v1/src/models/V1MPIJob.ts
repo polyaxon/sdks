@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,55 +47,55 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1MPIJob
  */
 export interface V1MPIJob {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1MPIJob
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {V1CleanPodPolicy}
      * @memberof V1MPIJob
      */
     cleanPodPolicy?: V1CleanPodPolicy;
     /**
-     * 
+     *
      * @type {V1SchedulingPolicy}
      * @memberof V1MPIJob
      */
     schedulingPolicy?: V1SchedulingPolicy;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1MPIJob
      */
     sshAuthMountPath?: string;
     /**
-     * 
+     *
      * @type {MPIJobImplementation}
      * @memberof V1MPIJob
      */
     implementation?: MPIJobImplementation;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1MPIJob
      */
     slotsPerWorker?: number;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
     worker?: V1KFReplica;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
@@ -111,7 +111,7 @@ export function V1MPIJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
@@ -131,7 +131,7 @@ export function V1MPIJobToJSON(value?: V1MPIJob | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),

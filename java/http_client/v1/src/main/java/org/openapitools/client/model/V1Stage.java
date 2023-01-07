@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ public class V1Stage {
 
 
   public V1Stage uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1Stage {
 
 
   public V1Stage stage(V1Stages stage) {
-    
+
     this.stage = stage;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1Stage {
 
 
   public V1Stage stageConditions(List<V1StageCondition> stageConditions) {
-    
+
     this.stageConditions = stageConditions;
     return this;
   }

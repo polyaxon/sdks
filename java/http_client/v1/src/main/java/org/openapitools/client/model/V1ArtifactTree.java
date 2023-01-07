@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ public class V1ArtifactTree {
 
 
   public V1ArtifactTree files(Map<String, String> files) {
-    
+
     this.files = files;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1ArtifactTree {
 
 
   public V1ArtifactTree dirs(List<String> dirs) {
-    
+
     this.dirs = dirs;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1ArtifactTree {
 
 
   public V1ArtifactTree isDone(Boolean isDone) {
-    
+
     this.isDone = isDone;
     return this;
   }

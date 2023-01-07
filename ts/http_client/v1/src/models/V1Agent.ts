@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,97 +35,97 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Agent
  */
 export interface V1Agent {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Agent
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Agent
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     namespace?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Agent
      */
     version_api?: object;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     version?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     content?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Agent
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Agent
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {V1Statuses}
      * @memberof V1Agent
      */
     status?: V1Statuses;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Agent
      */
     is_replica?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Agent
      */
     is_ui_managed?: boolean;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Agent
      */
@@ -141,7 +141,7 @@ export function V1AgentFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -168,7 +168,7 @@ export function V1AgentToJSON(value?: V1Agent | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

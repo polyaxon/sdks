@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,61 +35,61 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Dashboard
  */
 export interface V1Dashboard {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Dashboard
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Dashboard
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Dashboard
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Dashboard
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Dashboard
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {V1DashboardSpec}
      * @memberof V1Dashboard
      */
     spec?: V1DashboardSpec;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Dashboard
      */
     org_level?: boolean;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Dashboard
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Dashboard
      */
@@ -105,7 +105,7 @@ export function V1DashboardFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -126,7 +126,7 @@ export function V1DashboardToJSON(value?: V1Dashboard | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

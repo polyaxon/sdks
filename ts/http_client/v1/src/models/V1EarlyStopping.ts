@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -51,37 +51,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1EarlyStopping
  */
 export interface V1EarlyStopping {
     /**
-     * 
+     *
      * @type {V1MedianStoppingPolicy}
      * @memberof V1EarlyStopping
      */
     median?: V1MedianStoppingPolicy;
     /**
-     * 
+     *
      * @type {V1DiffStoppingPolicy}
      * @memberof V1EarlyStopping
      */
     diff?: V1DiffStoppingPolicy;
     /**
-     * 
+     *
      * @type {V1TruncationStoppingPolicy}
      * @memberof V1EarlyStopping
      */
     truncation?: V1TruncationStoppingPolicy;
     /**
-     * 
+     *
      * @type {V1MetricEarlyStopping}
      * @memberof V1EarlyStopping
      */
     metric?: V1MetricEarlyStopping;
     /**
-     * 
+     *
      * @type {V1FailureEarlyStopping}
      * @memberof V1EarlyStopping
      */
@@ -97,7 +97,7 @@ export function V1EarlyStoppingFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-        
+
         'median': !exists(json, 'median') ? undefined : V1MedianStoppingPolicyFromJSON(json['median']),
         'diff': !exists(json, 'diff') ? undefined : V1DiffStoppingPolicyFromJSON(json['diff']),
         'truncation': !exists(json, 'truncation') ? undefined : V1TruncationStoppingPolicyFromJSON(json['truncation']),
@@ -114,7 +114,7 @@ export function V1EarlyStoppingToJSON(value?: V1EarlyStopping | null): any {
         return null;
     }
     return {
-        
+
         'median': V1MedianStoppingPolicyToJSON(value.median),
         'diff': V1DiffStoppingPolicyToJSON(value.diff),
         'truncation': V1TruncationStoppingPolicyToJSON(value.truncation),

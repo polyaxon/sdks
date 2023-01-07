@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,21 +42,21 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1RunEdgeKind.Adapter.class)
 public enum V1RunEdgeKind {
-  
+
   ACTION("action"),
-  
+
   EVENT("event"),
-  
+
   HOOK("hook"),
-  
+
   DAG("dag"),
-  
+
   JOIN("join"),
-  
+
   RUN("run"),
-  
+
   TB("tb"),
-  
+
   BUILD("build");
 
   private String value;

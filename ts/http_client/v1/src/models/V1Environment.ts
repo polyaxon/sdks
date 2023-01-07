@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Environment
  */
 export interface V1Environment {
     /**
-     * 
+     *
      * @type {{ [key: string]: string; }}
      * @memberof V1Environment
      */
     labels?: { [key: string]: string; };
     /**
-     * 
+     *
      * @type {{ [key: string]: string; }}
      * @memberof V1Environment
      */
     annotations?: { [key: string]: string; };
     /**
-     * 
+     *
      * @type {{ [key: string]: string; }}
      * @memberof V1Environment
      */
     nodeSelector?: { [key: string]: string; };
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Environment
      */
@@ -72,7 +72,7 @@ export interface V1Environment {
      */
     nodeName?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Environment
      */
@@ -84,13 +84,13 @@ export interface V1Environment {
      */
     hostAliases?: Array<object>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Environment
      */
     securityContext?: object;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Environment
      */
@@ -119,13 +119,13 @@ export interface V1Environment {
      */
     dnsPolicy?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Environment
      */
     dnsConfig?: object;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Environment
      */
@@ -152,7 +152,7 @@ export interface V1Environment {
      */
     priority?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Environment
      */
@@ -168,7 +168,7 @@ export function V1EnvironmentFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
+
         'labels': !exists(json, 'labels') ? undefined : json['labels'],
         'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
         'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
@@ -198,7 +198,7 @@ export function V1EnvironmentToJSON(value?: V1Environment | null): any {
         return null;
     }
     return {
-        
+
         'labels': value.labels,
         'annotations': value.annotations,
         'nodeSelector': value.nodeSelector,

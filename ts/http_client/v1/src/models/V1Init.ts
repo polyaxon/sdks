@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -51,79 +51,79 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Init
  */
 export interface V1Init {
     /**
-     * 
+     *
      * @type {V1ArtifactsType}
      * @memberof V1Init
      */
     artifacts?: V1ArtifactsType;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1Init
      */
     paths?: Array<object>;
     /**
-     * 
+     *
      * @type {V1GitType}
      * @memberof V1Init
      */
     git?: V1GitType;
     /**
-     * 
+     *
      * @type {V1DockerfileType}
      * @memberof V1Init
      */
     dockerfile?: V1DockerfileType;
     /**
-     * 
+     *
      * @type {V1FileType}
      * @memberof V1Init
      */
     file?: V1FileType;
     /**
-     * 
+     *
      * @type {V1TensorboardType}
      * @memberof V1Init
      */
     tensorboard?: V1TensorboardType;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Init
      */
     lineageRef?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Init
      */
     artifactRef?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Init
      */
     modelRef?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Init
      */
     connection?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Init
      */
     path?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Init
      */
@@ -139,7 +139,7 @@ export function V1InitFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-        
+
         'artifacts': !exists(json, 'artifacts') ? undefined : V1ArtifactsTypeFromJSON(json['artifacts']),
         'paths': !exists(json, 'paths') ? undefined : json['paths'],
         'git': !exists(json, 'git') ? undefined : V1GitTypeFromJSON(json['git']),
@@ -163,7 +163,7 @@ export function V1InitToJSON(value?: V1Init | null): any {
         return null;
     }
     return {
-        
+
         'artifacts': V1ArtifactsTypeToJSON(value.artifacts),
         'paths': value.paths,
         'git': V1GitTypeToJSON(value.git),

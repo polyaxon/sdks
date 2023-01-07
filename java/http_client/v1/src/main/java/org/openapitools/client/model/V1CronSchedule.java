@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule startAt(OffsetDateTime startAt) {
-    
+
     this.startAt = startAt;
     return this;
   }
@@ -116,7 +116,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule endAt(OffsetDateTime endAt) {
-    
+
     this.endAt = endAt;
     return this;
   }
@@ -139,7 +139,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule maxRuns(Integer maxRuns) {
-    
+
     this.maxRuns = maxRuns;
     return this;
   }
@@ -162,7 +162,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule cron(String cron) {
-    
+
     this.cron = cron;
     return this;
   }
@@ -185,7 +185,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule dependsOnPast(Boolean dependsOnPast) {
-    
+
     this.dependsOnPast = dependsOnPast;
     return this;
   }

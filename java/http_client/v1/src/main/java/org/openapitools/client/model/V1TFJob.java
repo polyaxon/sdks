@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ public class V1TFJob {
 
 
   public V1TFJob kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -99,7 +99,7 @@ public class V1TFJob {
 
 
   public V1TFJob cleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
-    
+
     this.cleanPodPolicy = cleanPodPolicy;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1TFJob {
 
 
   public V1TFJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
-    
+
     this.schedulingPolicy = schedulingPolicy;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1TFJob {
 
 
   public V1TFJob chief(V1KFReplica chief) {
-    
+
     this.chief = chief;
     return this;
   }
@@ -168,7 +168,7 @@ public class V1TFJob {
 
 
   public V1TFJob worker(V1KFReplica worker) {
-    
+
     this.worker = worker;
     return this;
   }
@@ -191,7 +191,7 @@ public class V1TFJob {
 
 
   public V1TFJob ps(V1KFReplica ps) {
-    
+
     this.ps = ps;
     return this;
   }
@@ -214,7 +214,7 @@ public class V1TFJob {
 
 
   public V1TFJob evaluator(V1KFReplica evaluator) {
-    
+
     this.evaluator = evaluator;
     return this;
   }

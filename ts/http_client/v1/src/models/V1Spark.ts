@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,19 +43,19 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Spark
  */
 export interface V1Spark {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Spark
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Spark
      */
@@ -67,7 +67,7 @@ export interface V1Spark {
      */
     volumes?: Array<object>;
     /**
-     * 
+     *
      * @type {V1SparkType}
      * @memberof V1Spark
      */
@@ -85,7 +85,7 @@ export interface V1Spark {
      */
     pythonVersion?: string;
     /**
-     * 
+     *
      * @type {SparkDeployMode}
      * @memberof V1Spark
      */
@@ -140,13 +140,13 @@ export interface V1Spark {
      */
     hadoopConfigMap?: string;
     /**
-     * 
+     *
      * @type {V1SparkReplica}
      * @memberof V1Spark
      */
     executor?: V1SparkReplica;
     /**
-     * 
+     *
      * @type {V1SparkReplica}
      * @memberof V1Spark
      */
@@ -162,7 +162,7 @@ export function V1SparkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
         'volumes': !exists(json, 'volumes') ? undefined : json['volumes'],
@@ -190,7 +190,7 @@ export function V1SparkToJSON(value?: V1Spark | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'connections': value.connections,
         'volumes': value.volumes,

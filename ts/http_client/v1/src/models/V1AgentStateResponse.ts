@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -39,31 +39,31 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1AgentStateResponse
  */
 export interface V1AgentStateResponse {
     /**
-     * 
+     *
      * @type {V1Statuses}
      * @memberof V1AgentStateResponse
      */
     status?: V1Statuses;
     /**
-     * 
+     *
      * @type {AgentStateResponseAgentState}
      * @memberof V1AgentStateResponse
      */
     state?: AgentStateResponseAgentState;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1AgentStateResponse
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1AgentStateResponse
      */
@@ -79,7 +79,7 @@ export function V1AgentStateResponseFromJSONTyped(json: any, ignoreDiscriminator
         return json;
     }
     return {
-        
+
         'status': !exists(json, 'status') ? undefined : V1StatusesFromJSON(json['status']),
         'state': !exists(json, 'state') ? undefined : AgentStateResponseAgentStateFromJSON(json['state']),
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
@@ -95,7 +95,7 @@ export function V1AgentStateResponseToJSON(value?: V1AgentStateResponse | null):
         return null;
     }
     return {
-        
+
         'status': V1StatusesToJSON(value.status),
         'state': AgentStateResponseAgentStateToJSON(value.state),
         'live_state': value.live_state,

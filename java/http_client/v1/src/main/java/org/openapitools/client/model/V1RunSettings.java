@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings namespace(String namespace) {
-    
+
     this.namespace = namespace;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings agent(V1SettingsCatalog agent) {
-    
+
     this.agent = agent;
     return this;
   }
@@ -131,7 +131,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings queue(V1SettingsCatalog queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -154,7 +154,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings artifactsStore(V1SettingsCatalog artifactsStore) {
-    
+
     this.artifactsStore = artifactsStore;
     return this;
   }
@@ -177,7 +177,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings tensorboard(Object tensorboard) {
-    
+
     this.tensorboard = tensorboard;
     return this;
   }
@@ -200,7 +200,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings build(Object build) {
-    
+
     this.build = build;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings component(Object component) {
-    
+
     this.component = component;
     return this;
   }
@@ -246,7 +246,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings models(List<V1RunReferenceCatalog> models) {
-    
+
     this.models = models;
     return this;
   }
@@ -277,7 +277,7 @@ public class V1RunSettings {
 
 
   public V1RunSettings artifacts(List<V1RunReferenceCatalog> artifacts) {
-    
+
     this.artifacts = artifacts;
     return this;
   }

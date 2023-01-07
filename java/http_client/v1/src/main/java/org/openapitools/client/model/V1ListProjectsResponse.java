@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ public class V1ListProjectsResponse {
 
 
   public V1ListProjectsResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1ListProjectsResponse {
 
 
   public V1ListProjectsResponse results(List<V1Project> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -118,7 +118,7 @@ public class V1ListProjectsResponse {
 
 
   public V1ListProjectsResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1ListProjectsResponse {
 
 
   public V1ListProjectsResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

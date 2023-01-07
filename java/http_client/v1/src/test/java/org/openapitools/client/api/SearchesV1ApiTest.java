@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class SearchesV1ApiTest {
 
     private final SearchesV1Api api = new SearchesV1Api();
 
-    
+
     /**
      * Create search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -63,11 +63,11 @@ public class SearchesV1ApiTest {
                 V1Search response = api.createSearch(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -79,11 +79,11 @@ public class SearchesV1ApiTest {
                 api.deleteSearch(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -95,11 +95,11 @@ public class SearchesV1ApiTest {
                 V1Search response = api.getSearch(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List search names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -117,11 +117,11 @@ public class SearchesV1ApiTest {
                 V1ListSearchesResponse response = api.listSearchNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List searches
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -139,11 +139,11 @@ public class SearchesV1ApiTest {
                 V1ListSearchesResponse response = api.listSearches(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -156,11 +156,11 @@ public class SearchesV1ApiTest {
                 V1Search response = api.patchSearch(owner, searchUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update search
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -173,5 +173,5 @@ public class SearchesV1ApiTest {
                 V1Search response = api.updateSearch(owner, searchUuid, body);
         // TODO: test validations
     }
-    
+
 }

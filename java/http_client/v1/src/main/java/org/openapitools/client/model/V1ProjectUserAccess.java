@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public class V1ProjectUserAccess {
 
 
   public V1ProjectUserAccess user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1ProjectUserAccess {
 
 
   public V1ProjectUserAccess queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1ProjectUserAccess {
 
 
   public V1ProjectUserAccess preset(String preset) {
-    
+
     this.preset = preset;
     return this;
   }

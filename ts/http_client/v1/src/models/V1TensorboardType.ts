@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,37 +28,37 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1TensorboardType
  */
 export interface V1TensorboardType {
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1TensorboardType
      */
     port?: number;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1TensorboardType
      */
     uuids?: Array<string>;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1TensorboardType
      */
     use_names?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1TensorboardType
      */
     path_prefix?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1TensorboardType
      */
@@ -74,7 +74,7 @@ export function V1TensorboardTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         return json;
     }
     return {
-        
+
         'port': !exists(json, 'port') ? undefined : json['port'],
         'uuids': !exists(json, 'uuids') ? undefined : json['uuids'],
         'use_names': !exists(json, 'use_names') ? undefined : json['use_names'],
@@ -91,7 +91,7 @@ export function V1TensorboardTypeToJSON(value?: V1TensorboardType | null): any {
         return null;
     }
     return {
-        
+
         'port': value.port,
         'uuids': value.uuids,
         'use_names': value.use_names,

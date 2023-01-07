@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ public class V1GitConnection {
 
 
   public V1GitConnection url(String url) {
-    
+
     this.url = url;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1GitConnection {
 
 
   public V1GitConnection revision(Boolean revision) {
-    
+
     this.revision = revision;
     return this;
   }
@@ -105,7 +105,7 @@ public class V1GitConnection {
 
 
   public V1GitConnection flags(List<String> flags) {
-    
+
     this.flags = flags;
     return this;
   }

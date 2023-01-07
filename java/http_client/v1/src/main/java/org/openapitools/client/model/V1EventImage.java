@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ public class V1EventImage {
 
 
   public V1EventImage height(Integer height) {
-    
+
     this.height = height;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1EventImage {
 
 
   public V1EventImage width(Integer width) {
-    
+
     this.width = width;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1EventImage {
 
 
   public V1EventImage colorspace(Integer colorspace) {
-    
+
     this.colorspace = colorspace;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1EventImage {
 
 
   public V1EventImage path(String path) {
-    
+
     this.path = path;
     return this;
   }

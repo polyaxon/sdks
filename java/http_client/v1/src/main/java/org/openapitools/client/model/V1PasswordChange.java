@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public class V1PasswordChange {
 
 
   public V1PasswordChange oldPassword(String oldPassword) {
-    
+
     this.oldPassword = oldPassword;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1PasswordChange {
 
 
   public V1PasswordChange newPassword1(String newPassword1) {
-    
+
     this.newPassword1 = newPassword1;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1PasswordChange {
 
 
   public V1PasswordChange newPassword2(String newPassword2) {
-    
+
     this.newPassword2 = newPassword2;
     return this;
   }

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EventModel
  */
 export interface V1EventModel {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventModel
      */
     framework?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventModel
      */
     path?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1EventModel
      */
@@ -62,7 +62,7 @@ export function V1EventModelFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'framework': !exists(json, 'framework') ? undefined : json['framework'],
         'path': !exists(json, 'path') ? undefined : json['path'],
         'spec': !exists(json, 'spec') ? undefined : json['spec'],
@@ -77,7 +77,7 @@ export function V1EventModelToJSON(value?: V1EventModel | null): any {
         return null;
     }
     return {
-        
+
         'framework': value.framework,
         'path': value.path,
         'spec': value.spec,

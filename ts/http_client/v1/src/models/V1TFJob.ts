@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,49 +43,49 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1TFJob
  */
 export interface V1TFJob {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1TFJob
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {V1CleanPodPolicy}
      * @memberof V1TFJob
      */
     cleanPodPolicy?: V1CleanPodPolicy;
     /**
-     * 
+     *
      * @type {V1SchedulingPolicy}
      * @memberof V1TFJob
      */
     schedulingPolicy?: V1SchedulingPolicy;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1TFJob
      */
     chief?: V1KFReplica;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1TFJob
      */
     worker?: V1KFReplica;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1TFJob
      */
     ps?: V1KFReplica;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1TFJob
      */
@@ -101,7 +101,7 @@ export function V1TFJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
@@ -120,7 +120,7 @@ export function V1TFJobToJSON(value?: V1TFJob | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),

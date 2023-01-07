@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,55 +35,55 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Team
  */
 export interface V1Team {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     name?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Team
      */
     projects?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Team
      */
     component_hubs?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Team
      */
     model_registries?: Array<string>;
     /**
-     * 
+     *
      * @type {V1TeamSettings}
      * @memberof V1Team
      */
     settings?: V1TeamSettings;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Team
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Team
      */
@@ -99,7 +99,7 @@ export function V1TeamFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'projects': !exists(json, 'projects') ? undefined : json['projects'],
@@ -119,7 +119,7 @@ export function V1TeamToJSON(value?: V1Team | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'projects': value.projects,

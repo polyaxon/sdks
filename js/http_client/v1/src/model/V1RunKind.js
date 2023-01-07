@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,140 +32,140 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1RunKind {
-    
+
         /**
          * value: "job"
          * @const
          */
         "job" = "job";
 
-    
+
         /**
          * value: "service"
          * @const
          */
         "service" = "service";
 
-    
+
         /**
          * value: "dag"
          * @const
          */
         "dag" = "dag";
 
-    
+
         /**
          * value: "spark"
          * @const
          */
         "spark" = "spark";
 
-    
+
         /**
          * value: "dask"
          * @const
          */
         "dask" = "dask";
 
-    
+
         /**
          * value: "flink"
          * @const
          */
         "flink" = "flink";
 
-    
+
         /**
          * value: "ray"
          * @const
          */
         "ray" = "ray";
 
-    
+
         /**
          * value: "mpijob"
          * @const
          */
         "mpijob" = "mpijob";
 
-    
+
         /**
          * value: "tfjob"
          * @const
          */
         "tfjob" = "tfjob";
 
-    
+
         /**
          * value: "pytorchjob"
          * @const
          */
         "pytorchjob" = "pytorchjob";
 
-    
+
         /**
          * value: "mxjob"
          * @const
          */
         "mxjob" = "mxjob";
 
-    
+
         /**
          * value: "xgbjob"
          * @const
          */
         "xgbjob" = "xgbjob";
 
-    
+
         /**
          * value: "matrix"
          * @const
          */
         "matrix" = "matrix";
 
-    
+
         /**
          * value: "schedule"
          * @const
          */
         "schedule" = "schedule";
 
-    
+
         /**
          * value: "tuner"
          * @const
          */
         "tuner" = "tuner";
 
-    
+
         /**
          * value: "watchdog"
          * @const
          */
         "watchdog" = "watchdog";
 
-    
+
         /**
          * value: "notifier"
          * @const
          */
         "notifier" = "notifier";
 
-    
+
         /**
          * value: "cleaner"
          * @const
          */
         "cleaner" = "cleaner";
 
-    
+
         /**
          * value: "builder"
          * @const
          */
         "builder" = "builder";
 
-    
+
 
     /**
     * Returns a <code>V1RunKind</code> enum value from a Javascript object name.

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy percent(Integer percent) {
-    
+
     this.percent = percent;
     return this;
   }
@@ -116,7 +116,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy evaluationInterval(Integer evaluationInterval) {
-    
+
     this.evaluationInterval = evaluationInterval;
     return this;
   }
@@ -139,7 +139,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy minInterval(Integer minInterval) {
-    
+
     this.minInterval = minInterval;
     return this;
   }
@@ -162,7 +162,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy minSamples(Integer minSamples) {
-    
+
     this.minSamples = minSamples;
     return this;
   }
@@ -185,7 +185,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy includeSucceeded(Boolean includeSucceeded) {
-    
+
     this.includeSucceeded = includeSucceeded;
     return this;
   }

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,67 +28,67 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface AgentStateResponseAgentState
  */
 export interface AgentStateResponseAgentState {
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     schedules?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     hooks?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     watchdogs?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     tuners?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     queued?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     stopping?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     deleting?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     apply?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AgentStateResponseAgentState
      */
     checks?: object;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AgentStateResponseAgentState
      */
@@ -104,7 +104,7 @@ export function AgentStateResponseAgentStateFromJSONTyped(json: any, ignoreDiscr
         return json;
     }
     return {
-        
+
         'schedules': !exists(json, 'schedules') ? undefined : json['schedules'],
         'hooks': !exists(json, 'hooks') ? undefined : json['hooks'],
         'watchdogs': !exists(json, 'watchdogs') ? undefined : json['watchdogs'],
@@ -126,7 +126,7 @@ export function AgentStateResponseAgentStateToJSON(value?: AgentStateResponseAge
         return null;
     }
     return {
-        
+
         'schedules': value.schedules,
         'hooks': value.hooks,
         'watchdogs': value.watchdogs,

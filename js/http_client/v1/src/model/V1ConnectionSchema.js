@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,8 +42,8 @@ class V1ConnectionSchema {
      * Constructs a new <code>V1ConnectionSchema</code>.
      * @alias module:model/V1ConnectionSchema
      */
-    constructor() { 
-        
+    constructor() {
+
         V1ConnectionSchema.initialize(this);
     }
 
@@ -52,7 +52,7 @@ class V1ConnectionSchema {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**

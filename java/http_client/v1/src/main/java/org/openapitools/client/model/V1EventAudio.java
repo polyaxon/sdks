@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio sampleRate(Float sampleRate) {
-    
+
     this.sampleRate = sampleRate;
     return this;
   }
@@ -88,7 +88,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio numChannels(Integer numChannels) {
-    
+
     this.numChannels = numChannels;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio lengthFrames(Integer lengthFrames) {
-    
+
     this.lengthFrames = lengthFrames;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio contentType(String contentType) {
-    
+
     this.contentType = contentType;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio path(String path) {
-    
+
     this.path = path;
     return this;
   }

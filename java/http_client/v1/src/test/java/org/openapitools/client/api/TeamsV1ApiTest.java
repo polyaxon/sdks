@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -49,11 +49,11 @@ public class TeamsV1ApiTest {
 
     private final TeamsV1Api api = new TeamsV1Api();
 
-    
+
     /**
      * Create team
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -65,11 +65,11 @@ public class TeamsV1ApiTest {
                 V1Team response = api.createTeam(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create team member
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -82,11 +82,11 @@ public class TeamsV1ApiTest {
                 V1TeamMember response = api.createTeamMember(owner, team, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete team
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,11 +98,11 @@ public class TeamsV1ApiTest {
                 api.deleteTeam(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Delete team member details
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -115,11 +115,11 @@ public class TeamsV1ApiTest {
                 api.deleteTeamMember(owner, team, user);
         // TODO: test validations
     }
-    
+
     /**
      * Get team
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -131,11 +131,11 @@ public class TeamsV1ApiTest {
                 V1Team response = api.getTeam(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get team member details
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -148,11 +148,11 @@ public class TeamsV1ApiTest {
                 V1TeamMember response = api.getTeamMember(owner, team, user);
         // TODO: test validations
     }
-    
+
     /**
      * Get team members
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -171,11 +171,11 @@ public class TeamsV1ApiTest {
                 V1ListTeamMembersResponse response = api.listTeamMembers(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List teams names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -193,11 +193,11 @@ public class TeamsV1ApiTest {
                 V1ListTeamsResponse response = api.listTeamNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List teams
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -215,11 +215,11 @@ public class TeamsV1ApiTest {
                 V1ListTeamsResponse response = api.listTeams(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch team
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -232,11 +232,11 @@ public class TeamsV1ApiTest {
                 V1Team response = api.patchTeam(owner, teamName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch team member
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -250,11 +250,11 @@ public class TeamsV1ApiTest {
                 V1TeamMember response = api.patchTeamMember(owner, team, memberUser, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update team
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -267,11 +267,11 @@ public class TeamsV1ApiTest {
                 V1Team response = api.updateTeam(owner, teamName, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update team member
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -285,5 +285,5 @@ public class TeamsV1ApiTest {
                 V1TeamMember response = api.updateTeamMember(owner, team, memberUser, body);
         // TODO: test validations
     }
-    
+
 }

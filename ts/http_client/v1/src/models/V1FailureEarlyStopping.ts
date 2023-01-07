@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1FailureEarlyStopping {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1FailureEarlyStopping
      */
@@ -60,7 +60,7 @@ export function V1FailureEarlyStoppingFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'percent': !exists(json, 'percent') ? undefined : json['percent'],
     };
@@ -74,7 +74,7 @@ export function V1FailureEarlyStoppingToJSON(value?: V1FailureEarlyStopping | nu
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'percent': value.percent,
     };

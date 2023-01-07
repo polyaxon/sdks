@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,61 +35,61 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1RunArtifact
  */
 export interface V1RunArtifact {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1RunArtifact
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1RunArtifact
      */
     state?: string;
     /**
-     * 
+     *
      * @type {V1ArtifactKind}
      * @memberof V1RunArtifact
      */
     kind?: V1ArtifactKind;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1RunArtifact
      */
     path?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1RunArtifact
      */
     connection?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1RunArtifact
      */
     run?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1RunArtifact
      */
     summary?: object;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1RunArtifact
      */
     is_input?: boolean;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1RunArtifact
      */
@@ -105,7 +105,7 @@ export function V1RunArtifactFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
+
         'name': !exists(json, 'name') ? undefined : json['name'],
         'state': !exists(json, 'state') ? undefined : json['state'],
         'kind': !exists(json, 'kind') ? undefined : V1ArtifactKindFromJSON(json['kind']),
@@ -126,7 +126,7 @@ export function V1RunArtifactToJSON(value?: V1RunArtifact | null): any {
         return null;
     }
     return {
-        
+
         'name': value.name,
         'state': value.state,
         'kind': V1ArtifactKindToJSON(value.kind),

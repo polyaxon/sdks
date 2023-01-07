@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1ListBookmarksResponse
  */
 export interface V1ListBookmarksResponse {
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1ListBookmarksResponse
      */
     count?: number;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1ListBookmarksResponse
      */
     results?: Array<object>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ListBookmarksResponse
      */
     previous?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ListBookmarksResponse
      */
@@ -68,7 +68,7 @@ export function V1ListBookmarksResponseFromJSONTyped(json: any, ignoreDiscrimina
         return json;
     }
     return {
-        
+
         'count': !exists(json, 'count') ? undefined : json['count'],
         'results': !exists(json, 'results') ? undefined : json['results'],
         'previous': !exists(json, 'previous') ? undefined : json['previous'],
@@ -84,7 +84,7 @@ export function V1ListBookmarksResponseToJSON(value?: V1ListBookmarksResponse | 
         return null;
     }
     return {
-        
+
         'count': value.count,
         'results': value.results,
         'previous': value.previous,

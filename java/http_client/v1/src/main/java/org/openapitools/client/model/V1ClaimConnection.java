@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ public class V1ClaimConnection {
 
 
   public V1ClaimConnection volumeClaim(String volumeClaim) {
-    
+
     this.volumeClaim = volumeClaim;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1ClaimConnection {
 
 
   public V1ClaimConnection mountPath(String mountPath) {
-    
+
     this.mountPath = mountPath;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ClaimConnection {
 
 
   public V1ClaimConnection readOnly(Boolean readOnly) {
-    
+
     this.readOnly = readOnly;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1ClaimConnection {
 
 
   public V1ClaimConnection kind(Object kind) {
-    
+
     this.kind = kind;
     return this;
   }

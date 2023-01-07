@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -120,17 +120,17 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPresetValidateBeforeCall(String owner, V1Preset body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createPreset(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createPreset(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createPresetCall(owner, body, _callback);
         return localVarCall;
@@ -139,7 +139,7 @@ public class PresetsV1Api {
 
     /**
      * Create scheduling presets
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Preset body (required)
      * @return V1Preset
@@ -161,7 +161,7 @@ public class PresetsV1Api {
 
     /**
      * Create scheduling presets
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Preset body (required)
      * @return ApiResponse&lt;V1Preset&gt;
@@ -184,7 +184,7 @@ public class PresetsV1Api {
 
     /**
      * Create scheduling presets (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Preset body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -252,7 +252,7 @@ public class PresetsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -263,17 +263,17 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deletePresetValidateBeforeCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deletePreset(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deletePreset(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deletePresetCall(owner, uuid, entity, _callback);
         return localVarCall;
@@ -282,7 +282,7 @@ public class PresetsV1Api {
 
     /**
      * Delete scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -303,7 +303,7 @@ public class PresetsV1Api {
 
     /**
      * Delete scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -326,7 +326,7 @@ public class PresetsV1Api {
 
     /**
      * Delete scheduling preset (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -394,7 +394,7 @@ public class PresetsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -405,17 +405,17 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getPresetValidateBeforeCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getPreset(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getPreset(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getPresetCall(owner, uuid, entity, _callback);
         return localVarCall;
@@ -424,7 +424,7 @@ public class PresetsV1Api {
 
     /**
      * Get scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -447,7 +447,7 @@ public class PresetsV1Api {
 
     /**
      * Get scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -471,7 +471,7 @@ public class PresetsV1Api {
 
     /**
      * Get scheduling preset (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -568,7 +568,7 @@ public class PresetsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -579,12 +579,12 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPresetNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listPresetNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listPresetNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -593,7 +593,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -621,7 +621,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -650,7 +650,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -752,7 +752,7 @@ public class PresetsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -763,12 +763,12 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPresetsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listPresets(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listPresetsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -777,7 +777,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -805,7 +805,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -834,7 +834,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -915,22 +915,22 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchPresetValidateBeforeCall(String owner, String presetUuid, V1Preset body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchPreset(Async)");
         }
-        
+
         // verify the required parameter 'presetUuid' is set
         if (presetUuid == null) {
             throw new ApiException("Missing the required parameter 'presetUuid' when calling patchPreset(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchPreset(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchPresetCall(owner, presetUuid, body, _callback);
         return localVarCall;
@@ -939,7 +939,7 @@ public class PresetsV1Api {
 
     /**
      * Patch scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -962,7 +962,7 @@ public class PresetsV1Api {
 
     /**
      * Patch scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -986,7 +986,7 @@ public class PresetsV1Api {
 
     /**
      * Patch scheduling preset (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1062,22 +1062,22 @@ public class PresetsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updatePresetValidateBeforeCall(String owner, String presetUuid, V1Preset body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updatePreset(Async)");
         }
-        
+
         // verify the required parameter 'presetUuid' is set
         if (presetUuid == null) {
             throw new ApiException("Missing the required parameter 'presetUuid' when calling updatePreset(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updatePreset(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updatePresetCall(owner, presetUuid, body, _callback);
         return localVarCall;
@@ -1086,7 +1086,7 @@ public class PresetsV1Api {
 
     /**
      * Update scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1109,7 +1109,7 @@ public class PresetsV1Api {
 
     /**
      * Update scheduling preset
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1133,7 +1133,7 @@ public class PresetsV1Api {
 
     /**
      * Update scheduling preset (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)

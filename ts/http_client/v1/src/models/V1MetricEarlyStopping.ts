@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ import {
  */
 export interface V1MetricEarlyStopping {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1MetricEarlyStopping
      */
@@ -60,13 +60,13 @@ export interface V1MetricEarlyStopping {
      */
     value?: string;
     /**
-     * 
+     *
      * @type {V1Optimization}
      * @memberof V1MetricEarlyStopping
      */
     optimization?: V1Optimization;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1MetricEarlyStopping
      */
@@ -82,7 +82,7 @@ export function V1MetricEarlyStoppingFromJSONTyped(json: any, ignoreDiscriminato
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'metric': !exists(json, 'metric') ? undefined : json['metric'],
         'value': !exists(json, 'value') ? undefined : json['value'],
@@ -99,7 +99,7 @@ export function V1MetricEarlyStoppingToJSON(value?: V1MetricEarlyStopping | null
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'metric': value.metric,
         'value': value.value,

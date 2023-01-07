@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EventHistogram
  */
 export interface V1EventHistogram {
     /**
-     * 
+     *
      * @type {Array<number>}
      * @memberof V1EventHistogram
      */
     values?: Array<number>;
     /**
-     * 
+     *
      * @type {Array<number>}
      * @memberof V1EventHistogram
      */
@@ -56,7 +56,7 @@ export function V1EventHistogramFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-        
+
         'values': !exists(json, 'values') ? undefined : json['values'],
         'counts': !exists(json, 'counts') ? undefined : json['counts'],
     };
@@ -70,7 +70,7 @@ export function V1EventHistogramToJSON(value?: V1EventHistogram | null): any {
         return null;
     }
     return {
-        
+
         'values': value.values,
         'counts': value.counts,
     };

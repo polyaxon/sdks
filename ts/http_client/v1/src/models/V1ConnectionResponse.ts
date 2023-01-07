@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,61 +35,61 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1ConnectionResponse
  */
 export interface V1ConnectionResponse {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     agent?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1ConnectionResponse
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1ConnectionResponse
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1ConnectionResponse
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1ConnectionResponse
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {V1ConnectionKind}
      * @memberof V1ConnectionResponse
      */
@@ -105,7 +105,7 @@ export function V1ConnectionResponseFromJSONTyped(json: any, ignoreDiscriminator
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'agent': !exists(json, 'agent') ? undefined : json['agent'],
@@ -126,7 +126,7 @@ export function V1ConnectionResponseToJSON(value?: V1ConnectionResponse | null):
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'agent': value.agent,

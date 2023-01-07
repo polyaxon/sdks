@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1BucketConnection
  */
 export interface V1BucketConnection {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1BucketConnection
      */
@@ -50,7 +50,7 @@ export function V1BucketConnectionFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-        
+
         'bucket': !exists(json, 'bucket') ? undefined : json['bucket'],
     };
 }
@@ -63,7 +63,7 @@ export function V1BucketConnectionToJSON(value?: V1BucketConnection | null): any
         return null;
     }
     return {
-        
+
         'bucket': value.bucket,
     };
 }

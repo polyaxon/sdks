@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public class V1EarlyStopping {
 
 
   public V1EarlyStopping median(V1MedianStoppingPolicy median) {
-    
+
     this.median = median;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1EarlyStopping {
 
 
   public V1EarlyStopping diff(V1DiffStoppingPolicy diff) {
-    
+
     this.diff = diff;
     return this;
   }
@@ -116,7 +116,7 @@ public class V1EarlyStopping {
 
 
   public V1EarlyStopping truncation(V1TruncationStoppingPolicy truncation) {
-    
+
     this.truncation = truncation;
     return this;
   }
@@ -139,7 +139,7 @@ public class V1EarlyStopping {
 
 
   public V1EarlyStopping metric(V1MetricEarlyStopping metric) {
-    
+
     this.metric = metric;
     return this;
   }
@@ -162,7 +162,7 @@ public class V1EarlyStopping {
 
 
   public V1EarlyStopping failure(V1FailureEarlyStopping failure) {
-    
+
     this.failure = failure;
     return this;
   }

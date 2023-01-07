@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1GitConnection
  */
 export interface V1GitConnection {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1GitConnection
      */
     url?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1GitConnection
      */
     revision?: boolean;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1GitConnection
      */
@@ -62,7 +62,7 @@ export function V1GitConnectionFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-        
+
         'url': !exists(json, 'url') ? undefined : json['url'],
         'revision': !exists(json, 'revision') ? undefined : json['revision'],
         'flags': !exists(json, 'flags') ? undefined : json['flags'],
@@ -77,7 +77,7 @@ export function V1GitConnectionToJSON(value?: V1GitConnection | null): any {
         return null;
     }
     return {
-        
+
         'url': value.url,
         'revision': value.revision,
         'flags': value.flags,

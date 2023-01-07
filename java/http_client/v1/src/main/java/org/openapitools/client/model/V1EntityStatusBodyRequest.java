@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ public class V1EntityStatusBodyRequest {
 
 
   public V1EntityStatusBodyRequest owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -89,7 +89,7 @@ public class V1EntityStatusBodyRequest {
 
 
   public V1EntityStatusBodyRequest project(String project) {
-    
+
     this.project = project;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1EntityStatusBodyRequest {
 
 
   public V1EntityStatusBodyRequest uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1EntityStatusBodyRequest {
 
 
   public V1EntityStatusBodyRequest condition(V1StatusCondition condition) {
-    
+
     this.condition = condition;
     return this;
   }
@@ -158,7 +158,7 @@ public class V1EntityStatusBodyRequest {
 
 
   public V1EntityStatusBodyRequest force(Boolean force) {
-    
+
     this.force = force;
     return this;
   }

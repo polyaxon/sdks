@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ public class V1Join {
 
 
   public V1Join ref(String ref) {
-    
+
     this.ref = ref;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1Join {
 
 
   public V1Join query(String query) {
-    
+
     this.query = query;
     return this;
   }
@@ -119,7 +119,7 @@ public class V1Join {
 
 
   public V1Join sort(String sort) {
-    
+
     this.sort = sort;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1Join {
 
 
   public V1Join limit(Integer limit) {
-    
+
     this.limit = limit;
     return this;
   }
@@ -165,7 +165,7 @@ public class V1Join {
 
 
   public V1Join offset(Integer offset) {
-    
+
     this.offset = offset;
     return this;
   }
@@ -188,7 +188,7 @@ public class V1Join {
 
 
   public V1Join params(Map<String, V1JoinParam> params) {
-    
+
     this.params = params;
     return this;
   }

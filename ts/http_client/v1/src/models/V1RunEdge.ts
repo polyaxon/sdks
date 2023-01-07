@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,37 +43,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1RunEdge
  */
 export interface V1RunEdge {
     /**
-     * 
+     *
      * @type {V1Run}
      * @memberof V1RunEdge
      */
     upstream?: V1Run;
     /**
-     * 
+     *
      * @type {V1Run}
      * @memberof V1RunEdge
      */
     downstream?: V1Run;
     /**
-     * 
+     *
      * @type {V1RunEdgeKind}
      * @memberof V1RunEdge
      */
     kind?: V1RunEdgeKind;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1RunEdge
      */
     values?: object;
     /**
-     * 
+     *
      * @type {Array<V1Statuses>}
      * @memberof V1RunEdge
      */
@@ -89,7 +89,7 @@ export function V1RunEdgeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
+
         'upstream': !exists(json, 'upstream') ? undefined : V1RunFromJSON(json['upstream']),
         'downstream': !exists(json, 'downstream') ? undefined : V1RunFromJSON(json['downstream']),
         'kind': !exists(json, 'kind') ? undefined : V1RunEdgeKindFromJSON(json['kind']),
@@ -106,7 +106,7 @@ export function V1RunEdgeToJSON(value?: V1RunEdge | null): any {
         return null;
     }
     return {
-        
+
         'upstream': V1RunToJSON(value.upstream),
         'downstream': V1RunToJSON(value.downstream),
         'kind': V1RunEdgeKindToJSON(value.kind),

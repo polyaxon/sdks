@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -45,11 +45,11 @@ public class ArtifactsStoresV1ApiTest {
 
     private final ArtifactsStoresV1Api api = new ArtifactsStoresV1Api();
 
-    
+
     /**
      * Upload artifact to a store
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -64,5 +64,5 @@ public class ArtifactsStoresV1ApiTest {
                 api.uploadArtifact(owner, uuid, uploadfile, path, overwrite);
         // TODO: test validations
     }
-    
+
 }

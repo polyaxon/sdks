@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -118,7 +118,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -129,17 +129,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call archiveProjectValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling archiveProject(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling archiveProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = archiveProjectCall(owner, name, _callback);
         return localVarCall;
@@ -148,7 +148,7 @@ public class ProjectsV1Api {
 
     /**
      * Archive project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -168,7 +168,7 @@ public class ProjectsV1Api {
 
     /**
      * Archive project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -190,7 +190,7 @@ public class ProjectsV1Api {
 
     /**
      * Archive project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -252,7 +252,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -263,17 +263,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call bookmarkProjectValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling bookmarkProject(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling bookmarkProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = bookmarkProjectCall(owner, name, _callback);
         return localVarCall;
@@ -282,7 +282,7 @@ public class ProjectsV1Api {
 
     /**
      * Bookmark project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -302,7 +302,7 @@ public class ProjectsV1Api {
 
     /**
      * Bookmark project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -324,7 +324,7 @@ public class ProjectsV1Api {
 
     /**
      * Bookmark project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -396,17 +396,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createProjectValidateBeforeCall(String owner, V1Project body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createProject(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createProjectCall(owner, body, _callback);
         return localVarCall;
@@ -415,7 +415,7 @@ public class ProjectsV1Api {
 
     /**
      * Create new project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Project body (required)
      * @return V1Project
@@ -437,7 +437,7 @@ public class ProjectsV1Api {
 
     /**
      * Create new project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Project body (required)
      * @return ApiResponse&lt;V1Project&gt;
@@ -460,7 +460,7 @@ public class ProjectsV1Api {
 
     /**
      * Create new project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Project body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -537,27 +537,27 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createVersionValidateBeforeCall(String owner, String project, String versionKind, V1ProjectVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createVersion(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling createVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionKind' is set
         if (versionKind == null) {
             throw new ApiException("Missing the required parameter 'versionKind' when calling createVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createVersionCall(owner, project, versionKind, body, _callback);
         return localVarCall;
@@ -566,7 +566,7 @@ public class ProjectsV1Api {
 
     /**
      * Create version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -590,7 +590,7 @@ public class ProjectsV1Api {
 
     /**
      * Create version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -615,7 +615,7 @@ public class ProjectsV1Api {
 
     /**
      * Create version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -696,32 +696,32 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createVersionStageValidateBeforeCall(String owner, String entity, String kind, String name, V1EntityStageBodyRequest body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling createVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'kind' is set
         if (kind == null) {
             throw new ApiException("Missing the required parameter 'kind' when calling createVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling createVersionStage(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createVersionStage(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createVersionStageCall(owner, entity, kind, name, body, _callback);
         return localVarCall;
@@ -730,7 +730,7 @@ public class ProjectsV1Api {
 
     /**
      * Create new artifact version stage
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity namespace (required)
      * @param kind Optional kind, only required for an version entity (required)
@@ -755,7 +755,7 @@ public class ProjectsV1Api {
 
     /**
      * Create new artifact version stage
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity namespace (required)
      * @param kind Optional kind, only required for an version entity (required)
@@ -781,7 +781,7 @@ public class ProjectsV1Api {
 
     /**
      * Create new artifact version stage (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity namespace (required)
      * @param kind Optional kind, only required for an version entity (required)
@@ -847,7 +847,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -858,17 +858,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProjectValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteProject(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteProjectCall(owner, name, _callback);
         return localVarCall;
@@ -877,7 +877,7 @@ public class ProjectsV1Api {
 
     /**
      * Delete project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -897,7 +897,7 @@ public class ProjectsV1Api {
 
     /**
      * Delete project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -919,7 +919,7 @@ public class ProjectsV1Api {
 
     /**
      * Delete project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -985,7 +985,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -996,27 +996,27 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteVersionValidateBeforeCall(String owner, String entity, String kind, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteVersion(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling deleteVersion(Async)");
         }
-        
+
         // verify the required parameter 'kind' is set
         if (kind == null) {
             throw new ApiException("Missing the required parameter 'kind' when calling deleteVersion(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteVersionCall(owner, entity, kind, name, _callback);
         return localVarCall;
@@ -1025,7 +1025,7 @@ public class ProjectsV1Api {
 
     /**
      * Delete version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -1047,7 +1047,7 @@ public class ProjectsV1Api {
 
     /**
      * Delete version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -1071,7 +1071,7 @@ public class ProjectsV1Api {
 
     /**
      * Delete version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -1135,7 +1135,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1146,17 +1146,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call disableProjectCIValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling disableProjectCI(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling disableProjectCI(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = disableProjectCICall(owner, name, _callback);
         return localVarCall;
@@ -1165,7 +1165,7 @@ public class ProjectsV1Api {
 
     /**
      * Disbale project CI
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1185,7 +1185,7 @@ public class ProjectsV1Api {
 
     /**
      * Disbale project CI
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1207,7 +1207,7 @@ public class ProjectsV1Api {
 
     /**
      * Disbale project CI (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1269,7 +1269,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1280,17 +1280,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call enableProjectCIValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling enableProjectCI(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling enableProjectCI(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = enableProjectCICall(owner, name, _callback);
         return localVarCall;
@@ -1299,7 +1299,7 @@ public class ProjectsV1Api {
 
     /**
      * Enable project CI
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1319,7 +1319,7 @@ public class ProjectsV1Api {
 
     /**
      * Enable project CI
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1341,7 +1341,7 @@ public class ProjectsV1Api {
 
     /**
      * Enable project CI (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1403,7 +1403,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1414,17 +1414,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getProject(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getProjectCall(owner, name, _callback);
         return localVarCall;
@@ -1433,7 +1433,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1Project
@@ -1455,7 +1455,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1Project&gt;
@@ -1478,7 +1478,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1576,7 +1576,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1587,17 +1587,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectActivitiesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getProjectActivities(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getProjectActivities(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getProjectActivitiesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1606,7 +1606,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project activities
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1635,7 +1635,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project activities
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1665,7 +1665,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project activities (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1735,7 +1735,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1746,17 +1746,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectSettingsValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getProjectSettings(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getProjectSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getProjectSettingsCall(owner, name, _callback);
         return localVarCall;
@@ -1765,7 +1765,7 @@ public class ProjectsV1Api {
 
     /**
      * Get Project settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1ProjectSettings
@@ -1787,7 +1787,7 @@ public class ProjectsV1Api {
 
     /**
      * Get Project settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1ProjectSettings&gt;
@@ -1810,7 +1810,7 @@ public class ProjectsV1Api {
 
     /**
      * Get Project settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1918,7 +1918,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1929,17 +1929,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectStatsValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getProjectStats(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getProjectStats(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getProjectStatsCall(owner, name, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, _callback);
         return localVarCall;
@@ -1948,7 +1948,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project stats
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1979,7 +1979,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project stats
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2011,7 +2011,7 @@ public class ProjectsV1Api {
 
     /**
      * Get project stats (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -2087,7 +2087,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2098,27 +2098,27 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getVersionValidateBeforeCall(String owner, String entity, String kind, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getVersion(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getVersion(Async)");
         }
-        
+
         // verify the required parameter 'kind' is set
         if (kind == null) {
             throw new ApiException("Missing the required parameter 'kind' when calling getVersion(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getVersionCall(owner, entity, kind, name, _callback);
         return localVarCall;
@@ -2127,7 +2127,7 @@ public class ProjectsV1Api {
 
     /**
      * Get version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -2151,7 +2151,7 @@ public class ProjectsV1Api {
 
     /**
      * Get version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -2176,7 +2176,7 @@ public class ProjectsV1Api {
 
     /**
      * Get version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -2245,7 +2245,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2256,27 +2256,27 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getVersionStagesValidateBeforeCall(String owner, String entity, String kind, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getVersionStages(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getVersionStages(Async)");
         }
-        
+
         // verify the required parameter 'kind' is set
         if (kind == null) {
             throw new ApiException("Missing the required parameter 'kind' when calling getVersionStages(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling getVersionStages(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getVersionStagesCall(owner, entity, kind, name, _callback);
         return localVarCall;
@@ -2285,7 +2285,7 @@ public class ProjectsV1Api {
 
     /**
      * Get version stages
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -2309,7 +2309,7 @@ public class ProjectsV1Api {
 
     /**
      * Get version stages
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -2334,7 +2334,7 @@ public class ProjectsV1Api {
 
     /**
      * Get version stages (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param kind Version Kind (required)
@@ -2422,7 +2422,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2433,12 +2433,12 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listArchivedProjectsValidateBeforeCall(String user, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'user' is set
         if (user == null) {
             throw new ApiException("Missing the required parameter 'user' when calling listArchivedProjects(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listArchivedProjectsCall(user, offset, limit, sort, query, noPage, _callback);
         return localVarCall;
@@ -2447,7 +2447,7 @@ public class ProjectsV1Api {
 
     /**
      * List archived projects for user
-     * 
+     *
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2473,7 +2473,7 @@ public class ProjectsV1Api {
 
     /**
      * List archived projects for user
-     * 
+     *
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2500,7 +2500,7 @@ public class ProjectsV1Api {
 
     /**
      * List archived projects for user (asynchronously)
-     * 
+     *
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2590,7 +2590,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2601,12 +2601,12 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listBookmarkedProjectsValidateBeforeCall(String user, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'user' is set
         if (user == null) {
             throw new ApiException("Missing the required parameter 'user' when calling listBookmarkedProjects(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listBookmarkedProjectsCall(user, offset, limit, sort, query, noPage, _callback);
         return localVarCall;
@@ -2615,7 +2615,7 @@ public class ProjectsV1Api {
 
     /**
      * List bookmarked projects for user
-     * 
+     *
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2641,7 +2641,7 @@ public class ProjectsV1Api {
 
     /**
      * List bookmarked projects for user
-     * 
+     *
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2668,7 +2668,7 @@ public class ProjectsV1Api {
 
     /**
      * List bookmarked projects for user (asynchronously)
-     * 
+     *
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2768,7 +2768,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2779,12 +2779,12 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listProjectNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listProjectNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2793,7 +2793,7 @@ public class ProjectsV1Api {
 
     /**
      * List project names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2821,7 +2821,7 @@ public class ProjectsV1Api {
 
     /**
      * List project names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2850,7 +2850,7 @@ public class ProjectsV1Api {
 
     /**
      * List project names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2952,7 +2952,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2963,12 +2963,12 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listProjects(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listProjectsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -2977,7 +2977,7 @@ public class ProjectsV1Api {
 
     /**
      * List projects
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3005,7 +3005,7 @@ public class ProjectsV1Api {
 
     /**
      * List projects
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3034,7 +3034,7 @@ public class ProjectsV1Api {
 
     /**
      * List projects (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3130,7 +3130,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3141,22 +3141,22 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listVersionNamesValidateBeforeCall(String owner, String entity, String kind, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listVersionNames(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling listVersionNames(Async)");
         }
-        
+
         // verify the required parameter 'kind' is set
         if (kind == null) {
             throw new ApiException("Missing the required parameter 'kind' when calling listVersionNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listVersionNamesCall(owner, entity, kind, offset, limit, sort, query, noPage, _callback);
         return localVarCall;
@@ -3165,7 +3165,7 @@ public class ProjectsV1Api {
 
     /**
      * List versions names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param kind Version Kind (required)
@@ -3193,7 +3193,7 @@ public class ProjectsV1Api {
 
     /**
      * List versions names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param kind Version Kind (required)
@@ -3222,7 +3222,7 @@ public class ProjectsV1Api {
 
     /**
      * List versions names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param kind Version Kind (required)
@@ -3318,7 +3318,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3329,22 +3329,22 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listVersionsValidateBeforeCall(String owner, String entity, String kind, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listVersions(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling listVersions(Async)");
         }
-        
+
         // verify the required parameter 'kind' is set
         if (kind == null) {
             throw new ApiException("Missing the required parameter 'kind' when calling listVersions(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listVersionsCall(owner, entity, kind, offset, limit, sort, query, noPage, _callback);
         return localVarCall;
@@ -3353,7 +3353,7 @@ public class ProjectsV1Api {
 
     /**
      * List versions
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param kind Version Kind (required)
@@ -3381,7 +3381,7 @@ public class ProjectsV1Api {
 
     /**
      * List versions
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param kind Version Kind (required)
@@ -3410,7 +3410,7 @@ public class ProjectsV1Api {
 
     /**
      * List versions (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param kind Version Kind (required)
@@ -3491,22 +3491,22 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchProjectValidateBeforeCall(String owner, String projectName, V1Project body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchProject(Async)");
         }
-        
+
         // verify the required parameter 'projectName' is set
         if (projectName == null) {
             throw new ApiException("Missing the required parameter 'projectName' when calling patchProject(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchProjectCall(owner, projectName, body, _callback);
         return localVarCall;
@@ -3515,7 +3515,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param projectName Required name (required)
      * @param body Project body (required)
@@ -3538,7 +3538,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param projectName Required name (required)
      * @param body Project body (required)
@@ -3562,7 +3562,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param projectName Required name (required)
      * @param body Project body (required)
@@ -3638,22 +3638,22 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchProjectSettingsValidateBeforeCall(String owner, String project, V1ProjectSettings body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchProjectSettings(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling patchProjectSettings(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchProjectSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchProjectSettingsCall(owner, project, body, _callback);
         return localVarCall;
@@ -3662,7 +3662,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch project settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param body Project settings body (required)
@@ -3685,7 +3685,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch project settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param body Project settings body (required)
@@ -3709,7 +3709,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch project settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param body Project settings body (required)
@@ -3789,32 +3789,32 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchVersionValidateBeforeCall(String owner, String project, String versionKind, String versionName, V1ProjectVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchVersion(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling patchVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionKind' is set
         if (versionKind == null) {
             throw new ApiException("Missing the required parameter 'versionKind' when calling patchVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionName' is set
         if (versionName == null) {
             throw new ApiException("Missing the required parameter 'versionName' when calling patchVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchVersionCall(owner, project, versionKind, versionName, body, _callback);
         return localVarCall;
@@ -3823,7 +3823,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -3848,7 +3848,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -3874,7 +3874,7 @@ public class ProjectsV1Api {
 
     /**
      * Patch version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -3940,7 +3940,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3951,17 +3951,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call restoreProjectValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling restoreProject(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling restoreProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = restoreProjectCall(owner, name, _callback);
         return localVarCall;
@@ -3970,7 +3970,7 @@ public class ProjectsV1Api {
 
     /**
      * Restore project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3990,7 +3990,7 @@ public class ProjectsV1Api {
 
     /**
      * Restore project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4012,7 +4012,7 @@ public class ProjectsV1Api {
 
     /**
      * Restore project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4090,32 +4090,32 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call transferVersionValidateBeforeCall(String owner, String project, String versionKind, String versionName, V1ProjectVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling transferVersion(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling transferVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionKind' is set
         if (versionKind == null) {
             throw new ApiException("Missing the required parameter 'versionKind' when calling transferVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionName' is set
         if (versionName == null) {
             throw new ApiException("Missing the required parameter 'versionName' when calling transferVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling transferVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = transferVersionCall(owner, project, versionKind, versionName, body, _callback);
         return localVarCall;
@@ -4124,7 +4124,7 @@ public class ProjectsV1Api {
 
     /**
      * Transfer version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -4147,7 +4147,7 @@ public class ProjectsV1Api {
 
     /**
      * Transfer version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -4172,7 +4172,7 @@ public class ProjectsV1Api {
 
     /**
      * Transfer version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -4237,7 +4237,7 @@ public class ProjectsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4248,17 +4248,17 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call unbookmarkProjectValidateBeforeCall(String owner, String name, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling unbookmarkProject(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling unbookmarkProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = unbookmarkProjectCall(owner, name, _callback);
         return localVarCall;
@@ -4267,7 +4267,7 @@ public class ProjectsV1Api {
 
     /**
      * Unbookmark project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4287,7 +4287,7 @@ public class ProjectsV1Api {
 
     /**
      * Unbookmark project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4309,7 +4309,7 @@ public class ProjectsV1Api {
 
     /**
      * Unbookmark project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4383,22 +4383,22 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectValidateBeforeCall(String owner, String projectName, V1Project body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateProject(Async)");
         }
-        
+
         // verify the required parameter 'projectName' is set
         if (projectName == null) {
             throw new ApiException("Missing the required parameter 'projectName' when calling updateProject(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateProject(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateProjectCall(owner, projectName, body, _callback);
         return localVarCall;
@@ -4407,7 +4407,7 @@ public class ProjectsV1Api {
 
     /**
      * Update project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param projectName Required name (required)
      * @param body Project body (required)
@@ -4430,7 +4430,7 @@ public class ProjectsV1Api {
 
     /**
      * Update project
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param projectName Required name (required)
      * @param body Project body (required)
@@ -4454,7 +4454,7 @@ public class ProjectsV1Api {
 
     /**
      * Update project (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param projectName Required name (required)
      * @param body Project body (required)
@@ -4530,22 +4530,22 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectSettingsValidateBeforeCall(String owner, String project, V1ProjectSettings body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateProjectSettings(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling updateProjectSettings(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateProjectSettings(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateProjectSettingsCall(owner, project, body, _callback);
         return localVarCall;
@@ -4554,7 +4554,7 @@ public class ProjectsV1Api {
 
     /**
      * Update project settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param body Project settings body (required)
@@ -4577,7 +4577,7 @@ public class ProjectsV1Api {
 
     /**
      * Update project settings
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param body Project settings body (required)
@@ -4601,7 +4601,7 @@ public class ProjectsV1Api {
 
     /**
      * Update project settings (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param body Project settings body (required)
@@ -4681,32 +4681,32 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateVersionValidateBeforeCall(String owner, String project, String versionKind, String versionName, V1ProjectVersion body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateVersion(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling updateVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionKind' is set
         if (versionKind == null) {
             throw new ApiException("Missing the required parameter 'versionKind' when calling updateVersion(Async)");
         }
-        
+
         // verify the required parameter 'versionName' is set
         if (versionName == null) {
             throw new ApiException("Missing the required parameter 'versionName' when calling updateVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateVersion(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateVersionCall(owner, project, versionKind, versionName, body, _callback);
         return localVarCall;
@@ -4715,7 +4715,7 @@ public class ProjectsV1Api {
 
     /**
      * Update version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -4740,7 +4740,7 @@ public class ProjectsV1Api {
 
     /**
      * Update version
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -4766,7 +4766,7 @@ public class ProjectsV1Api {
 
     /**
      * Update version (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project name (required)
      * @param versionKind Optional kind to tell the kind of this version (required)
@@ -4859,27 +4859,27 @@ public class ProjectsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call uploadProjectArtifactValidateBeforeCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling uploadProjectArtifact(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling uploadProjectArtifact(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling uploadProjectArtifact(Async)");
         }
-        
+
         // verify the required parameter 'uploadfile' is set
         if (uploadfile == null) {
             throw new ApiException("Missing the required parameter 'uploadfile' when calling uploadProjectArtifact(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = uploadProjectArtifactCall(owner, project, uuid, uploadfile, path, overwrite, _callback);
         return localVarCall;
@@ -4888,7 +4888,7 @@ public class ProjectsV1Api {
 
     /**
      * Upload artifact to a store via project access
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -4911,7 +4911,7 @@ public class ProjectsV1Api {
 
     /**
      * Upload artifact to a store via project access
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -4936,7 +4936,7 @@ public class ProjectsV1Api {
 
     /**
      * Upload artifact to a store via project access (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)

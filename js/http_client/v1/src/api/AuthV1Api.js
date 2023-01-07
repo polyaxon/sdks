@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ import V1UserSingup from '../model/V1UserSingup';
 export default class AuthV1Api {
 
     /**
-    * Constructs a new AuthV1Api. 
+    * Constructs a new AuthV1Api.
     * Polyaxon sdk
     * @alias module:api/AuthV1Api
     * @class
@@ -65,7 +65,7 @@ export default class AuthV1Api {
 
     /**
      * Change password
-     * @param {module:model/V1PasswordChange} body 
+     * @param {module:model/V1PasswordChange} body
      * @param {module:api/AuthV1Api~changePasswordCallback} callback The callback function, accepting three arguments: error, data, response
      */
     changePassword(body, callback) {
@@ -105,7 +105,7 @@ export default class AuthV1Api {
 
     /**
      * Login
-     * @param {module:model/V1Credentials} body 
+     * @param {module:model/V1Credentials} body
      * @param {module:api/AuthV1Api~loginCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Auth}
      */
@@ -146,7 +146,7 @@ export default class AuthV1Api {
 
     /**
      * Reset password
-     * @param {module:model/V1UserEmail} body 
+     * @param {module:model/V1UserEmail} body
      * @param {module:api/AuthV1Api~resetPasswordCallback} callback The callback function, accepting three arguments: error, data, response
      */
     resetPassword(body, callback) {
@@ -186,7 +186,7 @@ export default class AuthV1Api {
 
     /**
      * Reset password confirm
-     * @param {module:model/V1PasswordChange} body 
+     * @param {module:model/V1PasswordChange} body
      * @param {module:api/AuthV1Api~resetPasswordConfirmCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Auth}
      */
@@ -227,7 +227,7 @@ export default class AuthV1Api {
 
     /**
      * Signup
-     * @param {module:model/V1UserSingup} body 
+     * @param {module:model/V1UserSingup} body
      * @param {module:api/AuthV1Api~signupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Auth}
      */
@@ -268,7 +268,7 @@ export default class AuthV1Api {
 
     /**
      * Trial Start
-     * @param {module:model/V1TrialStart} body 
+     * @param {module:model/V1TrialStart} body
      * @param {module:api/AuthV1Api~trialCallback} callback The callback function, accepting three arguments: error, data, response
      */
     trial(body, callback) {

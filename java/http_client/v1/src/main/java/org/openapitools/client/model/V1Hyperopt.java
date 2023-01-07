@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -115,7 +115,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt algorithm(V1HyperoptAlgorithms algorithm) {
-    
+
     this.algorithm = algorithm;
     return this;
   }
@@ -138,7 +138,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt params(Map<String, Object> params) {
-    
+
     this.params = params;
     return this;
   }
@@ -169,7 +169,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt numRuns(Integer numRuns) {
-    
+
     this.numRuns = numRuns;
     return this;
   }
@@ -192,7 +192,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt maxIterations(Integer maxIterations) {
-    
+
     this.maxIterations = maxIterations;
     return this;
   }
@@ -215,7 +215,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt metric(V1OptimizationMetric metric) {
-    
+
     this.metric = metric;
     return this;
   }
@@ -238,7 +238,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt seed(Integer seed) {
-    
+
     this.seed = seed;
     return this;
   }
@@ -261,7 +261,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -284,7 +284,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt tuner(V1Tuner tuner) {
-    
+
     this.tuner = tuner;
     return this;
   }
@@ -307,7 +307,7 @@ public class V1Hyperopt {
 
 
   public V1Hyperopt earlyStopping(List<Object> earlyStopping) {
-    
+
     this.earlyStopping = earlyStopping;
     return this;
   }

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -77,7 +77,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica replicas(Integer replicas) {
-    
+
     this.replicas = replicas;
     return this;
   }
@@ -100,7 +100,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica environment(V1Environment environment) {
-    
+
     this.environment = environment;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }
@@ -154,7 +154,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica volumes(List<Object> volumes) {
-    
+
     this.volumes = volumes;
     return this;
   }
@@ -185,7 +185,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica init(List<V1Init> init) {
-    
+
     this.init = init;
     return this;
   }
@@ -216,7 +216,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica sidecars(List<Object> sidecars) {
-    
+
     this.sidecars = sidecars;
     return this;
   }
@@ -247,7 +247,7 @@ public class V1KFReplica {
 
 
   public V1KFReplica container(Object container) {
-    
+
     this.container = container;
     return this;
   }

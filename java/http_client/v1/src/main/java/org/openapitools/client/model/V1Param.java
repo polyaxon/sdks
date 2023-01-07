@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ public class V1Param {
 
 
   public V1Param value(Object value) {
-    
+
     this.value = value;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1Param {
 
 
   public V1Param ref(String ref) {
-    
+
     this.ref = ref;
     return this;
   }
@@ -115,7 +115,7 @@ public class V1Param {
 
 
   public V1Param connection(String connection) {
-    
+
     this.connection = connection;
     return this;
   }
@@ -138,7 +138,7 @@ public class V1Param {
 
 
   public V1Param toInit(Boolean toInit) {
-    
+
     this.toInit = toInit;
     return this;
   }
@@ -161,7 +161,7 @@ public class V1Param {
 
 
   public V1Param toEnv(String toEnv) {
-    
+
     this.toEnv = toEnv;
     return this;
   }
@@ -184,7 +184,7 @@ public class V1Param {
 
 
   public V1Param contextOnly(Boolean contextOnly) {
-    
+
     this.contextOnly = contextOnly;
     return this;
   }

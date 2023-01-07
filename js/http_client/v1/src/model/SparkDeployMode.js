@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class SparkDeployMode {
-    
+
         /**
          * value: "cluster"
          * @const
          */
         "cluster" = "cluster";
 
-    
+
         /**
          * value: "client"
          * @const
          */
         "client" = "client";
 
-    
+
         /**
          * value: "in_cluster_client"
          * @const
          */
         "in_cluster_client" = "in_cluster_client";
 
-    
+
 
     /**
     * Returns a <code>SparkDeployMode</code> enum value from a Javascript object name.

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ public class V1DashboardSpec {
 
 
   public V1DashboardSpec sections(List<V1SectionSpec> sections) {
-    
+
     this.sections = sections;
     return this;
   }

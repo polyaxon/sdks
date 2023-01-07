@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,19 +35,19 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1EventChart
  */
 export interface V1EventChart {
     /**
-     * 
+     *
      * @type {V1EventChartKind}
      * @memberof V1EventChart
      */
     kind?: V1EventChartKind;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1EventChart
      */
@@ -63,7 +63,7 @@ export function V1EventChartFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : V1EventChartKindFromJSON(json['kind']),
         'figure': !exists(json, 'figure') ? undefined : json['figure'],
     };
@@ -77,7 +77,7 @@ export function V1EventChartToJSON(value?: V1EventChart | null): any {
         return null;
     }
     return {
-        
+
         'kind': V1EventChartKindToJSON(value.kind),
         'figure': value.figure,
     };

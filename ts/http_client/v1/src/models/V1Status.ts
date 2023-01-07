@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -39,31 +39,31 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Status
  */
 export interface V1Status {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Status
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {V1Statuses}
      * @memberof V1Status
      */
     status?: V1Statuses;
     /**
-     * 
+     *
      * @type {Array<V1StatusCondition>}
      * @memberof V1Status
      */
     status_conditions?: Array<V1StatusCondition>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Status
      */
@@ -79,7 +79,7 @@ export function V1StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'status': !exists(json, 'status') ? undefined : V1StatusesFromJSON(json['status']),
         'status_conditions': !exists(json, 'status_conditions') ? undefined : ((json['status_conditions'] as Array<any>).map(V1StatusConditionFromJSON)),
@@ -95,7 +95,7 @@ export function V1StatusToJSON(value?: V1Status | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'status': V1StatusesToJSON(value.status),
         'status_conditions': value.status_conditions === undefined ? undefined : ((value.status_conditions as Array<any>).map(V1StatusConditionToJSON)),

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -91,7 +91,7 @@ public class V1Bayes {
 
 
   public V1Bayes kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -114,7 +114,7 @@ public class V1Bayes {
 
 
   public V1Bayes params(Map<String, Object> params) {
-    
+
     this.params = params;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1Bayes {
 
 
   public V1Bayes numInitialRuns(Integer numInitialRuns) {
-    
+
     this.numInitialRuns = numInitialRuns;
     return this;
   }
@@ -168,7 +168,7 @@ public class V1Bayes {
 
 
   public V1Bayes maxIterations(Integer maxIterations) {
-    
+
     this.maxIterations = maxIterations;
     return this;
   }
@@ -191,7 +191,7 @@ public class V1Bayes {
 
 
   public V1Bayes utilityFunction(Object utilityFunction) {
-    
+
     this.utilityFunction = utilityFunction;
     return this;
   }
@@ -214,7 +214,7 @@ public class V1Bayes {
 
 
   public V1Bayes metric(V1OptimizationMetric metric) {
-    
+
     this.metric = metric;
     return this;
   }
@@ -237,7 +237,7 @@ public class V1Bayes {
 
 
   public V1Bayes seed(Integer seed) {
-    
+
     this.seed = seed;
     return this;
   }
@@ -260,7 +260,7 @@ public class V1Bayes {
 
 
   public V1Bayes concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -283,7 +283,7 @@ public class V1Bayes {
 
 
   public V1Bayes tuner(V1Tuner tuner) {
-    
+
     this.tuner = tuner;
     return this;
   }
@@ -306,7 +306,7 @@ public class V1Bayes {
 
 
   public V1Bayes earlyStopping(List<Object> earlyStopping) {
-    
+
     this.earlyStopping = earlyStopping;
     return this;
   }

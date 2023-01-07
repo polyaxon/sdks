@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class ConnectionsV1ApiTest {
 
     private final ConnectionsV1Api api = new ConnectionsV1Api();
 
-    
+
     /**
      * Create connection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -63,11 +63,11 @@ public class ConnectionsV1ApiTest {
                 V1ConnectionResponse response = api.createConnection(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete connection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -79,11 +79,11 @@ public class ConnectionsV1ApiTest {
                 api.deleteConnection(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get connection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -95,11 +95,11 @@ public class ConnectionsV1ApiTest {
                 V1ConnectionResponse response = api.getConnection(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List connections names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -117,11 +117,11 @@ public class ConnectionsV1ApiTest {
                 V1ListConnectionsResponse response = api.listConnectionNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List connections
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -139,11 +139,11 @@ public class ConnectionsV1ApiTest {
                 V1ListConnectionsResponse response = api.listConnections(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch connection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -156,11 +156,11 @@ public class ConnectionsV1ApiTest {
                 V1ConnectionResponse response = api.patchConnection(owner, connectionUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update connection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -173,5 +173,5 @@ public class ConnectionsV1ApiTest {
                 V1ConnectionResponse response = api.updateConnection(owner, connectionUuid, body);
         // TODO: test validations
     }
-    
+
 }

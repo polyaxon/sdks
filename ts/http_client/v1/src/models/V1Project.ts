@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,97 +35,97 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Project
  */
 export interface V1Project {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Project
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Project
      */
     owner?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Project
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Project
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Project
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Project
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Project
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Project
      */
     is_public?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Project
      */
     bookmarked?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Project
      */
     readme?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Project
      */
     excluded_features?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Project
      */
     excluded_runtimes?: Array<string>;
     /**
-     * 
+     *
      * @type {V1ProjectSettings}
      * @memberof V1Project
      */
     settings?: V1ProjectSettings;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Project
      */
     role?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Project
      */
@@ -141,7 +141,7 @@ export function V1ProjectFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -168,7 +168,7 @@ export function V1ProjectToJSON(value?: V1Project | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'owner': value.owner,
         'name': value.name,

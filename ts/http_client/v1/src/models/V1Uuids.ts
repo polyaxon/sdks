@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Uuids
  */
 export interface V1Uuids {
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Uuids
      */
@@ -50,7 +50,7 @@ export function V1UuidsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'uuids': !exists(json, 'uuids') ? undefined : json['uuids'],
     };
 }
@@ -63,7 +63,7 @@ export function V1UuidsToJSON(value?: V1Uuids | null): any {
         return null;
     }
     return {
-        
+
         'uuids': value.uuids,
     };
 }

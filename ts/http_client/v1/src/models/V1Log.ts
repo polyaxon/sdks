@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,37 +28,37 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Log
  */
 export interface V1Log {
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Log
      */
     timestamp?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Log
      */
     node?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Log
      */
     pod?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Log
      */
     container?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Log
      */
@@ -74,7 +74,7 @@ export function V1LogFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1L
         return json;
     }
     return {
-        
+
         'timestamp': !exists(json, 'timestamp') ? undefined : (new Date(json['timestamp'])),
         'node': !exists(json, 'node') ? undefined : json['node'],
         'pod': !exists(json, 'pod') ? undefined : json['pod'],
@@ -91,7 +91,7 @@ export function V1LogToJSON(value?: V1Log | null): any {
         return null;
     }
     return {
-        
+
         'timestamp': value.timestamp === undefined ? undefined : (value.timestamp.toISOString()),
         'node': value.node,
         'pod': value.pod,

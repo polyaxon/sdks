@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -38,8 +38,8 @@ class RuntimeError {
      * Constructs a new <code>RuntimeError</code>.
      * @alias module:model/RuntimeError
      */
-    constructor() { 
-        
+    constructor() {
+
         RuntimeError.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class RuntimeError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**

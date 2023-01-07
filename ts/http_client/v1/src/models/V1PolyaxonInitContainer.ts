@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1PolyaxonInitContainer
  */
 export interface V1PolyaxonInitContainer {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1PolyaxonInitContainer
      */
     image?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1PolyaxonInitContainer
      */
     imageTag?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1PolyaxonInitContainer
      */
     imagePullPolicy?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1PolyaxonInitContainer
      */
@@ -68,7 +68,7 @@ export function V1PolyaxonInitContainerFromJSONTyped(json: any, ignoreDiscrimina
         return json;
     }
     return {
-        
+
         'image': !exists(json, 'image') ? undefined : json['image'],
         'imageTag': !exists(json, 'imageTag') ? undefined : json['imageTag'],
         'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
@@ -84,7 +84,7 @@ export function V1PolyaxonInitContainerToJSON(value?: V1PolyaxonInitContainer | 
         return null;
     }
     return {
-        
+
         'image': value.image,
         'imageTag': value.imageTag,
         'imagePullPolicy': value.imagePullPolicy,

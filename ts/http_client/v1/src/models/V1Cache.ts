@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Cache
  */
 export interface V1Cache {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Cache
      */
     disable?: boolean;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Cache
      */
     ttl?: number;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Cache
      */
     io?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Cache
      */
@@ -68,7 +68,7 @@ export function V1CacheFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'disable': !exists(json, 'disable') ? undefined : json['disable'],
         'ttl': !exists(json, 'ttl') ? undefined : json['ttl'],
         'io': !exists(json, 'io') ? undefined : json['io'],
@@ -84,7 +84,7 @@ export function V1CacheToJSON(value?: V1Cache | null): any {
         return null;
     }
     return {
-        
+
         'disable': value.disable,
         'ttl': value.ttl,
         'io': value.io,

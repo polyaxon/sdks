@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,56 +32,56 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1MatrixKind {
-    
+
         /**
          * value: "random"
          * @const
          */
         "random" = "random";
 
-    
+
         /**
          * value: "grid"
          * @const
          */
         "grid" = "grid";
 
-    
+
         /**
          * value: "hyperband"
          * @const
          */
         "hyperband" = "hyperband";
 
-    
+
         /**
          * value: "bayes"
          * @const
          */
         "bayes" = "bayes";
 
-    
+
         /**
          * value: "hyperopt"
          * @const
          */
         "hyperopt" = "hyperopt";
 
-    
+
         /**
          * value: "iterative"
          * @const
          */
         "iterative" = "iterative";
 
-    
+
         /**
          * value: "mapping"
          * @const
          */
         "mapping" = "mapping";
 
-    
+
 
     /**
     * Returns a <code>V1MatrixKind</code> enum value from a Javascript object name.

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public class V1OrganizationMember {
 
 
   public V1OrganizationMember user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1OrganizationMember {
 
 
   public V1OrganizationMember userEmail(String userEmail) {
-    
+
     this.userEmail = userEmail;
     return this;
   }
@@ -116,7 +116,7 @@ public class V1OrganizationMember {
 
 
   public V1OrganizationMember role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -139,7 +139,7 @@ public class V1OrganizationMember {
 
 
   public V1OrganizationMember kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -162,7 +162,7 @@ public class V1OrganizationMember {
 
 
   public V1OrganizationMember createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -185,7 +185,7 @@ public class V1OrganizationMember {
 
 
   public V1OrganizationMember updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }

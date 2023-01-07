@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1HostConnection
  */
 export interface V1HostConnection {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1HostConnection
      */
     url?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1HostConnection
      */
@@ -56,7 +56,7 @@ export function V1HostConnectionFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-        
+
         'url': !exists(json, 'url') ? undefined : json['url'],
         'insecure': !exists(json, 'insecure') ? undefined : json['insecure'],
     };
@@ -70,7 +70,7 @@ export function V1HostConnectionToJSON(value?: V1HostConnection | null): any {
         return null;
     }
     return {
-        
+
         'url': value.url,
         'insecure': value.insecure,
     };

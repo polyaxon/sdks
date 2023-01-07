@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Auth
  */
 export interface V1Auth {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Auth
      */
@@ -50,7 +50,7 @@ export function V1AuthFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-        
+
         'token': !exists(json, 'token') ? undefined : json['token'],
     };
 }
@@ -63,7 +63,7 @@ export function V1AuthToJSON(value?: V1Auth | null): any {
         return null;
     }
     return {
-        
+
         'token': value.token,
     };
 }

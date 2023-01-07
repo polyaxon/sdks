@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,97 +28,97 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Organization
  */
 export interface V1Organization {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Organization
      */
     user?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Organization
      */
     user_email?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Organization
      */
     name?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Organization
      */
     is_public?: boolean;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Organization
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Organization
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Organization
      */
     support_revoke_at?: Date;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Organization
      */
     expiration?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Organization
      */
     role?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Organization
      */
     queue?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Organization
      */
     preset?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Organization
      */
     is_cloud_viewable?: boolean;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Organization
      */
     auth?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Organization
      */
     plan?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Organization
      */
@@ -134,7 +134,7 @@ export function V1OrganizationFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-        
+
         'user': !exists(json, 'user') ? undefined : json['user'],
         'user_email': !exists(json, 'user_email') ? undefined : json['user_email'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -161,7 +161,7 @@ export function V1OrganizationToJSON(value?: V1Organization | null): any {
         return null;
     }
     return {
-        
+
         'user': value.user,
         'user_email': value.user_email,
         'name': value.name,

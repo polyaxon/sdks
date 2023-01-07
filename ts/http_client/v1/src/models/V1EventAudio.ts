@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EventAudio
  */
@@ -52,13 +52,13 @@ export interface V1EventAudio {
      */
     length_frames?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventAudio
      */
     content_type?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventAudio
      */
@@ -74,7 +74,7 @@ export function V1EventAudioFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'sample_rate': !exists(json, 'sample_rate') ? undefined : json['sample_rate'],
         'num_channels': !exists(json, 'num_channels') ? undefined : json['num_channels'],
         'length_frames': !exists(json, 'length_frames') ? undefined : json['length_frames'],
@@ -91,7 +91,7 @@ export function V1EventAudioToJSON(value?: V1EventAudio | null): any {
         return null;
     }
     return {
-        
+
         'sample_rate': value.sample_rate,
         'num_channels': value.num_channels,
         'length_frames': value.length_frames,

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Credentials
  */
 export interface V1Credentials {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Credentials
      */
     username?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Credentials
      */
@@ -56,7 +56,7 @@ export function V1CredentialsFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
+
         'username': !exists(json, 'username') ? undefined : json['username'],
         'password': !exists(json, 'password') ? undefined : json['password'],
     };
@@ -70,7 +70,7 @@ export function V1CredentialsToJSON(value?: V1Credentials | null): any {
         return null;
     }
     return {
-        
+
         'username': value.username,
         'password': value.password,
     };

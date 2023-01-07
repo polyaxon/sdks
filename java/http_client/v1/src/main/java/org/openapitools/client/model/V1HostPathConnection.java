@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ public class V1HostPathConnection {
 
 
   public V1HostPathConnection hostPath(String hostPath) {
-    
+
     this.hostPath = hostPath;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1HostPathConnection {
 
 
   public V1HostPathConnection mountPath(String mountPath) {
-    
+
     this.mountPath = mountPath;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1HostPathConnection {
 
 
   public V1HostPathConnection readOnly(Boolean readOnly) {
-    
+
     this.readOnly = readOnly;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1HostPathConnection {
 
 
   public V1HostPathConnection kind(Object kind) {
-    
+
     this.kind = kind;
     return this;
   }

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,31 +35,31 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface RuntimeError
  */
 export interface RuntimeError {
     /**
-     * 
+     *
      * @type {string}
      * @memberof RuntimeError
      */
     error?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof RuntimeError
      */
     code?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RuntimeError
      */
     message?: string;
     /**
-     * 
+     *
      * @type {Array<ProtobufAny>}
      * @memberof RuntimeError
      */
@@ -75,7 +75,7 @@ export function RuntimeErrorFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'error': !exists(json, 'error') ? undefined : json['error'],
         'code': !exists(json, 'code') ? undefined : json['code'],
         'message': !exists(json, 'message') ? undefined : json['message'],
@@ -91,7 +91,7 @@ export function RuntimeErrorToJSON(value?: RuntimeError | null): any {
         return null;
     }
     return {
-        
+
         'error': value.error,
         'code': value.code,
         'message': value.message,

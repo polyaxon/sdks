@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -56,11 +56,11 @@ public class OrganizationsV1ApiTest {
 
     private final OrganizationsV1Api api = new OrganizationsV1Api();
 
-    
+
     /**
      * Approve cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -72,11 +72,11 @@ public class OrganizationsV1ApiTest {
                 api.approveOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Archive cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -88,11 +88,11 @@ public class OrganizationsV1ApiTest {
                 api.archiveOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Bookmark cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -104,11 +104,11 @@ public class OrganizationsV1ApiTest {
                 api.bookmarkOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -119,11 +119,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.createOrganization(body);
         // TODO: test validations
     }
-    
+
     /**
      * Create organization member
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,11 +136,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.createOrganizationMember(owner, body, email);
         // TODO: test validations
     }
-    
+
     /**
      * Delete organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -152,11 +152,11 @@ public class OrganizationsV1ApiTest {
                 api.deleteOrganization(owner, usage);
         // TODO: test validations
     }
-    
+
     /**
      * Delete organization invitation details
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -174,11 +174,11 @@ public class OrganizationsV1ApiTest {
                 api.deleteOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
         // TODO: test validations
     }
-    
+
     /**
      * Delete organization member details
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -190,11 +190,11 @@ public class OrganizationsV1ApiTest {
                 api.deleteOrganizationMember(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Delete cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -206,11 +206,11 @@ public class OrganizationsV1ApiTest {
                 api.deleteOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -222,11 +222,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.getOrganization(owner, usage);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization activities
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -244,11 +244,11 @@ public class OrganizationsV1ApiTest {
                 V1ListActivitiesResponse response = api.getOrganizationActivities(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization invitation details
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -266,11 +266,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.getOrganizationInvitation(owner, memberUser, memberUserEmail, memberRole, memberKind, memberCreatedAt, memberUpdatedAt, email);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization member details
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -282,11 +282,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.getOrganizationMember(owner, name);
         // TODO: test validations
     }
-    
+
     /**
      * Get a run in an organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -298,11 +298,11 @@ public class OrganizationsV1ApiTest {
                 V1Run response = api.getOrganizationRun(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get all runs in an organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -320,11 +320,11 @@ public class OrganizationsV1ApiTest {
                 V1ListRunsResponse response = api.getOrganizationRuns(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -347,11 +347,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization stats
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -371,11 +371,11 @@ public class OrganizationsV1ApiTest {
                 Object response = api.getOrganizationStats(owner, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
         // TODO: test validations
     }
-    
+
     /**
      * Invalidate cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -387,11 +387,11 @@ public class OrganizationsV1ApiTest {
                 api.invalidateOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization member names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -409,11 +409,11 @@ public class OrganizationsV1ApiTest {
                 V1ListOrganizationMembersResponse response = api.listOrganizationMemberNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get organization members
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -431,11 +431,11 @@ public class OrganizationsV1ApiTest {
                 V1ListOrganizationMembersResponse response = api.listOrganizationMembers(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List organizations names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -445,11 +445,11 @@ public class OrganizationsV1ApiTest {
                 V1ListOrganizationsResponse response = api.listOrganizationNames();
         // TODO: test validations
     }
-    
+
     /**
      * List organizations
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -459,11 +459,11 @@ public class OrganizationsV1ApiTest {
                 V1ListOrganizationsResponse response = api.listOrganizations();
         // TODO: test validations
     }
-    
+
     /**
      * Organization plan
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -475,11 +475,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.organizationPlan(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -491,11 +491,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.patchOrganization(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch organization invitation
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -508,11 +508,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.patchOrganizationInvitation(owner, body, email);
         // TODO: test validations
     }
-    
+
     /**
      * Patch organization member
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -526,11 +526,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.patchOrganizationMember(owner, memberUser, body, email);
         // TODO: test validations
     }
-    
+
     /**
      * Patch oranization settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -542,11 +542,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.patchOrganizationSettings(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Resend organization invitation
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -559,11 +559,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.resendOrganizationInvitation(owner, body, email);
         // TODO: test validations
     }
-    
+
     /**
      * Restore cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -575,11 +575,11 @@ public class OrganizationsV1ApiTest {
                 api.restoreOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Stop cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -591,11 +591,11 @@ public class OrganizationsV1ApiTest {
                 api.stopOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Tag cross-project runs selection
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -607,11 +607,11 @@ public class OrganizationsV1ApiTest {
                 api.tagOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Transfer cross-project runs selection to a new project
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -623,11 +623,11 @@ public class OrganizationsV1ApiTest {
                 api.transferOrganizationRuns(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update organization
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -639,11 +639,11 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.updateOrganization(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update organization invitation
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -656,11 +656,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.updateOrganizationInvitation(owner, body, email);
         // TODO: test validations
     }
-    
+
     /**
      * Update organization member
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -674,11 +674,11 @@ public class OrganizationsV1ApiTest {
                 V1OrganizationMember response = api.updateOrganizationMember(owner, memberUser, body, email);
         // TODO: test validations
     }
-    
+
     /**
      * Update organization settings
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -690,5 +690,5 @@ public class OrganizationsV1ApiTest {
                 V1Organization response = api.updateOrganizationSettings(owner, body);
         // TODO: test validations
     }
-    
+
 }

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ public class V1TeamSettings {
 
 
   public V1TeamSettings projects(List<V1SettingsCatalog> projects) {
-    
+
     this.projects = projects;
     return this;
   }
@@ -91,7 +91,7 @@ public class V1TeamSettings {
 
 
   public V1TeamSettings hubs(List<V1SettingsCatalog> hubs) {
-    
+
     this.hubs = hubs;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1TeamSettings {
 
 
   public V1TeamSettings registries(List<V1SettingsCatalog> registries) {
-    
+
     this.registries = registries;
     return this;
   }

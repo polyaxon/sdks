@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Template
  */
 export interface V1Template {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Template
      */
     enabled?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Template
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Template
      */
@@ -62,7 +62,7 @@ export function V1TemplateFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
+
         'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'fields': !exists(json, 'fields') ? undefined : json['fields'],
@@ -77,7 +77,7 @@ export function V1TemplateToJSON(value?: V1Template | null): any {
         return null;
     }
     return {
-        
+
         'enabled': value.enabled,
         'description': value.description,
         'fields': value.fields,

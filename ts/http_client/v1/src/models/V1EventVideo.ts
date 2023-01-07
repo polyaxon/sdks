@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EventVideo
  */
@@ -46,19 +46,19 @@ export interface V1EventVideo {
      */
     width?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1EventVideo
      */
     colorspace?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventVideo
      */
     path?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventVideo
      */
@@ -74,7 +74,7 @@ export function V1EventVideoFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'height': !exists(json, 'height') ? undefined : json['height'],
         'width': !exists(json, 'width') ? undefined : json['width'],
         'colorspace': !exists(json, 'colorspace') ? undefined : json['colorspace'],
@@ -91,7 +91,7 @@ export function V1EventVideoToJSON(value?: V1EventVideo | null): any {
         return null;
     }
     return {
-        
+
         'height': value.height,
         'width': value.width,
         'colorspace': value.colorspace,

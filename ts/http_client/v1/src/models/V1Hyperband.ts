@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,73 +43,73 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Hyperband
  */
 export interface V1Hyperband {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Hyperband
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {{ [key: string]: object; }}
      * @memberof V1Hyperband
      */
     params?: { [key: string]: object; };
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Hyperband
      */
     maxIterations?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Hyperband
      */
     eta?: number;
     /**
-     * 
+     *
      * @type {V1OptimizationResource}
      * @memberof V1Hyperband
      */
     resource?: V1OptimizationResource;
     /**
-     * 
+     *
      * @type {V1OptimizationMetric}
      * @memberof V1Hyperband
      */
     metric?: V1OptimizationMetric;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Hyperband
      */
     resume?: boolean;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Hyperband
      */
     seed?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Hyperband
      */
     concurrency?: number;
     /**
-     * 
+     *
      * @type {V1Tuner}
      * @memberof V1Hyperband
      */
     tuner?: V1Tuner;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1Hyperband
      */
@@ -125,7 +125,7 @@ export function V1HyperbandFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'params': !exists(json, 'params') ? undefined : json['params'],
         'maxIterations': !exists(json, 'maxIterations') ? undefined : json['maxIterations'],
@@ -148,7 +148,7 @@ export function V1HyperbandToJSON(value?: V1Hyperband | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'params': value.params,
         'maxIterations': value.maxIterations,

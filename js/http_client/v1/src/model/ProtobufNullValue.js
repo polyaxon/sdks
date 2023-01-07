@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,14 +32,14 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class ProtobufNullValue {
-    
+
         /**
          * value: "NULL_VALUE"
          * @const
          */
         "NULL_VALUE" = "NULL_VALUE";
 
-    
+
 
     /**
     * Returns a <code>ProtobufNullValue</code> enum value from a Javascript object name.

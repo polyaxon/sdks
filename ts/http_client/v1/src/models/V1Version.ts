@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Version
  */
 export interface V1Version {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Version
      */
     min?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Version
      */
@@ -56,7 +56,7 @@ export function V1VersionFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
+
         'min': !exists(json, 'min') ? undefined : json['min'],
         'latest': !exists(json, 'latest') ? undefined : json['latest'],
     };
@@ -70,7 +70,7 @@ export function V1VersionToJSON(value?: V1Version | null): any {
         return null;
     }
     return {
-        
+
         'min': value.min,
         'latest': value.latest,
     };

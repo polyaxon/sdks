@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,25 +35,25 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1K8sResourceType
  */
 export interface V1K8sResourceType {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1K8sResourceType
      */
     name?: string;
     /**
-     * 
+     *
      * @type {V1K8sResourceSchema}
      * @memberof V1K8sResourceType
      */
     schema?: V1K8sResourceSchema;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1K8sResourceType
      */
@@ -69,7 +69,7 @@ export function V1K8sResourceTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         return json;
     }
     return {
-        
+
         'name': !exists(json, 'name') ? undefined : json['name'],
         'schema': !exists(json, 'schema') ? undefined : V1K8sResourceSchemaFromJSON(json['schema']),
         'isRequested': !exists(json, 'isRequested') ? undefined : json['isRequested'],
@@ -84,7 +84,7 @@ export function V1K8sResourceTypeToJSON(value?: V1K8sResourceType | null): any {
         return null;
     }
     return {
-        
+
         'name': value.name,
         'schema': V1K8sResourceSchemaToJSON(value.schema),
         'isRequested': value.isRequested,

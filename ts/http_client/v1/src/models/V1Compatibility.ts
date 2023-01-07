@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,31 +35,31 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Compatibility
  */
 export interface V1Compatibility {
     /**
-     * 
+     *
      * @type {V1Version}
      * @memberof V1Compatibility
      */
     cli?: V1Version;
     /**
-     * 
+     *
      * @type {V1Version}
      * @memberof V1Compatibility
      */
     platform?: V1Version;
     /**
-     * 
+     *
      * @type {V1Version}
      * @memberof V1Compatibility
      */
     agent?: V1Version;
     /**
-     * 
+     *
      * @type {V1Version}
      * @memberof V1Compatibility
      */
@@ -75,7 +75,7 @@ export function V1CompatibilityFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-        
+
         'cli': !exists(json, 'cli') ? undefined : V1VersionFromJSON(json['cli']),
         'platform': !exists(json, 'platform') ? undefined : V1VersionFromJSON(json['platform']),
         'agent': !exists(json, 'agent') ? undefined : V1VersionFromJSON(json['agent']),
@@ -91,7 +91,7 @@ export function V1CompatibilityToJSON(value?: V1Compatibility | null): any {
         return null;
     }
     return {
-        
+
         'cli': V1VersionToJSON(value.cli),
         'platform': V1VersionToJSON(value.platform),
         'agent': V1VersionToJSON(value.agent),

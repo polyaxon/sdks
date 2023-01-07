@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -81,7 +81,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -104,7 +104,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest condition(V1StatusCondition condition) {
-    
+
     this.condition = condition;
     return this;
   }

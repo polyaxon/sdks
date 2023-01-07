@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -110,7 +110,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -133,7 +133,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType tags(String tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -156,7 +156,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType kind(V1ConnectionKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -179,7 +179,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType schema(Object schema) {
-    
+
     this.schema = schema;
     return this;
   }
@@ -202,7 +202,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType secret(V1K8sResourceSchema secret) {
-    
+
     this.secret = secret;
     return this;
   }
@@ -225,7 +225,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType configMap(V1K8sResourceSchema configMap) {
-    
+
     this.configMap = configMap;
     return this;
   }
@@ -248,7 +248,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType env(List<Object> env) {
-    
+
     this.env = env;
     return this;
   }
@@ -279,7 +279,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType annotations(Map<String, String> annotations) {
-    
+
     this.annotations = annotations;
     return this;
   }

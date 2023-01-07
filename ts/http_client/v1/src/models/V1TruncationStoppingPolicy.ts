@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1TruncationStoppingPolicy {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1TruncationStoppingPolicy
      */
@@ -54,19 +54,19 @@ export interface V1TruncationStoppingPolicy {
      */
     evaluationInterval?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1TruncationStoppingPolicy
      */
     minInterval?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1TruncationStoppingPolicy
      */
     minSamples?: number;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1TruncationStoppingPolicy
      */
@@ -82,7 +82,7 @@ export function V1TruncationStoppingPolicyFromJSONTyped(json: any, ignoreDiscrim
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'percent': !exists(json, 'percent') ? undefined : json['percent'],
         'evaluationInterval': !exists(json, 'evaluationInterval') ? undefined : json['evaluationInterval'],
@@ -100,7 +100,7 @@ export function V1TruncationStoppingPolicyToJSON(value?: V1TruncationStoppingPol
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'percent': value.percent,
         'evaluationInterval': value.evaluationInterval,

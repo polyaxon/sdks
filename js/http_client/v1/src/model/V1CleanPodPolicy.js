@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1CleanPodPolicy {
-    
+
         /**
          * value: "All"
          * @const
          */
         "All" = "All";
 
-    
+
         /**
          * value: "Running"
          * @const
          */
         "Running" = "Running";
 
-    
+
         /**
          * value: "None"
          * @const
          */
         "None" = "None";
 
-    
+
 
     /**
     * Returns a <code>V1CleanPodPolicy</code> enum value from a Javascript object name.

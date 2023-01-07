@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -122,17 +122,17 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createServiceAccountValidateBeforeCall(String owner, V1ServiceAccount body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createServiceAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createServiceAccountCall(owner, body, _callback);
         return localVarCall;
@@ -141,7 +141,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body ServiceAccount body (required)
      * @return V1ServiceAccount
@@ -163,7 +163,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body ServiceAccount body (required)
      * @return ApiResponse&lt;V1ServiceAccount&gt;
@@ -186,7 +186,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body ServiceAccount body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -261,22 +261,22 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createServiceAccountTokenValidateBeforeCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling createServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createServiceAccountToken(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createServiceAccountTokenCall(owner, entity, body, _callback);
         return localVarCall;
@@ -285,7 +285,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -308,7 +308,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -332,7 +332,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account token (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -396,7 +396,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -407,17 +407,17 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteServiceAccountValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteServiceAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteServiceAccountCall(owner, uuid, _callback);
         return localVarCall;
@@ -426,7 +426,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -446,7 +446,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;Void&gt;
@@ -468,7 +468,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -532,7 +532,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -543,22 +543,22 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteServiceAccountTokenValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling deleteServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteServiceAccountToken(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteServiceAccountTokenCall(owner, entity, uuid, _callback);
         return localVarCall;
@@ -567,7 +567,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -588,7 +588,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -611,7 +611,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account token (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -674,7 +674,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -685,17 +685,17 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getServiceAccountValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getServiceAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getServiceAccountCall(owner, uuid, _callback);
         return localVarCall;
@@ -704,7 +704,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1ServiceAccount
@@ -726,7 +726,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1ServiceAccount&gt;
@@ -749,7 +749,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -814,7 +814,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -825,22 +825,22 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getServiceAccountTokenValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getServiceAccountToken(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getServiceAccountTokenCall(owner, entity, uuid, _callback);
         return localVarCall;
@@ -849,7 +849,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -872,7 +872,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -896,7 +896,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account token (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -993,7 +993,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1004,12 +1004,12 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listServiceAccountNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listServiceAccountNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listServiceAccountNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1018,7 +1018,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1046,7 +1046,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1075,7 +1075,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1174,7 +1174,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1185,17 +1185,17 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listServiceAccountTokensValidateBeforeCall(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listServiceAccountTokens(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling listServiceAccountTokens(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listServiceAccountTokensCall(owner, uuid, entity, offset, limit, sort, query, noPage, _callback);
         return localVarCall;
@@ -1204,7 +1204,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service account tokens
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param entity Entity name under namesapce. (optional)
@@ -1232,7 +1232,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service account tokens
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param entity Entity name under namesapce. (optional)
@@ -1261,7 +1261,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service account tokens (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param entity Entity name under namesapce. (optional)
@@ -1363,7 +1363,7 @@ public class ServiceAccountsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1374,12 +1374,12 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listServiceAccountsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listServiceAccounts(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listServiceAccountsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -1388,7 +1388,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1416,7 +1416,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1445,7 +1445,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1526,22 +1526,22 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchServiceAccountValidateBeforeCall(String owner, String saUuid, V1ServiceAccount body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'saUuid' is set
         if (saUuid == null) {
             throw new ApiException("Missing the required parameter 'saUuid' when calling patchServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchServiceAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchServiceAccountCall(owner, saUuid, body, _callback);
         return localVarCall;
@@ -1550,7 +1550,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1573,7 +1573,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1597,7 +1597,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1675,27 +1675,27 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchServiceAccountTokenValidateBeforeCall(String owner, String entity, String tokenUuid, V1Token body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling patchServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'tokenUuid' is set
         if (tokenUuid == null) {
             throw new ApiException("Missing the required parameter 'tokenUuid' when calling patchServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchServiceAccountToken(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchServiceAccountTokenCall(owner, entity, tokenUuid, body, _callback);
         return localVarCall;
@@ -1704,7 +1704,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -1728,7 +1728,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -1753,7 +1753,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account token (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -1830,22 +1830,22 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateServiceAccountValidateBeforeCall(String owner, String saUuid, V1ServiceAccount body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'saUuid' is set
         if (saUuid == null) {
             throw new ApiException("Missing the required parameter 'saUuid' when calling updateServiceAccount(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateServiceAccount(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateServiceAccountCall(owner, saUuid, body, _callback);
         return localVarCall;
@@ -1854,7 +1854,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1877,7 +1877,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1901,7 +1901,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1979,27 +1979,27 @@ public class ServiceAccountsV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateServiceAccountTokenValidateBeforeCall(String owner, String entity, String tokenUuid, V1Token body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling updateServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'tokenUuid' is set
         if (tokenUuid == null) {
             throw new ApiException("Missing the required parameter 'tokenUuid' when calling updateServiceAccountToken(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateServiceAccountToken(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateServiceAccountTokenCall(owner, entity, tokenUuid, body, _callback);
         return localVarCall;
@@ -2008,7 +2008,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -2032,7 +2032,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account token
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -2057,7 +2057,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account token (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)

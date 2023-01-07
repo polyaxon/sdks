@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,43 +35,43 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1StageCondition
  */
 export interface V1StageCondition {
     /**
-     * 
+     *
      * @type {V1Stages}
      * @memberof V1StageCondition
      */
     type?: V1Stages;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1StageCondition
      */
     status?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1StageCondition
      */
     reason?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1StageCondition
      */
     message?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1StageCondition
      */
     last_update_time?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1StageCondition
      */
@@ -87,7 +87,7 @@ export function V1StageConditionFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-        
+
         'type': !exists(json, 'type') ? undefined : V1StagesFromJSON(json['type']),
         'status': !exists(json, 'status') ? undefined : json['status'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
@@ -105,7 +105,7 @@ export function V1StageConditionToJSON(value?: V1StageCondition | null): any {
         return null;
     }
     return {
-        
+
         'type': V1StagesToJSON(value.type),
         'status': value.status,
         'reason': value.reason,

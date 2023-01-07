@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -120,17 +120,17 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSearchValidateBeforeCall(String owner, V1Search body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = createSearchCall(owner, body, _callback);
         return localVarCall;
@@ -139,7 +139,7 @@ public class SearchesV1Api {
 
     /**
      * Create search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Search body (required)
      * @return V1Search
@@ -161,7 +161,7 @@ public class SearchesV1Api {
 
     /**
      * Create search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Search body (required)
      * @return ApiResponse&lt;V1Search&gt;
@@ -184,7 +184,7 @@ public class SearchesV1Api {
 
     /**
      * Create search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param body Search body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -247,7 +247,7 @@ public class SearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -258,17 +258,17 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSearchValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = deleteSearchCall(owner, uuid, _callback);
         return localVarCall;
@@ -277,7 +277,7 @@ public class SearchesV1Api {
 
     /**
      * Delete search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -297,7 +297,7 @@ public class SearchesV1Api {
 
     /**
      * Delete search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;Void&gt;
@@ -319,7 +319,7 @@ public class SearchesV1Api {
 
     /**
      * Delete search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -381,7 +381,7 @@ public class SearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -392,17 +392,17 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSearchValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = getSearchCall(owner, uuid, _callback);
         return localVarCall;
@@ -411,7 +411,7 @@ public class SearchesV1Api {
 
     /**
      * Get search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Search
@@ -433,7 +433,7 @@ public class SearchesV1Api {
 
     /**
      * Get search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Search&gt;
@@ -456,7 +456,7 @@ public class SearchesV1Api {
 
     /**
      * Get search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -552,7 +552,7 @@ public class SearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -563,12 +563,12 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSearchNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listSearchNames(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listSearchNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -577,7 +577,7 @@ public class SearchesV1Api {
 
     /**
      * List search names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -605,7 +605,7 @@ public class SearchesV1Api {
 
     /**
      * List search names
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -634,7 +634,7 @@ public class SearchesV1Api {
 
     /**
      * List search names (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -736,7 +736,7 @@ public class SearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -747,12 +747,12 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSearchesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listSearches(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = listSearchesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
         return localVarCall;
@@ -761,7 +761,7 @@ public class SearchesV1Api {
 
     /**
      * List searches
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -789,7 +789,7 @@ public class SearchesV1Api {
 
     /**
      * List searches
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -818,7 +818,7 @@ public class SearchesV1Api {
 
     /**
      * List searches (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -899,22 +899,22 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchSearchValidateBeforeCall(String owner, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchSearch(Async)");
         }
-        
+
         // verify the required parameter 'searchUuid' is set
         if (searchUuid == null) {
             throw new ApiException("Missing the required parameter 'searchUuid' when calling patchSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = patchSearchCall(owner, searchUuid, body, _callback);
         return localVarCall;
@@ -923,7 +923,7 @@ public class SearchesV1Api {
 
     /**
      * Patch search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
@@ -946,7 +946,7 @@ public class SearchesV1Api {
 
     /**
      * Patch search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
@@ -970,7 +970,7 @@ public class SearchesV1Api {
 
     /**
      * Patch search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
@@ -1046,22 +1046,22 @@ public class SearchesV1Api {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateSearchValidateBeforeCall(String owner, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
-        
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateSearch(Async)");
         }
-        
+
         // verify the required parameter 'searchUuid' is set
         if (searchUuid == null) {
             throw new ApiException("Missing the required parameter 'searchUuid' when calling updateSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateSearch(Async)");
         }
-        
+
 
         okhttp3.Call localVarCall = updateSearchCall(owner, searchUuid, body, _callback);
         return localVarCall;
@@ -1070,7 +1070,7 @@ public class SearchesV1Api {
 
     /**
      * Update search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
@@ -1093,7 +1093,7 @@ public class SearchesV1Api {
 
     /**
      * Update search
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
@@ -1117,7 +1117,7 @@ public class SearchesV1Api {
 
     /**
      * Update search (asynchronously)
-     * 
+     *
      * @param owner Owner of the namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)

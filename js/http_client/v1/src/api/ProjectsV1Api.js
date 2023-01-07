@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ import V1Stage from '../model/V1Stage';
 export default class ProjectsV1Api {
 
     /**
-    * Constructs a new ProjectsV1Api. 
+    * Constructs a new ProjectsV1Api.
     * Polyaxon sdk
     * @alias module:api/ProjectsV1Api
     * @class
@@ -272,7 +272,7 @@ export default class ProjectsV1Api {
      * @param {String} entity Entity namespace
      * @param {String} kind Optional kind, only required for an version entity
      * @param {String} name Name of the entity to apply the stage to
-     * @param {module:model/V1EntityStageBodyRequest} body 
+     * @param {module:model/V1EntityStageBodyRequest} body
      * @param {module:api/ProjectsV1Api~createVersionStageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Stage}
      */

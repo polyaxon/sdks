@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,37 +43,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1XGBoostJob
  */
 export interface V1XGBoostJob {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1XGBoostJob
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {V1CleanPodPolicy}
      * @memberof V1XGBoostJob
      */
     cleanPodPolicy?: V1CleanPodPolicy;
     /**
-     * 
+     *
      * @type {V1SchedulingPolicy}
      * @memberof V1XGBoostJob
      */
     schedulingPolicy?: V1SchedulingPolicy;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1XGBoostJob
      */
     master?: V1KFReplica;
     /**
-     * 
+     *
      * @type {V1KFReplica}
      * @memberof V1XGBoostJob
      */
@@ -89,7 +89,7 @@ export function V1XGBoostJobFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
@@ -106,7 +106,7 @@ export function V1XGBoostJobToJSON(value?: V1XGBoostJob | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),

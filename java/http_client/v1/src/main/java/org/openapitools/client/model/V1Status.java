@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class V1Status {
 
 
   public V1Status uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -88,7 +88,7 @@ public class V1Status {
 
 
   public V1Status status(V1Statuses status) {
-    
+
     this.status = status;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1Status {
 
 
   public V1Status statusConditions(List<V1StatusCondition> statusConditions) {
-    
+
     this.statusConditions = statusConditions;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1Status {
 
 
   public V1Status metaInfo(Object metaInfo) {
-    
+
     this.metaInfo = metaInfo;
     return this;
   }

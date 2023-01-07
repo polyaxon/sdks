@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1K8sResourceSchema
  */
 export interface V1K8sResourceSchema {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1K8sResourceSchema
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1K8sResourceSchema
      */
     mountPath?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1K8sResourceSchema
      */
     items?: Array<string>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1K8sResourceSchema
      */
@@ -68,7 +68,7 @@ export function V1K8sResourceSchemaFromJSONTyped(json: any, ignoreDiscriminator:
         return json;
     }
     return {
-        
+
         'name': !exists(json, 'name') ? undefined : json['name'],
         'mountPath': !exists(json, 'mountPath') ? undefined : json['mountPath'],
         'items': !exists(json, 'items') ? undefined : json['items'],
@@ -84,7 +84,7 @@ export function V1K8sResourceSchemaToJSON(value?: V1K8sResourceSchema | null): a
         return null;
     }
     return {
-        
+
         'name': value.name,
         'mountPath': value.mountPath,
         'items': value.items,

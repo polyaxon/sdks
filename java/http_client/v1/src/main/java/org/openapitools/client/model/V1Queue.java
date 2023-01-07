@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@ public class V1Queue {
 
 
   public V1Queue uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -119,7 +119,7 @@ public class V1Queue {
 
 
   public V1Queue agent(String agent) {
-    
+
     this.agent = agent;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1Queue {
 
 
   public V1Queue name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -165,7 +165,7 @@ public class V1Queue {
 
 
   public V1Queue description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -188,7 +188,7 @@ public class V1Queue {
 
 
   public V1Queue tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -219,7 +219,7 @@ public class V1Queue {
 
 
   public V1Queue priority(Integer priority) {
-    
+
     this.priority = priority;
     return this;
   }
@@ -242,7 +242,7 @@ public class V1Queue {
 
 
   public V1Queue concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -265,7 +265,7 @@ public class V1Queue {
 
 
   public V1Queue resource(String resource) {
-    
+
     this.resource = resource;
     return this;
   }
@@ -288,7 +288,7 @@ public class V1Queue {
 
 
   public V1Queue quota(String quota) {
-    
+
     this.quota = quota;
     return this;
   }
@@ -311,7 +311,7 @@ public class V1Queue {
 
 
   public V1Queue stats(Object stats) {
-    
+
     this.stats = stats;
     return this;
   }
@@ -334,7 +334,7 @@ public class V1Queue {
 
 
   public V1Queue createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -357,7 +357,7 @@ public class V1Queue {
 
 
   public V1Queue updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }

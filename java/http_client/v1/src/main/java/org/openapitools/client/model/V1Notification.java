@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -56,7 +56,7 @@ public class V1Notification {
 
 
   public V1Notification connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1Notification {
 
 
   public V1Notification trigger(V1Statuses trigger) {
-    
+
     this.trigger = trigger;
     return this;
   }

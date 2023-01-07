@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,67 +28,67 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Token
  */
 export interface V1Token {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Token
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Token
      */
     key?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Token
      */
     name?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Token
      */
     scopes?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Token
      */
     services?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Token
      */
     started_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Token
      */
     expires_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Token
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Token
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Token
      */
@@ -104,7 +104,7 @@ export function V1TokenFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'key': !exists(json, 'key') ? undefined : json['key'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -126,7 +126,7 @@ export function V1TokenToJSON(value?: V1Token | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'key': value.key,
         'name': value.name,

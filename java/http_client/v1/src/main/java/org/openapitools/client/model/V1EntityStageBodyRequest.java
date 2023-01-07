@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -89,7 +89,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest entity(String entity) {
-    
+
     this.entity = entity;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -158,7 +158,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest condition(V1StageCondition condition) {
-    
+
     this.condition = condition;
     return this;
   }

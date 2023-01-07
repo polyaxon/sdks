@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType port(Integer port) {
-    
+
     this.port = port;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType uuids(List<String> uuids) {
-    
+
     this.uuids = uuids;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType useNames(Boolean useNames) {
-    
+
     this.useNames = useNames;
     return this;
   }
@@ -144,7 +144,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType pathPrefix(String pathPrefix) {
-    
+
     this.pathPrefix = pathPrefix;
     return this;
   }
@@ -167,7 +167,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType plugins(String plugins) {
-    
+
     this.plugins = plugins;
     return this;
   }

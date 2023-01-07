@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ public class V1TrialStart {
 
 
   public V1TrialStart name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1TrialStart {
 
 
   public V1TrialStart email(String email) {
-    
+
     this.email = email;
     return this;
   }
@@ -115,7 +115,7 @@ public class V1TrialStart {
 
 
   public V1TrialStart organization(String organization) {
-    
+
     this.organization = organization;
     return this;
   }
@@ -138,7 +138,7 @@ public class V1TrialStart {
 
 
   public V1TrialStart plan(String plan) {
-    
+
     this.plan = plan;
     return this;
   }
@@ -161,7 +161,7 @@ public class V1TrialStart {
 
 
   public V1TrialStart seats(Integer seats) {
-    
+
     this.seats = seats;
     return this;
   }
@@ -184,7 +184,7 @@ public class V1TrialStart {
 
 
   public V1TrialStart details(Object details) {
-    
+
     this.details = details;
     return this;
   }

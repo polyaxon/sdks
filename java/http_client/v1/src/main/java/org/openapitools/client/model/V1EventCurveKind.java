@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,11 +43,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1EventCurveKind.Adapter.class)
 public enum V1EventCurveKind {
-  
+
   ROC("roc"),
-  
+
   PR("pr"),
-  
+
   CUSTOM("custom");
 
   private String value;

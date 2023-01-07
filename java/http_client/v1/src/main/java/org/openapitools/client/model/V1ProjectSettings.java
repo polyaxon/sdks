@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }
@@ -115,7 +115,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings preset(String preset) {
-    
+
     this.preset = preset;
     return this;
   }
@@ -138,7 +138,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings presets(List<String> presets) {
-    
+
     this.presets = presets;
     return this;
   }
@@ -169,7 +169,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -192,7 +192,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings queues(List<String> queues) {
-    
+
     this.queues = queues;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings agents(List<String> agents) {
-    
+
     this.agents = agents;
     return this;
   }
@@ -254,7 +254,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings userAccesses(List<V1ProjectUserAccess> userAccesses) {
-    
+
     this.userAccesses = userAccesses;
     return this;
   }
@@ -285,7 +285,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings teams(List<String> teams) {
-    
+
     this.teams = teams;
     return this;
   }
@@ -316,7 +316,7 @@ public class V1ProjectSettings {
 
 
   public V1ProjectSettings projects(List<String> projects) {
-    
+
     this.projects = projects;
     return this;
   }

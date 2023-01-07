@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1MedianStoppingPolicy {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1MedianStoppingPolicy
      */
@@ -48,13 +48,13 @@ export interface V1MedianStoppingPolicy {
      */
     evaluationInterval?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1MedianStoppingPolicy
      */
     minInterval?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1MedianStoppingPolicy
      */
@@ -70,7 +70,7 @@ export function V1MedianStoppingPolicyFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'evaluationInterval': !exists(json, 'evaluationInterval') ? undefined : json['evaluationInterval'],
         'minInterval': !exists(json, 'minInterval') ? undefined : json['minInterval'],
@@ -86,7 +86,7 @@ export function V1MedianStoppingPolicyToJSON(value?: V1MedianStoppingPolicy | nu
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'evaluationInterval': value.evaluationInterval,
         'minInterval': value.minInterval,

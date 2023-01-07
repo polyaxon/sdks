@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -43,11 +43,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1EventChartKind.Adapter.class)
 public enum V1EventChartKind {
-  
+
   PLOTLY("plotly"),
-  
+
   BOKEH("bokeh"),
-  
+
   VEGA("vega");
 
   private String value;

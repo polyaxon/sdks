@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ public class V1ArtifactsType {
 
 
   public V1ArtifactsType files(List<Object> files) {
-    
+
     this.files = files;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1ArtifactsType {
 
 
   public V1ArtifactsType dirs(List<Object> dirs) {
-    
+
     this.dirs = dirs;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1ArtifactsType {
 
 
   public V1ArtifactsType workers(Integer workers) {
-    
+
     this.workers = workers;
     return this;
   }

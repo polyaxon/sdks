@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,11 +42,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(SparkDeployMode.Adapter.class)
 public enum SparkDeployMode {
-  
+
   CLUSTER("cluster"),
-  
+
   CLIENT("client"),
-  
+
   IN_CLUSTER_CLIENT("in_cluster_client");
 
   private String value;

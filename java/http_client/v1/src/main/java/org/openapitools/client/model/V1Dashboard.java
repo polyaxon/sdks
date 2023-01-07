@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -85,7 +85,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -131,7 +131,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -154,7 +154,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -185,7 +185,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -208,7 +208,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard spec(V1DashboardSpec spec) {
-    
+
     this.spec = spec;
     return this;
   }
@@ -231,7 +231,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard orgLevel(Boolean orgLevel) {
-    
+
     this.orgLevel = orgLevel;
     return this;
   }
@@ -254,7 +254,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -277,7 +277,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }

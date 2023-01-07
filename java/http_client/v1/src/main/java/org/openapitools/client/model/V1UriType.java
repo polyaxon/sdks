@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public class V1UriType {
 
 
   public V1UriType user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -80,7 +80,7 @@ public class V1UriType {
 
 
   public V1UriType password(String password) {
-    
+
     this.password = password;
     return this;
   }
@@ -103,7 +103,7 @@ public class V1UriType {
 
 
   public V1UriType host(Boolean host) {
-    
+
     this.host = host;
     return this;
   }

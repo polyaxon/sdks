@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,19 +42,19 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1MatrixKind.Adapter.class)
 public enum V1MatrixKind {
-  
+
   RANDOM("random"),
-  
+
   GRID("grid"),
-  
+
   HYPERBAND("hyperband"),
-  
+
   BAYES("bayes"),
-  
+
   HYPEROPT("hyperopt"),
-  
+
   ITERATIVE("iterative"),
-  
+
   MAPPING("mapping");
 
   private String value;

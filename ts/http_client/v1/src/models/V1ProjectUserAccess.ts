@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1ProjectUserAccess
  */
 export interface V1ProjectUserAccess {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ProjectUserAccess
      */
     user?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ProjectUserAccess
      */
     queue?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ProjectUserAccess
      */
@@ -62,7 +62,7 @@ export function V1ProjectUserAccessFromJSONTyped(json: any, ignoreDiscriminator:
         return json;
     }
     return {
-        
+
         'user': !exists(json, 'user') ? undefined : json['user'],
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
         'preset': !exists(json, 'preset') ? undefined : json['preset'],
@@ -77,7 +77,7 @@ export function V1ProjectUserAccessToJSON(value?: V1ProjectUserAccess | null): a
         return null;
     }
     return {
-        
+
         'user': value.user,
         'queue': value.queue,
         'preset': value.preset,

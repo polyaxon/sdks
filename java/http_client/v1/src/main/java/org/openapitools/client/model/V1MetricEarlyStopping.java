@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ public class V1MetricEarlyStopping {
 
 
   public V1MetricEarlyStopping kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1MetricEarlyStopping {
 
 
   public V1MetricEarlyStopping metric(String metric) {
-    
+
     this.metric = metric;
     return this;
   }
@@ -113,7 +113,7 @@ public class V1MetricEarlyStopping {
 
 
   public V1MetricEarlyStopping value(String value) {
-    
+
     this.value = value;
     return this;
   }
@@ -136,7 +136,7 @@ public class V1MetricEarlyStopping {
 
 
   public V1MetricEarlyStopping optimization(V1Optimization optimization) {
-    
+
     this.optimization = optimization;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1MetricEarlyStopping {
 
 
   public V1MetricEarlyStopping policy(Object policy) {
-    
+
     this.policy = policy;
     return this;
   }

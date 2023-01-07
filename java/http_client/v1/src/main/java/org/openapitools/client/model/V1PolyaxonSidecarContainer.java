@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer image(String image) {
-    
+
     this.image = image;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer imageTag(String imageTag) {
-    
+
     this.imageTag = imageTag;
     return this;
   }
@@ -119,7 +119,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer imagePullPolicy(String imagePullPolicy) {
-    
+
     this.imagePullPolicy = imagePullPolicy;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer sleepInterval(Integer sleepInterval) {
-    
+
     this.sleepInterval = sleepInterval;
     return this;
   }
@@ -165,7 +165,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer syncInterval(Integer syncInterval) {
-    
+
     this.syncInterval = syncInterval;
     return this;
   }
@@ -188,7 +188,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer monitorLogs(Boolean monitorLogs) {
-    
+
     this.monitorLogs = monitorLogs;
     return this;
   }
@@ -211,7 +211,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer resources(Object resources) {
-    
+
     this.resources = resources;
     return this;
   }

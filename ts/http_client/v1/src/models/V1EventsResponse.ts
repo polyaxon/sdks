@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EventsResponse
  */
 export interface V1EventsResponse {
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1EventsResponse
      */
@@ -50,7 +50,7 @@ export function V1EventsResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-        
+
         'data': !exists(json, 'data') ? undefined : json['data'],
     };
 }
@@ -63,7 +63,7 @@ export function V1EventsResponseToJSON(value?: V1EventsResponse | null): any {
         return null;
     }
     return {
-        
+
         'data': value.data,
     };
 }

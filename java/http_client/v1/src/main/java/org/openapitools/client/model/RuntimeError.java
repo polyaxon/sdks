@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ public class RuntimeError {
 
 
   public RuntimeError error(String error) {
-    
+
     this.error = error;
     return this;
   }
@@ -87,7 +87,7 @@ public class RuntimeError {
 
 
   public RuntimeError code(Integer code) {
-    
+
     this.code = code;
     return this;
   }
@@ -110,7 +110,7 @@ public class RuntimeError {
 
 
   public RuntimeError message(String message) {
-    
+
     this.message = message;
     return this;
   }
@@ -133,7 +133,7 @@ public class RuntimeError {
 
 
   public RuntimeError details(List<ProtobufAny> details) {
-    
+
     this.details = details;
     return this;
   }

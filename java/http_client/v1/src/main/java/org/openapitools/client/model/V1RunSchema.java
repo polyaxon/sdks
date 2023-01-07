@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -105,7 +105,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema job(V1Job job) {
-    
+
     this.job = job;
     return this;
   }
@@ -128,7 +128,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema service(V1Service service) {
-    
+
     this.service = service;
     return this;
   }
@@ -151,7 +151,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema dag(V1Dag dag) {
-    
+
     this.dag = dag;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema tfJob(V1TFJob tfJob) {
-    
+
     this.tfJob = tfJob;
     return this;
   }
@@ -197,7 +197,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema pytorchJob(V1PytorchJob pytorchJob) {
-    
+
     this.pytorchJob = pytorchJob;
     return this;
   }
@@ -220,7 +220,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema mpiJob(V1MPIJob mpiJob) {
-    
+
     this.mpiJob = mpiJob;
     return this;
   }
@@ -243,7 +243,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema mxJob(V1MXJob mxJob) {
-    
+
     this.mxJob = mxJob;
     return this;
   }
@@ -266,7 +266,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema xgboostJob(V1XGBoostJob xgboostJob) {
-    
+
     this.xgboostJob = xgboostJob;
     return this;
   }
@@ -289,7 +289,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema dask(V1Dask dask) {
-    
+
     this.dask = dask;
     return this;
   }
@@ -312,7 +312,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema spark(V1Spark spark) {
-    
+
     this.spark = spark;
     return this;
   }
@@ -335,7 +335,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema flink(V1Flink flink) {
-    
+
     this.flink = flink;
     return this;
   }
@@ -358,7 +358,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema ruy(V1Ray ruy) {
-    
+
     this.ruy = ruy;
     return this;
   }

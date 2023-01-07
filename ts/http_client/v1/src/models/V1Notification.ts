@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,19 +35,19 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Notification
  */
 export interface V1Notification {
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Notification
      */
     connections?: Array<string>;
     /**
-     * 
+     *
      * @type {V1Statuses}
      * @memberof V1Notification
      */
@@ -63,7 +63,7 @@ export function V1NotificationFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-        
+
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
         'trigger': !exists(json, 'trigger') ? undefined : V1StatusesFromJSON(json['trigger']),
     };
@@ -77,7 +77,7 @@ export function V1NotificationToJSON(value?: V1Notification | null): any {
         return null;
     }
     return {
-        
+
         'connections': value.connections,
         'trigger': V1StatusesToJSON(value.trigger),
     };

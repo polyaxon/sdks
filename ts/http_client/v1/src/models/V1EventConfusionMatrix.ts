@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EventConfusionMatrix
  */
 export interface V1EventConfusionMatrix {
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1EventConfusionMatrix
      */
     x?: Array<object>;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1EventConfusionMatrix
      */
     y?: Array<object>;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1EventConfusionMatrix
      */
@@ -62,7 +62,7 @@ export function V1EventConfusionMatrixFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-        
+
         'x': !exists(json, 'x') ? undefined : json['x'],
         'y': !exists(json, 'y') ? undefined : json['y'],
         'z': !exists(json, 'z') ? undefined : json['z'],
@@ -77,7 +77,7 @@ export function V1EventConfusionMatrixToJSON(value?: V1EventConfusionMatrix | nu
         return null;
     }
     return {
-        
+
         'x': value.x,
         'y': value.y,
         'z': value.z,

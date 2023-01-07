@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -89,7 +89,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy percent(Float percent) {
-    
+
     this.percent = percent;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy evaluationInterval(Integer evaluationInterval) {
-    
+
     this.evaluationInterval = evaluationInterval;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy minInterval(Integer minInterval) {
-    
+
     this.minInterval = minInterval;
     return this;
   }
@@ -158,7 +158,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy minSamples(Integer minSamples) {
-    
+
     this.minSamples = minSamples;
     return this;
   }

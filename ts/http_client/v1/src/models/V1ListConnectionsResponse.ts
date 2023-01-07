@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,31 +35,31 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1ListConnectionsResponse
  */
 export interface V1ListConnectionsResponse {
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1ListConnectionsResponse
      */
     count?: number;
     /**
-     * 
+     *
      * @type {Array<V1ConnectionResponse>}
      * @memberof V1ListConnectionsResponse
      */
     results?: Array<V1ConnectionResponse>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ListConnectionsResponse
      */
     previous?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ListConnectionsResponse
      */
@@ -75,7 +75,7 @@ export function V1ListConnectionsResponseFromJSONTyped(json: any, ignoreDiscrimi
         return json;
     }
     return {
-        
+
         'count': !exists(json, 'count') ? undefined : json['count'],
         'results': !exists(json, 'results') ? undefined : ((json['results'] as Array<any>).map(V1ConnectionResponseFromJSON)),
         'previous': !exists(json, 'previous') ? undefined : json['previous'],
@@ -91,7 +91,7 @@ export function V1ListConnectionsResponseToJSON(value?: V1ListConnectionsRespons
         return null;
     }
     return {
-        
+
         'count': value.count,
         'results': value.results === undefined ? undefined : ((value.results as Array<any>).map(V1ConnectionResponseToJSON)),
         'previous': value.previous,

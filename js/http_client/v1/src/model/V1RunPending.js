@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,35 +32,35 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1RunPending {
-    
+
         /**
          * value: "approval"
          * @const
          */
         "approval" = "approval";
 
-    
+
         /**
          * value: "upload"
          * @const
          */
         "upload" = "upload";
 
-    
+
         /**
          * value: "cache"
          * @const
          */
         "cache" = "cache";
 
-    
+
         /**
          * value: "build"
          * @const
          */
         "build" = "build";
 
-    
+
 
     /**
     * Returns a <code>V1RunPending</code> enum value from a Javascript object name.

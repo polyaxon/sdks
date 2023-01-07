@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1UrlRef
  */
 export interface V1UrlRef {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UrlRef
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1UrlRef
      */
@@ -56,7 +56,7 @@ export function V1UrlRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'url': !exists(json, 'url') ? undefined : json['url'],
     };
@@ -70,7 +70,7 @@ export function V1UrlRefToJSON(value?: V1UrlRef | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'url': value.url,
     };

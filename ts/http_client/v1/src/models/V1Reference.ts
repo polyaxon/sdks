@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,31 +47,31 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Reference
  */
 export interface V1Reference {
     /**
-     * 
+     *
      * @type {V1HubRef}
      * @memberof V1Reference
      */
     hubRef?: V1HubRef;
     /**
-     * 
+     *
      * @type {V1DagRef}
      * @memberof V1Reference
      */
     dagRef?: V1DagRef;
     /**
-     * 
+     *
      * @type {V1UrlRef}
      * @memberof V1Reference
      */
     urlRef?: V1UrlRef;
     /**
-     * 
+     *
      * @type {V1PathRef}
      * @memberof V1Reference
      */
@@ -87,7 +87,7 @@ export function V1ReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
+
         'hubRef': !exists(json, 'hubRef') ? undefined : V1HubRefFromJSON(json['hubRef']),
         'dagRef': !exists(json, 'dagRef') ? undefined : V1DagRefFromJSON(json['dagRef']),
         'urlRef': !exists(json, 'urlRef') ? undefined : V1UrlRefFromJSON(json['urlRef']),
@@ -103,7 +103,7 @@ export function V1ReferenceToJSON(value?: V1Reference | null): any {
         return null;
     }
     return {
-        
+
         'hubRef': V1HubRefToJSON(value.hubRef),
         'dagRef': V1DagRefToJSON(value.dagRef),
         'urlRef': V1UrlRefToJSON(value.urlRef),

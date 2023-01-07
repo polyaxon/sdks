@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -51,37 +51,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1ConnectionSchema
  */
 export interface V1ConnectionSchema {
     /**
-     * 
+     *
      * @type {V1BucketConnection}
      * @memberof V1ConnectionSchema
      */
     bucketConnection?: V1BucketConnection;
     /**
-     * 
+     *
      * @type {V1HostPathConnection}
      * @memberof V1ConnectionSchema
      */
     hostPathConnection?: V1HostPathConnection;
     /**
-     * 
+     *
      * @type {V1ClaimConnection}
      * @memberof V1ConnectionSchema
      */
     claimConnection?: V1ClaimConnection;
     /**
-     * 
+     *
      * @type {V1HostConnection}
      * @memberof V1ConnectionSchema
      */
     hostConnection?: V1HostConnection;
     /**
-     * 
+     *
      * @type {V1GitConnection}
      * @memberof V1ConnectionSchema
      */
@@ -97,7 +97,7 @@ export function V1ConnectionSchemaFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-        
+
         'bucketConnection': !exists(json, 'bucketConnection') ? undefined : V1BucketConnectionFromJSON(json['bucketConnection']),
         'hostPathConnection': !exists(json, 'hostPathConnection') ? undefined : V1HostPathConnectionFromJSON(json['hostPathConnection']),
         'claimConnection': !exists(json, 'claimConnection') ? undefined : V1ClaimConnectionFromJSON(json['claimConnection']),
@@ -114,7 +114,7 @@ export function V1ConnectionSchemaToJSON(value?: V1ConnectionSchema | null): any
         return null;
     }
     return {
-        
+
         'bucketConnection': V1BucketConnectionToJSON(value.bucketConnection),
         'hostPathConnection': V1HostPathConnectionToJSON(value.hostPathConnection),
         'claimConnection': V1ClaimConnectionToJSON(value.claimConnection),

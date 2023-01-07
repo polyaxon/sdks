@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,115 +59,115 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Component
  */
 export interface V1Component {
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Component
      */
     version?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Component
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Component
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Component
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Component
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Component
      */
     presets?: Array<string>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Component
      */
     queue?: string;
     /**
-     * 
+     *
      * @type {V1Cache}
      * @memberof V1Component
      */
     cache?: V1Cache;
     /**
-     * 
+     *
      * @type {V1Termination}
      * @memberof V1Component
      */
     termination?: V1Termination;
     /**
-     * 
+     *
      * @type {V1Plugins}
      * @memberof V1Component
      */
     plugins?: V1Plugins;
     /**
-     * 
+     *
      * @type {Array<V1Hook>}
      * @memberof V1Component
      */
     hooks?: Array<V1Hook>;
     /**
-     * 
+     *
      * @type {Array<V1IO>}
      * @memberof V1Component
      */
     inputs?: Array<V1IO>;
     /**
-     * 
+     *
      * @type {Array<V1IO>}
      * @memberof V1Component
      */
     outputs?: Array<V1IO>;
     /**
-     * 
+     *
      * @type {V1Build}
      * @memberof V1Component
      */
     build?: V1Build;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Component
      */
     run?: object;
     /**
-     * 
+     *
      * @type {V1Template}
      * @memberof V1Component
      */
     template?: V1Template;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Component
      */
     isApproved?: boolean;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Component
      */
@@ -183,7 +183,7 @@ export function V1ComponentFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
+
         'version': !exists(json, 'version') ? undefined : json['version'],
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -213,7 +213,7 @@ export function V1ComponentToJSON(value?: V1Component | null): any {
         return null;
     }
     return {
-        
+
         'version': value.version,
         'kind': value.kind,
         'name': value.name,

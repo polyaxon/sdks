@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody namespace(String namespace) {
-    
+
     this.namespace = namespace;
     return this;
   }
@@ -99,7 +99,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody project(String project) {
-    
+
     this.project = project;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -168,7 +168,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -191,7 +191,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody condition(V1StatusCondition condition) {
-    
+
     this.condition = condition;
     return this;
   }
@@ -214,7 +214,7 @@ public class V1EntityNotificationBody {
 
 
   public V1EntityNotificationBody connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }

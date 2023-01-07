@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class QueuesV1ApiTest {
 
     private final QueuesV1Api api = new QueuesV1Api();
 
-    
+
     /**
      * Create queue
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -64,11 +64,11 @@ public class QueuesV1ApiTest {
                 V1Queue response = api.createQueue(owner, agent, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete queue
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,11 +81,11 @@ public class QueuesV1ApiTest {
                 api.deleteQueue(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get queue
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,11 +98,11 @@ public class QueuesV1ApiTest {
                 V1Queue response = api.getQueue(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List organization level queues names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -120,11 +120,11 @@ public class QueuesV1ApiTest {
                 V1ListQueuesResponse response = api.listOrganizationQueueNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List organization level queues
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -142,11 +142,11 @@ public class QueuesV1ApiTest {
                 V1ListQueuesResponse response = api.listOrganizationQueues(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List queues names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -165,11 +165,11 @@ public class QueuesV1ApiTest {
                 V1ListQueuesResponse response = api.listQueueNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List queues
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -188,11 +188,11 @@ public class QueuesV1ApiTest {
                 V1ListQueuesResponse response = api.listQueues(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch queue
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -206,11 +206,11 @@ public class QueuesV1ApiTest {
                 V1Queue response = api.patchQueue(owner, agent, queueUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update queue
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -224,5 +224,5 @@ public class QueuesV1ApiTest {
                 V1Queue response = api.updateQueue(owner, agent, queueUuid, body);
         // TODO: test validations
     }
-    
+
 }

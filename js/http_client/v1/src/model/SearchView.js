@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,63 +32,63 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class SearchView {
-    
+
         /**
          * value: "any"
          * @const
          */
         "any" = "any";
 
-    
+
         /**
          * value: "runs"
          * @const
          */
         "runs" = "runs";
 
-    
+
         /**
          * value: "selection"
          * @const
          */
         "selection" = "selection";
 
-    
+
         /**
          * value: "analytics"
          * @const
          */
         "analytics" = "analytics";
 
-    
+
         /**
          * value: "components"
          * @const
          */
         "components" = "components";
 
-    
+
         /**
          * value: "models"
          * @const
          */
         "models" = "models";
 
-    
+
         /**
          * value: "artifacts"
          * @const
          */
         "artifacts" = "artifacts";
 
-    
+
         /**
          * value: "projects"
          * @const
          */
         "projects" = "projects";
 
-    
+
 
     /**
     * Returns a <code>SearchView</code> enum value from a Javascript object name.

@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,19 +35,19 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1EventArtifact
  */
 export interface V1EventArtifact {
     /**
-     * 
+     *
      * @type {V1ArtifactKind}
      * @memberof V1EventArtifact
      */
     kind?: V1ArtifactKind;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EventArtifact
      */
@@ -63,7 +63,7 @@ export function V1EventArtifactFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : V1ArtifactKindFromJSON(json['kind']),
         'path': !exists(json, 'path') ? undefined : json['path'],
     };
@@ -77,7 +77,7 @@ export function V1EventArtifactToJSON(value?: V1EventArtifact | null): any {
         return null;
     }
     return {
-        
+
         'kind': V1ArtifactKindToJSON(value.kind),
         'path': value.path,
     };

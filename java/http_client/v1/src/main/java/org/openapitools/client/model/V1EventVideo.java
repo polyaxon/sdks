@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class V1EventVideo {
 
 
   public V1EventVideo height(Integer height) {
-    
+
     this.height = height;
     return this;
   }
@@ -88,7 +88,7 @@ public class V1EventVideo {
 
 
   public V1EventVideo width(Integer width) {
-    
+
     this.width = width;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1EventVideo {
 
 
   public V1EventVideo colorspace(Integer colorspace) {
-    
+
     this.colorspace = colorspace;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1EventVideo {
 
 
   public V1EventVideo path(String path) {
-    
+
     this.path = path;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1EventVideo {
 
 
   public V1EventVideo contentType(String contentType) {
-    
+
     this.contentType = contentType;
     return this;
   }

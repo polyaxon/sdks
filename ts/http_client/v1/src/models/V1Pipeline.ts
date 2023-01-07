@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,25 +35,25 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Pipeline
  */
 export interface V1Pipeline {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Pipeline
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Pipeline
      */
     name?: string;
     /**
-     * 
+     *
      * @type {V1PipelineKind}
      * @memberof V1Pipeline
      */
@@ -69,7 +69,7 @@ export function V1PipelineFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'kind': !exists(json, 'kind') ? undefined : V1PipelineKindFromJSON(json['kind']),
@@ -84,7 +84,7 @@ export function V1PipelineToJSON(value?: V1Pipeline | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'kind': V1PipelineKindToJSON(value.kind),

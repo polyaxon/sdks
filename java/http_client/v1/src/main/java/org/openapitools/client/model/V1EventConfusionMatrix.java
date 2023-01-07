@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ public class V1EventConfusionMatrix {
 
 
   public V1EventConfusionMatrix x(List<Object> x) {
-    
+
     this.x = x;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1EventConfusionMatrix {
 
 
   public V1EventConfusionMatrix y(List<Object> y) {
-    
+
     this.y = y;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1EventConfusionMatrix {
 
 
   public V1EventConfusionMatrix z(List<Object> z) {
-    
+
     this.z = z;
     return this;
   }

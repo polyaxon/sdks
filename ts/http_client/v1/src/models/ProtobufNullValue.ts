@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,9 +29,9 @@
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the
  * `Value` type union.
- * 
+ *
  *  The JSON representation for `NullValue` is JSON `null`.
- * 
+ *
  *  - NULL_VALUE: Null value.
  * @export
  * @enum {string}

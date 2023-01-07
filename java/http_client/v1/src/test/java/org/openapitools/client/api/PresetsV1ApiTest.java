@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class PresetsV1ApiTest {
 
     private final PresetsV1Api api = new PresetsV1Api();
 
-    
+
     /**
      * Create scheduling presets
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -63,11 +63,11 @@ public class PresetsV1ApiTest {
                 V1Preset response = api.createPreset(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete scheduling preset
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -80,11 +80,11 @@ public class PresetsV1ApiTest {
                 api.deletePreset(owner, uuid, entity);
         // TODO: test validations
     }
-    
+
     /**
      * Get scheduling preset
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -97,11 +97,11 @@ public class PresetsV1ApiTest {
                 V1Preset response = api.getPreset(owner, uuid, entity);
         // TODO: test validations
     }
-    
+
     /**
      * List scheduling presets names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -119,11 +119,11 @@ public class PresetsV1ApiTest {
                 V1ListPresetsResponse response = api.listPresetNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List scheduling presets
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -141,11 +141,11 @@ public class PresetsV1ApiTest {
                 V1ListPresetsResponse response = api.listPresets(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch scheduling preset
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -158,11 +158,11 @@ public class PresetsV1ApiTest {
                 V1Preset response = api.patchPreset(owner, presetUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update scheduling preset
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -175,5 +175,5 @@ public class PresetsV1ApiTest {
                 V1Preset response = api.updatePreset(owner, presetUuid, body);
         // TODO: test validations
     }
-    
+
 }

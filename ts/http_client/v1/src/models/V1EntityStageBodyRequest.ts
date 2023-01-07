@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,37 +35,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1EntityStageBodyRequest
  */
 export interface V1EntityStageBodyRequest {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStageBodyRequest
      */
     owner?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStageBodyRequest
      */
     entity?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStageBodyRequest
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStageBodyRequest
      */
     name?: string;
     /**
-     * 
+     *
      * @type {V1StageCondition}
      * @memberof V1EntityStageBodyRequest
      */
@@ -81,7 +81,7 @@ export function V1EntityStageBodyRequestFromJSONTyped(json: any, ignoreDiscrimin
         return json;
     }
     return {
-        
+
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'entity': !exists(json, 'entity') ? undefined : json['entity'],
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
@@ -98,7 +98,7 @@ export function V1EntityStageBodyRequestToJSON(value?: V1EntityStageBodyRequest 
         return null;
     }
     return {
-        
+
         'owner': value.owner,
         'entity': value.entity,
         'kind': value.kind,

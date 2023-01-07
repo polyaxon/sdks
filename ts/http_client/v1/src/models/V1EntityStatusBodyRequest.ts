@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,37 +35,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1EntityStatusBodyRequest
  */
 export interface V1EntityStatusBodyRequest {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStatusBodyRequest
      */
     owner?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStatusBodyRequest
      */
     project?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntityStatusBodyRequest
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {V1StatusCondition}
      * @memberof V1EntityStatusBodyRequest
      */
     condition?: V1StatusCondition;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1EntityStatusBodyRequest
      */
@@ -81,7 +81,7 @@ export function V1EntityStatusBodyRequestFromJSONTyped(json: any, ignoreDiscrimi
         return json;
     }
     return {
-        
+
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'project': !exists(json, 'project') ? undefined : json['project'],
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
@@ -98,7 +98,7 @@ export function V1EntityStatusBodyRequestToJSON(value?: V1EntityStatusBodyReques
         return null;
     }
     return {
-        
+
         'owner': value.owner,
         'project': value.project,
         'uuid': value.uuid,

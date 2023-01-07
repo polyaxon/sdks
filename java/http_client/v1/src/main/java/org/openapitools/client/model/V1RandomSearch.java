@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ public class V1RandomSearch {
 
 
   public V1RandomSearch kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1RandomSearch {
 
 
   public V1RandomSearch params(Map<String, Object> params) {
-    
+
     this.params = params;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1RandomSearch {
 
 
   public V1RandomSearch numRuns(Integer numRuns) {
-    
+
     this.numRuns = numRuns;
     return this;
   }
@@ -150,7 +150,7 @@ public class V1RandomSearch {
 
 
   public V1RandomSearch seed(Integer seed) {
-    
+
     this.seed = seed;
     return this;
   }
@@ -173,7 +173,7 @@ public class V1RandomSearch {
 
 
   public V1RandomSearch concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -196,7 +196,7 @@ public class V1RandomSearch {
 
 
   public V1RandomSearch earlyStopping(List<Object> earlyStopping) {
-    
+
     this.earlyStopping = earlyStopping;
     return this;
   }

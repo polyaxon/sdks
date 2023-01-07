@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica replicas(Integer replicas) {
-    
+
     this.replicas = replicas;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica environment(V1Environment environment) {
-    
+
     this.environment = environment;
     return this;
   }
@@ -115,7 +115,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica init(List<V1Init> init) {
-    
+
     this.init = init;
     return this;
   }
@@ -146,7 +146,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica sidecars(List<Object> sidecars) {
-    
+
     this.sidecars = sidecars;
     return this;
   }
@@ -177,7 +177,7 @@ public class V1SparkReplica {
 
 
   public V1SparkReplica container(Object container) {
-    
+
     this.container = container;
     return this;
   }

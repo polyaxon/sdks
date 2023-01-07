@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1EntitiesTransfer
  */
 export interface V1EntitiesTransfer {
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1EntitiesTransfer
      */
     uuids?: Array<string>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1EntitiesTransfer
      */
@@ -56,7 +56,7 @@ export function V1EntitiesTransferFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-        
+
         'uuids': !exists(json, 'uuids') ? undefined : json['uuids'],
         'project': !exists(json, 'project') ? undefined : json['project'],
     };
@@ -70,7 +70,7 @@ export function V1EntitiesTransferToJSON(value?: V1EntitiesTransfer | null): any
         return null;
     }
     return {
-        
+
         'uuids': value.uuids,
         'project': value.project,
     };

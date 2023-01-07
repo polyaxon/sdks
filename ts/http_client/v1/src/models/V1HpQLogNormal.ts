@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1HpQLogNormal
  */
 export interface V1HpQLogNormal {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1HpQLogNormal
      */
     kind?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1HpQLogNormal
      */
@@ -56,7 +56,7 @@ export function V1HpQLogNormalFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-        
+
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
@@ -70,7 +70,7 @@ export function V1HpQLogNormalToJSON(value?: V1HpQLogNormal | null): any {
         return null;
     }
     return {
-        
+
         'kind': value.kind,
         'value': value.value,
     };

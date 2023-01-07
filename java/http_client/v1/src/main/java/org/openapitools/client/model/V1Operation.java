@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -189,7 +189,7 @@ public class V1Operation {
 
 
   public V1Operation version(Float version) {
-    
+
     this.version = version;
     return this;
   }
@@ -212,7 +212,7 @@ public class V1Operation {
 
 
   public V1Operation kind(String kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -235,7 +235,7 @@ public class V1Operation {
 
 
   public V1Operation name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -258,7 +258,7 @@ public class V1Operation {
 
 
   public V1Operation description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -281,7 +281,7 @@ public class V1Operation {
 
 
   public V1Operation tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -312,7 +312,7 @@ public class V1Operation {
 
 
   public V1Operation presets(List<String> presets) {
-    
+
     this.presets = presets;
     return this;
   }
@@ -343,7 +343,7 @@ public class V1Operation {
 
 
   public V1Operation queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -366,7 +366,7 @@ public class V1Operation {
 
 
   public V1Operation cache(V1Cache cache) {
-    
+
     this.cache = cache;
     return this;
   }
@@ -389,7 +389,7 @@ public class V1Operation {
 
 
   public V1Operation termination(V1Termination termination) {
-    
+
     this.termination = termination;
     return this;
   }
@@ -412,7 +412,7 @@ public class V1Operation {
 
 
   public V1Operation plugins(V1Plugins plugins) {
-    
+
     this.plugins = plugins;
     return this;
   }
@@ -435,7 +435,7 @@ public class V1Operation {
 
 
   public V1Operation schedule(Object schedule) {
-    
+
     this.schedule = schedule;
     return this;
   }
@@ -458,7 +458,7 @@ public class V1Operation {
 
 
   public V1Operation events(List<V1EventTrigger> events) {
-    
+
     this.events = events;
     return this;
   }
@@ -489,7 +489,7 @@ public class V1Operation {
 
 
   public V1Operation hooks(List<V1Hook> hooks) {
-    
+
     this.hooks = hooks;
     return this;
   }
@@ -520,7 +520,7 @@ public class V1Operation {
 
 
   public V1Operation dependencies(List<String> dependencies) {
-    
+
     this.dependencies = dependencies;
     return this;
   }
@@ -551,7 +551,7 @@ public class V1Operation {
 
 
   public V1Operation trigger(V1TriggerPolicy trigger) {
-    
+
     this.trigger = trigger;
     return this;
   }
@@ -574,7 +574,7 @@ public class V1Operation {
 
 
   public V1Operation conditions(String conditions) {
-    
+
     this.conditions = conditions;
     return this;
   }
@@ -597,7 +597,7 @@ public class V1Operation {
 
 
   public V1Operation skipOnUpstreamSkip(Boolean skipOnUpstreamSkip) {
-    
+
     this.skipOnUpstreamSkip = skipOnUpstreamSkip;
     return this;
   }
@@ -620,7 +620,7 @@ public class V1Operation {
 
 
   public V1Operation matrix(Object matrix) {
-    
+
     this.matrix = matrix;
     return this;
   }
@@ -643,7 +643,7 @@ public class V1Operation {
 
 
   public V1Operation joins(Map<String, V1Join> joins) {
-    
+
     this.joins = joins;
     return this;
   }
@@ -674,7 +674,7 @@ public class V1Operation {
 
 
   public V1Operation params(Map<String, V1Param> params) {
-    
+
     this.params = params;
     return this;
   }
@@ -705,7 +705,7 @@ public class V1Operation {
 
 
   public V1Operation runPatch(Object runPatch) {
-    
+
     this.runPatch = runPatch;
     return this;
   }
@@ -728,7 +728,7 @@ public class V1Operation {
 
 
   public V1Operation patchStrategy(V1PatchStrategy patchStrategy) {
-    
+
     this.patchStrategy = patchStrategy;
     return this;
   }
@@ -751,7 +751,7 @@ public class V1Operation {
 
 
   public V1Operation isPreset(Boolean isPreset) {
-    
+
     this.isPreset = isPreset;
     return this;
   }
@@ -774,7 +774,7 @@ public class V1Operation {
 
 
   public V1Operation isApproved(Boolean isApproved) {
-    
+
     this.isApproved = isApproved;
     return this;
   }
@@ -797,7 +797,7 @@ public class V1Operation {
 
 
   public V1Operation template(V1Template template) {
-    
+
     this.template = template;
     return this;
   }
@@ -820,7 +820,7 @@ public class V1Operation {
 
 
   public V1Operation build(V1Build build) {
-    
+
     this.build = build;
     return this;
   }
@@ -843,7 +843,7 @@ public class V1Operation {
 
 
   public V1Operation cost(Float cost) {
-    
+
     this.cost = cost;
     return this;
   }
@@ -866,7 +866,7 @@ public class V1Operation {
 
 
   public V1Operation pathRef(String pathRef) {
-    
+
     this.pathRef = pathRef;
     return this;
   }
@@ -889,7 +889,7 @@ public class V1Operation {
 
 
   public V1Operation hubRef(String hubRef) {
-    
+
     this.hubRef = hubRef;
     return this;
   }
@@ -912,7 +912,7 @@ public class V1Operation {
 
 
   public V1Operation dagRef(String dagRef) {
-    
+
     this.dagRef = dagRef;
     return this;
   }
@@ -935,7 +935,7 @@ public class V1Operation {
 
 
   public V1Operation urlRef(String urlRef) {
-    
+
     this.urlRef = urlRef;
     return this;
   }
@@ -958,7 +958,7 @@ public class V1Operation {
 
 
   public V1Operation component(V1Component component) {
-    
+
     this.component = component;
     return this;
   }

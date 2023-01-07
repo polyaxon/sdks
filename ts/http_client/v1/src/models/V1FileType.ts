@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1FileType
  */
 export interface V1FileType {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1FileType
      */
     content?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1FileType
      */
     filename?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1FileType
      */
     chmod?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1FileType
      */
@@ -68,7 +68,7 @@ export function V1FileTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
+
         'content': !exists(json, 'content') ? undefined : json['content'],
         'filename': !exists(json, 'filename') ? undefined : json['filename'],
         'chmod': !exists(json, 'chmod') ? undefined : json['chmod'],
@@ -84,7 +84,7 @@ export function V1FileTypeToJSON(value?: V1FileType | null): any {
         return null;
     }
     return {
-        
+
         'content': value.content,
         'filename': value.filename,
         'chmod': value.chmod,

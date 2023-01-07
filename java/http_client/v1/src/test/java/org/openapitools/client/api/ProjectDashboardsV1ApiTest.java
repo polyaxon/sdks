@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class ProjectDashboardsV1ApiTest {
 
     private final ProjectDashboardsV1Api api = new ProjectDashboardsV1Api();
 
-    
+
     /**
      * Create project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -64,11 +64,11 @@ public class ProjectDashboardsV1ApiTest {
                 V1Dashboard response = api.createProjectDashboard(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,11 +81,11 @@ public class ProjectDashboardsV1ApiTest {
                 api.deleteProjectDashboard(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,11 +98,11 @@ public class ProjectDashboardsV1ApiTest {
                 V1Dashboard response = api.getProjectDashboard(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -121,11 +121,11 @@ public class ProjectDashboardsV1ApiTest {
                 V1ListDashboardsResponse response = api.listProjectDashboardNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List project dashboards
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -144,11 +144,11 @@ public class ProjectDashboardsV1ApiTest {
                 V1ListDashboardsResponse response = api.listProjectDashboards(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -162,11 +162,11 @@ public class ProjectDashboardsV1ApiTest {
                 V1Dashboard response = api.patchProjectDashboard(owner, project, dashboardUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Promote project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -179,11 +179,11 @@ public class ProjectDashboardsV1ApiTest {
                 api.promoteProjectDashboard(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Update project dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -197,5 +197,5 @@ public class ProjectDashboardsV1ApiTest {
                 V1Dashboard response = api.updateProjectDashboard(owner, project, dashboardUuid, body);
         // TODO: test validations
     }
-    
+
 }

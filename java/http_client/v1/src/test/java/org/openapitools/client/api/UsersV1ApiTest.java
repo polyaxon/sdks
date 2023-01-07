@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -49,11 +49,11 @@ public class UsersV1ApiTest {
 
     private final UsersV1Api api = new UsersV1Api();
 
-    
+
     /**
      * Create token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -64,11 +64,11 @@ public class UsersV1ApiTest {
                 V1Token response = api.createToken(body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -79,11 +79,11 @@ public class UsersV1ApiTest {
                 api.deleteToken(uuid);
         // TODO: test validations
     }
-    
+
     /**
      * User History
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,11 +98,11 @@ public class UsersV1ApiTest {
                 V1ListActivitiesResponse response = api.getHistory(offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * User suggestions
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -117,11 +117,11 @@ public class UsersV1ApiTest {
                 Object response = api.getSuggestions(offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -132,11 +132,11 @@ public class UsersV1ApiTest {
                 V1Token response = api.getToken(uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get current user
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -146,11 +146,11 @@ public class UsersV1ApiTest {
                 V1User response = api.getUser();
         // TODO: test validations
     }
-    
+
     /**
      * List tokens
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -165,11 +165,11 @@ public class UsersV1ApiTest {
                 V1ListTokenResponse response = api.listTokens(offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -181,11 +181,11 @@ public class UsersV1ApiTest {
                 V1Token response = api.patchToken(tokenUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch current user
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -196,11 +196,11 @@ public class UsersV1ApiTest {
                 V1User response = api.patchUser(body);
         // TODO: test validations
     }
-    
+
     /**
      * Update token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -212,11 +212,11 @@ public class UsersV1ApiTest {
                 V1Token response = api.updateToken(tokenUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update current user
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -227,5 +227,5 @@ public class UsersV1ApiTest {
                 V1User response = api.updateUser(body);
         // TODO: test validations
     }
-    
+
 }

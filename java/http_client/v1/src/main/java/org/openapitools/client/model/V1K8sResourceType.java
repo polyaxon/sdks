@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ public class V1K8sResourceType {
 
 
   public V1K8sResourceType name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -81,7 +81,7 @@ public class V1K8sResourceType {
 
 
   public V1K8sResourceType schema(V1K8sResourceSchema schema) {
-    
+
     this.schema = schema;
     return this;
   }
@@ -104,7 +104,7 @@ public class V1K8sResourceType {
 
 
   public V1K8sResourceType isRequested(Boolean isRequested) {
-    
+
     this.isRequested = isRequested;
     return this;
   }

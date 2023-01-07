@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -39,37 +39,37 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1SparkReplica
  */
 export interface V1SparkReplica {
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1SparkReplica
      */
     replicas?: number;
     /**
-     * 
+     *
      * @type {V1Environment}
      * @memberof V1SparkReplica
      */
     environment?: V1Environment;
     /**
-     * 
+     *
      * @type {Array<V1Init>}
      * @memberof V1SparkReplica
      */
     init?: Array<V1Init>;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1SparkReplica
      */
     sidecars?: Array<object>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1SparkReplica
      */
@@ -85,7 +85,7 @@ export function V1SparkReplicaFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-        
+
         'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
         'environment': !exists(json, 'environment') ? undefined : V1EnvironmentFromJSON(json['environment']),
         'init': !exists(json, 'init') ? undefined : ((json['init'] as Array<any>).map(V1InitFromJSON)),
@@ -102,7 +102,7 @@ export function V1SparkReplicaToJSON(value?: V1SparkReplica | null): any {
         return null;
     }
     return {
-        
+
         'replicas': value.replicas,
         'environment': V1EnvironmentToJSON(value.environment),
         'init': value.init === undefined ? undefined : ((value.init as Array<any>).map(V1InitToJSON)),

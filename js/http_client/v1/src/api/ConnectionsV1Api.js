@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ import V1ListConnectionsResponse from '../model/V1ListConnectionsResponse';
 export default class ConnectionsV1Api {
 
     /**
-    * Constructs a new ConnectionsV1Api. 
+    * Constructs a new ConnectionsV1Api.
     * Polyaxon sdk
     * @alias module:api/ConnectionsV1Api
     * @class

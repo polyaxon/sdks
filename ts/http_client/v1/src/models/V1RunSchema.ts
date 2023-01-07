@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -79,79 +79,79 @@ import {
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1RunSchema
  */
 export interface V1RunSchema {
     /**
-     * 
+     *
      * @type {V1Job}
      * @memberof V1RunSchema
      */
     job?: V1Job;
     /**
-     * 
+     *
      * @type {V1Service}
      * @memberof V1RunSchema
      */
     service?: V1Service;
     /**
-     * 
+     *
      * @type {V1Dag}
      * @memberof V1RunSchema
      */
     dag?: V1Dag;
     /**
-     * 
+     *
      * @type {V1TFJob}
      * @memberof V1RunSchema
      */
     tfJob?: V1TFJob;
     /**
-     * 
+     *
      * @type {V1PytorchJob}
      * @memberof V1RunSchema
      */
     pytorchJob?: V1PytorchJob;
     /**
-     * 
+     *
      * @type {V1MPIJob}
      * @memberof V1RunSchema
      */
     mpiJob?: V1MPIJob;
     /**
-     * 
+     *
      * @type {V1MXJob}
      * @memberof V1RunSchema
      */
     mxJob?: V1MXJob;
     /**
-     * 
+     *
      * @type {V1XGBoostJob}
      * @memberof V1RunSchema
      */
     xgboostJob?: V1XGBoostJob;
     /**
-     * 
+     *
      * @type {V1Dask}
      * @memberof V1RunSchema
      */
     dask?: V1Dask;
     /**
-     * 
+     *
      * @type {V1Spark}
      * @memberof V1RunSchema
      */
     spark?: V1Spark;
     /**
-     * 
+     *
      * @type {V1Flink}
      * @memberof V1RunSchema
      */
     flink?: V1Flink;
     /**
-     * 
+     *
      * @type {V1Ray}
      * @memberof V1RunSchema
      */
@@ -167,7 +167,7 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
+
         'job': !exists(json, 'job') ? undefined : V1JobFromJSON(json['job']),
         'service': !exists(json, 'service') ? undefined : V1ServiceFromJSON(json['service']),
         'dag': !exists(json, 'dag') ? undefined : V1DagFromJSON(json['dag']),
@@ -191,7 +191,7 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         return null;
     }
     return {
-        
+
         'job': V1JobToJSON(value.job),
         'service': V1ServiceToJSON(value.service),
         'dag': V1DagToJSON(value.dag),

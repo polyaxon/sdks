@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -47,11 +47,11 @@ public class DashboardsV1ApiTest {
 
     private final DashboardsV1Api api = new DashboardsV1Api();
 
-    
+
     /**
      * Create dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -63,11 +63,11 @@ public class DashboardsV1ApiTest {
                 V1Dashboard response = api.createDashboard(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -79,11 +79,11 @@ public class DashboardsV1ApiTest {
                 api.deleteDashboard(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -95,11 +95,11 @@ public class DashboardsV1ApiTest {
                 V1Dashboard response = api.getDashboard(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List dashboard names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -117,11 +117,11 @@ public class DashboardsV1ApiTest {
                 V1ListDashboardsResponse response = api.listDashboardNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List dashboards
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -139,11 +139,11 @@ public class DashboardsV1ApiTest {
                 V1ListDashboardsResponse response = api.listDashboards(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -156,11 +156,11 @@ public class DashboardsV1ApiTest {
                 V1Dashboard response = api.patchDashboard(owner, dashboardUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update dashboard
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -173,5 +173,5 @@ public class DashboardsV1ApiTest {
                 V1Dashboard response = api.updateDashboard(owner, dashboardUuid, body);
         // TODO: test validations
     }
-    
+
 }

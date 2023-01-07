@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup username(String username) {
-    
+
     this.username = username;
     return this;
   }
@@ -88,7 +88,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup email(String email) {
-    
+
     this.email = email;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup organization(String organization) {
-    
+
     this.organization = organization;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup password(String password) {
-    
+
     this.password = password;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup invitationKey(String invitationKey) {
-    
+
     this.invitationKey = invitationKey;
     return this;
   }

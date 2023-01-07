@@ -1,4 +1,4 @@
-// Copyright 2018-2022 Polyaxon, Inc.
+// Copyright 2018-2023 Polyaxon, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -49,11 +49,11 @@ public class ServiceAccountsV1ApiTest {
 
     private final ServiceAccountsV1Api api = new ServiceAccountsV1Api();
 
-    
+
     /**
      * Create service account
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -65,11 +65,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ServiceAccount response = api.createServiceAccount(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create service account token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -82,11 +82,11 @@ public class ServiceAccountsV1ApiTest {
                 V1Token response = api.createServiceAccountToken(owner, entity, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete service account
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,11 +98,11 @@ public class ServiceAccountsV1ApiTest {
                 api.deleteServiceAccount(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete service account token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -115,11 +115,11 @@ public class ServiceAccountsV1ApiTest {
                 api.deleteServiceAccountToken(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get service account
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -131,11 +131,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ServiceAccount response = api.getServiceAccount(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get service account token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -148,11 +148,11 @@ public class ServiceAccountsV1ApiTest {
                 V1Token response = api.getServiceAccountToken(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List service accounts names
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -170,11 +170,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ListServiceAccountsResponse response = api.listServiceAccountNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List service account tokens
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -192,11 +192,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ListTokenResponse response = api.listServiceAccountTokens(owner, uuid, entity, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List service accounts
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -214,11 +214,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ListServiceAccountsResponse response = api.listServiceAccounts(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch service account
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -231,11 +231,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ServiceAccount response = api.patchServiceAccount(owner, saUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch service account token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -249,11 +249,11 @@ public class ServiceAccountsV1ApiTest {
                 V1Token response = api.patchServiceAccountToken(owner, entity, tokenUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update service account
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -266,11 +266,11 @@ public class ServiceAccountsV1ApiTest {
                 V1ServiceAccount response = api.updateServiceAccount(owner, saUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update service account token
      *
-     * 
+     *
      *
      * @throws ApiException
      *          if the Api call fails
@@ -284,5 +284,5 @@ public class ServiceAccountsV1ApiTest {
                 V1Token response = api.updateServiceAccountToken(owner, entity, tokenUuid, body);
         // TODO: test validations
     }
-    
+
 }
