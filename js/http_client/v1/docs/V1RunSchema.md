@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **mpiJob** | [**V1MPIJob**](V1MPIJob.md) |  | [optional] 
 **mxJob** | [**V1MXJob**](V1MXJob.md) |  | [optional] 
 **xgboostJob** | [**V1XGBoostJob**](V1XGBoostJob.md) |  | [optional] 
+**paddleJob** | [**V1PaddleJob**](V1PaddleJob.md) |  | [optional] 
 **dask** | [**V1Dask**](V1Dask.md) |  | [optional] 
 **spark** | [**V1Spark**](V1Spark.md) |  | [optional] 
 **flink** | [**V1Flink**](V1Flink.md) |  | [optional] 

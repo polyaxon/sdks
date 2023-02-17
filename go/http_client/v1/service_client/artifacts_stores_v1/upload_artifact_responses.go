@@ -101,6 +101,11 @@ func (o *UploadArtifactOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the upload artifact o k response
+func (o *UploadArtifactOK) Code() int {
+	return 200
+}
+
 func (o *UploadArtifactOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactOK ", 200)
 }
@@ -150,6 +155,11 @@ func (o *UploadArtifactNoContent) IsServerError() bool {
 // IsCode returns true when this upload artifact no content response a status code equal to that given
 func (o *UploadArtifactNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the upload artifact no content response
+func (o *UploadArtifactNoContent) Code() int {
+	return 204
 }
 
 func (o *UploadArtifactNoContent) Error() string {
@@ -212,6 +222,11 @@ func (o *UploadArtifactForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the upload artifact forbidden response
+func (o *UploadArtifactForbidden) Code() int {
+	return 403
+}
+
 func (o *UploadArtifactForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactForbidden  %+v", 403, o.Payload)
 }
@@ -270,6 +285,11 @@ func (o *UploadArtifactNotFound) IsServerError() bool {
 // IsCode returns true when this upload artifact not found response a status code equal to that given
 func (o *UploadArtifactNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the upload artifact not found response
+func (o *UploadArtifactNotFound) Code() int {
+	return 404
 }
 
 func (o *UploadArtifactNotFound) Error() string {

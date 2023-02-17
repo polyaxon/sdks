@@ -110,6 +110,11 @@ func (o *TrialOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the trial o k response
+func (o *TrialOK) Code() int {
+	return 200
+}
+
 func (o *TrialOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *TrialNoContent) IsServerError() bool {
 // IsCode returns true when this trial no content response a status code equal to that given
 func (o *TrialNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the trial no content response
+func (o *TrialNoContent) Code() int {
+	return 204
 }
 
 func (o *TrialNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *TrialForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the trial forbidden response
+func (o *TrialForbidden) Code() int {
+	return 403
+}
+
 func (o *TrialForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *TrialNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the trial not found response
+func (o *TrialNotFound) Code() int {
+	return 404
+}
+
 func (o *TrialNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type TrialDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the trial default response
-func (o *TrialDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this trial default response has a 2xx status code
 func (o *TrialDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *TrialDefault) IsServerError() bool {
 // IsCode returns true when this trial default response a status code equal to that given
 func (o *TrialDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the trial default response
+func (o *TrialDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TrialDefault) Error() string {

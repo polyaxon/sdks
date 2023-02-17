@@ -111,6 +111,11 @@ func (o *CreateTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create token o k response
+func (o *CreateTokenOK) Code() int {
+	return 200
+}
+
 func (o *CreateTokenOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create token no content response
+func (o *CreateTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateTokenNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateTokenForbidden) IsServerError() bool {
 // IsCode returns true when this create token forbidden response a status code equal to that given
 func (o *CreateTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create token forbidden response
+func (o *CreateTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create token not found response
+func (o *CreateTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateTokenNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/users/tokens][%d] createTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create token default response
-func (o *CreateTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create token default response has a 2xx status code
 func (o *CreateTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateTokenDefault) IsServerError() bool {
 // IsCode returns true when this create token default response a status code equal to that given
 func (o *CreateTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create token default response
+func (o *CreateTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateTokenDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *CopyRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the copy run o k response
+func (o *CopyRunOK) Code() int {
+	return 200
+}
+
 func (o *CopyRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CopyRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the copy run no content response
+func (o *CopyRunNoContent) Code() int {
+	return 204
+}
+
 func (o *CopyRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CopyRunForbidden) IsServerError() bool {
 // IsCode returns true when this copy run forbidden response a status code equal to that given
 func (o *CopyRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the copy run forbidden response
+func (o *CopyRunForbidden) Code() int {
+	return 403
 }
 
 func (o *CopyRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CopyRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the copy run not found response
+func (o *CopyRunNotFound) Code() int {
+	return 404
+}
+
 func (o *CopyRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CopyRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the copy run default response
-func (o *CopyRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this copy run default response has a 2xx status code
 func (o *CopyRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CopyRunDefault) IsServerError() bool {
 // IsCode returns true when this copy run default response a status code equal to that given
 func (o *CopyRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the copy run default response
+func (o *CopyRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CopyRunDefault) Error() string {

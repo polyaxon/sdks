@@ -110,6 +110,11 @@ func (o *DeleteOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete organization runs o k response
+func (o *DeleteOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/runs/delete][%d] deleteOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this delete organization runs no content response a status code equal to that given
 func (o *DeleteOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete organization runs no content response
+func (o *DeleteOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete organization runs forbidden response
+func (o *DeleteOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/runs/delete][%d] deleteOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete organization runs not found response
+func (o *DeleteOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/runs/delete][%d] deleteOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete organization runs default response
-func (o *DeleteOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete organization runs default response has a 2xx status code
 func (o *DeleteOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this delete organization runs default response a status code equal to that given
 func (o *DeleteOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete organization runs default response
+func (o *DeleteOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteOrganizationRunsDefault) Error() string {

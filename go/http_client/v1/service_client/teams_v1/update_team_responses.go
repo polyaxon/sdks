@@ -111,6 +111,11 @@ func (o *UpdateTeamOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update team o k response
+func (o *UpdateTeamOK) Code() int {
+	return 200
+}
+
 func (o *UpdateTeamOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team.name}][%d] updateTeamOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateTeamNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update team no content response
+func (o *UpdateTeamNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateTeamNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team.name}][%d] updateTeamNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateTeamForbidden) IsServerError() bool {
 // IsCode returns true when this update team forbidden response a status code equal to that given
 func (o *UpdateTeamForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update team forbidden response
+func (o *UpdateTeamForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateTeamForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateTeamNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update team not found response
+func (o *UpdateTeamNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateTeamNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team.name}][%d] updateTeamNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateTeamDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update team default response
-func (o *UpdateTeamDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update team default response has a 2xx status code
 func (o *UpdateTeamDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateTeamDefault) IsServerError() bool {
 // IsCode returns true when this update team default response a status code equal to that given
 func (o *UpdateTeamDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update team default response
+func (o *UpdateTeamDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateTeamDefault) Error() string {

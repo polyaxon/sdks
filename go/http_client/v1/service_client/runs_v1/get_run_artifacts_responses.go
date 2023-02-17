@@ -102,6 +102,11 @@ func (o *GetRunArtifactsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run artifacts o k response
+func (o *GetRunArtifactsOK) Code() int {
+	return 200
+}
+
 func (o *GetRunArtifactsOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsOK  %+v", 200, o.Payload)
 }
@@ -160,6 +165,11 @@ func (o *GetRunArtifactsNoContent) IsServerError() bool {
 // IsCode returns true when this get run artifacts no content response a status code equal to that given
 func (o *GetRunArtifactsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the get run artifacts no content response
+func (o *GetRunArtifactsNoContent) Code() int {
+	return 204
 }
 
 func (o *GetRunArtifactsNoContent) Error() string {
@@ -222,6 +232,11 @@ func (o *GetRunArtifactsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get run artifacts forbidden response
+func (o *GetRunArtifactsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRunArtifactsForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsForbidden  %+v", 403, o.Payload)
 }
@@ -280,6 +295,11 @@ func (o *GetRunArtifactsNotFound) IsServerError() bool {
 // IsCode returns true when this get run artifacts not found response a status code equal to that given
 func (o *GetRunArtifactsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the get run artifacts not found response
+func (o *GetRunArtifactsNotFound) Code() int {
+	return 404
 }
 
 func (o *GetRunArtifactsNotFound) Error() string {

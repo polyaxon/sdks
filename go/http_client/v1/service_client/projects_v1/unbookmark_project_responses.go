@@ -110,6 +110,11 @@ func (o *UnbookmarkProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the unbookmark project o k response
+func (o *UnbookmarkProjectOK) Code() int {
+	return 200
+}
+
 func (o *UnbookmarkProjectOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *UnbookmarkProjectNoContent) IsServerError() bool {
 // IsCode returns true when this unbookmark project no content response a status code equal to that given
 func (o *UnbookmarkProjectNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the unbookmark project no content response
+func (o *UnbookmarkProjectNoContent) Code() int {
+	return 204
 }
 
 func (o *UnbookmarkProjectNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *UnbookmarkProjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the unbookmark project forbidden response
+func (o *UnbookmarkProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *UnbookmarkProjectForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *UnbookmarkProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the unbookmark project not found response
+func (o *UnbookmarkProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *UnbookmarkProjectNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type UnbookmarkProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the unbookmark project default response
-func (o *UnbookmarkProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this unbookmark project default response has a 2xx status code
 func (o *UnbookmarkProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *UnbookmarkProjectDefault) IsServerError() bool {
 // IsCode returns true when this unbookmark project default response a status code equal to that given
 func (o *UnbookmarkProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the unbookmark project default response
+func (o *UnbookmarkProjectDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UnbookmarkProjectDefault) Error() string {

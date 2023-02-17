@@ -111,6 +111,11 @@ func (o *GetRunResourcesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run resources o k response
+func (o *GetRunResourcesOK) Code() int {
+	return 200
+}
+
 func (o *GetRunResourcesOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunResourcesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run resources no content response
+func (o *GetRunResourcesNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunResourcesNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunResourcesForbidden) IsServerError() bool {
 // IsCode returns true when this get run resources forbidden response a status code equal to that given
 func (o *GetRunResourcesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run resources forbidden response
+func (o *GetRunResourcesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunResourcesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunResourcesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run resources not found response
+func (o *GetRunResourcesNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunResourcesNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunResourcesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run resources default response
-func (o *GetRunResourcesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run resources default response has a 2xx status code
 func (o *GetRunResourcesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunResourcesDefault) IsServerError() bool {
 // IsCode returns true when this get run resources default response a status code equal to that given
 func (o *GetRunResourcesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run resources default response
+func (o *GetRunResourcesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunResourcesDefault) Error() string {

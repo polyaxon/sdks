@@ -110,6 +110,11 @@ func (o *DeleteDashboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete dashboard o k response
+func (o *DeleteDashboardOK) Code() int {
+	return 200
+}
+
 func (o *DeleteDashboardOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteDashboardNoContent) IsServerError() bool {
 // IsCode returns true when this delete dashboard no content response a status code equal to that given
 func (o *DeleteDashboardNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete dashboard no content response
+func (o *DeleteDashboardNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteDashboardNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteDashboardForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete dashboard forbidden response
+func (o *DeleteDashboardForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteDashboardForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteDashboardNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete dashboard not found response
+func (o *DeleteDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteDashboardNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete dashboard default response
-func (o *DeleteDashboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete dashboard default response has a 2xx status code
 func (o *DeleteDashboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteDashboardDefault) IsServerError() bool {
 // IsCode returns true when this delete dashboard default response a status code equal to that given
 func (o *DeleteDashboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete dashboard default response
+func (o *DeleteDashboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteDashboardDefault) Error() string {

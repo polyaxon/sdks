@@ -111,6 +111,11 @@ func (o *ListOrganizationsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list organizations o k response
+func (o *ListOrganizationsOK) Code() int {
+	return 200
+}
+
 func (o *ListOrganizationsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/list][%d] listOrganizationsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListOrganizationsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list organizations no content response
+func (o *ListOrganizationsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListOrganizationsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/list][%d] listOrganizationsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListOrganizationsForbidden) IsServerError() bool {
 // IsCode returns true when this list organizations forbidden response a status code equal to that given
 func (o *ListOrganizationsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list organizations forbidden response
+func (o *ListOrganizationsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListOrganizationsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListOrganizationsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list organizations not found response
+func (o *ListOrganizationsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListOrganizationsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/list][%d] listOrganizationsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListOrganizationsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list organizations default response
-func (o *ListOrganizationsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list organizations default response has a 2xx status code
 func (o *ListOrganizationsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListOrganizationsDefault) IsServerError() bool {
 // IsCode returns true when this list organizations default response a status code equal to that given
 func (o *ListOrganizationsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list organizations default response
+func (o *ListOrganizationsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListOrganizationsDefault) Error() string {

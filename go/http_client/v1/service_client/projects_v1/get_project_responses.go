@@ -111,6 +111,11 @@ func (o *GetProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get project o k response
+func (o *GetProjectOK) Code() int {
+	return 200
+}
+
 func (o *GetProjectOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetProjectNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get project no content response
+func (o *GetProjectNoContent) Code() int {
+	return 204
+}
+
 func (o *GetProjectNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetProjectForbidden) IsServerError() bool {
 // IsCode returns true when this get project forbidden response a status code equal to that given
 func (o *GetProjectForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get project forbidden response
+func (o *GetProjectForbidden) Code() int {
+	return 403
 }
 
 func (o *GetProjectForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get project not found response
+func (o *GetProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *GetProjectNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get project default response
-func (o *GetProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get project default response has a 2xx status code
 func (o *GetProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetProjectDefault) IsServerError() bool {
 // IsCode returns true when this get project default response a status code equal to that given
 func (o *GetProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get project default response
+func (o *GetProjectDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetProjectDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *GetServiceAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get service account o k response
+func (o *GetServiceAccountOK) Code() int {
+	return 200
+}
+
 func (o *GetServiceAccountOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetServiceAccountNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get service account no content response
+func (o *GetServiceAccountNoContent) Code() int {
+	return 204
+}
+
 func (o *GetServiceAccountNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetServiceAccountForbidden) IsServerError() bool {
 // IsCode returns true when this get service account forbidden response a status code equal to that given
 func (o *GetServiceAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get service account forbidden response
+func (o *GetServiceAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *GetServiceAccountForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetServiceAccountNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get service account not found response
+func (o *GetServiceAccountNotFound) Code() int {
+	return 404
+}
+
 func (o *GetServiceAccountNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetServiceAccountDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get service account default response
-func (o *GetServiceAccountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get service account default response has a 2xx status code
 func (o *GetServiceAccountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetServiceAccountDefault) IsServerError() bool {
 // IsCode returns true when this get service account default response a status code equal to that given
 func (o *GetServiceAccountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get service account default response
+func (o *GetServiceAccountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetServiceAccountDefault) Error() string {

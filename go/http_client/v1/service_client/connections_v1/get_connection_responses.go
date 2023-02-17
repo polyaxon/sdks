@@ -111,6 +111,11 @@ func (o *GetConnectionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get connection o k response
+func (o *GetConnectionOK) Code() int {
+	return 200
+}
+
 func (o *GetConnectionOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetConnectionNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get connection no content response
+func (o *GetConnectionNoContent) Code() int {
+	return 204
+}
+
 func (o *GetConnectionNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetConnectionForbidden) IsServerError() bool {
 // IsCode returns true when this get connection forbidden response a status code equal to that given
 func (o *GetConnectionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get connection forbidden response
+func (o *GetConnectionForbidden) Code() int {
+	return 403
 }
 
 func (o *GetConnectionForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetConnectionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get connection not found response
+func (o *GetConnectionNotFound) Code() int {
+	return 404
+}
+
 func (o *GetConnectionNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetConnectionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get connection default response
-func (o *GetConnectionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get connection default response has a 2xx status code
 func (o *GetConnectionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetConnectionDefault) IsServerError() bool {
 // IsCode returns true when this get connection default response a status code equal to that given
 func (o *GetConnectionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get connection default response
+func (o *GetConnectionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetConnectionDefault) Error() string {

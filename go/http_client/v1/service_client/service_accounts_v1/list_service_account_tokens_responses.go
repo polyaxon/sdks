@@ -111,6 +111,11 @@ func (o *ListServiceAccountTokensOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list service account tokens o k response
+func (o *ListServiceAccountTokensOK) Code() int {
+	return 200
+}
+
 func (o *ListServiceAccountTokensOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListServiceAccountTokensNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list service account tokens no content response
+func (o *ListServiceAccountTokensNoContent) Code() int {
+	return 204
+}
+
 func (o *ListServiceAccountTokensNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListServiceAccountTokensForbidden) IsServerError() bool {
 // IsCode returns true when this list service account tokens forbidden response a status code equal to that given
 func (o *ListServiceAccountTokensForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list service account tokens forbidden response
+func (o *ListServiceAccountTokensForbidden) Code() int {
+	return 403
 }
 
 func (o *ListServiceAccountTokensForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListServiceAccountTokensNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list service account tokens not found response
+func (o *ListServiceAccountTokensNotFound) Code() int {
+	return 404
+}
+
 func (o *ListServiceAccountTokensNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListServiceAccountTokensDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list service account tokens default response
-func (o *ListServiceAccountTokensDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list service account tokens default response has a 2xx status code
 func (o *ListServiceAccountTokensDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListServiceAccountTokensDefault) IsServerError() bool {
 // IsCode returns true when this list service account tokens default response a status code equal to that given
 func (o *ListServiceAccountTokensDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list service account tokens default response
+func (o *ListServiceAccountTokensDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListServiceAccountTokensDefault) Error() string {

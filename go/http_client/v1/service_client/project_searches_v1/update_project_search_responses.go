@@ -111,6 +111,11 @@ func (o *UpdateProjectSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update project search o k response
+func (o *UpdateProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *UpdateProjectSearchOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateProjectSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update project search no content response
+func (o *UpdateProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateProjectSearchForbidden) IsServerError() bool {
 // IsCode returns true when this update project search forbidden response a status code equal to that given
 func (o *UpdateProjectSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update project search forbidden response
+func (o *UpdateProjectSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateProjectSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateProjectSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update project search not found response
+func (o *UpdateProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update project search default response
-func (o *UpdateProjectSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update project search default response has a 2xx status code
 func (o *UpdateProjectSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateProjectSearchDefault) IsServerError() bool {
 // IsCode returns true when this update project search default response a status code equal to that given
 func (o *UpdateProjectSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update project search default response
+func (o *UpdateProjectSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateProjectSearchDefault) Error() string {

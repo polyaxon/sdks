@@ -111,6 +111,11 @@ func (o *CreatePresetOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create preset o k response
+func (o *CreatePresetOK) Code() int {
+	return 200
+}
+
 func (o *CreatePresetOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreatePresetNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create preset no content response
+func (o *CreatePresetNoContent) Code() int {
+	return 204
+}
+
 func (o *CreatePresetNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreatePresetForbidden) IsServerError() bool {
 // IsCode returns true when this create preset forbidden response a status code equal to that given
 func (o *CreatePresetForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create preset forbidden response
+func (o *CreatePresetForbidden) Code() int {
+	return 403
 }
 
 func (o *CreatePresetForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreatePresetNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create preset not found response
+func (o *CreatePresetNotFound) Code() int {
+	return 404
+}
+
 func (o *CreatePresetNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreatePresetDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create preset default response
-func (o *CreatePresetDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create preset default response has a 2xx status code
 func (o *CreatePresetDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreatePresetDefault) IsServerError() bool {
 // IsCode returns true when this create preset default response a status code equal to that given
 func (o *CreatePresetDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create preset default response
+func (o *CreatePresetDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreatePresetDefault) Error() string {

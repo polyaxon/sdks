@@ -111,6 +111,11 @@ func (o *InspectRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the inspect run o k response
+func (o *InspectRunOK) Code() int {
+	return 200
+}
+
 func (o *InspectRunOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunOK  %+v", 200, o.Payload)
 }
@@ -169,6 +174,11 @@ func (o *InspectRunNoContent) IsServerError() bool {
 // IsCode returns true when this inspect run no content response a status code equal to that given
 func (o *InspectRunNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the inspect run no content response
+func (o *InspectRunNoContent) Code() int {
+	return 204
 }
 
 func (o *InspectRunNoContent) Error() string {
@@ -231,6 +241,11 @@ func (o *InspectRunForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the inspect run forbidden response
+func (o *InspectRunForbidden) Code() int {
+	return 403
+}
+
 func (o *InspectRunForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunForbidden  %+v", 403, o.Payload)
 }
@@ -291,6 +306,11 @@ func (o *InspectRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the inspect run not found response
+func (o *InspectRunNotFound) Code() int {
+	return 404
+}
+
 func (o *InspectRunNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNotFound  %+v", 404, o.Payload)
 }
@@ -330,11 +350,6 @@ type InspectRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the inspect run default response
-func (o *InspectRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this inspect run default response has a 2xx status code
 func (o *InspectRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -358,6 +373,11 @@ func (o *InspectRunDefault) IsServerError() bool {
 // IsCode returns true when this inspect run default response a status code equal to that given
 func (o *InspectRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the inspect run default response
+func (o *InspectRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *InspectRunDefault) Error() string {

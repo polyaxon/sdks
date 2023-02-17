@@ -111,6 +111,11 @@ func (o *ListAgentNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list agent names o k response
+func (o *ListAgentNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListAgentNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListAgentNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list agent names no content response
+func (o *ListAgentNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListAgentNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListAgentNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list agent names forbidden response a status code equal to that given
 func (o *ListAgentNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list agent names forbidden response
+func (o *ListAgentNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListAgentNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListAgentNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list agent names not found response
+func (o *ListAgentNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListAgentNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListAgentNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list agent names default response
-func (o *ListAgentNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list agent names default response has a 2xx status code
 func (o *ListAgentNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListAgentNamesDefault) IsServerError() bool {
 // IsCode returns true when this list agent names default response a status code equal to that given
 func (o *ListAgentNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list agent names default response
+func (o *ListAgentNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListAgentNamesDefault) Error() string {

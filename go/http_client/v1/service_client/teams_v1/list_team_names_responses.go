@@ -111,6 +111,11 @@ func (o *ListTeamNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list team names o k response
+func (o *ListTeamNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListTeamNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/names][%d] listTeamNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListTeamNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list team names no content response
+func (o *ListTeamNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListTeamNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/names][%d] listTeamNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListTeamNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list team names forbidden response a status code equal to that given
 func (o *ListTeamNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list team names forbidden response
+func (o *ListTeamNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListTeamNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListTeamNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list team names not found response
+func (o *ListTeamNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListTeamNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/names][%d] listTeamNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListTeamNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list team names default response
-func (o *ListTeamNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list team names default response has a 2xx status code
 func (o *ListTeamNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListTeamNamesDefault) IsServerError() bool {
 // IsCode returns true when this list team names default response a status code equal to that given
 func (o *ListTeamNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list team names default response
+func (o *ListTeamNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListTeamNamesDefault) Error() string {

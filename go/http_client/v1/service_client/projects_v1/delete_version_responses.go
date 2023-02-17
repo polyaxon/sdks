@@ -110,6 +110,11 @@ func (o *DeleteVersionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete version o k response
+func (o *DeleteVersionOK) Code() int {
+	return 200
+}
+
 func (o *DeleteVersionOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteVersionNoContent) IsServerError() bool {
 // IsCode returns true when this delete version no content response a status code equal to that given
 func (o *DeleteVersionNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete version no content response
+func (o *DeleteVersionNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteVersionNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteVersionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete version forbidden response
+func (o *DeleteVersionForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteVersionForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteVersionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete version not found response
+func (o *DeleteVersionNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteVersionNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteVersionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete version default response
-func (o *DeleteVersionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete version default response has a 2xx status code
 func (o *DeleteVersionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteVersionDefault) IsServerError() bool {
 // IsCode returns true when this delete version default response a status code equal to that given
 func (o *DeleteVersionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete version default response
+func (o *DeleteVersionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteVersionDefault) Error() string {

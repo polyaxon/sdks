@@ -111,6 +111,11 @@ func (o *UpdateTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update token o k response
+func (o *UpdateTokenOK) Code() int {
+	return 200
+}
+
 func (o *UpdateTokenOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users/tokens/{token.uuid}][%d] updateTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update token no content response
+func (o *UpdateTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateTokenNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users/tokens/{token.uuid}][%d] updateTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateTokenForbidden) IsServerError() bool {
 // IsCode returns true when this update token forbidden response a status code equal to that given
 func (o *UpdateTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update token forbidden response
+func (o *UpdateTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update token not found response
+func (o *UpdateTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateTokenNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users/tokens/{token.uuid}][%d] updateTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update token default response
-func (o *UpdateTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update token default response has a 2xx status code
 func (o *UpdateTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateTokenDefault) IsServerError() bool {
 // IsCode returns true when this update token default response a status code equal to that given
 func (o *UpdateTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update token default response
+func (o *UpdateTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateTokenDefault) Error() string {

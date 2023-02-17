@@ -110,6 +110,11 @@ func (o *DeleteSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete search o k response
+func (o *DeleteSearchOK) Code() int {
+	return 200
+}
+
 func (o *DeleteSearchOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteSearchNoContent) IsServerError() bool {
 // IsCode returns true when this delete search no content response a status code equal to that given
 func (o *DeleteSearchNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete search no content response
+func (o *DeleteSearchNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteSearchNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteSearchForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete search forbidden response
+func (o *DeleteSearchForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteSearchForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete search not found response
+func (o *DeleteSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteSearchNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/searches/{uuid}][%d] deleteSearchNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete search default response
-func (o *DeleteSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete search default response has a 2xx status code
 func (o *DeleteSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteSearchDefault) IsServerError() bool {
 // IsCode returns true when this delete search default response a status code equal to that given
 func (o *DeleteSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete search default response
+func (o *DeleteSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteSearchDefault) Error() string {

@@ -110,6 +110,11 @@ func (o *ArchiveProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the archive project o k response
+func (o *ArchiveProjectOK) Code() int {
+	return 200
+}
+
 func (o *ArchiveProjectOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/archive][%d] archiveProjectOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *ArchiveProjectNoContent) IsServerError() bool {
 // IsCode returns true when this archive project no content response a status code equal to that given
 func (o *ArchiveProjectNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the archive project no content response
+func (o *ArchiveProjectNoContent) Code() int {
+	return 204
 }
 
 func (o *ArchiveProjectNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *ArchiveProjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the archive project forbidden response
+func (o *ArchiveProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *ArchiveProjectForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/archive][%d] archiveProjectForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *ArchiveProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the archive project not found response
+func (o *ArchiveProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *ArchiveProjectNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/archive][%d] archiveProjectNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type ArchiveProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the archive project default response
-func (o *ArchiveProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this archive project default response has a 2xx status code
 func (o *ArchiveProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *ArchiveProjectDefault) IsServerError() bool {
 // IsCode returns true when this archive project default response a status code equal to that given
 func (o *ArchiveProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the archive project default response
+func (o *ArchiveProjectDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArchiveProjectDefault) Error() string {

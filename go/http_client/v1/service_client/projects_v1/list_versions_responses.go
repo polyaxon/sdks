@@ -111,6 +111,11 @@ func (o *ListVersionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list versions o k response
+func (o *ListVersionsOK) Code() int {
+	return 200
+}
+
 func (o *ListVersionsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}][%d] listVersionsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListVersionsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list versions no content response
+func (o *ListVersionsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListVersionsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}][%d] listVersionsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListVersionsForbidden) IsServerError() bool {
 // IsCode returns true when this list versions forbidden response a status code equal to that given
 func (o *ListVersionsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list versions forbidden response
+func (o *ListVersionsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListVersionsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListVersionsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list versions not found response
+func (o *ListVersionsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListVersionsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}][%d] listVersionsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListVersionsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list versions default response
-func (o *ListVersionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list versions default response has a 2xx status code
 func (o *ListVersionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListVersionsDefault) IsServerError() bool {
 // IsCode returns true when this list versions default response a status code equal to that given
 func (o *ListVersionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list versions default response
+func (o *ListVersionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListVersionsDefault) Error() string {

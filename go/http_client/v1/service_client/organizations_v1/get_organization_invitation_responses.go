@@ -111,6 +111,11 @@ func (o *GetOrganizationInvitationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get organization invitation o k response
+func (o *GetOrganizationInvitationOK) Code() int {
+	return 200
+}
+
 func (o *GetOrganizationInvitationOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetOrganizationInvitationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get organization invitation no content response
+func (o *GetOrganizationInvitationNoContent) Code() int {
+	return 204
+}
+
 func (o *GetOrganizationInvitationNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetOrganizationInvitationForbidden) IsServerError() bool {
 // IsCode returns true when this get organization invitation forbidden response a status code equal to that given
 func (o *GetOrganizationInvitationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get organization invitation forbidden response
+func (o *GetOrganizationInvitationForbidden) Code() int {
+	return 403
 }
 
 func (o *GetOrganizationInvitationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetOrganizationInvitationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get organization invitation not found response
+func (o *GetOrganizationInvitationNotFound) Code() int {
+	return 404
+}
+
 func (o *GetOrganizationInvitationNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetOrganizationInvitationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get organization invitation default response
-func (o *GetOrganizationInvitationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get organization invitation default response has a 2xx status code
 func (o *GetOrganizationInvitationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetOrganizationInvitationDefault) IsServerError() bool {
 // IsCode returns true when this get organization invitation default response a status code equal to that given
 func (o *GetOrganizationInvitationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get organization invitation default response
+func (o *GetOrganizationInvitationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetOrganizationInvitationDefault) Error() string {

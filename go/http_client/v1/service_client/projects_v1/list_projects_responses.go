@@ -111,6 +111,11 @@ func (o *ListProjectsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list projects o k response
+func (o *ListProjectsOK) Code() int {
+	return 200
+}
+
 func (o *ListProjectsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/list][%d] listProjectsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListProjectsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list projects no content response
+func (o *ListProjectsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListProjectsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/list][%d] listProjectsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListProjectsForbidden) IsServerError() bool {
 // IsCode returns true when this list projects forbidden response a status code equal to that given
 func (o *ListProjectsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list projects forbidden response
+func (o *ListProjectsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListProjectsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListProjectsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list projects not found response
+func (o *ListProjectsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListProjectsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/list][%d] listProjectsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListProjectsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list projects default response
-func (o *ListProjectsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list projects default response has a 2xx status code
 func (o *ListProjectsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListProjectsDefault) IsServerError() bool {
 // IsCode returns true when this list projects default response a status code equal to that given
 func (o *ListProjectsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list projects default response
+func (o *ListProjectsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListProjectsDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *ListArchivedRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list archived runs o k response
+func (o *ListArchivedRunsOK) Code() int {
+	return 200
+}
+
 func (o *ListArchivedRunsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListArchivedRunsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list archived runs no content response
+func (o *ListArchivedRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListArchivedRunsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListArchivedRunsForbidden) IsServerError() bool {
 // IsCode returns true when this list archived runs forbidden response a status code equal to that given
 func (o *ListArchivedRunsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list archived runs forbidden response
+func (o *ListArchivedRunsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListArchivedRunsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListArchivedRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list archived runs not found response
+func (o *ListArchivedRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListArchivedRunsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListArchivedRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list archived runs default response
-func (o *ListArchivedRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list archived runs default response has a 2xx status code
 func (o *ListArchivedRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListArchivedRunsDefault) IsServerError() bool {
 // IsCode returns true when this list archived runs default response a status code equal to that given
 func (o *ListArchivedRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list archived runs default response
+func (o *ListArchivedRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListArchivedRunsDefault) Error() string {

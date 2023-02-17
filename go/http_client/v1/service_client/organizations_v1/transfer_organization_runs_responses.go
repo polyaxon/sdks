@@ -110,6 +110,11 @@ func (o *TransferOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the transfer organization runs o k response
+func (o *TransferOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *TransferOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *TransferOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this transfer organization runs no content response a status code equal to that given
 func (o *TransferOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the transfer organization runs no content response
+func (o *TransferOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *TransferOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *TransferOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the transfer organization runs forbidden response
+func (o *TransferOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *TransferOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *TransferOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the transfer organization runs not found response
+func (o *TransferOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *TransferOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type TransferOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the transfer organization runs default response
-func (o *TransferOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this transfer organization runs default response has a 2xx status code
 func (o *TransferOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *TransferOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this transfer organization runs default response a status code equal to that given
 func (o *TransferOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the transfer organization runs default response
+func (o *TransferOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TransferOrganizationRunsDefault) Error() string {

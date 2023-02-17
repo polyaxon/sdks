@@ -110,6 +110,11 @@ func (o *TransferRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the transfer run o k response
+func (o *TransferRunOK) Code() int {
+	return 200
+}
+
 func (o *TransferRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *TransferRunNoContent) IsServerError() bool {
 // IsCode returns true when this transfer run no content response a status code equal to that given
 func (o *TransferRunNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the transfer run no content response
+func (o *TransferRunNoContent) Code() int {
+	return 204
 }
 
 func (o *TransferRunNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *TransferRunForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the transfer run forbidden response
+func (o *TransferRunForbidden) Code() int {
+	return 403
+}
+
 func (o *TransferRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *TransferRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the transfer run not found response
+func (o *TransferRunNotFound) Code() int {
+	return 404
+}
+
 func (o *TransferRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type TransferRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the transfer run default response
-func (o *TransferRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this transfer run default response has a 2xx status code
 func (o *TransferRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *TransferRunDefault) IsServerError() bool {
 // IsCode returns true when this transfer run default response a status code equal to that given
 func (o *TransferRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the transfer run default response
+func (o *TransferRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TransferRunDefault) Error() string {

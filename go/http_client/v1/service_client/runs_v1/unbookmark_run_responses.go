@@ -110,6 +110,11 @@ func (o *UnbookmarkRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the unbookmark run o k response
+func (o *UnbookmarkRunOK) Code() int {
+	return 200
+}
+
 func (o *UnbookmarkRunOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *UnbookmarkRunNoContent) IsServerError() bool {
 // IsCode returns true when this unbookmark run no content response a status code equal to that given
 func (o *UnbookmarkRunNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the unbookmark run no content response
+func (o *UnbookmarkRunNoContent) Code() int {
+	return 204
 }
 
 func (o *UnbookmarkRunNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *UnbookmarkRunForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the unbookmark run forbidden response
+func (o *UnbookmarkRunForbidden) Code() int {
+	return 403
+}
+
 func (o *UnbookmarkRunForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *UnbookmarkRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the unbookmark run not found response
+func (o *UnbookmarkRunNotFound) Code() int {
+	return 404
+}
+
 func (o *UnbookmarkRunNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type UnbookmarkRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the unbookmark run default response
-func (o *UnbookmarkRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this unbookmark run default response has a 2xx status code
 func (o *UnbookmarkRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *UnbookmarkRunDefault) IsServerError() bool {
 // IsCode returns true when this unbookmark run default response a status code equal to that given
 func (o *UnbookmarkRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the unbookmark run default response
+func (o *UnbookmarkRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UnbookmarkRunDefault) Error() string {

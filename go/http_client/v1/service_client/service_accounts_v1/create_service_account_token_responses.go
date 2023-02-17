@@ -111,6 +111,11 @@ func (o *CreateServiceAccountTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create service account token o k response
+func (o *CreateServiceAccountTokenOK) Code() int {
+	return 200
+}
+
 func (o *CreateServiceAccountTokenOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa/{entity}/tokens][%d] createServiceAccountTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateServiceAccountTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create service account token no content response
+func (o *CreateServiceAccountTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateServiceAccountTokenNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa/{entity}/tokens][%d] createServiceAccountTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateServiceAccountTokenForbidden) IsServerError() bool {
 // IsCode returns true when this create service account token forbidden response a status code equal to that given
 func (o *CreateServiceAccountTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create service account token forbidden response
+func (o *CreateServiceAccountTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateServiceAccountTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateServiceAccountTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create service account token not found response
+func (o *CreateServiceAccountTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateServiceAccountTokenNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa/{entity}/tokens][%d] createServiceAccountTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateServiceAccountTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create service account token default response
-func (o *CreateServiceAccountTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create service account token default response has a 2xx status code
 func (o *CreateServiceAccountTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateServiceAccountTokenDefault) IsServerError() bool {
 // IsCode returns true when this create service account token default response a status code equal to that given
 func (o *CreateServiceAccountTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create service account token default response
+func (o *CreateServiceAccountTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateServiceAccountTokenDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *GetMultiRunEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get multi run events o k response
+func (o *GetMultiRunEventsOK) Code() int {
+	return 200
+}
+
 func (o *GetMultiRunEventsOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetMultiRunEventsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get multi run events no content response
+func (o *GetMultiRunEventsNoContent) Code() int {
+	return 204
+}
+
 func (o *GetMultiRunEventsNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetMultiRunEventsForbidden) IsServerError() bool {
 // IsCode returns true when this get multi run events forbidden response a status code equal to that given
 func (o *GetMultiRunEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get multi run events forbidden response
+func (o *GetMultiRunEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetMultiRunEventsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetMultiRunEventsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get multi run events not found response
+func (o *GetMultiRunEventsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetMultiRunEventsNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetMultiRunEventsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get multi run events default response
-func (o *GetMultiRunEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get multi run events default response has a 2xx status code
 func (o *GetMultiRunEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetMultiRunEventsDefault) IsServerError() bool {
 // IsCode returns true when this get multi run events default response a status code equal to that given
 func (o *GetMultiRunEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get multi run events default response
+func (o *GetMultiRunEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetMultiRunEventsDefault) Error() string {

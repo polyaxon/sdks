@@ -110,6 +110,11 @@ func (o *RestoreProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the restore project o k response
+func (o *RestoreProjectOK) Code() int {
+	return 200
+}
+
 func (o *RestoreProjectOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *RestoreProjectNoContent) IsServerError() bool {
 // IsCode returns true when this restore project no content response a status code equal to that given
 func (o *RestoreProjectNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the restore project no content response
+func (o *RestoreProjectNoContent) Code() int {
+	return 204
 }
 
 func (o *RestoreProjectNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *RestoreProjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the restore project forbidden response
+func (o *RestoreProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *RestoreProjectForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *RestoreProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the restore project not found response
+func (o *RestoreProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *RestoreProjectNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type RestoreProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the restore project default response
-func (o *RestoreProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this restore project default response has a 2xx status code
 func (o *RestoreProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *RestoreProjectDefault) IsServerError() bool {
 // IsCode returns true when this restore project default response a status code equal to that given
 func (o *RestoreProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the restore project default response
+func (o *RestoreProjectDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RestoreProjectDefault) Error() string {

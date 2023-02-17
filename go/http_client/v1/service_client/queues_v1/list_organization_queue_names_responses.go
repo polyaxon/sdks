@@ -111,6 +111,11 @@ func (o *ListOrganizationQueueNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list organization queue names o k response
+func (o *ListOrganizationQueueNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListOrganizationQueueNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues/names][%d] listOrganizationQueueNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListOrganizationQueueNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list organization queue names no content response
+func (o *ListOrganizationQueueNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListOrganizationQueueNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues/names][%d] listOrganizationQueueNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListOrganizationQueueNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list organization queue names forbidden response a status code equal to that given
 func (o *ListOrganizationQueueNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list organization queue names forbidden response
+func (o *ListOrganizationQueueNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListOrganizationQueueNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListOrganizationQueueNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list organization queue names not found response
+func (o *ListOrganizationQueueNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListOrganizationQueueNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues/names][%d] listOrganizationQueueNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListOrganizationQueueNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list organization queue names default response
-func (o *ListOrganizationQueueNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list organization queue names default response has a 2xx status code
 func (o *ListOrganizationQueueNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListOrganizationQueueNamesDefault) IsServerError() bool {
 // IsCode returns true when this list organization queue names default response a status code equal to that given
 func (o *ListOrganizationQueueNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list organization queue names default response
+func (o *ListOrganizationQueueNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListOrganizationQueueNamesDefault) Error() string {

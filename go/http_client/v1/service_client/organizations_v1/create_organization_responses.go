@@ -111,6 +111,11 @@ func (o *CreateOrganizationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create organization o k response
+func (o *CreateOrganizationOK) Code() int {
+	return 200
+}
+
 func (o *CreateOrganizationOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/create][%d] createOrganizationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateOrganizationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create organization no content response
+func (o *CreateOrganizationNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateOrganizationNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/create][%d] createOrganizationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateOrganizationForbidden) IsServerError() bool {
 // IsCode returns true when this create organization forbidden response a status code equal to that given
 func (o *CreateOrganizationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create organization forbidden response
+func (o *CreateOrganizationForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateOrganizationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateOrganizationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create organization not found response
+func (o *CreateOrganizationNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateOrganizationNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/create][%d] createOrganizationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateOrganizationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create organization default response
-func (o *CreateOrganizationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create organization default response has a 2xx status code
 func (o *CreateOrganizationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateOrganizationDefault) IsServerError() bool {
 // IsCode returns true when this create organization default response a status code equal to that given
 func (o *CreateOrganizationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create organization default response
+func (o *CreateOrganizationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateOrganizationDefault) Error() string {

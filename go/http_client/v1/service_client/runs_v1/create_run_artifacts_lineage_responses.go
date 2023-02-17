@@ -110,6 +110,11 @@ func (o *CreateRunArtifactsLineageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create run artifacts lineage o k response
+func (o *CreateRunArtifactsLineageOK) Code() int {
+	return 200
+}
+
 func (o *CreateRunArtifactsLineageOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *CreateRunArtifactsLineageNoContent) IsServerError() bool {
 // IsCode returns true when this create run artifacts lineage no content response a status code equal to that given
 func (o *CreateRunArtifactsLineageNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the create run artifacts lineage no content response
+func (o *CreateRunArtifactsLineageNoContent) Code() int {
+	return 204
 }
 
 func (o *CreateRunArtifactsLineageNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *CreateRunArtifactsLineageForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the create run artifacts lineage forbidden response
+func (o *CreateRunArtifactsLineageForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateRunArtifactsLineageForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *CreateRunArtifactsLineageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create run artifacts lineage not found response
+func (o *CreateRunArtifactsLineageNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateRunArtifactsLineageNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type CreateRunArtifactsLineageDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create run artifacts lineage default response
-func (o *CreateRunArtifactsLineageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create run artifacts lineage default response has a 2xx status code
 func (o *CreateRunArtifactsLineageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *CreateRunArtifactsLineageDefault) IsServerError() bool {
 // IsCode returns true when this create run artifacts lineage default response a status code equal to that given
 func (o *CreateRunArtifactsLineageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create run artifacts lineage default response
+func (o *CreateRunArtifactsLineageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateRunArtifactsLineageDefault) Error() string {

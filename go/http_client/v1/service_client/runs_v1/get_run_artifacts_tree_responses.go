@@ -111,6 +111,11 @@ func (o *GetRunArtifactsTreeOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run artifacts tree o k response
+func (o *GetRunArtifactsTreeOK) Code() int {
+	return 200
+}
+
 func (o *GetRunArtifactsTreeOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunArtifactsTreeNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run artifacts tree no content response
+func (o *GetRunArtifactsTreeNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunArtifactsTreeNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunArtifactsTreeForbidden) IsServerError() bool {
 // IsCode returns true when this get run artifacts tree forbidden response a status code equal to that given
 func (o *GetRunArtifactsTreeForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run artifacts tree forbidden response
+func (o *GetRunArtifactsTreeForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunArtifactsTreeForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunArtifactsTreeNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run artifacts tree not found response
+func (o *GetRunArtifactsTreeNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunArtifactsTreeNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunArtifactsTreeDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run artifacts tree default response
-func (o *GetRunArtifactsTreeDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run artifacts tree default response has a 2xx status code
 func (o *GetRunArtifactsTreeDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunArtifactsTreeDefault) IsServerError() bool {
 // IsCode returns true when this get run artifacts tree default response a status code equal to that given
 func (o *GetRunArtifactsTreeDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run artifacts tree default response
+func (o *GetRunArtifactsTreeDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunArtifactsTreeDefault) Error() string {

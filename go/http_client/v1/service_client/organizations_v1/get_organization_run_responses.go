@@ -111,6 +111,11 @@ func (o *GetOrganizationRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get organization run o k response
+func (o *GetOrganizationRunOK) Code() int {
+	return 200
+}
+
 func (o *GetOrganizationRunOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetOrganizationRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get organization run no content response
+func (o *GetOrganizationRunNoContent) Code() int {
+	return 204
+}
+
 func (o *GetOrganizationRunNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetOrganizationRunForbidden) IsServerError() bool {
 // IsCode returns true when this get organization run forbidden response a status code equal to that given
 func (o *GetOrganizationRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get organization run forbidden response
+func (o *GetOrganizationRunForbidden) Code() int {
+	return 403
 }
 
 func (o *GetOrganizationRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetOrganizationRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get organization run not found response
+func (o *GetOrganizationRunNotFound) Code() int {
+	return 404
+}
+
 func (o *GetOrganizationRunNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/{uuid}][%d] getOrganizationRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetOrganizationRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get organization run default response
-func (o *GetOrganizationRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get organization run default response has a 2xx status code
 func (o *GetOrganizationRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetOrganizationRunDefault) IsServerError() bool {
 // IsCode returns true when this get organization run default response a status code equal to that given
 func (o *GetOrganizationRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get organization run default response
+func (o *GetOrganizationRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetOrganizationRunDefault) Error() string {

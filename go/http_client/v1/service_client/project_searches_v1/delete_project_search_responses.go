@@ -110,6 +110,11 @@ func (o *DeleteProjectSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete project search o k response
+func (o *DeleteProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *DeleteProjectSearchOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteProjectSearchNoContent) IsServerError() bool {
 // IsCode returns true when this delete project search no content response a status code equal to that given
 func (o *DeleteProjectSearchNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete project search no content response
+func (o *DeleteProjectSearchNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteProjectSearchNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteProjectSearchForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete project search forbidden response
+func (o *DeleteProjectSearchForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteProjectSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete project search not found response
+func (o *DeleteProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete project search default response
-func (o *DeleteProjectSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete project search default response has a 2xx status code
 func (o *DeleteProjectSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteProjectSearchDefault) IsServerError() bool {
 // IsCode returns true when this delete project search default response a status code equal to that given
 func (o *DeleteProjectSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete project search default response
+func (o *DeleteProjectSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteProjectSearchDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *PatchVersionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch version o k response
+func (o *PatchVersionOK) Code() int {
+	return 200
+}
+
 func (o *PatchVersionOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchVersionNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch version no content response
+func (o *PatchVersionNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchVersionNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchVersionForbidden) IsServerError() bool {
 // IsCode returns true when this patch version forbidden response a status code equal to that given
 func (o *PatchVersionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch version forbidden response
+func (o *PatchVersionForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchVersionForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchVersionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch version not found response
+func (o *PatchVersionNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchVersionNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchVersionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch version default response
-func (o *PatchVersionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch version default response has a 2xx status code
 func (o *PatchVersionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchVersionDefault) IsServerError() bool {
 // IsCode returns true when this patch version default response a status code equal to that given
 func (o *PatchVersionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch version default response
+func (o *PatchVersionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchVersionDefault) Error() string {

@@ -35,9 +35,6 @@ type V1MPIJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
-	// MPI implementation, options are "OpenMPI" (default) and "Intel".
-	Implementation *MPIJobImplementation `json:"implementation,omitempty"`
-
 	// Optional component kind, should be equal to 'mpi_job'
 	Kind *string `json:"kind,omitempty"`
 
@@ -50,9 +47,6 @@ type V1MPIJob struct {
 	// Optional slots per worker
 	SlotsPerWorker int32 `json:"slotsPerWorker,omitempty"`
 
-	// Optional is the directory where SSH keys are mounted, default "/root/.ssh"
-	SSHAuthMountPath string `json:"sshAuthMountPath,omitempty"`
-
 	// Worker replicas definition
 	Worker *V1KFReplica `json:"worker,omitempty"`
 }
@@ -62,10 +56,6 @@ func (m *V1MPIJob) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCleanPodPolicy(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateImplementation(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -98,25 +88,6 @@ func (m *V1MPIJob) validateCleanPodPolicy(formats strfmt.Registry) error {
 				return ve.ValidateName("cleanPodPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cleanPodPolicy")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1MPIJob) validateImplementation(formats strfmt.Registry) error {
-	if swag.IsZero(m.Implementation) { // not required
-		return nil
-	}
-
-	if m.Implementation != nil {
-		if err := m.Implementation.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("implementation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("implementation")
 			}
 			return err
 		}
@@ -190,10 +161,6 @@ func (m *V1MPIJob) ContextValidate(ctx context.Context, formats strfmt.Registry)
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateImplementation(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateLauncher(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -220,22 +187,6 @@ func (m *V1MPIJob) contextValidateCleanPodPolicy(ctx context.Context, formats st
 				return ve.ValidateName("cleanPodPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cleanPodPolicy")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1MPIJob) contextValidateImplementation(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Implementation != nil {
-		if err := m.Implementation.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("implementation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("implementation")
 			}
 			return err
 		}

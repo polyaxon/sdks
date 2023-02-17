@@ -111,6 +111,11 @@ func (o *ListSearchesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list searches o k response
+func (o *ListSearchesOK) Code() int {
+	return 200
+}
+
 func (o *ListSearchesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches][%d] listSearchesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListSearchesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list searches no content response
+func (o *ListSearchesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListSearchesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches][%d] listSearchesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListSearchesForbidden) IsServerError() bool {
 // IsCode returns true when this list searches forbidden response a status code equal to that given
 func (o *ListSearchesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list searches forbidden response
+func (o *ListSearchesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListSearchesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListSearchesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list searches not found response
+func (o *ListSearchesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListSearchesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches][%d] listSearchesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListSearchesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list searches default response
-func (o *ListSearchesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list searches default response has a 2xx status code
 func (o *ListSearchesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListSearchesDefault) IsServerError() bool {
 // IsCode returns true when this list searches default response a status code equal to that given
 func (o *ListSearchesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list searches default response
+func (o *ListSearchesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListSearchesDefault) Error() string {

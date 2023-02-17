@@ -111,6 +111,11 @@ func (o *PatchQueueOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch queue o k response
+func (o *PatchQueueOK) Code() int {
+	return 200
+}
+
 func (o *PatchQueueOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchQueueNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch queue no content response
+func (o *PatchQueueNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchQueueNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchQueueForbidden) IsServerError() bool {
 // IsCode returns true when this patch queue forbidden response a status code equal to that given
 func (o *PatchQueueForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch queue forbidden response
+func (o *PatchQueueForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchQueueForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchQueueNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch queue not found response
+func (o *PatchQueueNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchQueueNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] patchQueueNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchQueueDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch queue default response
-func (o *PatchQueueDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch queue default response has a 2xx status code
 func (o *PatchQueueDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchQueueDefault) IsServerError() bool {
 // IsCode returns true when this patch queue default response a status code equal to that given
 func (o *PatchQueueDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch queue default response
+func (o *PatchQueueDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchQueueDefault) Error() string {

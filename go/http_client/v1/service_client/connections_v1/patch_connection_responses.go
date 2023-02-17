@@ -111,6 +111,11 @@ func (o *PatchConnectionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch connection o k response
+func (o *PatchConnectionOK) Code() int {
+	return 200
+}
+
 func (o *PatchConnectionOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchConnectionNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch connection no content response
+func (o *PatchConnectionNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchConnectionNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchConnectionForbidden) IsServerError() bool {
 // IsCode returns true when this patch connection forbidden response a status code equal to that given
 func (o *PatchConnectionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch connection forbidden response
+func (o *PatchConnectionForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchConnectionForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchConnectionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch connection not found response
+func (o *PatchConnectionNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchConnectionNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchConnectionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch connection default response
-func (o *PatchConnectionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch connection default response has a 2xx status code
 func (o *PatchConnectionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchConnectionDefault) IsServerError() bool {
 // IsCode returns true when this patch connection default response a status code equal to that given
 func (o *PatchConnectionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch connection default response
+func (o *PatchConnectionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchConnectionDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *CreateQueueOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create queue o k response
+func (o *CreateQueueOK) Code() int {
+	return 200
+}
+
 func (o *CreateQueueOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateQueueNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create queue no content response
+func (o *CreateQueueNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateQueueNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateQueueForbidden) IsServerError() bool {
 // IsCode returns true when this create queue forbidden response a status code equal to that given
 func (o *CreateQueueForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create queue forbidden response
+func (o *CreateQueueForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateQueueForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateQueueNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create queue not found response
+func (o *CreateQueueNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateQueueNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{agent}/queues][%d] createQueueNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateQueueDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create queue default response
-func (o *CreateQueueDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create queue default response has a 2xx status code
 func (o *CreateQueueDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateQueueDefault) IsServerError() bool {
 // IsCode returns true when this create queue default response a status code equal to that given
 func (o *CreateQueueDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create queue default response
+func (o *CreateQueueDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateQueueDefault) Error() string {

@@ -110,6 +110,11 @@ func (o *DeleteQueueOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete queue o k response
+func (o *DeleteQueueOK) Code() int {
+	return 200
+}
+
 func (o *DeleteQueueOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteQueueNoContent) IsServerError() bool {
 // IsCode returns true when this delete queue no content response a status code equal to that given
 func (o *DeleteQueueNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete queue no content response
+func (o *DeleteQueueNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteQueueNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteQueueForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete queue forbidden response
+func (o *DeleteQueueForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteQueueForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteQueueNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete queue not found response
+func (o *DeleteQueueNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteQueueNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteQueueDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete queue default response
-func (o *DeleteQueueDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete queue default response has a 2xx status code
 func (o *DeleteQueueDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteQueueDefault) IsServerError() bool {
 // IsCode returns true when this delete queue default response a status code equal to that given
 func (o *DeleteQueueDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete queue default response
+func (o *DeleteQueueDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteQueueDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *PatchAgentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch agent o k response
+func (o *PatchAgentOK) Code() int {
+	return 200
+}
+
 func (o *PatchAgentOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] patchAgentOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchAgentNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch agent no content response
+func (o *PatchAgentNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchAgentNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] patchAgentNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchAgentForbidden) IsServerError() bool {
 // IsCode returns true when this patch agent forbidden response a status code equal to that given
 func (o *PatchAgentForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch agent forbidden response
+func (o *PatchAgentForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchAgentForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchAgentNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch agent not found response
+func (o *PatchAgentNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchAgentNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}][%d] patchAgentNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchAgentDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch agent default response
-func (o *PatchAgentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch agent default response has a 2xx status code
 func (o *PatchAgentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchAgentDefault) IsServerError() bool {
 // IsCode returns true when this patch agent default response a status code equal to that given
 func (o *PatchAgentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch agent default response
+func (o *PatchAgentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchAgentDefault) Error() string {

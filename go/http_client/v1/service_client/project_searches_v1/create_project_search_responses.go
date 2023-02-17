@@ -111,6 +111,11 @@ func (o *CreateProjectSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create project search o k response
+func (o *CreateProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *CreateProjectSearchOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateProjectSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create project search no content response
+func (o *CreateProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateProjectSearchForbidden) IsServerError() bool {
 // IsCode returns true when this create project search forbidden response a status code equal to that given
 func (o *CreateProjectSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create project search forbidden response
+func (o *CreateProjectSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateProjectSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateProjectSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create project search not found response
+func (o *CreateProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create project search default response
-func (o *CreateProjectSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create project search default response has a 2xx status code
 func (o *CreateProjectSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateProjectSearchDefault) IsServerError() bool {
 // IsCode returns true when this create project search default response a status code equal to that given
 func (o *CreateProjectSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create project search default response
+func (o *CreateProjectSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateProjectSearchDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *CreateDashboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create dashboard o k response
+func (o *CreateDashboardOK) Code() int {
+	return 200
+}
+
 func (o *CreateDashboardOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateDashboardNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create dashboard no content response
+func (o *CreateDashboardNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateDashboardNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateDashboardForbidden) IsServerError() bool {
 // IsCode returns true when this create dashboard forbidden response a status code equal to that given
 func (o *CreateDashboardForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create dashboard forbidden response
+func (o *CreateDashboardForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateDashboardForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateDashboardNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create dashboard not found response
+func (o *CreateDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateDashboardNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create dashboard default response
-func (o *CreateDashboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create dashboard default response has a 2xx status code
 func (o *CreateDashboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateDashboardDefault) IsServerError() bool {
 // IsCode returns true when this create dashboard default response a status code equal to that given
 func (o *CreateDashboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create dashboard default response
+func (o *CreateDashboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateDashboardDefault) Error() string {

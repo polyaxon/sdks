@@ -38,6 +38,9 @@ type V1TFJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
+	// optional flag to enable dynamic worker
+	EnableDynamicWorker bool `json:"enableDynamicWorker,omitempty"`
+
 	// Evaluator replicas definition
 	Evaluator *V1KFReplica `json:"evaluator,omitempty"`
 

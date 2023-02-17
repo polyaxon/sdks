@@ -111,6 +111,11 @@ func (o *UpdateDashboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update dashboard o k response
+func (o *UpdateDashboardOK) Code() int {
+	return 200
+}
+
 func (o *UpdateDashboardOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/dashboards/{dashboard.uuid}][%d] updateDashboardOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateDashboardNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update dashboard no content response
+func (o *UpdateDashboardNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateDashboardNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/dashboards/{dashboard.uuid}][%d] updateDashboardNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateDashboardForbidden) IsServerError() bool {
 // IsCode returns true when this update dashboard forbidden response a status code equal to that given
 func (o *UpdateDashboardForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update dashboard forbidden response
+func (o *UpdateDashboardForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateDashboardForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateDashboardNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update dashboard not found response
+func (o *UpdateDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateDashboardNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/dashboards/{dashboard.uuid}][%d] updateDashboardNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update dashboard default response
-func (o *UpdateDashboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update dashboard default response has a 2xx status code
 func (o *UpdateDashboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateDashboardDefault) IsServerError() bool {
 // IsCode returns true when this update dashboard default response a status code equal to that given
 func (o *UpdateDashboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update dashboard default response
+func (o *UpdateDashboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateDashboardDefault) Error() string {

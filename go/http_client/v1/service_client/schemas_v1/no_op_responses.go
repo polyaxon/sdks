@@ -111,6 +111,11 @@ func (o *NoOpOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the no op o k response
+func (o *NoOpOK) Code() int {
+	return 200
+}
+
 func (o *NoOpOK) Error() string {
 	return fmt.Sprintf("[GET /schemas][%d] noOpOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *NoOpNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the no op no content response
+func (o *NoOpNoContent) Code() int {
+	return 204
+}
+
 func (o *NoOpNoContent) Error() string {
 	return fmt.Sprintf("[GET /schemas][%d] noOpNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *NoOpForbidden) IsServerError() bool {
 // IsCode returns true when this no op forbidden response a status code equal to that given
 func (o *NoOpForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the no op forbidden response
+func (o *NoOpForbidden) Code() int {
+	return 403
 }
 
 func (o *NoOpForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *NoOpNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the no op not found response
+func (o *NoOpNotFound) Code() int {
+	return 404
+}
+
 func (o *NoOpNotFound) Error() string {
 	return fmt.Sprintf("[GET /schemas][%d] noOpNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type NoOpDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the no op default response
-func (o *NoOpDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this no op default response has a 2xx status code
 func (o *NoOpDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *NoOpDefault) IsServerError() bool {
 // IsCode returns true when this no op default response a status code equal to that given
 func (o *NoOpDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the no op default response
+func (o *NoOpDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *NoOpDefault) Error() string {

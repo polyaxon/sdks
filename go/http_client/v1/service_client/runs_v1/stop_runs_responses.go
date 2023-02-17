@@ -110,6 +110,11 @@ func (o *StopRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the stop runs o k response
+func (o *StopRunsOK) Code() int {
+	return 200
+}
+
 func (o *StopRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *StopRunsNoContent) IsServerError() bool {
 // IsCode returns true when this stop runs no content response a status code equal to that given
 func (o *StopRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the stop runs no content response
+func (o *StopRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *StopRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *StopRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the stop runs forbidden response
+func (o *StopRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *StopRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *StopRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the stop runs not found response
+func (o *StopRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *StopRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type StopRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the stop runs default response
-func (o *StopRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this stop runs default response has a 2xx status code
 func (o *StopRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *StopRunsDefault) IsServerError() bool {
 // IsCode returns true when this stop runs default response a status code equal to that given
 func (o *StopRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the stop runs default response
+func (o *StopRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *StopRunsDefault) Error() string {

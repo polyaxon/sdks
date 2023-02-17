@@ -110,6 +110,11 @@ func (o *DeleteTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete token o k response
+func (o *DeleteTokenOK) Code() int {
+	return 200
+}
+
 func (o *DeleteTokenOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteTokenNoContent) IsServerError() bool {
 // IsCode returns true when this delete token no content response a status code equal to that given
 func (o *DeleteTokenNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete token no content response
+func (o *DeleteTokenNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteTokenNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteTokenForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete token forbidden response
+func (o *DeleteTokenForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteTokenForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete token not found response
+func (o *DeleteTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteTokenNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete token default response
-func (o *DeleteTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete token default response has a 2xx status code
 func (o *DeleteTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteTokenDefault) IsServerError() bool {
 // IsCode returns true when this delete token default response a status code equal to that given
 func (o *DeleteTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete token default response
+func (o *DeleteTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteTokenDefault) Error() string {

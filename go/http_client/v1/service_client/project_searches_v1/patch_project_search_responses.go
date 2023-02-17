@@ -111,6 +111,11 @@ func (o *PatchProjectSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch project search o k response
+func (o *PatchProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *PatchProjectSearchOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchProjectSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch project search no content response
+func (o *PatchProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchProjectSearchForbidden) IsServerError() bool {
 // IsCode returns true when this patch project search forbidden response a status code equal to that given
 func (o *PatchProjectSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch project search forbidden response
+func (o *PatchProjectSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchProjectSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchProjectSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch project search not found response
+func (o *PatchProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch project search default response
-func (o *PatchProjectSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch project search default response has a 2xx status code
 func (o *PatchProjectSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchProjectSearchDefault) IsServerError() bool {
 // IsCode returns true when this patch project search default response a status code equal to that given
 func (o *PatchProjectSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch project search default response
+func (o *PatchProjectSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchProjectSearchDefault) Error() string {

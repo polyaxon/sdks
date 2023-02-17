@@ -111,6 +111,11 @@ func (o *ListAgentsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list agents o k response
+func (o *ListAgentsOK) Code() int {
+	return 200
+}
+
 func (o *ListAgentsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListAgentsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list agents no content response
+func (o *ListAgentsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListAgentsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListAgentsForbidden) IsServerError() bool {
 // IsCode returns true when this list agents forbidden response a status code equal to that given
 func (o *ListAgentsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list agents forbidden response
+func (o *ListAgentsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListAgentsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListAgentsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list agents not found response
+func (o *ListAgentsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListAgentsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListAgentsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list agents default response
-func (o *ListAgentsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list agents default response has a 2xx status code
 func (o *ListAgentsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListAgentsDefault) IsServerError() bool {
 // IsCode returns true when this list agents default response a status code equal to that given
 func (o *ListAgentsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list agents default response
+func (o *ListAgentsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListAgentsDefault) Error() string {

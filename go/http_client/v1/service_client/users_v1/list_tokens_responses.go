@@ -111,6 +111,11 @@ func (o *ListTokensOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list tokens o k response
+func (o *ListTokensOK) Code() int {
+	return 200
+}
+
 func (o *ListTokensOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListTokensNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list tokens no content response
+func (o *ListTokensNoContent) Code() int {
+	return 204
+}
+
 func (o *ListTokensNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListTokensForbidden) IsServerError() bool {
 // IsCode returns true when this list tokens forbidden response a status code equal to that given
 func (o *ListTokensForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list tokens forbidden response
+func (o *ListTokensForbidden) Code() int {
+	return 403
 }
 
 func (o *ListTokensForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListTokensNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list tokens not found response
+func (o *ListTokensNotFound) Code() int {
+	return 404
+}
+
 func (o *ListTokensNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListTokensDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list tokens default response
-func (o *ListTokensDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list tokens default response has a 2xx status code
 func (o *ListTokensDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListTokensDefault) IsServerError() bool {
 // IsCode returns true when this list tokens default response a status code equal to that given
 func (o *ListTokensDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list tokens default response
+func (o *ListTokensDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListTokensDefault) Error() string {

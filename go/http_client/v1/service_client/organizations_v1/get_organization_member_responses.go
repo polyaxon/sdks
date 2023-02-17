@@ -111,6 +111,11 @@ func (o *GetOrganizationMemberOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get organization member o k response
+func (o *GetOrganizationMemberOK) Code() int {
+	return 200
+}
+
 func (o *GetOrganizationMemberOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetOrganizationMemberNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get organization member no content response
+func (o *GetOrganizationMemberNoContent) Code() int {
+	return 204
+}
+
 func (o *GetOrganizationMemberNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetOrganizationMemberForbidden) IsServerError() bool {
 // IsCode returns true when this get organization member forbidden response a status code equal to that given
 func (o *GetOrganizationMemberForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get organization member forbidden response
+func (o *GetOrganizationMemberForbidden) Code() int {
+	return 403
 }
 
 func (o *GetOrganizationMemberForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetOrganizationMemberNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get organization member not found response
+func (o *GetOrganizationMemberNotFound) Code() int {
+	return 404
+}
+
 func (o *GetOrganizationMemberNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/members/{name}][%d] getOrganizationMemberNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetOrganizationMemberDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get organization member default response
-func (o *GetOrganizationMemberDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get organization member default response has a 2xx status code
 func (o *GetOrganizationMemberDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetOrganizationMemberDefault) IsServerError() bool {
 // IsCode returns true when this get organization member default response a status code equal to that given
 func (o *GetOrganizationMemberDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get organization member default response
+func (o *GetOrganizationMemberDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetOrganizationMemberDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *PatchAgentTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch agent token o k response
+func (o *PatchAgentTokenOK) Code() int {
+	return 200
+}
+
 func (o *PatchAgentTokenOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchAgentTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch agent token no content response
+func (o *PatchAgentTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchAgentTokenNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchAgentTokenForbidden) IsServerError() bool {
 // IsCode returns true when this patch agent token forbidden response a status code equal to that given
 func (o *PatchAgentTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch agent token forbidden response
+func (o *PatchAgentTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchAgentTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchAgentTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch agent token not found response
+func (o *PatchAgentTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchAgentTokenNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{entity}/token][%d] patchAgentTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchAgentTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch agent token default response
-func (o *PatchAgentTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch agent token default response has a 2xx status code
 func (o *PatchAgentTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchAgentTokenDefault) IsServerError() bool {
 // IsCode returns true when this patch agent token default response a status code equal to that given
 func (o *PatchAgentTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch agent token default response
+func (o *PatchAgentTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchAgentTokenDefault) Error() string {

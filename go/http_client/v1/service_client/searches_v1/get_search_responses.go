@@ -111,6 +111,11 @@ func (o *GetSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get search o k response
+func (o *GetSearchOK) Code() int {
+	return 200
+}
+
 func (o *GetSearchOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get search no content response
+func (o *GetSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *GetSearchNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetSearchForbidden) IsServerError() bool {
 // IsCode returns true when this get search forbidden response a status code equal to that given
 func (o *GetSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get search forbidden response
+func (o *GetSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *GetSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get search not found response
+func (o *GetSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *GetSearchNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/{uuid}][%d] getSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get search default response
-func (o *GetSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get search default response has a 2xx status code
 func (o *GetSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetSearchDefault) IsServerError() bool {
 // IsCode returns true when this get search default response a status code equal to that given
 func (o *GetSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get search default response
+func (o *GetSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSearchDefault) Error() string {

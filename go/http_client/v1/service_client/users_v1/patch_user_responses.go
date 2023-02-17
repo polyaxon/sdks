@@ -111,6 +111,11 @@ func (o *PatchUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch user o k response
+func (o *PatchUserOK) Code() int {
+	return 200
+}
+
 func (o *PatchUserOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchUserNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch user no content response
+func (o *PatchUserNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchUserNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchUserForbidden) IsServerError() bool {
 // IsCode returns true when this patch user forbidden response a status code equal to that given
 func (o *PatchUserForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch user forbidden response
+func (o *PatchUserForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchUserForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchUserNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch user not found response
+func (o *PatchUserNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchUserNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchUserDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch user default response
-func (o *PatchUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch user default response has a 2xx status code
 func (o *PatchUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchUserDefault) IsServerError() bool {
 // IsCode returns true when this patch user default response a status code equal to that given
 func (o *PatchUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch user default response
+func (o *PatchUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchUserDefault) Error() string {

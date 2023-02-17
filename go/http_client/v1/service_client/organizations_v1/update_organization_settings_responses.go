@@ -111,6 +111,11 @@ func (o *UpdateOrganizationSettingsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update organization settings o k response
+func (o *UpdateOrganizationSettingsOK) Code() int {
+	return 200
+}
+
 func (o *UpdateOrganizationSettingsOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateOrganizationSettingsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update organization settings no content response
+func (o *UpdateOrganizationSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateOrganizationSettingsNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateOrganizationSettingsForbidden) IsServerError() bool {
 // IsCode returns true when this update organization settings forbidden response a status code equal to that given
 func (o *UpdateOrganizationSettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update organization settings forbidden response
+func (o *UpdateOrganizationSettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateOrganizationSettingsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateOrganizationSettingsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update organization settings not found response
+func (o *UpdateOrganizationSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateOrganizationSettingsNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/settings][%d] updateOrganizationSettingsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateOrganizationSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update organization settings default response
-func (o *UpdateOrganizationSettingsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update organization settings default response has a 2xx status code
 func (o *UpdateOrganizationSettingsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateOrganizationSettingsDefault) IsServerError() bool {
 // IsCode returns true when this update organization settings default response a status code equal to that given
 func (o *UpdateOrganizationSettingsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update organization settings default response
+func (o *UpdateOrganizationSettingsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateOrganizationSettingsDefault) Error() string {

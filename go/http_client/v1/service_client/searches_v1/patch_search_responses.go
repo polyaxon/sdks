@@ -111,6 +111,11 @@ func (o *PatchSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch search o k response
+func (o *PatchSearchOK) Code() int {
+	return 200
+}
+
 func (o *PatchSearchOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch search no content response
+func (o *PatchSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchSearchNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchSearchForbidden) IsServerError() bool {
 // IsCode returns true when this patch search forbidden response a status code equal to that given
 func (o *PatchSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch search forbidden response
+func (o *PatchSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch search not found response
+func (o *PatchSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchSearchNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch search default response
-func (o *PatchSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch search default response has a 2xx status code
 func (o *PatchSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchSearchDefault) IsServerError() bool {
 // IsCode returns true when this patch search default response a status code equal to that given
 func (o *PatchSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch search default response
+func (o *PatchSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchSearchDefault) Error() string {

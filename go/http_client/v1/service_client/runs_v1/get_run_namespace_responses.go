@@ -111,6 +111,11 @@ func (o *GetRunNamespaceOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run namespace o k response
+func (o *GetRunNamespaceOK) Code() int {
+	return 200
+}
+
 func (o *GetRunNamespaceOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunNamespaceNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run namespace no content response
+func (o *GetRunNamespaceNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunNamespaceNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunNamespaceForbidden) IsServerError() bool {
 // IsCode returns true when this get run namespace forbidden response a status code equal to that given
 func (o *GetRunNamespaceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run namespace forbidden response
+func (o *GetRunNamespaceForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunNamespaceForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunNamespaceNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run namespace not found response
+func (o *GetRunNamespaceNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunNamespaceNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunNamespaceDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run namespace default response
-func (o *GetRunNamespaceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run namespace default response has a 2xx status code
 func (o *GetRunNamespaceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunNamespaceDefault) IsServerError() bool {
 // IsCode returns true when this get run namespace default response a status code equal to that given
 func (o *GetRunNamespaceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run namespace default response
+func (o *GetRunNamespaceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunNamespaceDefault) Error() string {

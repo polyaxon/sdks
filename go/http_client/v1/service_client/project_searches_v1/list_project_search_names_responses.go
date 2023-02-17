@@ -111,6 +111,11 @@ func (o *ListProjectSearchNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list project search names o k response
+func (o *ListProjectSearchNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListProjectSearchNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListProjectSearchNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list project search names no content response
+func (o *ListProjectSearchNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListProjectSearchNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListProjectSearchNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list project search names forbidden response a status code equal to that given
 func (o *ListProjectSearchNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list project search names forbidden response
+func (o *ListProjectSearchNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListProjectSearchNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListProjectSearchNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list project search names not found response
+func (o *ListProjectSearchNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListProjectSearchNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches/names][%d] listProjectSearchNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListProjectSearchNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list project search names default response
-func (o *ListProjectSearchNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list project search names default response has a 2xx status code
 func (o *ListProjectSearchNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListProjectSearchNamesDefault) IsServerError() bool {
 // IsCode returns true when this list project search names default response a status code equal to that given
 func (o *ListProjectSearchNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list project search names default response
+func (o *ListProjectSearchNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListProjectSearchNamesDefault) Error() string {

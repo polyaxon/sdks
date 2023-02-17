@@ -111,6 +111,11 @@ func (o *UpdateSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update search o k response
+func (o *UpdateSearchOK) Code() int {
+	return 200
+}
+
 func (o *UpdateSearchOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update search no content response
+func (o *UpdateSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateSearchNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateSearchForbidden) IsServerError() bool {
 // IsCode returns true when this update search forbidden response a status code equal to that given
 func (o *UpdateSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update search forbidden response
+func (o *UpdateSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update search not found response
+func (o *UpdateSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateSearchNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update search default response
-func (o *UpdateSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update search default response has a 2xx status code
 func (o *UpdateSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateSearchDefault) IsServerError() bool {
 // IsCode returns true when this update search default response a status code equal to that given
 func (o *UpdateSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update search default response
+func (o *UpdateSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateSearchDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *PatchProjectSettingsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch project settings o k response
+func (o *PatchProjectSettingsOK) Code() int {
+	return 200
+}
+
 func (o *PatchProjectSettingsOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchProjectSettingsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch project settings no content response
+func (o *PatchProjectSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchProjectSettingsNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchProjectSettingsForbidden) IsServerError() bool {
 // IsCode returns true when this patch project settings forbidden response a status code equal to that given
 func (o *PatchProjectSettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch project settings forbidden response
+func (o *PatchProjectSettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchProjectSettingsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchProjectSettingsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch project settings not found response
+func (o *PatchProjectSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchProjectSettingsNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchProjectSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch project settings default response
-func (o *PatchProjectSettingsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch project settings default response has a 2xx status code
 func (o *PatchProjectSettingsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchProjectSettingsDefault) IsServerError() bool {
 // IsCode returns true when this patch project settings default response a status code equal to that given
 func (o *PatchProjectSettingsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch project settings default response
+func (o *PatchProjectSettingsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchProjectSettingsDefault) Error() string {

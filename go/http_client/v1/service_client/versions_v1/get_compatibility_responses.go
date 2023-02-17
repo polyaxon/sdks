@@ -111,6 +111,11 @@ func (o *GetCompatibilityOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get compatibility o k response
+func (o *GetCompatibilityOK) Code() int {
+	return 200
+}
+
 func (o *GetCompatibilityOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetCompatibilityNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get compatibility no content response
+func (o *GetCompatibilityNoContent) Code() int {
+	return 204
+}
+
 func (o *GetCompatibilityNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetCompatibilityForbidden) IsServerError() bool {
 // IsCode returns true when this get compatibility forbidden response a status code equal to that given
 func (o *GetCompatibilityForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get compatibility forbidden response
+func (o *GetCompatibilityForbidden) Code() int {
+	return 403
 }
 
 func (o *GetCompatibilityForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetCompatibilityNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get compatibility not found response
+func (o *GetCompatibilityNotFound) Code() int {
+	return 404
+}
+
 func (o *GetCompatibilityNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetCompatibilityDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get compatibility default response
-func (o *GetCompatibilityDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get compatibility default response has a 2xx status code
 func (o *GetCompatibilityDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetCompatibilityDefault) IsServerError() bool {
 // IsCode returns true when this get compatibility default response a status code equal to that given
 func (o *GetCompatibilityDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get compatibility default response
+func (o *GetCompatibilityDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetCompatibilityDefault) Error() string {

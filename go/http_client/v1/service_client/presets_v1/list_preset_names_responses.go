@@ -111,6 +111,11 @@ func (o *ListPresetNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list preset names o k response
+func (o *ListPresetNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListPresetNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/names][%d] listPresetNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListPresetNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list preset names no content response
+func (o *ListPresetNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListPresetNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/names][%d] listPresetNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListPresetNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list preset names forbidden response a status code equal to that given
 func (o *ListPresetNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list preset names forbidden response
+func (o *ListPresetNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListPresetNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListPresetNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list preset names not found response
+func (o *ListPresetNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListPresetNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/names][%d] listPresetNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListPresetNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list preset names default response
-func (o *ListPresetNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list preset names default response has a 2xx status code
 func (o *ListPresetNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListPresetNamesDefault) IsServerError() bool {
 // IsCode returns true when this list preset names default response a status code equal to that given
 func (o *ListPresetNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list preset names default response
+func (o *ListPresetNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListPresetNamesDefault) Error() string {

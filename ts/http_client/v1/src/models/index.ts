@@ -15,7 +15,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './AgentStateResponseAgentState';
-export * from './MPIJobImplementation';
 export * from './MXJobMode';
 export * from './ProtobufAny';
 export * from './ProtobufNullValue';
@@ -164,6 +163,7 @@ export * from './V1OptimizationMetric';
 export * from './V1OptimizationResource';
 export * from './V1Organization';
 export * from './V1OrganizationMember';
+export * from './V1PaddleJob';
 export * from './V1Param';
 export * from './V1PasswordChange';
 export * from './V1PatchStrategy';

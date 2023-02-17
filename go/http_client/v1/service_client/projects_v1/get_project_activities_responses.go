@@ -111,6 +111,11 @@ func (o *GetProjectActivitiesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get project activities o k response
+func (o *GetProjectActivitiesOK) Code() int {
+	return 200
+}
+
 func (o *GetProjectActivitiesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetProjectActivitiesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get project activities no content response
+func (o *GetProjectActivitiesNoContent) Code() int {
+	return 204
+}
+
 func (o *GetProjectActivitiesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetProjectActivitiesForbidden) IsServerError() bool {
 // IsCode returns true when this get project activities forbidden response a status code equal to that given
 func (o *GetProjectActivitiesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get project activities forbidden response
+func (o *GetProjectActivitiesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetProjectActivitiesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetProjectActivitiesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get project activities not found response
+func (o *GetProjectActivitiesNotFound) Code() int {
+	return 404
+}
+
 func (o *GetProjectActivitiesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetProjectActivitiesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get project activities default response
-func (o *GetProjectActivitiesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get project activities default response has a 2xx status code
 func (o *GetProjectActivitiesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetProjectActivitiesDefault) IsServerError() bool {
 // IsCode returns true when this get project activities default response a status code equal to that given
 func (o *GetProjectActivitiesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get project activities default response
+func (o *GetProjectActivitiesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetProjectActivitiesDefault) Error() string {

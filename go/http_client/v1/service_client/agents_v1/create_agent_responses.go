@@ -111,6 +111,11 @@ func (o *CreateAgentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create agent o k response
+func (o *CreateAgentOK) Code() int {
+	return 200
+}
+
 func (o *CreateAgentOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateAgentNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create agent no content response
+func (o *CreateAgentNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateAgentNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateAgentForbidden) IsServerError() bool {
 // IsCode returns true when this create agent forbidden response a status code equal to that given
 func (o *CreateAgentForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create agent forbidden response
+func (o *CreateAgentForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateAgentForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateAgentNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create agent not found response
+func (o *CreateAgentNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateAgentNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateAgentDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create agent default response
-func (o *CreateAgentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create agent default response has a 2xx status code
 func (o *CreateAgentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateAgentDefault) IsServerError() bool {
 // IsCode returns true when this create agent default response a status code equal to that given
 func (o *CreateAgentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create agent default response
+func (o *CreateAgentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateAgentDefault) Error() string {

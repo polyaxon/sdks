@@ -111,6 +111,11 @@ func (o *GetVersionStagesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get version stages o k response
+func (o *GetVersionStagesOK) Code() int {
+	return 200
+}
+
 func (o *GetVersionStagesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetVersionStagesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get version stages no content response
+func (o *GetVersionStagesNoContent) Code() int {
+	return 204
+}
+
 func (o *GetVersionStagesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetVersionStagesForbidden) IsServerError() bool {
 // IsCode returns true when this get version stages forbidden response a status code equal to that given
 func (o *GetVersionStagesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get version stages forbidden response
+func (o *GetVersionStagesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetVersionStagesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetVersionStagesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get version stages not found response
+func (o *GetVersionStagesNotFound) Code() int {
+	return 404
+}
+
 func (o *GetVersionStagesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetVersionStagesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get version stages default response
-func (o *GetVersionStagesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get version stages default response has a 2xx status code
 func (o *GetVersionStagesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetVersionStagesDefault) IsServerError() bool {
 // IsCode returns true when this get version stages default response a status code equal to that given
 func (o *GetVersionStagesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get version stages default response
+func (o *GetVersionStagesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetVersionStagesDefault) Error() string {

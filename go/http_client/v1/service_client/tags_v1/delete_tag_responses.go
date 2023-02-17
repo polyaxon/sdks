@@ -110,6 +110,11 @@ func (o *DeleteTagOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete tag o k response
+func (o *DeleteTagOK) Code() int {
+	return 200
+}
+
 func (o *DeleteTagOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteTagNoContent) IsServerError() bool {
 // IsCode returns true when this delete tag no content response a status code equal to that given
 func (o *DeleteTagNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete tag no content response
+func (o *DeleteTagNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteTagNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteTagForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete tag forbidden response
+func (o *DeleteTagForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteTagForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteTagNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete tag not found response
+func (o *DeleteTagNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteTagNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete tag default response
-func (o *DeleteTagDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete tag default response has a 2xx status code
 func (o *DeleteTagDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteTagDefault) IsServerError() bool {
 // IsCode returns true when this delete tag default response a status code equal to that given
 func (o *DeleteTagDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete tag default response
+func (o *DeleteTagDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteTagDefault) Error() string {

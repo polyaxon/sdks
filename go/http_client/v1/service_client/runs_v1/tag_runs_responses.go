@@ -110,6 +110,11 @@ func (o *TagRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the tag runs o k response
+func (o *TagRunsOK) Code() int {
+	return 200
+}
+
 func (o *TagRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *TagRunsNoContent) IsServerError() bool {
 // IsCode returns true when this tag runs no content response a status code equal to that given
 func (o *TagRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the tag runs no content response
+func (o *TagRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *TagRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *TagRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the tag runs forbidden response
+func (o *TagRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *TagRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *TagRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the tag runs not found response
+func (o *TagRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *TagRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type TagRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the tag runs default response
-func (o *TagRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this tag runs default response has a 2xx status code
 func (o *TagRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *TagRunsDefault) IsServerError() bool {
 // IsCode returns true when this tag runs default response a status code equal to that given
 func (o *TagRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the tag runs default response
+func (o *TagRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TagRunsDefault) Error() string {

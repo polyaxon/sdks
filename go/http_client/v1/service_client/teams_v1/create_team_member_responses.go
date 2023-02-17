@@ -111,6 +111,11 @@ func (o *CreateTeamMemberOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create team member o k response
+func (o *CreateTeamMemberOK) Code() int {
+	return 200
+}
+
 func (o *CreateTeamMemberOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{team}/members][%d] createTeamMemberOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateTeamMemberNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create team member no content response
+func (o *CreateTeamMemberNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateTeamMemberNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{team}/members][%d] createTeamMemberNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateTeamMemberForbidden) IsServerError() bool {
 // IsCode returns true when this create team member forbidden response a status code equal to that given
 func (o *CreateTeamMemberForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create team member forbidden response
+func (o *CreateTeamMemberForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateTeamMemberForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateTeamMemberNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create team member not found response
+func (o *CreateTeamMemberNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateTeamMemberNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{team}/members][%d] createTeamMemberNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateTeamMemberDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create team member default response
-func (o *CreateTeamMemberDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create team member default response has a 2xx status code
 func (o *CreateTeamMemberDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateTeamMemberDefault) IsServerError() bool {
 // IsCode returns true when this create team member default response a status code equal to that given
 func (o *CreateTeamMemberDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create team member default response
+func (o *CreateTeamMemberDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateTeamMemberDefault) Error() string {

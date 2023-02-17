@@ -111,6 +111,11 @@ func (o *LoginOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the login o k response
+func (o *LoginOK) Code() int {
+	return 200
+}
+
 func (o *LoginOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *LoginNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the login no content response
+func (o *LoginNoContent) Code() int {
+	return 204
+}
+
 func (o *LoginNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *LoginForbidden) IsServerError() bool {
 // IsCode returns true when this login forbidden response a status code equal to that given
 func (o *LoginForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the login forbidden response
+func (o *LoginForbidden) Code() int {
+	return 403
 }
 
 func (o *LoginForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *LoginNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the login not found response
+func (o *LoginNotFound) Code() int {
+	return 404
+}
+
 func (o *LoginNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type LoginDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the login default response
-func (o *LoginDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this login default response has a 2xx status code
 func (o *LoginDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *LoginDefault) IsServerError() bool {
 // IsCode returns true when this login default response a status code equal to that given
 func (o *LoginDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the login default response
+func (o *LoginDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *LoginDefault) Error() string {

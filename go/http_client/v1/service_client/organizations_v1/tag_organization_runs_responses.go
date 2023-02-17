@@ -110,6 +110,11 @@ func (o *TagOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the tag organization runs o k response
+func (o *TagOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *TagOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/tag][%d] tagOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *TagOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this tag organization runs no content response a status code equal to that given
 func (o *TagOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the tag organization runs no content response
+func (o *TagOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *TagOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *TagOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the tag organization runs forbidden response
+func (o *TagOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *TagOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/tag][%d] tagOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *TagOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the tag organization runs not found response
+func (o *TagOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *TagOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/tag][%d] tagOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type TagOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the tag organization runs default response
-func (o *TagOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this tag organization runs default response has a 2xx status code
 func (o *TagOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *TagOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this tag organization runs default response a status code equal to that given
 func (o *TagOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the tag organization runs default response
+func (o *TagOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TagOrganizationRunsDefault) Error() string {

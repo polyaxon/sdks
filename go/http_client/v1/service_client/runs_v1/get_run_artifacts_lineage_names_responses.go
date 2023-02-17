@@ -111,6 +111,11 @@ func (o *GetRunArtifactsLineageNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run artifacts lineage names o k response
+func (o *GetRunArtifactsLineageNamesOK) Code() int {
+	return 200
+}
+
 func (o *GetRunArtifactsLineageNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/artifacts/names][%d] getRunArtifactsLineageNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunArtifactsLineageNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run artifacts lineage names no content response
+func (o *GetRunArtifactsLineageNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunArtifactsLineageNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/artifacts/names][%d] getRunArtifactsLineageNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunArtifactsLineageNamesForbidden) IsServerError() bool {
 // IsCode returns true when this get run artifacts lineage names forbidden response a status code equal to that given
 func (o *GetRunArtifactsLineageNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run artifacts lineage names forbidden response
+func (o *GetRunArtifactsLineageNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunArtifactsLineageNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunArtifactsLineageNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run artifacts lineage names not found response
+func (o *GetRunArtifactsLineageNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunArtifactsLineageNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/artifacts/names][%d] getRunArtifactsLineageNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunArtifactsLineageNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run artifacts lineage names default response
-func (o *GetRunArtifactsLineageNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run artifacts lineage names default response has a 2xx status code
 func (o *GetRunArtifactsLineageNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunArtifactsLineageNamesDefault) IsServerError() bool {
 // IsCode returns true when this get run artifacts lineage names default response a status code equal to that given
 func (o *GetRunArtifactsLineageNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run artifacts lineage names default response
+func (o *GetRunArtifactsLineageNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunArtifactsLineageNamesDefault) Error() string {

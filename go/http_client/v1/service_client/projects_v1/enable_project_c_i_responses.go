@@ -110,6 +110,11 @@ func (o *EnableProjectCIOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the enable project c i o k response
+func (o *EnableProjectCIOK) Code() int {
+	return 200
+}
+
 func (o *EnableProjectCIOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *EnableProjectCINoContent) IsServerError() bool {
 // IsCode returns true when this enable project c i no content response a status code equal to that given
 func (o *EnableProjectCINoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the enable project c i no content response
+func (o *EnableProjectCINoContent) Code() int {
+	return 204
 }
 
 func (o *EnableProjectCINoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *EnableProjectCIForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the enable project c i forbidden response
+func (o *EnableProjectCIForbidden) Code() int {
+	return 403
+}
+
 func (o *EnableProjectCIForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *EnableProjectCINotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the enable project c i not found response
+func (o *EnableProjectCINotFound) Code() int {
+	return 404
+}
+
 func (o *EnableProjectCINotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type EnableProjectCIDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the enable project c i default response
-func (o *EnableProjectCIDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this enable project c i default response has a 2xx status code
 func (o *EnableProjectCIDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *EnableProjectCIDefault) IsServerError() bool {
 // IsCode returns true when this enable project c i default response a status code equal to that given
 func (o *EnableProjectCIDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the enable project c i default response
+func (o *EnableProjectCIDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *EnableProjectCIDefault) Error() string {

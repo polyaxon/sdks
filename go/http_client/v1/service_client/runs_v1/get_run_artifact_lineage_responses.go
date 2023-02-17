@@ -111,6 +111,11 @@ func (o *GetRunArtifactLineageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run artifact lineage o k response
+func (o *GetRunArtifactLineageOK) Code() int {
+	return 200
+}
+
 func (o *GetRunArtifactLineageOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] getRunArtifactLineageOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunArtifactLineageNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run artifact lineage no content response
+func (o *GetRunArtifactLineageNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunArtifactLineageNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] getRunArtifactLineageNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunArtifactLineageForbidden) IsServerError() bool {
 // IsCode returns true when this get run artifact lineage forbidden response a status code equal to that given
 func (o *GetRunArtifactLineageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run artifact lineage forbidden response
+func (o *GetRunArtifactLineageForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunArtifactLineageForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunArtifactLineageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run artifact lineage not found response
+func (o *GetRunArtifactLineageNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunArtifactLineageNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] getRunArtifactLineageNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunArtifactLineageDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run artifact lineage default response
-func (o *GetRunArtifactLineageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run artifact lineage default response has a 2xx status code
 func (o *GetRunArtifactLineageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunArtifactLineageDefault) IsServerError() bool {
 // IsCode returns true when this get run artifact lineage default response a status code equal to that given
 func (o *GetRunArtifactLineageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run artifact lineage default response
+func (o *GetRunArtifactLineageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunArtifactLineageDefault) Error() string {

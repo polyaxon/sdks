@@ -111,6 +111,11 @@ func (o *UpdateAgentConfigOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update agent config o k response
+func (o *UpdateAgentConfigOK) Code() int {
+	return 200
+}
+
 func (o *UpdateAgentConfigOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateAgentConfigNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update agent config no content response
+func (o *UpdateAgentConfigNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateAgentConfigNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateAgentConfigForbidden) IsServerError() bool {
 // IsCode returns true when this update agent config forbidden response a status code equal to that given
 func (o *UpdateAgentConfigForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update agent config forbidden response
+func (o *UpdateAgentConfigForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateAgentConfigForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateAgentConfigNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update agent config not found response
+func (o *UpdateAgentConfigNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateAgentConfigNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateAgentConfigDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update agent config default response
-func (o *UpdateAgentConfigDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update agent config default response has a 2xx status code
 func (o *UpdateAgentConfigDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateAgentConfigDefault) IsServerError() bool {
 // IsCode returns true when this update agent config default response a status code equal to that given
 func (o *UpdateAgentConfigDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update agent config default response
+func (o *UpdateAgentConfigDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateAgentConfigDefault) Error() string {

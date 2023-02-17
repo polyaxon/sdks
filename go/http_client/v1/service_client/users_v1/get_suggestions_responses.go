@@ -111,6 +111,11 @@ func (o *GetSuggestionsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get suggestions o k response
+func (o *GetSuggestionsOK) Code() int {
+	return 200
+}
+
 func (o *GetSuggestionsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK  %+v", 200, o.Payload)
 }
@@ -169,6 +174,11 @@ func (o *GetSuggestionsNoContent) IsServerError() bool {
 // IsCode returns true when this get suggestions no content response a status code equal to that given
 func (o *GetSuggestionsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the get suggestions no content response
+func (o *GetSuggestionsNoContent) Code() int {
+	return 204
 }
 
 func (o *GetSuggestionsNoContent) Error() string {
@@ -231,6 +241,11 @@ func (o *GetSuggestionsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get suggestions forbidden response
+func (o *GetSuggestionsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetSuggestionsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden  %+v", 403, o.Payload)
 }
@@ -291,6 +306,11 @@ func (o *GetSuggestionsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get suggestions not found response
+func (o *GetSuggestionsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetSuggestionsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound  %+v", 404, o.Payload)
 }
@@ -330,11 +350,6 @@ type GetSuggestionsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get suggestions default response
-func (o *GetSuggestionsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get suggestions default response has a 2xx status code
 func (o *GetSuggestionsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -358,6 +373,11 @@ func (o *GetSuggestionsDefault) IsServerError() bool {
 // IsCode returns true when this get suggestions default response a status code equal to that given
 func (o *GetSuggestionsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get suggestions default response
+func (o *GetSuggestionsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetSuggestionsDefault) Error() string {

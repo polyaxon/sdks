@@ -111,6 +111,11 @@ func (o *PatchServiceAccountTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch service account token o k response
+func (o *PatchServiceAccountTokenOK) Code() int {
+	return 200
+}
+
 func (o *PatchServiceAccountTokenOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchServiceAccountTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch service account token no content response
+func (o *PatchServiceAccountTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchServiceAccountTokenNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchServiceAccountTokenForbidden) IsServerError() bool {
 // IsCode returns true when this patch service account token forbidden response a status code equal to that given
 func (o *PatchServiceAccountTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch service account token forbidden response
+func (o *PatchServiceAccountTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchServiceAccountTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchServiceAccountTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch service account token not found response
+func (o *PatchServiceAccountTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchServiceAccountTokenNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchServiceAccountTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch service account token default response
-func (o *PatchServiceAccountTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch service account token default response has a 2xx status code
 func (o *PatchServiceAccountTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchServiceAccountTokenDefault) IsServerError() bool {
 // IsCode returns true when this patch service account token default response a status code equal to that given
 func (o *PatchServiceAccountTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch service account token default response
+func (o *PatchServiceAccountTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchServiceAccountTokenDefault) Error() string {

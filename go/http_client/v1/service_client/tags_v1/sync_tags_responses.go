@@ -110,6 +110,11 @@ func (o *SyncTagsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the sync tags o k response
+func (o *SyncTagsOK) Code() int {
+	return 200
+}
+
 func (o *SyncTagsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *SyncTagsNoContent) IsServerError() bool {
 // IsCode returns true when this sync tags no content response a status code equal to that given
 func (o *SyncTagsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the sync tags no content response
+func (o *SyncTagsNoContent) Code() int {
+	return 204
 }
 
 func (o *SyncTagsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *SyncTagsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the sync tags forbidden response
+func (o *SyncTagsForbidden) Code() int {
+	return 403
+}
+
 func (o *SyncTagsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *SyncTagsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the sync tags not found response
+func (o *SyncTagsNotFound) Code() int {
+	return 404
+}
+
 func (o *SyncTagsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type SyncTagsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the sync tags default response
-func (o *SyncTagsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this sync tags default response has a 2xx status code
 func (o *SyncTagsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *SyncTagsDefault) IsServerError() bool {
 // IsCode returns true when this sync tags default response a status code equal to that given
 func (o *SyncTagsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the sync tags default response
+func (o *SyncTagsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SyncTagsDefault) Error() string {

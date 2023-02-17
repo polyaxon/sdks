@@ -111,6 +111,11 @@ func (o *OrganizationPlanOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the organization plan o k response
+func (o *OrganizationPlanOK) Code() int {
+	return 200
+}
+
 func (o *OrganizationPlanOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *OrganizationPlanNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the organization plan no content response
+func (o *OrganizationPlanNoContent) Code() int {
+	return 204
+}
+
 func (o *OrganizationPlanNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *OrganizationPlanForbidden) IsServerError() bool {
 // IsCode returns true when this organization plan forbidden response a status code equal to that given
 func (o *OrganizationPlanForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the organization plan forbidden response
+func (o *OrganizationPlanForbidden) Code() int {
+	return 403
 }
 
 func (o *OrganizationPlanForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *OrganizationPlanNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the organization plan not found response
+func (o *OrganizationPlanNotFound) Code() int {
+	return 404
+}
+
 func (o *OrganizationPlanNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/plan][%d] organizationPlanNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type OrganizationPlanDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the organization plan default response
-func (o *OrganizationPlanDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this organization plan default response has a 2xx status code
 func (o *OrganizationPlanDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *OrganizationPlanDefault) IsServerError() bool {
 // IsCode returns true when this organization plan default response a status code equal to that given
 func (o *OrganizationPlanDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the organization plan default response
+func (o *OrganizationPlanDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *OrganizationPlanDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *GetOrganizationSettingsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get organization settings o k response
+func (o *GetOrganizationSettingsOK) Code() int {
+	return 200
+}
+
 func (o *GetOrganizationSettingsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/settings][%d] getOrganizationSettingsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetOrganizationSettingsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get organization settings no content response
+func (o *GetOrganizationSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *GetOrganizationSettingsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/settings][%d] getOrganizationSettingsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetOrganizationSettingsForbidden) IsServerError() bool {
 // IsCode returns true when this get organization settings forbidden response a status code equal to that given
 func (o *GetOrganizationSettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get organization settings forbidden response
+func (o *GetOrganizationSettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetOrganizationSettingsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetOrganizationSettingsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get organization settings not found response
+func (o *GetOrganizationSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetOrganizationSettingsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/settings][%d] getOrganizationSettingsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetOrganizationSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get organization settings default response
-func (o *GetOrganizationSettingsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get organization settings default response has a 2xx status code
 func (o *GetOrganizationSettingsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetOrganizationSettingsDefault) IsServerError() bool {
 // IsCode returns true when this get organization settings default response a status code equal to that given
 func (o *GetOrganizationSettingsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get organization settings default response
+func (o *GetOrganizationSettingsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetOrganizationSettingsDefault) Error() string {

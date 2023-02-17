@@ -110,6 +110,11 @@ func (o *DeleteProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete project o k response
+func (o *DeleteProjectOK) Code() int {
+	return 200
+}
+
 func (o *DeleteProjectOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteProjectNoContent) IsServerError() bool {
 // IsCode returns true when this delete project no content response a status code equal to that given
 func (o *DeleteProjectNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete project no content response
+func (o *DeleteProjectNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteProjectNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteProjectForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete project forbidden response
+func (o *DeleteProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteProjectForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete project not found response
+func (o *DeleteProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteProjectNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete project default response
-func (o *DeleteProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete project default response has a 2xx status code
 func (o *DeleteProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteProjectDefault) IsServerError() bool {
 // IsCode returns true when this delete project default response a status code equal to that given
 func (o *DeleteProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete project default response
+func (o *DeleteProjectDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteProjectDefault) Error() string {

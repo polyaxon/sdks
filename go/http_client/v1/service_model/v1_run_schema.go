@@ -50,6 +50,9 @@ type V1RunSchema struct {
 	// mx job
 	MxJob *V1MXJob `json:"mxJob,omitempty"`
 
+	// paddle job
+	PaddleJob *V1PaddleJob `json:"paddleJob,omitempty"`
+
 	// pytorch job
 	PytorchJob *V1PytorchJob `json:"pytorchJob,omitempty"`
 
@@ -94,6 +97,10 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMxJob(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePaddleJob(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -233,6 +240,25 @@ func (m *V1RunSchema) validateMxJob(formats strfmt.Registry) error {
 				return ve.ValidateName("mxJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("mxJob")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1RunSchema) validatePaddleJob(formats strfmt.Registry) error {
+	if swag.IsZero(m.PaddleJob) { // not required
+		return nil
+	}
+
+	if m.PaddleJob != nil {
+		if err := m.PaddleJob.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("paddleJob")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("paddleJob")
 			}
 			return err
 		}
@@ -383,6 +409,10 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidatePaddleJob(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePytorchJob(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -501,6 +531,22 @@ func (m *V1RunSchema) contextValidateMxJob(ctx context.Context, formats strfmt.R
 				return ve.ValidateName("mxJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("mxJob")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1RunSchema) contextValidatePaddleJob(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PaddleJob != nil {
+		if err := m.PaddleJob.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("paddleJob")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("paddleJob")
 			}
 			return err
 		}

@@ -111,6 +111,11 @@ func (o *UpdateUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update user o k response
+func (o *UpdateUserOK) Code() int {
+	return 200
+}
+
 func (o *UpdateUserOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateUserNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update user no content response
+func (o *UpdateUserNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateUserNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateUserForbidden) IsServerError() bool {
 // IsCode returns true when this update user forbidden response a status code equal to that given
 func (o *UpdateUserForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update user forbidden response
+func (o *UpdateUserForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateUserForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateUserNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update user not found response
+func (o *UpdateUserNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateUserNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateUserDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update user default response
-func (o *UpdateUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update user default response has a 2xx status code
 func (o *UpdateUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateUserDefault) IsServerError() bool {
 // IsCode returns true when this update user default response a status code equal to that given
 func (o *UpdateUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update user default response
+func (o *UpdateUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateUserDefault) Error() string {

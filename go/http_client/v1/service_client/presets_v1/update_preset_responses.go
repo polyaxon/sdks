@@ -111,6 +111,11 @@ func (o *UpdatePresetOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update preset o k response
+func (o *UpdatePresetOK) Code() int {
+	return 200
+}
+
 func (o *UpdatePresetOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdatePresetNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update preset no content response
+func (o *UpdatePresetNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdatePresetNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdatePresetForbidden) IsServerError() bool {
 // IsCode returns true when this update preset forbidden response a status code equal to that given
 func (o *UpdatePresetForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update preset forbidden response
+func (o *UpdatePresetForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdatePresetForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdatePresetNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update preset not found response
+func (o *UpdatePresetNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdatePresetNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdatePresetDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update preset default response
-func (o *UpdatePresetDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update preset default response has a 2xx status code
 func (o *UpdatePresetDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdatePresetDefault) IsServerError() bool {
 // IsCode returns true when this update preset default response a status code equal to that given
 func (o *UpdatePresetDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update preset default response
+func (o *UpdatePresetDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdatePresetDefault) Error() string {

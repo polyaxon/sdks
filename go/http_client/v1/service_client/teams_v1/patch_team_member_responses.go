@@ -111,6 +111,11 @@ func (o *PatchTeamMemberOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch team member o k response
+func (o *PatchTeamMemberOK) Code() int {
+	return 200
+}
+
 func (o *PatchTeamMemberOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchTeamMemberNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch team member no content response
+func (o *PatchTeamMemberNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchTeamMemberNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchTeamMemberForbidden) IsServerError() bool {
 // IsCode returns true when this patch team member forbidden response a status code equal to that given
 func (o *PatchTeamMemberForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch team member forbidden response
+func (o *PatchTeamMemberForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchTeamMemberForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchTeamMemberNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch team member not found response
+func (o *PatchTeamMemberNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchTeamMemberNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchTeamMemberDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch team member default response
-func (o *PatchTeamMemberDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch team member default response has a 2xx status code
 func (o *PatchTeamMemberDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchTeamMemberDefault) IsServerError() bool {
 // IsCode returns true when this patch team member default response a status code equal to that given
 func (o *PatchTeamMemberDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch team member default response
+func (o *PatchTeamMemberDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchTeamMemberDefault) Error() string {

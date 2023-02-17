@@ -111,6 +111,11 @@ func (o *ImpersonateTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the impersonate token o k response
+func (o *ImpersonateTokenOK) Code() int {
+	return 200
+}
+
 func (o *ImpersonateTokenOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ImpersonateTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the impersonate token no content response
+func (o *ImpersonateTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *ImpersonateTokenNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ImpersonateTokenForbidden) IsServerError() bool {
 // IsCode returns true when this impersonate token forbidden response a status code equal to that given
 func (o *ImpersonateTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the impersonate token forbidden response
+func (o *ImpersonateTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *ImpersonateTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ImpersonateTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the impersonate token not found response
+func (o *ImpersonateTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *ImpersonateTokenNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ImpersonateTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the impersonate token default response
-func (o *ImpersonateTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this impersonate token default response has a 2xx status code
 func (o *ImpersonateTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ImpersonateTokenDefault) IsServerError() bool {
 // IsCode returns true when this impersonate token default response a status code equal to that given
 func (o *ImpersonateTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the impersonate token default response
+func (o *ImpersonateTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ImpersonateTokenDefault) Error() string {

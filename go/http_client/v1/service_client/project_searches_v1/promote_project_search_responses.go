@@ -110,6 +110,11 @@ func (o *PromoteProjectSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the promote project search o k response
+func (o *PromoteProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *PromoteProjectSearchOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *PromoteProjectSearchNoContent) IsServerError() bool {
 // IsCode returns true when this promote project search no content response a status code equal to that given
 func (o *PromoteProjectSearchNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the promote project search no content response
+func (o *PromoteProjectSearchNoContent) Code() int {
+	return 204
 }
 
 func (o *PromoteProjectSearchNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *PromoteProjectSearchForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the promote project search forbidden response
+func (o *PromoteProjectSearchForbidden) Code() int {
+	return 403
+}
+
 func (o *PromoteProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *PromoteProjectSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the promote project search not found response
+func (o *PromoteProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *PromoteProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type PromoteProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the promote project search default response
-func (o *PromoteProjectSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this promote project search default response has a 2xx status code
 func (o *PromoteProjectSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *PromoteProjectSearchDefault) IsServerError() bool {
 // IsCode returns true when this promote project search default response a status code equal to that given
 func (o *PromoteProjectSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the promote project search default response
+func (o *PromoteProjectSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PromoteProjectSearchDefault) Error() string {

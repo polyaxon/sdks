@@ -111,6 +111,11 @@ func (o *SignupOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the signup o k response
+func (o *SignupOK) Code() int {
+	return 200
+}
+
 func (o *SignupOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *SignupNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the signup no content response
+func (o *SignupNoContent) Code() int {
+	return 204
+}
+
 func (o *SignupNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *SignupForbidden) IsServerError() bool {
 // IsCode returns true when this signup forbidden response a status code equal to that given
 func (o *SignupForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the signup forbidden response
+func (o *SignupForbidden) Code() int {
+	return 403
 }
 
 func (o *SignupForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *SignupNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the signup not found response
+func (o *SignupNotFound) Code() int {
+	return 404
+}
+
 func (o *SignupNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type SignupDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the signup default response
-func (o *SignupDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this signup default response has a 2xx status code
 func (o *SignupDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *SignupDefault) IsServerError() bool {
 // IsCode returns true when this signup default response a status code equal to that given
 func (o *SignupDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the signup default response
+func (o *SignupDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SignupDefault) Error() string {

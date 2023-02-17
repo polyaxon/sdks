@@ -111,6 +111,11 @@ func (o *ListArchivedProjectsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list archived projects o k response
+func (o *ListArchivedProjectsOK) Code() int {
+	return 200
+}
+
 func (o *ListArchivedProjectsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListArchivedProjectsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list archived projects no content response
+func (o *ListArchivedProjectsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListArchivedProjectsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListArchivedProjectsForbidden) IsServerError() bool {
 // IsCode returns true when this list archived projects forbidden response a status code equal to that given
 func (o *ListArchivedProjectsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list archived projects forbidden response
+func (o *ListArchivedProjectsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListArchivedProjectsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListArchivedProjectsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list archived projects not found response
+func (o *ListArchivedProjectsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListArchivedProjectsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListArchivedProjectsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list archived projects default response
-func (o *ListArchivedProjectsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list archived projects default response has a 2xx status code
 func (o *ListArchivedProjectsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListArchivedProjectsDefault) IsServerError() bool {
 // IsCode returns true when this list archived projects default response a status code equal to that given
 func (o *ListArchivedProjectsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list archived projects default response
+func (o *ListArchivedProjectsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListArchivedProjectsDefault) Error() string {

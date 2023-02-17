@@ -111,6 +111,11 @@ func (o *GetTeamOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get team o k response
+func (o *GetTeamOK) Code() int {
+	return 200
+}
+
 func (o *GetTeamOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetTeamNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get team no content response
+func (o *GetTeamNoContent) Code() int {
+	return 204
+}
+
 func (o *GetTeamNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetTeamForbidden) IsServerError() bool {
 // IsCode returns true when this get team forbidden response a status code equal to that given
 func (o *GetTeamForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get team forbidden response
+func (o *GetTeamForbidden) Code() int {
+	return 403
 }
 
 func (o *GetTeamForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetTeamNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get team not found response
+func (o *GetTeamNotFound) Code() int {
+	return 404
+}
+
 func (o *GetTeamNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetTeamDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get team default response
-func (o *GetTeamDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get team default response has a 2xx status code
 func (o *GetTeamDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetTeamDefault) IsServerError() bool {
 // IsCode returns true when this get team default response a status code equal to that given
 func (o *GetTeamDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get team default response
+func (o *GetTeamDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetTeamDefault) Error() string {

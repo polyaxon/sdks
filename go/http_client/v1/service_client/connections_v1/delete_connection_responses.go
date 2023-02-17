@@ -110,6 +110,11 @@ func (o *DeleteConnectionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete connection o k response
+func (o *DeleteConnectionOK) Code() int {
+	return 200
+}
+
 func (o *DeleteConnectionOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteConnectionNoContent) IsServerError() bool {
 // IsCode returns true when this delete connection no content response a status code equal to that given
 func (o *DeleteConnectionNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete connection no content response
+func (o *DeleteConnectionNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteConnectionNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteConnectionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete connection forbidden response
+func (o *DeleteConnectionForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteConnectionForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteConnectionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete connection not found response
+func (o *DeleteConnectionNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteConnectionNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteConnectionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete connection default response
-func (o *DeleteConnectionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete connection default response has a 2xx status code
 func (o *DeleteConnectionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteConnectionDefault) IsServerError() bool {
 // IsCode returns true when this delete connection default response a status code equal to that given
 func (o *DeleteConnectionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete connection default response
+func (o *DeleteConnectionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteConnectionDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *GetPresetOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get preset o k response
+func (o *GetPresetOK) Code() int {
+	return 200
+}
+
 func (o *GetPresetOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetPresetNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get preset no content response
+func (o *GetPresetNoContent) Code() int {
+	return 204
+}
+
 func (o *GetPresetNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetPresetForbidden) IsServerError() bool {
 // IsCode returns true when this get preset forbidden response a status code equal to that given
 func (o *GetPresetForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get preset forbidden response
+func (o *GetPresetForbidden) Code() int {
+	return 403
 }
 
 func (o *GetPresetForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetPresetNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get preset not found response
+func (o *GetPresetNotFound) Code() int {
+	return 404
+}
+
 func (o *GetPresetNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetPresetDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get preset default response
-func (o *GetPresetDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get preset default response has a 2xx status code
 func (o *GetPresetDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetPresetDefault) IsServerError() bool {
 // IsCode returns true when this get preset default response a status code equal to that given
 func (o *GetPresetDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get preset default response
+func (o *GetPresetDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetPresetDefault) Error() string {

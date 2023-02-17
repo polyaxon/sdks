@@ -110,6 +110,11 @@ func (o *DeleteOrganizationInvitationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete organization invitation o k response
+func (o *DeleteOrganizationInvitationOK) Code() int {
+	return 200
+}
+
 func (o *DeleteOrganizationInvitationOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/invitations][%d] deleteOrganizationInvitationOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteOrganizationInvitationNoContent) IsServerError() bool {
 // IsCode returns true when this delete organization invitation no content response a status code equal to that given
 func (o *DeleteOrganizationInvitationNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete organization invitation no content response
+func (o *DeleteOrganizationInvitationNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteOrganizationInvitationNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteOrganizationInvitationForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete organization invitation forbidden response
+func (o *DeleteOrganizationInvitationForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteOrganizationInvitationForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/invitations][%d] deleteOrganizationInvitationForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteOrganizationInvitationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete organization invitation not found response
+func (o *DeleteOrganizationInvitationNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteOrganizationInvitationNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/invitations][%d] deleteOrganizationInvitationNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteOrganizationInvitationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete organization invitation default response
-func (o *DeleteOrganizationInvitationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete organization invitation default response has a 2xx status code
 func (o *DeleteOrganizationInvitationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteOrganizationInvitationDefault) IsServerError() bool {
 // IsCode returns true when this delete organization invitation default response a status code equal to that given
 func (o *DeleteOrganizationInvitationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete organization invitation default response
+func (o *DeleteOrganizationInvitationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteOrganizationInvitationDefault) Error() string {

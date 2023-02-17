@@ -110,6 +110,11 @@ func (o *DeleteTeamOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete team o k response
+func (o *DeleteTeamOK) Code() int {
+	return 200
+}
+
 func (o *DeleteTeamOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}][%d] deleteTeamOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteTeamNoContent) IsServerError() bool {
 // IsCode returns true when this delete team no content response a status code equal to that given
 func (o *DeleteTeamNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete team no content response
+func (o *DeleteTeamNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteTeamNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteTeamForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete team forbidden response
+func (o *DeleteTeamForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteTeamForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}][%d] deleteTeamForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteTeamNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete team not found response
+func (o *DeleteTeamNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteTeamNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}][%d] deleteTeamNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteTeamDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete team default response
-func (o *DeleteTeamDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete team default response has a 2xx status code
 func (o *DeleteTeamDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteTeamDefault) IsServerError() bool {
 // IsCode returns true when this delete team default response a status code equal to that given
 func (o *DeleteTeamDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete team default response
+func (o *DeleteTeamDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteTeamDefault) Error() string {

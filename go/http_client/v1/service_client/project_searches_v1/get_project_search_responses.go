@@ -111,6 +111,11 @@ func (o *GetProjectSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get project search o k response
+func (o *GetProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *GetProjectSearchOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/searches/{uuid}][%d] getProjectSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetProjectSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get project search no content response
+func (o *GetProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *GetProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/searches/{uuid}][%d] getProjectSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetProjectSearchForbidden) IsServerError() bool {
 // IsCode returns true when this get project search forbidden response a status code equal to that given
 func (o *GetProjectSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get project search forbidden response
+func (o *GetProjectSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *GetProjectSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetProjectSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get project search not found response
+func (o *GetProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *GetProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/searches/{uuid}][%d] getProjectSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get project search default response
-func (o *GetProjectSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get project search default response has a 2xx status code
 func (o *GetProjectSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetProjectSearchDefault) IsServerError() bool {
 // IsCode returns true when this get project search default response a status code equal to that given
 func (o *GetProjectSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get project search default response
+func (o *GetProjectSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetProjectSearchDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *ListProjectDashboardNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list project dashboard names o k response
+func (o *ListProjectDashboardNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListProjectDashboardNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/dashboards/names][%d] listProjectDashboardNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListProjectDashboardNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list project dashboard names no content response
+func (o *ListProjectDashboardNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListProjectDashboardNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/dashboards/names][%d] listProjectDashboardNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListProjectDashboardNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list project dashboard names forbidden response a status code equal to that given
 func (o *ListProjectDashboardNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list project dashboard names forbidden response
+func (o *ListProjectDashboardNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListProjectDashboardNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListProjectDashboardNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list project dashboard names not found response
+func (o *ListProjectDashboardNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListProjectDashboardNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/dashboards/names][%d] listProjectDashboardNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListProjectDashboardNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list project dashboard names default response
-func (o *ListProjectDashboardNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list project dashboard names default response has a 2xx status code
 func (o *ListProjectDashboardNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListProjectDashboardNamesDefault) IsServerError() bool {
 // IsCode returns true when this list project dashboard names default response a status code equal to that given
 func (o *ListProjectDashboardNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list project dashboard names default response
+func (o *ListProjectDashboardNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListProjectDashboardNamesDefault) Error() string {

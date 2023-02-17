@@ -111,6 +111,11 @@ func (o *PatchProjectOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch project o k response
+func (o *PatchProjectOK) Code() int {
+	return 200
+}
+
 func (o *PatchProjectOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchProjectNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch project no content response
+func (o *PatchProjectNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchProjectNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchProjectForbidden) IsServerError() bool {
 // IsCode returns true when this patch project forbidden response a status code equal to that given
 func (o *PatchProjectForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch project forbidden response
+func (o *PatchProjectForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchProjectForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchProjectNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch project not found response
+func (o *PatchProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchProjectNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch project default response
-func (o *PatchProjectDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch project default response has a 2xx status code
 func (o *PatchProjectDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchProjectDefault) IsServerError() bool {
 // IsCode returns true when this patch project default response a status code equal to that given
 func (o *PatchProjectDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch project default response
+func (o *PatchProjectDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchProjectDefault) Error() string {

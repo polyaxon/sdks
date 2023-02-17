@@ -110,6 +110,11 @@ func (o *InvalidateRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the invalidate run o k response
+func (o *InvalidateRunOK) Code() int {
+	return 200
+}
+
 func (o *InvalidateRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/invalidate][%d] invalidateRunOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *InvalidateRunNoContent) IsServerError() bool {
 // IsCode returns true when this invalidate run no content response a status code equal to that given
 func (o *InvalidateRunNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the invalidate run no content response
+func (o *InvalidateRunNoContent) Code() int {
+	return 204
 }
 
 func (o *InvalidateRunNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *InvalidateRunForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the invalidate run forbidden response
+func (o *InvalidateRunForbidden) Code() int {
+	return 403
+}
+
 func (o *InvalidateRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/invalidate][%d] invalidateRunForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *InvalidateRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the invalidate run not found response
+func (o *InvalidateRunNotFound) Code() int {
+	return 404
+}
+
 func (o *InvalidateRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/invalidate][%d] invalidateRunNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type InvalidateRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the invalidate run default response
-func (o *InvalidateRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this invalidate run default response has a 2xx status code
 func (o *InvalidateRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *InvalidateRunDefault) IsServerError() bool {
 // IsCode returns true when this invalidate run default response a status code equal to that given
 func (o *InvalidateRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the invalidate run default response
+func (o *InvalidateRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *InvalidateRunDefault) Error() string {

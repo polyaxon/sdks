@@ -111,6 +111,11 @@ func (o *UpdateRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update run o k response
+func (o *UpdateRunOK) Code() int {
+	return 200
+}
+
 func (o *UpdateRunOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update run no content response
+func (o *UpdateRunNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateRunNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateRunForbidden) IsServerError() bool {
 // IsCode returns true when this update run forbidden response a status code equal to that given
 func (o *UpdateRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update run forbidden response
+func (o *UpdateRunForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update run not found response
+func (o *UpdateRunNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateRunNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/runs/{run.uuid}][%d] updateRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update run default response
-func (o *UpdateRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update run default response has a 2xx status code
 func (o *UpdateRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateRunDefault) IsServerError() bool {
 // IsCode returns true when this update run default response a status code equal to that given
 func (o *UpdateRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update run default response
+func (o *UpdateRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateRunDefault) Error() string {

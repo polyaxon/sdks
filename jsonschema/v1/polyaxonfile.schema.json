@@ -47,14 +47,6 @@
       },
       "type": "object"
     },
-    "MPIJobImplementation": {
-      "default": "OpenMPI",
-      "enum": [
-        "OpenMPI",
-        "Intel"
-      ],
-      "type": "string"
-    },
     "MXJobMode": {
       "default": "MXTrain",
       "enum": [
@@ -8040,10 +8032,6 @@
           "$ref": "#/definitions/v1CleanPodPolicy",
           "title": "optional clean pod policy section"
         },
-        "implementation": {
-          "$ref": "#/definitions/MPIJobImplementation",
-          "description": "MPI implementation, options are \"OpenMPI\" (default) and \"Intel\"."
-        },
         "kind": {
           "default": "mpi_job",
           "title": "Optional component kind, should be equal to 'mpi_job'",
@@ -8061,10 +8049,6 @@
           "format": "int32",
           "title": "Optional slots per worker",
           "type": "integer"
-        },
-        "sshAuthMountPath": {
-          "title": "Optional is the directory where SSH keys are mounted, default \"/root/.ssh\"",
-          "type": "string"
         },
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
@@ -8668,6 +8652,33 @@
         }
       },
       "title": "Organization member specification",
+      "type": "object"
+    },
+    "v1PaddleJob": {
+      "properties": {
+        "cleanPodPolicy": {
+          "$ref": "#/definitions/v1CleanPodPolicy",
+          "title": "optional clean pod policy section"
+        },
+        "kind": {
+          "default": "paddle_job",
+          "title": "Optional component kind, should be equal to 'paddle_job'",
+          "type": "string"
+        },
+        "master": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Master replicas definition"
+        },
+        "schedulingPolicy": {
+          "$ref": "#/definitions/v1SchedulingPolicy",
+          "title": "optional scheduling policy section"
+        },
+        "worker": {
+          "$ref": "#/definitions/v1KFReplica",
+          "title": "Worker replicas definition"
+        }
+      },
+      "title": "Paddle Job specification",
       "type": "object"
     },
     "v1Param": {
@@ -9754,6 +9765,9 @@
         "mxJob": {
           "$ref": "#/definitions/v1MXJob"
         },
+        "paddleJob": {
+          "$ref": "#/definitions/v1PaddleJob"
+        },
         "pytorchJob": {
           "$ref": "#/definitions/v1PytorchJob"
         },
@@ -10530,6 +10544,10 @@
         "cleanPodPolicy": {
           "$ref": "#/definitions/v1CleanPodPolicy",
           "title": "optional clean pod policy section"
+        },
+        "enableDynamicWorker": {
+          "title": "optional flag to enable dynamic worker",
+          "type": "boolean"
         },
         "evaluator": {
           "$ref": "#/definitions/v1KFReplica",

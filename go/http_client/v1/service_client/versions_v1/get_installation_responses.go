@@ -111,6 +111,11 @@ func (o *GetInstallationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get installation o k response
+func (o *GetInstallationOK) Code() int {
+	return 200
+}
+
 func (o *GetInstallationOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetInstallationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get installation no content response
+func (o *GetInstallationNoContent) Code() int {
+	return 204
+}
+
 func (o *GetInstallationNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetInstallationForbidden) IsServerError() bool {
 // IsCode returns true when this get installation forbidden response a status code equal to that given
 func (o *GetInstallationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get installation forbidden response
+func (o *GetInstallationForbidden) Code() int {
+	return 403
 }
 
 func (o *GetInstallationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetInstallationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get installation not found response
+func (o *GetInstallationNotFound) Code() int {
+	return 404
+}
+
 func (o *GetInstallationNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetInstallationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get installation default response
-func (o *GetInstallationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get installation default response has a 2xx status code
 func (o *GetInstallationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetInstallationDefault) IsServerError() bool {
 // IsCode returns true when this get installation default response a status code equal to that given
 func (o *GetInstallationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get installation default response
+func (o *GetInstallationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetInstallationDefault) Error() string {

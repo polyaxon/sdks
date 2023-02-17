@@ -110,6 +110,11 @@ func (o *DeleteRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete runs o k response
+func (o *DeleteRunsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteRunsOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteRunsNoContent) IsServerError() bool {
 // IsCode returns true when this delete runs no content response a status code equal to that given
 func (o *DeleteRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete runs no content response
+func (o *DeleteRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete runs forbidden response
+func (o *DeleteRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteRunsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete runs not found response
+func (o *DeleteRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteRunsNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete runs default response
-func (o *DeleteRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete runs default response has a 2xx status code
 func (o *DeleteRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteRunsDefault) IsServerError() bool {
 // IsCode returns true when this delete runs default response a status code equal to that given
 func (o *DeleteRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete runs default response
+func (o *DeleteRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteRunsDefault) Error() string {

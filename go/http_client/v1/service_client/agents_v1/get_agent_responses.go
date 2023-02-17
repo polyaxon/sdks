@@ -111,6 +111,11 @@ func (o *GetAgentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get agent o k response
+func (o *GetAgentOK) Code() int {
+	return 200
+}
+
 func (o *GetAgentOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}][%d] getAgentOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetAgentNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get agent no content response
+func (o *GetAgentNoContent) Code() int {
+	return 204
+}
+
 func (o *GetAgentNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}][%d] getAgentNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetAgentForbidden) IsServerError() bool {
 // IsCode returns true when this get agent forbidden response a status code equal to that given
 func (o *GetAgentForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get agent forbidden response
+func (o *GetAgentForbidden) Code() int {
+	return 403
 }
 
 func (o *GetAgentForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetAgentNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get agent not found response
+func (o *GetAgentNotFound) Code() int {
+	return 404
+}
+
 func (o *GetAgentNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}][%d] getAgentNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetAgentDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get agent default response
-func (o *GetAgentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get agent default response has a 2xx status code
 func (o *GetAgentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetAgentDefault) IsServerError() bool {
 // IsCode returns true when this get agent default response a status code equal to that given
 func (o *GetAgentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get agent default response
+func (o *GetAgentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetAgentDefault) Error() string {

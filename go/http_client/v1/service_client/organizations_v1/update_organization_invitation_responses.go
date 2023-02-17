@@ -111,6 +111,11 @@ func (o *UpdateOrganizationInvitationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update organization invitation o k response
+func (o *UpdateOrganizationInvitationOK) Code() int {
+	return 200
+}
+
 func (o *UpdateOrganizationInvitationOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/invitations][%d] updateOrganizationInvitationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateOrganizationInvitationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update organization invitation no content response
+func (o *UpdateOrganizationInvitationNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateOrganizationInvitationNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/invitations][%d] updateOrganizationInvitationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateOrganizationInvitationForbidden) IsServerError() bool {
 // IsCode returns true when this update organization invitation forbidden response a status code equal to that given
 func (o *UpdateOrganizationInvitationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update organization invitation forbidden response
+func (o *UpdateOrganizationInvitationForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateOrganizationInvitationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateOrganizationInvitationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update organization invitation not found response
+func (o *UpdateOrganizationInvitationNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateOrganizationInvitationNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/invitations][%d] updateOrganizationInvitationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateOrganizationInvitationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update organization invitation default response
-func (o *UpdateOrganizationInvitationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update organization invitation default response has a 2xx status code
 func (o *UpdateOrganizationInvitationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateOrganizationInvitationDefault) IsServerError() bool {
 // IsCode returns true when this update organization invitation default response a status code equal to that given
 func (o *UpdateOrganizationInvitationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update organization invitation default response
+func (o *UpdateOrganizationInvitationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateOrganizationInvitationDefault) Error() string {

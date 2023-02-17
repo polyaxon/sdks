@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 1.21.0
+- API version: 1.22.0-rc0
 
 Polyaxon SDKs and REST API specification.
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>1.21.0</version>
+  <version>1.22.0-rc0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.21.0"
+compile "org.openapitools:openapi-java-client:1.22.0-rc0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.21.0.jar`
+* `target/openapi-java-client-1.22.0-rc0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -371,7 +371,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
- - [MPIJobImplementation](docs/MPIJobImplementation.md)
  - [MXJobMode](docs/MXJobMode.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
@@ -520,6 +519,7 @@ Class | Method | HTTP request | Description
  - [V1OptimizationResource](docs/V1OptimizationResource.md)
  - [V1Organization](docs/V1Organization.md)
  - [V1OrganizationMember](docs/V1OrganizationMember.md)
+ - [V1PaddleJob](docs/V1PaddleJob.md)
  - [V1Param](docs/V1Param.md)
  - [V1PasswordChange](docs/V1PasswordChange.md)
  - [V1PatchStrategy](docs/V1PatchStrategy.md)

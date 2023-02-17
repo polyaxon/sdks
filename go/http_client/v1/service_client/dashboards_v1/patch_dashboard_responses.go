@@ -111,6 +111,11 @@ func (o *PatchDashboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch dashboard o k response
+func (o *PatchDashboardOK) Code() int {
+	return 200
+}
+
 func (o *PatchDashboardOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/dashboards/{dashboard.uuid}][%d] patchDashboardOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchDashboardNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch dashboard no content response
+func (o *PatchDashboardNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchDashboardNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/dashboards/{dashboard.uuid}][%d] patchDashboardNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchDashboardForbidden) IsServerError() bool {
 // IsCode returns true when this patch dashboard forbidden response a status code equal to that given
 func (o *PatchDashboardForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch dashboard forbidden response
+func (o *PatchDashboardForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchDashboardForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchDashboardNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch dashboard not found response
+func (o *PatchDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchDashboardNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/dashboards/{dashboard.uuid}][%d] patchDashboardNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch dashboard default response
-func (o *PatchDashboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch dashboard default response has a 2xx status code
 func (o *PatchDashboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchDashboardDefault) IsServerError() bool {
 // IsCode returns true when this patch dashboard default response a status code equal to that given
 func (o *PatchDashboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch dashboard default response
+func (o *PatchDashboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchDashboardDefault) Error() string {

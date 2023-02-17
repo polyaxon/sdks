@@ -110,6 +110,11 @@ func (o *SyncAgentOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the sync agent o k response
+func (o *SyncAgentOK) Code() int {
+	return 200
+}
+
 func (o *SyncAgentOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *SyncAgentNoContent) IsServerError() bool {
 // IsCode returns true when this sync agent no content response a status code equal to that given
 func (o *SyncAgentNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the sync agent no content response
+func (o *SyncAgentNoContent) Code() int {
+	return 204
 }
 
 func (o *SyncAgentNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *SyncAgentForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the sync agent forbidden response
+func (o *SyncAgentForbidden) Code() int {
+	return 403
+}
+
 func (o *SyncAgentForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *SyncAgentNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the sync agent not found response
+func (o *SyncAgentNotFound) Code() int {
+	return 404
+}
+
 func (o *SyncAgentNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type SyncAgentDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the sync agent default response
-func (o *SyncAgentDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this sync agent default response has a 2xx status code
 func (o *SyncAgentDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *SyncAgentDefault) IsServerError() bool {
 // IsCode returns true when this sync agent default response a status code equal to that given
 func (o *SyncAgentDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the sync agent default response
+func (o *SyncAgentDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SyncAgentDefault) Error() string {

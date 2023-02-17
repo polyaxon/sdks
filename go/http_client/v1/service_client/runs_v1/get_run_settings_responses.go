@@ -111,6 +111,11 @@ func (o *GetRunSettingsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run settings o k response
+func (o *GetRunSettingsOK) Code() int {
+	return 200
+}
+
 func (o *GetRunSettingsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunSettingsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run settings no content response
+func (o *GetRunSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunSettingsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunSettingsForbidden) IsServerError() bool {
 // IsCode returns true when this get run settings forbidden response a status code equal to that given
 func (o *GetRunSettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run settings forbidden response
+func (o *GetRunSettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunSettingsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunSettingsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run settings not found response
+func (o *GetRunSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunSettingsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run settings default response
-func (o *GetRunSettingsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run settings default response has a 2xx status code
 func (o *GetRunSettingsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunSettingsDefault) IsServerError() bool {
 // IsCode returns true when this get run settings default response a status code equal to that given
 func (o *GetRunSettingsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run settings default response
+func (o *GetRunSettingsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunSettingsDefault) Error() string {

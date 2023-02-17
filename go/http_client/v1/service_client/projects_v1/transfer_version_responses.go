@@ -110,6 +110,11 @@ func (o *TransferVersionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the transfer version o k response
+func (o *TransferVersionOK) Code() int {
+	return 200
+}
+
 func (o *TransferVersionOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *TransferVersionNoContent) IsServerError() bool {
 // IsCode returns true when this transfer version no content response a status code equal to that given
 func (o *TransferVersionNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the transfer version no content response
+func (o *TransferVersionNoContent) Code() int {
+	return 204
 }
 
 func (o *TransferVersionNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *TransferVersionForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the transfer version forbidden response
+func (o *TransferVersionForbidden) Code() int {
+	return 403
+}
+
 func (o *TransferVersionForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *TransferVersionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the transfer version not found response
+func (o *TransferVersionNotFound) Code() int {
+	return 404
+}
+
 func (o *TransferVersionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type TransferVersionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the transfer version default response
-func (o *TransferVersionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this transfer version default response has a 2xx status code
 func (o *TransferVersionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *TransferVersionDefault) IsServerError() bool {
 // IsCode returns true when this transfer version default response a status code equal to that given
 func (o *TransferVersionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the transfer version default response
+func (o *TransferVersionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *TransferVersionDefault) Error() string {

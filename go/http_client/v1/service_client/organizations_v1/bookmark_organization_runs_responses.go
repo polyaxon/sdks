@@ -110,6 +110,11 @@ func (o *BookmarkOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bookmark organization runs o k response
+func (o *BookmarkOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *BookmarkOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/bookmark][%d] bookmarkOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *BookmarkOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this bookmark organization runs no content response a status code equal to that given
 func (o *BookmarkOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the bookmark organization runs no content response
+func (o *BookmarkOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *BookmarkOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *BookmarkOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the bookmark organization runs forbidden response
+func (o *BookmarkOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *BookmarkOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/bookmark][%d] bookmarkOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *BookmarkOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the bookmark organization runs not found response
+func (o *BookmarkOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *BookmarkOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/bookmark][%d] bookmarkOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type BookmarkOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the bookmark organization runs default response
-func (o *BookmarkOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bookmark organization runs default response has a 2xx status code
 func (o *BookmarkOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *BookmarkOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this bookmark organization runs default response a status code equal to that given
 func (o *BookmarkOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bookmark organization runs default response
+func (o *BookmarkOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BookmarkOrganizationRunsDefault) Error() string {

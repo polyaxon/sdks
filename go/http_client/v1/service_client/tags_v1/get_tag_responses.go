@@ -111,6 +111,11 @@ func (o *GetTagOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get tag o k response
+func (o *GetTagOK) Code() int {
+	return 200
+}
+
 func (o *GetTagOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetTagNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get tag no content response
+func (o *GetTagNoContent) Code() int {
+	return 204
+}
+
 func (o *GetTagNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetTagForbidden) IsServerError() bool {
 // IsCode returns true when this get tag forbidden response a status code equal to that given
 func (o *GetTagForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get tag forbidden response
+func (o *GetTagForbidden) Code() int {
+	return 403
 }
 
 func (o *GetTagForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetTagNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get tag not found response
+func (o *GetTagNotFound) Code() int {
+	return 404
+}
+
 func (o *GetTagNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get tag default response
-func (o *GetTagDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get tag default response has a 2xx status code
 func (o *GetTagDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetTagDefault) IsServerError() bool {
 // IsCode returns true when this get tag default response a status code equal to that given
 func (o *GetTagDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get tag default response
+func (o *GetTagDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetTagDefault) Error() string {

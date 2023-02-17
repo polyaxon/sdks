@@ -110,6 +110,11 @@ func (o *DeleteProjectDashboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete project dashboard o k response
+func (o *DeleteProjectDashboardOK) Code() int {
+	return 200
+}
+
 func (o *DeleteProjectDashboardOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteProjectDashboardNoContent) IsServerError() bool {
 // IsCode returns true when this delete project dashboard no content response a status code equal to that given
 func (o *DeleteProjectDashboardNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete project dashboard no content response
+func (o *DeleteProjectDashboardNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteProjectDashboardNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteProjectDashboardForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete project dashboard forbidden response
+func (o *DeleteProjectDashboardForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteProjectDashboardNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete project dashboard not found response
+func (o *DeleteProjectDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteProjectDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete project dashboard default response
-func (o *DeleteProjectDashboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete project dashboard default response has a 2xx status code
 func (o *DeleteProjectDashboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteProjectDashboardDefault) IsServerError() bool {
 // IsCode returns true when this delete project dashboard default response a status code equal to that given
 func (o *DeleteProjectDashboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete project dashboard default response
+func (o *DeleteProjectDashboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteProjectDashboardDefault) Error() string {

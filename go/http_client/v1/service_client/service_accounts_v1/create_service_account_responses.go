@@ -111,6 +111,11 @@ func (o *CreateServiceAccountOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create service account o k response
+func (o *CreateServiceAccountOK) Code() int {
+	return 200
+}
+
 func (o *CreateServiceAccountOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateServiceAccountNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create service account no content response
+func (o *CreateServiceAccountNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateServiceAccountNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateServiceAccountForbidden) IsServerError() bool {
 // IsCode returns true when this create service account forbidden response a status code equal to that given
 func (o *CreateServiceAccountForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create service account forbidden response
+func (o *CreateServiceAccountForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateServiceAccountForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateServiceAccountNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create service account not found response
+func (o *CreateServiceAccountNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateServiceAccountNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/sa][%d] createServiceAccountNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateServiceAccountDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create service account default response
-func (o *CreateServiceAccountDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create service account default response has a 2xx status code
 func (o *CreateServiceAccountDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateServiceAccountDefault) IsServerError() bool {
 // IsCode returns true when this create service account default response a status code equal to that given
 func (o *CreateServiceAccountDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create service account default response
+func (o *CreateServiceAccountDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateServiceAccountDefault) Error() string {

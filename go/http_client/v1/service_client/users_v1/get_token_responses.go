@@ -111,6 +111,11 @@ func (o *GetTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get token o k response
+func (o *GetTokenOK) Code() int {
+	return 200
+}
+
 func (o *GetTokenOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get token no content response
+func (o *GetTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *GetTokenNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetTokenForbidden) IsServerError() bool {
 // IsCode returns true when this get token forbidden response a status code equal to that given
 func (o *GetTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get token forbidden response
+func (o *GetTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *GetTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get token not found response
+func (o *GetTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *GetTokenNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get token default response
-func (o *GetTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get token default response has a 2xx status code
 func (o *GetTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetTokenDefault) IsServerError() bool {
 // IsCode returns true when this get token default response a status code equal to that given
 func (o *GetTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get token default response
+func (o *GetTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetTokenDefault) Error() string {

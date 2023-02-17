@@ -110,6 +110,11 @@ func (o *ArchiveOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the archive organization runs o k response
+func (o *ArchiveOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *ArchiveOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *ArchiveOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this archive organization runs no content response a status code equal to that given
 func (o *ArchiveOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the archive organization runs no content response
+func (o *ArchiveOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *ArchiveOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *ArchiveOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the archive organization runs forbidden response
+func (o *ArchiveOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *ArchiveOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *ArchiveOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the archive organization runs not found response
+func (o *ArchiveOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ArchiveOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type ArchiveOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the archive organization runs default response
-func (o *ArchiveOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this archive organization runs default response has a 2xx status code
 func (o *ArchiveOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *ArchiveOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this archive organization runs default response a status code equal to that given
 func (o *ArchiveOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the archive organization runs default response
+func (o *ArchiveOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArchiveOrganizationRunsDefault) Error() string {

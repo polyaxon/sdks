@@ -110,6 +110,11 @@ func (o *DeleteRunArtifactsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the delete run artifacts o k response
+func (o *DeleteRunArtifactsOK) Code() int {
+	return 200
+}
+
 func (o *DeleteRunArtifactsOK) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DeleteRunArtifactsNoContent) IsServerError() bool {
 // IsCode returns true when this delete run artifacts no content response a status code equal to that given
 func (o *DeleteRunArtifactsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the delete run artifacts no content response
+func (o *DeleteRunArtifactsNoContent) Code() int {
+	return 204
 }
 
 func (o *DeleteRunArtifactsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DeleteRunArtifactsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the delete run artifacts forbidden response
+func (o *DeleteRunArtifactsForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteRunArtifactsForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DeleteRunArtifactsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the delete run artifacts not found response
+func (o *DeleteRunArtifactsNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteRunArtifactsNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DeleteRunArtifactsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the delete run artifacts default response
-func (o *DeleteRunArtifactsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this delete run artifacts default response has a 2xx status code
 func (o *DeleteRunArtifactsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DeleteRunArtifactsDefault) IsServerError() bool {
 // IsCode returns true when this delete run artifacts default response a status code equal to that given
 func (o *DeleteRunArtifactsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the delete run artifacts default response
+func (o *DeleteRunArtifactsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DeleteRunArtifactsDefault) Error() string {

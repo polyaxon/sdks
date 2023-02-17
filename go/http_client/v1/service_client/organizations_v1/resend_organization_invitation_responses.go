@@ -111,6 +111,11 @@ func (o *ResendOrganizationInvitationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resend organization invitation o k response
+func (o *ResendOrganizationInvitationOK) Code() int {
+	return 200
+}
+
 func (o *ResendOrganizationInvitationOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/invitations][%d] resendOrganizationInvitationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ResendOrganizationInvitationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the resend organization invitation no content response
+func (o *ResendOrganizationInvitationNoContent) Code() int {
+	return 204
+}
+
 func (o *ResendOrganizationInvitationNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/invitations][%d] resendOrganizationInvitationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ResendOrganizationInvitationForbidden) IsServerError() bool {
 // IsCode returns true when this resend organization invitation forbidden response a status code equal to that given
 func (o *ResendOrganizationInvitationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the resend organization invitation forbidden response
+func (o *ResendOrganizationInvitationForbidden) Code() int {
+	return 403
 }
 
 func (o *ResendOrganizationInvitationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ResendOrganizationInvitationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the resend organization invitation not found response
+func (o *ResendOrganizationInvitationNotFound) Code() int {
+	return 404
+}
+
 func (o *ResendOrganizationInvitationNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/invitations][%d] resendOrganizationInvitationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ResendOrganizationInvitationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the resend organization invitation default response
-func (o *ResendOrganizationInvitationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resend organization invitation default response has a 2xx status code
 func (o *ResendOrganizationInvitationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ResendOrganizationInvitationDefault) IsServerError() bool {
 // IsCode returns true when this resend organization invitation default response a status code equal to that given
 func (o *ResendOrganizationInvitationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resend organization invitation default response
+func (o *ResendOrganizationInvitationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResendOrganizationInvitationDefault) Error() string {

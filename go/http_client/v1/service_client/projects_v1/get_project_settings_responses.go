@@ -111,6 +111,11 @@ func (o *GetProjectSettingsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get project settings o k response
+func (o *GetProjectSettingsOK) Code() int {
+	return 200
+}
+
 func (o *GetProjectSettingsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetProjectSettingsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get project settings no content response
+func (o *GetProjectSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *GetProjectSettingsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetProjectSettingsForbidden) IsServerError() bool {
 // IsCode returns true when this get project settings forbidden response a status code equal to that given
 func (o *GetProjectSettingsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get project settings forbidden response
+func (o *GetProjectSettingsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetProjectSettingsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetProjectSettingsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get project settings not found response
+func (o *GetProjectSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetProjectSettingsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/settings][%d] getProjectSettingsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetProjectSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get project settings default response
-func (o *GetProjectSettingsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get project settings default response has a 2xx status code
 func (o *GetProjectSettingsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetProjectSettingsDefault) IsServerError() bool {
 // IsCode returns true when this get project settings default response a status code equal to that given
 func (o *GetProjectSettingsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get project settings default response
+func (o *GetProjectSettingsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetProjectSettingsDefault) Error() string {

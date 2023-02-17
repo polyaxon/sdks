@@ -111,6 +111,11 @@ func (o *PatchRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch run o k response
+func (o *PatchRunOK) Code() int {
+	return 200
+}
+
 func (o *PatchRunOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch run no content response
+func (o *PatchRunNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchRunNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchRunForbidden) IsServerError() bool {
 // IsCode returns true when this patch run forbidden response a status code equal to that given
 func (o *PatchRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch run forbidden response
+func (o *PatchRunForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch run not found response
+func (o *PatchRunNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchRunNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch run default response
-func (o *PatchRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch run default response has a 2xx status code
 func (o *PatchRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchRunDefault) IsServerError() bool {
 // IsCode returns true when this patch run default response a status code equal to that given
 func (o *PatchRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch run default response
+func (o *PatchRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchRunDefault) Error() string {

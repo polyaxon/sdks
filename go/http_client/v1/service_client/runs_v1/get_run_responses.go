@@ -111,6 +111,11 @@ func (o *GetRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run o k response
+func (o *GetRunOK) Code() int {
+	return 200
+}
+
 func (o *GetRunOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run no content response
+func (o *GetRunNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunForbidden) IsServerError() bool {
 // IsCode returns true when this get run forbidden response a status code equal to that given
 func (o *GetRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run forbidden response
+func (o *GetRunForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run not found response
+func (o *GetRunNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}][%d] getRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run default response
-func (o *GetRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run default response has a 2xx status code
 func (o *GetRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunDefault) IsServerError() bool {
 // IsCode returns true when this get run default response a status code equal to that given
 func (o *GetRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run default response
+func (o *GetRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunDefault) Error() string {

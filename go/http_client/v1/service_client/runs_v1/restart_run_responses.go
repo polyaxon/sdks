@@ -111,6 +111,11 @@ func (o *RestartRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the restart run o k response
+func (o *RestartRunOK) Code() int {
+	return 200
+}
+
 func (o *RestartRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *RestartRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the restart run no content response
+func (o *RestartRunNoContent) Code() int {
+	return 204
+}
+
 func (o *RestartRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *RestartRunForbidden) IsServerError() bool {
 // IsCode returns true when this restart run forbidden response a status code equal to that given
 func (o *RestartRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the restart run forbidden response
+func (o *RestartRunForbidden) Code() int {
+	return 403
 }
 
 func (o *RestartRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *RestartRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the restart run not found response
+func (o *RestartRunNotFound) Code() int {
+	return 404
+}
+
 func (o *RestartRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type RestartRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the restart run default response
-func (o *RestartRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this restart run default response has a 2xx status code
 func (o *RestartRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *RestartRunDefault) IsServerError() bool {
 // IsCode returns true when this restart run default response a status code equal to that given
 func (o *RestartRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the restart run default response
+func (o *RestartRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RestartRunDefault) Error() string {

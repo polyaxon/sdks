@@ -111,6 +111,11 @@ func (o *GetRunClonesLineageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run clones lineage o k response
+func (o *GetRunClonesLineageOK) Code() int {
+	return 200
+}
+
 func (o *GetRunClonesLineageOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunClonesLineageNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run clones lineage no content response
+func (o *GetRunClonesLineageNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunClonesLineageNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunClonesLineageForbidden) IsServerError() bool {
 // IsCode returns true when this get run clones lineage forbidden response a status code equal to that given
 func (o *GetRunClonesLineageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run clones lineage forbidden response
+func (o *GetRunClonesLineageForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunClonesLineageForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunClonesLineageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run clones lineage not found response
+func (o *GetRunClonesLineageNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunClonesLineageNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunClonesLineageDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run clones lineage default response
-func (o *GetRunClonesLineageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run clones lineage default response has a 2xx status code
 func (o *GetRunClonesLineageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunClonesLineageDefault) IsServerError() bool {
 // IsCode returns true when this get run clones lineage default response a status code equal to that given
 func (o *GetRunClonesLineageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run clones lineage default response
+func (o *GetRunClonesLineageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunClonesLineageDefault) Error() string {

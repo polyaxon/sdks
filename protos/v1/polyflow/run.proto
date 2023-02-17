@@ -39,9 +39,10 @@ message RunSchema {
         MPIJob mpiJob = 6;
         MXJob mxJob = 7;
         XGBoostJob xgboostJob = 8;
-        Dask dask = 9;
-        Spark spark = 10;
-        Flink flink = 11;
-        Ray ruy = 12;
+        PaddleJob paddleJob = 9;
+        Dask dask = 10;
+        Spark spark = 11;
+        Flink flink = 12;
+        Ray ruy = 13;
     }
 }

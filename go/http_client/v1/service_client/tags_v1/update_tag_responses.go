@@ -111,6 +111,11 @@ func (o *UpdateTagOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update tag o k response
+func (o *UpdateTagOK) Code() int {
+	return 200
+}
+
 func (o *UpdateTagOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateTagNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update tag no content response
+func (o *UpdateTagNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateTagNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateTagForbidden) IsServerError() bool {
 // IsCode returns true when this update tag forbidden response a status code equal to that given
 func (o *UpdateTagForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update tag forbidden response
+func (o *UpdateTagForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateTagForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateTagNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update tag not found response
+func (o *UpdateTagNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateTagNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update tag default response
-func (o *UpdateTagDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update tag default response has a 2xx status code
 func (o *UpdateTagDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateTagDefault) IsServerError() bool {
 // IsCode returns true when this update tag default response a status code equal to that given
 func (o *UpdateTagDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update tag default response
+func (o *UpdateTagDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateTagDefault) Error() string {

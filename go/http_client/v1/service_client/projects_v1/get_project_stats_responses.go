@@ -111,6 +111,11 @@ func (o *GetProjectStatsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get project stats o k response
+func (o *GetProjectStatsOK) Code() int {
+	return 200
+}
+
 func (o *GetProjectStatsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/stats][%d] getProjectStatsOK  %+v", 200, o.Payload)
 }
@@ -169,6 +174,11 @@ func (o *GetProjectStatsNoContent) IsServerError() bool {
 // IsCode returns true when this get project stats no content response a status code equal to that given
 func (o *GetProjectStatsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the get project stats no content response
+func (o *GetProjectStatsNoContent) Code() int {
+	return 204
 }
 
 func (o *GetProjectStatsNoContent) Error() string {
@@ -231,6 +241,11 @@ func (o *GetProjectStatsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get project stats forbidden response
+func (o *GetProjectStatsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetProjectStatsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/stats][%d] getProjectStatsForbidden  %+v", 403, o.Payload)
 }
@@ -291,6 +306,11 @@ func (o *GetProjectStatsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get project stats not found response
+func (o *GetProjectStatsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetProjectStatsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/stats][%d] getProjectStatsNotFound  %+v", 404, o.Payload)
 }
@@ -330,11 +350,6 @@ type GetProjectStatsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get project stats default response
-func (o *GetProjectStatsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get project stats default response has a 2xx status code
 func (o *GetProjectStatsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -358,6 +373,11 @@ func (o *GetProjectStatsDefault) IsServerError() bool {
 // IsCode returns true when this get project stats default response a status code equal to that given
 func (o *GetProjectStatsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get project stats default response
+func (o *GetProjectStatsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetProjectStatsDefault) Error() string {

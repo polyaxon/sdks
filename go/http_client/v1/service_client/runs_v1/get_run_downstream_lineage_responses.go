@@ -111,6 +111,11 @@ func (o *GetRunDownstreamLineageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run downstream lineage o k response
+func (o *GetRunDownstreamLineageOK) Code() int {
+	return 200
+}
+
 func (o *GetRunDownstreamLineageOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunDownstreamLineageNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run downstream lineage no content response
+func (o *GetRunDownstreamLineageNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunDownstreamLineageNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunDownstreamLineageForbidden) IsServerError() bool {
 // IsCode returns true when this get run downstream lineage forbidden response a status code equal to that given
 func (o *GetRunDownstreamLineageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run downstream lineage forbidden response
+func (o *GetRunDownstreamLineageForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunDownstreamLineageForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunDownstreamLineageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run downstream lineage not found response
+func (o *GetRunDownstreamLineageNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunDownstreamLineageNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunDownstreamLineageDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run downstream lineage default response
-func (o *GetRunDownstreamLineageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run downstream lineage default response has a 2xx status code
 func (o *GetRunDownstreamLineageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunDownstreamLineageDefault) IsServerError() bool {
 // IsCode returns true when this get run downstream lineage default response a status code equal to that given
 func (o *GetRunDownstreamLineageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run downstream lineage default response
+func (o *GetRunDownstreamLineageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunDownstreamLineageDefault) Error() string {

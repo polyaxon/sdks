@@ -111,6 +111,11 @@ func (o *GetQueueOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get queue o k response
+func (o *GetQueueOK) Code() int {
+	return 200
+}
+
 func (o *GetQueueOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetQueueNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get queue no content response
+func (o *GetQueueNoContent) Code() int {
+	return 204
+}
+
 func (o *GetQueueNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetQueueForbidden) IsServerError() bool {
 // IsCode returns true when this get queue forbidden response a status code equal to that given
 func (o *GetQueueForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get queue forbidden response
+func (o *GetQueueForbidden) Code() int {
+	return 403
 }
 
 func (o *GetQueueForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetQueueNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get queue not found response
+func (o *GetQueueNotFound) Code() int {
+	return 404
+}
+
 func (o *GetQueueNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetQueueDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get queue default response
-func (o *GetQueueDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get queue default response has a 2xx status code
 func (o *GetQueueDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetQueueDefault) IsServerError() bool {
 // IsCode returns true when this get queue default response a status code equal to that given
 func (o *GetQueueDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get queue default response
+func (o *GetQueueDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetQueueDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *UpdateOrganizationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update organization o k response
+func (o *UpdateOrganizationOK) Code() int {
+	return 200
+}
+
 func (o *UpdateOrganizationOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateOrganizationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update organization no content response
+func (o *UpdateOrganizationNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateOrganizationNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateOrganizationForbidden) IsServerError() bool {
 // IsCode returns true when this update organization forbidden response a status code equal to that given
 func (o *UpdateOrganizationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update organization forbidden response
+func (o *UpdateOrganizationForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateOrganizationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateOrganizationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update organization not found response
+func (o *UpdateOrganizationNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateOrganizationNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateOrganizationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update organization default response
-func (o *UpdateOrganizationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update organization default response has a 2xx status code
 func (o *UpdateOrganizationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateOrganizationDefault) IsServerError() bool {
 // IsCode returns true when this update organization default response a status code equal to that given
 func (o *UpdateOrganizationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update organization default response
+func (o *UpdateOrganizationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateOrganizationDefault) Error() string {

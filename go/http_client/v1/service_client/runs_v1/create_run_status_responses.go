@@ -111,6 +111,11 @@ func (o *CreateRunStatusOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create run status o k response
+func (o *CreateRunStatusOK) Code() int {
+	return 200
+}
+
 func (o *CreateRunStatusOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/statuses][%d] createRunStatusOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateRunStatusNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create run status no content response
+func (o *CreateRunStatusNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateRunStatusNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/statuses][%d] createRunStatusNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateRunStatusForbidden) IsServerError() bool {
 // IsCode returns true when this create run status forbidden response a status code equal to that given
 func (o *CreateRunStatusForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create run status forbidden response
+func (o *CreateRunStatusForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateRunStatusForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateRunStatusNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create run status not found response
+func (o *CreateRunStatusNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateRunStatusNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/statuses][%d] createRunStatusNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateRunStatusDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create run status default response
-func (o *CreateRunStatusDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create run status default response has a 2xx status code
 func (o *CreateRunStatusDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateRunStatusDefault) IsServerError() bool {
 // IsCode returns true when this create run status default response a status code equal to that given
 func (o *CreateRunStatusDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create run status default response
+func (o *CreateRunStatusDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateRunStatusDefault) Error() string {

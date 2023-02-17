@@ -110,6 +110,11 @@ func (o *StopOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the stop organization runs o k response
+func (o *StopOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *StopOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *StopOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this stop organization runs no content response a status code equal to that given
 func (o *StopOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the stop organization runs no content response
+func (o *StopOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *StopOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *StopOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the stop organization runs forbidden response
+func (o *StopOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *StopOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *StopOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the stop organization runs not found response
+func (o *StopOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *StopOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/stop][%d] stopOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type StopOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the stop organization runs default response
-func (o *StopOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this stop organization runs default response has a 2xx status code
 func (o *StopOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *StopOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this stop organization runs default response a status code equal to that given
 func (o *StopOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the stop organization runs default response
+func (o *StopOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *StopOrganizationRunsDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *CreateVersionOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create version o k response
+func (o *CreateVersionOK) Code() int {
+	return 200
+}
+
 func (o *CreateVersionOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateVersionNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create version no content response
+func (o *CreateVersionNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateVersionNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateVersionForbidden) IsServerError() bool {
 // IsCode returns true when this create version forbidden response a status code equal to that given
 func (o *CreateVersionForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create version forbidden response
+func (o *CreateVersionForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateVersionForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateVersionNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create version not found response
+func (o *CreateVersionNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateVersionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateVersionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create version default response
-func (o *CreateVersionDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create version default response has a 2xx status code
 func (o *CreateVersionDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateVersionDefault) IsServerError() bool {
 // IsCode returns true when this create version default response a status code equal to that given
 func (o *CreateVersionDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create version default response
+func (o *CreateVersionDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateVersionDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *CreateSearchOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create search o k response
+func (o *CreateSearchOK) Code() int {
+	return 200
+}
+
 func (o *CreateSearchOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateSearchNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create search no content response
+func (o *CreateSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateSearchNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateSearchForbidden) IsServerError() bool {
 // IsCode returns true when this create search forbidden response a status code equal to that given
 func (o *CreateSearchForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create search forbidden response
+func (o *CreateSearchForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateSearchForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateSearchNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create search not found response
+func (o *CreateSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateSearchNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create search default response
-func (o *CreateSearchDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create search default response has a 2xx status code
 func (o *CreateSearchDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateSearchDefault) IsServerError() bool {
 // IsCode returns true when this create search default response a status code equal to that given
 func (o *CreateSearchDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create search default response
+func (o *CreateSearchDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateSearchDefault) Error() string {

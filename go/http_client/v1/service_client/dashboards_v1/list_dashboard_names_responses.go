@@ -111,6 +111,11 @@ func (o *ListDashboardNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list dashboard names o k response
+func (o *ListDashboardNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListDashboardNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards/names][%d] listDashboardNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListDashboardNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list dashboard names no content response
+func (o *ListDashboardNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListDashboardNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards/names][%d] listDashboardNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListDashboardNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list dashboard names forbidden response a status code equal to that given
 func (o *ListDashboardNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list dashboard names forbidden response
+func (o *ListDashboardNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListDashboardNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListDashboardNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list dashboard names not found response
+func (o *ListDashboardNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListDashboardNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards/names][%d] listDashboardNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListDashboardNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list dashboard names default response
-func (o *ListDashboardNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list dashboard names default response has a 2xx status code
 func (o *ListDashboardNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListDashboardNamesDefault) IsServerError() bool {
 // IsCode returns true when this list dashboard names default response a status code equal to that given
 func (o *ListDashboardNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list dashboard names default response
+func (o *ListDashboardNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListDashboardNamesDefault) Error() string {

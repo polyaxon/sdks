@@ -110,6 +110,11 @@ func (o *ApproveOrganizationRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the approve organization runs o k response
+func (o *ApproveOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *ApproveOrganizationRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *ApproveOrganizationRunsNoContent) IsServerError() bool {
 // IsCode returns true when this approve organization runs no content response a status code equal to that given
 func (o *ApproveOrganizationRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the approve organization runs no content response
+func (o *ApproveOrganizationRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *ApproveOrganizationRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *ApproveOrganizationRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the approve organization runs forbidden response
+func (o *ApproveOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *ApproveOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *ApproveOrganizationRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the approve organization runs not found response
+func (o *ApproveOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ApproveOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type ApproveOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the approve organization runs default response
-func (o *ApproveOrganizationRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this approve organization runs default response has a 2xx status code
 func (o *ApproveOrganizationRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *ApproveOrganizationRunsDefault) IsServerError() bool {
 // IsCode returns true when this approve organization runs default response a status code equal to that given
 func (o *ApproveOrganizationRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the approve organization runs default response
+func (o *ApproveOrganizationRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ApproveOrganizationRunsDefault) Error() string {

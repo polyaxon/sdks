@@ -110,6 +110,11 @@ func (o *NotifyRunStatusOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the notify run status o k response
+func (o *NotifyRunStatusOK) Code() int {
+	return 200
+}
+
 func (o *NotifyRunStatusOK) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *NotifyRunStatusNoContent) IsServerError() bool {
 // IsCode returns true when this notify run status no content response a status code equal to that given
 func (o *NotifyRunStatusNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the notify run status no content response
+func (o *NotifyRunStatusNoContent) Code() int {
+	return 204
 }
 
 func (o *NotifyRunStatusNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *NotifyRunStatusForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the notify run status forbidden response
+func (o *NotifyRunStatusForbidden) Code() int {
+	return 403
+}
+
 func (o *NotifyRunStatusForbidden) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *NotifyRunStatusNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the notify run status not found response
+func (o *NotifyRunStatusNotFound) Code() int {
+	return 404
+}
+
 func (o *NotifyRunStatusNotFound) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type NotifyRunStatusDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the notify run status default response
-func (o *NotifyRunStatusDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this notify run status default response has a 2xx status code
 func (o *NotifyRunStatusDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *NotifyRunStatusDefault) IsServerError() bool {
 // IsCode returns true when this notify run status default response a status code equal to that given
 func (o *NotifyRunStatusDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the notify run status default response
+func (o *NotifyRunStatusDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *NotifyRunStatusDefault) Error() string {

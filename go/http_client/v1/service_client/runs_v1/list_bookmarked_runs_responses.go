@@ -111,6 +111,11 @@ func (o *ListBookmarkedRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list bookmarked runs o k response
+func (o *ListBookmarkedRunsOK) Code() int {
+	return 200
+}
+
 func (o *ListBookmarkedRunsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListBookmarkedRunsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list bookmarked runs no content response
+func (o *ListBookmarkedRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListBookmarkedRunsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListBookmarkedRunsForbidden) IsServerError() bool {
 // IsCode returns true when this list bookmarked runs forbidden response a status code equal to that given
 func (o *ListBookmarkedRunsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list bookmarked runs forbidden response
+func (o *ListBookmarkedRunsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListBookmarkedRunsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListBookmarkedRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list bookmarked runs not found response
+func (o *ListBookmarkedRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListBookmarkedRunsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListBookmarkedRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list bookmarked runs default response
-func (o *ListBookmarkedRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list bookmarked runs default response has a 2xx status code
 func (o *ListBookmarkedRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListBookmarkedRunsDefault) IsServerError() bool {
 // IsCode returns true when this list bookmarked runs default response a status code equal to that given
 func (o *ListBookmarkedRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list bookmarked runs default response
+func (o *ListBookmarkedRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListBookmarkedRunsDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *GetHistoryOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get history o k response
+func (o *GetHistoryOK) Code() int {
+	return 200
+}
+
 func (o *GetHistoryOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetHistoryNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get history no content response
+func (o *GetHistoryNoContent) Code() int {
+	return 204
+}
+
 func (o *GetHistoryNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetHistoryForbidden) IsServerError() bool {
 // IsCode returns true when this get history forbidden response a status code equal to that given
 func (o *GetHistoryForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get history forbidden response
+func (o *GetHistoryForbidden) Code() int {
+	return 403
 }
 
 func (o *GetHistoryForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetHistoryNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get history not found response
+func (o *GetHistoryNotFound) Code() int {
+	return 404
+}
+
 func (o *GetHistoryNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetHistoryDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get history default response
-func (o *GetHistoryDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get history default response has a 2xx status code
 func (o *GetHistoryDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetHistoryDefault) IsServerError() bool {
 // IsCode returns true when this get history default response a status code equal to that given
 func (o *GetHistoryDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get history default response
+func (o *GetHistoryDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetHistoryDefault) Error() string {

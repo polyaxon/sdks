@@ -111,6 +111,11 @@ func (o *GetRunImportanceOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run importance o k response
+func (o *GetRunImportanceOK) Code() int {
+	return 200
+}
+
 func (o *GetRunImportanceOK) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunImportanceNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run importance no content response
+func (o *GetRunImportanceNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunImportanceNoContent) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunImportanceForbidden) IsServerError() bool {
 // IsCode returns true when this get run importance forbidden response a status code equal to that given
 func (o *GetRunImportanceForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run importance forbidden response
+func (o *GetRunImportanceForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunImportanceForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunImportanceNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run importance not found response
+func (o *GetRunImportanceNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunImportanceNotFound) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunImportanceDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run importance default response
-func (o *GetRunImportanceDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run importance default response has a 2xx status code
 func (o *GetRunImportanceDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunImportanceDefault) IsServerError() bool {
 // IsCode returns true when this get run importance default response a status code equal to that given
 func (o *GetRunImportanceDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run importance default response
+func (o *GetRunImportanceDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunImportanceDefault) Error() string {

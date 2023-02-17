@@ -110,6 +110,11 @@ func (o *SyncRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the sync run o k response
+func (o *SyncRunOK) Code() int {
+	return 200
+}
+
 func (o *SyncRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *SyncRunNoContent) IsServerError() bool {
 // IsCode returns true when this sync run no content response a status code equal to that given
 func (o *SyncRunNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the sync run no content response
+func (o *SyncRunNoContent) Code() int {
+	return 204
 }
 
 func (o *SyncRunNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *SyncRunForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the sync run forbidden response
+func (o *SyncRunForbidden) Code() int {
+	return 403
+}
+
 func (o *SyncRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *SyncRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the sync run not found response
+func (o *SyncRunNotFound) Code() int {
+	return 404
+}
+
 func (o *SyncRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type SyncRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the sync run default response
-func (o *SyncRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this sync run default response has a 2xx status code
 func (o *SyncRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *SyncRunDefault) IsServerError() bool {
 // IsCode returns true when this sync run default response a status code equal to that given
 func (o *SyncRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the sync run default response
+func (o *SyncRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *SyncRunDefault) Error() string {

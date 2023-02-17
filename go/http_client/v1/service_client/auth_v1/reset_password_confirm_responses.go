@@ -111,6 +111,11 @@ func (o *ResetPasswordConfirmOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the reset password confirm o k response
+func (o *ResetPasswordConfirmOK) Code() int {
+	return 200
+}
+
 func (o *ResetPasswordConfirmOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ResetPasswordConfirmNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the reset password confirm no content response
+func (o *ResetPasswordConfirmNoContent) Code() int {
+	return 204
+}
+
 func (o *ResetPasswordConfirmNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ResetPasswordConfirmForbidden) IsServerError() bool {
 // IsCode returns true when this reset password confirm forbidden response a status code equal to that given
 func (o *ResetPasswordConfirmForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the reset password confirm forbidden response
+func (o *ResetPasswordConfirmForbidden) Code() int {
+	return 403
 }
 
 func (o *ResetPasswordConfirmForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ResetPasswordConfirmNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the reset password confirm not found response
+func (o *ResetPasswordConfirmNotFound) Code() int {
+	return 404
+}
+
 func (o *ResetPasswordConfirmNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password-confirm][%d] resetPasswordConfirmNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ResetPasswordConfirmDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the reset password confirm default response
-func (o *ResetPasswordConfirmDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this reset password confirm default response has a 2xx status code
 func (o *ResetPasswordConfirmDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ResetPasswordConfirmDefault) IsServerError() bool {
 // IsCode returns true when this reset password confirm default response a status code equal to that given
 func (o *ResetPasswordConfirmDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the reset password confirm default response
+func (o *ResetPasswordConfirmDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResetPasswordConfirmDefault) Error() string {

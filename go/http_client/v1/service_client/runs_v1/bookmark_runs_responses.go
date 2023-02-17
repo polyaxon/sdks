@@ -110,6 +110,11 @@ func (o *BookmarkRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the bookmark runs o k response
+func (o *BookmarkRunsOK) Code() int {
+	return 200
+}
+
 func (o *BookmarkRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *BookmarkRunsNoContent) IsServerError() bool {
 // IsCode returns true when this bookmark runs no content response a status code equal to that given
 func (o *BookmarkRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the bookmark runs no content response
+func (o *BookmarkRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *BookmarkRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *BookmarkRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the bookmark runs forbidden response
+func (o *BookmarkRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *BookmarkRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *BookmarkRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the bookmark runs not found response
+func (o *BookmarkRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *BookmarkRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type BookmarkRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the bookmark runs default response
-func (o *BookmarkRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this bookmark runs default response has a 2xx status code
 func (o *BookmarkRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *BookmarkRunsDefault) IsServerError() bool {
 // IsCode returns true when this bookmark runs default response a status code equal to that given
 func (o *BookmarkRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the bookmark runs default response
+func (o *BookmarkRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *BookmarkRunsDefault) Error() string {

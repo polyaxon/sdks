@@ -110,6 +110,11 @@ func (o *ChangePasswordOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the change password o k response
+func (o *ChangePasswordOK) Code() int {
+	return 200
+}
+
 func (o *ChangePasswordOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *ChangePasswordNoContent) IsServerError() bool {
 // IsCode returns true when this change password no content response a status code equal to that given
 func (o *ChangePasswordNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the change password no content response
+func (o *ChangePasswordNoContent) Code() int {
+	return 204
 }
 
 func (o *ChangePasswordNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *ChangePasswordForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the change password forbidden response
+func (o *ChangePasswordForbidden) Code() int {
+	return 403
+}
+
 func (o *ChangePasswordForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *ChangePasswordNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the change password not found response
+func (o *ChangePasswordNotFound) Code() int {
+	return 404
+}
+
 func (o *ChangePasswordNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type ChangePasswordDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the change password default response
-func (o *ChangePasswordDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this change password default response has a 2xx status code
 func (o *ChangePasswordDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *ChangePasswordDefault) IsServerError() bool {
 // IsCode returns true when this change password default response a status code equal to that given
 func (o *ChangePasswordDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the change password default response
+func (o *ChangePasswordDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ChangePasswordDefault) Error() string {

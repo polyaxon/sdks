@@ -110,6 +110,11 @@ func (o *RestoreRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the restore runs o k response
+func (o *RestoreRunsOK) Code() int {
+	return 200
+}
+
 func (o *RestoreRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *RestoreRunsNoContent) IsServerError() bool {
 // IsCode returns true when this restore runs no content response a status code equal to that given
 func (o *RestoreRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the restore runs no content response
+func (o *RestoreRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *RestoreRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *RestoreRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the restore runs forbidden response
+func (o *RestoreRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *RestoreRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *RestoreRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the restore runs not found response
+func (o *RestoreRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *RestoreRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type RestoreRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the restore runs default response
-func (o *RestoreRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this restore runs default response has a 2xx status code
 func (o *RestoreRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *RestoreRunsDefault) IsServerError() bool {
 // IsCode returns true when this restore runs default response a status code equal to that given
 func (o *RestoreRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the restore runs default response
+func (o *RestoreRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *RestoreRunsDefault) Error() string {

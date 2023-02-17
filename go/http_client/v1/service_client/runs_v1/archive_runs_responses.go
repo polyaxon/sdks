@@ -110,6 +110,11 @@ func (o *ArchiveRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the archive runs o k response
+func (o *ArchiveRunsOK) Code() int {
+	return 200
+}
+
 func (o *ArchiveRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *ArchiveRunsNoContent) IsServerError() bool {
 // IsCode returns true when this archive runs no content response a status code equal to that given
 func (o *ArchiveRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the archive runs no content response
+func (o *ArchiveRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *ArchiveRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *ArchiveRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the archive runs forbidden response
+func (o *ArchiveRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *ArchiveRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *ArchiveRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the archive runs not found response
+func (o *ArchiveRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ArchiveRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type ArchiveRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the archive runs default response
-func (o *ArchiveRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this archive runs default response has a 2xx status code
 func (o *ArchiveRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *ArchiveRunsDefault) IsServerError() bool {
 // IsCode returns true when this archive runs default response a status code equal to that given
 func (o *ArchiveRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the archive runs default response
+func (o *ArchiveRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ArchiveRunsDefault) Error() string {

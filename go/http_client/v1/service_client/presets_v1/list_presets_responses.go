@@ -111,6 +111,11 @@ func (o *ListPresetsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list presets o k response
+func (o *ListPresetsOK) Code() int {
+	return 200
+}
+
 func (o *ListPresetsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListPresetsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list presets no content response
+func (o *ListPresetsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListPresetsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListPresetsForbidden) IsServerError() bool {
 // IsCode returns true when this list presets forbidden response a status code equal to that given
 func (o *ListPresetsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list presets forbidden response
+func (o *ListPresetsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListPresetsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListPresetsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list presets not found response
+func (o *ListPresetsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListPresetsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListPresetsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list presets default response
-func (o *ListPresetsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list presets default response has a 2xx status code
 func (o *ListPresetsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListPresetsDefault) IsServerError() bool {
 // IsCode returns true when this list presets default response a status code equal to that given
 func (o *ListPresetsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list presets default response
+func (o *ListPresetsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListPresetsDefault) Error() string {

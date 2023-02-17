@@ -111,6 +111,11 @@ func (o *PatchOrganizationInvitationOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch organization invitation o k response
+func (o *PatchOrganizationInvitationOK) Code() int {
+	return 200
+}
+
 func (o *PatchOrganizationInvitationOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/invitations][%d] patchOrganizationInvitationOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchOrganizationInvitationNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch organization invitation no content response
+func (o *PatchOrganizationInvitationNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchOrganizationInvitationNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/invitations][%d] patchOrganizationInvitationNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchOrganizationInvitationForbidden) IsServerError() bool {
 // IsCode returns true when this patch organization invitation forbidden response a status code equal to that given
 func (o *PatchOrganizationInvitationForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch organization invitation forbidden response
+func (o *PatchOrganizationInvitationForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchOrganizationInvitationForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchOrganizationInvitationNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch organization invitation not found response
+func (o *PatchOrganizationInvitationNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchOrganizationInvitationNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/invitations][%d] patchOrganizationInvitationNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchOrganizationInvitationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch organization invitation default response
-func (o *PatchOrganizationInvitationDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch organization invitation default response has a 2xx status code
 func (o *PatchOrganizationInvitationDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchOrganizationInvitationDefault) IsServerError() bool {
 // IsCode returns true when this patch organization invitation default response a status code equal to that given
 func (o *PatchOrganizationInvitationDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch organization invitation default response
+func (o *PatchOrganizationInvitationDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchOrganizationInvitationDefault) Error() string {

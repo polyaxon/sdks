@@ -56,6 +56,13 @@
         }
       }
     },
+    "v1PaddleJob": {
+      "properties": {
+        "kind": {
+          "default": "paddle_job"
+        }
+      }
+    },
     "v1Spark": {
       "properties": {
         "kind": {

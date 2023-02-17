@@ -110,6 +110,11 @@ func (o *ApproveRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the approve runs o k response
+func (o *ApproveRunsOK) Code() int {
+	return 200
+}
+
 func (o *ApproveRunsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *ApproveRunsNoContent) IsServerError() bool {
 // IsCode returns true when this approve runs no content response a status code equal to that given
 func (o *ApproveRunsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the approve runs no content response
+func (o *ApproveRunsNoContent) Code() int {
+	return 204
 }
 
 func (o *ApproveRunsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *ApproveRunsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the approve runs forbidden response
+func (o *ApproveRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *ApproveRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *ApproveRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the approve runs not found response
+func (o *ApproveRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ApproveRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type ApproveRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the approve runs default response
-func (o *ApproveRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this approve runs default response has a 2xx status code
 func (o *ApproveRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *ApproveRunsDefault) IsServerError() bool {
 // IsCode returns true when this approve runs default response a status code equal to that given
 func (o *ApproveRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the approve runs default response
+func (o *ApproveRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ApproveRunsDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *PatchPresetOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch preset o k response
+func (o *PatchPresetOK) Code() int {
+	return 200
+}
+
 func (o *PatchPresetOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchPresetNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch preset no content response
+func (o *PatchPresetNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchPresetNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchPresetForbidden) IsServerError() bool {
 // IsCode returns true when this patch preset forbidden response a status code equal to that given
 func (o *PatchPresetForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch preset forbidden response
+func (o *PatchPresetForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchPresetForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchPresetNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch preset not found response
+func (o *PatchPresetNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchPresetNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchPresetDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch preset default response
-func (o *PatchPresetDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch preset default response has a 2xx status code
 func (o *PatchPresetDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchPresetDefault) IsServerError() bool {
 // IsCode returns true when this patch preset default response a status code equal to that given
 func (o *PatchPresetDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch preset default response
+func (o *PatchPresetDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchPresetDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *ListRunsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list runs o k response
+func (o *ListRunsOK) Code() int {
+	return 200
+}
+
 func (o *ListRunsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs][%d] listRunsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListRunsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list runs no content response
+func (o *ListRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListRunsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs][%d] listRunsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListRunsForbidden) IsServerError() bool {
 // IsCode returns true when this list runs forbidden response a status code equal to that given
 func (o *ListRunsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list runs forbidden response
+func (o *ListRunsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListRunsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListRunsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list runs not found response
+func (o *ListRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListRunsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs][%d] listRunsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list runs default response
-func (o *ListRunsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list runs default response has a 2xx status code
 func (o *ListRunsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListRunsDefault) IsServerError() bool {
 // IsCode returns true when this list runs default response a status code equal to that given
 func (o *ListRunsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list runs default response
+func (o *ListRunsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListRunsDefault) Error() string {

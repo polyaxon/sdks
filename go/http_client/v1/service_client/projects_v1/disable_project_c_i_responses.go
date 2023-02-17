@@ -110,6 +110,11 @@ func (o *DisableProjectCIOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the disable project c i o k response
+func (o *DisableProjectCIOK) Code() int {
+	return 200
+}
+
 func (o *DisableProjectCIOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *DisableProjectCINoContent) IsServerError() bool {
 // IsCode returns true when this disable project c i no content response a status code equal to that given
 func (o *DisableProjectCINoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the disable project c i no content response
+func (o *DisableProjectCINoContent) Code() int {
+	return 204
 }
 
 func (o *DisableProjectCINoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *DisableProjectCIForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the disable project c i forbidden response
+func (o *DisableProjectCIForbidden) Code() int {
+	return 403
+}
+
 func (o *DisableProjectCIForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *DisableProjectCINotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the disable project c i not found response
+func (o *DisableProjectCINotFound) Code() int {
+	return 404
+}
+
 func (o *DisableProjectCINotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type DisableProjectCIDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the disable project c i default response
-func (o *DisableProjectCIDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this disable project c i default response has a 2xx status code
 func (o *DisableProjectCIDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *DisableProjectCIDefault) IsServerError() bool {
 // IsCode returns true when this disable project c i default response a status code equal to that given
 func (o *DisableProjectCIDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the disable project c i default response
+func (o *DisableProjectCIDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *DisableProjectCIDefault) Error() string {

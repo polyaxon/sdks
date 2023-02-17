@@ -110,6 +110,11 @@ func (o *PromoteProjectDashboardOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the promote project dashboard o k response
+func (o *PromoteProjectDashboardOK) Code() int {
+	return 200
+}
+
 func (o *PromoteProjectDashboardOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *PromoteProjectDashboardNoContent) IsServerError() bool {
 // IsCode returns true when this promote project dashboard no content response a status code equal to that given
 func (o *PromoteProjectDashboardNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the promote project dashboard no content response
+func (o *PromoteProjectDashboardNoContent) Code() int {
+	return 204
 }
 
 func (o *PromoteProjectDashboardNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *PromoteProjectDashboardForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the promote project dashboard forbidden response
+func (o *PromoteProjectDashboardForbidden) Code() int {
+	return 403
+}
+
 func (o *PromoteProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *PromoteProjectDashboardNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the promote project dashboard not found response
+func (o *PromoteProjectDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *PromoteProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type PromoteProjectDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the promote project dashboard default response
-func (o *PromoteProjectDashboardDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this promote project dashboard default response has a 2xx status code
 func (o *PromoteProjectDashboardDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *PromoteProjectDashboardDefault) IsServerError() bool {
 // IsCode returns true when this promote project dashboard default response a status code equal to that given
 func (o *PromoteProjectDashboardDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the promote project dashboard default response
+func (o *PromoteProjectDashboardDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PromoteProjectDashboardDefault) Error() string {

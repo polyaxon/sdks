@@ -111,6 +111,11 @@ func (o *ListConnectionNamesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list connection names o k response
+func (o *ListConnectionNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListConnectionNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListConnectionNamesNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list connection names no content response
+func (o *ListConnectionNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListConnectionNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListConnectionNamesForbidden) IsServerError() bool {
 // IsCode returns true when this list connection names forbidden response a status code equal to that given
 func (o *ListConnectionNamesForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list connection names forbidden response
+func (o *ListConnectionNamesForbidden) Code() int {
+	return 403
 }
 
 func (o *ListConnectionNamesForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListConnectionNamesNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list connection names not found response
+func (o *ListConnectionNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListConnectionNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListConnectionNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list connection names default response
-func (o *ListConnectionNamesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list connection names default response has a 2xx status code
 func (o *ListConnectionNamesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListConnectionNamesDefault) IsServerError() bool {
 // IsCode returns true when this list connection names default response a status code equal to that given
 func (o *ListConnectionNamesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list connection names default response
+func (o *ListConnectionNamesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListConnectionNamesDefault) Error() string {

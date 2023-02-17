@@ -111,6 +111,11 @@ func (o *ResumeRunOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the resume run o k response
+func (o *ResumeRunOK) Code() int {
+	return 200
+}
+
 func (o *ResumeRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ResumeRunNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the resume run no content response
+func (o *ResumeRunNoContent) Code() int {
+	return 204
+}
+
 func (o *ResumeRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ResumeRunForbidden) IsServerError() bool {
 // IsCode returns true when this resume run forbidden response a status code equal to that given
 func (o *ResumeRunForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the resume run forbidden response
+func (o *ResumeRunForbidden) Code() int {
+	return 403
 }
 
 func (o *ResumeRunForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ResumeRunNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the resume run not found response
+func (o *ResumeRunNotFound) Code() int {
+	return 404
+}
+
 func (o *ResumeRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/resume][%d] resumeRunNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ResumeRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the resume run default response
-func (o *ResumeRunDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this resume run default response has a 2xx status code
 func (o *ResumeRunDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ResumeRunDefault) IsServerError() bool {
 // IsCode returns true when this resume run default response a status code equal to that given
 func (o *ResumeRunDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the resume run default response
+func (o *ResumeRunDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ResumeRunDefault) Error() string {

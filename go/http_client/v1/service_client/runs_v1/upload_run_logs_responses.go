@@ -101,6 +101,11 @@ func (o *UploadRunLogsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the upload run logs o k response
+func (o *UploadRunLogsOK) Code() int {
+	return 200
+}
+
 func (o *UploadRunLogsOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK ", 200)
 }
@@ -150,6 +155,11 @@ func (o *UploadRunLogsNoContent) IsServerError() bool {
 // IsCode returns true when this upload run logs no content response a status code equal to that given
 func (o *UploadRunLogsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the upload run logs no content response
+func (o *UploadRunLogsNoContent) Code() int {
+	return 204
 }
 
 func (o *UploadRunLogsNoContent) Error() string {
@@ -212,6 +222,11 @@ func (o *UploadRunLogsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the upload run logs forbidden response
+func (o *UploadRunLogsForbidden) Code() int {
+	return 403
+}
+
 func (o *UploadRunLogsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden  %+v", 403, o.Payload)
 }
@@ -270,6 +285,11 @@ func (o *UploadRunLogsNotFound) IsServerError() bool {
 // IsCode returns true when this upload run logs not found response a status code equal to that given
 func (o *UploadRunLogsNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the upload run logs not found response
+func (o *UploadRunLogsNotFound) Code() int {
+	return 404
 }
 
 func (o *UploadRunLogsNotFound) Error() string {

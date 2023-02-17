@@ -111,6 +111,11 @@ func (o *PatchTagOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch tag o k response
+func (o *PatchTagOK) Code() int {
+	return 200
+}
+
 func (o *PatchTagOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchTagNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch tag no content response
+func (o *PatchTagNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchTagNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchTagForbidden) IsServerError() bool {
 // IsCode returns true when this patch tag forbidden response a status code equal to that given
 func (o *PatchTagForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch tag forbidden response
+func (o *PatchTagForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchTagForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchTagNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch tag not found response
+func (o *PatchTagNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchTagNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch tag default response
-func (o *PatchTagDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch tag default response has a 2xx status code
 func (o *PatchTagDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchTagDefault) IsServerError() bool {
 // IsCode returns true when this patch tag default response a status code equal to that given
 func (o *PatchTagDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch tag default response
+func (o *PatchTagDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchTagDefault) Error() string {

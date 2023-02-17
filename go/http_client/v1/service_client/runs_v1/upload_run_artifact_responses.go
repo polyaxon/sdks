@@ -101,6 +101,11 @@ func (o *UploadRunArtifactOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the upload run artifact o k response
+func (o *UploadRunArtifactOK) Code() int {
+	return 200
+}
+
 func (o *UploadRunArtifactOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactOK ", 200)
 }
@@ -150,6 +155,11 @@ func (o *UploadRunArtifactNoContent) IsServerError() bool {
 // IsCode returns true when this upload run artifact no content response a status code equal to that given
 func (o *UploadRunArtifactNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the upload run artifact no content response
+func (o *UploadRunArtifactNoContent) Code() int {
+	return 204
 }
 
 func (o *UploadRunArtifactNoContent) Error() string {
@@ -212,6 +222,11 @@ func (o *UploadRunArtifactForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the upload run artifact forbidden response
+func (o *UploadRunArtifactForbidden) Code() int {
+	return 403
+}
+
 func (o *UploadRunArtifactForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactForbidden  %+v", 403, o.Payload)
 }
@@ -270,6 +285,11 @@ func (o *UploadRunArtifactNotFound) IsServerError() bool {
 // IsCode returns true when this upload run artifact not found response a status code equal to that given
 func (o *UploadRunArtifactNotFound) IsCode(code int) bool {
 	return code == 404
+}
+
+// Code gets the status code for the upload run artifact not found response
+func (o *UploadRunArtifactNotFound) Code() int {
+	return 404
 }
 
 func (o *UploadRunArtifactNotFound) Error() string {

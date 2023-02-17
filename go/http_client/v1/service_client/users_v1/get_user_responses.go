@@ -111,6 +111,11 @@ func (o *GetUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get user o k response
+func (o *GetUserOK) Code() int {
+	return 200
+}
+
 func (o *GetUserOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users][%d] getUserOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetUserNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get user no content response
+func (o *GetUserNoContent) Code() int {
+	return 204
+}
+
 func (o *GetUserNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users][%d] getUserNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetUserForbidden) IsServerError() bool {
 // IsCode returns true when this get user forbidden response a status code equal to that given
 func (o *GetUserForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get user forbidden response
+func (o *GetUserForbidden) Code() int {
+	return 403
 }
 
 func (o *GetUserForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetUserNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get user not found response
+func (o *GetUserNotFound) Code() int {
+	return 404
+}
+
 func (o *GetUserNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users][%d] getUserNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetUserDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get user default response
-func (o *GetUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get user default response has a 2xx status code
 func (o *GetUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetUserDefault) IsServerError() bool {
 // IsCode returns true when this get user default response a status code equal to that given
 func (o *GetUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get user default response
+func (o *GetUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetUserDefault) Error() string {

@@ -111,6 +111,11 @@ func (o *GetLogHandlerOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get log handler o k response
+func (o *GetLogHandlerOK) Code() int {
+	return 200
+}
+
 func (o *GetLogHandlerOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetLogHandlerNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get log handler no content response
+func (o *GetLogHandlerNoContent) Code() int {
+	return 204
+}
+
 func (o *GetLogHandlerNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetLogHandlerForbidden) IsServerError() bool {
 // IsCode returns true when this get log handler forbidden response a status code equal to that given
 func (o *GetLogHandlerForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get log handler forbidden response
+func (o *GetLogHandlerForbidden) Code() int {
+	return 403
 }
 
 func (o *GetLogHandlerForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetLogHandlerNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get log handler not found response
+func (o *GetLogHandlerNotFound) Code() int {
+	return 404
+}
+
 func (o *GetLogHandlerNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetLogHandlerDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get log handler default response
-func (o *GetLogHandlerDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get log handler default response has a 2xx status code
 func (o *GetLogHandlerDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetLogHandlerDefault) IsServerError() bool {
 // IsCode returns true when this get log handler default response a status code equal to that given
 func (o *GetLogHandlerDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get log handler default response
+func (o *GetLogHandlerDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetLogHandlerDefault) Error() string {

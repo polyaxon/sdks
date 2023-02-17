@@ -111,6 +111,11 @@ func (o *UpdateServiceAccountTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the update service account token o k response
+func (o *UpdateServiceAccountTokenOK) Code() int {
+	return 200
+}
+
 func (o *UpdateServiceAccountTokenOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *UpdateServiceAccountTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the update service account token no content response
+func (o *UpdateServiceAccountTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateServiceAccountTokenNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *UpdateServiceAccountTokenForbidden) IsServerError() bool {
 // IsCode returns true when this update service account token forbidden response a status code equal to that given
 func (o *UpdateServiceAccountTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the update service account token forbidden response
+func (o *UpdateServiceAccountTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *UpdateServiceAccountTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *UpdateServiceAccountTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the update service account token not found response
+func (o *UpdateServiceAccountTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateServiceAccountTokenNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type UpdateServiceAccountTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the update service account token default response
-func (o *UpdateServiceAccountTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this update service account token default response has a 2xx status code
 func (o *UpdateServiceAccountTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *UpdateServiceAccountTokenDefault) IsServerError() bool {
 // IsCode returns true when this update service account token default response a status code equal to that given
 func (o *UpdateServiceAccountTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the update service account token default response
+func (o *UpdateServiceAccountTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *UpdateServiceAccountTokenDefault) Error() string {

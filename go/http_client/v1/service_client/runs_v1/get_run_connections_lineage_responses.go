@@ -111,6 +111,11 @@ func (o *GetRunConnectionsLineageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run connections lineage o k response
+func (o *GetRunConnectionsLineageOK) Code() int {
+	return 200
+}
+
 func (o *GetRunConnectionsLineageOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunConnectionsLineageNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run connections lineage no content response
+func (o *GetRunConnectionsLineageNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunConnectionsLineageNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunConnectionsLineageForbidden) IsServerError() bool {
 // IsCode returns true when this get run connections lineage forbidden response a status code equal to that given
 func (o *GetRunConnectionsLineageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run connections lineage forbidden response
+func (o *GetRunConnectionsLineageForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunConnectionsLineageForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunConnectionsLineageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run connections lineage not found response
+func (o *GetRunConnectionsLineageNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunConnectionsLineageNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunConnectionsLineageDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run connections lineage default response
-func (o *GetRunConnectionsLineageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run connections lineage default response has a 2xx status code
 func (o *GetRunConnectionsLineageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunConnectionsLineageDefault) IsServerError() bool {
 // IsCode returns true when this get run connections lineage default response a status code equal to that given
 func (o *GetRunConnectionsLineageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run connections lineage default response
+func (o *GetRunConnectionsLineageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunConnectionsLineageDefault) Error() string {

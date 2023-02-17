@@ -111,6 +111,11 @@ func (o *ListServiceAccountsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the list service accounts o k response
+func (o *ListServiceAccountsOK) Code() int {
+	return 200
+}
+
 func (o *ListServiceAccountsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa][%d] listServiceAccountsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *ListServiceAccountsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the list service accounts no content response
+func (o *ListServiceAccountsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListServiceAccountsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa][%d] listServiceAccountsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *ListServiceAccountsForbidden) IsServerError() bool {
 // IsCode returns true when this list service accounts forbidden response a status code equal to that given
 func (o *ListServiceAccountsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the list service accounts forbidden response
+func (o *ListServiceAccountsForbidden) Code() int {
+	return 403
 }
 
 func (o *ListServiceAccountsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *ListServiceAccountsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the list service accounts not found response
+func (o *ListServiceAccountsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListServiceAccountsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa][%d] listServiceAccountsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type ListServiceAccountsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the list service accounts default response
-func (o *ListServiceAccountsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this list service accounts default response has a 2xx status code
 func (o *ListServiceAccountsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *ListServiceAccountsDefault) IsServerError() bool {
 // IsCode returns true when this list service accounts default response a status code equal to that given
 func (o *ListServiceAccountsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the list service accounts default response
+func (o *ListServiceAccountsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *ListServiceAccountsDefault) Error() string {

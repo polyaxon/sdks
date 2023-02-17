@@ -111,6 +111,11 @@ func (o *GetRunEventsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get run events o k response
+func (o *GetRunEventsOK) Code() int {
+	return 200
+}
+
 func (o *GetRunEventsOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *GetRunEventsNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the get run events no content response
+func (o *GetRunEventsNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunEventsNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *GetRunEventsForbidden) IsServerError() bool {
 // IsCode returns true when this get run events forbidden response a status code equal to that given
 func (o *GetRunEventsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get run events forbidden response
+func (o *GetRunEventsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetRunEventsForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *GetRunEventsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get run events not found response
+func (o *GetRunEventsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunEventsNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type GetRunEventsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the get run events default response
-func (o *GetRunEventsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this get run events default response has a 2xx status code
 func (o *GetRunEventsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *GetRunEventsDefault) IsServerError() bool {
 // IsCode returns true when this get run events default response a status code equal to that given
 func (o *GetRunEventsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the get run events default response
+func (o *GetRunEventsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *GetRunEventsDefault) Error() string {

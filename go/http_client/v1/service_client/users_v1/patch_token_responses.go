@@ -111,6 +111,11 @@ func (o *PatchTokenOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the patch token o k response
+func (o *PatchTokenOK) Code() int {
+	return 200
+}
+
 func (o *PatchTokenOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *PatchTokenNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the patch token no content response
+func (o *PatchTokenNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchTokenNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *PatchTokenForbidden) IsServerError() bool {
 // IsCode returns true when this patch token forbidden response a status code equal to that given
 func (o *PatchTokenForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the patch token forbidden response
+func (o *PatchTokenForbidden) Code() int {
+	return 403
 }
 
 func (o *PatchTokenForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *PatchTokenNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the patch token not found response
+func (o *PatchTokenNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchTokenNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type PatchTokenDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the patch token default response
-func (o *PatchTokenDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this patch token default response has a 2xx status code
 func (o *PatchTokenDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *PatchTokenDefault) IsServerError() bool {
 // IsCode returns true when this patch token default response a status code equal to that given
 func (o *PatchTokenDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the patch token default response
+func (o *PatchTokenDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *PatchTokenDefault) Error() string {

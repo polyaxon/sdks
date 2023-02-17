@@ -110,6 +110,11 @@ func (o *CollectRunLogsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the collect run logs o k response
+func (o *CollectRunLogsOK) Code() int {
+	return 200
+}
+
 func (o *CollectRunLogsOK) Error() string {
 	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK ", 200)
 }
@@ -159,6 +164,11 @@ func (o *CollectRunLogsNoContent) IsServerError() bool {
 // IsCode returns true when this collect run logs no content response a status code equal to that given
 func (o *CollectRunLogsNoContent) IsCode(code int) bool {
 	return code == 204
+}
+
+// Code gets the status code for the collect run logs no content response
+func (o *CollectRunLogsNoContent) Code() int {
+	return 204
 }
 
 func (o *CollectRunLogsNoContent) Error() string {
@@ -221,6 +231,11 @@ func (o *CollectRunLogsForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the collect run logs forbidden response
+func (o *CollectRunLogsForbidden) Code() int {
+	return 403
+}
+
 func (o *CollectRunLogsForbidden) Error() string {
 	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden  %+v", 403, o.Payload)
 }
@@ -281,6 +296,11 @@ func (o *CollectRunLogsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the collect run logs not found response
+func (o *CollectRunLogsNotFound) Code() int {
+	return 404
+}
+
 func (o *CollectRunLogsNotFound) Error() string {
 	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound  %+v", 404, o.Payload)
 }
@@ -320,11 +340,6 @@ type CollectRunLogsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the collect run logs default response
-func (o *CollectRunLogsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this collect run logs default response has a 2xx status code
 func (o *CollectRunLogsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -348,6 +363,11 @@ func (o *CollectRunLogsDefault) IsServerError() bool {
 // IsCode returns true when this collect run logs default response a status code equal to that given
 func (o *CollectRunLogsDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the collect run logs default response
+func (o *CollectRunLogsDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CollectRunLogsDefault) Error() string {

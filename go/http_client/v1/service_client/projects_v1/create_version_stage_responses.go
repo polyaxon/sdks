@@ -111,6 +111,11 @@ func (o *CreateVersionStageOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the create version stage o k response
+func (o *CreateVersionStageOK) Code() int {
+	return 200
+}
+
 func (o *CreateVersionStageOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK  %+v", 200, o.Payload)
 }
@@ -173,6 +178,11 @@ func (o *CreateVersionStageNoContent) IsCode(code int) bool {
 	return code == 204
 }
 
+// Code gets the status code for the create version stage no content response
+func (o *CreateVersionStageNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateVersionStageNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent  %+v", 204, o.Payload)
 }
@@ -231,6 +241,11 @@ func (o *CreateVersionStageForbidden) IsServerError() bool {
 // IsCode returns true when this create version stage forbidden response a status code equal to that given
 func (o *CreateVersionStageForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the create version stage forbidden response
+func (o *CreateVersionStageForbidden) Code() int {
+	return 403
 }
 
 func (o *CreateVersionStageForbidden) Error() string {
@@ -293,6 +308,11 @@ func (o *CreateVersionStageNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the create version stage not found response
+func (o *CreateVersionStageNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateVersionStageNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound  %+v", 404, o.Payload)
 }
@@ -332,11 +352,6 @@ type CreateVersionStageDefault struct {
 	Payload *service_model.RuntimeError
 }
 
-// Code gets the status code for the create version stage default response
-func (o *CreateVersionStageDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this create version stage default response has a 2xx status code
 func (o *CreateVersionStageDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -360,6 +375,11 @@ func (o *CreateVersionStageDefault) IsServerError() bool {
 // IsCode returns true when this create version stage default response a status code equal to that given
 func (o *CreateVersionStageDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the create version stage default response
+func (o *CreateVersionStageDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *CreateVersionStageDefault) Error() string {

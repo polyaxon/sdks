@@ -63,12 +63,6 @@ enum CleanPodPolicy {
 
 // MPI Job specification
 message MPIJob {
-
-    enum Implementation {
-      OpenMPI = 0;
-      Intel = 1;
-    }
-
     // Optional component kind, should be equal to 'mpi_job'
     string kind = 1;
 
@@ -77,12 +71,6 @@ message MPIJob {
 
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
-
-    // Optional is the directory where SSH keys are mounted, default "/root/.ssh"
-    string sshAuthMountPath = 4;
-
-    // MPI implementation, options are "OpenMPI" (default) and "Intel".
-    Implementation implementation = 5;
 
     // Optional slots per worker
     int32 slotsPerWorker = 6;
@@ -123,17 +111,20 @@ message TFJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
+    // optional flag to enable dynamic worker
+    bool enableDynamicWorker = 4;
+
     // Chief replicas definition
-    KFReplica chief = 4;
+    KFReplica chief = 5;
 
     // Worker replicas definition
-    KFReplica worker = 5;
+    KFReplica worker = 6;
 
     // PS replicas definition
-    KFReplica ps = 6;
+    KFReplica ps = 7;
 
     // Evaluator replicas definition
-    KFReplica evaluator = 7;
+    KFReplica evaluator = 8;
 }
 
 // MXNet Job specification
@@ -180,6 +171,24 @@ message MXJob {
 // XGBoost Job specification
 message XGBoostJob {
   // Optional component kind, should be equal to 'xgboost_job'
+  string kind = 1;
+
+  // optional clean pod policy section
+  CleanPodPolicy cleanPodPolicy = 2;
+
+  // optional scheduling policy section
+  SchedulingPolicy schedulingPolicy = 3;
+
+  // Master replicas definition
+  KFReplica master = 4;
+
+  // Worker replicas definition
+  KFReplica worker = 5;
+}
+
+// Paddle Job specification
+message PaddleJob {
+  // Optional component kind, should be equal to 'paddle_job'
   string kind = 1;
 
   // optional clean pod policy section
