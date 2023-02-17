@@ -27103,6 +27103,7 @@ components:
       - mpijob
       - tfjob
       - pytorchjob
+      - paddlejob
       - mxjob
       - xgbjob
       - matrix

@@ -42,6 +42,7 @@ export enum V1RunKind {
     Mpijob = 'mpijob',
     Tfjob = 'tfjob',
     Pytorchjob = 'pytorchjob',
+    Paddlejob = 'paddlejob',
     Mxjob = 'mxjob',
     Xgbjob = 'xgbjob',
     Matrix = 'matrix',

@@ -4924,6 +4924,9 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
+              "$ref": "#/definitions/v1PaddleJob"
+            },
+            {
               "$ref": "#/definitions/v1MXJob"
             },
             {
@@ -5074,6 +5077,9 @@
             },
             {
               "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1PaddleJob"
             },
             {
               "$ref": "#/definitions/v1MXJob"
@@ -8406,6 +8412,9 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
+              "$ref": "#/definitions/v1PaddleJob"
+            },
+            {
               "$ref": "#/definitions/v1MXJob"
             },
             {
@@ -9678,6 +9687,7 @@
         "mpijob",
         "tfjob",
         "pytorchjob",
+        "paddlejob",
         "mxjob",
         "xgbjob",
         "matrix",

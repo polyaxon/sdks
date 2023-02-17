@@ -63,6 +63,8 @@ public enum V1RunKind {
   
   PYTORCHJOB("pytorchjob"),
   
+  PADDLEJOB("paddlejob"),
+  
   MXJOB("mxjob"),
   
   XGBJOB("xgbjob"),

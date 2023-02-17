@@ -23,6 +23,8 @@
 
 * `pytorchjob` (value: `"pytorchjob"`)
 
+* `paddlejob` (value: `"paddlejob"`)
+
 * `mxjob` (value: `"mxjob"`)
 
 * `xgbjob` (value: `"xgbjob"`)

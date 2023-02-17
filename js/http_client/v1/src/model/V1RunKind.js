@@ -104,6 +104,13 @@ export default class V1RunKind {
 
     
         /**
+         * value: "paddlejob"
+         * @const
+         */
+        "paddlejob" = "paddlejob";
+
+    
+        /**
          * value: "mxjob"
          * @const
          */
