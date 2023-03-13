@@ -46,14 +46,14 @@ message Plugins {
     // Optional flag to mount the artifacts store to the main container
     bool mountArtifactsStore = 4;
 
-    // Optional flag to tell Polyaxon to collect articats and outputs
+    // Optional flag to tell Polyaxon to collect artifacts and outputs
     bool collectArtifacts = 5;
 
     // Optional flag to tell Polyaxon to collect logs
     bool collectLogs = 6;
 
-    // Optional flag to tell Polyaxon to collect container resouces (cpu/memory/gpu)
-    string collectResources = 7;
+    // Optional flag to tell Polyaxon to collect container resources (cpu/memory/gpu)
+    bool collectResources = 7;
 
     // Optional flag to tell Polyaxon to sync statuses
     bool syncStatuses = 8;
