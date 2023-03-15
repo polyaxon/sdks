@@ -27,7 +27,7 @@ message Cache {
     bool disable = 1;
 
     // Optional time to live for the cache before it gets invalidated automatically,
-    // the TTL is caclculated based on the time the run starts
+    // the TTL is calculated based on the time the run starts
     int32 ttl = 2;
 
     // Optional Inputs/Outputs' names to consider for the cache, default behavior to consider all inputs/outputs

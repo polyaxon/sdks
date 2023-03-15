@@ -71,7 +71,7 @@ message GitConnection {
     // revision
     bool revision = 2;
 
-    // Addional command flag
+    // Additional command flag
     repeated string flags = 3;
 }
 
