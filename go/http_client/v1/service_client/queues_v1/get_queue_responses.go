@@ -78,7 +78,8 @@ func NewGetQueueOK() *GetQueueOK {
 	return &GetQueueOK{}
 }
 
-/* GetQueueOK describes a response with status code 200, with default header values.
+/*
+GetQueueOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetQueueOK struct {
 	Payload *service_model.V1Queue
 }
 
-// IsSuccess returns true when this get queue o k response has a 2xx status code
-func (o *GetQueueOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get queue o k response has a 3xx status code
-func (o *GetQueueOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get queue o k response has a 4xx status code
-func (o *GetQueueOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get queue o k response has a 5xx status code
-func (o *GetQueueOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get queue o k response a status code equal to that given
-func (o *GetQueueOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get queue o k response
-func (o *GetQueueOK) Code() int {
-	return 200
-}
-
 func (o *GetQueueOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK  %+v", 200, o.Payload)
 }
-
-func (o *GetQueueOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK  %+v", 200, o.Payload)
-}
-
 func (o *GetQueueOK) GetPayload() *service_model.V1Queue {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetQueueNoContent() *GetQueueNoContent {
 	return &GetQueueNoContent{}
 }
 
-/* GetQueueNoContent describes a response with status code 204, with default header values.
+/*
+GetQueueNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetQueueNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get queue no content response has a 2xx status code
-func (o *GetQueueNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get queue no content response has a 3xx status code
-func (o *GetQueueNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get queue no content response has a 4xx status code
-func (o *GetQueueNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get queue no content response has a 5xx status code
-func (o *GetQueueNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get queue no content response a status code equal to that given
-func (o *GetQueueNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get queue no content response
-func (o *GetQueueNoContent) Code() int {
-	return 204
-}
-
 func (o *GetQueueNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetQueueNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetQueueNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetQueueForbidden() *GetQueueForbidden {
 	return &GetQueueForbidden{}
 }
 
-/* GetQueueForbidden describes a response with status code 403, with default header values.
+/*
+GetQueueForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetQueueForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get queue forbidden response has a 2xx status code
-func (o *GetQueueForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get queue forbidden response has a 3xx status code
-func (o *GetQueueForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get queue forbidden response has a 4xx status code
-func (o *GetQueueForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get queue forbidden response has a 5xx status code
-func (o *GetQueueForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get queue forbidden response a status code equal to that given
-func (o *GetQueueForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get queue forbidden response
-func (o *GetQueueForbidden) Code() int {
-	return 403
-}
-
 func (o *GetQueueForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetQueueForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetQueueForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetQueueNotFound() *GetQueueNotFound {
 	return &GetQueueNotFound{}
 }
 
-/* GetQueueNotFound describes a response with status code 404, with default header values.
+/*
+GetQueueNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetQueueNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get queue not found response has a 2xx status code
-func (o *GetQueueNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get queue not found response has a 3xx status code
-func (o *GetQueueNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get queue not found response has a 4xx status code
-func (o *GetQueueNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get queue not found response has a 5xx status code
-func (o *GetQueueNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get queue not found response a status code equal to that given
-func (o *GetQueueNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get queue not found response
-func (o *GetQueueNotFound) Code() int {
-	return 404
-}
-
 func (o *GetQueueNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetQueueNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetQueueNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetQueueDefault(code int) *GetQueueDefault {
 	}
 }
 
-/* GetQueueDefault describes a response with status code -1, with default header values.
+/*
+GetQueueDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetQueueDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get queue default response has a 2xx status code
-func (o *GetQueueDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get queue default response has a 3xx status code
-func (o *GetQueueDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get queue default response has a 4xx status code
-func (o *GetQueueDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get queue default response has a 5xx status code
-func (o *GetQueueDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get queue default response a status code equal to that given
-func (o *GetQueueDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get queue default response
@@ -385,11 +225,6 @@ func (o *GetQueueDefault) Code() int {
 func (o *GetQueueDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] GetQueue default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetQueueDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] GetQueue default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetQueueDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

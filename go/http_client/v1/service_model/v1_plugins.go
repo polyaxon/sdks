@@ -39,14 +39,14 @@ type V1Plugins struct {
 	// Auto resume a run's artifacts (applies to resume and retries), works if collects_artifacts is enabled
 	AutoResume bool `json:"autoResume,omitempty"`
 
-	// Optional flag to tell Polyaxon to collect articats and outputs
+	// Optional flag to tell Polyaxon to collect artifacts and outputs
 	CollectArtifacts bool `json:"collectArtifacts,omitempty"`
 
 	// Optional flag to tell Polyaxon to collect logs
 	CollectLogs bool `json:"collectLogs,omitempty"`
 
-	// Optional flag to tell Polyaxon to collect container resouces (cpu/memory/gpu)
-	CollectResources string `json:"collectResources,omitempty"`
+	// Optional flag to tell Polyaxon to collect container resources (cpu/memory/gpu)
+	CollectResources bool `json:"collectResources,omitempty"`
 
 	// Optional flag to tell Polyaxon if it should set a docker socket context for the run, default false
 	Docker bool `json:"docker,omitempty"`

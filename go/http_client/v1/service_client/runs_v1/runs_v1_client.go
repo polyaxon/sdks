@@ -76,6 +76,8 @@ type ClientService interface {
 
 	DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunsOK, *DeleteRunsNoContent, error)
 
+	DeprecatedCollectRunLogs(params *DeprecatedCollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeprecatedCollectRunLogsOK, *DeprecatedCollectRunLogsNoContent, error)
+
 	GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetMultiRunEventsOK, *GetMultiRunEventsNoContent, error)
 
 	GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunOK, *GetRunNoContent, error)
@@ -168,7 +170,7 @@ type ClientService interface {
 }
 
 /*
-  ApproveRun approves run
+ApproveRun approves run
 */
 func (a *Client) ApproveRun(params *ApproveRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApproveRunOK, *ApproveRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -208,7 +210,7 @@ func (a *Client) ApproveRun(params *ApproveRunParams, authInfo runtime.ClientAut
 }
 
 /*
-  ApproveRuns approves runs
+ApproveRuns approves runs
 */
 func (a *Client) ApproveRuns(params *ApproveRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApproveRunsOK, *ApproveRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -248,7 +250,7 @@ func (a *Client) ApproveRuns(params *ApproveRunsParams, authInfo runtime.ClientA
 }
 
 /*
-  ArchiveRun archives run
+ArchiveRun archives run
 */
 func (a *Client) ArchiveRun(params *ArchiveRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveRunOK, *ArchiveRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -288,7 +290,7 @@ func (a *Client) ArchiveRun(params *ArchiveRunParams, authInfo runtime.ClientAut
 }
 
 /*
-  ArchiveRuns archives runs
+ArchiveRuns archives runs
 */
 func (a *Client) ArchiveRuns(params *ArchiveRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveRunsOK, *ArchiveRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -328,7 +330,7 @@ func (a *Client) ArchiveRuns(params *ArchiveRunsParams, authInfo runtime.ClientA
 }
 
 /*
-  BookmarkRun bookmarks run
+BookmarkRun bookmarks run
 */
 func (a *Client) BookmarkRun(params *BookmarkRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkRunOK, *BookmarkRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -368,7 +370,7 @@ func (a *Client) BookmarkRun(params *BookmarkRunParams, authInfo runtime.ClientA
 }
 
 /*
-  BookmarkRuns bookmarks runs
+BookmarkRuns bookmarks runs
 */
 func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkRunsOK, *BookmarkRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -408,7 +410,7 @@ func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.Clien
 }
 
 /*
-  CollectRunLogs internals API to collect run logs
+CollectRunLogs internals API to collect run logs
 */
 func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectRunLogsOK, *CollectRunLogsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -448,7 +450,7 @@ func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.C
 }
 
 /*
-  CopyRun restarts run with copy
+CopyRun restarts run with copy
 */
 func (a *Client) CopyRun(params *CopyRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CopyRunOK, *CopyRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -488,7 +490,7 @@ func (a *Client) CopyRun(params *CopyRunParams, authInfo runtime.ClientAuthInfoW
 }
 
 /*
-  CreateRun creates new run
+CreateRun creates new run
 */
 func (a *Client) CreateRun(params *CreateRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateRunOK, *CreateRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -528,7 +530,7 @@ func (a *Client) CreateRun(params *CreateRunParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  CreateRunArtifactsLineage creates bulk run artifacts lineage
+CreateRunArtifactsLineage creates bulk run artifacts lineage
 */
 func (a *Client) CreateRunArtifactsLineage(params *CreateRunArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateRunArtifactsLineageOK, *CreateRunArtifactsLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -568,7 +570,7 @@ func (a *Client) CreateRunArtifactsLineage(params *CreateRunArtifactsLineagePara
 }
 
 /*
-  CreateRunStatus creates new run status
+CreateRunStatus creates new run status
 */
 func (a *Client) CreateRunStatus(params *CreateRunStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateRunStatusOK, *CreateRunStatusNoContent, error) {
 	// TODO: Validate the params before sending
@@ -608,7 +610,7 @@ func (a *Client) CreateRunStatus(params *CreateRunStatusParams, authInfo runtime
 }
 
 /*
-  DeleteRun deletes run
+DeleteRun deletes run
 */
 func (a *Client) DeleteRun(params *DeleteRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunOK, *DeleteRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -648,7 +650,7 @@ func (a *Client) DeleteRun(params *DeleteRunParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  DeleteRunArtifact deletes run artifact
+DeleteRunArtifact deletes run artifact
 */
 func (a *Client) DeleteRunArtifact(params *DeleteRunArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunArtifactOK, *DeleteRunArtifactNoContent, error) {
 	// TODO: Validate the params before sending
@@ -688,7 +690,7 @@ func (a *Client) DeleteRunArtifact(params *DeleteRunArtifactParams, authInfo run
 }
 
 /*
-  DeleteRunArtifactLineage deletes run artifact lineage
+DeleteRunArtifactLineage deletes run artifact lineage
 */
 func (a *Client) DeleteRunArtifactLineage(params *DeleteRunArtifactLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunArtifactLineageOK, *DeleteRunArtifactLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -728,7 +730,7 @@ func (a *Client) DeleteRunArtifactLineage(params *DeleteRunArtifactLineageParams
 }
 
 /*
-  DeleteRunArtifacts deletes run artifacts
+DeleteRunArtifacts deletes run artifacts
 */
 func (a *Client) DeleteRunArtifacts(params *DeleteRunArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunArtifactsOK, *DeleteRunArtifactsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -768,7 +770,7 @@ func (a *Client) DeleteRunArtifacts(params *DeleteRunArtifactsParams, authInfo r
 }
 
 /*
-  DeleteRuns deletes runs
+DeleteRuns deletes runs
 */
 func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunsOK, *DeleteRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -808,7 +810,47 @@ func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAut
 }
 
 /*
-  GetMultiRunEvents gets multi runs events
+DeprecatedCollectRunLogs deprecateds collect run logs
+*/
+func (a *Client) DeprecatedCollectRunLogs(params *DeprecatedCollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeprecatedCollectRunLogsOK, *DeprecatedCollectRunLogsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeprecatedCollectRunLogsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "DeprecatedCollectRunLogs",
+		Method:             "POST",
+		PathPattern:        "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeprecatedCollectRunLogsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeprecatedCollectRunLogsOK:
+		return value, nil, nil
+	case *DeprecatedCollectRunLogsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*DeprecatedCollectRunLogsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetMultiRunEvents gets multi runs events
 */
 func (a *Client) GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetMultiRunEventsOK, *GetMultiRunEventsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -848,7 +890,7 @@ func (a *Client) GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo run
 }
 
 /*
-  GetRun gets run
+GetRun gets run
 */
 func (a *Client) GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunOK, *GetRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -888,7 +930,7 @@ func (a *Client) GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWri
 }
 
 /*
-  GetRunArtifact gets run artifact
+GetRunArtifact gets run artifact
 */
 func (a *Client) GetRunArtifact(params *GetRunArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactOK, *GetRunArtifactNoContent, error) {
 	// TODO: Validate the params before sending
@@ -928,7 +970,7 @@ func (a *Client) GetRunArtifact(params *GetRunArtifactParams, authInfo runtime.C
 }
 
 /*
-  GetRunArtifactLineage gets run artifacts lineage
+GetRunArtifactLineage gets run artifacts lineage
 */
 func (a *Client) GetRunArtifactLineage(params *GetRunArtifactLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactLineageOK, *GetRunArtifactLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -968,7 +1010,7 @@ func (a *Client) GetRunArtifactLineage(params *GetRunArtifactLineageParams, auth
 }
 
 /*
-  GetRunArtifacts gets run artifacts
+GetRunArtifacts gets run artifacts
 */
 func (a *Client) GetRunArtifacts(params *GetRunArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsOK, *GetRunArtifactsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1008,7 +1050,7 @@ func (a *Client) GetRunArtifacts(params *GetRunArtifactsParams, authInfo runtime
 }
 
 /*
-  GetRunArtifactsLineage gets run artifacts lineage
+GetRunArtifactsLineage gets run artifacts lineage
 */
 func (a *Client) GetRunArtifactsLineage(params *GetRunArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsLineageOK, *GetRunArtifactsLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1048,7 +1090,7 @@ func (a *Client) GetRunArtifactsLineage(params *GetRunArtifactsLineageParams, au
 }
 
 /*
-  GetRunArtifactsLineageNames gets run artifacts lineage names
+GetRunArtifactsLineageNames gets run artifacts lineage names
 */
 func (a *Client) GetRunArtifactsLineageNames(params *GetRunArtifactsLineageNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsLineageNamesOK, *GetRunArtifactsLineageNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1088,7 +1130,7 @@ func (a *Client) GetRunArtifactsLineageNames(params *GetRunArtifactsLineageNames
 }
 
 /*
-  GetRunArtifactsTree gets run artifacts tree
+GetRunArtifactsTree gets run artifacts tree
 */
 func (a *Client) GetRunArtifactsTree(params *GetRunArtifactsTreeParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsTreeOK, *GetRunArtifactsTreeNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1128,7 +1170,7 @@ func (a *Client) GetRunArtifactsTree(params *GetRunArtifactsTreeParams, authInfo
 }
 
 /*
-  GetRunClonesLineage gets run clones lineage
+GetRunClonesLineage gets run clones lineage
 */
 func (a *Client) GetRunClonesLineage(params *GetRunClonesLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunClonesLineageOK, *GetRunClonesLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1168,7 +1210,7 @@ func (a *Client) GetRunClonesLineage(params *GetRunClonesLineageParams, authInfo
 }
 
 /*
-  GetRunConnectionsLineage gets run connections lineage
+GetRunConnectionsLineage gets run connections lineage
 */
 func (a *Client) GetRunConnectionsLineage(params *GetRunConnectionsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunConnectionsLineageOK, *GetRunConnectionsLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1208,7 +1250,7 @@ func (a *Client) GetRunConnectionsLineage(params *GetRunConnectionsLineageParams
 }
 
 /*
-  GetRunDownstreamLineage gets run downstream lineage
+GetRunDownstreamLineage gets run downstream lineage
 */
 func (a *Client) GetRunDownstreamLineage(params *GetRunDownstreamLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunDownstreamLineageOK, *GetRunDownstreamLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1248,7 +1290,7 @@ func (a *Client) GetRunDownstreamLineage(params *GetRunDownstreamLineageParams, 
 }
 
 /*
-  GetRunEvents gets run events
+GetRunEvents gets run events
 */
 func (a *Client) GetRunEvents(params *GetRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunEventsOK, *GetRunEventsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1288,7 +1330,7 @@ func (a *Client) GetRunEvents(params *GetRunEventsParams, authInfo runtime.Clien
 }
 
 /*
-  GetRunImportance gets run importance
+GetRunImportance gets run importance
 */
 func (a *Client) GetRunImportance(params *GetRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunImportanceOK, *GetRunImportanceNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1328,7 +1370,7 @@ func (a *Client) GetRunImportance(params *GetRunImportanceParams, authInfo runti
 }
 
 /*
-  GetRunLogs gets run logs
+GetRunLogs gets run logs
 */
 func (a *Client) GetRunLogs(params *GetRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunLogsOK, *GetRunLogsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1368,7 +1410,7 @@ func (a *Client) GetRunLogs(params *GetRunLogsParams, authInfo runtime.ClientAut
 }
 
 /*
-  GetRunNamespace gets run namespace
+GetRunNamespace gets run namespace
 */
 func (a *Client) GetRunNamespace(params *GetRunNamespaceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunNamespaceOK, *GetRunNamespaceNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1408,7 +1450,7 @@ func (a *Client) GetRunNamespace(params *GetRunNamespaceParams, authInfo runtime
 }
 
 /*
-  GetRunResources gets run resources events
+GetRunResources gets run resources events
 */
 func (a *Client) GetRunResources(params *GetRunResourcesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunResourcesOK, *GetRunResourcesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1448,7 +1490,7 @@ func (a *Client) GetRunResources(params *GetRunResourcesParams, authInfo runtime
 }
 
 /*
-  GetRunSettings gets run settings
+GetRunSettings gets run settings
 */
 func (a *Client) GetRunSettings(params *GetRunSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunSettingsOK, *GetRunSettingsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1488,7 +1530,7 @@ func (a *Client) GetRunSettings(params *GetRunSettingsParams, authInfo runtime.C
 }
 
 /*
-  GetRunStats gets run stats
+GetRunStats gets run stats
 */
 func (a *Client) GetRunStats(params *GetRunStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunStatsOK, *GetRunStatsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1528,7 +1570,7 @@ func (a *Client) GetRunStats(params *GetRunStatsParams, authInfo runtime.ClientA
 }
 
 /*
-  GetRunStatuses gets run statuses
+GetRunStatuses gets run statuses
 */
 func (a *Client) GetRunStatuses(params *GetRunStatusesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunStatusesOK, *GetRunStatusesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1568,7 +1610,7 @@ func (a *Client) GetRunStatuses(params *GetRunStatusesParams, authInfo runtime.C
 }
 
 /*
-  GetRunUpstreamLineage gets run upstream lineage
+GetRunUpstreamLineage gets run upstream lineage
 */
 func (a *Client) GetRunUpstreamLineage(params *GetRunUpstreamLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunUpstreamLineageOK, *GetRunUpstreamLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1608,7 +1650,7 @@ func (a *Client) GetRunUpstreamLineage(params *GetRunUpstreamLineageParams, auth
 }
 
 /*
-  GetRunsArtifactsLineage gets runs artifacts lineage
+GetRunsArtifactsLineage gets runs artifacts lineage
 */
 func (a *Client) GetRunsArtifactsLineage(params *GetRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunsArtifactsLineageOK, *GetRunsArtifactsLineageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1648,7 +1690,7 @@ func (a *Client) GetRunsArtifactsLineage(params *GetRunsArtifactsLineageParams, 
 }
 
 /*
-  ImpersonateToken impersonates run token
+ImpersonateToken impersonates run token
 */
 func (a *Client) ImpersonateToken(params *ImpersonateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImpersonateTokenOK, *ImpersonateTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1688,7 +1730,7 @@ func (a *Client) ImpersonateToken(params *ImpersonateTokenParams, authInfo runti
 }
 
 /*
-  InspectRun inspects an active run full conditions
+InspectRun inspects an active run full conditions
 */
 func (a *Client) InspectRun(params *InspectRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InspectRunOK, *InspectRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1728,7 +1770,7 @@ func (a *Client) InspectRun(params *InspectRunParams, authInfo runtime.ClientAut
 }
 
 /*
-  InvalidateRun invalidates run
+InvalidateRun invalidates run
 */
 func (a *Client) InvalidateRun(params *InvalidateRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateRunOK, *InvalidateRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1768,7 +1810,7 @@ func (a *Client) InvalidateRun(params *InvalidateRunParams, authInfo runtime.Cli
 }
 
 /*
-  InvalidateRuns invalidates runs
+InvalidateRuns invalidates runs
 */
 func (a *Client) InvalidateRuns(params *InvalidateRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateRunsOK, *InvalidateRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1808,7 +1850,7 @@ func (a *Client) InvalidateRuns(params *InvalidateRunsParams, authInfo runtime.C
 }
 
 /*
-  ListArchivedRuns lists archived runs for user
+ListArchivedRuns lists archived runs for user
 */
 func (a *Client) ListArchivedRuns(params *ListArchivedRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListArchivedRunsOK, *ListArchivedRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1848,7 +1890,7 @@ func (a *Client) ListArchivedRuns(params *ListArchivedRunsParams, authInfo runti
 }
 
 /*
-  ListBookmarkedRuns lists bookmarked runs for user
+ListBookmarkedRuns lists bookmarked runs for user
 */
 func (a *Client) ListBookmarkedRuns(params *ListBookmarkedRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListBookmarkedRunsOK, *ListBookmarkedRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1888,7 +1930,7 @@ func (a *Client) ListBookmarkedRuns(params *ListBookmarkedRunsParams, authInfo r
 }
 
 /*
-  ListRuns lists runs
+ListRuns lists runs
 */
 func (a *Client) ListRuns(params *ListRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListRunsOK, *ListRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1928,7 +1970,7 @@ func (a *Client) ListRuns(params *ListRunsParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  NotifyRunStatus notifies run status
+NotifyRunStatus notifies run status
 */
 func (a *Client) NotifyRunStatus(params *NotifyRunStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*NotifyRunStatusOK, *NotifyRunStatusNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1968,7 +2010,7 @@ func (a *Client) NotifyRunStatus(params *NotifyRunStatusParams, authInfo runtime
 }
 
 /*
-  PatchRun patches run
+PatchRun patches run
 */
 func (a *Client) PatchRun(params *PatchRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchRunOK, *PatchRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2008,7 +2050,7 @@ func (a *Client) PatchRun(params *PatchRunParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  RestartRun restarts run
+RestartRun restarts run
 */
 func (a *Client) RestartRun(params *RestartRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestartRunOK, *RestartRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2048,7 +2090,7 @@ func (a *Client) RestartRun(params *RestartRunParams, authInfo runtime.ClientAut
 }
 
 /*
-  RestoreRun restores run
+RestoreRun restores run
 */
 func (a *Client) RestoreRun(params *RestoreRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreRunOK, *RestoreRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2088,7 +2130,7 @@ func (a *Client) RestoreRun(params *RestoreRunParams, authInfo runtime.ClientAut
 }
 
 /*
-  RestoreRuns restores runs
+RestoreRuns restores runs
 */
 func (a *Client) RestoreRuns(params *RestoreRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreRunsOK, *RestoreRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2128,7 +2170,7 @@ func (a *Client) RestoreRuns(params *RestoreRunsParams, authInfo runtime.ClientA
 }
 
 /*
-  ResumeRun resumes run
+ResumeRun resumes run
 */
 func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResumeRunOK, *ResumeRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2168,7 +2210,7 @@ func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  StopRun stops run
+StopRun stops run
 */
 func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunOK, *StopRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2208,7 +2250,7 @@ func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoW
 }
 
 /*
-  StopRuns stops runs
+StopRuns stops runs
 */
 func (a *Client) StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunsOK, *StopRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2248,7 +2290,7 @@ func (a *Client) StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  SyncRun syncs offline run
+SyncRun syncs offline run
 */
 func (a *Client) SyncRun(params *SyncRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncRunOK, *SyncRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2288,7 +2330,7 @@ func (a *Client) SyncRun(params *SyncRunParams, authInfo runtime.ClientAuthInfoW
 }
 
 /*
-  TagRuns tags runs
+TagRuns tags runs
 */
 func (a *Client) TagRuns(params *TagRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TagRunsOK, *TagRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2328,7 +2370,7 @@ func (a *Client) TagRuns(params *TagRunsParams, authInfo runtime.ClientAuthInfoW
 }
 
 /*
-  TransferRun transfers run
+TransferRun transfers run
 */
 func (a *Client) TransferRun(params *TransferRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferRunOK, *TransferRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2368,7 +2410,7 @@ func (a *Client) TransferRun(params *TransferRunParams, authInfo runtime.ClientA
 }
 
 /*
-  TransferRuns transfers runs
+TransferRuns transfers runs
 */
 func (a *Client) TransferRuns(params *TransferRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferRunsOK, *TransferRunsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2408,7 +2450,7 @@ func (a *Client) TransferRuns(params *TransferRunsParams, authInfo runtime.Clien
 }
 
 /*
-  UnbookmarkRun unbookmarks run
+UnbookmarkRun unbookmarks run
 */
 func (a *Client) UnbookmarkRun(params *UnbookmarkRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UnbookmarkRunOK, *UnbookmarkRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2448,7 +2490,7 @@ func (a *Client) UnbookmarkRun(params *UnbookmarkRunParams, authInfo runtime.Cli
 }
 
 /*
-  UpdateRun updates run
+UpdateRun updates run
 */
 func (a *Client) UpdateRun(params *UpdateRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateRunOK, *UpdateRunNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2488,7 +2530,7 @@ func (a *Client) UpdateRun(params *UpdateRunParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  UploadRunArtifact uploads an artifact file to a store via run access
+UploadRunArtifact uploads an artifact file to a store via run access
 */
 func (a *Client) UploadRunArtifact(params *UploadRunArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadRunArtifactOK, *UploadRunArtifactNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2528,7 +2570,7 @@ func (a *Client) UploadRunArtifact(params *UploadRunArtifactParams, authInfo run
 }
 
 /*
-  UploadRunLogs uploads a logs file to a store via run access
+UploadRunLogs uploads a logs file to a store via run access
 */
 func (a *Client) UploadRunLogs(params *UploadRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadRunLogsOK, *UploadRunLogsNoContent, error) {
 	// TODO: Validate the params before sending

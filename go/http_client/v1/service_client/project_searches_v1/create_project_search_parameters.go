@@ -68,10 +68,12 @@ func NewCreateProjectSearchParamsWithHTTPClient(client *http.Client) *CreateProj
 	}
 }
 
-/* CreateProjectSearchParams contains all the parameters to send to the API endpoint
-   for the create project search operation.
+/*
+CreateProjectSearchParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create project search operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateProjectSearchParams struct {
 

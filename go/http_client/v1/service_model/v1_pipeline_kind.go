@@ -34,12 +34,8 @@ import (
 type V1PipelineKind string
 
 func NewV1PipelineKind(value V1PipelineKind) *V1PipelineKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1PipelineKind.
-func (m V1PipelineKind) Pointer() *V1PipelineKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

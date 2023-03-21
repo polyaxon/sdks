@@ -60,7 +60,7 @@ type ClientService interface {
 }
 
 /*
-  CreateSearch creates search
+CreateSearch creates search
 */
 func (a *Client) CreateSearch(params *CreateSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateSearchOK, *CreateSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -100,7 +100,7 @@ func (a *Client) CreateSearch(params *CreateSearchParams, authInfo runtime.Clien
 }
 
 /*
-  DeleteSearch deletes search
+DeleteSearch deletes search
 */
 func (a *Client) DeleteSearch(params *DeleteSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteSearchOK, *DeleteSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -140,7 +140,7 @@ func (a *Client) DeleteSearch(params *DeleteSearchParams, authInfo runtime.Clien
 }
 
 /*
-  GetSearch gets search
+GetSearch gets search
 */
 func (a *Client) GetSearch(params *GetSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSearchOK, *GetSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -180,7 +180,7 @@ func (a *Client) GetSearch(params *GetSearchParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  ListSearchNames lists search names
+ListSearchNames lists search names
 */
 func (a *Client) ListSearchNames(params *ListSearchNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListSearchNamesOK, *ListSearchNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -220,7 +220,7 @@ func (a *Client) ListSearchNames(params *ListSearchNamesParams, authInfo runtime
 }
 
 /*
-  ListSearches lists searches
+ListSearches lists searches
 */
 func (a *Client) ListSearches(params *ListSearchesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListSearchesOK, *ListSearchesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) ListSearches(params *ListSearchesParams, authInfo runtime.Clien
 }
 
 /*
-  PatchSearch patches search
+PatchSearch patches search
 */
 func (a *Client) PatchSearch(params *PatchSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchSearchOK, *PatchSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -300,7 +300,7 @@ func (a *Client) PatchSearch(params *PatchSearchParams, authInfo runtime.ClientA
 }
 
 /*
-  UpdateSearch updates search
+UpdateSearch updates search
 */
 func (a *Client) UpdateSearch(params *UpdateSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateSearchOK, *UpdateSearchNoContent, error) {
 	// TODO: Validate the params before sending

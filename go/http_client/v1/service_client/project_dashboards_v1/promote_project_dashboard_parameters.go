@@ -66,10 +66,12 @@ func NewPromoteProjectDashboardParamsWithHTTPClient(client *http.Client) *Promot
 	}
 }
 
-/* PromoteProjectDashboardParams contains all the parameters to send to the API endpoint
-   for the promote project dashboard operation.
+/*
+PromoteProjectDashboardParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the promote project dashboard operation.
+
+	Typically these are written to a http.Request.
 */
 type PromoteProjectDashboardParams struct {
 

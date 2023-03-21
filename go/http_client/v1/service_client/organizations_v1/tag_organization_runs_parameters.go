@@ -68,10 +68,12 @@ func NewTagOrganizationRunsParamsWithHTTPClient(client *http.Client) *TagOrganiz
 	}
 }
 
-/* TagOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the tag organization runs operation.
+/*
+TagOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the tag organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type TagOrganizationRunsParams struct {
 

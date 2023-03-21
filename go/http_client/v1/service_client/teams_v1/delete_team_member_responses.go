@@ -78,48 +78,15 @@ func NewDeleteTeamMemberOK() *DeleteTeamMemberOK {
 	return &DeleteTeamMemberOK{}
 }
 
-/* DeleteTeamMemberOK describes a response with status code 200, with default header values.
+/*
+DeleteTeamMemberOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type DeleteTeamMemberOK struct {
 }
 
-// IsSuccess returns true when this delete team member o k response has a 2xx status code
-func (o *DeleteTeamMemberOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete team member o k response has a 3xx status code
-func (o *DeleteTeamMemberOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete team member o k response has a 4xx status code
-func (o *DeleteTeamMemberOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete team member o k response has a 5xx status code
-func (o *DeleteTeamMemberOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete team member o k response a status code equal to that given
-func (o *DeleteTeamMemberOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the delete team member o k response
-func (o *DeleteTeamMemberOK) Code() int {
-	return 200
-}
-
 func (o *DeleteTeamMemberOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberOK ", 200)
-}
-
-func (o *DeleteTeamMemberOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewDeleteTeamMemberNoContent() *DeleteTeamMemberNoContent {
 	return &DeleteTeamMemberNoContent{}
 }
 
-/* DeleteTeamMemberNoContent describes a response with status code 204, with default header values.
+/*
+DeleteTeamMemberNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type DeleteTeamMemberNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete team member no content response has a 2xx status code
-func (o *DeleteTeamMemberNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete team member no content response has a 3xx status code
-func (o *DeleteTeamMemberNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete team member no content response has a 4xx status code
-func (o *DeleteTeamMemberNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete team member no content response has a 5xx status code
-func (o *DeleteTeamMemberNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete team member no content response a status code equal to that given
-func (o *DeleteTeamMemberNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the delete team member no content response
-func (o *DeleteTeamMemberNoContent) Code() int {
-	return 204
-}
-
 func (o *DeleteTeamMemberNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberNoContent  %+v", 204, o.Payload)
 }
-
-func (o *DeleteTeamMemberNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberNoContent  %+v", 204, o.Payload)
-}
-
 func (o *DeleteTeamMemberNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewDeleteTeamMemberForbidden() *DeleteTeamMemberForbidden {
 	return &DeleteTeamMemberForbidden{}
 }
 
-/* DeleteTeamMemberForbidden describes a response with status code 403, with default header values.
+/*
+DeleteTeamMemberForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type DeleteTeamMemberForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete team member forbidden response has a 2xx status code
-func (o *DeleteTeamMemberForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete team member forbidden response has a 3xx status code
-func (o *DeleteTeamMemberForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete team member forbidden response has a 4xx status code
-func (o *DeleteTeamMemberForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete team member forbidden response has a 5xx status code
-func (o *DeleteTeamMemberForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete team member forbidden response a status code equal to that given
-func (o *DeleteTeamMemberForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the delete team member forbidden response
-func (o *DeleteTeamMemberForbidden) Code() int {
-	return 403
-}
-
 func (o *DeleteTeamMemberForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberForbidden  %+v", 403, o.Payload)
 }
-
-func (o *DeleteTeamMemberForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberForbidden  %+v", 403, o.Payload)
-}
-
 func (o *DeleteTeamMemberForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewDeleteTeamMemberNotFound() *DeleteTeamMemberNotFound {
 	return &DeleteTeamMemberNotFound{}
 }
 
-/* DeleteTeamMemberNotFound describes a response with status code 404, with default header values.
+/*
+DeleteTeamMemberNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type DeleteTeamMemberNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete team member not found response has a 2xx status code
-func (o *DeleteTeamMemberNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete team member not found response has a 3xx status code
-func (o *DeleteTeamMemberNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete team member not found response has a 4xx status code
-func (o *DeleteTeamMemberNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete team member not found response has a 5xx status code
-func (o *DeleteTeamMemberNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete team member not found response a status code equal to that given
-func (o *DeleteTeamMemberNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the delete team member not found response
-func (o *DeleteTeamMemberNotFound) Code() int {
-	return 404
-}
-
 func (o *DeleteTeamMemberNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberNotFound  %+v", 404, o.Payload)
 }
-
-func (o *DeleteTeamMemberNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] deleteTeamMemberNotFound  %+v", 404, o.Payload)
-}
-
 func (o *DeleteTeamMemberNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewDeleteTeamMemberDefault(code int) *DeleteTeamMemberDefault {
 	}
 }
 
-/* DeleteTeamMemberDefault describes a response with status code -1, with default header values.
+/*
+DeleteTeamMemberDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type DeleteTeamMemberDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this delete team member default response has a 2xx status code
-func (o *DeleteTeamMemberDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete team member default response has a 3xx status code
-func (o *DeleteTeamMemberDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete team member default response has a 4xx status code
-func (o *DeleteTeamMemberDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete team member default response has a 5xx status code
-func (o *DeleteTeamMemberDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete team member default response a status code equal to that given
-func (o *DeleteTeamMemberDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the delete team member default response
@@ -373,11 +214,6 @@ func (o *DeleteTeamMemberDefault) Code() int {
 func (o *DeleteTeamMemberDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] DeleteTeamMember default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *DeleteTeamMemberDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{team}/members/{user}][%d] DeleteTeamMember default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *DeleteTeamMemberDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

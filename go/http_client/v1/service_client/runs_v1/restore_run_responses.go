@@ -78,48 +78,15 @@ func NewRestoreRunOK() *RestoreRunOK {
 	return &RestoreRunOK{}
 }
 
-/* RestoreRunOK describes a response with status code 200, with default header values.
+/*
+RestoreRunOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type RestoreRunOK struct {
 }
 
-// IsSuccess returns true when this restore run o k response has a 2xx status code
-func (o *RestoreRunOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this restore run o k response has a 3xx status code
-func (o *RestoreRunOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this restore run o k response has a 4xx status code
-func (o *RestoreRunOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this restore run o k response has a 5xx status code
-func (o *RestoreRunOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this restore run o k response a status code equal to that given
-func (o *RestoreRunOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the restore run o k response
-func (o *RestoreRunOK) Code() int {
-	return 200
-}
-
 func (o *RestoreRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunOK ", 200)
-}
-
-func (o *RestoreRunOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewRestoreRunNoContent() *RestoreRunNoContent {
 	return &RestoreRunNoContent{}
 }
 
-/* RestoreRunNoContent describes a response with status code 204, with default header values.
+/*
+RestoreRunNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type RestoreRunNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this restore run no content response has a 2xx status code
-func (o *RestoreRunNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this restore run no content response has a 3xx status code
-func (o *RestoreRunNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this restore run no content response has a 4xx status code
-func (o *RestoreRunNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this restore run no content response has a 5xx status code
-func (o *RestoreRunNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this restore run no content response a status code equal to that given
-func (o *RestoreRunNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the restore run no content response
-func (o *RestoreRunNoContent) Code() int {
-	return 204
-}
-
 func (o *RestoreRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNoContent  %+v", 204, o.Payload)
 }
-
-func (o *RestoreRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNoContent  %+v", 204, o.Payload)
-}
-
 func (o *RestoreRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewRestoreRunForbidden() *RestoreRunForbidden {
 	return &RestoreRunForbidden{}
 }
 
-/* RestoreRunForbidden describes a response with status code 403, with default header values.
+/*
+RestoreRunForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type RestoreRunForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this restore run forbidden response has a 2xx status code
-func (o *RestoreRunForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this restore run forbidden response has a 3xx status code
-func (o *RestoreRunForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this restore run forbidden response has a 4xx status code
-func (o *RestoreRunForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this restore run forbidden response has a 5xx status code
-func (o *RestoreRunForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this restore run forbidden response a status code equal to that given
-func (o *RestoreRunForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the restore run forbidden response
-func (o *RestoreRunForbidden) Code() int {
-	return 403
-}
-
 func (o *RestoreRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunForbidden  %+v", 403, o.Payload)
 }
-
-func (o *RestoreRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunForbidden  %+v", 403, o.Payload)
-}
-
 func (o *RestoreRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewRestoreRunNotFound() *RestoreRunNotFound {
 	return &RestoreRunNotFound{}
 }
 
-/* RestoreRunNotFound describes a response with status code 404, with default header values.
+/*
+RestoreRunNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type RestoreRunNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this restore run not found response has a 2xx status code
-func (o *RestoreRunNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this restore run not found response has a 3xx status code
-func (o *RestoreRunNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this restore run not found response has a 4xx status code
-func (o *RestoreRunNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this restore run not found response has a 5xx status code
-func (o *RestoreRunNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this restore run not found response a status code equal to that given
-func (o *RestoreRunNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the restore run not found response
-func (o *RestoreRunNotFound) Code() int {
-	return 404
-}
-
 func (o *RestoreRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNotFound  %+v", 404, o.Payload)
 }
-
-func (o *RestoreRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNotFound  %+v", 404, o.Payload)
-}
-
 func (o *RestoreRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewRestoreRunDefault(code int) *RestoreRunDefault {
 	}
 }
 
-/* RestoreRunDefault describes a response with status code -1, with default header values.
+/*
+RestoreRunDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type RestoreRunDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this restore run default response has a 2xx status code
-func (o *RestoreRunDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this restore run default response has a 3xx status code
-func (o *RestoreRunDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this restore run default response has a 4xx status code
-func (o *RestoreRunDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this restore run default response has a 5xx status code
-func (o *RestoreRunDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this restore run default response a status code equal to that given
-func (o *RestoreRunDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the restore run default response
@@ -373,11 +214,6 @@ func (o *RestoreRunDefault) Code() int {
 func (o *RestoreRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] RestoreRun default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *RestoreRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] RestoreRun default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *RestoreRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

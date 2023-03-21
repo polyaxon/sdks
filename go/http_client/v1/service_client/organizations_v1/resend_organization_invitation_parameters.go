@@ -68,10 +68,12 @@ func NewResendOrganizationInvitationParamsWithHTTPClient(client *http.Client) *R
 	}
 }
 
-/* ResendOrganizationInvitationParams contains all the parameters to send to the API endpoint
-   for the resend organization invitation operation.
+/*
+ResendOrganizationInvitationParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the resend organization invitation operation.
+
+	Typically these are written to a http.Request.
 */
 type ResendOrganizationInvitationParams struct {
 

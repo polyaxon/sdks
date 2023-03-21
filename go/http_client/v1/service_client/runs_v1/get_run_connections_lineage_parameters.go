@@ -67,10 +67,12 @@ func NewGetRunConnectionsLineageParamsWithHTTPClient(client *http.Client) *GetRu
 	}
 }
 
-/* GetRunConnectionsLineageParams contains all the parameters to send to the API endpoint
-   for the get run connections lineage operation.
+/*
+GetRunConnectionsLineageParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run connections lineage operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunConnectionsLineageParams struct {
 

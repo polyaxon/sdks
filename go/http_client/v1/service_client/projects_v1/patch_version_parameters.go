@@ -68,10 +68,12 @@ func NewPatchVersionParamsWithHTTPClient(client *http.Client) *PatchVersionParam
 	}
 }
 
-/* PatchVersionParams contains all the parameters to send to the API endpoint
-   for the patch version operation.
+/*
+PatchVersionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch version operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchVersionParams struct {
 

@@ -31,19 +31,15 @@ import (
 // V1EventChartKind Chart kind
 //
 // - plotly: Plotly chart
-//  - bokeh: Bokeh chart
-//  - vega: Vega chart
+//   - bokeh: Bokeh chart
+//   - vega: Vega chart
 //
 // swagger:model v1EventChartKind
 type V1EventChartKind string
 
 func NewV1EventChartKind(value V1EventChartKind) *V1EventChartKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1EventChartKind.
-func (m V1EventChartKind) Pointer() *V1EventChartKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

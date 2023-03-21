@@ -68,10 +68,12 @@ func NewTagRunsParamsWithHTTPClient(client *http.Client) *TagRunsParams {
 	}
 }
 
-/* TagRunsParams contains all the parameters to send to the API endpoint
-   for the tag runs operation.
+/*
+TagRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the tag runs operation.
+
+	Typically these are written to a http.Request.
 */
 type TagRunsParams struct {
 

@@ -59,7 +59,7 @@ class V1Plugins(object):
         'mount_artifacts_store': 'bool',
         'collect_artifacts': 'bool',
         'collect_logs': 'bool',
-        'collect_resources': 'str',
+        'collect_resources': 'bool',
         'sync_statuses': 'bool',
         'auto_resume': 'bool',
         'log_level': 'str',
@@ -264,7 +264,7 @@ class V1Plugins(object):
 
 
         :return: The collect_resources of this V1Plugins.  # noqa: E501
-        :rtype: str
+        :rtype: bool
         """
         return self._collect_resources
 
@@ -274,7 +274,7 @@ class V1Plugins(object):
 
 
         :param collect_resources: The collect_resources of this V1Plugins.  # noqa: E501
-        :type collect_resources: str
+        :type collect_resources: bool
         """
 
         self._collect_resources = collect_resources

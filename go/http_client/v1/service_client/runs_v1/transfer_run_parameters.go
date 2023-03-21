@@ -68,10 +68,12 @@ func NewTransferRunParamsWithHTTPClient(client *http.Client) *TransferRunParams 
 	}
 }
 
-/* TransferRunParams contains all the parameters to send to the API endpoint
-   for the transfer run operation.
+/*
+TransferRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the transfer run operation.
+
+	Typically these are written to a http.Request.
 */
 type TransferRunParams struct {
 

@@ -78,7 +78,8 @@ func NewGetPresetOK() *GetPresetOK {
 	return &GetPresetOK{}
 }
 
-/* GetPresetOK describes a response with status code 200, with default header values.
+/*
+GetPresetOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetPresetOK struct {
 	Payload *service_model.V1Preset
 }
 
-// IsSuccess returns true when this get preset o k response has a 2xx status code
-func (o *GetPresetOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get preset o k response has a 3xx status code
-func (o *GetPresetOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get preset o k response has a 4xx status code
-func (o *GetPresetOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get preset o k response has a 5xx status code
-func (o *GetPresetOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get preset o k response a status code equal to that given
-func (o *GetPresetOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get preset o k response
-func (o *GetPresetOK) Code() int {
-	return 200
-}
-
 func (o *GetPresetOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK  %+v", 200, o.Payload)
 }
-
-func (o *GetPresetOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK  %+v", 200, o.Payload)
-}
-
 func (o *GetPresetOK) GetPayload() *service_model.V1Preset {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetPresetNoContent() *GetPresetNoContent {
 	return &GetPresetNoContent{}
 }
 
-/* GetPresetNoContent describes a response with status code 204, with default header values.
+/*
+GetPresetNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetPresetNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get preset no content response has a 2xx status code
-func (o *GetPresetNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get preset no content response has a 3xx status code
-func (o *GetPresetNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get preset no content response has a 4xx status code
-func (o *GetPresetNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get preset no content response has a 5xx status code
-func (o *GetPresetNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get preset no content response a status code equal to that given
-func (o *GetPresetNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get preset no content response
-func (o *GetPresetNoContent) Code() int {
-	return 204
-}
-
 func (o *GetPresetNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetPresetNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetPresetNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetPresetForbidden() *GetPresetForbidden {
 	return &GetPresetForbidden{}
 }
 
-/* GetPresetForbidden describes a response with status code 403, with default header values.
+/*
+GetPresetForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetPresetForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get preset forbidden response has a 2xx status code
-func (o *GetPresetForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get preset forbidden response has a 3xx status code
-func (o *GetPresetForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get preset forbidden response has a 4xx status code
-func (o *GetPresetForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get preset forbidden response has a 5xx status code
-func (o *GetPresetForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get preset forbidden response a status code equal to that given
-func (o *GetPresetForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get preset forbidden response
-func (o *GetPresetForbidden) Code() int {
-	return 403
-}
-
 func (o *GetPresetForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetPresetForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetPresetForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetPresetNotFound() *GetPresetNotFound {
 	return &GetPresetNotFound{}
 }
 
-/* GetPresetNotFound describes a response with status code 404, with default header values.
+/*
+GetPresetNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetPresetNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get preset not found response has a 2xx status code
-func (o *GetPresetNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get preset not found response has a 3xx status code
-func (o *GetPresetNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get preset not found response has a 4xx status code
-func (o *GetPresetNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get preset not found response has a 5xx status code
-func (o *GetPresetNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get preset not found response a status code equal to that given
-func (o *GetPresetNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get preset not found response
-func (o *GetPresetNotFound) Code() int {
-	return 404
-}
-
 func (o *GetPresetNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetPresetNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetPresetNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetPresetDefault(code int) *GetPresetDefault {
 	}
 }
 
-/* GetPresetDefault describes a response with status code -1, with default header values.
+/*
+GetPresetDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetPresetDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get preset default response has a 2xx status code
-func (o *GetPresetDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get preset default response has a 3xx status code
-func (o *GetPresetDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get preset default response has a 4xx status code
-func (o *GetPresetDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get preset default response has a 5xx status code
-func (o *GetPresetDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get preset default response a status code equal to that given
-func (o *GetPresetDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get preset default response
@@ -385,11 +225,6 @@ func (o *GetPresetDefault) Code() int {
 func (o *GetPresetDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] GetPreset default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetPresetDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] GetPreset default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetPresetDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -68,10 +68,12 @@ func NewCreateAgentParamsWithHTTPClient(client *http.Client) *CreateAgentParams 
 	}
 }
 
-/* CreateAgentParams contains all the parameters to send to the API endpoint
-   for the create agent operation.
+/*
+CreateAgentParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create agent operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateAgentParams struct {
 

@@ -78,7 +78,8 @@ func NewGetRunResourcesOK() *GetRunResourcesOK {
 	return &GetRunResourcesOK{}
 }
 
-/* GetRunResourcesOK describes a response with status code 200, with default header values.
+/*
+GetRunResourcesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetRunResourcesOK struct {
 	Payload *service_model.V1EventsResponse
 }
 
-// IsSuccess returns true when this get run resources o k response has a 2xx status code
-func (o *GetRunResourcesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get run resources o k response has a 3xx status code
-func (o *GetRunResourcesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run resources o k response has a 4xx status code
-func (o *GetRunResourcesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get run resources o k response has a 5xx status code
-func (o *GetRunResourcesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run resources o k response a status code equal to that given
-func (o *GetRunResourcesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get run resources o k response
-func (o *GetRunResourcesOK) Code() int {
-	return 200
-}
-
 func (o *GetRunResourcesOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
 }
-
-func (o *GetRunResourcesOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
-}
-
 func (o *GetRunResourcesOK) GetPayload() *service_model.V1EventsResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetRunResourcesNoContent() *GetRunResourcesNoContent {
 	return &GetRunResourcesNoContent{}
 }
 
-/* GetRunResourcesNoContent describes a response with status code 204, with default header values.
+/*
+GetRunResourcesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetRunResourcesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run resources no content response has a 2xx status code
-func (o *GetRunResourcesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get run resources no content response has a 3xx status code
-func (o *GetRunResourcesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run resources no content response has a 4xx status code
-func (o *GetRunResourcesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get run resources no content response has a 5xx status code
-func (o *GetRunResourcesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run resources no content response a status code equal to that given
-func (o *GetRunResourcesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get run resources no content response
-func (o *GetRunResourcesNoContent) Code() int {
-	return 204
-}
-
 func (o *GetRunResourcesNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetRunResourcesNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetRunResourcesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetRunResourcesForbidden() *GetRunResourcesForbidden {
 	return &GetRunResourcesForbidden{}
 }
 
-/* GetRunResourcesForbidden describes a response with status code 403, with default header values.
+/*
+GetRunResourcesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetRunResourcesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run resources forbidden response has a 2xx status code
-func (o *GetRunResourcesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get run resources forbidden response has a 3xx status code
-func (o *GetRunResourcesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run resources forbidden response has a 4xx status code
-func (o *GetRunResourcesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get run resources forbidden response has a 5xx status code
-func (o *GetRunResourcesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run resources forbidden response a status code equal to that given
-func (o *GetRunResourcesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get run resources forbidden response
-func (o *GetRunResourcesForbidden) Code() int {
-	return 403
-}
-
 func (o *GetRunResourcesForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetRunResourcesForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetRunResourcesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetRunResourcesNotFound() *GetRunResourcesNotFound {
 	return &GetRunResourcesNotFound{}
 }
 
-/* GetRunResourcesNotFound describes a response with status code 404, with default header values.
+/*
+GetRunResourcesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetRunResourcesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run resources not found response has a 2xx status code
-func (o *GetRunResourcesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get run resources not found response has a 3xx status code
-func (o *GetRunResourcesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run resources not found response has a 4xx status code
-func (o *GetRunResourcesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get run resources not found response has a 5xx status code
-func (o *GetRunResourcesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run resources not found response a status code equal to that given
-func (o *GetRunResourcesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get run resources not found response
-func (o *GetRunResourcesNotFound) Code() int {
-	return 404
-}
-
 func (o *GetRunResourcesNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetRunResourcesNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetRunResourcesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetRunResourcesDefault(code int) *GetRunResourcesDefault {
 	}
 }
 
-/* GetRunResourcesDefault describes a response with status code -1, with default header values.
+/*
+GetRunResourcesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetRunResourcesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get run resources default response has a 2xx status code
-func (o *GetRunResourcesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get run resources default response has a 3xx status code
-func (o *GetRunResourcesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get run resources default response has a 4xx status code
-func (o *GetRunResourcesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get run resources default response has a 5xx status code
-func (o *GetRunResourcesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get run resources default response a status code equal to that given
-func (o *GetRunResourcesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get run resources default response
@@ -385,11 +225,6 @@ func (o *GetRunResourcesDefault) Code() int {
 func (o *GetRunResourcesDefault) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetRunResourcesDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetRunResourcesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

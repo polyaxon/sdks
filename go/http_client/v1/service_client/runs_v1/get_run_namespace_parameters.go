@@ -66,10 +66,12 @@ func NewGetRunNamespaceParamsWithHTTPClient(client *http.Client) *GetRunNamespac
 	}
 }
 
-/* GetRunNamespaceParams contains all the parameters to send to the API endpoint
-   for the get run namespace operation.
+/*
+GetRunNamespaceParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run namespace operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunNamespaceParams struct {
 

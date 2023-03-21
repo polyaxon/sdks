@@ -78,7 +78,8 @@ func NewGetRunDownstreamLineageOK() *GetRunDownstreamLineageOK {
 	return &GetRunDownstreamLineageOK{}
 }
 
-/* GetRunDownstreamLineageOK describes a response with status code 200, with default header values.
+/*
+GetRunDownstreamLineageOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetRunDownstreamLineageOK struct {
 	Payload *service_model.V1ListRunEdgesResponse
 }
 
-// IsSuccess returns true when this get run downstream lineage o k response has a 2xx status code
-func (o *GetRunDownstreamLineageOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get run downstream lineage o k response has a 3xx status code
-func (o *GetRunDownstreamLineageOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run downstream lineage o k response has a 4xx status code
-func (o *GetRunDownstreamLineageOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get run downstream lineage o k response has a 5xx status code
-func (o *GetRunDownstreamLineageOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run downstream lineage o k response a status code equal to that given
-func (o *GetRunDownstreamLineageOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get run downstream lineage o k response
-func (o *GetRunDownstreamLineageOK) Code() int {
-	return 200
-}
-
 func (o *GetRunDownstreamLineageOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageOK  %+v", 200, o.Payload)
 }
-
-func (o *GetRunDownstreamLineageOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageOK  %+v", 200, o.Payload)
-}
-
 func (o *GetRunDownstreamLineageOK) GetPayload() *service_model.V1ListRunEdgesResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetRunDownstreamLineageNoContent() *GetRunDownstreamLineageNoContent {
 	return &GetRunDownstreamLineageNoContent{}
 }
 
-/* GetRunDownstreamLineageNoContent describes a response with status code 204, with default header values.
+/*
+GetRunDownstreamLineageNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetRunDownstreamLineageNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run downstream lineage no content response has a 2xx status code
-func (o *GetRunDownstreamLineageNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get run downstream lineage no content response has a 3xx status code
-func (o *GetRunDownstreamLineageNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run downstream lineage no content response has a 4xx status code
-func (o *GetRunDownstreamLineageNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get run downstream lineage no content response has a 5xx status code
-func (o *GetRunDownstreamLineageNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run downstream lineage no content response a status code equal to that given
-func (o *GetRunDownstreamLineageNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get run downstream lineage no content response
-func (o *GetRunDownstreamLineageNoContent) Code() int {
-	return 204
-}
-
 func (o *GetRunDownstreamLineageNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetRunDownstreamLineageNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetRunDownstreamLineageNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetRunDownstreamLineageForbidden() *GetRunDownstreamLineageForbidden {
 	return &GetRunDownstreamLineageForbidden{}
 }
 
-/* GetRunDownstreamLineageForbidden describes a response with status code 403, with default header values.
+/*
+GetRunDownstreamLineageForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetRunDownstreamLineageForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run downstream lineage forbidden response has a 2xx status code
-func (o *GetRunDownstreamLineageForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get run downstream lineage forbidden response has a 3xx status code
-func (o *GetRunDownstreamLineageForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run downstream lineage forbidden response has a 4xx status code
-func (o *GetRunDownstreamLineageForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get run downstream lineage forbidden response has a 5xx status code
-func (o *GetRunDownstreamLineageForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run downstream lineage forbidden response a status code equal to that given
-func (o *GetRunDownstreamLineageForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get run downstream lineage forbidden response
-func (o *GetRunDownstreamLineageForbidden) Code() int {
-	return 403
-}
-
 func (o *GetRunDownstreamLineageForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetRunDownstreamLineageForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetRunDownstreamLineageForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetRunDownstreamLineageNotFound() *GetRunDownstreamLineageNotFound {
 	return &GetRunDownstreamLineageNotFound{}
 }
 
-/* GetRunDownstreamLineageNotFound describes a response with status code 404, with default header values.
+/*
+GetRunDownstreamLineageNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetRunDownstreamLineageNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run downstream lineage not found response has a 2xx status code
-func (o *GetRunDownstreamLineageNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get run downstream lineage not found response has a 3xx status code
-func (o *GetRunDownstreamLineageNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run downstream lineage not found response has a 4xx status code
-func (o *GetRunDownstreamLineageNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get run downstream lineage not found response has a 5xx status code
-func (o *GetRunDownstreamLineageNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run downstream lineage not found response a status code equal to that given
-func (o *GetRunDownstreamLineageNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get run downstream lineage not found response
-func (o *GetRunDownstreamLineageNotFound) Code() int {
-	return 404
-}
-
 func (o *GetRunDownstreamLineageNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetRunDownstreamLineageNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] getRunDownstreamLineageNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetRunDownstreamLineageNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetRunDownstreamLineageDefault(code int) *GetRunDownstreamLineageDefault
 	}
 }
 
-/* GetRunDownstreamLineageDefault describes a response with status code -1, with default header values.
+/*
+GetRunDownstreamLineageDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetRunDownstreamLineageDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get run downstream lineage default response has a 2xx status code
-func (o *GetRunDownstreamLineageDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get run downstream lineage default response has a 3xx status code
-func (o *GetRunDownstreamLineageDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get run downstream lineage default response has a 4xx status code
-func (o *GetRunDownstreamLineageDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get run downstream lineage default response has a 5xx status code
-func (o *GetRunDownstreamLineageDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get run downstream lineage default response a status code equal to that given
-func (o *GetRunDownstreamLineageDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get run downstream lineage default response
@@ -385,11 +225,6 @@ func (o *GetRunDownstreamLineageDefault) Code() int {
 func (o *GetRunDownstreamLineageDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] GetRunDownstreamLineage default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetRunDownstreamLineageDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream][%d] GetRunDownstreamLineage default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetRunDownstreamLineageDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

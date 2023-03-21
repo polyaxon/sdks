@@ -68,10 +68,12 @@ func NewPatchUserParamsWithHTTPClient(client *http.Client) *PatchUserParams {
 	}
 }
 
-/* PatchUserParams contains all the parameters to send to the API endpoint
-   for the patch user operation.
+/*
+PatchUserParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch user operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUserParams struct {
 

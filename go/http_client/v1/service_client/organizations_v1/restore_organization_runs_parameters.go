@@ -68,10 +68,12 @@ func NewRestoreOrganizationRunsParamsWithHTTPClient(client *http.Client) *Restor
 	}
 }
 
-/* RestoreOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the restore organization runs operation.
+/*
+RestoreOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the restore organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type RestoreOrganizationRunsParams struct {
 

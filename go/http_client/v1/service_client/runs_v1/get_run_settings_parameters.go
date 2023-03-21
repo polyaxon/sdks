@@ -66,10 +66,12 @@ func NewGetRunSettingsParamsWithHTTPClient(client *http.Client) *GetRunSettingsP
 	}
 }
 
-/* GetRunSettingsParams contains all the parameters to send to the API endpoint
-   for the get run settings operation.
+/*
+GetRunSettingsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunSettingsParams struct {
 

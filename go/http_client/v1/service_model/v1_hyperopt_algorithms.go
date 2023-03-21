@@ -31,19 +31,15 @@ import (
 // V1HyperoptAlgorithms Hyperopt algorithms enum
 //
 // - tpe: tpe algorithm
-//  - rand: random algorithm
-//  - anneal: anneal algorithm
+//   - rand: random algorithm
+//   - anneal: anneal algorithm
 //
 // swagger:model v1HyperoptAlgorithms
 type V1HyperoptAlgorithms string
 
 func NewV1HyperoptAlgorithms(value V1HyperoptAlgorithms) *V1HyperoptAlgorithms {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1HyperoptAlgorithms.
-func (m V1HyperoptAlgorithms) Pointer() *V1HyperoptAlgorithms {
-	return &m
+	v := value
+	return &v
 }
 
 const (

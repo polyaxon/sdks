@@ -68,10 +68,12 @@ func NewOrganizationPlanParamsWithHTTPClient(client *http.Client) *OrganizationP
 	}
 }
 
-/* OrganizationPlanParams contains all the parameters to send to the API endpoint
-   for the organization plan operation.
+/*
+OrganizationPlanParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the organization plan operation.
+
+	Typically these are written to a http.Request.
 */
 type OrganizationPlanParams struct {
 

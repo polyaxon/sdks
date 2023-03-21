@@ -68,10 +68,12 @@ func NewUpdateRunParamsWithHTTPClient(client *http.Client) *UpdateRunParams {
 	}
 }
 
-/* UpdateRunParams contains all the parameters to send to the API endpoint
-   for the update run operation.
+/*
+UpdateRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update run operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateRunParams struct {
 

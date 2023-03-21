@@ -78,7 +78,8 @@ func NewGetProjectDashboardOK() *GetProjectDashboardOK {
 	return &GetProjectDashboardOK{}
 }
 
-/* GetProjectDashboardOK describes a response with status code 200, with default header values.
+/*
+GetProjectDashboardOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetProjectDashboardOK struct {
 	Payload *service_model.V1Dashboard
 }
 
-// IsSuccess returns true when this get project dashboard o k response has a 2xx status code
-func (o *GetProjectDashboardOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get project dashboard o k response has a 3xx status code
-func (o *GetProjectDashboardOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project dashboard o k response has a 4xx status code
-func (o *GetProjectDashboardOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get project dashboard o k response has a 5xx status code
-func (o *GetProjectDashboardOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project dashboard o k response a status code equal to that given
-func (o *GetProjectDashboardOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get project dashboard o k response
-func (o *GetProjectDashboardOK) Code() int {
-	return 200
-}
-
 func (o *GetProjectDashboardOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardOK  %+v", 200, o.Payload)
 }
-
-func (o *GetProjectDashboardOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardOK  %+v", 200, o.Payload)
-}
-
 func (o *GetProjectDashboardOK) GetPayload() *service_model.V1Dashboard {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetProjectDashboardNoContent() *GetProjectDashboardNoContent {
 	return &GetProjectDashboardNoContent{}
 }
 
-/* GetProjectDashboardNoContent describes a response with status code 204, with default header values.
+/*
+GetProjectDashboardNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetProjectDashboardNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get project dashboard no content response has a 2xx status code
-func (o *GetProjectDashboardNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get project dashboard no content response has a 3xx status code
-func (o *GetProjectDashboardNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project dashboard no content response has a 4xx status code
-func (o *GetProjectDashboardNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get project dashboard no content response has a 5xx status code
-func (o *GetProjectDashboardNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project dashboard no content response a status code equal to that given
-func (o *GetProjectDashboardNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get project dashboard no content response
-func (o *GetProjectDashboardNoContent) Code() int {
-	return 204
-}
-
 func (o *GetProjectDashboardNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetProjectDashboardNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetProjectDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetProjectDashboardForbidden() *GetProjectDashboardForbidden {
 	return &GetProjectDashboardForbidden{}
 }
 
-/* GetProjectDashboardForbidden describes a response with status code 403, with default header values.
+/*
+GetProjectDashboardForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetProjectDashboardForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get project dashboard forbidden response has a 2xx status code
-func (o *GetProjectDashboardForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get project dashboard forbidden response has a 3xx status code
-func (o *GetProjectDashboardForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project dashboard forbidden response has a 4xx status code
-func (o *GetProjectDashboardForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get project dashboard forbidden response has a 5xx status code
-func (o *GetProjectDashboardForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project dashboard forbidden response a status code equal to that given
-func (o *GetProjectDashboardForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get project dashboard forbidden response
-func (o *GetProjectDashboardForbidden) Code() int {
-	return 403
-}
-
 func (o *GetProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetProjectDashboardForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetProjectDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetProjectDashboardNotFound() *GetProjectDashboardNotFound {
 	return &GetProjectDashboardNotFound{}
 }
 
-/* GetProjectDashboardNotFound describes a response with status code 404, with default header values.
+/*
+GetProjectDashboardNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetProjectDashboardNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get project dashboard not found response has a 2xx status code
-func (o *GetProjectDashboardNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get project dashboard not found response has a 3xx status code
-func (o *GetProjectDashboardNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project dashboard not found response has a 4xx status code
-func (o *GetProjectDashboardNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get project dashboard not found response has a 5xx status code
-func (o *GetProjectDashboardNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project dashboard not found response a status code equal to that given
-func (o *GetProjectDashboardNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get project dashboard not found response
-func (o *GetProjectDashboardNotFound) Code() int {
-	return 404
-}
-
 func (o *GetProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetProjectDashboardNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] getProjectDashboardNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetProjectDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetProjectDashboardDefault(code int) *GetProjectDashboardDefault {
 	}
 }
 
-/* GetProjectDashboardDefault describes a response with status code -1, with default header values.
+/*
+GetProjectDashboardDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetProjectDashboardDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get project dashboard default response has a 2xx status code
-func (o *GetProjectDashboardDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get project dashboard default response has a 3xx status code
-func (o *GetProjectDashboardDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get project dashboard default response has a 4xx status code
-func (o *GetProjectDashboardDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get project dashboard default response has a 5xx status code
-func (o *GetProjectDashboardDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get project dashboard default response a status code equal to that given
-func (o *GetProjectDashboardDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get project dashboard default response
@@ -385,11 +225,6 @@ func (o *GetProjectDashboardDefault) Code() int {
 func (o *GetProjectDashboardDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] GetProjectDashboard default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetProjectDashboardDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] GetProjectDashboard default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

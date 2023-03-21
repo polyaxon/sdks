@@ -78,7 +78,8 @@ func NewPatchSearchOK() *PatchSearchOK {
 	return &PatchSearchOK{}
 }
 
-/* PatchSearchOK describes a response with status code 200, with default header values.
+/*
+PatchSearchOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type PatchSearchOK struct {
 	Payload *service_model.V1Search
 }
 
-// IsSuccess returns true when this patch search o k response has a 2xx status code
-func (o *PatchSearchOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch search o k response has a 3xx status code
-func (o *PatchSearchOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch search o k response has a 4xx status code
-func (o *PatchSearchOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch search o k response has a 5xx status code
-func (o *PatchSearchOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch search o k response a status code equal to that given
-func (o *PatchSearchOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the patch search o k response
-func (o *PatchSearchOK) Code() int {
-	return 200
-}
-
 func (o *PatchSearchOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchOK  %+v", 200, o.Payload)
 }
-
-func (o *PatchSearchOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchOK  %+v", 200, o.Payload)
-}
-
 func (o *PatchSearchOK) GetPayload() *service_model.V1Search {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewPatchSearchNoContent() *PatchSearchNoContent {
 	return &PatchSearchNoContent{}
 }
 
-/* PatchSearchNoContent describes a response with status code 204, with default header values.
+/*
+PatchSearchNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type PatchSearchNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch search no content response has a 2xx status code
-func (o *PatchSearchNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch search no content response has a 3xx status code
-func (o *PatchSearchNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch search no content response has a 4xx status code
-func (o *PatchSearchNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch search no content response has a 5xx status code
-func (o *PatchSearchNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch search no content response a status code equal to that given
-func (o *PatchSearchNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the patch search no content response
-func (o *PatchSearchNoContent) Code() int {
-	return 204
-}
-
 func (o *PatchSearchNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchNoContent  %+v", 204, o.Payload)
 }
-
-func (o *PatchSearchNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchNoContent  %+v", 204, o.Payload)
-}
-
 func (o *PatchSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewPatchSearchForbidden() *PatchSearchForbidden {
 	return &PatchSearchForbidden{}
 }
 
-/* PatchSearchForbidden describes a response with status code 403, with default header values.
+/*
+PatchSearchForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type PatchSearchForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch search forbidden response has a 2xx status code
-func (o *PatchSearchForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch search forbidden response has a 3xx status code
-func (o *PatchSearchForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch search forbidden response has a 4xx status code
-func (o *PatchSearchForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch search forbidden response has a 5xx status code
-func (o *PatchSearchForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch search forbidden response a status code equal to that given
-func (o *PatchSearchForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the patch search forbidden response
-func (o *PatchSearchForbidden) Code() int {
-	return 403
-}
-
 func (o *PatchSearchForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchForbidden  %+v", 403, o.Payload)
 }
-
-func (o *PatchSearchForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchForbidden  %+v", 403, o.Payload)
-}
-
 func (o *PatchSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewPatchSearchNotFound() *PatchSearchNotFound {
 	return &PatchSearchNotFound{}
 }
 
-/* PatchSearchNotFound describes a response with status code 404, with default header values.
+/*
+PatchSearchNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type PatchSearchNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch search not found response has a 2xx status code
-func (o *PatchSearchNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch search not found response has a 3xx status code
-func (o *PatchSearchNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch search not found response has a 4xx status code
-func (o *PatchSearchNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch search not found response has a 5xx status code
-func (o *PatchSearchNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch search not found response a status code equal to that given
-func (o *PatchSearchNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the patch search not found response
-func (o *PatchSearchNotFound) Code() int {
-	return 404
-}
-
 func (o *PatchSearchNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchNotFound  %+v", 404, o.Payload)
 }
-
-func (o *PatchSearchNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] patchSearchNotFound  %+v", 404, o.Payload)
-}
-
 func (o *PatchSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewPatchSearchDefault(code int) *PatchSearchDefault {
 	}
 }
 
-/* PatchSearchDefault describes a response with status code -1, with default header values.
+/*
+PatchSearchDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type PatchSearchDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this patch search default response has a 2xx status code
-func (o *PatchSearchDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this patch search default response has a 3xx status code
-func (o *PatchSearchDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this patch search default response has a 4xx status code
-func (o *PatchSearchDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this patch search default response has a 5xx status code
-func (o *PatchSearchDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this patch search default response a status code equal to that given
-func (o *PatchSearchDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the patch search default response
@@ -385,11 +225,6 @@ func (o *PatchSearchDefault) Code() int {
 func (o *PatchSearchDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] PatchSearch default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *PatchSearchDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/searches/{search.uuid}][%d] PatchSearch default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *PatchSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

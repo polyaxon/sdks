@@ -66,10 +66,12 @@ func NewGetOrganizationRunParamsWithHTTPClient(client *http.Client) *GetOrganiza
 	}
 }
 
-/* GetOrganizationRunParams contains all the parameters to send to the API endpoint
-   for the get organization run operation.
+/*
+GetOrganizationRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get organization run operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationRunParams struct {
 

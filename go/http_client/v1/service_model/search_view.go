@@ -31,24 +31,20 @@ import (
 // SearchView Search view
 //
 // - any: Any view
-//  - runs: Runs view
-//  - selection: Selection view
-//  - analytics: Analytics view
-//  - components: Components view
-//  - models: Models view
-//  - artifacts: Artifacts view
-//  - projects: Projects view
+//   - runs: Runs view
+//   - selection: Selection view
+//   - analytics: Analytics view
+//   - components: Components view
+//   - models: Models view
+//   - artifacts: Artifacts view
+//   - projects: Projects view
 //
 // swagger:model SearchView
 type SearchView string
 
 func NewSearchView(value SearchView) *SearchView {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated SearchView.
-func (m SearchView) Pointer() *SearchView {
-	return &m
+	v := value
+	return &v
 }
 
 const (

@@ -67,10 +67,12 @@ func NewListProjectDashboardsParamsWithHTTPClient(client *http.Client) *ListProj
 	}
 }
 
-/* ListProjectDashboardsParams contains all the parameters to send to the API endpoint
-   for the list project dashboards operation.
+/*
+ListProjectDashboardsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list project dashboards operation.
+
+	Typically these are written to a http.Request.
 */
 type ListProjectDashboardsParams struct {
 

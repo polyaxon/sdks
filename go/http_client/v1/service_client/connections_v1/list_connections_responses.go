@@ -78,7 +78,8 @@ func NewListConnectionsOK() *ListConnectionsOK {
 	return &ListConnectionsOK{}
 }
 
-/* ListConnectionsOK describes a response with status code 200, with default header values.
+/*
+ListConnectionsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListConnectionsOK struct {
 	Payload *service_model.V1ListConnectionsResponse
 }
 
-// IsSuccess returns true when this list connections o k response has a 2xx status code
-func (o *ListConnectionsOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list connections o k response has a 3xx status code
-func (o *ListConnectionsOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list connections o k response has a 4xx status code
-func (o *ListConnectionsOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list connections o k response has a 5xx status code
-func (o *ListConnectionsOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list connections o k response a status code equal to that given
-func (o *ListConnectionsOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list connections o k response
-func (o *ListConnectionsOK) Code() int {
-	return 200
-}
-
 func (o *ListConnectionsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsOK  %+v", 200, o.Payload)
 }
-
-func (o *ListConnectionsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsOK  %+v", 200, o.Payload)
-}
-
 func (o *ListConnectionsOK) GetPayload() *service_model.V1ListConnectionsResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListConnectionsNoContent() *ListConnectionsNoContent {
 	return &ListConnectionsNoContent{}
 }
 
-/* ListConnectionsNoContent describes a response with status code 204, with default header values.
+/*
+ListConnectionsNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListConnectionsNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list connections no content response has a 2xx status code
-func (o *ListConnectionsNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list connections no content response has a 3xx status code
-func (o *ListConnectionsNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list connections no content response has a 4xx status code
-func (o *ListConnectionsNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list connections no content response has a 5xx status code
-func (o *ListConnectionsNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list connections no content response a status code equal to that given
-func (o *ListConnectionsNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list connections no content response
-func (o *ListConnectionsNoContent) Code() int {
-	return 204
-}
-
 func (o *ListConnectionsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListConnectionsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListConnectionsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListConnectionsForbidden() *ListConnectionsForbidden {
 	return &ListConnectionsForbidden{}
 }
 
-/* ListConnectionsForbidden describes a response with status code 403, with default header values.
+/*
+ListConnectionsForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListConnectionsForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list connections forbidden response has a 2xx status code
-func (o *ListConnectionsForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list connections forbidden response has a 3xx status code
-func (o *ListConnectionsForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list connections forbidden response has a 4xx status code
-func (o *ListConnectionsForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list connections forbidden response has a 5xx status code
-func (o *ListConnectionsForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list connections forbidden response a status code equal to that given
-func (o *ListConnectionsForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list connections forbidden response
-func (o *ListConnectionsForbidden) Code() int {
-	return 403
-}
-
 func (o *ListConnectionsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListConnectionsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListConnectionsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListConnectionsNotFound() *ListConnectionsNotFound {
 	return &ListConnectionsNotFound{}
 }
 
-/* ListConnectionsNotFound describes a response with status code 404, with default header values.
+/*
+ListConnectionsNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListConnectionsNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list connections not found response has a 2xx status code
-func (o *ListConnectionsNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list connections not found response has a 3xx status code
-func (o *ListConnectionsNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list connections not found response has a 4xx status code
-func (o *ListConnectionsNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list connections not found response has a 5xx status code
-func (o *ListConnectionsNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list connections not found response a status code equal to that given
-func (o *ListConnectionsNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list connections not found response
-func (o *ListConnectionsNotFound) Code() int {
-	return 404
-}
-
 func (o *ListConnectionsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListConnectionsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] listConnectionsNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListConnectionsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListConnectionsDefault(code int) *ListConnectionsDefault {
 	}
 }
 
-/* ListConnectionsDefault describes a response with status code -1, with default header values.
+/*
+ListConnectionsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListConnectionsDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list connections default response has a 2xx status code
-func (o *ListConnectionsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list connections default response has a 3xx status code
-func (o *ListConnectionsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list connections default response has a 4xx status code
-func (o *ListConnectionsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list connections default response has a 5xx status code
-func (o *ListConnectionsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list connections default response a status code equal to that given
-func (o *ListConnectionsDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list connections default response
@@ -385,11 +225,6 @@ func (o *ListConnectionsDefault) Code() int {
 func (o *ListConnectionsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] ListConnections default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListConnectionsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections][%d] ListConnections default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListConnectionsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

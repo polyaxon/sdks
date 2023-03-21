@@ -78,7 +78,8 @@ func NewUpdateUserOK() *UpdateUserOK {
 	return &UpdateUserOK{}
 }
 
-/* UpdateUserOK describes a response with status code 200, with default header values.
+/*
+UpdateUserOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type UpdateUserOK struct {
 	Payload *service_model.V1User
 }
 
-// IsSuccess returns true when this update user o k response has a 2xx status code
-func (o *UpdateUserOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update user o k response has a 3xx status code
-func (o *UpdateUserOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update user o k response has a 4xx status code
-func (o *UpdateUserOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update user o k response has a 5xx status code
-func (o *UpdateUserOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update user o k response a status code equal to that given
-func (o *UpdateUserOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the update user o k response
-func (o *UpdateUserOK) Code() int {
-	return 200
-}
-
 func (o *UpdateUserOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserOK  %+v", 200, o.Payload)
 }
-
-func (o *UpdateUserOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserOK  %+v", 200, o.Payload)
-}
-
 func (o *UpdateUserOK) GetPayload() *service_model.V1User {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewUpdateUserNoContent() *UpdateUserNoContent {
 	return &UpdateUserNoContent{}
 }
 
-/* UpdateUserNoContent describes a response with status code 204, with default header values.
+/*
+UpdateUserNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type UpdateUserNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update user no content response has a 2xx status code
-func (o *UpdateUserNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update user no content response has a 3xx status code
-func (o *UpdateUserNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update user no content response has a 4xx status code
-func (o *UpdateUserNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update user no content response has a 5xx status code
-func (o *UpdateUserNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update user no content response a status code equal to that given
-func (o *UpdateUserNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the update user no content response
-func (o *UpdateUserNoContent) Code() int {
-	return 204
-}
-
 func (o *UpdateUserNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UpdateUserNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UpdateUserNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewUpdateUserForbidden() *UpdateUserForbidden {
 	return &UpdateUserForbidden{}
 }
 
-/* UpdateUserForbidden describes a response with status code 403, with default header values.
+/*
+UpdateUserForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type UpdateUserForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update user forbidden response has a 2xx status code
-func (o *UpdateUserForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update user forbidden response has a 3xx status code
-func (o *UpdateUserForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update user forbidden response has a 4xx status code
-func (o *UpdateUserForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update user forbidden response has a 5xx status code
-func (o *UpdateUserForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update user forbidden response a status code equal to that given
-func (o *UpdateUserForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the update user forbidden response
-func (o *UpdateUserForbidden) Code() int {
-	return 403
-}
-
 func (o *UpdateUserForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UpdateUserForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UpdateUserForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewUpdateUserNotFound() *UpdateUserNotFound {
 	return &UpdateUserNotFound{}
 }
 
-/* UpdateUserNotFound describes a response with status code 404, with default header values.
+/*
+UpdateUserNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type UpdateUserNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update user not found response has a 2xx status code
-func (o *UpdateUserNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update user not found response has a 3xx status code
-func (o *UpdateUserNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update user not found response has a 4xx status code
-func (o *UpdateUserNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update user not found response has a 5xx status code
-func (o *UpdateUserNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update user not found response a status code equal to that given
-func (o *UpdateUserNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the update user not found response
-func (o *UpdateUserNotFound) Code() int {
-	return 404
-}
-
 func (o *UpdateUserNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UpdateUserNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/users][%d] updateUserNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UpdateUserNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewUpdateUserDefault(code int) *UpdateUserDefault {
 	}
 }
 
-/* UpdateUserDefault describes a response with status code -1, with default header values.
+/*
+UpdateUserDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type UpdateUserDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this update user default response has a 2xx status code
-func (o *UpdateUserDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update user default response has a 3xx status code
-func (o *UpdateUserDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update user default response has a 4xx status code
-func (o *UpdateUserDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update user default response has a 5xx status code
-func (o *UpdateUserDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update user default response a status code equal to that given
-func (o *UpdateUserDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the update user default response
@@ -385,11 +225,6 @@ func (o *UpdateUserDefault) Code() int {
 func (o *UpdateUserDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/users][%d] UpdateUser default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *UpdateUserDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/users][%d] UpdateUser default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *UpdateUserDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

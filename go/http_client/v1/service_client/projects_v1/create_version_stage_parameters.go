@@ -68,10 +68,12 @@ func NewCreateVersionStageParamsWithHTTPClient(client *http.Client) *CreateVersi
 	}
 }
 
-/* CreateVersionStageParams contains all the parameters to send to the API endpoint
-   for the create version stage operation.
+/*
+CreateVersionStageParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create version stage operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateVersionStageParams struct {
 

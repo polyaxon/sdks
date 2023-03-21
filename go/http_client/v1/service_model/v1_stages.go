@@ -34,12 +34,8 @@ import (
 type V1Stages string
 
 func NewV1Stages(value V1Stages) *V1Stages {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1Stages.
-func (m V1Stages) Pointer() *V1Stages {
-	return &m
+	v := value
+	return &v
 }
 
 const (

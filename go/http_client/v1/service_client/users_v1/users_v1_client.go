@@ -68,7 +68,7 @@ type ClientService interface {
 }
 
 /*
-  CreateToken creates token
+CreateToken creates token
 */
 func (a *Client) CreateToken(params *CreateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTokenOK, *CreateTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -108,7 +108,7 @@ func (a *Client) CreateToken(params *CreateTokenParams, authInfo runtime.ClientA
 }
 
 /*
-  DeleteToken deletes token
+DeleteToken deletes token
 */
 func (a *Client) DeleteToken(params *DeleteTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTokenOK, *DeleteTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -148,7 +148,7 @@ func (a *Client) DeleteToken(params *DeleteTokenParams, authInfo runtime.ClientA
 }
 
 /*
-  GetHistory users history
+GetHistory users history
 */
 func (a *Client) GetHistory(params *GetHistoryParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetHistoryOK, *GetHistoryNoContent, error) {
 	// TODO: Validate the params before sending
@@ -188,7 +188,7 @@ func (a *Client) GetHistory(params *GetHistoryParams, authInfo runtime.ClientAut
 }
 
 /*
-  GetSuggestions users suggestions
+GetSuggestions users suggestions
 */
 func (a *Client) GetSuggestions(params *GetSuggestionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSuggestionsOK, *GetSuggestionsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -228,7 +228,7 @@ func (a *Client) GetSuggestions(params *GetSuggestionsParams, authInfo runtime.C
 }
 
 /*
-  GetToken gets token
+GetToken gets token
 */
 func (a *Client) GetToken(params *GetTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTokenOK, *GetTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -268,7 +268,7 @@ func (a *Client) GetToken(params *GetTokenParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  GetUser gets current user
+GetUser gets current user
 */
 func (a *Client) GetUser(params *GetUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetUserOK, *GetUserNoContent, error) {
 	// TODO: Validate the params before sending
@@ -308,7 +308,7 @@ func (a *Client) GetUser(params *GetUserParams, authInfo runtime.ClientAuthInfoW
 }
 
 /*
-  ListTokens lists tokens
+ListTokens lists tokens
 */
 func (a *Client) ListTokens(params *ListTokensParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTokensOK, *ListTokensNoContent, error) {
 	// TODO: Validate the params before sending
@@ -348,7 +348,7 @@ func (a *Client) ListTokens(params *ListTokensParams, authInfo runtime.ClientAut
 }
 
 /*
-  PatchToken patches token
+PatchToken patches token
 */
 func (a *Client) PatchToken(params *PatchTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTokenOK, *PatchTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -388,7 +388,7 @@ func (a *Client) PatchToken(params *PatchTokenParams, authInfo runtime.ClientAut
 }
 
 /*
-  PatchUser patches current user
+PatchUser patches current user
 */
 func (a *Client) PatchUser(params *PatchUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchUserOK, *PatchUserNoContent, error) {
 	// TODO: Validate the params before sending
@@ -428,7 +428,7 @@ func (a *Client) PatchUser(params *PatchUserParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  UpdateToken updates token
+UpdateToken updates token
 */
 func (a *Client) UpdateToken(params *UpdateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTokenOK, *UpdateTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -468,7 +468,7 @@ func (a *Client) UpdateToken(params *UpdateTokenParams, authInfo runtime.ClientA
 }
 
 /*
-  UpdateUser updates current user
+UpdateUser updates current user
 */
 func (a *Client) UpdateUser(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateUserOK, *UpdateUserNoContent, error) {
 	// TODO: Validate the params before sending

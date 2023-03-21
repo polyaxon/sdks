@@ -68,10 +68,12 @@ func NewCreateRunParamsWithHTTPClient(client *http.Client) *CreateRunParams {
 	}
 }
 
-/* CreateRunParams contains all the parameters to send to the API endpoint
-   for the create run operation.
+/*
+CreateRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create run operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateRunParams struct {
 

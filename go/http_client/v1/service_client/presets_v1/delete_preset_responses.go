@@ -78,48 +78,15 @@ func NewDeletePresetOK() *DeletePresetOK {
 	return &DeletePresetOK{}
 }
 
-/* DeletePresetOK describes a response with status code 200, with default header values.
+/*
+DeletePresetOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type DeletePresetOK struct {
 }
 
-// IsSuccess returns true when this delete preset o k response has a 2xx status code
-func (o *DeletePresetOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete preset o k response has a 3xx status code
-func (o *DeletePresetOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete preset o k response has a 4xx status code
-func (o *DeletePresetOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete preset o k response has a 5xx status code
-func (o *DeletePresetOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete preset o k response a status code equal to that given
-func (o *DeletePresetOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the delete preset o k response
-func (o *DeletePresetOK) Code() int {
-	return 200
-}
-
 func (o *DeletePresetOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetOK ", 200)
-}
-
-func (o *DeletePresetOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewDeletePresetNoContent() *DeletePresetNoContent {
 	return &DeletePresetNoContent{}
 }
 
-/* DeletePresetNoContent describes a response with status code 204, with default header values.
+/*
+DeletePresetNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type DeletePresetNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete preset no content response has a 2xx status code
-func (o *DeletePresetNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete preset no content response has a 3xx status code
-func (o *DeletePresetNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete preset no content response has a 4xx status code
-func (o *DeletePresetNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete preset no content response has a 5xx status code
-func (o *DeletePresetNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete preset no content response a status code equal to that given
-func (o *DeletePresetNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the delete preset no content response
-func (o *DeletePresetNoContent) Code() int {
-	return 204
-}
-
 func (o *DeletePresetNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNoContent  %+v", 204, o.Payload)
 }
-
-func (o *DeletePresetNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNoContent  %+v", 204, o.Payload)
-}
-
 func (o *DeletePresetNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewDeletePresetForbidden() *DeletePresetForbidden {
 	return &DeletePresetForbidden{}
 }
 
-/* DeletePresetForbidden describes a response with status code 403, with default header values.
+/*
+DeletePresetForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type DeletePresetForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete preset forbidden response has a 2xx status code
-func (o *DeletePresetForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete preset forbidden response has a 3xx status code
-func (o *DeletePresetForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete preset forbidden response has a 4xx status code
-func (o *DeletePresetForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete preset forbidden response has a 5xx status code
-func (o *DeletePresetForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete preset forbidden response a status code equal to that given
-func (o *DeletePresetForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the delete preset forbidden response
-func (o *DeletePresetForbidden) Code() int {
-	return 403
-}
-
 func (o *DeletePresetForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetForbidden  %+v", 403, o.Payload)
 }
-
-func (o *DeletePresetForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetForbidden  %+v", 403, o.Payload)
-}
-
 func (o *DeletePresetForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewDeletePresetNotFound() *DeletePresetNotFound {
 	return &DeletePresetNotFound{}
 }
 
-/* DeletePresetNotFound describes a response with status code 404, with default header values.
+/*
+DeletePresetNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type DeletePresetNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete preset not found response has a 2xx status code
-func (o *DeletePresetNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete preset not found response has a 3xx status code
-func (o *DeletePresetNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete preset not found response has a 4xx status code
-func (o *DeletePresetNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete preset not found response has a 5xx status code
-func (o *DeletePresetNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete preset not found response a status code equal to that given
-func (o *DeletePresetNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the delete preset not found response
-func (o *DeletePresetNotFound) Code() int {
-	return 404
-}
-
 func (o *DeletePresetNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNotFound  %+v", 404, o.Payload)
 }
-
-func (o *DeletePresetNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNotFound  %+v", 404, o.Payload)
-}
-
 func (o *DeletePresetNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewDeletePresetDefault(code int) *DeletePresetDefault {
 	}
 }
 
-/* DeletePresetDefault describes a response with status code -1, with default header values.
+/*
+DeletePresetDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type DeletePresetDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this delete preset default response has a 2xx status code
-func (o *DeletePresetDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete preset default response has a 3xx status code
-func (o *DeletePresetDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete preset default response has a 4xx status code
-func (o *DeletePresetDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete preset default response has a 5xx status code
-func (o *DeletePresetDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete preset default response a status code equal to that given
-func (o *DeletePresetDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the delete preset default response
@@ -373,11 +214,6 @@ func (o *DeletePresetDefault) Code() int {
 func (o *DeletePresetDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] DeletePreset default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *DeletePresetDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] DeletePreset default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *DeletePresetDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -67,10 +67,12 @@ func NewListBookmarkedProjectsParamsWithHTTPClient(client *http.Client) *ListBoo
 	}
 }
 
-/* ListBookmarkedProjectsParams contains all the parameters to send to the API endpoint
-   for the list bookmarked projects operation.
+/*
+ListBookmarkedProjectsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list bookmarked projects operation.
+
+	Typically these are written to a http.Request.
 */
 type ListBookmarkedProjectsParams struct {
 

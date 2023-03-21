@@ -31,19 +31,15 @@ import (
 // V1EventCurveKind Curve kind
 //
 // - roc: ROC curve
-//  - pr: Precision Recall curve
-//  - custom: Custom curve
+//   - pr: Precision Recall curve
+//   - custom: Custom curve
 //
 // swagger:model v1EventCurveKind
 type V1EventCurveKind string
 
 func NewV1EventCurveKind(value V1EventCurveKind) *V1EventCurveKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1EventCurveKind.
-func (m V1EventCurveKind) Pointer() *V1EventCurveKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

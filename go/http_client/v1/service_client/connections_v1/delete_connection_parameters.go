@@ -66,10 +66,12 @@ func NewDeleteConnectionParamsWithHTTPClient(client *http.Client) *DeleteConnect
 	}
 }
 
-/* DeleteConnectionParams contains all the parameters to send to the API endpoint
-   for the delete connection operation.
+/*
+DeleteConnectionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete connection operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteConnectionParams struct {
 

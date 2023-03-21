@@ -68,10 +68,12 @@ func NewPatchTokenParamsWithHTTPClient(client *http.Client) *PatchTokenParams {
 	}
 }
 
-/* PatchTokenParams contains all the parameters to send to the API endpoint
-   for the patch token operation.
+/*
+PatchTokenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch token operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchTokenParams struct {
 

@@ -67,10 +67,12 @@ func NewGetRunArtifactParamsWithHTTPClient(client *http.Client) *GetRunArtifactP
 	}
 }
 
-/* GetRunArtifactParams contains all the parameters to send to the API endpoint
-   for the get run artifact operation.
+/*
+GetRunArtifactParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run artifact operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunArtifactParams struct {
 

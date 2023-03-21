@@ -76,7 +76,7 @@ type ClientService interface {
 }
 
 /*
-  CreateAgent creates agent
+CreateAgent creates agent
 */
 func (a *Client) CreateAgent(params *CreateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentOK, *CreateAgentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +116,7 @@ func (a *Client) CreateAgent(params *CreateAgentParams, authInfo runtime.ClientA
 }
 
 /*
-  CreateAgentStatus creates new agent status
+CreateAgentStatus creates new agent status
 */
 func (a *Client) CreateAgentStatus(params *CreateAgentStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentStatusOK, *CreateAgentStatusNoContent, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +156,7 @@ func (a *Client) CreateAgentStatus(params *CreateAgentStatusParams, authInfo run
 }
 
 /*
-  DeleteAgent deletes agent
+DeleteAgent deletes agent
 */
 func (a *Client) DeleteAgent(params *DeleteAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteAgentOK, *DeleteAgentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -196,7 +196,7 @@ func (a *Client) DeleteAgent(params *DeleteAgentParams, authInfo runtime.ClientA
 }
 
 /*
-  GetAgent gets agent
+GetAgent gets agent
 */
 func (a *Client) GetAgent(params *GetAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentOK, *GetAgentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -236,7 +236,7 @@ func (a *Client) GetAgent(params *GetAgentParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  GetAgentConfig gets agent config
+GetAgentConfig gets agent config
 */
 func (a *Client) GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentConfigOK, *GetAgentConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -276,7 +276,7 @@ func (a *Client) GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.C
 }
 
 /*
-  GetAgentState gets state queues runs
+GetAgentState gets state queues runs
 */
 func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStateOK, *GetAgentStateNoContent, error) {
 	// TODO: Validate the params before sending
@@ -316,7 +316,7 @@ func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.Cli
 }
 
 /*
-  GetAgentToken gets agent token
+GetAgentToken gets agent token
 */
 func (a *Client) GetAgentToken(params *GetAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentTokenOK, *GetAgentTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -356,7 +356,7 @@ func (a *Client) GetAgentToken(params *GetAgentTokenParams, authInfo runtime.Cli
 }
 
 /*
-  ListAgentNames lists agents names
+ListAgentNames lists agents names
 */
 func (a *Client) ListAgentNames(params *ListAgentNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentNamesOK, *ListAgentNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -396,7 +396,7 @@ func (a *Client) ListAgentNames(params *ListAgentNamesParams, authInfo runtime.C
 }
 
 /*
-  ListAgents lists agents
+ListAgents lists agents
 */
 func (a *Client) ListAgents(params *ListAgentsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentsOK, *ListAgentsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -436,7 +436,7 @@ func (a *Client) ListAgents(params *ListAgentsParams, authInfo runtime.ClientAut
 }
 
 /*
-  PatchAgent patches agent
+PatchAgent patches agent
 */
 func (a *Client) PatchAgent(params *PatchAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchAgentOK, *PatchAgentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -476,7 +476,7 @@ func (a *Client) PatchAgent(params *PatchAgentParams, authInfo runtime.ClientAut
 }
 
 /*
-  PatchAgentToken patches agent token
+PatchAgentToken patches agent token
 */
 func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchAgentTokenOK, *PatchAgentTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -516,7 +516,7 @@ func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime
 }
 
 /*
-  SyncAgent syncs agent
+SyncAgent syncs agent
 */
 func (a *Client) SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncAgentOK, *SyncAgentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -556,7 +556,7 @@ func (a *Client) SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  UpdateAgent updates agent
+UpdateAgent updates agent
 */
 func (a *Client) UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentOK, *UpdateAgentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -596,7 +596,7 @@ func (a *Client) UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientA
 }
 
 /*
-  UpdateAgentConfig updates agent config
+UpdateAgentConfig updates agent config
 */
 func (a *Client) UpdateAgentConfig(params *UpdateAgentConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentConfigOK, *UpdateAgentConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -636,7 +636,7 @@ func (a *Client) UpdateAgentConfig(params *UpdateAgentConfigParams, authInfo run
 }
 
 /*
-  UpdateAgentToken updates agent token
+UpdateAgentToken updates agent token
 */
 func (a *Client) UpdateAgentToken(params *UpdateAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentTokenOK, *UpdateAgentTokenNoContent, error) {
 	// TODO: Validate the params before sending

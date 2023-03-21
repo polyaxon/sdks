@@ -67,10 +67,12 @@ func NewListTeamMembersParamsWithHTTPClient(client *http.Client) *ListTeamMember
 	}
 }
 
-/* ListTeamMembersParams contains all the parameters to send to the API endpoint
-   for the list team members operation.
+/*
+ListTeamMembersParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list team members operation.
+
+	Typically these are written to a http.Request.
 */
 type ListTeamMembersParams struct {
 

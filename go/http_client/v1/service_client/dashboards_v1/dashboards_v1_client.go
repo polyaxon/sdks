@@ -60,7 +60,7 @@ type ClientService interface {
 }
 
 /*
-  CreateDashboard creates dashboard
+CreateDashboard creates dashboard
 */
 func (a *Client) CreateDashboard(params *CreateDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateDashboardOK, *CreateDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -100,7 +100,7 @@ func (a *Client) CreateDashboard(params *CreateDashboardParams, authInfo runtime
 }
 
 /*
-  DeleteDashboard deletes dashboard
+DeleteDashboard deletes dashboard
 */
 func (a *Client) DeleteDashboard(params *DeleteDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteDashboardOK, *DeleteDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -140,7 +140,7 @@ func (a *Client) DeleteDashboard(params *DeleteDashboardParams, authInfo runtime
 }
 
 /*
-  GetDashboard gets dashboard
+GetDashboard gets dashboard
 */
 func (a *Client) GetDashboard(params *GetDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDashboardOK, *GetDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -180,7 +180,7 @@ func (a *Client) GetDashboard(params *GetDashboardParams, authInfo runtime.Clien
 }
 
 /*
-  ListDashboardNames lists dashboard names
+ListDashboardNames lists dashboard names
 */
 func (a *Client) ListDashboardNames(params *ListDashboardNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListDashboardNamesOK, *ListDashboardNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -220,7 +220,7 @@ func (a *Client) ListDashboardNames(params *ListDashboardNamesParams, authInfo r
 }
 
 /*
-  ListDashboards lists dashboards
+ListDashboards lists dashboards
 */
 func (a *Client) ListDashboards(params *ListDashboardsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListDashboardsOK, *ListDashboardsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) ListDashboards(params *ListDashboardsParams, authInfo runtime.C
 }
 
 /*
-  PatchDashboard patches dashboard
+PatchDashboard patches dashboard
 */
 func (a *Client) PatchDashboard(params *PatchDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchDashboardOK, *PatchDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -300,7 +300,7 @@ func (a *Client) PatchDashboard(params *PatchDashboardParams, authInfo runtime.C
 }
 
 /*
-  UpdateDashboard updates dashboard
+UpdateDashboard updates dashboard
 */
 func (a *Client) UpdateDashboard(params *UpdateDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateDashboardOK, *UpdateDashboardNoContent, error) {
 	// TODO: Validate the params before sending

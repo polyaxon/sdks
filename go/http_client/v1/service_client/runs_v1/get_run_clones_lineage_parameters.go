@@ -67,10 +67,12 @@ func NewGetRunClonesLineageParamsWithHTTPClient(client *http.Client) *GetRunClon
 	}
 }
 
-/* GetRunClonesLineageParams contains all the parameters to send to the API endpoint
-   for the get run clones lineage operation.
+/*
+GetRunClonesLineageParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run clones lineage operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunClonesLineageParams struct {
 

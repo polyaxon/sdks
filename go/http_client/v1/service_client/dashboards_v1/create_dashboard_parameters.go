@@ -68,10 +68,12 @@ func NewCreateDashboardParamsWithHTTPClient(client *http.Client) *CreateDashboar
 	}
 }
 
-/* CreateDashboardParams contains all the parameters to send to the API endpoint
-   for the create dashboard operation.
+/*
+CreateDashboardParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create dashboard operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateDashboardParams struct {
 

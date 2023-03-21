@@ -68,10 +68,12 @@ func NewTrialParamsWithHTTPClient(client *http.Client) *TrialParams {
 	}
 }
 
-/* TrialParams contains all the parameters to send to the API endpoint
-   for the trial operation.
+/*
+TrialParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the trial operation.
+
+	Typically these are written to a http.Request.
 */
 type TrialParams struct {
 

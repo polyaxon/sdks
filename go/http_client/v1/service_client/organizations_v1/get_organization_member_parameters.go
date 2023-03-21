@@ -66,10 +66,12 @@ func NewGetOrganizationMemberParamsWithHTTPClient(client *http.Client) *GetOrgan
 	}
 }
 
-/* GetOrganizationMemberParams contains all the parameters to send to the API endpoint
-   for the get organization member operation.
+/*
+GetOrganizationMemberParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get organization member operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationMemberParams struct {
 

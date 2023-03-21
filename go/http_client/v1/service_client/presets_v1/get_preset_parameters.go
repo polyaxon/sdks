@@ -66,10 +66,12 @@ func NewGetPresetParamsWithHTTPClient(client *http.Client) *GetPresetParams {
 	}
 }
 
-/* GetPresetParams contains all the parameters to send to the API endpoint
-   for the get preset operation.
+/*
+GetPresetParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get preset operation.
+
+	Typically these are written to a http.Request.
 */
 type GetPresetParams struct {
 

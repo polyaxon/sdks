@@ -67,10 +67,12 @@ func NewUploadRunLogsParamsWithHTTPClient(client *http.Client) *UploadRunLogsPar
 	}
 }
 
-/* UploadRunLogsParams contains all the parameters to send to the API endpoint
-   for the upload run logs operation.
+/*
+UploadRunLogsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the upload run logs operation.
+
+	Typically these are written to a http.Request.
 */
 type UploadRunLogsParams struct {
 

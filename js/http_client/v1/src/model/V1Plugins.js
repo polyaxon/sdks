@@ -82,7 +82,7 @@ class V1Plugins {
                 obj['collectLogs'] = ApiClient.convertToType(data['collectLogs'], 'Boolean');
             }
             if (data.hasOwnProperty('collectResources')) {
-                obj['collectResources'] = ApiClient.convertToType(data['collectResources'], 'String');
+                obj['collectResources'] = ApiClient.convertToType(data['collectResources'], 'Boolean');
             }
             if (data.hasOwnProperty('syncStatuses')) {
                 obj['syncStatuses'] = ApiClient.convertToType(data['syncStatuses'], 'Boolean');
@@ -140,7 +140,7 @@ V1Plugins.prototype['collectArtifacts'] = undefined;
 V1Plugins.prototype['collectLogs'] = undefined;
 
 /**
- * @member {String} collectResources
+ * @member {Boolean} collectResources
  */
 V1Plugins.prototype['collectResources'] = undefined;
 

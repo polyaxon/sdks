@@ -68,10 +68,12 @@ func NewUpdateProjectSearchParamsWithHTTPClient(client *http.Client) *UpdateProj
 	}
 }
 
-/* UpdateProjectSearchParams contains all the parameters to send to the API endpoint
-   for the update project search operation.
+/*
+UpdateProjectSearchParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update project search operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateProjectSearchParams struct {
 

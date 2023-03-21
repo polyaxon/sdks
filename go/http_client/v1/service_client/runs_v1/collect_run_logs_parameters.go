@@ -66,10 +66,12 @@ func NewCollectRunLogsParamsWithHTTPClient(client *http.Client) *CollectRunLogsP
 	}
 }
 
-/* CollectRunLogsParams contains all the parameters to send to the API endpoint
-   for the collect run logs operation.
+/*
+CollectRunLogsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the collect run logs operation.
+
+	Typically these are written to a http.Request.
 */
 type CollectRunLogsParams struct {
 

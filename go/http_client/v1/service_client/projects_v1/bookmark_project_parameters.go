@@ -66,10 +66,12 @@ func NewBookmarkProjectParamsWithHTTPClient(client *http.Client) *BookmarkProjec
 	}
 }
 
-/* BookmarkProjectParams contains all the parameters to send to the API endpoint
-   for the bookmark project operation.
+/*
+BookmarkProjectParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the bookmark project operation.
+
+	Typically these are written to a http.Request.
 */
 type BookmarkProjectParams struct {
 

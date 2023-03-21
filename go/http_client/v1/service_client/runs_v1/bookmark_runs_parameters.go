@@ -68,10 +68,12 @@ func NewBookmarkRunsParamsWithHTTPClient(client *http.Client) *BookmarkRunsParam
 	}
 }
 
-/* BookmarkRunsParams contains all the parameters to send to the API endpoint
-   for the bookmark runs operation.
+/*
+BookmarkRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the bookmark runs operation.
+
+	Typically these are written to a http.Request.
 */
 type BookmarkRunsParams struct {
 

@@ -68,10 +68,12 @@ func NewCopyRunParamsWithHTTPClient(client *http.Client) *CopyRunParams {
 	}
 }
 
-/* CopyRunParams contains all the parameters to send to the API endpoint
-   for the copy run operation.
+/*
+CopyRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the copy run operation.
+
+	Typically these are written to a http.Request.
 */
 type CopyRunParams struct {
 

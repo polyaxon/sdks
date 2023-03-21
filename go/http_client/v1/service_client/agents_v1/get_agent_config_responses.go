@@ -78,7 +78,8 @@ func NewGetAgentConfigOK() *GetAgentConfigOK {
 	return &GetAgentConfigOK{}
 }
 
-/* GetAgentConfigOK describes a response with status code 200, with default header values.
+/*
+GetAgentConfigOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetAgentConfigOK struct {
 	Payload *service_model.V1Agent
 }
 
-// IsSuccess returns true when this get agent config o k response has a 2xx status code
-func (o *GetAgentConfigOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get agent config o k response has a 3xx status code
-func (o *GetAgentConfigOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get agent config o k response has a 4xx status code
-func (o *GetAgentConfigOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get agent config o k response has a 5xx status code
-func (o *GetAgentConfigOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get agent config o k response a status code equal to that given
-func (o *GetAgentConfigOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get agent config o k response
-func (o *GetAgentConfigOK) Code() int {
-	return 200
-}
-
 func (o *GetAgentConfigOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigOK  %+v", 200, o.Payload)
 }
-
-func (o *GetAgentConfigOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigOK  %+v", 200, o.Payload)
-}
-
 func (o *GetAgentConfigOK) GetPayload() *service_model.V1Agent {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetAgentConfigNoContent() *GetAgentConfigNoContent {
 	return &GetAgentConfigNoContent{}
 }
 
-/* GetAgentConfigNoContent describes a response with status code 204, with default header values.
+/*
+GetAgentConfigNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetAgentConfigNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get agent config no content response has a 2xx status code
-func (o *GetAgentConfigNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get agent config no content response has a 3xx status code
-func (o *GetAgentConfigNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get agent config no content response has a 4xx status code
-func (o *GetAgentConfigNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get agent config no content response has a 5xx status code
-func (o *GetAgentConfigNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get agent config no content response a status code equal to that given
-func (o *GetAgentConfigNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get agent config no content response
-func (o *GetAgentConfigNoContent) Code() int {
-	return 204
-}
-
 func (o *GetAgentConfigNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetAgentConfigNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetAgentConfigNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetAgentConfigForbidden() *GetAgentConfigForbidden {
 	return &GetAgentConfigForbidden{}
 }
 
-/* GetAgentConfigForbidden describes a response with status code 403, with default header values.
+/*
+GetAgentConfigForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetAgentConfigForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get agent config forbidden response has a 2xx status code
-func (o *GetAgentConfigForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get agent config forbidden response has a 3xx status code
-func (o *GetAgentConfigForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get agent config forbidden response has a 4xx status code
-func (o *GetAgentConfigForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get agent config forbidden response has a 5xx status code
-func (o *GetAgentConfigForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get agent config forbidden response a status code equal to that given
-func (o *GetAgentConfigForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get agent config forbidden response
-func (o *GetAgentConfigForbidden) Code() int {
-	return 403
-}
-
 func (o *GetAgentConfigForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetAgentConfigForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetAgentConfigForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetAgentConfigNotFound() *GetAgentConfigNotFound {
 	return &GetAgentConfigNotFound{}
 }
 
-/* GetAgentConfigNotFound describes a response with status code 404, with default header values.
+/*
+GetAgentConfigNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetAgentConfigNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get agent config not found response has a 2xx status code
-func (o *GetAgentConfigNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get agent config not found response has a 3xx status code
-func (o *GetAgentConfigNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get agent config not found response has a 4xx status code
-func (o *GetAgentConfigNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get agent config not found response has a 5xx status code
-func (o *GetAgentConfigNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get agent config not found response a status code equal to that given
-func (o *GetAgentConfigNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get agent config not found response
-func (o *GetAgentConfigNotFound) Code() int {
-	return 404
-}
-
 func (o *GetAgentConfigNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetAgentConfigNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] getAgentConfigNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetAgentConfigNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetAgentConfigDefault(code int) *GetAgentConfigDefault {
 	}
 }
 
-/* GetAgentConfigDefault describes a response with status code -1, with default header values.
+/*
+GetAgentConfigDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetAgentConfigDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get agent config default response has a 2xx status code
-func (o *GetAgentConfigDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get agent config default response has a 3xx status code
-func (o *GetAgentConfigDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get agent config default response has a 4xx status code
-func (o *GetAgentConfigDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get agent config default response has a 5xx status code
-func (o *GetAgentConfigDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get agent config default response a status code equal to that given
-func (o *GetAgentConfigDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get agent config default response
@@ -385,11 +225,6 @@ func (o *GetAgentConfigDefault) Code() int {
 func (o *GetAgentConfigDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] GetAgentConfig default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetAgentConfigDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/config][%d] GetAgentConfig default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetAgentConfigDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

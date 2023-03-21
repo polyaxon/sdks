@@ -31,18 +31,14 @@ import (
 // V1Optimization Optimization enum for metrics
 //
 // - maximize: Minimize a metric
-//  - minimize: Minimize a metric
+//   - minimize: Minimize a metric
 //
 // swagger:model v1Optimization
 type V1Optimization string
 
 func NewV1Optimization(value V1Optimization) *V1Optimization {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1Optimization.
-func (m V1Optimization) Pointer() *V1Optimization {
-	return &m
+	v := value
+	return &v
 }
 
 const (

@@ -68,10 +68,12 @@ func NewInvalidateRunsParamsWithHTTPClient(client *http.Client) *InvalidateRunsP
 	}
 }
 
-/* InvalidateRunsParams contains all the parameters to send to the API endpoint
-   for the invalidate runs operation.
+/*
+InvalidateRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the invalidate runs operation.
+
+	Typically these are written to a http.Request.
 */
 type InvalidateRunsParams struct {
 

@@ -67,10 +67,12 @@ func NewListArchivedProjectsParamsWithHTTPClient(client *http.Client) *ListArchi
 	}
 }
 
-/* ListArchivedProjectsParams contains all the parameters to send to the API endpoint
-   for the list archived projects operation.
+/*
+ListArchivedProjectsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list archived projects operation.
+
+	Typically these are written to a http.Request.
 */
 type ListArchivedProjectsParams struct {
 

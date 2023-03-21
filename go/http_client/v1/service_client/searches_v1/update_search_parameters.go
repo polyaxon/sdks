@@ -68,10 +68,12 @@ func NewUpdateSearchParamsWithHTTPClient(client *http.Client) *UpdateSearchParam
 	}
 }
 
-/* UpdateSearchParams contains all the parameters to send to the API endpoint
-   for the update search operation.
+/*
+UpdateSearchParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update search operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateSearchParams struct {
 

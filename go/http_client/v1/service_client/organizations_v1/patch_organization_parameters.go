@@ -68,10 +68,12 @@ func NewPatchOrganizationParamsWithHTTPClient(client *http.Client) *PatchOrganiz
 	}
 }
 
-/* PatchOrganizationParams contains all the parameters to send to the API endpoint
-   for the patch organization operation.
+/*
+PatchOrganizationParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch organization operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchOrganizationParams struct {
 

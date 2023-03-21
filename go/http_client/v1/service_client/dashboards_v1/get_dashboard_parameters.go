@@ -66,10 +66,12 @@ func NewGetDashboardParamsWithHTTPClient(client *http.Client) *GetDashboardParam
 	}
 }
 
-/* GetDashboardParams contains all the parameters to send to the API endpoint
-   for the get dashboard operation.
+/*
+GetDashboardParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get dashboard operation.
+
+	Typically these are written to a http.Request.
 */
 type GetDashboardParams struct {
 

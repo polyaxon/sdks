@@ -62,7 +62,7 @@ type ClientService interface {
 }
 
 /*
-  CreateProjectDashboard creates project dashboard
+CreateProjectDashboard creates project dashboard
 */
 func (a *Client) CreateProjectDashboard(params *CreateProjectDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateProjectDashboardOK, *CreateProjectDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -102,7 +102,7 @@ func (a *Client) CreateProjectDashboard(params *CreateProjectDashboardParams, au
 }
 
 /*
-  DeleteProjectDashboard deletes project dashboard
+DeleteProjectDashboard deletes project dashboard
 */
 func (a *Client) DeleteProjectDashboard(params *DeleteProjectDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteProjectDashboardOK, *DeleteProjectDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -142,7 +142,7 @@ func (a *Client) DeleteProjectDashboard(params *DeleteProjectDashboardParams, au
 }
 
 /*
-  GetProjectDashboard gets project dashboard
+GetProjectDashboard gets project dashboard
 */
 func (a *Client) GetProjectDashboard(params *GetProjectDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectDashboardOK, *GetProjectDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -182,7 +182,7 @@ func (a *Client) GetProjectDashboard(params *GetProjectDashboardParams, authInfo
 }
 
 /*
-  ListProjectDashboardNames lists project dashboard
+ListProjectDashboardNames lists project dashboard
 */
 func (a *Client) ListProjectDashboardNames(params *ListProjectDashboardNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectDashboardNamesOK, *ListProjectDashboardNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) ListProjectDashboardNames(params *ListProjectDashboardNamesPara
 }
 
 /*
-  ListProjectDashboards lists project dashboards
+ListProjectDashboards lists project dashboards
 */
 func (a *Client) ListProjectDashboards(params *ListProjectDashboardsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectDashboardsOK, *ListProjectDashboardsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +262,7 @@ func (a *Client) ListProjectDashboards(params *ListProjectDashboardsParams, auth
 }
 
 /*
-  PatchProjectDashboard patches project dashboard
+PatchProjectDashboard patches project dashboard
 */
 func (a *Client) PatchProjectDashboard(params *PatchProjectDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectDashboardOK, *PatchProjectDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -302,7 +302,7 @@ func (a *Client) PatchProjectDashboard(params *PatchProjectDashboardParams, auth
 }
 
 /*
-  PromoteProjectDashboard promotes project dashboard
+PromoteProjectDashboard promotes project dashboard
 */
 func (a *Client) PromoteProjectDashboard(params *PromoteProjectDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PromoteProjectDashboardOK, *PromoteProjectDashboardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -342,7 +342,7 @@ func (a *Client) PromoteProjectDashboard(params *PromoteProjectDashboardParams, 
 }
 
 /*
-  UpdateProjectDashboard updates project dashboard
+UpdateProjectDashboard updates project dashboard
 */
 func (a *Client) UpdateProjectDashboard(params *UpdateProjectDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectDashboardOK, *UpdateProjectDashboardNoContent, error) {
 	// TODO: Validate the params before sending

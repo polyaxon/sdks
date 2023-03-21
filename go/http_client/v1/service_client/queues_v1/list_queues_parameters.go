@@ -67,10 +67,12 @@ func NewListQueuesParamsWithHTTPClient(client *http.Client) *ListQueuesParams {
 	}
 }
 
-/* ListQueuesParams contains all the parameters to send to the API endpoint
-   for the list queues operation.
+/*
+ListQueuesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list queues operation.
+
+	Typically these are written to a http.Request.
 */
 type ListQueuesParams struct {
 

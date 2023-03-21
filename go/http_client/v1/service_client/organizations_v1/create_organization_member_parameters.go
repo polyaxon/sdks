@@ -68,10 +68,12 @@ func NewCreateOrganizationMemberParamsWithHTTPClient(client *http.Client) *Creat
 	}
 }
 
-/* CreateOrganizationMemberParams contains all the parameters to send to the API endpoint
-   for the create organization member operation.
+/*
+CreateOrganizationMemberParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create organization member operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateOrganizationMemberParams struct {
 

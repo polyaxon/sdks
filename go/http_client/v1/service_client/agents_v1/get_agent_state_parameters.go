@@ -66,10 +66,12 @@ func NewGetAgentStateParamsWithHTTPClient(client *http.Client) *GetAgentStatePar
 	}
 }
 
-/* GetAgentStateParams contains all the parameters to send to the API endpoint
-   for the get agent state operation.
+/*
+GetAgentStateParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get agent state operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAgentStateParams struct {
 

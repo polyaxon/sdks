@@ -68,10 +68,12 @@ func NewCreateConnectionParamsWithHTTPClient(client *http.Client) *CreateConnect
 	}
 }
 
-/* CreateConnectionParams contains all the parameters to send to the API endpoint
-   for the create connection operation.
+/*
+CreateConnectionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create connection operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateConnectionParams struct {
 

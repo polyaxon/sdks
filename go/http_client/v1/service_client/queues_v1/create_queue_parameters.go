@@ -68,10 +68,12 @@ func NewCreateQueueParamsWithHTTPClient(client *http.Client) *CreateQueueParams 
 	}
 }
 
-/* CreateQueueParams contains all the parameters to send to the API endpoint
-   for the create queue operation.
+/*
+CreateQueueParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create queue operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateQueueParams struct {
 

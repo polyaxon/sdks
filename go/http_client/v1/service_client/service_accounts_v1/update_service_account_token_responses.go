@@ -78,7 +78,8 @@ func NewUpdateServiceAccountTokenOK() *UpdateServiceAccountTokenOK {
 	return &UpdateServiceAccountTokenOK{}
 }
 
-/* UpdateServiceAccountTokenOK describes a response with status code 200, with default header values.
+/*
+UpdateServiceAccountTokenOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type UpdateServiceAccountTokenOK struct {
 	Payload *service_model.V1Token
 }
 
-// IsSuccess returns true when this update service account token o k response has a 2xx status code
-func (o *UpdateServiceAccountTokenOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update service account token o k response has a 3xx status code
-func (o *UpdateServiceAccountTokenOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update service account token o k response has a 4xx status code
-func (o *UpdateServiceAccountTokenOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update service account token o k response has a 5xx status code
-func (o *UpdateServiceAccountTokenOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update service account token o k response a status code equal to that given
-func (o *UpdateServiceAccountTokenOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the update service account token o k response
-func (o *UpdateServiceAccountTokenOK) Code() int {
-	return 200
-}
-
 func (o *UpdateServiceAccountTokenOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenOK  %+v", 200, o.Payload)
 }
-
-func (o *UpdateServiceAccountTokenOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenOK  %+v", 200, o.Payload)
-}
-
 func (o *UpdateServiceAccountTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewUpdateServiceAccountTokenNoContent() *UpdateServiceAccountTokenNoContent
 	return &UpdateServiceAccountTokenNoContent{}
 }
 
-/* UpdateServiceAccountTokenNoContent describes a response with status code 204, with default header values.
+/*
+UpdateServiceAccountTokenNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type UpdateServiceAccountTokenNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update service account token no content response has a 2xx status code
-func (o *UpdateServiceAccountTokenNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update service account token no content response has a 3xx status code
-func (o *UpdateServiceAccountTokenNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update service account token no content response has a 4xx status code
-func (o *UpdateServiceAccountTokenNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update service account token no content response has a 5xx status code
-func (o *UpdateServiceAccountTokenNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update service account token no content response a status code equal to that given
-func (o *UpdateServiceAccountTokenNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the update service account token no content response
-func (o *UpdateServiceAccountTokenNoContent) Code() int {
-	return 204
-}
-
 func (o *UpdateServiceAccountTokenNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UpdateServiceAccountTokenNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UpdateServiceAccountTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewUpdateServiceAccountTokenForbidden() *UpdateServiceAccountTokenForbidden
 	return &UpdateServiceAccountTokenForbidden{}
 }
 
-/* UpdateServiceAccountTokenForbidden describes a response with status code 403, with default header values.
+/*
+UpdateServiceAccountTokenForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type UpdateServiceAccountTokenForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update service account token forbidden response has a 2xx status code
-func (o *UpdateServiceAccountTokenForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update service account token forbidden response has a 3xx status code
-func (o *UpdateServiceAccountTokenForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update service account token forbidden response has a 4xx status code
-func (o *UpdateServiceAccountTokenForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update service account token forbidden response has a 5xx status code
-func (o *UpdateServiceAccountTokenForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update service account token forbidden response a status code equal to that given
-func (o *UpdateServiceAccountTokenForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the update service account token forbidden response
-func (o *UpdateServiceAccountTokenForbidden) Code() int {
-	return 403
-}
-
 func (o *UpdateServiceAccountTokenForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UpdateServiceAccountTokenForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UpdateServiceAccountTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewUpdateServiceAccountTokenNotFound() *UpdateServiceAccountTokenNotFound {
 	return &UpdateServiceAccountTokenNotFound{}
 }
 
-/* UpdateServiceAccountTokenNotFound describes a response with status code 404, with default header values.
+/*
+UpdateServiceAccountTokenNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type UpdateServiceAccountTokenNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update service account token not found response has a 2xx status code
-func (o *UpdateServiceAccountTokenNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update service account token not found response has a 3xx status code
-func (o *UpdateServiceAccountTokenNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update service account token not found response has a 4xx status code
-func (o *UpdateServiceAccountTokenNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update service account token not found response has a 5xx status code
-func (o *UpdateServiceAccountTokenNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update service account token not found response a status code equal to that given
-func (o *UpdateServiceAccountTokenNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the update service account token not found response
-func (o *UpdateServiceAccountTokenNotFound) Code() int {
-	return 404
-}
-
 func (o *UpdateServiceAccountTokenNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UpdateServiceAccountTokenNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] updateServiceAccountTokenNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UpdateServiceAccountTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewUpdateServiceAccountTokenDefault(code int) *UpdateServiceAccountTokenDef
 	}
 }
 
-/* UpdateServiceAccountTokenDefault describes a response with status code -1, with default header values.
+/*
+UpdateServiceAccountTokenDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type UpdateServiceAccountTokenDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this update service account token default response has a 2xx status code
-func (o *UpdateServiceAccountTokenDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update service account token default response has a 3xx status code
-func (o *UpdateServiceAccountTokenDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update service account token default response has a 4xx status code
-func (o *UpdateServiceAccountTokenDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update service account token default response has a 5xx status code
-func (o *UpdateServiceAccountTokenDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update service account token default response a status code equal to that given
-func (o *UpdateServiceAccountTokenDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the update service account token default response
@@ -385,11 +225,6 @@ func (o *UpdateServiceAccountTokenDefault) Code() int {
 func (o *UpdateServiceAccountTokenDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] UpdateServiceAccountToken default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *UpdateServiceAccountTokenDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] UpdateServiceAccountToken default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *UpdateServiceAccountTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

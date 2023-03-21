@@ -72,7 +72,7 @@ type ClientService interface {
 }
 
 /*
-  CreateTeam creates team
+CreateTeam creates team
 */
 func (a *Client) CreateTeam(params *CreateTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamOK, *CreateTeamNoContent, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +112,7 @@ func (a *Client) CreateTeam(params *CreateTeamParams, authInfo runtime.ClientAut
 }
 
 /*
-  CreateTeamMember creates team member
+CreateTeamMember creates team member
 */
 func (a *Client) CreateTeamMember(params *CreateTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamMemberOK, *CreateTeamMemberNoContent, error) {
 	// TODO: Validate the params before sending
@@ -152,7 +152,7 @@ func (a *Client) CreateTeamMember(params *CreateTeamMemberParams, authInfo runti
 }
 
 /*
-  DeleteTeam deletes team
+DeleteTeam deletes team
 */
 func (a *Client) DeleteTeam(params *DeleteTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTeamOK, *DeleteTeamNoContent, error) {
 	// TODO: Validate the params before sending
@@ -192,7 +192,7 @@ func (a *Client) DeleteTeam(params *DeleteTeamParams, authInfo runtime.ClientAut
 }
 
 /*
-  DeleteTeamMember deletes team member details
+DeleteTeamMember deletes team member details
 */
 func (a *Client) DeleteTeamMember(params *DeleteTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTeamMemberOK, *DeleteTeamMemberNoContent, error) {
 	// TODO: Validate the params before sending
@@ -232,7 +232,7 @@ func (a *Client) DeleteTeamMember(params *DeleteTeamMemberParams, authInfo runti
 }
 
 /*
-  GetTeam gets team
+GetTeam gets team
 */
 func (a *Client) GetTeam(params *GetTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamOK, *GetTeamNoContent, error) {
 	// TODO: Validate the params before sending
@@ -272,7 +272,7 @@ func (a *Client) GetTeam(params *GetTeamParams, authInfo runtime.ClientAuthInfoW
 }
 
 /*
-  GetTeamMember gets team member details
+GetTeamMember gets team member details
 */
 func (a *Client) GetTeamMember(params *GetTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMemberOK, *GetTeamMemberNoContent, error) {
 	// TODO: Validate the params before sending
@@ -312,7 +312,7 @@ func (a *Client) GetTeamMember(params *GetTeamMemberParams, authInfo runtime.Cli
 }
 
 /*
-  ListTeamMembers gets team members
+ListTeamMembers gets team members
 */
 func (a *Client) ListTeamMembers(params *ListTeamMembersParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTeamMembersOK, *ListTeamMembersNoContent, error) {
 	// TODO: Validate the params before sending
@@ -352,7 +352,7 @@ func (a *Client) ListTeamMembers(params *ListTeamMembersParams, authInfo runtime
 }
 
 /*
-  ListTeamNames lists teams names
+ListTeamNames lists teams names
 */
 func (a *Client) ListTeamNames(params *ListTeamNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTeamNamesOK, *ListTeamNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -392,7 +392,7 @@ func (a *Client) ListTeamNames(params *ListTeamNamesParams, authInfo runtime.Cli
 }
 
 /*
-  ListTeams lists teams
+ListTeams lists teams
 */
 func (a *Client) ListTeams(params *ListTeamsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTeamsOK, *ListTeamsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -432,7 +432,7 @@ func (a *Client) ListTeams(params *ListTeamsParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  PatchTeam patches team
+PatchTeam patches team
 */
 func (a *Client) PatchTeam(params *PatchTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTeamOK, *PatchTeamNoContent, error) {
 	// TODO: Validate the params before sending
@@ -472,7 +472,7 @@ func (a *Client) PatchTeam(params *PatchTeamParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  PatchTeamMember patches team member
+PatchTeamMember patches team member
 */
 func (a *Client) PatchTeamMember(params *PatchTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTeamMemberOK, *PatchTeamMemberNoContent, error) {
 	// TODO: Validate the params before sending
@@ -512,7 +512,7 @@ func (a *Client) PatchTeamMember(params *PatchTeamMemberParams, authInfo runtime
 }
 
 /*
-  UpdateTeam updates team
+UpdateTeam updates team
 */
 func (a *Client) UpdateTeam(params *UpdateTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTeamOK, *UpdateTeamNoContent, error) {
 	// TODO: Validate the params before sending
@@ -552,7 +552,7 @@ func (a *Client) UpdateTeam(params *UpdateTeamParams, authInfo runtime.ClientAut
 }
 
 /*
-  UpdateTeamMember updates team member
+UpdateTeamMember updates team member
 */
 func (a *Client) UpdateTeamMember(params *UpdateTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTeamMemberOK, *UpdateTeamMemberNoContent, error) {
 	// TODO: Validate the params before sending

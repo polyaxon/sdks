@@ -30,7 +30,7 @@ HTTP_CLIENT := http_client
 # Move -I/gopath/pkg/mod/github.com/grpc-ecosystem/grpc-gateway\@v1.16.0/googleapis/ to -I/sdks/protos/google/api/
 # See https://github.com/grpc-ecosystem/grpc-gateway/issues/1935#issuecomment-803572170
 # Flags
-INCLUDE_FLAGS := -I/usr/local/include -I. -I/gopath/pkg/mod -I/sdks/protos/google/api -I/gopath/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/v2\@v2.15.1
+INCLUDE_FLAGS := -I/usr/local/include -I. -I/gopath/pkg/mod -I/sdks/protos/google/api -I/gopath/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/v2\@v2.15.2
 API_FLAGS := --plugin=protoc-gen-openapiv2=/gopath/bin/protoc-gen-openapiv2 --swagger_out=simple_operation_ids=true,logtostderr=true,allow_delete_body=true:swagger
 PROTO_PATH := --proto_path=protos/
 
@@ -99,18 +99,26 @@ generate-go-swagger:
 	$(SWAGGER) generate client -f swagger/$(VERSION)/polyaxon_sdk.swagger.json -A polyaxon-sdk --principal models.Principal -c service_client -m service_model -t go/$(HTTP_CLIENT)/$(VERSION)
 	# Executes the //go:generate directives in the generated code.
 	$(GO) generate ./...
+
+autogen-go:
 	$(DOCKER_RUN) find ./ -name "*.go" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-js-swagger:
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g javascript -o js/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-base.json
+
+autogen-js:
 	$(DOCKER_RUN) find ./ -name "*.js" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-ts-swagger:
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g typescript-fetch -o ts/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-base.json
+
+autogen-ts:
 	$(DOCKER_RUN) find ./ -name "*.ts" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-java-swagger:
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g java -o java/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-java.json
+
+autogen-java:
 	$(DOCKER_RUN) find ./ -name "*.java" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-py-swagger:
@@ -118,6 +126,8 @@ generate-py-swagger:
 	./py-client.sh async
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g python-legacy -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json
 	$(DOCKER_RUN) rm -rf python/$(HTTP_CLIENT)/$(VERSION)/test
+
+autogen-py:
 	$(DOCKER_RUN) find ./ -name "*.py" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-html-openapi:
@@ -164,10 +174,15 @@ swagger-clean:
 	rm -rf java/$(HTTP_CLIENT)/$(VERSION)/.openapi-generator
 
 swagger-generate: generate-go-swagger \
+	autogen-go \
 	generate-js-swagger \
+	autogen-js \
 	generate-ts-swagger \
+	autogen-ts \
 	generate-java-swagger \
+	autogen-java \
 	generate-py-swagger \
+	autogen-py \
   swagger-clean
 	# generate-html-openapi
 

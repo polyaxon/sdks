@@ -78,7 +78,8 @@ func NewListTokensOK() *ListTokensOK {
 	return &ListTokensOK{}
 }
 
-/* ListTokensOK describes a response with status code 200, with default header values.
+/*
+ListTokensOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListTokensOK struct {
 	Payload *service_model.V1ListTokenResponse
 }
 
-// IsSuccess returns true when this list tokens o k response has a 2xx status code
-func (o *ListTokensOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list tokens o k response has a 3xx status code
-func (o *ListTokensOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tokens o k response has a 4xx status code
-func (o *ListTokensOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list tokens o k response has a 5xx status code
-func (o *ListTokensOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tokens o k response a status code equal to that given
-func (o *ListTokensOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list tokens o k response
-func (o *ListTokensOK) Code() int {
-	return 200
-}
-
 func (o *ListTokensOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
 }
-
-func (o *ListTokensOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
-}
-
 func (o *ListTokensOK) GetPayload() *service_model.V1ListTokenResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListTokensNoContent() *ListTokensNoContent {
 	return &ListTokensNoContent{}
 }
 
-/* ListTokensNoContent describes a response with status code 204, with default header values.
+/*
+ListTokensNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListTokensNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list tokens no content response has a 2xx status code
-func (o *ListTokensNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list tokens no content response has a 3xx status code
-func (o *ListTokensNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tokens no content response has a 4xx status code
-func (o *ListTokensNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list tokens no content response has a 5xx status code
-func (o *ListTokensNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tokens no content response a status code equal to that given
-func (o *ListTokensNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list tokens no content response
-func (o *ListTokensNoContent) Code() int {
-	return 204
-}
-
 func (o *ListTokensNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListTokensNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListTokensNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListTokensForbidden() *ListTokensForbidden {
 	return &ListTokensForbidden{}
 }
 
-/* ListTokensForbidden describes a response with status code 403, with default header values.
+/*
+ListTokensForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListTokensForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list tokens forbidden response has a 2xx status code
-func (o *ListTokensForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list tokens forbidden response has a 3xx status code
-func (o *ListTokensForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tokens forbidden response has a 4xx status code
-func (o *ListTokensForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list tokens forbidden response has a 5xx status code
-func (o *ListTokensForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tokens forbidden response a status code equal to that given
-func (o *ListTokensForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list tokens forbidden response
-func (o *ListTokensForbidden) Code() int {
-	return 403
-}
-
 func (o *ListTokensForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListTokensForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListTokensForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListTokensNotFound() *ListTokensNotFound {
 	return &ListTokensNotFound{}
 }
 
-/* ListTokensNotFound describes a response with status code 404, with default header values.
+/*
+ListTokensNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListTokensNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list tokens not found response has a 2xx status code
-func (o *ListTokensNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list tokens not found response has a 3xx status code
-func (o *ListTokensNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tokens not found response has a 4xx status code
-func (o *ListTokensNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list tokens not found response has a 5xx status code
-func (o *ListTokensNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tokens not found response a status code equal to that given
-func (o *ListTokensNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list tokens not found response
-func (o *ListTokensNotFound) Code() int {
-	return 404
-}
-
 func (o *ListTokensNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListTokensNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListTokensNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListTokensDefault(code int) *ListTokensDefault {
 	}
 }
 
-/* ListTokensDefault describes a response with status code -1, with default header values.
+/*
+ListTokensDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListTokensDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list tokens default response has a 2xx status code
-func (o *ListTokensDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list tokens default response has a 3xx status code
-func (o *ListTokensDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list tokens default response has a 4xx status code
-func (o *ListTokensDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list tokens default response has a 5xx status code
-func (o *ListTokensDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list tokens default response a status code equal to that given
-func (o *ListTokensDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list tokens default response
@@ -385,11 +225,6 @@ func (o *ListTokensDefault) Code() int {
 func (o *ListTokensDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListTokensDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListTokensDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

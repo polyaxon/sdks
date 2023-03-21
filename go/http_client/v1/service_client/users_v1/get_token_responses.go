@@ -78,7 +78,8 @@ func NewGetTokenOK() *GetTokenOK {
 	return &GetTokenOK{}
 }
 
-/* GetTokenOK describes a response with status code 200, with default header values.
+/*
+GetTokenOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetTokenOK struct {
 	Payload *service_model.V1Token
 }
 
-// IsSuccess returns true when this get token o k response has a 2xx status code
-func (o *GetTokenOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get token o k response has a 3xx status code
-func (o *GetTokenOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get token o k response has a 4xx status code
-func (o *GetTokenOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get token o k response has a 5xx status code
-func (o *GetTokenOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get token o k response a status code equal to that given
-func (o *GetTokenOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get token o k response
-func (o *GetTokenOK) Code() int {
-	return 200
-}
-
 func (o *GetTokenOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenOK  %+v", 200, o.Payload)
 }
-
-func (o *GetTokenOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenOK  %+v", 200, o.Payload)
-}
-
 func (o *GetTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetTokenNoContent() *GetTokenNoContent {
 	return &GetTokenNoContent{}
 }
 
-/* GetTokenNoContent describes a response with status code 204, with default header values.
+/*
+GetTokenNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetTokenNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get token no content response has a 2xx status code
-func (o *GetTokenNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get token no content response has a 3xx status code
-func (o *GetTokenNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get token no content response has a 4xx status code
-func (o *GetTokenNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get token no content response has a 5xx status code
-func (o *GetTokenNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get token no content response a status code equal to that given
-func (o *GetTokenNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get token no content response
-func (o *GetTokenNoContent) Code() int {
-	return 204
-}
-
 func (o *GetTokenNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetTokenNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetTokenForbidden() *GetTokenForbidden {
 	return &GetTokenForbidden{}
 }
 
-/* GetTokenForbidden describes a response with status code 403, with default header values.
+/*
+GetTokenForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetTokenForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get token forbidden response has a 2xx status code
-func (o *GetTokenForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get token forbidden response has a 3xx status code
-func (o *GetTokenForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get token forbidden response has a 4xx status code
-func (o *GetTokenForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get token forbidden response has a 5xx status code
-func (o *GetTokenForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get token forbidden response a status code equal to that given
-func (o *GetTokenForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get token forbidden response
-func (o *GetTokenForbidden) Code() int {
-	return 403
-}
-
 func (o *GetTokenForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetTokenForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetTokenNotFound() *GetTokenNotFound {
 	return &GetTokenNotFound{}
 }
 
-/* GetTokenNotFound describes a response with status code 404, with default header values.
+/*
+GetTokenNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetTokenNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get token not found response has a 2xx status code
-func (o *GetTokenNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get token not found response has a 3xx status code
-func (o *GetTokenNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get token not found response has a 4xx status code
-func (o *GetTokenNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get token not found response has a 5xx status code
-func (o *GetTokenNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get token not found response a status code equal to that given
-func (o *GetTokenNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get token not found response
-func (o *GetTokenNotFound) Code() int {
-	return 404
-}
-
 func (o *GetTokenNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetTokenNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] getTokenNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetTokenDefault(code int) *GetTokenDefault {
 	}
 }
 
-/* GetTokenDefault describes a response with status code -1, with default header values.
+/*
+GetTokenDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetTokenDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get token default response has a 2xx status code
-func (o *GetTokenDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get token default response has a 3xx status code
-func (o *GetTokenDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get token default response has a 4xx status code
-func (o *GetTokenDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get token default response has a 5xx status code
-func (o *GetTokenDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get token default response a status code equal to that given
-func (o *GetTokenDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get token default response
@@ -385,11 +225,6 @@ func (o *GetTokenDefault) Code() int {
 func (o *GetTokenDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] GetToken default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetTokenDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens/{uuid}][%d] GetToken default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -31,20 +31,16 @@ import (
 // V1PatchStrategy PatchStrategy
 //
 // - replace: Replaces the keys
-//  - isnull: Only set the keys if they do not exist or if they are null
-//  - post_merge: Merge the all keys and replace by new one
-//  - pre_merge: Merge the all keys and keep old ones
+//   - isnull: Only set the keys if they do not exist or if they are null
+//   - post_merge: Merge the all keys and replace by new one
+//   - pre_merge: Merge the all keys and keep old ones
 //
 // swagger:model v1PatchStrategy
 type V1PatchStrategy string
 
 func NewV1PatchStrategy(value V1PatchStrategy) *V1PatchStrategy {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1PatchStrategy.
-func (m V1PatchStrategy) Pointer() *V1PatchStrategy {
-	return &m
+	v := value
+	return &v
 }
 
 const (

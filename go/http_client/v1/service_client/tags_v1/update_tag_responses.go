@@ -78,7 +78,8 @@ func NewUpdateTagOK() *UpdateTagOK {
 	return &UpdateTagOK{}
 }
 
-/* UpdateTagOK describes a response with status code 200, with default header values.
+/*
+UpdateTagOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type UpdateTagOK struct {
 	Payload *service_model.V1Tag
 }
 
-// IsSuccess returns true when this update tag o k response has a 2xx status code
-func (o *UpdateTagOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update tag o k response has a 3xx status code
-func (o *UpdateTagOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update tag o k response has a 4xx status code
-func (o *UpdateTagOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update tag o k response has a 5xx status code
-func (o *UpdateTagOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update tag o k response a status code equal to that given
-func (o *UpdateTagOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the update tag o k response
-func (o *UpdateTagOK) Code() int {
-	return 200
-}
-
 func (o *UpdateTagOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK  %+v", 200, o.Payload)
 }
-
-func (o *UpdateTagOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK  %+v", 200, o.Payload)
-}
-
 func (o *UpdateTagOK) GetPayload() *service_model.V1Tag {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewUpdateTagNoContent() *UpdateTagNoContent {
 	return &UpdateTagNoContent{}
 }
 
-/* UpdateTagNoContent describes a response with status code 204, with default header values.
+/*
+UpdateTagNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type UpdateTagNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update tag no content response has a 2xx status code
-func (o *UpdateTagNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update tag no content response has a 3xx status code
-func (o *UpdateTagNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update tag no content response has a 4xx status code
-func (o *UpdateTagNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update tag no content response has a 5xx status code
-func (o *UpdateTagNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update tag no content response a status code equal to that given
-func (o *UpdateTagNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the update tag no content response
-func (o *UpdateTagNoContent) Code() int {
-	return 204
-}
-
 func (o *UpdateTagNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UpdateTagNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UpdateTagNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewUpdateTagForbidden() *UpdateTagForbidden {
 	return &UpdateTagForbidden{}
 }
 
-/* UpdateTagForbidden describes a response with status code 403, with default header values.
+/*
+UpdateTagForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type UpdateTagForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update tag forbidden response has a 2xx status code
-func (o *UpdateTagForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update tag forbidden response has a 3xx status code
-func (o *UpdateTagForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update tag forbidden response has a 4xx status code
-func (o *UpdateTagForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update tag forbidden response has a 5xx status code
-func (o *UpdateTagForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update tag forbidden response a status code equal to that given
-func (o *UpdateTagForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the update tag forbidden response
-func (o *UpdateTagForbidden) Code() int {
-	return 403
-}
-
 func (o *UpdateTagForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UpdateTagForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UpdateTagForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewUpdateTagNotFound() *UpdateTagNotFound {
 	return &UpdateTagNotFound{}
 }
 
-/* UpdateTagNotFound describes a response with status code 404, with default header values.
+/*
+UpdateTagNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type UpdateTagNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update tag not found response has a 2xx status code
-func (o *UpdateTagNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update tag not found response has a 3xx status code
-func (o *UpdateTagNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update tag not found response has a 4xx status code
-func (o *UpdateTagNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update tag not found response has a 5xx status code
-func (o *UpdateTagNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update tag not found response a status code equal to that given
-func (o *UpdateTagNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the update tag not found response
-func (o *UpdateTagNotFound) Code() int {
-	return 404
-}
-
 func (o *UpdateTagNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UpdateTagNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UpdateTagNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewUpdateTagDefault(code int) *UpdateTagDefault {
 	}
 }
 
-/* UpdateTagDefault describes a response with status code -1, with default header values.
+/*
+UpdateTagDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type UpdateTagDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this update tag default response has a 2xx status code
-func (o *UpdateTagDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update tag default response has a 3xx status code
-func (o *UpdateTagDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update tag default response has a 4xx status code
-func (o *UpdateTagDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update tag default response has a 5xx status code
-func (o *UpdateTagDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update tag default response a status code equal to that given
-func (o *UpdateTagDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the update tag default response
@@ -385,11 +225,6 @@ func (o *UpdateTagDefault) Code() int {
 func (o *UpdateTagDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] UpdateTag default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *UpdateTagDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] UpdateTag default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *UpdateTagDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -73,7 +73,7 @@ public class V1Plugins {
 
   public static final String SERIALIZED_NAME_COLLECT_RESOURCES = "collectResources";
   @SerializedName(SERIALIZED_NAME_COLLECT_RESOURCES)
-  private String collectResources;
+  private Boolean collectResources;
 
   public static final String SERIALIZED_NAME_SYNC_STATUSES = "syncStatuses";
   @SerializedName(SERIALIZED_NAME_SYNC_STATUSES)
@@ -238,7 +238,7 @@ public class V1Plugins {
   }
 
 
-  public V1Plugins collectResources(String collectResources) {
+  public V1Plugins collectResources(Boolean collectResources) {
     
     this.collectResources = collectResources;
     return this;
@@ -251,12 +251,12 @@ public class V1Plugins {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCollectResources() {
+  public Boolean getCollectResources() {
     return collectResources;
   }
 
 
-  public void setCollectResources(String collectResources) {
+  public void setCollectResources(Boolean collectResources) {
     this.collectResources = collectResources;
   }
 

@@ -67,10 +67,12 @@ func NewGetInstallationParamsWithHTTPClient(client *http.Client) *GetInstallatio
 	}
 }
 
-/* GetInstallationParams contains all the parameters to send to the API endpoint
-   for the get installation operation.
+/*
+GetInstallationParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get installation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetInstallationParams struct {
 

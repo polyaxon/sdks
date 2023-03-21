@@ -67,10 +67,12 @@ func NewLoadTagsParamsWithHTTPClient(client *http.Client) *LoadTagsParams {
 	}
 }
 
-/* LoadTagsParams contains all the parameters to send to the API endpoint
-   for the load tags operation.
+/*
+LoadTagsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the load tags operation.
+
+	Typically these are written to a http.Request.
 */
 type LoadTagsParams struct {
 

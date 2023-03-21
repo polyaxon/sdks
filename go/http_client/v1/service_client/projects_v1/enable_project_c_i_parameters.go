@@ -66,10 +66,12 @@ func NewEnableProjectCIParamsWithHTTPClient(client *http.Client) *EnableProjectC
 	}
 }
 
-/* EnableProjectCIParams contains all the parameters to send to the API endpoint
-   for the enable project c i operation.
+/*
+EnableProjectCIParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the enable project c i operation.
+
+	Typically these are written to a http.Request.
 */
 type EnableProjectCIParams struct {
 

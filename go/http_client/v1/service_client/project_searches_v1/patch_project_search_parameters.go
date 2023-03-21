@@ -68,10 +68,12 @@ func NewPatchProjectSearchParamsWithHTTPClient(client *http.Client) *PatchProjec
 	}
 }
 
-/* PatchProjectSearchParams contains all the parameters to send to the API endpoint
-   for the patch project search operation.
+/*
+PatchProjectSearchParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch project search operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchProjectSearchParams struct {
 

@@ -68,10 +68,12 @@ func NewUpdateTokenParamsWithHTTPClient(client *http.Client) *UpdateTokenParams 
 	}
 }
 
-/* UpdateTokenParams contains all the parameters to send to the API endpoint
-   for the update token operation.
+/*
+UpdateTokenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update token operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateTokenParams struct {
 

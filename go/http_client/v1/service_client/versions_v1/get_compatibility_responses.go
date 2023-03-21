@@ -78,7 +78,8 @@ func NewGetCompatibilityOK() *GetCompatibilityOK {
 	return &GetCompatibilityOK{}
 }
 
-/* GetCompatibilityOK describes a response with status code 200, with default header values.
+/*
+GetCompatibilityOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetCompatibilityOK struct {
 	Payload *service_model.V1Compatibility
 }
 
-// IsSuccess returns true when this get compatibility o k response has a 2xx status code
-func (o *GetCompatibilityOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get compatibility o k response has a 3xx status code
-func (o *GetCompatibilityOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get compatibility o k response has a 4xx status code
-func (o *GetCompatibilityOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get compatibility o k response has a 5xx status code
-func (o *GetCompatibilityOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get compatibility o k response a status code equal to that given
-func (o *GetCompatibilityOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get compatibility o k response
-func (o *GetCompatibilityOK) Code() int {
-	return 200
-}
-
 func (o *GetCompatibilityOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK  %+v", 200, o.Payload)
 }
-
-func (o *GetCompatibilityOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK  %+v", 200, o.Payload)
-}
-
 func (o *GetCompatibilityOK) GetPayload() *service_model.V1Compatibility {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetCompatibilityNoContent() *GetCompatibilityNoContent {
 	return &GetCompatibilityNoContent{}
 }
 
-/* GetCompatibilityNoContent describes a response with status code 204, with default header values.
+/*
+GetCompatibilityNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetCompatibilityNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get compatibility no content response has a 2xx status code
-func (o *GetCompatibilityNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get compatibility no content response has a 3xx status code
-func (o *GetCompatibilityNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get compatibility no content response has a 4xx status code
-func (o *GetCompatibilityNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get compatibility no content response has a 5xx status code
-func (o *GetCompatibilityNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get compatibility no content response a status code equal to that given
-func (o *GetCompatibilityNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get compatibility no content response
-func (o *GetCompatibilityNoContent) Code() int {
-	return 204
-}
-
 func (o *GetCompatibilityNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetCompatibilityNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetCompatibilityNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetCompatibilityForbidden() *GetCompatibilityForbidden {
 	return &GetCompatibilityForbidden{}
 }
 
-/* GetCompatibilityForbidden describes a response with status code 403, with default header values.
+/*
+GetCompatibilityForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetCompatibilityForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get compatibility forbidden response has a 2xx status code
-func (o *GetCompatibilityForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get compatibility forbidden response has a 3xx status code
-func (o *GetCompatibilityForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get compatibility forbidden response has a 4xx status code
-func (o *GetCompatibilityForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get compatibility forbidden response has a 5xx status code
-func (o *GetCompatibilityForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get compatibility forbidden response a status code equal to that given
-func (o *GetCompatibilityForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get compatibility forbidden response
-func (o *GetCompatibilityForbidden) Code() int {
-	return 403
-}
-
 func (o *GetCompatibilityForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetCompatibilityForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetCompatibilityForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetCompatibilityNotFound() *GetCompatibilityNotFound {
 	return &GetCompatibilityNotFound{}
 }
 
-/* GetCompatibilityNotFound describes a response with status code 404, with default header values.
+/*
+GetCompatibilityNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetCompatibilityNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get compatibility not found response has a 2xx status code
-func (o *GetCompatibilityNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get compatibility not found response has a 3xx status code
-func (o *GetCompatibilityNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get compatibility not found response has a 4xx status code
-func (o *GetCompatibilityNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get compatibility not found response has a 5xx status code
-func (o *GetCompatibilityNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get compatibility not found response a status code equal to that given
-func (o *GetCompatibilityNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get compatibility not found response
-func (o *GetCompatibilityNotFound) Code() int {
-	return 404
-}
-
 func (o *GetCompatibilityNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetCompatibilityNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetCompatibilityNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetCompatibilityDefault(code int) *GetCompatibilityDefault {
 	}
 }
 
-/* GetCompatibilityDefault describes a response with status code -1, with default header values.
+/*
+GetCompatibilityDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetCompatibilityDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get compatibility default response has a 2xx status code
-func (o *GetCompatibilityDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get compatibility default response has a 3xx status code
-func (o *GetCompatibilityDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get compatibility default response has a 4xx status code
-func (o *GetCompatibilityDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get compatibility default response has a 5xx status code
-func (o *GetCompatibilityDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get compatibility default response a status code equal to that given
-func (o *GetCompatibilityDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get compatibility default response
@@ -385,11 +225,6 @@ func (o *GetCompatibilityDefault) Code() int {
 func (o *GetCompatibilityDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] GetCompatibility default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetCompatibilityDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] GetCompatibility default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetCompatibilityDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

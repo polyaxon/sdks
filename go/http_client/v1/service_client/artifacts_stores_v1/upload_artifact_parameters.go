@@ -67,10 +67,12 @@ func NewUploadArtifactParamsWithHTTPClient(client *http.Client) *UploadArtifactP
 	}
 }
 
-/* UploadArtifactParams contains all the parameters to send to the API endpoint
-   for the upload artifact operation.
+/*
+UploadArtifactParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the upload artifact operation.
+
+	Typically these are written to a http.Request.
 */
 type UploadArtifactParams struct {
 

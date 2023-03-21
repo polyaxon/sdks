@@ -31,18 +31,14 @@ import (
 // V1ResourceType ResourceTypes enum for optmiztion resources
 //
 // - int: Int resource
-//  - float: Float resource
+//   - float: Float resource
 //
 // swagger:model v1ResourceType
 type V1ResourceType string
 
 func NewV1ResourceType(value V1ResourceType) *V1ResourceType {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1ResourceType.
-func (m V1ResourceType) Pointer() *V1ResourceType {
-	return &m
+	v := value
+	return &v
 }
 
 const (

@@ -78,48 +78,15 @@ func NewSyncAgentOK() *SyncAgentOK {
 	return &SyncAgentOK{}
 }
 
-/* SyncAgentOK describes a response with status code 200, with default header values.
+/*
+SyncAgentOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type SyncAgentOK struct {
 }
 
-// IsSuccess returns true when this sync agent o k response has a 2xx status code
-func (o *SyncAgentOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this sync agent o k response has a 3xx status code
-func (o *SyncAgentOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this sync agent o k response has a 4xx status code
-func (o *SyncAgentOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this sync agent o k response has a 5xx status code
-func (o *SyncAgentOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this sync agent o k response a status code equal to that given
-func (o *SyncAgentOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the sync agent o k response
-func (o *SyncAgentOK) Code() int {
-	return 200
-}
-
 func (o *SyncAgentOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK ", 200)
-}
-
-func (o *SyncAgentOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewSyncAgentNoContent() *SyncAgentNoContent {
 	return &SyncAgentNoContent{}
 }
 
-/* SyncAgentNoContent describes a response with status code 204, with default header values.
+/*
+SyncAgentNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type SyncAgentNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this sync agent no content response has a 2xx status code
-func (o *SyncAgentNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this sync agent no content response has a 3xx status code
-func (o *SyncAgentNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this sync agent no content response has a 4xx status code
-func (o *SyncAgentNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this sync agent no content response has a 5xx status code
-func (o *SyncAgentNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this sync agent no content response a status code equal to that given
-func (o *SyncAgentNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the sync agent no content response
-func (o *SyncAgentNoContent) Code() int {
-	return 204
-}
-
 func (o *SyncAgentNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNoContent  %+v", 204, o.Payload)
 }
-
-func (o *SyncAgentNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNoContent  %+v", 204, o.Payload)
-}
-
 func (o *SyncAgentNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewSyncAgentForbidden() *SyncAgentForbidden {
 	return &SyncAgentForbidden{}
 }
 
-/* SyncAgentForbidden describes a response with status code 403, with default header values.
+/*
+SyncAgentForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type SyncAgentForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this sync agent forbidden response has a 2xx status code
-func (o *SyncAgentForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this sync agent forbidden response has a 3xx status code
-func (o *SyncAgentForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this sync agent forbidden response has a 4xx status code
-func (o *SyncAgentForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this sync agent forbidden response has a 5xx status code
-func (o *SyncAgentForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this sync agent forbidden response a status code equal to that given
-func (o *SyncAgentForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the sync agent forbidden response
-func (o *SyncAgentForbidden) Code() int {
-	return 403
-}
-
 func (o *SyncAgentForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden  %+v", 403, o.Payload)
 }
-
-func (o *SyncAgentForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden  %+v", 403, o.Payload)
-}
-
 func (o *SyncAgentForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewSyncAgentNotFound() *SyncAgentNotFound {
 	return &SyncAgentNotFound{}
 }
 
-/* SyncAgentNotFound describes a response with status code 404, with default header values.
+/*
+SyncAgentNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type SyncAgentNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this sync agent not found response has a 2xx status code
-func (o *SyncAgentNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this sync agent not found response has a 3xx status code
-func (o *SyncAgentNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this sync agent not found response has a 4xx status code
-func (o *SyncAgentNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this sync agent not found response has a 5xx status code
-func (o *SyncAgentNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this sync agent not found response a status code equal to that given
-func (o *SyncAgentNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the sync agent not found response
-func (o *SyncAgentNotFound) Code() int {
-	return 404
-}
-
 func (o *SyncAgentNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound  %+v", 404, o.Payload)
 }
-
-func (o *SyncAgentNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound  %+v", 404, o.Payload)
-}
-
 func (o *SyncAgentNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewSyncAgentDefault(code int) *SyncAgentDefault {
 	}
 }
 
-/* SyncAgentDefault describes a response with status code -1, with default header values.
+/*
+SyncAgentDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type SyncAgentDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this sync agent default response has a 2xx status code
-func (o *SyncAgentDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this sync agent default response has a 3xx status code
-func (o *SyncAgentDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this sync agent default response has a 4xx status code
-func (o *SyncAgentDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this sync agent default response has a 5xx status code
-func (o *SyncAgentDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this sync agent default response a status code equal to that given
-func (o *SyncAgentDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the sync agent default response
@@ -373,11 +214,6 @@ func (o *SyncAgentDefault) Code() int {
 func (o *SyncAgentDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] SyncAgent default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *SyncAgentDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] SyncAgent default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *SyncAgentDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -78,7 +78,8 @@ func NewCreateAgentOK() *CreateAgentOK {
 	return &CreateAgentOK{}
 }
 
-/* CreateAgentOK describes a response with status code 200, with default header values.
+/*
+CreateAgentOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type CreateAgentOK struct {
 	Payload *service_model.V1Agent
 }
 
-// IsSuccess returns true when this create agent o k response has a 2xx status code
-func (o *CreateAgentOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this create agent o k response has a 3xx status code
-func (o *CreateAgentOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create agent o k response has a 4xx status code
-func (o *CreateAgentOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this create agent o k response has a 5xx status code
-func (o *CreateAgentOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create agent o k response a status code equal to that given
-func (o *CreateAgentOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the create agent o k response
-func (o *CreateAgentOK) Code() int {
-	return 200
-}
-
 func (o *CreateAgentOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentOK  %+v", 200, o.Payload)
 }
-
-func (o *CreateAgentOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentOK  %+v", 200, o.Payload)
-}
-
 func (o *CreateAgentOK) GetPayload() *service_model.V1Agent {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewCreateAgentNoContent() *CreateAgentNoContent {
 	return &CreateAgentNoContent{}
 }
 
-/* CreateAgentNoContent describes a response with status code 204, with default header values.
+/*
+CreateAgentNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type CreateAgentNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create agent no content response has a 2xx status code
-func (o *CreateAgentNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this create agent no content response has a 3xx status code
-func (o *CreateAgentNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create agent no content response has a 4xx status code
-func (o *CreateAgentNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this create agent no content response has a 5xx status code
-func (o *CreateAgentNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create agent no content response a status code equal to that given
-func (o *CreateAgentNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the create agent no content response
-func (o *CreateAgentNoContent) Code() int {
-	return 204
-}
-
 func (o *CreateAgentNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentNoContent  %+v", 204, o.Payload)
 }
-
-func (o *CreateAgentNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentNoContent  %+v", 204, o.Payload)
-}
-
 func (o *CreateAgentNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewCreateAgentForbidden() *CreateAgentForbidden {
 	return &CreateAgentForbidden{}
 }
 
-/* CreateAgentForbidden describes a response with status code 403, with default header values.
+/*
+CreateAgentForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type CreateAgentForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create agent forbidden response has a 2xx status code
-func (o *CreateAgentForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this create agent forbidden response has a 3xx status code
-func (o *CreateAgentForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create agent forbidden response has a 4xx status code
-func (o *CreateAgentForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this create agent forbidden response has a 5xx status code
-func (o *CreateAgentForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create agent forbidden response a status code equal to that given
-func (o *CreateAgentForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the create agent forbidden response
-func (o *CreateAgentForbidden) Code() int {
-	return 403
-}
-
 func (o *CreateAgentForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentForbidden  %+v", 403, o.Payload)
 }
-
-func (o *CreateAgentForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentForbidden  %+v", 403, o.Payload)
-}
-
 func (o *CreateAgentForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewCreateAgentNotFound() *CreateAgentNotFound {
 	return &CreateAgentNotFound{}
 }
 
-/* CreateAgentNotFound describes a response with status code 404, with default header values.
+/*
+CreateAgentNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type CreateAgentNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create agent not found response has a 2xx status code
-func (o *CreateAgentNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this create agent not found response has a 3xx status code
-func (o *CreateAgentNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create agent not found response has a 4xx status code
-func (o *CreateAgentNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this create agent not found response has a 5xx status code
-func (o *CreateAgentNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create agent not found response a status code equal to that given
-func (o *CreateAgentNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the create agent not found response
-func (o *CreateAgentNotFound) Code() int {
-	return 404
-}
-
 func (o *CreateAgentNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentNotFound  %+v", 404, o.Payload)
 }
-
-func (o *CreateAgentNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] createAgentNotFound  %+v", 404, o.Payload)
-}
-
 func (o *CreateAgentNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewCreateAgentDefault(code int) *CreateAgentDefault {
 	}
 }
 
-/* CreateAgentDefault describes a response with status code -1, with default header values.
+/*
+CreateAgentDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type CreateAgentDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this create agent default response has a 2xx status code
-func (o *CreateAgentDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this create agent default response has a 3xx status code
-func (o *CreateAgentDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this create agent default response has a 4xx status code
-func (o *CreateAgentDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this create agent default response has a 5xx status code
-func (o *CreateAgentDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this create agent default response a status code equal to that given
-func (o *CreateAgentDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the create agent default response
@@ -385,11 +225,6 @@ func (o *CreateAgentDefault) Code() int {
 func (o *CreateAgentDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] CreateAgent default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *CreateAgentDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents][%d] CreateAgent default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *CreateAgentDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

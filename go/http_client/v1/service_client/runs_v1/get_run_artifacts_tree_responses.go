@@ -78,7 +78,8 @@ func NewGetRunArtifactsTreeOK() *GetRunArtifactsTreeOK {
 	return &GetRunArtifactsTreeOK{}
 }
 
-/* GetRunArtifactsTreeOK describes a response with status code 200, with default header values.
+/*
+GetRunArtifactsTreeOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetRunArtifactsTreeOK struct {
 	Payload *service_model.V1ArtifactTree
 }
 
-// IsSuccess returns true when this get run artifacts tree o k response has a 2xx status code
-func (o *GetRunArtifactsTreeOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get run artifacts tree o k response has a 3xx status code
-func (o *GetRunArtifactsTreeOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run artifacts tree o k response has a 4xx status code
-func (o *GetRunArtifactsTreeOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get run artifacts tree o k response has a 5xx status code
-func (o *GetRunArtifactsTreeOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run artifacts tree o k response a status code equal to that given
-func (o *GetRunArtifactsTreeOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get run artifacts tree o k response
-func (o *GetRunArtifactsTreeOK) Code() int {
-	return 200
-}
-
 func (o *GetRunArtifactsTreeOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK  %+v", 200, o.Payload)
 }
-
-func (o *GetRunArtifactsTreeOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK  %+v", 200, o.Payload)
-}
-
 func (o *GetRunArtifactsTreeOK) GetPayload() *service_model.V1ArtifactTree {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetRunArtifactsTreeNoContent() *GetRunArtifactsTreeNoContent {
 	return &GetRunArtifactsTreeNoContent{}
 }
 
-/* GetRunArtifactsTreeNoContent describes a response with status code 204, with default header values.
+/*
+GetRunArtifactsTreeNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetRunArtifactsTreeNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run artifacts tree no content response has a 2xx status code
-func (o *GetRunArtifactsTreeNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get run artifacts tree no content response has a 3xx status code
-func (o *GetRunArtifactsTreeNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run artifacts tree no content response has a 4xx status code
-func (o *GetRunArtifactsTreeNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get run artifacts tree no content response has a 5xx status code
-func (o *GetRunArtifactsTreeNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run artifacts tree no content response a status code equal to that given
-func (o *GetRunArtifactsTreeNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get run artifacts tree no content response
-func (o *GetRunArtifactsTreeNoContent) Code() int {
-	return 204
-}
-
 func (o *GetRunArtifactsTreeNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetRunArtifactsTreeNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetRunArtifactsTreeNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetRunArtifactsTreeForbidden() *GetRunArtifactsTreeForbidden {
 	return &GetRunArtifactsTreeForbidden{}
 }
 
-/* GetRunArtifactsTreeForbidden describes a response with status code 403, with default header values.
+/*
+GetRunArtifactsTreeForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetRunArtifactsTreeForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run artifacts tree forbidden response has a 2xx status code
-func (o *GetRunArtifactsTreeForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get run artifacts tree forbidden response has a 3xx status code
-func (o *GetRunArtifactsTreeForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run artifacts tree forbidden response has a 4xx status code
-func (o *GetRunArtifactsTreeForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get run artifacts tree forbidden response has a 5xx status code
-func (o *GetRunArtifactsTreeForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run artifacts tree forbidden response a status code equal to that given
-func (o *GetRunArtifactsTreeForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get run artifacts tree forbidden response
-func (o *GetRunArtifactsTreeForbidden) Code() int {
-	return 403
-}
-
 func (o *GetRunArtifactsTreeForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetRunArtifactsTreeForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetRunArtifactsTreeForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetRunArtifactsTreeNotFound() *GetRunArtifactsTreeNotFound {
 	return &GetRunArtifactsTreeNotFound{}
 }
 
-/* GetRunArtifactsTreeNotFound describes a response with status code 404, with default header values.
+/*
+GetRunArtifactsTreeNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetRunArtifactsTreeNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get run artifacts tree not found response has a 2xx status code
-func (o *GetRunArtifactsTreeNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get run artifacts tree not found response has a 3xx status code
-func (o *GetRunArtifactsTreeNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get run artifacts tree not found response has a 4xx status code
-func (o *GetRunArtifactsTreeNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get run artifacts tree not found response has a 5xx status code
-func (o *GetRunArtifactsTreeNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get run artifacts tree not found response a status code equal to that given
-func (o *GetRunArtifactsTreeNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get run artifacts tree not found response
-func (o *GetRunArtifactsTreeNotFound) Code() int {
-	return 404
-}
-
 func (o *GetRunArtifactsTreeNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetRunArtifactsTreeNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetRunArtifactsTreeNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetRunArtifactsTreeDefault(code int) *GetRunArtifactsTreeDefault {
 	}
 }
 
-/* GetRunArtifactsTreeDefault describes a response with status code -1, with default header values.
+/*
+GetRunArtifactsTreeDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetRunArtifactsTreeDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get run artifacts tree default response has a 2xx status code
-func (o *GetRunArtifactsTreeDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get run artifacts tree default response has a 3xx status code
-func (o *GetRunArtifactsTreeDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get run artifacts tree default response has a 4xx status code
-func (o *GetRunArtifactsTreeDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get run artifacts tree default response has a 5xx status code
-func (o *GetRunArtifactsTreeDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get run artifacts tree default response a status code equal to that given
-func (o *GetRunArtifactsTreeDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get run artifacts tree default response
@@ -385,11 +225,6 @@ func (o *GetRunArtifactsTreeDefault) Code() int {
 func (o *GetRunArtifactsTreeDefault) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] GetRunArtifactsTree default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetRunArtifactsTreeDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] GetRunArtifactsTree default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetRunArtifactsTreeDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

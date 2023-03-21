@@ -68,10 +68,12 @@ func NewInvalidateOrganizationRunsParamsWithHTTPClient(client *http.Client) *Inv
 	}
 }
 
-/* InvalidateOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the invalidate organization runs operation.
+/*
+InvalidateOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the invalidate organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type InvalidateOrganizationRunsParams struct {
 

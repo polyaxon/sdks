@@ -60,7 +60,7 @@ type ClientService interface {
 }
 
 /*
-  CreatePreset creates scheduling presets
+CreatePreset creates scheduling presets
 */
 func (a *Client) CreatePreset(params *CreatePresetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreatePresetOK, *CreatePresetNoContent, error) {
 	// TODO: Validate the params before sending
@@ -100,7 +100,7 @@ func (a *Client) CreatePreset(params *CreatePresetParams, authInfo runtime.Clien
 }
 
 /*
-  DeletePreset deletes scheduling preset
+DeletePreset deletes scheduling preset
 */
 func (a *Client) DeletePreset(params *DeletePresetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeletePresetOK, *DeletePresetNoContent, error) {
 	// TODO: Validate the params before sending
@@ -140,7 +140,7 @@ func (a *Client) DeletePreset(params *DeletePresetParams, authInfo runtime.Clien
 }
 
 /*
-  GetPreset gets scheduling preset
+GetPreset gets scheduling preset
 */
 func (a *Client) GetPreset(params *GetPresetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetPresetOK, *GetPresetNoContent, error) {
 	// TODO: Validate the params before sending
@@ -180,7 +180,7 @@ func (a *Client) GetPreset(params *GetPresetParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  ListPresetNames lists scheduling presets names
+ListPresetNames lists scheduling presets names
 */
 func (a *Client) ListPresetNames(params *ListPresetNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListPresetNamesOK, *ListPresetNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -220,7 +220,7 @@ func (a *Client) ListPresetNames(params *ListPresetNamesParams, authInfo runtime
 }
 
 /*
-  ListPresets lists scheduling presets
+ListPresets lists scheduling presets
 */
 func (a *Client) ListPresets(params *ListPresetsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListPresetsOK, *ListPresetsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) ListPresets(params *ListPresetsParams, authInfo runtime.ClientA
 }
 
 /*
-  PatchPreset patches scheduling preset
+PatchPreset patches scheduling preset
 */
 func (a *Client) PatchPreset(params *PatchPresetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchPresetOK, *PatchPresetNoContent, error) {
 	// TODO: Validate the params before sending
@@ -300,7 +300,7 @@ func (a *Client) PatchPreset(params *PatchPresetParams, authInfo runtime.ClientA
 }
 
 /*
-  UpdatePreset updates scheduling preset
+UpdatePreset updates scheduling preset
 */
 func (a *Client) UpdatePreset(params *UpdatePresetParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdatePresetOK, *UpdatePresetNoContent, error) {
 	// TODO: Validate the params before sending

@@ -29,18 +29,14 @@ import (
 )
 
 // MXJobMode - MXTrain: Train Mode, requires Server, Scheduler, Worker
-//  - MXTune: Tune Mode, requires Tuner
+//   - MXTune: Tune Mode, requires Tuner
 //
 // swagger:model MXJobMode
 type MXJobMode string
 
 func NewMXJobMode(value MXJobMode) *MXJobMode {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated MXJobMode.
-func (m MXJobMode) Pointer() *MXJobMode {
-	return &m
+	v := value
+	return &v
 }
 
 const (

@@ -67,10 +67,12 @@ func NewGetProjectStatsParamsWithHTTPClient(client *http.Client) *GetProjectStat
 	}
 }
 
-/* GetProjectStatsParams contains all the parameters to send to the API endpoint
-   for the get project stats operation.
+/*
+GetProjectStatsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get project stats operation.
+
+	Typically these are written to a http.Request.
 */
 type GetProjectStatsParams struct {
 

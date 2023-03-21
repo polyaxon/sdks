@@ -34,12 +34,8 @@ import (
 type V1CleanPodPolicy string
 
 func NewV1CleanPodPolicy(value V1CleanPodPolicy) *V1CleanPodPolicy {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1CleanPodPolicy.
-func (m V1CleanPodPolicy) Pointer() *V1CleanPodPolicy {
-	return &m
+	v := value
+	return &v
 }
 
 const (

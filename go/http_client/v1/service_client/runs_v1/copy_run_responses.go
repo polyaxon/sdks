@@ -78,7 +78,8 @@ func NewCopyRunOK() *CopyRunOK {
 	return &CopyRunOK{}
 }
 
-/* CopyRunOK describes a response with status code 200, with default header values.
+/*
+CopyRunOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type CopyRunOK struct {
 	Payload *service_model.V1Run
 }
 
-// IsSuccess returns true when this copy run o k response has a 2xx status code
-func (o *CopyRunOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this copy run o k response has a 3xx status code
-func (o *CopyRunOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this copy run o k response has a 4xx status code
-func (o *CopyRunOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this copy run o k response has a 5xx status code
-func (o *CopyRunOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this copy run o k response a status code equal to that given
-func (o *CopyRunOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the copy run o k response
-func (o *CopyRunOK) Code() int {
-	return 200
-}
-
 func (o *CopyRunOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK  %+v", 200, o.Payload)
 }
-
-func (o *CopyRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK  %+v", 200, o.Payload)
-}
-
 func (o *CopyRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewCopyRunNoContent() *CopyRunNoContent {
 	return &CopyRunNoContent{}
 }
 
-/* CopyRunNoContent describes a response with status code 204, with default header values.
+/*
+CopyRunNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type CopyRunNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this copy run no content response has a 2xx status code
-func (o *CopyRunNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this copy run no content response has a 3xx status code
-func (o *CopyRunNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this copy run no content response has a 4xx status code
-func (o *CopyRunNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this copy run no content response has a 5xx status code
-func (o *CopyRunNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this copy run no content response a status code equal to that given
-func (o *CopyRunNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the copy run no content response
-func (o *CopyRunNoContent) Code() int {
-	return 204
-}
-
 func (o *CopyRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent  %+v", 204, o.Payload)
 }
-
-func (o *CopyRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent  %+v", 204, o.Payload)
-}
-
 func (o *CopyRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewCopyRunForbidden() *CopyRunForbidden {
 	return &CopyRunForbidden{}
 }
 
-/* CopyRunForbidden describes a response with status code 403, with default header values.
+/*
+CopyRunForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type CopyRunForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this copy run forbidden response has a 2xx status code
-func (o *CopyRunForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this copy run forbidden response has a 3xx status code
-func (o *CopyRunForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this copy run forbidden response has a 4xx status code
-func (o *CopyRunForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this copy run forbidden response has a 5xx status code
-func (o *CopyRunForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this copy run forbidden response a status code equal to that given
-func (o *CopyRunForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the copy run forbidden response
-func (o *CopyRunForbidden) Code() int {
-	return 403
-}
-
 func (o *CopyRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunForbidden  %+v", 403, o.Payload)
 }
-
-func (o *CopyRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunForbidden  %+v", 403, o.Payload)
-}
-
 func (o *CopyRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewCopyRunNotFound() *CopyRunNotFound {
 	return &CopyRunNotFound{}
 }
 
-/* CopyRunNotFound describes a response with status code 404, with default header values.
+/*
+CopyRunNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type CopyRunNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this copy run not found response has a 2xx status code
-func (o *CopyRunNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this copy run not found response has a 3xx status code
-func (o *CopyRunNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this copy run not found response has a 4xx status code
-func (o *CopyRunNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this copy run not found response has a 5xx status code
-func (o *CopyRunNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this copy run not found response a status code equal to that given
-func (o *CopyRunNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the copy run not found response
-func (o *CopyRunNotFound) Code() int {
-	return 404
-}
-
 func (o *CopyRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound  %+v", 404, o.Payload)
 }
-
-func (o *CopyRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound  %+v", 404, o.Payload)
-}
-
 func (o *CopyRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewCopyRunDefault(code int) *CopyRunDefault {
 	}
 }
 
-/* CopyRunDefault describes a response with status code -1, with default header values.
+/*
+CopyRunDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type CopyRunDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this copy run default response has a 2xx status code
-func (o *CopyRunDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this copy run default response has a 3xx status code
-func (o *CopyRunDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this copy run default response has a 4xx status code
-func (o *CopyRunDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this copy run default response has a 5xx status code
-func (o *CopyRunDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this copy run default response a status code equal to that given
-func (o *CopyRunDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the copy run default response
@@ -385,11 +225,6 @@ func (o *CopyRunDefault) Code() int {
 func (o *CopyRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] CopyRun default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *CopyRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] CopyRun default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *CopyRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

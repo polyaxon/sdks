@@ -78,7 +78,8 @@ func NewGetHistoryOK() *GetHistoryOK {
 	return &GetHistoryOK{}
 }
 
-/* GetHistoryOK describes a response with status code 200, with default header values.
+/*
+GetHistoryOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetHistoryOK struct {
 	Payload *service_model.V1ListActivitiesResponse
 }
 
-// IsSuccess returns true when this get history o k response has a 2xx status code
-func (o *GetHistoryOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get history o k response has a 3xx status code
-func (o *GetHistoryOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get history o k response has a 4xx status code
-func (o *GetHistoryOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get history o k response has a 5xx status code
-func (o *GetHistoryOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get history o k response a status code equal to that given
-func (o *GetHistoryOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get history o k response
-func (o *GetHistoryOK) Code() int {
-	return 200
-}
-
 func (o *GetHistoryOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK  %+v", 200, o.Payload)
 }
-
-func (o *GetHistoryOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK  %+v", 200, o.Payload)
-}
-
 func (o *GetHistoryOK) GetPayload() *service_model.V1ListActivitiesResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetHistoryNoContent() *GetHistoryNoContent {
 	return &GetHistoryNoContent{}
 }
 
-/* GetHistoryNoContent describes a response with status code 204, with default header values.
+/*
+GetHistoryNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetHistoryNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get history no content response has a 2xx status code
-func (o *GetHistoryNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get history no content response has a 3xx status code
-func (o *GetHistoryNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get history no content response has a 4xx status code
-func (o *GetHistoryNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get history no content response has a 5xx status code
-func (o *GetHistoryNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get history no content response a status code equal to that given
-func (o *GetHistoryNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get history no content response
-func (o *GetHistoryNoContent) Code() int {
-	return 204
-}
-
 func (o *GetHistoryNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetHistoryNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetHistoryNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetHistoryForbidden() *GetHistoryForbidden {
 	return &GetHistoryForbidden{}
 }
 
-/* GetHistoryForbidden describes a response with status code 403, with default header values.
+/*
+GetHistoryForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetHistoryForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get history forbidden response has a 2xx status code
-func (o *GetHistoryForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get history forbidden response has a 3xx status code
-func (o *GetHistoryForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get history forbidden response has a 4xx status code
-func (o *GetHistoryForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get history forbidden response has a 5xx status code
-func (o *GetHistoryForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get history forbidden response a status code equal to that given
-func (o *GetHistoryForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get history forbidden response
-func (o *GetHistoryForbidden) Code() int {
-	return 403
-}
-
 func (o *GetHistoryForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetHistoryForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetHistoryForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetHistoryNotFound() *GetHistoryNotFound {
 	return &GetHistoryNotFound{}
 }
 
-/* GetHistoryNotFound describes a response with status code 404, with default header values.
+/*
+GetHistoryNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetHistoryNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get history not found response has a 2xx status code
-func (o *GetHistoryNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get history not found response has a 3xx status code
-func (o *GetHistoryNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get history not found response has a 4xx status code
-func (o *GetHistoryNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get history not found response has a 5xx status code
-func (o *GetHistoryNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get history not found response a status code equal to that given
-func (o *GetHistoryNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get history not found response
-func (o *GetHistoryNotFound) Code() int {
-	return 404
-}
-
 func (o *GetHistoryNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetHistoryNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetHistoryNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetHistoryDefault(code int) *GetHistoryDefault {
 	}
 }
 
-/* GetHistoryDefault describes a response with status code -1, with default header values.
+/*
+GetHistoryDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetHistoryDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get history default response has a 2xx status code
-func (o *GetHistoryDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get history default response has a 3xx status code
-func (o *GetHistoryDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get history default response has a 4xx status code
-func (o *GetHistoryDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get history default response has a 5xx status code
-func (o *GetHistoryDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get history default response a status code equal to that given
-func (o *GetHistoryDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get history default response
@@ -385,11 +225,6 @@ func (o *GetHistoryDefault) Code() int {
 func (o *GetHistoryDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/users/history][%d] GetHistory default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetHistoryDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] GetHistory default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetHistoryDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -42,7 +42,7 @@ type V1Cache struct {
 	Sections []string `json:"sections"`
 
 	// Optional time to live for the cache before it gets invalidated automatically,
-	// the TTL is caclculated based on the time the run starts
+	// the TTL is calculated based on the time the run starts
 	TTL int32 `json:"ttl,omitempty"`
 }
 

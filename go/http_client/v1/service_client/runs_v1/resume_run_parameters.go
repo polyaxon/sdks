@@ -68,10 +68,12 @@ func NewResumeRunParamsWithHTTPClient(client *http.Client) *ResumeRunParams {
 	}
 }
 
-/* ResumeRunParams contains all the parameters to send to the API endpoint
-   for the resume run operation.
+/*
+ResumeRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the resume run operation.
+
+	Typically these are written to a http.Request.
 */
 type ResumeRunParams struct {
 

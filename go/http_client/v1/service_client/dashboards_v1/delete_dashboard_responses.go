@@ -78,48 +78,15 @@ func NewDeleteDashboardOK() *DeleteDashboardOK {
 	return &DeleteDashboardOK{}
 }
 
-/* DeleteDashboardOK describes a response with status code 200, with default header values.
+/*
+DeleteDashboardOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type DeleteDashboardOK struct {
 }
 
-// IsSuccess returns true when this delete dashboard o k response has a 2xx status code
-func (o *DeleteDashboardOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete dashboard o k response has a 3xx status code
-func (o *DeleteDashboardOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete dashboard o k response has a 4xx status code
-func (o *DeleteDashboardOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete dashboard o k response has a 5xx status code
-func (o *DeleteDashboardOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete dashboard o k response a status code equal to that given
-func (o *DeleteDashboardOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the delete dashboard o k response
-func (o *DeleteDashboardOK) Code() int {
-	return 200
-}
-
 func (o *DeleteDashboardOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardOK ", 200)
-}
-
-func (o *DeleteDashboardOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewDeleteDashboardNoContent() *DeleteDashboardNoContent {
 	return &DeleteDashboardNoContent{}
 }
 
-/* DeleteDashboardNoContent describes a response with status code 204, with default header values.
+/*
+DeleteDashboardNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type DeleteDashboardNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete dashboard no content response has a 2xx status code
-func (o *DeleteDashboardNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete dashboard no content response has a 3xx status code
-func (o *DeleteDashboardNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete dashboard no content response has a 4xx status code
-func (o *DeleteDashboardNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete dashboard no content response has a 5xx status code
-func (o *DeleteDashboardNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete dashboard no content response a status code equal to that given
-func (o *DeleteDashboardNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the delete dashboard no content response
-func (o *DeleteDashboardNoContent) Code() int {
-	return 204
-}
-
 func (o *DeleteDashboardNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardNoContent  %+v", 204, o.Payload)
 }
-
-func (o *DeleteDashboardNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardNoContent  %+v", 204, o.Payload)
-}
-
 func (o *DeleteDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewDeleteDashboardForbidden() *DeleteDashboardForbidden {
 	return &DeleteDashboardForbidden{}
 }
 
-/* DeleteDashboardForbidden describes a response with status code 403, with default header values.
+/*
+DeleteDashboardForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type DeleteDashboardForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete dashboard forbidden response has a 2xx status code
-func (o *DeleteDashboardForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete dashboard forbidden response has a 3xx status code
-func (o *DeleteDashboardForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete dashboard forbidden response has a 4xx status code
-func (o *DeleteDashboardForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete dashboard forbidden response has a 5xx status code
-func (o *DeleteDashboardForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete dashboard forbidden response a status code equal to that given
-func (o *DeleteDashboardForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the delete dashboard forbidden response
-func (o *DeleteDashboardForbidden) Code() int {
-	return 403
-}
-
 func (o *DeleteDashboardForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardForbidden  %+v", 403, o.Payload)
 }
-
-func (o *DeleteDashboardForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardForbidden  %+v", 403, o.Payload)
-}
-
 func (o *DeleteDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewDeleteDashboardNotFound() *DeleteDashboardNotFound {
 	return &DeleteDashboardNotFound{}
 }
 
-/* DeleteDashboardNotFound describes a response with status code 404, with default header values.
+/*
+DeleteDashboardNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type DeleteDashboardNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete dashboard not found response has a 2xx status code
-func (o *DeleteDashboardNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete dashboard not found response has a 3xx status code
-func (o *DeleteDashboardNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete dashboard not found response has a 4xx status code
-func (o *DeleteDashboardNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete dashboard not found response has a 5xx status code
-func (o *DeleteDashboardNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete dashboard not found response a status code equal to that given
-func (o *DeleteDashboardNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the delete dashboard not found response
-func (o *DeleteDashboardNotFound) Code() int {
-	return 404
-}
-
 func (o *DeleteDashboardNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardNotFound  %+v", 404, o.Payload)
 }
-
-func (o *DeleteDashboardNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] deleteDashboardNotFound  %+v", 404, o.Payload)
-}
-
 func (o *DeleteDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewDeleteDashboardDefault(code int) *DeleteDashboardDefault {
 	}
 }
 
-/* DeleteDashboardDefault describes a response with status code -1, with default header values.
+/*
+DeleteDashboardDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type DeleteDashboardDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this delete dashboard default response has a 2xx status code
-func (o *DeleteDashboardDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete dashboard default response has a 3xx status code
-func (o *DeleteDashboardDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete dashboard default response has a 4xx status code
-func (o *DeleteDashboardDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete dashboard default response has a 5xx status code
-func (o *DeleteDashboardDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete dashboard default response a status code equal to that given
-func (o *DeleteDashboardDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the delete dashboard default response
@@ -373,11 +214,6 @@ func (o *DeleteDashboardDefault) Code() int {
 func (o *DeleteDashboardDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] DeleteDashboard default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *DeleteDashboardDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/dashboards/{uuid}][%d] DeleteDashboard default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *DeleteDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

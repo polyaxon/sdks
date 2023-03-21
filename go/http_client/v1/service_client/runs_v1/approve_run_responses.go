@@ -78,48 +78,15 @@ func NewApproveRunOK() *ApproveRunOK {
 	return &ApproveRunOK{}
 }
 
-/* ApproveRunOK describes a response with status code 200, with default header values.
+/*
+ApproveRunOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type ApproveRunOK struct {
 }
 
-// IsSuccess returns true when this approve run o k response has a 2xx status code
-func (o *ApproveRunOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this approve run o k response has a 3xx status code
-func (o *ApproveRunOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve run o k response has a 4xx status code
-func (o *ApproveRunOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this approve run o k response has a 5xx status code
-func (o *ApproveRunOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve run o k response a status code equal to that given
-func (o *ApproveRunOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the approve run o k response
-func (o *ApproveRunOK) Code() int {
-	return 200
-}
-
 func (o *ApproveRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunOK ", 200)
-}
-
-func (o *ApproveRunOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewApproveRunNoContent() *ApproveRunNoContent {
 	return &ApproveRunNoContent{}
 }
 
-/* ApproveRunNoContent describes a response with status code 204, with default header values.
+/*
+ApproveRunNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type ApproveRunNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this approve run no content response has a 2xx status code
-func (o *ApproveRunNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this approve run no content response has a 3xx status code
-func (o *ApproveRunNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve run no content response has a 4xx status code
-func (o *ApproveRunNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this approve run no content response has a 5xx status code
-func (o *ApproveRunNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve run no content response a status code equal to that given
-func (o *ApproveRunNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the approve run no content response
-func (o *ApproveRunNoContent) Code() int {
-	return 204
-}
-
 func (o *ApproveRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ApproveRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ApproveRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewApproveRunForbidden() *ApproveRunForbidden {
 	return &ApproveRunForbidden{}
 }
 
-/* ApproveRunForbidden describes a response with status code 403, with default header values.
+/*
+ApproveRunForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type ApproveRunForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this approve run forbidden response has a 2xx status code
-func (o *ApproveRunForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this approve run forbidden response has a 3xx status code
-func (o *ApproveRunForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve run forbidden response has a 4xx status code
-func (o *ApproveRunForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this approve run forbidden response has a 5xx status code
-func (o *ApproveRunForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve run forbidden response a status code equal to that given
-func (o *ApproveRunForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the approve run forbidden response
-func (o *ApproveRunForbidden) Code() int {
-	return 403
-}
-
 func (o *ApproveRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ApproveRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ApproveRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewApproveRunNotFound() *ApproveRunNotFound {
 	return &ApproveRunNotFound{}
 }
 
-/* ApproveRunNotFound describes a response with status code 404, with default header values.
+/*
+ApproveRunNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type ApproveRunNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this approve run not found response has a 2xx status code
-func (o *ApproveRunNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this approve run not found response has a 3xx status code
-func (o *ApproveRunNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve run not found response has a 4xx status code
-func (o *ApproveRunNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this approve run not found response has a 5xx status code
-func (o *ApproveRunNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve run not found response a status code equal to that given
-func (o *ApproveRunNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the approve run not found response
-func (o *ApproveRunNotFound) Code() int {
-	return 404
-}
-
 func (o *ApproveRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ApproveRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] approveRunNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ApproveRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewApproveRunDefault(code int) *ApproveRunDefault {
 	}
 }
 
-/* ApproveRunDefault describes a response with status code -1, with default header values.
+/*
+ApproveRunDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type ApproveRunDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this approve run default response has a 2xx status code
-func (o *ApproveRunDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this approve run default response has a 3xx status code
-func (o *ApproveRunDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this approve run default response has a 4xx status code
-func (o *ApproveRunDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this approve run default response has a 5xx status code
-func (o *ApproveRunDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this approve run default response a status code equal to that given
-func (o *ApproveRunDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the approve run default response
@@ -373,11 +214,6 @@ func (o *ApproveRunDefault) Code() int {
 func (o *ApproveRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] ApproveRun default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ApproveRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/approve][%d] ApproveRun default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ApproveRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

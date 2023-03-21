@@ -58,7 +58,7 @@ type ClientService interface {
 }
 
 /*
-  ChangePassword changes password
+ChangePassword changes password
 */
 func (a *Client) ChangePassword(params *ChangePasswordParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ChangePasswordOK, *ChangePasswordNoContent, error) {
 	// TODO: Validate the params before sending
@@ -98,7 +98,7 @@ func (a *Client) ChangePassword(params *ChangePasswordParams, authInfo runtime.C
 }
 
 /*
-  Login logins
+Login logins
 */
 func (a *Client) Login(params *LoginParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*LoginOK, *LoginNoContent, error) {
 	// TODO: Validate the params before sending
@@ -138,7 +138,7 @@ func (a *Client) Login(params *LoginParams, authInfo runtime.ClientAuthInfoWrite
 }
 
 /*
-  ResetPassword resets password
+ResetPassword resets password
 */
 func (a *Client) ResetPassword(params *ResetPasswordParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResetPasswordOK, *ResetPasswordNoContent, error) {
 	// TODO: Validate the params before sending
@@ -178,7 +178,7 @@ func (a *Client) ResetPassword(params *ResetPasswordParams, authInfo runtime.Cli
 }
 
 /*
-  ResetPasswordConfirm resets password confirm
+ResetPasswordConfirm resets password confirm
 */
 func (a *Client) ResetPasswordConfirm(params *ResetPasswordConfirmParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResetPasswordConfirmOK, *ResetPasswordConfirmNoContent, error) {
 	// TODO: Validate the params before sending
@@ -218,7 +218,7 @@ func (a *Client) ResetPasswordConfirm(params *ResetPasswordConfirmParams, authIn
 }
 
 /*
-  Signup signups
+Signup signups
 */
 func (a *Client) Signup(params *SignupParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SignupOK, *SignupNoContent, error) {
 	// TODO: Validate the params before sending
@@ -258,7 +258,7 @@ func (a *Client) Signup(params *SignupParams, authInfo runtime.ClientAuthInfoWri
 }
 
 /*
-  Trial trials start
+Trial trials start
 */
 func (a *Client) Trial(params *TrialParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TrialOK, *TrialNoContent, error) {
 	// TODO: Validate the params before sending

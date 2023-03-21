@@ -78,7 +78,8 @@ func NewListPresetsOK() *ListPresetsOK {
 	return &ListPresetsOK{}
 }
 
-/* ListPresetsOK describes a response with status code 200, with default header values.
+/*
+ListPresetsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListPresetsOK struct {
 	Payload *service_model.V1ListPresetsResponse
 }
 
-// IsSuccess returns true when this list presets o k response has a 2xx status code
-func (o *ListPresetsOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list presets o k response has a 3xx status code
-func (o *ListPresetsOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list presets o k response has a 4xx status code
-func (o *ListPresetsOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list presets o k response has a 5xx status code
-func (o *ListPresetsOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list presets o k response a status code equal to that given
-func (o *ListPresetsOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list presets o k response
-func (o *ListPresetsOK) Code() int {
-	return 200
-}
-
 func (o *ListPresetsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsOK  %+v", 200, o.Payload)
 }
-
-func (o *ListPresetsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsOK  %+v", 200, o.Payload)
-}
-
 func (o *ListPresetsOK) GetPayload() *service_model.V1ListPresetsResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListPresetsNoContent() *ListPresetsNoContent {
 	return &ListPresetsNoContent{}
 }
 
-/* ListPresetsNoContent describes a response with status code 204, with default header values.
+/*
+ListPresetsNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListPresetsNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list presets no content response has a 2xx status code
-func (o *ListPresetsNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list presets no content response has a 3xx status code
-func (o *ListPresetsNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list presets no content response has a 4xx status code
-func (o *ListPresetsNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list presets no content response has a 5xx status code
-func (o *ListPresetsNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list presets no content response a status code equal to that given
-func (o *ListPresetsNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list presets no content response
-func (o *ListPresetsNoContent) Code() int {
-	return 204
-}
-
 func (o *ListPresetsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListPresetsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListPresetsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListPresetsForbidden() *ListPresetsForbidden {
 	return &ListPresetsForbidden{}
 }
 
-/* ListPresetsForbidden describes a response with status code 403, with default header values.
+/*
+ListPresetsForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListPresetsForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list presets forbidden response has a 2xx status code
-func (o *ListPresetsForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list presets forbidden response has a 3xx status code
-func (o *ListPresetsForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list presets forbidden response has a 4xx status code
-func (o *ListPresetsForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list presets forbidden response has a 5xx status code
-func (o *ListPresetsForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list presets forbidden response a status code equal to that given
-func (o *ListPresetsForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list presets forbidden response
-func (o *ListPresetsForbidden) Code() int {
-	return 403
-}
-
 func (o *ListPresetsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListPresetsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListPresetsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListPresetsNotFound() *ListPresetsNotFound {
 	return &ListPresetsNotFound{}
 }
 
-/* ListPresetsNotFound describes a response with status code 404, with default header values.
+/*
+ListPresetsNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListPresetsNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list presets not found response has a 2xx status code
-func (o *ListPresetsNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list presets not found response has a 3xx status code
-func (o *ListPresetsNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list presets not found response has a 4xx status code
-func (o *ListPresetsNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list presets not found response has a 5xx status code
-func (o *ListPresetsNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list presets not found response a status code equal to that given
-func (o *ListPresetsNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list presets not found response
-func (o *ListPresetsNotFound) Code() int {
-	return 404
-}
-
 func (o *ListPresetsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListPresetsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] listPresetsNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListPresetsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListPresetsDefault(code int) *ListPresetsDefault {
 	}
 }
 
-/* ListPresetsDefault describes a response with status code -1, with default header values.
+/*
+ListPresetsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListPresetsDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list presets default response has a 2xx status code
-func (o *ListPresetsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list presets default response has a 3xx status code
-func (o *ListPresetsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list presets default response has a 4xx status code
-func (o *ListPresetsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list presets default response has a 5xx status code
-func (o *ListPresetsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list presets default response a status code equal to that given
-func (o *ListPresetsDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list presets default response
@@ -385,11 +225,6 @@ func (o *ListPresetsDefault) Code() int {
 func (o *ListPresetsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] ListPresets default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListPresetsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets][%d] ListPresets default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListPresetsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -31,47 +31,43 @@ import (
 // V1ArtifactKind Artifact kind
 //
 // - model: Model asset/event
-//  - audio: Audio asset/event
-//  - video: Vidio asset/event
-//  - histogram: Histogram asset/event
-//  - image: Image asset/event
-//  - tensor: Tensor asset/event
-//  - dataframe: Dataframe asset/event
-//  - chart: plotly/bokeh/vega chart
-//  - csv: Comma separated values
-//  - tsv: Tab separated values
-//  - psv: Pipe separated values
-//  - ssv: Space separated values
-//  - metric: Metric asset/event
-//  - env: Env file
-//  - html: HTML asset/event
-//  - text: Text asset/event
-//  - file: File asset/lineage
-//  - dir: Dir asset/lineage
-//  - dockerfile: Dockerfile asset
-//  - docker_image: Docker image
-//  - data: Data asset/event
-//  - coderef: Coderef lineage
-//  - table: Table asset/event
-//  - tensorboard: Tensorboard lineage
-//  - curve: Curve event
-//  - confusion: Confusion matrix event
-//  - analysis: Analysis lineage
-//  - iteration: Iteration lineage
-//  - markdown: Mardown event
-//  - system: System event
-//  - artifact: Generic artifact
+//   - audio: Audio asset/event
+//   - video: Vidio asset/event
+//   - histogram: Histogram asset/event
+//   - image: Image asset/event
+//   - tensor: Tensor asset/event
+//   - dataframe: Dataframe asset/event
+//   - chart: plotly/bokeh/vega chart
+//   - csv: Comma separated values
+//   - tsv: Tab separated values
+//   - psv: Pipe separated values
+//   - ssv: Space separated values
+//   - metric: Metric asset/event
+//   - env: Env file
+//   - html: HTML asset/event
+//   - text: Text asset/event
+//   - file: File asset/lineage
+//   - dir: Dir asset/lineage
+//   - dockerfile: Dockerfile asset
+//   - docker_image: Docker image
+//   - data: Data asset/event
+//   - coderef: Coderef lineage
+//   - table: Table asset/event
+//   - tensorboard: Tensorboard lineage
+//   - curve: Curve event
+//   - confusion: Confusion matrix event
+//   - analysis: Analysis lineage
+//   - iteration: Iteration lineage
+//   - markdown: Mardown event
+//   - system: System event
+//   - artifact: Generic artifact
 //
 // swagger:model v1ArtifactKind
 type V1ArtifactKind string
 
 func NewV1ArtifactKind(value V1ArtifactKind) *V1ArtifactKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1ArtifactKind.
-func (m V1ArtifactKind) Pointer() *V1ArtifactKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

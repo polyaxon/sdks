@@ -67,10 +67,12 @@ func NewGetRunsArtifactsLineageParamsWithHTTPClient(client *http.Client) *GetRun
 	}
 }
 
-/* GetRunsArtifactsLineageParams contains all the parameters to send to the API endpoint
-   for the get runs artifacts lineage operation.
+/*
+GetRunsArtifactsLineageParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get runs artifacts lineage operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunsArtifactsLineageParams struct {
 

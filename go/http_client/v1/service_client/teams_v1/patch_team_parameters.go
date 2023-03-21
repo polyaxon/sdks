@@ -68,10 +68,12 @@ func NewPatchTeamParamsWithHTTPClient(client *http.Client) *PatchTeamParams {
 	}
 }
 
-/* PatchTeamParams contains all the parameters to send to the API endpoint
-   for the patch team operation.
+/*
+PatchTeamParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch team operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchTeamParams struct {
 

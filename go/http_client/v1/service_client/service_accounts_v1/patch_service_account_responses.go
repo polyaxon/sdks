@@ -78,7 +78,8 @@ func NewPatchServiceAccountOK() *PatchServiceAccountOK {
 	return &PatchServiceAccountOK{}
 }
 
-/* PatchServiceAccountOK describes a response with status code 200, with default header values.
+/*
+PatchServiceAccountOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type PatchServiceAccountOK struct {
 	Payload *service_model.V1ServiceAccount
 }
 
-// IsSuccess returns true when this patch service account o k response has a 2xx status code
-func (o *PatchServiceAccountOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch service account o k response has a 3xx status code
-func (o *PatchServiceAccountOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch service account o k response has a 4xx status code
-func (o *PatchServiceAccountOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch service account o k response has a 5xx status code
-func (o *PatchServiceAccountOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch service account o k response a status code equal to that given
-func (o *PatchServiceAccountOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the patch service account o k response
-func (o *PatchServiceAccountOK) Code() int {
-	return 200
-}
-
 func (o *PatchServiceAccountOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountOK  %+v", 200, o.Payload)
 }
-
-func (o *PatchServiceAccountOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountOK  %+v", 200, o.Payload)
-}
-
 func (o *PatchServiceAccountOK) GetPayload() *service_model.V1ServiceAccount {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewPatchServiceAccountNoContent() *PatchServiceAccountNoContent {
 	return &PatchServiceAccountNoContent{}
 }
 
-/* PatchServiceAccountNoContent describes a response with status code 204, with default header values.
+/*
+PatchServiceAccountNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type PatchServiceAccountNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch service account no content response has a 2xx status code
-func (o *PatchServiceAccountNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch service account no content response has a 3xx status code
-func (o *PatchServiceAccountNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch service account no content response has a 4xx status code
-func (o *PatchServiceAccountNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch service account no content response has a 5xx status code
-func (o *PatchServiceAccountNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch service account no content response a status code equal to that given
-func (o *PatchServiceAccountNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the patch service account no content response
-func (o *PatchServiceAccountNoContent) Code() int {
-	return 204
-}
-
 func (o *PatchServiceAccountNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountNoContent  %+v", 204, o.Payload)
 }
-
-func (o *PatchServiceAccountNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountNoContent  %+v", 204, o.Payload)
-}
-
 func (o *PatchServiceAccountNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewPatchServiceAccountForbidden() *PatchServiceAccountForbidden {
 	return &PatchServiceAccountForbidden{}
 }
 
-/* PatchServiceAccountForbidden describes a response with status code 403, with default header values.
+/*
+PatchServiceAccountForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type PatchServiceAccountForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch service account forbidden response has a 2xx status code
-func (o *PatchServiceAccountForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch service account forbidden response has a 3xx status code
-func (o *PatchServiceAccountForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch service account forbidden response has a 4xx status code
-func (o *PatchServiceAccountForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch service account forbidden response has a 5xx status code
-func (o *PatchServiceAccountForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch service account forbidden response a status code equal to that given
-func (o *PatchServiceAccountForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the patch service account forbidden response
-func (o *PatchServiceAccountForbidden) Code() int {
-	return 403
-}
-
 func (o *PatchServiceAccountForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountForbidden  %+v", 403, o.Payload)
 }
-
-func (o *PatchServiceAccountForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountForbidden  %+v", 403, o.Payload)
-}
-
 func (o *PatchServiceAccountForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewPatchServiceAccountNotFound() *PatchServiceAccountNotFound {
 	return &PatchServiceAccountNotFound{}
 }
 
-/* PatchServiceAccountNotFound describes a response with status code 404, with default header values.
+/*
+PatchServiceAccountNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type PatchServiceAccountNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch service account not found response has a 2xx status code
-func (o *PatchServiceAccountNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch service account not found response has a 3xx status code
-func (o *PatchServiceAccountNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch service account not found response has a 4xx status code
-func (o *PatchServiceAccountNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch service account not found response has a 5xx status code
-func (o *PatchServiceAccountNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch service account not found response a status code equal to that given
-func (o *PatchServiceAccountNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the patch service account not found response
-func (o *PatchServiceAccountNotFound) Code() int {
-	return 404
-}
-
 func (o *PatchServiceAccountNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountNotFound  %+v", 404, o.Payload)
 }
-
-func (o *PatchServiceAccountNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] patchServiceAccountNotFound  %+v", 404, o.Payload)
-}
-
 func (o *PatchServiceAccountNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewPatchServiceAccountDefault(code int) *PatchServiceAccountDefault {
 	}
 }
 
-/* PatchServiceAccountDefault describes a response with status code -1, with default header values.
+/*
+PatchServiceAccountDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type PatchServiceAccountDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this patch service account default response has a 2xx status code
-func (o *PatchServiceAccountDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this patch service account default response has a 3xx status code
-func (o *PatchServiceAccountDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this patch service account default response has a 4xx status code
-func (o *PatchServiceAccountDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this patch service account default response has a 5xx status code
-func (o *PatchServiceAccountDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this patch service account default response a status code equal to that given
-func (o *PatchServiceAccountDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the patch service account default response
@@ -385,11 +225,6 @@ func (o *PatchServiceAccountDefault) Code() int {
 func (o *PatchServiceAccountDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] PatchServiceAccount default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *PatchServiceAccountDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{sa.uuid}][%d] PatchServiceAccount default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *PatchServiceAccountDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

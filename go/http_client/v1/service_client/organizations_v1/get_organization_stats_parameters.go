@@ -67,10 +67,12 @@ func NewGetOrganizationStatsParamsWithHTTPClient(client *http.Client) *GetOrgani
 	}
 }
 
-/* GetOrganizationStatsParams contains all the parameters to send to the API endpoint
-   for the get organization stats operation.
+/*
+GetOrganizationStatsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get organization stats operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationStatsParams struct {
 

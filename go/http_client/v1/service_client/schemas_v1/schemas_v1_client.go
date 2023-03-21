@@ -48,7 +48,7 @@ type ClientService interface {
 }
 
 /*
-  NoOp nos op
+NoOp nos op
 */
 func (a *Client) NoOp(params *NoOpParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*NoOpOK, *NoOpNoContent, error) {
 	// TODO: Validate the params before sending

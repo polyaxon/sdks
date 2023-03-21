@@ -78,7 +78,8 @@ func NewPatchConnectionOK() *PatchConnectionOK {
 	return &PatchConnectionOK{}
 }
 
-/* PatchConnectionOK describes a response with status code 200, with default header values.
+/*
+PatchConnectionOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type PatchConnectionOK struct {
 	Payload *service_model.V1ConnectionResponse
 }
 
-// IsSuccess returns true when this patch connection o k response has a 2xx status code
-func (o *PatchConnectionOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch connection o k response has a 3xx status code
-func (o *PatchConnectionOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch connection o k response has a 4xx status code
-func (o *PatchConnectionOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch connection o k response has a 5xx status code
-func (o *PatchConnectionOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch connection o k response a status code equal to that given
-func (o *PatchConnectionOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the patch connection o k response
-func (o *PatchConnectionOK) Code() int {
-	return 200
-}
-
 func (o *PatchConnectionOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK  %+v", 200, o.Payload)
 }
-
-func (o *PatchConnectionOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK  %+v", 200, o.Payload)
-}
-
 func (o *PatchConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewPatchConnectionNoContent() *PatchConnectionNoContent {
 	return &PatchConnectionNoContent{}
 }
 
-/* PatchConnectionNoContent describes a response with status code 204, with default header values.
+/*
+PatchConnectionNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type PatchConnectionNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch connection no content response has a 2xx status code
-func (o *PatchConnectionNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch connection no content response has a 3xx status code
-func (o *PatchConnectionNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch connection no content response has a 4xx status code
-func (o *PatchConnectionNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch connection no content response has a 5xx status code
-func (o *PatchConnectionNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch connection no content response a status code equal to that given
-func (o *PatchConnectionNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the patch connection no content response
-func (o *PatchConnectionNoContent) Code() int {
-	return 204
-}
-
 func (o *PatchConnectionNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent  %+v", 204, o.Payload)
 }
-
-func (o *PatchConnectionNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent  %+v", 204, o.Payload)
-}
-
 func (o *PatchConnectionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewPatchConnectionForbidden() *PatchConnectionForbidden {
 	return &PatchConnectionForbidden{}
 }
 
-/* PatchConnectionForbidden describes a response with status code 403, with default header values.
+/*
+PatchConnectionForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type PatchConnectionForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch connection forbidden response has a 2xx status code
-func (o *PatchConnectionForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch connection forbidden response has a 3xx status code
-func (o *PatchConnectionForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch connection forbidden response has a 4xx status code
-func (o *PatchConnectionForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch connection forbidden response has a 5xx status code
-func (o *PatchConnectionForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch connection forbidden response a status code equal to that given
-func (o *PatchConnectionForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the patch connection forbidden response
-func (o *PatchConnectionForbidden) Code() int {
-	return 403
-}
-
 func (o *PatchConnectionForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionForbidden  %+v", 403, o.Payload)
 }
-
-func (o *PatchConnectionForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionForbidden  %+v", 403, o.Payload)
-}
-
 func (o *PatchConnectionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewPatchConnectionNotFound() *PatchConnectionNotFound {
 	return &PatchConnectionNotFound{}
 }
 
-/* PatchConnectionNotFound describes a response with status code 404, with default header values.
+/*
+PatchConnectionNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type PatchConnectionNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch connection not found response has a 2xx status code
-func (o *PatchConnectionNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch connection not found response has a 3xx status code
-func (o *PatchConnectionNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch connection not found response has a 4xx status code
-func (o *PatchConnectionNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch connection not found response has a 5xx status code
-func (o *PatchConnectionNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch connection not found response a status code equal to that given
-func (o *PatchConnectionNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the patch connection not found response
-func (o *PatchConnectionNotFound) Code() int {
-	return 404
-}
-
 func (o *PatchConnectionNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound  %+v", 404, o.Payload)
 }
-
-func (o *PatchConnectionNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound  %+v", 404, o.Payload)
-}
-
 func (o *PatchConnectionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewPatchConnectionDefault(code int) *PatchConnectionDefault {
 	}
 }
 
-/* PatchConnectionDefault describes a response with status code -1, with default header values.
+/*
+PatchConnectionDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type PatchConnectionDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this patch connection default response has a 2xx status code
-func (o *PatchConnectionDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this patch connection default response has a 3xx status code
-func (o *PatchConnectionDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this patch connection default response has a 4xx status code
-func (o *PatchConnectionDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this patch connection default response has a 5xx status code
-func (o *PatchConnectionDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this patch connection default response a status code equal to that given
-func (o *PatchConnectionDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the patch connection default response
@@ -385,11 +225,6 @@ func (o *PatchConnectionDefault) Code() int {
 func (o *PatchConnectionDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] PatchConnection default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *PatchConnectionDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] PatchConnection default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *PatchConnectionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

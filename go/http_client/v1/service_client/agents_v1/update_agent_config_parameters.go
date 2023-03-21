@@ -68,10 +68,12 @@ func NewUpdateAgentConfigParamsWithHTTPClient(client *http.Client) *UpdateAgentC
 	}
 }
 
-/* UpdateAgentConfigParams contains all the parameters to send to the API endpoint
-   for the update agent config operation.
+/*
+UpdateAgentConfigParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update agent config operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateAgentConfigParams struct {
 

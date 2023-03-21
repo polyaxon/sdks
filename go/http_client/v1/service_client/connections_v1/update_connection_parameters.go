@@ -68,10 +68,12 @@ func NewUpdateConnectionParamsWithHTTPClient(client *http.Client) *UpdateConnect
 	}
 }
 
-/* UpdateConnectionParams contains all the parameters to send to the API endpoint
-   for the update connection operation.
+/*
+UpdateConnectionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update connection operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateConnectionParams struct {
 

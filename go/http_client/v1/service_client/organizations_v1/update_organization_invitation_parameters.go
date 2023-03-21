@@ -68,10 +68,12 @@ func NewUpdateOrganizationInvitationParamsWithHTTPClient(client *http.Client) *U
 	}
 }
 
-/* UpdateOrganizationInvitationParams contains all the parameters to send to the API endpoint
-   for the update organization invitation operation.
+/*
+UpdateOrganizationInvitationParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update organization invitation operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateOrganizationInvitationParams struct {
 

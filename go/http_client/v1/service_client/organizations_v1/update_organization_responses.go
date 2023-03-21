@@ -78,7 +78,8 @@ func NewUpdateOrganizationOK() *UpdateOrganizationOK {
 	return &UpdateOrganizationOK{}
 }
 
-/* UpdateOrganizationOK describes a response with status code 200, with default header values.
+/*
+UpdateOrganizationOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type UpdateOrganizationOK struct {
 	Payload *service_model.V1Organization
 }
 
-// IsSuccess returns true when this update organization o k response has a 2xx status code
-func (o *UpdateOrganizationOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update organization o k response has a 3xx status code
-func (o *UpdateOrganizationOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update organization o k response has a 4xx status code
-func (o *UpdateOrganizationOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update organization o k response has a 5xx status code
-func (o *UpdateOrganizationOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update organization o k response a status code equal to that given
-func (o *UpdateOrganizationOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the update organization o k response
-func (o *UpdateOrganizationOK) Code() int {
-	return 200
-}
-
 func (o *UpdateOrganizationOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK  %+v", 200, o.Payload)
 }
-
-func (o *UpdateOrganizationOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK  %+v", 200, o.Payload)
-}
-
 func (o *UpdateOrganizationOK) GetPayload() *service_model.V1Organization {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewUpdateOrganizationNoContent() *UpdateOrganizationNoContent {
 	return &UpdateOrganizationNoContent{}
 }
 
-/* UpdateOrganizationNoContent describes a response with status code 204, with default header values.
+/*
+UpdateOrganizationNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type UpdateOrganizationNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update organization no content response has a 2xx status code
-func (o *UpdateOrganizationNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update organization no content response has a 3xx status code
-func (o *UpdateOrganizationNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update organization no content response has a 4xx status code
-func (o *UpdateOrganizationNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update organization no content response has a 5xx status code
-func (o *UpdateOrganizationNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update organization no content response a status code equal to that given
-func (o *UpdateOrganizationNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the update organization no content response
-func (o *UpdateOrganizationNoContent) Code() int {
-	return 204
-}
-
 func (o *UpdateOrganizationNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UpdateOrganizationNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UpdateOrganizationNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewUpdateOrganizationForbidden() *UpdateOrganizationForbidden {
 	return &UpdateOrganizationForbidden{}
 }
 
-/* UpdateOrganizationForbidden describes a response with status code 403, with default header values.
+/*
+UpdateOrganizationForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type UpdateOrganizationForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update organization forbidden response has a 2xx status code
-func (o *UpdateOrganizationForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update organization forbidden response has a 3xx status code
-func (o *UpdateOrganizationForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update organization forbidden response has a 4xx status code
-func (o *UpdateOrganizationForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update organization forbidden response has a 5xx status code
-func (o *UpdateOrganizationForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update organization forbidden response a status code equal to that given
-func (o *UpdateOrganizationForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the update organization forbidden response
-func (o *UpdateOrganizationForbidden) Code() int {
-	return 403
-}
-
 func (o *UpdateOrganizationForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UpdateOrganizationForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UpdateOrganizationForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewUpdateOrganizationNotFound() *UpdateOrganizationNotFound {
 	return &UpdateOrganizationNotFound{}
 }
 
-/* UpdateOrganizationNotFound describes a response with status code 404, with default header values.
+/*
+UpdateOrganizationNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type UpdateOrganizationNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update organization not found response has a 2xx status code
-func (o *UpdateOrganizationNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update organization not found response has a 3xx status code
-func (o *UpdateOrganizationNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update organization not found response has a 4xx status code
-func (o *UpdateOrganizationNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update organization not found response has a 5xx status code
-func (o *UpdateOrganizationNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update organization not found response a status code equal to that given
-func (o *UpdateOrganizationNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the update organization not found response
-func (o *UpdateOrganizationNotFound) Code() int {
-	return 404
-}
-
 func (o *UpdateOrganizationNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UpdateOrganizationNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UpdateOrganizationNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewUpdateOrganizationDefault(code int) *UpdateOrganizationDefault {
 	}
 }
 
-/* UpdateOrganizationDefault describes a response with status code -1, with default header values.
+/*
+UpdateOrganizationDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type UpdateOrganizationDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this update organization default response has a 2xx status code
-func (o *UpdateOrganizationDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update organization default response has a 3xx status code
-func (o *UpdateOrganizationDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update organization default response has a 4xx status code
-func (o *UpdateOrganizationDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update organization default response has a 5xx status code
-func (o *UpdateOrganizationDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update organization default response a status code equal to that given
-func (o *UpdateOrganizationDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the update organization default response
@@ -385,11 +225,6 @@ func (o *UpdateOrganizationDefault) Code() int {
 func (o *UpdateOrganizationDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] UpdateOrganization default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *UpdateOrganizationDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] UpdateOrganization default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *UpdateOrganizationDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

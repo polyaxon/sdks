@@ -68,10 +68,12 @@ func NewCreateServiceAccountTokenParamsWithHTTPClient(client *http.Client) *Crea
 	}
 }
 
-/* CreateServiceAccountTokenParams contains all the parameters to send to the API endpoint
-   for the create service account token operation.
+/*
+CreateServiceAccountTokenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create service account token operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateServiceAccountTokenParams struct {
 

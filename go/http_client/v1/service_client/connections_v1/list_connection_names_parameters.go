@@ -67,10 +67,12 @@ func NewListConnectionNamesParamsWithHTTPClient(client *http.Client) *ListConnec
 	}
 }
 
-/* ListConnectionNamesParams contains all the parameters to send to the API endpoint
-   for the list connection names operation.
+/*
+ListConnectionNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list connection names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListConnectionNamesParams struct {
 

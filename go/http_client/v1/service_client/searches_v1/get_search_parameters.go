@@ -66,10 +66,12 @@ func NewGetSearchParamsWithHTTPClient(client *http.Client) *GetSearchParams {
 	}
 }
 
-/* GetSearchParams contains all the parameters to send to the API endpoint
-   for the get search operation.
+/*
+GetSearchParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get search operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSearchParams struct {
 

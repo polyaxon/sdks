@@ -66,10 +66,12 @@ func NewDisableProjectCIParamsWithHTTPClient(client *http.Client) *DisableProjec
 	}
 }
 
-/* DisableProjectCIParams contains all the parameters to send to the API endpoint
-   for the disable project c i operation.
+/*
+DisableProjectCIParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the disable project c i operation.
+
+	Typically these are written to a http.Request.
 */
 type DisableProjectCIParams struct {
 

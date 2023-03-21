@@ -68,10 +68,12 @@ func NewPatchRunParamsWithHTTPClient(client *http.Client) *PatchRunParams {
 	}
 }
 
-/* PatchRunParams contains all the parameters to send to the API endpoint
-   for the patch run operation.
+/*
+PatchRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch run operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchRunParams struct {
 

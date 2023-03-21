@@ -72,7 +72,7 @@ type ClientService interface {
 }
 
 /*
-  CreateServiceAccount creates service account
+CreateServiceAccount creates service account
 */
 func (a *Client) CreateServiceAccount(params *CreateServiceAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateServiceAccountOK, *CreateServiceAccountNoContent, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +112,7 @@ func (a *Client) CreateServiceAccount(params *CreateServiceAccountParams, authIn
 }
 
 /*
-  CreateServiceAccountToken creates service account token
+CreateServiceAccountToken creates service account token
 */
 func (a *Client) CreateServiceAccountToken(params *CreateServiceAccountTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateServiceAccountTokenOK, *CreateServiceAccountTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -152,7 +152,7 @@ func (a *Client) CreateServiceAccountToken(params *CreateServiceAccountTokenPara
 }
 
 /*
-  DeleteServiceAccount deletes service account
+DeleteServiceAccount deletes service account
 */
 func (a *Client) DeleteServiceAccount(params *DeleteServiceAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteServiceAccountOK, *DeleteServiceAccountNoContent, error) {
 	// TODO: Validate the params before sending
@@ -192,7 +192,7 @@ func (a *Client) DeleteServiceAccount(params *DeleteServiceAccountParams, authIn
 }
 
 /*
-  DeleteServiceAccountToken deletes service account token
+DeleteServiceAccountToken deletes service account token
 */
 func (a *Client) DeleteServiceAccountToken(params *DeleteServiceAccountTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteServiceAccountTokenOK, *DeleteServiceAccountTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -232,7 +232,7 @@ func (a *Client) DeleteServiceAccountToken(params *DeleteServiceAccountTokenPara
 }
 
 /*
-  GetServiceAccount gets service account
+GetServiceAccount gets service account
 */
 func (a *Client) GetServiceAccount(params *GetServiceAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetServiceAccountOK, *GetServiceAccountNoContent, error) {
 	// TODO: Validate the params before sending
@@ -272,7 +272,7 @@ func (a *Client) GetServiceAccount(params *GetServiceAccountParams, authInfo run
 }
 
 /*
-  GetServiceAccountToken gets service account token
+GetServiceAccountToken gets service account token
 */
 func (a *Client) GetServiceAccountToken(params *GetServiceAccountTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetServiceAccountTokenOK, *GetServiceAccountTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -312,7 +312,7 @@ func (a *Client) GetServiceAccountToken(params *GetServiceAccountTokenParams, au
 }
 
 /*
-  ListServiceAccountNames lists service accounts names
+ListServiceAccountNames lists service accounts names
 */
 func (a *Client) ListServiceAccountNames(params *ListServiceAccountNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListServiceAccountNamesOK, *ListServiceAccountNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -352,7 +352,7 @@ func (a *Client) ListServiceAccountNames(params *ListServiceAccountNamesParams, 
 }
 
 /*
-  ListServiceAccountTokens lists service account tokens
+ListServiceAccountTokens lists service account tokens
 */
 func (a *Client) ListServiceAccountTokens(params *ListServiceAccountTokensParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListServiceAccountTokensOK, *ListServiceAccountTokensNoContent, error) {
 	// TODO: Validate the params before sending
@@ -392,7 +392,7 @@ func (a *Client) ListServiceAccountTokens(params *ListServiceAccountTokensParams
 }
 
 /*
-  ListServiceAccounts lists service accounts
+ListServiceAccounts lists service accounts
 */
 func (a *Client) ListServiceAccounts(params *ListServiceAccountsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListServiceAccountsOK, *ListServiceAccountsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -432,7 +432,7 @@ func (a *Client) ListServiceAccounts(params *ListServiceAccountsParams, authInfo
 }
 
 /*
-  PatchServiceAccount patches service account
+PatchServiceAccount patches service account
 */
 func (a *Client) PatchServiceAccount(params *PatchServiceAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchServiceAccountOK, *PatchServiceAccountNoContent, error) {
 	// TODO: Validate the params before sending
@@ -472,7 +472,7 @@ func (a *Client) PatchServiceAccount(params *PatchServiceAccountParams, authInfo
 }
 
 /*
-  PatchServiceAccountToken patches service account token
+PatchServiceAccountToken patches service account token
 */
 func (a *Client) PatchServiceAccountToken(params *PatchServiceAccountTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchServiceAccountTokenOK, *PatchServiceAccountTokenNoContent, error) {
 	// TODO: Validate the params before sending
@@ -512,7 +512,7 @@ func (a *Client) PatchServiceAccountToken(params *PatchServiceAccountTokenParams
 }
 
 /*
-  UpdateServiceAccount updates service account
+UpdateServiceAccount updates service account
 */
 func (a *Client) UpdateServiceAccount(params *UpdateServiceAccountParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateServiceAccountOK, *UpdateServiceAccountNoContent, error) {
 	// TODO: Validate the params before sending
@@ -552,7 +552,7 @@ func (a *Client) UpdateServiceAccount(params *UpdateServiceAccountParams, authIn
 }
 
 /*
-  UpdateServiceAccountToken updates service account token
+UpdateServiceAccountToken updates service account token
 */
 func (a *Client) UpdateServiceAccountToken(params *UpdateServiceAccountTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateServiceAccountTokenOK, *UpdateServiceAccountTokenNoContent, error) {
 	// TODO: Validate the params before sending

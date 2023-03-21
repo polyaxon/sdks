@@ -67,10 +67,12 @@ func NewListAgentNamesParamsWithHTTPClient(client *http.Client) *ListAgentNamesP
 	}
 }
 
-/* ListAgentNamesParams contains all the parameters to send to the API endpoint
-   for the list agent names operation.
+/*
+ListAgentNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list agent names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListAgentNamesParams struct {
 

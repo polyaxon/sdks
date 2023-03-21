@@ -66,10 +66,12 @@ func NewApproveRunParamsWithHTTPClient(client *http.Client) *ApproveRunParams {
 	}
 }
 
-/* ApproveRunParams contains all the parameters to send to the API endpoint
-   for the approve run operation.
+/*
+ApproveRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the approve run operation.
+
+	Typically these are written to a http.Request.
 */
 type ApproveRunParams struct {
 

@@ -62,7 +62,7 @@ type ClientService interface {
 }
 
 /*
-  CreateTag creates tag
+CreateTag creates tag
 */
 func (a *Client) CreateTag(params *CreateTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTagOK, *CreateTagNoContent, error) {
 	// TODO: Validate the params before sending
@@ -102,7 +102,7 @@ func (a *Client) CreateTag(params *CreateTagParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  DeleteTag deletes tag
+DeleteTag deletes tag
 */
 func (a *Client) DeleteTag(params *DeleteTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTagOK, *DeleteTagNoContent, error) {
 	// TODO: Validate the params before sending
@@ -142,7 +142,7 @@ func (a *Client) DeleteTag(params *DeleteTagParams, authInfo runtime.ClientAuthI
 }
 
 /*
-  GetTag gets tag
+GetTag gets tag
 */
 func (a *Client) GetTag(params *GetTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTagOK, *GetTagNoContent, error) {
 	// TODO: Validate the params before sending
@@ -182,7 +182,7 @@ func (a *Client) GetTag(params *GetTagParams, authInfo runtime.ClientAuthInfoWri
 }
 
 /*
-  ListTags lists tags
+ListTags lists tags
 */
 func (a *Client) ListTags(params *ListTagsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTagsOK, *ListTagsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) ListTags(params *ListTagsParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  LoadTags loads tags
+LoadTags loads tags
 */
 func (a *Client) LoadTags(params *LoadTagsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*LoadTagsOK, *LoadTagsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +262,7 @@ func (a *Client) LoadTags(params *LoadTagsParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  PatchTag patches tag
+PatchTag patches tag
 */
 func (a *Client) PatchTag(params *PatchTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTagOK, *PatchTagNoContent, error) {
 	// TODO: Validate the params before sending
@@ -302,7 +302,7 @@ func (a *Client) PatchTag(params *PatchTagParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  SyncTags syncs tags
+SyncTags syncs tags
 */
 func (a *Client) SyncTags(params *SyncTagsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncTagsOK, *SyncTagsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -342,7 +342,7 @@ func (a *Client) SyncTags(params *SyncTagsParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  UpdateTag updates tag
+UpdateTag updates tag
 */
 func (a *Client) UpdateTag(params *UpdateTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTagOK, *UpdateTagNoContent, error) {
 	// TODO: Validate the params before sending

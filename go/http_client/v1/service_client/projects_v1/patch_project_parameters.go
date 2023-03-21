@@ -68,10 +68,12 @@ func NewPatchProjectParamsWithHTTPClient(client *http.Client) *PatchProjectParam
 	}
 }
 
-/* PatchProjectParams contains all the parameters to send to the API endpoint
-   for the patch project operation.
+/*
+PatchProjectParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch project operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchProjectParams struct {
 

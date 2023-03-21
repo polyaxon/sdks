@@ -68,10 +68,12 @@ func NewPatchAgentParamsWithHTTPClient(client *http.Client) *PatchAgentParams {
 	}
 }
 
-/* PatchAgentParams contains all the parameters to send to the API endpoint
-   for the patch agent operation.
+/*
+PatchAgentParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch agent operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchAgentParams struct {
 

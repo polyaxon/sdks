@@ -68,10 +68,12 @@ func NewSyncTagsParamsWithHTTPClient(client *http.Client) *SyncTagsParams {
 	}
 }
 
-/* SyncTagsParams contains all the parameters to send to the API endpoint
-   for the sync tags operation.
+/*
+SyncTagsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the sync tags operation.
+
+	Typically these are written to a http.Request.
 */
 type SyncTagsParams struct {
 

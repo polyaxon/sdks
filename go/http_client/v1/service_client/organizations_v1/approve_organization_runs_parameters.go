@@ -68,10 +68,12 @@ func NewApproveOrganizationRunsParamsWithHTTPClient(client *http.Client) *Approv
 	}
 }
 
-/* ApproveOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the approve organization runs operation.
+/*
+ApproveOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the approve organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type ApproveOrganizationRunsParams struct {
 

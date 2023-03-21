@@ -60,7 +60,7 @@ type ClientService interface {
 }
 
 /*
-  CreateConnection creates connection
+CreateConnection creates connection
 */
 func (a *Client) CreateConnection(params *CreateConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateConnectionOK, *CreateConnectionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -100,7 +100,7 @@ func (a *Client) CreateConnection(params *CreateConnectionParams, authInfo runti
 }
 
 /*
-  DeleteConnection deletes connection
+DeleteConnection deletes connection
 */
 func (a *Client) DeleteConnection(params *DeleteConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteConnectionOK, *DeleteConnectionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -140,7 +140,7 @@ func (a *Client) DeleteConnection(params *DeleteConnectionParams, authInfo runti
 }
 
 /*
-  GetConnection gets connection
+GetConnection gets connection
 */
 func (a *Client) GetConnection(params *GetConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetConnectionOK, *GetConnectionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -180,7 +180,7 @@ func (a *Client) GetConnection(params *GetConnectionParams, authInfo runtime.Cli
 }
 
 /*
-  ListConnectionNames lists connections names
+ListConnectionNames lists connections names
 */
 func (a *Client) ListConnectionNames(params *ListConnectionNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListConnectionNamesOK, *ListConnectionNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -220,7 +220,7 @@ func (a *Client) ListConnectionNames(params *ListConnectionNamesParams, authInfo
 }
 
 /*
-  ListConnections lists connections
+ListConnections lists connections
 */
 func (a *Client) ListConnections(params *ListConnectionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListConnectionsOK, *ListConnectionsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -260,7 +260,7 @@ func (a *Client) ListConnections(params *ListConnectionsParams, authInfo runtime
 }
 
 /*
-  PatchConnection patches connection
+PatchConnection patches connection
 */
 func (a *Client) PatchConnection(params *PatchConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchConnectionOK, *PatchConnectionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -300,7 +300,7 @@ func (a *Client) PatchConnection(params *PatchConnectionParams, authInfo runtime
 }
 
 /*
-  UpdateConnection updates connection
+UpdateConnection updates connection
 */
 func (a *Client) UpdateConnection(params *UpdateConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateConnectionOK, *UpdateConnectionNoContent, error) {
 	// TODO: Validate the params before sending

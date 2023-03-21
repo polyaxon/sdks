@@ -66,10 +66,12 @@ func NewGetProjectSettingsParamsWithHTTPClient(client *http.Client) *GetProjectS
 	}
 }
 
-/* GetProjectSettingsParams contains all the parameters to send to the API endpoint
-   for the get project settings operation.
+/*
+GetProjectSettingsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get project settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetProjectSettingsParams struct {
 

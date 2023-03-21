@@ -78,7 +78,8 @@ func NewCreateVersionStageOK() *CreateVersionStageOK {
 	return &CreateVersionStageOK{}
 }
 
-/* CreateVersionStageOK describes a response with status code 200, with default header values.
+/*
+CreateVersionStageOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type CreateVersionStageOK struct {
 	Payload *service_model.V1Stage
 }
 
-// IsSuccess returns true when this create version stage o k response has a 2xx status code
-func (o *CreateVersionStageOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this create version stage o k response has a 3xx status code
-func (o *CreateVersionStageOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version stage o k response has a 4xx status code
-func (o *CreateVersionStageOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this create version stage o k response has a 5xx status code
-func (o *CreateVersionStageOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version stage o k response a status code equal to that given
-func (o *CreateVersionStageOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the create version stage o k response
-func (o *CreateVersionStageOK) Code() int {
-	return 200
-}
-
 func (o *CreateVersionStageOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK  %+v", 200, o.Payload)
 }
-
-func (o *CreateVersionStageOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK  %+v", 200, o.Payload)
-}
-
 func (o *CreateVersionStageOK) GetPayload() *service_model.V1Stage {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewCreateVersionStageNoContent() *CreateVersionStageNoContent {
 	return &CreateVersionStageNoContent{}
 }
 
-/* CreateVersionStageNoContent describes a response with status code 204, with default header values.
+/*
+CreateVersionStageNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type CreateVersionStageNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create version stage no content response has a 2xx status code
-func (o *CreateVersionStageNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this create version stage no content response has a 3xx status code
-func (o *CreateVersionStageNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version stage no content response has a 4xx status code
-func (o *CreateVersionStageNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this create version stage no content response has a 5xx status code
-func (o *CreateVersionStageNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version stage no content response a status code equal to that given
-func (o *CreateVersionStageNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the create version stage no content response
-func (o *CreateVersionStageNoContent) Code() int {
-	return 204
-}
-
 func (o *CreateVersionStageNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent  %+v", 204, o.Payload)
 }
-
-func (o *CreateVersionStageNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent  %+v", 204, o.Payload)
-}
-
 func (o *CreateVersionStageNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewCreateVersionStageForbidden() *CreateVersionStageForbidden {
 	return &CreateVersionStageForbidden{}
 }
 
-/* CreateVersionStageForbidden describes a response with status code 403, with default header values.
+/*
+CreateVersionStageForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type CreateVersionStageForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create version stage forbidden response has a 2xx status code
-func (o *CreateVersionStageForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this create version stage forbidden response has a 3xx status code
-func (o *CreateVersionStageForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version stage forbidden response has a 4xx status code
-func (o *CreateVersionStageForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this create version stage forbidden response has a 5xx status code
-func (o *CreateVersionStageForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version stage forbidden response a status code equal to that given
-func (o *CreateVersionStageForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the create version stage forbidden response
-func (o *CreateVersionStageForbidden) Code() int {
-	return 403
-}
-
 func (o *CreateVersionStageForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageForbidden  %+v", 403, o.Payload)
 }
-
-func (o *CreateVersionStageForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageForbidden  %+v", 403, o.Payload)
-}
-
 func (o *CreateVersionStageForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewCreateVersionStageNotFound() *CreateVersionStageNotFound {
 	return &CreateVersionStageNotFound{}
 }
 
-/* CreateVersionStageNotFound describes a response with status code 404, with default header values.
+/*
+CreateVersionStageNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type CreateVersionStageNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create version stage not found response has a 2xx status code
-func (o *CreateVersionStageNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this create version stage not found response has a 3xx status code
-func (o *CreateVersionStageNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version stage not found response has a 4xx status code
-func (o *CreateVersionStageNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this create version stage not found response has a 5xx status code
-func (o *CreateVersionStageNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version stage not found response a status code equal to that given
-func (o *CreateVersionStageNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the create version stage not found response
-func (o *CreateVersionStageNotFound) Code() int {
-	return 404
-}
-
 func (o *CreateVersionStageNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound  %+v", 404, o.Payload)
 }
-
-func (o *CreateVersionStageNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound  %+v", 404, o.Payload)
-}
-
 func (o *CreateVersionStageNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewCreateVersionStageDefault(code int) *CreateVersionStageDefault {
 	}
 }
 
-/* CreateVersionStageDefault describes a response with status code -1, with default header values.
+/*
+CreateVersionStageDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type CreateVersionStageDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this create version stage default response has a 2xx status code
-func (o *CreateVersionStageDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this create version stage default response has a 3xx status code
-func (o *CreateVersionStageDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this create version stage default response has a 4xx status code
-func (o *CreateVersionStageDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this create version stage default response has a 5xx status code
-func (o *CreateVersionStageDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this create version stage default response a status code equal to that given
-func (o *CreateVersionStageDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the create version stage default response
@@ -385,11 +225,6 @@ func (o *CreateVersionStageDefault) Code() int {
 func (o *CreateVersionStageDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] CreateVersionStage default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *CreateVersionStageDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] CreateVersionStage default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *CreateVersionStageDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

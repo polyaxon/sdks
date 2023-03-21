@@ -62,7 +62,7 @@ type ClientService interface {
 }
 
 /*
-  CreateProjectSearch creates project search
+CreateProjectSearch creates project search
 */
 func (a *Client) CreateProjectSearch(params *CreateProjectSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateProjectSearchOK, *CreateProjectSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -102,7 +102,7 @@ func (a *Client) CreateProjectSearch(params *CreateProjectSearchParams, authInfo
 }
 
 /*
-  DeleteProjectSearch deletes project search
+DeleteProjectSearch deletes project search
 */
 func (a *Client) DeleteProjectSearch(params *DeleteProjectSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteProjectSearchOK, *DeleteProjectSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -142,7 +142,7 @@ func (a *Client) DeleteProjectSearch(params *DeleteProjectSearchParams, authInfo
 }
 
 /*
-  GetProjectSearch gets project search
+GetProjectSearch gets project search
 */
 func (a *Client) GetProjectSearch(params *GetProjectSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectSearchOK, *GetProjectSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -182,7 +182,7 @@ func (a *Client) GetProjectSearch(params *GetProjectSearchParams, authInfo runti
 }
 
 /*
-  ListProjectSearchNames lists project search names
+ListProjectSearchNames lists project search names
 */
 func (a *Client) ListProjectSearchNames(params *ListProjectSearchNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectSearchNamesOK, *ListProjectSearchNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) ListProjectSearchNames(params *ListProjectSearchNamesParams, au
 }
 
 /*
-  ListProjectSearches lists project searches
+ListProjectSearches lists project searches
 */
 func (a *Client) ListProjectSearches(params *ListProjectSearchesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectSearchesOK, *ListProjectSearchesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +262,7 @@ func (a *Client) ListProjectSearches(params *ListProjectSearchesParams, authInfo
 }
 
 /*
-  PatchProjectSearch patches project search
+PatchProjectSearch patches project search
 */
 func (a *Client) PatchProjectSearch(params *PatchProjectSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectSearchOK, *PatchProjectSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -302,7 +302,7 @@ func (a *Client) PatchProjectSearch(params *PatchProjectSearchParams, authInfo r
 }
 
 /*
-  PromoteProjectSearch promotes project search
+PromoteProjectSearch promotes project search
 */
 func (a *Client) PromoteProjectSearch(params *PromoteProjectSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PromoteProjectSearchOK, *PromoteProjectSearchNoContent, error) {
 	// TODO: Validate the params before sending
@@ -342,7 +342,7 @@ func (a *Client) PromoteProjectSearch(params *PromoteProjectSearchParams, authIn
 }
 
 /*
-  UpdateProjectSearch updates project search
+UpdateProjectSearch updates project search
 */
 func (a *Client) UpdateProjectSearch(params *UpdateProjectSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectSearchOK, *UpdateProjectSearchNoContent, error) {
 	// TODO: Validate the params before sending

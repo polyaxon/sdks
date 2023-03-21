@@ -34,12 +34,8 @@ import (
 type V1RunEdgeKind string
 
 func NewV1RunEdgeKind(value V1RunEdgeKind) *V1RunEdgeKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1RunEdgeKind.
-func (m V1RunEdgeKind) Pointer() *V1RunEdgeKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

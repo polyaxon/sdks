@@ -68,10 +68,12 @@ func NewPatchDashboardParamsWithHTTPClient(client *http.Client) *PatchDashboardP
 	}
 }
 
-/* PatchDashboardParams contains all the parameters to send to the API endpoint
-   for the patch dashboard operation.
+/*
+PatchDashboardParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch dashboard operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchDashboardParams struct {
 

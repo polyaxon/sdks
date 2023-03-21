@@ -67,10 +67,12 @@ func NewListVersionNamesParamsWithHTTPClient(client *http.Client) *ListVersionNa
 	}
 }
 
-/* ListVersionNamesParams contains all the parameters to send to the API endpoint
-   for the list version names operation.
+/*
+ListVersionNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list version names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListVersionNamesParams struct {
 

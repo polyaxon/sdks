@@ -78,48 +78,15 @@ func NewDeleteRunArtifactOK() *DeleteRunArtifactOK {
 	return &DeleteRunArtifactOK{}
 }
 
-/* DeleteRunArtifactOK describes a response with status code 200, with default header values.
+/*
+DeleteRunArtifactOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type DeleteRunArtifactOK struct {
 }
 
-// IsSuccess returns true when this delete run artifact o k response has a 2xx status code
-func (o *DeleteRunArtifactOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete run artifact o k response has a 3xx status code
-func (o *DeleteRunArtifactOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete run artifact o k response has a 4xx status code
-func (o *DeleteRunArtifactOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete run artifact o k response has a 5xx status code
-func (o *DeleteRunArtifactOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete run artifact o k response a status code equal to that given
-func (o *DeleteRunArtifactOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the delete run artifact o k response
-func (o *DeleteRunArtifactOK) Code() int {
-	return 200
-}
-
 func (o *DeleteRunArtifactOK) Error() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactOK ", 200)
-}
-
-func (o *DeleteRunArtifactOK) String() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewDeleteRunArtifactNoContent() *DeleteRunArtifactNoContent {
 	return &DeleteRunArtifactNoContent{}
 }
 
-/* DeleteRunArtifactNoContent describes a response with status code 204, with default header values.
+/*
+DeleteRunArtifactNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type DeleteRunArtifactNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete run artifact no content response has a 2xx status code
-func (o *DeleteRunArtifactNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this delete run artifact no content response has a 3xx status code
-func (o *DeleteRunArtifactNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete run artifact no content response has a 4xx status code
-func (o *DeleteRunArtifactNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this delete run artifact no content response has a 5xx status code
-func (o *DeleteRunArtifactNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete run artifact no content response a status code equal to that given
-func (o *DeleteRunArtifactNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the delete run artifact no content response
-func (o *DeleteRunArtifactNoContent) Code() int {
-	return 204
-}
-
 func (o *DeleteRunArtifactNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactNoContent  %+v", 204, o.Payload)
 }
-
-func (o *DeleteRunArtifactNoContent) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactNoContent  %+v", 204, o.Payload)
-}
-
 func (o *DeleteRunArtifactNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewDeleteRunArtifactForbidden() *DeleteRunArtifactForbidden {
 	return &DeleteRunArtifactForbidden{}
 }
 
-/* DeleteRunArtifactForbidden describes a response with status code 403, with default header values.
+/*
+DeleteRunArtifactForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type DeleteRunArtifactForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete run artifact forbidden response has a 2xx status code
-func (o *DeleteRunArtifactForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete run artifact forbidden response has a 3xx status code
-func (o *DeleteRunArtifactForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete run artifact forbidden response has a 4xx status code
-func (o *DeleteRunArtifactForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete run artifact forbidden response has a 5xx status code
-func (o *DeleteRunArtifactForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete run artifact forbidden response a status code equal to that given
-func (o *DeleteRunArtifactForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the delete run artifact forbidden response
-func (o *DeleteRunArtifactForbidden) Code() int {
-	return 403
-}
-
 func (o *DeleteRunArtifactForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactForbidden  %+v", 403, o.Payload)
 }
-
-func (o *DeleteRunArtifactForbidden) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactForbidden  %+v", 403, o.Payload)
-}
-
 func (o *DeleteRunArtifactForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewDeleteRunArtifactNotFound() *DeleteRunArtifactNotFound {
 	return &DeleteRunArtifactNotFound{}
 }
 
-/* DeleteRunArtifactNotFound describes a response with status code 404, with default header values.
+/*
+DeleteRunArtifactNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type DeleteRunArtifactNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this delete run artifact not found response has a 2xx status code
-func (o *DeleteRunArtifactNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this delete run artifact not found response has a 3xx status code
-func (o *DeleteRunArtifactNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this delete run artifact not found response has a 4xx status code
-func (o *DeleteRunArtifactNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this delete run artifact not found response has a 5xx status code
-func (o *DeleteRunArtifactNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this delete run artifact not found response a status code equal to that given
-func (o *DeleteRunArtifactNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the delete run artifact not found response
-func (o *DeleteRunArtifactNotFound) Code() int {
-	return 404
-}
-
 func (o *DeleteRunArtifactNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactNotFound  %+v", 404, o.Payload)
 }
-
-func (o *DeleteRunArtifactNotFound) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] deleteRunArtifactNotFound  %+v", 404, o.Payload)
-}
-
 func (o *DeleteRunArtifactNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewDeleteRunArtifactDefault(code int) *DeleteRunArtifactDefault {
 	}
 }
 
-/* DeleteRunArtifactDefault describes a response with status code -1, with default header values.
+/*
+DeleteRunArtifactDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type DeleteRunArtifactDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this delete run artifact default response has a 2xx status code
-func (o *DeleteRunArtifactDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this delete run artifact default response has a 3xx status code
-func (o *DeleteRunArtifactDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this delete run artifact default response has a 4xx status code
-func (o *DeleteRunArtifactDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this delete run artifact default response has a 5xx status code
-func (o *DeleteRunArtifactDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this delete run artifact default response a status code equal to that given
-func (o *DeleteRunArtifactDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the delete run artifact default response
@@ -373,11 +214,6 @@ func (o *DeleteRunArtifactDefault) Code() int {
 func (o *DeleteRunArtifactDefault) Error() string {
 	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] DeleteRunArtifact default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *DeleteRunArtifactDefault) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] DeleteRunArtifact default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *DeleteRunArtifactDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

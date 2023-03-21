@@ -68,10 +68,12 @@ func NewUpdateTagParamsWithHTTPClient(client *http.Client) *UpdateTagParams {
 	}
 }
 
-/* UpdateTagParams contains all the parameters to send to the API endpoint
-   for the update tag operation.
+/*
+UpdateTagParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update tag operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateTagParams struct {
 

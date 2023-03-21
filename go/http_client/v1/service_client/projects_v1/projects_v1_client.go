@@ -110,7 +110,7 @@ type ClientService interface {
 }
 
 /*
-  ArchiveProject archives project
+ArchiveProject archives project
 */
 func (a *Client) ArchiveProject(params *ArchiveProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveProjectOK, *ArchiveProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -150,7 +150,7 @@ func (a *Client) ArchiveProject(params *ArchiveProjectParams, authInfo runtime.C
 }
 
 /*
-  BookmarkProject bookmarks project
+BookmarkProject bookmarks project
 */
 func (a *Client) BookmarkProject(params *BookmarkProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkProjectOK, *BookmarkProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) BookmarkProject(params *BookmarkProjectParams, authInfo runtime
 }
 
 /*
-  CreateProject creates new project
+CreateProject creates new project
 */
 func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateProjectOK, *CreateProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -230,7 +230,7 @@ func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.Cli
 }
 
 /*
-  CreateVersion creates version
+CreateVersion creates version
 */
 func (a *Client) CreateVersion(params *CreateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionOK, *CreateVersionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -270,7 +270,7 @@ func (a *Client) CreateVersion(params *CreateVersionParams, authInfo runtime.Cli
 }
 
 /*
-  CreateVersionStage creates new artifact version stage
+CreateVersionStage creates new artifact version stage
 */
 func (a *Client) CreateVersionStage(params *CreateVersionStageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionStageOK, *CreateVersionStageNoContent, error) {
 	// TODO: Validate the params before sending
@@ -310,7 +310,7 @@ func (a *Client) CreateVersionStage(params *CreateVersionStageParams, authInfo r
 }
 
 /*
-  DeleteProject deletes project
+DeleteProject deletes project
 */
 func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteProjectOK, *DeleteProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -350,7 +350,7 @@ func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.Cli
 }
 
 /*
-  DeleteVersion deletes version
+DeleteVersion deletes version
 */
 func (a *Client) DeleteVersion(params *DeleteVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteVersionOK, *DeleteVersionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -390,7 +390,7 @@ func (a *Client) DeleteVersion(params *DeleteVersionParams, authInfo runtime.Cli
 }
 
 /*
-  DisableProjectCI disbales project c i
+DisableProjectCI disbales project c i
 */
 func (a *Client) DisableProjectCI(params *DisableProjectCIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DisableProjectCIOK, *DisableProjectCINoContent, error) {
 	// TODO: Validate the params before sending
@@ -430,7 +430,7 @@ func (a *Client) DisableProjectCI(params *DisableProjectCIParams, authInfo runti
 }
 
 /*
-  EnableProjectCI enables project c i
+EnableProjectCI enables project c i
 */
 func (a *Client) EnableProjectCI(params *EnableProjectCIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EnableProjectCIOK, *EnableProjectCINoContent, error) {
 	// TODO: Validate the params before sending
@@ -470,7 +470,7 @@ func (a *Client) EnableProjectCI(params *EnableProjectCIParams, authInfo runtime
 }
 
 /*
-  GetProject gets project
+GetProject gets project
 */
 func (a *Client) GetProject(params *GetProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectOK, *GetProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -510,7 +510,7 @@ func (a *Client) GetProject(params *GetProjectParams, authInfo runtime.ClientAut
 }
 
 /*
-  GetProjectActivities gets project activities
+GetProjectActivities gets project activities
 */
 func (a *Client) GetProjectActivities(params *GetProjectActivitiesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectActivitiesOK, *GetProjectActivitiesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -550,7 +550,7 @@ func (a *Client) GetProjectActivities(params *GetProjectActivitiesParams, authIn
 }
 
 /*
-  GetProjectSettings gets project settings
+GetProjectSettings gets project settings
 */
 func (a *Client) GetProjectSettings(params *GetProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectSettingsOK, *GetProjectSettingsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -590,7 +590,7 @@ func (a *Client) GetProjectSettings(params *GetProjectSettingsParams, authInfo r
 }
 
 /*
-  GetProjectStats gets project stats
+GetProjectStats gets project stats
 */
 func (a *Client) GetProjectStats(params *GetProjectStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectStatsOK, *GetProjectStatsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -630,7 +630,7 @@ func (a *Client) GetProjectStats(params *GetProjectStatsParams, authInfo runtime
 }
 
 /*
-  GetVersion gets version
+GetVersion gets version
 */
 func (a *Client) GetVersion(params *GetVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionOK, *GetVersionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -670,7 +670,7 @@ func (a *Client) GetVersion(params *GetVersionParams, authInfo runtime.ClientAut
 }
 
 /*
-  GetVersionStages gets version stages
+GetVersionStages gets version stages
 */
 func (a *Client) GetVersionStages(params *GetVersionStagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionStagesOK, *GetVersionStagesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -710,7 +710,7 @@ func (a *Client) GetVersionStages(params *GetVersionStagesParams, authInfo runti
 }
 
 /*
-  ListArchivedProjects lists archived projects for user
+ListArchivedProjects lists archived projects for user
 */
 func (a *Client) ListArchivedProjects(params *ListArchivedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListArchivedProjectsOK, *ListArchivedProjectsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -750,7 +750,7 @@ func (a *Client) ListArchivedProjects(params *ListArchivedProjectsParams, authIn
 }
 
 /*
-  ListBookmarkedProjects lists bookmarked projects for user
+ListBookmarkedProjects lists bookmarked projects for user
 */
 func (a *Client) ListBookmarkedProjects(params *ListBookmarkedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListBookmarkedProjectsOK, *ListBookmarkedProjectsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -790,7 +790,7 @@ func (a *Client) ListBookmarkedProjects(params *ListBookmarkedProjectsParams, au
 }
 
 /*
-  ListProjectNames lists project names
+ListProjectNames lists project names
 */
 func (a *Client) ListProjectNames(params *ListProjectNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectNamesOK, *ListProjectNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -830,7 +830,7 @@ func (a *Client) ListProjectNames(params *ListProjectNamesParams, authInfo runti
 }
 
 /*
-  ListProjects lists projects
+ListProjects lists projects
 */
 func (a *Client) ListProjects(params *ListProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectsOK, *ListProjectsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -870,7 +870,7 @@ func (a *Client) ListProjects(params *ListProjectsParams, authInfo runtime.Clien
 }
 
 /*
-  ListVersionNames lists versions names
+ListVersionNames lists versions names
 */
 func (a *Client) ListVersionNames(params *ListVersionNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionNamesOK, *ListVersionNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -910,7 +910,7 @@ func (a *Client) ListVersionNames(params *ListVersionNamesParams, authInfo runti
 }
 
 /*
-  ListVersions lists versions
+ListVersions lists versions
 */
 func (a *Client) ListVersions(params *ListVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionsOK, *ListVersionsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -950,7 +950,7 @@ func (a *Client) ListVersions(params *ListVersionsParams, authInfo runtime.Clien
 }
 
 /*
-  PatchProject patches project
+PatchProject patches project
 */
 func (a *Client) PatchProject(params *PatchProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectOK, *PatchProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -990,7 +990,7 @@ func (a *Client) PatchProject(params *PatchProjectParams, authInfo runtime.Clien
 }
 
 /*
-  PatchProjectSettings patches project settings
+PatchProjectSettings patches project settings
 */
 func (a *Client) PatchProjectSettings(params *PatchProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectSettingsOK, *PatchProjectSettingsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1030,7 +1030,7 @@ func (a *Client) PatchProjectSettings(params *PatchProjectSettingsParams, authIn
 }
 
 /*
-  PatchVersion patches version
+PatchVersion patches version
 */
 func (a *Client) PatchVersion(params *PatchVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchVersionOK, *PatchVersionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1070,7 +1070,7 @@ func (a *Client) PatchVersion(params *PatchVersionParams, authInfo runtime.Clien
 }
 
 /*
-  RestoreProject restores project
+RestoreProject restores project
 */
 func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreProjectOK, *RestoreProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1110,7 +1110,7 @@ func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.C
 }
 
 /*
-  TransferVersion transfers version
+TransferVersion transfers version
 */
 func (a *Client) TransferVersion(params *TransferVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferVersionOK, *TransferVersionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1150,7 +1150,7 @@ func (a *Client) TransferVersion(params *TransferVersionParams, authInfo runtime
 }
 
 /*
-  UnbookmarkProject unbookmarks project
+UnbookmarkProject unbookmarks project
 */
 func (a *Client) UnbookmarkProject(params *UnbookmarkProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UnbookmarkProjectOK, *UnbookmarkProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1190,7 +1190,7 @@ func (a *Client) UnbookmarkProject(params *UnbookmarkProjectParams, authInfo run
 }
 
 /*
-  UpdateProject updates project
+UpdateProject updates project
 */
 func (a *Client) UpdateProject(params *UpdateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectOK, *UpdateProjectNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1230,7 +1230,7 @@ func (a *Client) UpdateProject(params *UpdateProjectParams, authInfo runtime.Cli
 }
 
 /*
-  UpdateProjectSettings updates project settings
+UpdateProjectSettings updates project settings
 */
 func (a *Client) UpdateProjectSettings(params *UpdateProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectSettingsOK, *UpdateProjectSettingsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1270,7 +1270,7 @@ func (a *Client) UpdateProjectSettings(params *UpdateProjectSettingsParams, auth
 }
 
 /*
-  UpdateVersion updates version
+UpdateVersion updates version
 */
 func (a *Client) UpdateVersion(params *UpdateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateVersionOK, *UpdateVersionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1310,7 +1310,7 @@ func (a *Client) UpdateVersion(params *UpdateVersionParams, authInfo runtime.Cli
 }
 
 /*
-  UploadProjectArtifact uploads artifact to a store via project access
+UploadProjectArtifact uploads artifact to a store via project access
 */
 func (a *Client) UploadProjectArtifact(params *UploadProjectArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadProjectArtifactOK, *UploadProjectArtifactNoContent, error) {
 	// TODO: Validate the params before sending

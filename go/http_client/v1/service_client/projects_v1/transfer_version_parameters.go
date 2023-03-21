@@ -68,10 +68,12 @@ func NewTransferVersionParamsWithHTTPClient(client *http.Client) *TransferVersio
 	}
 }
 
-/* TransferVersionParams contains all the parameters to send to the API endpoint
-   for the transfer version operation.
+/*
+TransferVersionParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the transfer version operation.
+
+	Typically these are written to a http.Request.
 */
 type TransferVersionParams struct {
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **mount_artifacts_store** | **bool** |  | [optional] 
 **collect_artifacts** | **bool** |  | [optional] 
 **collect_logs** | **bool** |  | [optional] 
-**collect_resources** | **str** |  | [optional] 
+**collect_resources** | **bool** |  | [optional] 
 **sync_statuses** | **bool** |  | [optional] 
 **auto_resume** | **bool** |  | [optional] 
 **log_level** | **str** |  | [optional] 

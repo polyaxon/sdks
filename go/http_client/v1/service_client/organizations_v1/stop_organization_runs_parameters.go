@@ -68,10 +68,12 @@ func NewStopOrganizationRunsParamsWithHTTPClient(client *http.Client) *StopOrgan
 	}
 }
 
-/* StopOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the stop organization runs operation.
+/*
+StopOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the stop organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type StopOrganizationRunsParams struct {
 

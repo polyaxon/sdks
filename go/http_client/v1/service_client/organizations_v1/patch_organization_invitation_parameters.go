@@ -68,10 +68,12 @@ func NewPatchOrganizationInvitationParamsWithHTTPClient(client *http.Client) *Pa
 	}
 }
 
-/* PatchOrganizationInvitationParams contains all the parameters to send to the API endpoint
-   for the patch organization invitation operation.
+/*
+PatchOrganizationInvitationParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch organization invitation operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchOrganizationInvitationParams struct {
 

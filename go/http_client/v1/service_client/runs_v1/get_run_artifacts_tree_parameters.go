@@ -66,10 +66,12 @@ func NewGetRunArtifactsTreeParamsWithHTTPClient(client *http.Client) *GetRunArti
 	}
 }
 
-/* GetRunArtifactsTreeParams contains all the parameters to send to the API endpoint
-   for the get run artifacts tree operation.
+/*
+GetRunArtifactsTreeParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run artifacts tree operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunArtifactsTreeParams struct {
 

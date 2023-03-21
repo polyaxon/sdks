@@ -78,7 +78,8 @@ func NewGetProjectActivitiesOK() *GetProjectActivitiesOK {
 	return &GetProjectActivitiesOK{}
 }
 
-/* GetProjectActivitiesOK describes a response with status code 200, with default header values.
+/*
+GetProjectActivitiesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetProjectActivitiesOK struct {
 	Payload *service_model.V1ListActivitiesResponse
 }
 
-// IsSuccess returns true when this get project activities o k response has a 2xx status code
-func (o *GetProjectActivitiesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get project activities o k response has a 3xx status code
-func (o *GetProjectActivitiesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project activities o k response has a 4xx status code
-func (o *GetProjectActivitiesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get project activities o k response has a 5xx status code
-func (o *GetProjectActivitiesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project activities o k response a status code equal to that given
-func (o *GetProjectActivitiesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get project activities o k response
-func (o *GetProjectActivitiesOK) Code() int {
-	return 200
-}
-
 func (o *GetProjectActivitiesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesOK  %+v", 200, o.Payload)
 }
-
-func (o *GetProjectActivitiesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesOK  %+v", 200, o.Payload)
-}
-
 func (o *GetProjectActivitiesOK) GetPayload() *service_model.V1ListActivitiesResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetProjectActivitiesNoContent() *GetProjectActivitiesNoContent {
 	return &GetProjectActivitiesNoContent{}
 }
 
-/* GetProjectActivitiesNoContent describes a response with status code 204, with default header values.
+/*
+GetProjectActivitiesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetProjectActivitiesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get project activities no content response has a 2xx status code
-func (o *GetProjectActivitiesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get project activities no content response has a 3xx status code
-func (o *GetProjectActivitiesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project activities no content response has a 4xx status code
-func (o *GetProjectActivitiesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get project activities no content response has a 5xx status code
-func (o *GetProjectActivitiesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project activities no content response a status code equal to that given
-func (o *GetProjectActivitiesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get project activities no content response
-func (o *GetProjectActivitiesNoContent) Code() int {
-	return 204
-}
-
 func (o *GetProjectActivitiesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetProjectActivitiesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetProjectActivitiesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetProjectActivitiesForbidden() *GetProjectActivitiesForbidden {
 	return &GetProjectActivitiesForbidden{}
 }
 
-/* GetProjectActivitiesForbidden describes a response with status code 403, with default header values.
+/*
+GetProjectActivitiesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetProjectActivitiesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get project activities forbidden response has a 2xx status code
-func (o *GetProjectActivitiesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get project activities forbidden response has a 3xx status code
-func (o *GetProjectActivitiesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project activities forbidden response has a 4xx status code
-func (o *GetProjectActivitiesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get project activities forbidden response has a 5xx status code
-func (o *GetProjectActivitiesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project activities forbidden response a status code equal to that given
-func (o *GetProjectActivitiesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get project activities forbidden response
-func (o *GetProjectActivitiesForbidden) Code() int {
-	return 403
-}
-
 func (o *GetProjectActivitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetProjectActivitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetProjectActivitiesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetProjectActivitiesNotFound() *GetProjectActivitiesNotFound {
 	return &GetProjectActivitiesNotFound{}
 }
 
-/* GetProjectActivitiesNotFound describes a response with status code 404, with default header values.
+/*
+GetProjectActivitiesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetProjectActivitiesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get project activities not found response has a 2xx status code
-func (o *GetProjectActivitiesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get project activities not found response has a 3xx status code
-func (o *GetProjectActivitiesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get project activities not found response has a 4xx status code
-func (o *GetProjectActivitiesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get project activities not found response has a 5xx status code
-func (o *GetProjectActivitiesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get project activities not found response a status code equal to that given
-func (o *GetProjectActivitiesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get project activities not found response
-func (o *GetProjectActivitiesNotFound) Code() int {
-	return 404
-}
-
 func (o *GetProjectActivitiesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetProjectActivitiesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] getProjectActivitiesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetProjectActivitiesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetProjectActivitiesDefault(code int) *GetProjectActivitiesDefault {
 	}
 }
 
-/* GetProjectActivitiesDefault describes a response with status code -1, with default header values.
+/*
+GetProjectActivitiesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetProjectActivitiesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get project activities default response has a 2xx status code
-func (o *GetProjectActivitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get project activities default response has a 3xx status code
-func (o *GetProjectActivitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get project activities default response has a 4xx status code
-func (o *GetProjectActivitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get project activities default response has a 5xx status code
-func (o *GetProjectActivitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get project activities default response a status code equal to that given
-func (o *GetProjectActivitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get project activities default response
@@ -385,11 +225,6 @@ func (o *GetProjectActivitiesDefault) Code() int {
 func (o *GetProjectActivitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] GetProjectActivities default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetProjectActivitiesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/activities][%d] GetProjectActivities default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetProjectActivitiesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

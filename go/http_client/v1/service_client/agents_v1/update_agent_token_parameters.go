@@ -68,10 +68,12 @@ func NewUpdateAgentTokenParamsWithHTTPClient(client *http.Client) *UpdateAgentTo
 	}
 }
 
-/* UpdateAgentTokenParams contains all the parameters to send to the API endpoint
-   for the update agent token operation.
+/*
+UpdateAgentTokenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update agent token operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateAgentTokenParams struct {
 

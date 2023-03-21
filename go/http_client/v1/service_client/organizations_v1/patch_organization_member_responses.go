@@ -78,7 +78,8 @@ func NewPatchOrganizationMemberOK() *PatchOrganizationMemberOK {
 	return &PatchOrganizationMemberOK{}
 }
 
-/* PatchOrganizationMemberOK describes a response with status code 200, with default header values.
+/*
+PatchOrganizationMemberOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type PatchOrganizationMemberOK struct {
 	Payload *service_model.V1OrganizationMember
 }
 
-// IsSuccess returns true when this patch organization member o k response has a 2xx status code
-func (o *PatchOrganizationMemberOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch organization member o k response has a 3xx status code
-func (o *PatchOrganizationMemberOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch organization member o k response has a 4xx status code
-func (o *PatchOrganizationMemberOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch organization member o k response has a 5xx status code
-func (o *PatchOrganizationMemberOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch organization member o k response a status code equal to that given
-func (o *PatchOrganizationMemberOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the patch organization member o k response
-func (o *PatchOrganizationMemberOK) Code() int {
-	return 200
-}
-
 func (o *PatchOrganizationMemberOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberOK  %+v", 200, o.Payload)
 }
-
-func (o *PatchOrganizationMemberOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberOK  %+v", 200, o.Payload)
-}
-
 func (o *PatchOrganizationMemberOK) GetPayload() *service_model.V1OrganizationMember {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewPatchOrganizationMemberNoContent() *PatchOrganizationMemberNoContent {
 	return &PatchOrganizationMemberNoContent{}
 }
 
-/* PatchOrganizationMemberNoContent describes a response with status code 204, with default header values.
+/*
+PatchOrganizationMemberNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type PatchOrganizationMemberNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch organization member no content response has a 2xx status code
-func (o *PatchOrganizationMemberNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this patch organization member no content response has a 3xx status code
-func (o *PatchOrganizationMemberNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch organization member no content response has a 4xx status code
-func (o *PatchOrganizationMemberNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this patch organization member no content response has a 5xx status code
-func (o *PatchOrganizationMemberNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch organization member no content response a status code equal to that given
-func (o *PatchOrganizationMemberNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the patch organization member no content response
-func (o *PatchOrganizationMemberNoContent) Code() int {
-	return 204
-}
-
 func (o *PatchOrganizationMemberNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberNoContent  %+v", 204, o.Payload)
 }
-
-func (o *PatchOrganizationMemberNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberNoContent  %+v", 204, o.Payload)
-}
-
 func (o *PatchOrganizationMemberNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewPatchOrganizationMemberForbidden() *PatchOrganizationMemberForbidden {
 	return &PatchOrganizationMemberForbidden{}
 }
 
-/* PatchOrganizationMemberForbidden describes a response with status code 403, with default header values.
+/*
+PatchOrganizationMemberForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type PatchOrganizationMemberForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch organization member forbidden response has a 2xx status code
-func (o *PatchOrganizationMemberForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch organization member forbidden response has a 3xx status code
-func (o *PatchOrganizationMemberForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch organization member forbidden response has a 4xx status code
-func (o *PatchOrganizationMemberForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch organization member forbidden response has a 5xx status code
-func (o *PatchOrganizationMemberForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch organization member forbidden response a status code equal to that given
-func (o *PatchOrganizationMemberForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the patch organization member forbidden response
-func (o *PatchOrganizationMemberForbidden) Code() int {
-	return 403
-}
-
 func (o *PatchOrganizationMemberForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberForbidden  %+v", 403, o.Payload)
 }
-
-func (o *PatchOrganizationMemberForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberForbidden  %+v", 403, o.Payload)
-}
-
 func (o *PatchOrganizationMemberForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewPatchOrganizationMemberNotFound() *PatchOrganizationMemberNotFound {
 	return &PatchOrganizationMemberNotFound{}
 }
 
-/* PatchOrganizationMemberNotFound describes a response with status code 404, with default header values.
+/*
+PatchOrganizationMemberNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type PatchOrganizationMemberNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this patch organization member not found response has a 2xx status code
-func (o *PatchOrganizationMemberNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this patch organization member not found response has a 3xx status code
-func (o *PatchOrganizationMemberNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this patch organization member not found response has a 4xx status code
-func (o *PatchOrganizationMemberNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this patch organization member not found response has a 5xx status code
-func (o *PatchOrganizationMemberNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this patch organization member not found response a status code equal to that given
-func (o *PatchOrganizationMemberNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the patch organization member not found response
-func (o *PatchOrganizationMemberNotFound) Code() int {
-	return 404
-}
-
 func (o *PatchOrganizationMemberNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberNotFound  %+v", 404, o.Payload)
 }
-
-func (o *PatchOrganizationMemberNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] patchOrganizationMemberNotFound  %+v", 404, o.Payload)
-}
-
 func (o *PatchOrganizationMemberNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewPatchOrganizationMemberDefault(code int) *PatchOrganizationMemberDefault
 	}
 }
 
-/* PatchOrganizationMemberDefault describes a response with status code -1, with default header values.
+/*
+PatchOrganizationMemberDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type PatchOrganizationMemberDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this patch organization member default response has a 2xx status code
-func (o *PatchOrganizationMemberDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this patch organization member default response has a 3xx status code
-func (o *PatchOrganizationMemberDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this patch organization member default response has a 4xx status code
-func (o *PatchOrganizationMemberDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this patch organization member default response has a 5xx status code
-func (o *PatchOrganizationMemberDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this patch organization member default response a status code equal to that given
-func (o *PatchOrganizationMemberDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the patch organization member default response
@@ -385,11 +225,6 @@ func (o *PatchOrganizationMemberDefault) Code() int {
 func (o *PatchOrganizationMemberDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] PatchOrganizationMember default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *PatchOrganizationMemberDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/members/{member.user}][%d] PatchOrganizationMember default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *PatchOrganizationMemberDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

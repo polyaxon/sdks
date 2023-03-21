@@ -68,10 +68,12 @@ func NewSyncAgentParamsWithHTTPClient(client *http.Client) *SyncAgentParams {
 	}
 }
 
-/* SyncAgentParams contains all the parameters to send to the API endpoint
-   for the sync agent operation.
+/*
+SyncAgentParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the sync agent operation.
+
+	Typically these are written to a http.Request.
 */
 type SyncAgentParams struct {
 

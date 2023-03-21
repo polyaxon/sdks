@@ -34,12 +34,8 @@ import (
 type V1RunPending string
 
 func NewV1RunPending(value V1RunPending) *V1RunPending {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1RunPending.
-func (m V1RunPending) Pointer() *V1RunPending {
-	return &m
+	v := value
+	return &v
 }
 
 const (

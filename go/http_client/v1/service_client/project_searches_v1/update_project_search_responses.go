@@ -78,7 +78,8 @@ func NewUpdateProjectSearchOK() *UpdateProjectSearchOK {
 	return &UpdateProjectSearchOK{}
 }
 
-/* UpdateProjectSearchOK describes a response with status code 200, with default header values.
+/*
+UpdateProjectSearchOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type UpdateProjectSearchOK struct {
 	Payload *service_model.V1Search
 }
 
-// IsSuccess returns true when this update project search o k response has a 2xx status code
-func (o *UpdateProjectSearchOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update project search o k response has a 3xx status code
-func (o *UpdateProjectSearchOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update project search o k response has a 4xx status code
-func (o *UpdateProjectSearchOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update project search o k response has a 5xx status code
-func (o *UpdateProjectSearchOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update project search o k response a status code equal to that given
-func (o *UpdateProjectSearchOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the update project search o k response
-func (o *UpdateProjectSearchOK) Code() int {
-	return 200
-}
-
 func (o *UpdateProjectSearchOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchOK  %+v", 200, o.Payload)
 }
-
-func (o *UpdateProjectSearchOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchOK  %+v", 200, o.Payload)
-}
-
 func (o *UpdateProjectSearchOK) GetPayload() *service_model.V1Search {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewUpdateProjectSearchNoContent() *UpdateProjectSearchNoContent {
 	return &UpdateProjectSearchNoContent{}
 }
 
-/* UpdateProjectSearchNoContent describes a response with status code 204, with default header values.
+/*
+UpdateProjectSearchNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type UpdateProjectSearchNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update project search no content response has a 2xx status code
-func (o *UpdateProjectSearchNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this update project search no content response has a 3xx status code
-func (o *UpdateProjectSearchNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update project search no content response has a 4xx status code
-func (o *UpdateProjectSearchNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this update project search no content response has a 5xx status code
-func (o *UpdateProjectSearchNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update project search no content response a status code equal to that given
-func (o *UpdateProjectSearchNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the update project search no content response
-func (o *UpdateProjectSearchNoContent) Code() int {
-	return 204
-}
-
 func (o *UpdateProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UpdateProjectSearchNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UpdateProjectSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewUpdateProjectSearchForbidden() *UpdateProjectSearchForbidden {
 	return &UpdateProjectSearchForbidden{}
 }
 
-/* UpdateProjectSearchForbidden describes a response with status code 403, with default header values.
+/*
+UpdateProjectSearchForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type UpdateProjectSearchForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update project search forbidden response has a 2xx status code
-func (o *UpdateProjectSearchForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update project search forbidden response has a 3xx status code
-func (o *UpdateProjectSearchForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update project search forbidden response has a 4xx status code
-func (o *UpdateProjectSearchForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update project search forbidden response has a 5xx status code
-func (o *UpdateProjectSearchForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update project search forbidden response a status code equal to that given
-func (o *UpdateProjectSearchForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the update project search forbidden response
-func (o *UpdateProjectSearchForbidden) Code() int {
-	return 403
-}
-
 func (o *UpdateProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UpdateProjectSearchForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UpdateProjectSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewUpdateProjectSearchNotFound() *UpdateProjectSearchNotFound {
 	return &UpdateProjectSearchNotFound{}
 }
 
-/* UpdateProjectSearchNotFound describes a response with status code 404, with default header values.
+/*
+UpdateProjectSearchNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type UpdateProjectSearchNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this update project search not found response has a 2xx status code
-func (o *UpdateProjectSearchNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this update project search not found response has a 3xx status code
-func (o *UpdateProjectSearchNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this update project search not found response has a 4xx status code
-func (o *UpdateProjectSearchNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this update project search not found response has a 5xx status code
-func (o *UpdateProjectSearchNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this update project search not found response a status code equal to that given
-func (o *UpdateProjectSearchNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the update project search not found response
-func (o *UpdateProjectSearchNotFound) Code() int {
-	return 404
-}
-
 func (o *UpdateProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UpdateProjectSearchNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] updateProjectSearchNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UpdateProjectSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewUpdateProjectSearchDefault(code int) *UpdateProjectSearchDefault {
 	}
 }
 
-/* UpdateProjectSearchDefault describes a response with status code -1, with default header values.
+/*
+UpdateProjectSearchDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type UpdateProjectSearchDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this update project search default response has a 2xx status code
-func (o *UpdateProjectSearchDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this update project search default response has a 3xx status code
-func (o *UpdateProjectSearchDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this update project search default response has a 4xx status code
-func (o *UpdateProjectSearchDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this update project search default response has a 5xx status code
-func (o *UpdateProjectSearchDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this update project search default response a status code equal to that given
-func (o *UpdateProjectSearchDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the update project search default response
@@ -385,11 +225,6 @@ func (o *UpdateProjectSearchDefault) Code() int {
 func (o *UpdateProjectSearchDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] UpdateProjectSearch default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *UpdateProjectSearchDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/searches/{search.uuid}][%d] UpdateProjectSearch default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *UpdateProjectSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

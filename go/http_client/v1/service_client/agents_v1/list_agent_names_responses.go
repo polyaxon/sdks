@@ -78,7 +78,8 @@ func NewListAgentNamesOK() *ListAgentNamesOK {
 	return &ListAgentNamesOK{}
 }
 
-/* ListAgentNamesOK describes a response with status code 200, with default header values.
+/*
+ListAgentNamesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListAgentNamesOK struct {
 	Payload *service_model.V1ListAgentsResponse
 }
 
-// IsSuccess returns true when this list agent names o k response has a 2xx status code
-func (o *ListAgentNamesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list agent names o k response has a 3xx status code
-func (o *ListAgentNamesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list agent names o k response has a 4xx status code
-func (o *ListAgentNamesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list agent names o k response has a 5xx status code
-func (o *ListAgentNamesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list agent names o k response a status code equal to that given
-func (o *ListAgentNamesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list agent names o k response
-func (o *ListAgentNamesOK) Code() int {
-	return 200
-}
-
 func (o *ListAgentNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesOK  %+v", 200, o.Payload)
 }
-
-func (o *ListAgentNamesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesOK  %+v", 200, o.Payload)
-}
-
 func (o *ListAgentNamesOK) GetPayload() *service_model.V1ListAgentsResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListAgentNamesNoContent() *ListAgentNamesNoContent {
 	return &ListAgentNamesNoContent{}
 }
 
-/* ListAgentNamesNoContent describes a response with status code 204, with default header values.
+/*
+ListAgentNamesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListAgentNamesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list agent names no content response has a 2xx status code
-func (o *ListAgentNamesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list agent names no content response has a 3xx status code
-func (o *ListAgentNamesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list agent names no content response has a 4xx status code
-func (o *ListAgentNamesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list agent names no content response has a 5xx status code
-func (o *ListAgentNamesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list agent names no content response a status code equal to that given
-func (o *ListAgentNamesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list agent names no content response
-func (o *ListAgentNamesNoContent) Code() int {
-	return 204
-}
-
 func (o *ListAgentNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListAgentNamesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListAgentNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListAgentNamesForbidden() *ListAgentNamesForbidden {
 	return &ListAgentNamesForbidden{}
 }
 
-/* ListAgentNamesForbidden describes a response with status code 403, with default header values.
+/*
+ListAgentNamesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListAgentNamesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list agent names forbidden response has a 2xx status code
-func (o *ListAgentNamesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list agent names forbidden response has a 3xx status code
-func (o *ListAgentNamesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list agent names forbidden response has a 4xx status code
-func (o *ListAgentNamesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list agent names forbidden response has a 5xx status code
-func (o *ListAgentNamesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list agent names forbidden response a status code equal to that given
-func (o *ListAgentNamesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list agent names forbidden response
-func (o *ListAgentNamesForbidden) Code() int {
-	return 403
-}
-
 func (o *ListAgentNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListAgentNamesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListAgentNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListAgentNamesNotFound() *ListAgentNamesNotFound {
 	return &ListAgentNamesNotFound{}
 }
 
-/* ListAgentNamesNotFound describes a response with status code 404, with default header values.
+/*
+ListAgentNamesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListAgentNamesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list agent names not found response has a 2xx status code
-func (o *ListAgentNamesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list agent names not found response has a 3xx status code
-func (o *ListAgentNamesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list agent names not found response has a 4xx status code
-func (o *ListAgentNamesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list agent names not found response has a 5xx status code
-func (o *ListAgentNamesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list agent names not found response a status code equal to that given
-func (o *ListAgentNamesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list agent names not found response
-func (o *ListAgentNamesNotFound) Code() int {
-	return 404
-}
-
 func (o *ListAgentNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListAgentNamesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] listAgentNamesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListAgentNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListAgentNamesDefault(code int) *ListAgentNamesDefault {
 	}
 }
 
-/* ListAgentNamesDefault describes a response with status code -1, with default header values.
+/*
+ListAgentNamesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListAgentNamesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list agent names default response has a 2xx status code
-func (o *ListAgentNamesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list agent names default response has a 3xx status code
-func (o *ListAgentNamesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list agent names default response has a 4xx status code
-func (o *ListAgentNamesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list agent names default response has a 5xx status code
-func (o *ListAgentNamesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list agent names default response a status code equal to that given
-func (o *ListAgentNamesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list agent names default response
@@ -385,11 +225,6 @@ func (o *ListAgentNamesDefault) Code() int {
 func (o *ListAgentNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] ListAgentNames default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListAgentNamesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/names][%d] ListAgentNames default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListAgentNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -67,10 +67,12 @@ func NewListSearchNamesParamsWithHTTPClient(client *http.Client) *ListSearchName
 	}
 }
 
-/* ListSearchNamesParams contains all the parameters to send to the API endpoint
-   for the list search names operation.
+/*
+ListSearchNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list search names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListSearchNamesParams struct {
 

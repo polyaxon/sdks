@@ -68,10 +68,12 @@ func NewTransferOrganizationRunsParamsWithHTTPClient(client *http.Client) *Trans
 	}
 }
 
-/* TransferOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the transfer organization runs operation.
+/*
+TransferOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the transfer organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type TransferOrganizationRunsParams struct {
 

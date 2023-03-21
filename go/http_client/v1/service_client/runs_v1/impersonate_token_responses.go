@@ -78,7 +78,8 @@ func NewImpersonateTokenOK() *ImpersonateTokenOK {
 	return &ImpersonateTokenOK{}
 }
 
-/* ImpersonateTokenOK describes a response with status code 200, with default header values.
+/*
+ImpersonateTokenOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ImpersonateTokenOK struct {
 	Payload *service_model.V1Auth
 }
 
-// IsSuccess returns true when this impersonate token o k response has a 2xx status code
-func (o *ImpersonateTokenOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this impersonate token o k response has a 3xx status code
-func (o *ImpersonateTokenOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this impersonate token o k response has a 4xx status code
-func (o *ImpersonateTokenOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this impersonate token o k response has a 5xx status code
-func (o *ImpersonateTokenOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this impersonate token o k response a status code equal to that given
-func (o *ImpersonateTokenOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the impersonate token o k response
-func (o *ImpersonateTokenOK) Code() int {
-	return 200
-}
-
 func (o *ImpersonateTokenOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK  %+v", 200, o.Payload)
 }
-
-func (o *ImpersonateTokenOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK  %+v", 200, o.Payload)
-}
-
 func (o *ImpersonateTokenOK) GetPayload() *service_model.V1Auth {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewImpersonateTokenNoContent() *ImpersonateTokenNoContent {
 	return &ImpersonateTokenNoContent{}
 }
 
-/* ImpersonateTokenNoContent describes a response with status code 204, with default header values.
+/*
+ImpersonateTokenNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ImpersonateTokenNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this impersonate token no content response has a 2xx status code
-func (o *ImpersonateTokenNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this impersonate token no content response has a 3xx status code
-func (o *ImpersonateTokenNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this impersonate token no content response has a 4xx status code
-func (o *ImpersonateTokenNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this impersonate token no content response has a 5xx status code
-func (o *ImpersonateTokenNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this impersonate token no content response a status code equal to that given
-func (o *ImpersonateTokenNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the impersonate token no content response
-func (o *ImpersonateTokenNoContent) Code() int {
-	return 204
-}
-
 func (o *ImpersonateTokenNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ImpersonateTokenNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ImpersonateTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewImpersonateTokenForbidden() *ImpersonateTokenForbidden {
 	return &ImpersonateTokenForbidden{}
 }
 
-/* ImpersonateTokenForbidden describes a response with status code 403, with default header values.
+/*
+ImpersonateTokenForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ImpersonateTokenForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this impersonate token forbidden response has a 2xx status code
-func (o *ImpersonateTokenForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this impersonate token forbidden response has a 3xx status code
-func (o *ImpersonateTokenForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this impersonate token forbidden response has a 4xx status code
-func (o *ImpersonateTokenForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this impersonate token forbidden response has a 5xx status code
-func (o *ImpersonateTokenForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this impersonate token forbidden response a status code equal to that given
-func (o *ImpersonateTokenForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the impersonate token forbidden response
-func (o *ImpersonateTokenForbidden) Code() int {
-	return 403
-}
-
 func (o *ImpersonateTokenForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ImpersonateTokenForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ImpersonateTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewImpersonateTokenNotFound() *ImpersonateTokenNotFound {
 	return &ImpersonateTokenNotFound{}
 }
 
-/* ImpersonateTokenNotFound describes a response with status code 404, with default header values.
+/*
+ImpersonateTokenNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ImpersonateTokenNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this impersonate token not found response has a 2xx status code
-func (o *ImpersonateTokenNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this impersonate token not found response has a 3xx status code
-func (o *ImpersonateTokenNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this impersonate token not found response has a 4xx status code
-func (o *ImpersonateTokenNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this impersonate token not found response has a 5xx status code
-func (o *ImpersonateTokenNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this impersonate token not found response a status code equal to that given
-func (o *ImpersonateTokenNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the impersonate token not found response
-func (o *ImpersonateTokenNotFound) Code() int {
-	return 404
-}
-
 func (o *ImpersonateTokenNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ImpersonateTokenNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ImpersonateTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewImpersonateTokenDefault(code int) *ImpersonateTokenDefault {
 	}
 }
 
-/* ImpersonateTokenDefault describes a response with status code -1, with default header values.
+/*
+ImpersonateTokenDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ImpersonateTokenDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this impersonate token default response has a 2xx status code
-func (o *ImpersonateTokenDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this impersonate token default response has a 3xx status code
-func (o *ImpersonateTokenDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this impersonate token default response has a 4xx status code
-func (o *ImpersonateTokenDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this impersonate token default response has a 5xx status code
-func (o *ImpersonateTokenDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this impersonate token default response a status code equal to that given
-func (o *ImpersonateTokenDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the impersonate token default response
@@ -385,11 +225,6 @@ func (o *ImpersonateTokenDefault) Code() int {
 func (o *ImpersonateTokenDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] ImpersonateToken default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ImpersonateTokenDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] ImpersonateToken default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ImpersonateTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

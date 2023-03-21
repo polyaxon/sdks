@@ -67,10 +67,12 @@ func NewListBookmarkedRunsParamsWithHTTPClient(client *http.Client) *ListBookmar
 	}
 }
 
-/* ListBookmarkedRunsParams contains all the parameters to send to the API endpoint
-   for the list bookmarked runs operation.
+/*
+ListBookmarkedRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list bookmarked runs operation.
+
+	Typically these are written to a http.Request.
 */
 type ListBookmarkedRunsParams struct {
 

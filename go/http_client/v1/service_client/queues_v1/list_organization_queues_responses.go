@@ -78,7 +78,8 @@ func NewListOrganizationQueuesOK() *ListOrganizationQueuesOK {
 	return &ListOrganizationQueuesOK{}
 }
 
-/* ListOrganizationQueuesOK describes a response with status code 200, with default header values.
+/*
+ListOrganizationQueuesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListOrganizationQueuesOK struct {
 	Payload *service_model.V1ListQueuesResponse
 }
 
-// IsSuccess returns true when this list organization queues o k response has a 2xx status code
-func (o *ListOrganizationQueuesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list organization queues o k response has a 3xx status code
-func (o *ListOrganizationQueuesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list organization queues o k response has a 4xx status code
-func (o *ListOrganizationQueuesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list organization queues o k response has a 5xx status code
-func (o *ListOrganizationQueuesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list organization queues o k response a status code equal to that given
-func (o *ListOrganizationQueuesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list organization queues o k response
-func (o *ListOrganizationQueuesOK) Code() int {
-	return 200
-}
-
 func (o *ListOrganizationQueuesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesOK  %+v", 200, o.Payload)
 }
-
-func (o *ListOrganizationQueuesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesOK  %+v", 200, o.Payload)
-}
-
 func (o *ListOrganizationQueuesOK) GetPayload() *service_model.V1ListQueuesResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListOrganizationQueuesNoContent() *ListOrganizationQueuesNoContent {
 	return &ListOrganizationQueuesNoContent{}
 }
 
-/* ListOrganizationQueuesNoContent describes a response with status code 204, with default header values.
+/*
+ListOrganizationQueuesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListOrganizationQueuesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list organization queues no content response has a 2xx status code
-func (o *ListOrganizationQueuesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list organization queues no content response has a 3xx status code
-func (o *ListOrganizationQueuesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list organization queues no content response has a 4xx status code
-func (o *ListOrganizationQueuesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list organization queues no content response has a 5xx status code
-func (o *ListOrganizationQueuesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list organization queues no content response a status code equal to that given
-func (o *ListOrganizationQueuesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list organization queues no content response
-func (o *ListOrganizationQueuesNoContent) Code() int {
-	return 204
-}
-
 func (o *ListOrganizationQueuesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListOrganizationQueuesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListOrganizationQueuesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListOrganizationQueuesForbidden() *ListOrganizationQueuesForbidden {
 	return &ListOrganizationQueuesForbidden{}
 }
 
-/* ListOrganizationQueuesForbidden describes a response with status code 403, with default header values.
+/*
+ListOrganizationQueuesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListOrganizationQueuesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list organization queues forbidden response has a 2xx status code
-func (o *ListOrganizationQueuesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list organization queues forbidden response has a 3xx status code
-func (o *ListOrganizationQueuesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list organization queues forbidden response has a 4xx status code
-func (o *ListOrganizationQueuesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list organization queues forbidden response has a 5xx status code
-func (o *ListOrganizationQueuesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list organization queues forbidden response a status code equal to that given
-func (o *ListOrganizationQueuesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list organization queues forbidden response
-func (o *ListOrganizationQueuesForbidden) Code() int {
-	return 403
-}
-
 func (o *ListOrganizationQueuesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListOrganizationQueuesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListOrganizationQueuesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListOrganizationQueuesNotFound() *ListOrganizationQueuesNotFound {
 	return &ListOrganizationQueuesNotFound{}
 }
 
-/* ListOrganizationQueuesNotFound describes a response with status code 404, with default header values.
+/*
+ListOrganizationQueuesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListOrganizationQueuesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list organization queues not found response has a 2xx status code
-func (o *ListOrganizationQueuesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list organization queues not found response has a 3xx status code
-func (o *ListOrganizationQueuesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list organization queues not found response has a 4xx status code
-func (o *ListOrganizationQueuesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list organization queues not found response has a 5xx status code
-func (o *ListOrganizationQueuesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list organization queues not found response a status code equal to that given
-func (o *ListOrganizationQueuesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list organization queues not found response
-func (o *ListOrganizationQueuesNotFound) Code() int {
-	return 404
-}
-
 func (o *ListOrganizationQueuesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListOrganizationQueuesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] listOrganizationQueuesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListOrganizationQueuesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListOrganizationQueuesDefault(code int) *ListOrganizationQueuesDefault {
 	}
 }
 
-/* ListOrganizationQueuesDefault describes a response with status code -1, with default header values.
+/*
+ListOrganizationQueuesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListOrganizationQueuesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list organization queues default response has a 2xx status code
-func (o *ListOrganizationQueuesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list organization queues default response has a 3xx status code
-func (o *ListOrganizationQueuesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list organization queues default response has a 4xx status code
-func (o *ListOrganizationQueuesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list organization queues default response has a 5xx status code
-func (o *ListOrganizationQueuesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list organization queues default response a status code equal to that given
-func (o *ListOrganizationQueuesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list organization queues default response
@@ -385,11 +225,6 @@ func (o *ListOrganizationQueuesDefault) Code() int {
 func (o *ListOrganizationQueuesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] ListOrganizationQueues default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListOrganizationQueuesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/queues][%d] ListOrganizationQueues default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListOrganizationQueuesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

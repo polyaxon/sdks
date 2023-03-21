@@ -34,12 +34,8 @@ import (
 type V1Statuses string
 
 func NewV1Statuses(value V1Statuses) *V1Statuses {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1Statuses.
-func (m V1Statuses) Pointer() *V1Statuses {
-	return &m
+	v := value
+	return &v
 }
 
 const (

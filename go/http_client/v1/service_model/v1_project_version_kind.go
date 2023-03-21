@@ -34,12 +34,8 @@ import (
 type V1ProjectVersionKind string
 
 func NewV1ProjectVersionKind(value V1ProjectVersionKind) *V1ProjectVersionKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1ProjectVersionKind.
-func (m V1ProjectVersionKind) Pointer() *V1ProjectVersionKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

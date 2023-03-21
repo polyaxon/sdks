@@ -68,10 +68,12 @@ func NewRestartRunParamsWithHTTPClient(client *http.Client) *RestartRunParams {
 	}
 }
 
-/* RestartRunParams contains all the parameters to send to the API endpoint
-   for the restart run operation.
+/*
+RestartRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the restart run operation.
+
+	Typically these are written to a http.Request.
 */
 type RestartRunParams struct {
 

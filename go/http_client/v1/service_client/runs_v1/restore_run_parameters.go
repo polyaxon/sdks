@@ -66,10 +66,12 @@ func NewRestoreRunParamsWithHTTPClient(client *http.Client) *RestoreRunParams {
 	}
 }
 
-/* RestoreRunParams contains all the parameters to send to the API endpoint
-   for the restore run operation.
+/*
+RestoreRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the restore run operation.
+
+	Typically these are written to a http.Request.
 */
 type RestoreRunParams struct {
 

@@ -64,7 +64,7 @@ type ClientService interface {
 }
 
 /*
-  CreateQueue creates queue
+CreateQueue creates queue
 */
 func (a *Client) CreateQueue(params *CreateQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateQueueOK, *CreateQueueNoContent, error) {
 	// TODO: Validate the params before sending
@@ -104,7 +104,7 @@ func (a *Client) CreateQueue(params *CreateQueueParams, authInfo runtime.ClientA
 }
 
 /*
-  DeleteQueue deletes queue
+DeleteQueue deletes queue
 */
 func (a *Client) DeleteQueue(params *DeleteQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteQueueOK, *DeleteQueueNoContent, error) {
 	// TODO: Validate the params before sending
@@ -144,7 +144,7 @@ func (a *Client) DeleteQueue(params *DeleteQueueParams, authInfo runtime.ClientA
 }
 
 /*
-  GetQueue gets queue
+GetQueue gets queue
 */
 func (a *Client) GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetQueueOK, *GetQueueNoContent, error) {
 	// TODO: Validate the params before sending
@@ -184,7 +184,7 @@ func (a *Client) GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInf
 }
 
 /*
-  ListOrganizationQueueNames lists organization level queues names
+ListOrganizationQueueNames lists organization level queues names
 */
 func (a *Client) ListOrganizationQueueNames(params *ListOrganizationQueueNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationQueueNamesOK, *ListOrganizationQueueNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -224,7 +224,7 @@ func (a *Client) ListOrganizationQueueNames(params *ListOrganizationQueueNamesPa
 }
 
 /*
-  ListOrganizationQueues lists organization level queues
+ListOrganizationQueues lists organization level queues
 */
 func (a *Client) ListOrganizationQueues(params *ListOrganizationQueuesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationQueuesOK, *ListOrganizationQueuesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -264,7 +264,7 @@ func (a *Client) ListOrganizationQueues(params *ListOrganizationQueuesParams, au
 }
 
 /*
-  ListQueueNames lists queues names
+ListQueueNames lists queues names
 */
 func (a *Client) ListQueueNames(params *ListQueueNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListQueueNamesOK, *ListQueueNamesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -304,7 +304,7 @@ func (a *Client) ListQueueNames(params *ListQueueNamesParams, authInfo runtime.C
 }
 
 /*
-  ListQueues lists queues
+ListQueues lists queues
 */
 func (a *Client) ListQueues(params *ListQueuesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListQueuesOK, *ListQueuesNoContent, error) {
 	// TODO: Validate the params before sending
@@ -344,7 +344,7 @@ func (a *Client) ListQueues(params *ListQueuesParams, authInfo runtime.ClientAut
 }
 
 /*
-  PatchQueue patches queue
+PatchQueue patches queue
 */
 func (a *Client) PatchQueue(params *PatchQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchQueueOK, *PatchQueueNoContent, error) {
 	// TODO: Validate the params before sending
@@ -384,7 +384,7 @@ func (a *Client) PatchQueue(params *PatchQueueParams, authInfo runtime.ClientAut
 }
 
 /*
-  UpdateQueue updates queue
+UpdateQueue updates queue
 */
 func (a *Client) UpdateQueue(params *UpdateQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateQueueOK, *UpdateQueueNoContent, error) {
 	// TODO: Validate the params before sending

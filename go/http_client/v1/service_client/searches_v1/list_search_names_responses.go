@@ -78,7 +78,8 @@ func NewListSearchNamesOK() *ListSearchNamesOK {
 	return &ListSearchNamesOK{}
 }
 
-/* ListSearchNamesOK describes a response with status code 200, with default header values.
+/*
+ListSearchNamesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListSearchNamesOK struct {
 	Payload *service_model.V1ListSearchesResponse
 }
 
-// IsSuccess returns true when this list search names o k response has a 2xx status code
-func (o *ListSearchNamesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list search names o k response has a 3xx status code
-func (o *ListSearchNamesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list search names o k response has a 4xx status code
-func (o *ListSearchNamesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list search names o k response has a 5xx status code
-func (o *ListSearchNamesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list search names o k response a status code equal to that given
-func (o *ListSearchNamesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list search names o k response
-func (o *ListSearchNamesOK) Code() int {
-	return 200
-}
-
 func (o *ListSearchNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesOK  %+v", 200, o.Payload)
 }
-
-func (o *ListSearchNamesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesOK  %+v", 200, o.Payload)
-}
-
 func (o *ListSearchNamesOK) GetPayload() *service_model.V1ListSearchesResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListSearchNamesNoContent() *ListSearchNamesNoContent {
 	return &ListSearchNamesNoContent{}
 }
 
-/* ListSearchNamesNoContent describes a response with status code 204, with default header values.
+/*
+ListSearchNamesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListSearchNamesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list search names no content response has a 2xx status code
-func (o *ListSearchNamesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list search names no content response has a 3xx status code
-func (o *ListSearchNamesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list search names no content response has a 4xx status code
-func (o *ListSearchNamesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list search names no content response has a 5xx status code
-func (o *ListSearchNamesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list search names no content response a status code equal to that given
-func (o *ListSearchNamesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list search names no content response
-func (o *ListSearchNamesNoContent) Code() int {
-	return 204
-}
-
 func (o *ListSearchNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListSearchNamesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListSearchNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListSearchNamesForbidden() *ListSearchNamesForbidden {
 	return &ListSearchNamesForbidden{}
 }
 
-/* ListSearchNamesForbidden describes a response with status code 403, with default header values.
+/*
+ListSearchNamesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListSearchNamesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list search names forbidden response has a 2xx status code
-func (o *ListSearchNamesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list search names forbidden response has a 3xx status code
-func (o *ListSearchNamesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list search names forbidden response has a 4xx status code
-func (o *ListSearchNamesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list search names forbidden response has a 5xx status code
-func (o *ListSearchNamesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list search names forbidden response a status code equal to that given
-func (o *ListSearchNamesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list search names forbidden response
-func (o *ListSearchNamesForbidden) Code() int {
-	return 403
-}
-
 func (o *ListSearchNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListSearchNamesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListSearchNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListSearchNamesNotFound() *ListSearchNamesNotFound {
 	return &ListSearchNamesNotFound{}
 }
 
-/* ListSearchNamesNotFound describes a response with status code 404, with default header values.
+/*
+ListSearchNamesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListSearchNamesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list search names not found response has a 2xx status code
-func (o *ListSearchNamesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list search names not found response has a 3xx status code
-func (o *ListSearchNamesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list search names not found response has a 4xx status code
-func (o *ListSearchNamesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list search names not found response has a 5xx status code
-func (o *ListSearchNamesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list search names not found response a status code equal to that given
-func (o *ListSearchNamesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list search names not found response
-func (o *ListSearchNamesNotFound) Code() int {
-	return 404
-}
-
 func (o *ListSearchNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListSearchNamesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] listSearchNamesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListSearchNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListSearchNamesDefault(code int) *ListSearchNamesDefault {
 	}
 }
 
-/* ListSearchNamesDefault describes a response with status code -1, with default header values.
+/*
+ListSearchNamesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListSearchNamesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list search names default response has a 2xx status code
-func (o *ListSearchNamesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list search names default response has a 3xx status code
-func (o *ListSearchNamesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list search names default response has a 4xx status code
-func (o *ListSearchNamesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list search names default response has a 5xx status code
-func (o *ListSearchNamesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list search names default response a status code equal to that given
-func (o *ListSearchNamesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list search names default response
@@ -385,11 +225,6 @@ func (o *ListSearchNamesDefault) Code() int {
 func (o *ListSearchNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] ListSearchNames default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListSearchNamesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/searches/names][%d] ListSearchNames default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListSearchNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

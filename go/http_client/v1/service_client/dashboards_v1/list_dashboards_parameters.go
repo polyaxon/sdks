@@ -67,10 +67,12 @@ func NewListDashboardsParamsWithHTTPClient(client *http.Client) *ListDashboardsP
 	}
 }
 
-/* ListDashboardsParams contains all the parameters to send to the API endpoint
-   for the list dashboards operation.
+/*
+ListDashboardsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list dashboards operation.
+
+	Typically these are written to a http.Request.
 */
 type ListDashboardsParams struct {
 

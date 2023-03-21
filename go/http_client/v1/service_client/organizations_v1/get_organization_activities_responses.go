@@ -78,7 +78,8 @@ func NewGetOrganizationActivitiesOK() *GetOrganizationActivitiesOK {
 	return &GetOrganizationActivitiesOK{}
 }
 
-/* GetOrganizationActivitiesOK describes a response with status code 200, with default header values.
+/*
+GetOrganizationActivitiesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetOrganizationActivitiesOK struct {
 	Payload *service_model.V1ListActivitiesResponse
 }
 
-// IsSuccess returns true when this get organization activities o k response has a 2xx status code
-func (o *GetOrganizationActivitiesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get organization activities o k response has a 3xx status code
-func (o *GetOrganizationActivitiesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get organization activities o k response has a 4xx status code
-func (o *GetOrganizationActivitiesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get organization activities o k response has a 5xx status code
-func (o *GetOrganizationActivitiesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get organization activities o k response a status code equal to that given
-func (o *GetOrganizationActivitiesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get organization activities o k response
-func (o *GetOrganizationActivitiesOK) Code() int {
-	return 200
-}
-
 func (o *GetOrganizationActivitiesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesOK  %+v", 200, o.Payload)
 }
-
-func (o *GetOrganizationActivitiesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesOK  %+v", 200, o.Payload)
-}
-
 func (o *GetOrganizationActivitiesOK) GetPayload() *service_model.V1ListActivitiesResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetOrganizationActivitiesNoContent() *GetOrganizationActivitiesNoContent
 	return &GetOrganizationActivitiesNoContent{}
 }
 
-/* GetOrganizationActivitiesNoContent describes a response with status code 204, with default header values.
+/*
+GetOrganizationActivitiesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetOrganizationActivitiesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get organization activities no content response has a 2xx status code
-func (o *GetOrganizationActivitiesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get organization activities no content response has a 3xx status code
-func (o *GetOrganizationActivitiesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get organization activities no content response has a 4xx status code
-func (o *GetOrganizationActivitiesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get organization activities no content response has a 5xx status code
-func (o *GetOrganizationActivitiesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get organization activities no content response a status code equal to that given
-func (o *GetOrganizationActivitiesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get organization activities no content response
-func (o *GetOrganizationActivitiesNoContent) Code() int {
-	return 204
-}
-
 func (o *GetOrganizationActivitiesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetOrganizationActivitiesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetOrganizationActivitiesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetOrganizationActivitiesForbidden() *GetOrganizationActivitiesForbidden
 	return &GetOrganizationActivitiesForbidden{}
 }
 
-/* GetOrganizationActivitiesForbidden describes a response with status code 403, with default header values.
+/*
+GetOrganizationActivitiesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetOrganizationActivitiesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get organization activities forbidden response has a 2xx status code
-func (o *GetOrganizationActivitiesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get organization activities forbidden response has a 3xx status code
-func (o *GetOrganizationActivitiesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get organization activities forbidden response has a 4xx status code
-func (o *GetOrganizationActivitiesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get organization activities forbidden response has a 5xx status code
-func (o *GetOrganizationActivitiesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get organization activities forbidden response a status code equal to that given
-func (o *GetOrganizationActivitiesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get organization activities forbidden response
-func (o *GetOrganizationActivitiesForbidden) Code() int {
-	return 403
-}
-
 func (o *GetOrganizationActivitiesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetOrganizationActivitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetOrganizationActivitiesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetOrganizationActivitiesNotFound() *GetOrganizationActivitiesNotFound {
 	return &GetOrganizationActivitiesNotFound{}
 }
 
-/* GetOrganizationActivitiesNotFound describes a response with status code 404, with default header values.
+/*
+GetOrganizationActivitiesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetOrganizationActivitiesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get organization activities not found response has a 2xx status code
-func (o *GetOrganizationActivitiesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get organization activities not found response has a 3xx status code
-func (o *GetOrganizationActivitiesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get organization activities not found response has a 4xx status code
-func (o *GetOrganizationActivitiesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get organization activities not found response has a 5xx status code
-func (o *GetOrganizationActivitiesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get organization activities not found response a status code equal to that given
-func (o *GetOrganizationActivitiesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get organization activities not found response
-func (o *GetOrganizationActivitiesNotFound) Code() int {
-	return 404
-}
-
 func (o *GetOrganizationActivitiesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetOrganizationActivitiesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetOrganizationActivitiesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetOrganizationActivitiesDefault(code int) *GetOrganizationActivitiesDef
 	}
 }
 
-/* GetOrganizationActivitiesDefault describes a response with status code -1, with default header values.
+/*
+GetOrganizationActivitiesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetOrganizationActivitiesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get organization activities default response has a 2xx status code
-func (o *GetOrganizationActivitiesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get organization activities default response has a 3xx status code
-func (o *GetOrganizationActivitiesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get organization activities default response has a 4xx status code
-func (o *GetOrganizationActivitiesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get organization activities default response has a 5xx status code
-func (o *GetOrganizationActivitiesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get organization activities default response a status code equal to that given
-func (o *GetOrganizationActivitiesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get organization activities default response
@@ -385,11 +225,6 @@ func (o *GetOrganizationActivitiesDefault) Code() int {
 func (o *GetOrganizationActivitiesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] GetOrganizationActivities default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetOrganizationActivitiesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] GetOrganizationActivities default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetOrganizationActivitiesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

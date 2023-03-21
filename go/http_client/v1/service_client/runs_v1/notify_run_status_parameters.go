@@ -68,10 +68,12 @@ func NewNotifyRunStatusParamsWithHTTPClient(client *http.Client) *NotifyRunStatu
 	}
 }
 
-/* NotifyRunStatusParams contains all the parameters to send to the API endpoint
-   for the notify run status operation.
+/*
+NotifyRunStatusParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the notify run status operation.
+
+	Typically these are written to a http.Request.
 */
 type NotifyRunStatusParams struct {
 

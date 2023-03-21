@@ -78,7 +78,8 @@ func NewListTagsOK() *ListTagsOK {
 	return &ListTagsOK{}
 }
 
-/* ListTagsOK describes a response with status code 200, with default header values.
+/*
+ListTagsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type ListTagsOK struct {
 	Payload *service_model.V1ListTagsResponse
 }
 
-// IsSuccess returns true when this list tags o k response has a 2xx status code
-func (o *ListTagsOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list tags o k response has a 3xx status code
-func (o *ListTagsOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tags o k response has a 4xx status code
-func (o *ListTagsOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list tags o k response has a 5xx status code
-func (o *ListTagsOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tags o k response a status code equal to that given
-func (o *ListTagsOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the list tags o k response
-func (o *ListTagsOK) Code() int {
-	return 200
-}
-
 func (o *ListTagsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsOK  %+v", 200, o.Payload)
 }
-
-func (o *ListTagsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsOK  %+v", 200, o.Payload)
-}
-
 func (o *ListTagsOK) GetPayload() *service_model.V1ListTagsResponse {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewListTagsNoContent() *ListTagsNoContent {
 	return &ListTagsNoContent{}
 }
 
-/* ListTagsNoContent describes a response with status code 204, with default header values.
+/*
+ListTagsNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type ListTagsNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list tags no content response has a 2xx status code
-func (o *ListTagsNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this list tags no content response has a 3xx status code
-func (o *ListTagsNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tags no content response has a 4xx status code
-func (o *ListTagsNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this list tags no content response has a 5xx status code
-func (o *ListTagsNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tags no content response a status code equal to that given
-func (o *ListTagsNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the list tags no content response
-func (o *ListTagsNoContent) Code() int {
-	return 204
-}
-
 func (o *ListTagsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ListTagsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ListTagsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewListTagsForbidden() *ListTagsForbidden {
 	return &ListTagsForbidden{}
 }
 
-/* ListTagsForbidden describes a response with status code 403, with default header values.
+/*
+ListTagsForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type ListTagsForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list tags forbidden response has a 2xx status code
-func (o *ListTagsForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list tags forbidden response has a 3xx status code
-func (o *ListTagsForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tags forbidden response has a 4xx status code
-func (o *ListTagsForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list tags forbidden response has a 5xx status code
-func (o *ListTagsForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tags forbidden response a status code equal to that given
-func (o *ListTagsForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the list tags forbidden response
-func (o *ListTagsForbidden) Code() int {
-	return 403
-}
-
 func (o *ListTagsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ListTagsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ListTagsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewListTagsNotFound() *ListTagsNotFound {
 	return &ListTagsNotFound{}
 }
 
-/* ListTagsNotFound describes a response with status code 404, with default header values.
+/*
+ListTagsNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type ListTagsNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this list tags not found response has a 2xx status code
-func (o *ListTagsNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this list tags not found response has a 3xx status code
-func (o *ListTagsNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this list tags not found response has a 4xx status code
-func (o *ListTagsNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this list tags not found response has a 5xx status code
-func (o *ListTagsNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this list tags not found response a status code equal to that given
-func (o *ListTagsNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the list tags not found response
-func (o *ListTagsNotFound) Code() int {
-	return 404
-}
-
 func (o *ListTagsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ListTagsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] listTagsNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ListTagsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewListTagsDefault(code int) *ListTagsDefault {
 	}
 }
 
-/* ListTagsDefault describes a response with status code -1, with default header values.
+/*
+ListTagsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type ListTagsDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this list tags default response has a 2xx status code
-func (o *ListTagsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this list tags default response has a 3xx status code
-func (o *ListTagsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this list tags default response has a 4xx status code
-func (o *ListTagsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this list tags default response has a 5xx status code
-func (o *ListTagsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this list tags default response a status code equal to that given
-func (o *ListTagsDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the list tags default response
@@ -385,11 +225,6 @@ func (o *ListTagsDefault) Code() int {
 func (o *ListTagsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] ListTags default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ListTagsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags][%d] ListTags default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ListTagsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

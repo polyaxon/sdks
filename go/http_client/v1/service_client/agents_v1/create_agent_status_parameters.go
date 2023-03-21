@@ -68,10 +68,12 @@ func NewCreateAgentStatusParamsWithHTTPClient(client *http.Client) *CreateAgentS
 	}
 }
 
-/* CreateAgentStatusParams contains all the parameters to send to the API endpoint
-   for the create agent status operation.
+/*
+CreateAgentStatusParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the create agent status operation.
+
+	Typically these are written to a http.Request.
 */
 type CreateAgentStatusParams struct {
 

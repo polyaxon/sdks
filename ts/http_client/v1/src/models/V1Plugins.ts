@@ -82,10 +82,10 @@ export interface V1Plugins {
     collectLogs?: boolean;
     /**
      * 
-     * @type {string}
+     * @type {boolean}
      * @memberof V1Plugins
      */
-    collectResources?: string;
+    collectResources?: boolean;
     /**
      * 
      * @type {boolean}

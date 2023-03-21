@@ -78,7 +78,8 @@ func NewGetServiceAccountTokenOK() *GetServiceAccountTokenOK {
 	return &GetServiceAccountTokenOK{}
 }
 
-/* GetServiceAccountTokenOK describes a response with status code 200, with default header values.
+/*
+GetServiceAccountTokenOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetServiceAccountTokenOK struct {
 	Payload *service_model.V1Token
 }
 
-// IsSuccess returns true when this get service account token o k response has a 2xx status code
-func (o *GetServiceAccountTokenOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get service account token o k response has a 3xx status code
-func (o *GetServiceAccountTokenOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get service account token o k response has a 4xx status code
-func (o *GetServiceAccountTokenOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get service account token o k response has a 5xx status code
-func (o *GetServiceAccountTokenOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get service account token o k response a status code equal to that given
-func (o *GetServiceAccountTokenOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get service account token o k response
-func (o *GetServiceAccountTokenOK) Code() int {
-	return 200
-}
-
 func (o *GetServiceAccountTokenOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenOK  %+v", 200, o.Payload)
 }
-
-func (o *GetServiceAccountTokenOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenOK  %+v", 200, o.Payload)
-}
-
 func (o *GetServiceAccountTokenOK) GetPayload() *service_model.V1Token {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetServiceAccountTokenNoContent() *GetServiceAccountTokenNoContent {
 	return &GetServiceAccountTokenNoContent{}
 }
 
-/* GetServiceAccountTokenNoContent describes a response with status code 204, with default header values.
+/*
+GetServiceAccountTokenNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetServiceAccountTokenNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get service account token no content response has a 2xx status code
-func (o *GetServiceAccountTokenNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get service account token no content response has a 3xx status code
-func (o *GetServiceAccountTokenNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get service account token no content response has a 4xx status code
-func (o *GetServiceAccountTokenNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get service account token no content response has a 5xx status code
-func (o *GetServiceAccountTokenNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get service account token no content response a status code equal to that given
-func (o *GetServiceAccountTokenNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get service account token no content response
-func (o *GetServiceAccountTokenNoContent) Code() int {
-	return 204
-}
-
 func (o *GetServiceAccountTokenNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetServiceAccountTokenNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetServiceAccountTokenNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetServiceAccountTokenForbidden() *GetServiceAccountTokenForbidden {
 	return &GetServiceAccountTokenForbidden{}
 }
 
-/* GetServiceAccountTokenForbidden describes a response with status code 403, with default header values.
+/*
+GetServiceAccountTokenForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetServiceAccountTokenForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get service account token forbidden response has a 2xx status code
-func (o *GetServiceAccountTokenForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get service account token forbidden response has a 3xx status code
-func (o *GetServiceAccountTokenForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get service account token forbidden response has a 4xx status code
-func (o *GetServiceAccountTokenForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get service account token forbidden response has a 5xx status code
-func (o *GetServiceAccountTokenForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get service account token forbidden response a status code equal to that given
-func (o *GetServiceAccountTokenForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get service account token forbidden response
-func (o *GetServiceAccountTokenForbidden) Code() int {
-	return 403
-}
-
 func (o *GetServiceAccountTokenForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetServiceAccountTokenForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetServiceAccountTokenForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetServiceAccountTokenNotFound() *GetServiceAccountTokenNotFound {
 	return &GetServiceAccountTokenNotFound{}
 }
 
-/* GetServiceAccountTokenNotFound describes a response with status code 404, with default header values.
+/*
+GetServiceAccountTokenNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetServiceAccountTokenNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get service account token not found response has a 2xx status code
-func (o *GetServiceAccountTokenNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get service account token not found response has a 3xx status code
-func (o *GetServiceAccountTokenNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get service account token not found response has a 4xx status code
-func (o *GetServiceAccountTokenNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get service account token not found response has a 5xx status code
-func (o *GetServiceAccountTokenNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get service account token not found response a status code equal to that given
-func (o *GetServiceAccountTokenNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get service account token not found response
-func (o *GetServiceAccountTokenNotFound) Code() int {
-	return 404
-}
-
 func (o *GetServiceAccountTokenNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetServiceAccountTokenNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] getServiceAccountTokenNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetServiceAccountTokenNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetServiceAccountTokenDefault(code int) *GetServiceAccountTokenDefault {
 	}
 }
 
-/* GetServiceAccountTokenDefault describes a response with status code -1, with default header values.
+/*
+GetServiceAccountTokenDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetServiceAccountTokenDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get service account token default response has a 2xx status code
-func (o *GetServiceAccountTokenDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get service account token default response has a 3xx status code
-func (o *GetServiceAccountTokenDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get service account token default response has a 4xx status code
-func (o *GetServiceAccountTokenDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get service account token default response has a 5xx status code
-func (o *GetServiceAccountTokenDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get service account token default response a status code equal to that given
-func (o *GetServiceAccountTokenDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get service account token default response
@@ -385,11 +225,6 @@ func (o *GetServiceAccountTokenDefault) Code() int {
 func (o *GetServiceAccountTokenDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] GetServiceAccountToken default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetServiceAccountTokenDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid}][%d] GetServiceAccountToken default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetServiceAccountTokenDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

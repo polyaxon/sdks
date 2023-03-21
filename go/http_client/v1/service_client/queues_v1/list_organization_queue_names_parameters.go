@@ -67,10 +67,12 @@ func NewListOrganizationQueueNamesParamsWithHTTPClient(client *http.Client) *Lis
 	}
 }
 
-/* ListOrganizationQueueNamesParams contains all the parameters to send to the API endpoint
-   for the list organization queue names operation.
+/*
+ListOrganizationQueueNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list organization queue names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListOrganizationQueueNamesParams struct {
 

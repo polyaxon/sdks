@@ -31,7 +31,7 @@ import (
 // swagger:model v1GitConnection
 type V1GitConnection struct {
 
-	// Addional command flag
+	// Additional command flag
 	Flags []string `json:"flags"`
 
 	// revision

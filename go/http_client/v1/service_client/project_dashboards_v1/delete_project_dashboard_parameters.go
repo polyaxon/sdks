@@ -66,10 +66,12 @@ func NewDeleteProjectDashboardParamsWithHTTPClient(client *http.Client) *DeleteP
 	}
 }
 
-/* DeleteProjectDashboardParams contains all the parameters to send to the API endpoint
-   for the delete project dashboard operation.
+/*
+DeleteProjectDashboardParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete project dashboard operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteProjectDashboardParams struct {
 

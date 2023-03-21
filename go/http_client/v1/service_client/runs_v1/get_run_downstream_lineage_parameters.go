@@ -67,10 +67,12 @@ func NewGetRunDownstreamLineageParamsWithHTTPClient(client *http.Client) *GetRun
 	}
 }
 
-/* GetRunDownstreamLineageParams contains all the parameters to send to the API endpoint
-   for the get run downstream lineage operation.
+/*
+GetRunDownstreamLineageParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run downstream lineage operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunDownstreamLineageParams struct {
 

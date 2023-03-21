@@ -69,48 +69,15 @@ func NewUploadProjectArtifactOK() *UploadProjectArtifactOK {
 	return &UploadProjectArtifactOK{}
 }
 
-/* UploadProjectArtifactOK describes a response with status code 200, with default header values.
+/*
+UploadProjectArtifactOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type UploadProjectArtifactOK struct {
 }
 
-// IsSuccess returns true when this upload project artifact o k response has a 2xx status code
-func (o *UploadProjectArtifactOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this upload project artifact o k response has a 3xx status code
-func (o *UploadProjectArtifactOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload project artifact o k response has a 4xx status code
-func (o *UploadProjectArtifactOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this upload project artifact o k response has a 5xx status code
-func (o *UploadProjectArtifactOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload project artifact o k response a status code equal to that given
-func (o *UploadProjectArtifactOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the upload project artifact o k response
-func (o *UploadProjectArtifactOK) Code() int {
-	return 200
-}
-
 func (o *UploadProjectArtifactOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactOK ", 200)
-}
-
-func (o *UploadProjectArtifactOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactOK ", 200)
 }
 
@@ -124,7 +91,8 @@ func NewUploadProjectArtifactNoContent() *UploadProjectArtifactNoContent {
 	return &UploadProjectArtifactNoContent{}
 }
 
-/* UploadProjectArtifactNoContent describes a response with status code 204, with default header values.
+/*
+UploadProjectArtifactNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -132,44 +100,9 @@ type UploadProjectArtifactNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this upload project artifact no content response has a 2xx status code
-func (o *UploadProjectArtifactNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this upload project artifact no content response has a 3xx status code
-func (o *UploadProjectArtifactNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload project artifact no content response has a 4xx status code
-func (o *UploadProjectArtifactNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this upload project artifact no content response has a 5xx status code
-func (o *UploadProjectArtifactNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload project artifact no content response a status code equal to that given
-func (o *UploadProjectArtifactNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the upload project artifact no content response
-func (o *UploadProjectArtifactNoContent) Code() int {
-	return 204
-}
-
 func (o *UploadProjectArtifactNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UploadProjectArtifactNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UploadProjectArtifactNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -189,7 +122,8 @@ func NewUploadProjectArtifactForbidden() *UploadProjectArtifactForbidden {
 	return &UploadProjectArtifactForbidden{}
 }
 
-/* UploadProjectArtifactForbidden describes a response with status code 403, with default header values.
+/*
+UploadProjectArtifactForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -197,44 +131,9 @@ type UploadProjectArtifactForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this upload project artifact forbidden response has a 2xx status code
-func (o *UploadProjectArtifactForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this upload project artifact forbidden response has a 3xx status code
-func (o *UploadProjectArtifactForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload project artifact forbidden response has a 4xx status code
-func (o *UploadProjectArtifactForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this upload project artifact forbidden response has a 5xx status code
-func (o *UploadProjectArtifactForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload project artifact forbidden response a status code equal to that given
-func (o *UploadProjectArtifactForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the upload project artifact forbidden response
-func (o *UploadProjectArtifactForbidden) Code() int {
-	return 403
-}
-
 func (o *UploadProjectArtifactForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UploadProjectArtifactForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UploadProjectArtifactForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -254,7 +153,8 @@ func NewUploadProjectArtifactNotFound() *UploadProjectArtifactNotFound {
 	return &UploadProjectArtifactNotFound{}
 }
 
-/* UploadProjectArtifactNotFound describes a response with status code 404, with default header values.
+/*
+UploadProjectArtifactNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -262,44 +162,9 @@ type UploadProjectArtifactNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this upload project artifact not found response has a 2xx status code
-func (o *UploadProjectArtifactNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this upload project artifact not found response has a 3xx status code
-func (o *UploadProjectArtifactNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload project artifact not found response has a 4xx status code
-func (o *UploadProjectArtifactNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this upload project artifact not found response has a 5xx status code
-func (o *UploadProjectArtifactNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload project artifact not found response a status code equal to that given
-func (o *UploadProjectArtifactNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the upload project artifact not found response
-func (o *UploadProjectArtifactNotFound) Code() int {
-	return 404
-}
-
 func (o *UploadProjectArtifactNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UploadProjectArtifactNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UploadProjectArtifactNotFound) GetPayload() interface{} {
 	return o.Payload
 }

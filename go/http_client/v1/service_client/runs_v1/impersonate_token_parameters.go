@@ -66,10 +66,12 @@ func NewImpersonateTokenParamsWithHTTPClient(client *http.Client) *ImpersonateTo
 	}
 }
 
-/* ImpersonateTokenParams contains all the parameters to send to the API endpoint
-   for the impersonate token operation.
+/*
+ImpersonateTokenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the impersonate token operation.
+
+	Typically these are written to a http.Request.
 */
 type ImpersonateTokenParams struct {
 

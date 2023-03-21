@@ -34,12 +34,8 @@ import (
 type V1MatrixKind string
 
 func NewV1MatrixKind(value V1MatrixKind) *V1MatrixKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1MatrixKind.
-func (m V1MatrixKind) Pointer() *V1MatrixKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

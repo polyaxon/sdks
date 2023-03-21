@@ -34,12 +34,8 @@ import (
 type V1CloningKind string
 
 func NewV1CloningKind(value V1CloningKind) *V1CloningKind {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated V1CloningKind.
-func (m V1CloningKind) Pointer() *V1CloningKind {
-	return &m
+	v := value
+	return &v
 }
 
 const (

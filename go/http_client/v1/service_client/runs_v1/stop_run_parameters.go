@@ -66,10 +66,12 @@ func NewStopRunParamsWithHTTPClient(client *http.Client) *StopRunParams {
 	}
 }
 
-/* StopRunParams contains all the parameters to send to the API endpoint
-   for the stop run operation.
+/*
+StopRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the stop run operation.
+
+	Typically these are written to a http.Request.
 */
 type StopRunParams struct {
 

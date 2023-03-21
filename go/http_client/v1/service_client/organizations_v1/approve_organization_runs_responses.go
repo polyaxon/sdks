@@ -78,48 +78,15 @@ func NewApproveOrganizationRunsOK() *ApproveOrganizationRunsOK {
 	return &ApproveOrganizationRunsOK{}
 }
 
-/* ApproveOrganizationRunsOK describes a response with status code 200, with default header values.
+/*
+ApproveOrganizationRunsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type ApproveOrganizationRunsOK struct {
 }
 
-// IsSuccess returns true when this approve organization runs o k response has a 2xx status code
-func (o *ApproveOrganizationRunsOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this approve organization runs o k response has a 3xx status code
-func (o *ApproveOrganizationRunsOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve organization runs o k response has a 4xx status code
-func (o *ApproveOrganizationRunsOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this approve organization runs o k response has a 5xx status code
-func (o *ApproveOrganizationRunsOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve organization runs o k response a status code equal to that given
-func (o *ApproveOrganizationRunsOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the approve organization runs o k response
-func (o *ApproveOrganizationRunsOK) Code() int {
-	return 200
-}
-
 func (o *ApproveOrganizationRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK ", 200)
-}
-
-func (o *ApproveOrganizationRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK ", 200)
 }
 
@@ -133,7 +100,8 @@ func NewApproveOrganizationRunsNoContent() *ApproveOrganizationRunsNoContent {
 	return &ApproveOrganizationRunsNoContent{}
 }
 
-/* ApproveOrganizationRunsNoContent describes a response with status code 204, with default header values.
+/*
+ApproveOrganizationRunsNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -141,44 +109,9 @@ type ApproveOrganizationRunsNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this approve organization runs no content response has a 2xx status code
-func (o *ApproveOrganizationRunsNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this approve organization runs no content response has a 3xx status code
-func (o *ApproveOrganizationRunsNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve organization runs no content response has a 4xx status code
-func (o *ApproveOrganizationRunsNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this approve organization runs no content response has a 5xx status code
-func (o *ApproveOrganizationRunsNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve organization runs no content response a status code equal to that given
-func (o *ApproveOrganizationRunsNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the approve organization runs no content response
-func (o *ApproveOrganizationRunsNoContent) Code() int {
-	return 204
-}
-
 func (o *ApproveOrganizationRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNoContent  %+v", 204, o.Payload)
 }
-
-func (o *ApproveOrganizationRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNoContent  %+v", 204, o.Payload)
-}
-
 func (o *ApproveOrganizationRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -198,7 +131,8 @@ func NewApproveOrganizationRunsForbidden() *ApproveOrganizationRunsForbidden {
 	return &ApproveOrganizationRunsForbidden{}
 }
 
-/* ApproveOrganizationRunsForbidden describes a response with status code 403, with default header values.
+/*
+ApproveOrganizationRunsForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -206,44 +140,9 @@ type ApproveOrganizationRunsForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this approve organization runs forbidden response has a 2xx status code
-func (o *ApproveOrganizationRunsForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this approve organization runs forbidden response has a 3xx status code
-func (o *ApproveOrganizationRunsForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve organization runs forbidden response has a 4xx status code
-func (o *ApproveOrganizationRunsForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this approve organization runs forbidden response has a 5xx status code
-func (o *ApproveOrganizationRunsForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve organization runs forbidden response a status code equal to that given
-func (o *ApproveOrganizationRunsForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the approve organization runs forbidden response
-func (o *ApproveOrganizationRunsForbidden) Code() int {
-	return 403
-}
-
 func (o *ApproveOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
-
-func (o *ApproveOrganizationRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden  %+v", 403, o.Payload)
-}
-
 func (o *ApproveOrganizationRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -263,7 +162,8 @@ func NewApproveOrganizationRunsNotFound() *ApproveOrganizationRunsNotFound {
 	return &ApproveOrganizationRunsNotFound{}
 }
 
-/* ApproveOrganizationRunsNotFound describes a response with status code 404, with default header values.
+/*
+ApproveOrganizationRunsNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -271,44 +171,9 @@ type ApproveOrganizationRunsNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this approve organization runs not found response has a 2xx status code
-func (o *ApproveOrganizationRunsNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this approve organization runs not found response has a 3xx status code
-func (o *ApproveOrganizationRunsNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this approve organization runs not found response has a 4xx status code
-func (o *ApproveOrganizationRunsNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this approve organization runs not found response has a 5xx status code
-func (o *ApproveOrganizationRunsNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this approve organization runs not found response a status code equal to that given
-func (o *ApproveOrganizationRunsNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the approve organization runs not found response
-func (o *ApproveOrganizationRunsNotFound) Code() int {
-	return 404
-}
-
 func (o *ApproveOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
-
-func (o *ApproveOrganizationRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound  %+v", 404, o.Payload)
-}
-
 func (o *ApproveOrganizationRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -330,7 +195,8 @@ func NewApproveOrganizationRunsDefault(code int) *ApproveOrganizationRunsDefault
 	}
 }
 
-/* ApproveOrganizationRunsDefault describes a response with status code -1, with default header values.
+/*
+ApproveOrganizationRunsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -338,31 +204,6 @@ type ApproveOrganizationRunsDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this approve organization runs default response has a 2xx status code
-func (o *ApproveOrganizationRunsDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this approve organization runs default response has a 3xx status code
-func (o *ApproveOrganizationRunsDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this approve organization runs default response has a 4xx status code
-func (o *ApproveOrganizationRunsDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this approve organization runs default response has a 5xx status code
-func (o *ApproveOrganizationRunsDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this approve organization runs default response a status code equal to that given
-func (o *ApproveOrganizationRunsDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the approve organization runs default response
@@ -373,11 +214,6 @@ func (o *ApproveOrganizationRunsDefault) Code() int {
 func (o *ApproveOrganizationRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] ApproveOrganizationRuns default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *ApproveOrganizationRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] ApproveOrganizationRuns default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *ApproveOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

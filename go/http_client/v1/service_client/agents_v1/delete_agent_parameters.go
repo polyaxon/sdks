@@ -66,10 +66,12 @@ func NewDeleteAgentParamsWithHTTPClient(client *http.Client) *DeleteAgentParams 
 	}
 }
 
-/* DeleteAgentParams contains all the parameters to send to the API endpoint
-   for the delete agent operation.
+/*
+DeleteAgentParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the delete agent operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAgentParams struct {
 

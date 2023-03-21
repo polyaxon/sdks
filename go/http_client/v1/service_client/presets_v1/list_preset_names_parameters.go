@@ -67,10 +67,12 @@ func NewListPresetNamesParamsWithHTTPClient(client *http.Client) *ListPresetName
 	}
 }
 
-/* ListPresetNamesParams contains all the parameters to send to the API endpoint
-   for the list preset names operation.
+/*
+ListPresetNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list preset names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListPresetNamesParams struct {
 

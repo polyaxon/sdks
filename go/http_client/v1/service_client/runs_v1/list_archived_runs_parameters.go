@@ -67,10 +67,12 @@ func NewListArchivedRunsParamsWithHTTPClient(client *http.Client) *ListArchivedR
 	}
 }
 
-/* ListArchivedRunsParams contains all the parameters to send to the API endpoint
-   for the list archived runs operation.
+/*
+ListArchivedRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list archived runs operation.
+
+	Typically these are written to a http.Request.
 */
 type ListArchivedRunsParams struct {
 

@@ -68,10 +68,12 @@ func NewArchiveOrganizationRunsParamsWithHTTPClient(client *http.Client) *Archiv
 	}
 }
 
-/* ArchiveOrganizationRunsParams contains all the parameters to send to the API endpoint
-   for the archive organization runs operation.
+/*
+ArchiveOrganizationRunsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the archive organization runs operation.
+
+	Typically these are written to a http.Request.
 */
 type ArchiveOrganizationRunsParams struct {
 

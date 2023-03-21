@@ -78,7 +78,8 @@ func NewGetTeamOK() *GetTeamOK {
 	return &GetTeamOK{}
 }
 
-/* GetTeamOK describes a response with status code 200, with default header values.
+/*
+GetTeamOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetTeamOK struct {
 	Payload *service_model.V1Team
 }
 
-// IsSuccess returns true when this get team o k response has a 2xx status code
-func (o *GetTeamOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get team o k response has a 3xx status code
-func (o *GetTeamOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get team o k response has a 4xx status code
-func (o *GetTeamOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get team o k response has a 5xx status code
-func (o *GetTeamOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get team o k response a status code equal to that given
-func (o *GetTeamOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get team o k response
-func (o *GetTeamOK) Code() int {
-	return 200
-}
-
 func (o *GetTeamOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamOK  %+v", 200, o.Payload)
 }
-
-func (o *GetTeamOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamOK  %+v", 200, o.Payload)
-}
-
 func (o *GetTeamOK) GetPayload() *service_model.V1Team {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetTeamNoContent() *GetTeamNoContent {
 	return &GetTeamNoContent{}
 }
 
-/* GetTeamNoContent describes a response with status code 204, with default header values.
+/*
+GetTeamNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetTeamNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get team no content response has a 2xx status code
-func (o *GetTeamNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get team no content response has a 3xx status code
-func (o *GetTeamNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get team no content response has a 4xx status code
-func (o *GetTeamNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get team no content response has a 5xx status code
-func (o *GetTeamNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get team no content response a status code equal to that given
-func (o *GetTeamNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get team no content response
-func (o *GetTeamNoContent) Code() int {
-	return 204
-}
-
 func (o *GetTeamNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetTeamNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetTeamNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetTeamForbidden() *GetTeamForbidden {
 	return &GetTeamForbidden{}
 }
 
-/* GetTeamForbidden describes a response with status code 403, with default header values.
+/*
+GetTeamForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetTeamForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get team forbidden response has a 2xx status code
-func (o *GetTeamForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get team forbidden response has a 3xx status code
-func (o *GetTeamForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get team forbidden response has a 4xx status code
-func (o *GetTeamForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get team forbidden response has a 5xx status code
-func (o *GetTeamForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get team forbidden response a status code equal to that given
-func (o *GetTeamForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get team forbidden response
-func (o *GetTeamForbidden) Code() int {
-	return 403
-}
-
 func (o *GetTeamForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetTeamForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetTeamForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetTeamNotFound() *GetTeamNotFound {
 	return &GetTeamNotFound{}
 }
 
-/* GetTeamNotFound describes a response with status code 404, with default header values.
+/*
+GetTeamNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetTeamNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get team not found response has a 2xx status code
-func (o *GetTeamNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get team not found response has a 3xx status code
-func (o *GetTeamNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get team not found response has a 4xx status code
-func (o *GetTeamNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get team not found response has a 5xx status code
-func (o *GetTeamNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get team not found response a status code equal to that given
-func (o *GetTeamNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get team not found response
-func (o *GetTeamNotFound) Code() int {
-	return 404
-}
-
 func (o *GetTeamNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetTeamNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] getTeamNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetTeamNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetTeamDefault(code int) *GetTeamDefault {
 	}
 }
 
-/* GetTeamDefault describes a response with status code -1, with default header values.
+/*
+GetTeamDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetTeamDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get team default response has a 2xx status code
-func (o *GetTeamDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get team default response has a 3xx status code
-func (o *GetTeamDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get team default response has a 4xx status code
-func (o *GetTeamDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get team default response has a 5xx status code
-func (o *GetTeamDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get team default response a status code equal to that given
-func (o *GetTeamDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get team default response
@@ -385,11 +225,6 @@ func (o *GetTeamDefault) Code() int {
 func (o *GetTeamDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] GetTeam default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetTeamDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{name}][%d] GetTeam default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetTeamDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

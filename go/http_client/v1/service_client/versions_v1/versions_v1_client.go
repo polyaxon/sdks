@@ -52,7 +52,7 @@ type ClientService interface {
 }
 
 /*
-  GetCompatibility gets compatibility versions
+GetCompatibility gets compatibility versions
 */
 func (a *Client) GetCompatibility(params *GetCompatibilityParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetCompatibilityOK, *GetCompatibilityNoContent, error) {
 	// TODO: Validate the params before sending
@@ -92,7 +92,7 @@ func (a *Client) GetCompatibility(params *GetCompatibilityParams, authInfo runti
 }
 
 /*
-  GetInstallation gets installation versions
+GetInstallation gets installation versions
 */
 func (a *Client) GetInstallation(params *GetInstallationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetInstallationOK, *GetInstallationNoContent, error) {
 	// TODO: Validate the params before sending
@@ -132,7 +132,7 @@ func (a *Client) GetInstallation(params *GetInstallationParams, authInfo runtime
 }
 
 /*
-  GetLogHandler gets log handler versions
+GetLogHandler gets log handler versions
 */
 func (a *Client) GetLogHandler(params *GetLogHandlerParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetLogHandlerOK, *GetLogHandlerNoContent, error) {
 	// TODO: Validate the params before sending

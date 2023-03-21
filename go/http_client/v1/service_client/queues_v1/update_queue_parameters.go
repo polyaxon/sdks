@@ -68,10 +68,12 @@ func NewUpdateQueueParamsWithHTTPClient(client *http.Client) *UpdateQueueParams 
 	}
 }
 
-/* UpdateQueueParams contains all the parameters to send to the API endpoint
-   for the update queue operation.
+/*
+UpdateQueueParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the update queue operation.
+
+	Typically these are written to a http.Request.
 */
 type UpdateQueueParams struct {
 

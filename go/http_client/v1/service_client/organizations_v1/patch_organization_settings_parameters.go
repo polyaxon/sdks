@@ -68,10 +68,12 @@ func NewPatchOrganizationSettingsParamsWithHTTPClient(client *http.Client) *Patc
 	}
 }
 
-/* PatchOrganizationSettingsParams contains all the parameters to send to the API endpoint
-   for the patch organization settings operation.
+/*
+PatchOrganizationSettingsParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch organization settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchOrganizationSettingsParams struct {
 

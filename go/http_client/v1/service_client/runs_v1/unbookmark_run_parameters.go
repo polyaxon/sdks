@@ -66,10 +66,12 @@ func NewUnbookmarkRunParamsWithHTTPClient(client *http.Client) *UnbookmarkRunPar
 	}
 }
 
-/* UnbookmarkRunParams contains all the parameters to send to the API endpoint
-   for the unbookmark run operation.
+/*
+UnbookmarkRunParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the unbookmark run operation.
+
+	Typically these are written to a http.Request.
 */
 type UnbookmarkRunParams struct {
 

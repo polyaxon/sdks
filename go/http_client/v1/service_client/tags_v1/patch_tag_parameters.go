@@ -68,10 +68,12 @@ func NewPatchTagParamsWithHTTPClient(client *http.Client) *PatchTagParams {
 	}
 }
 
-/* PatchTagParams contains all the parameters to send to the API endpoint
-   for the patch tag operation.
+/*
+PatchTagParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the patch tag operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchTagParams struct {
 

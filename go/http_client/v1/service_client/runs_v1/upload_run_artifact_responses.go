@@ -69,48 +69,15 @@ func NewUploadRunArtifactOK() *UploadRunArtifactOK {
 	return &UploadRunArtifactOK{}
 }
 
-/* UploadRunArtifactOK describes a response with status code 200, with default header values.
+/*
+UploadRunArtifactOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
 type UploadRunArtifactOK struct {
 }
 
-// IsSuccess returns true when this upload run artifact o k response has a 2xx status code
-func (o *UploadRunArtifactOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this upload run artifact o k response has a 3xx status code
-func (o *UploadRunArtifactOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload run artifact o k response has a 4xx status code
-func (o *UploadRunArtifactOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this upload run artifact o k response has a 5xx status code
-func (o *UploadRunArtifactOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload run artifact o k response a status code equal to that given
-func (o *UploadRunArtifactOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the upload run artifact o k response
-func (o *UploadRunArtifactOK) Code() int {
-	return 200
-}
-
 func (o *UploadRunArtifactOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactOK ", 200)
-}
-
-func (o *UploadRunArtifactOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactOK ", 200)
 }
 
@@ -124,7 +91,8 @@ func NewUploadRunArtifactNoContent() *UploadRunArtifactNoContent {
 	return &UploadRunArtifactNoContent{}
 }
 
-/* UploadRunArtifactNoContent describes a response with status code 204, with default header values.
+/*
+UploadRunArtifactNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -132,44 +100,9 @@ type UploadRunArtifactNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this upload run artifact no content response has a 2xx status code
-func (o *UploadRunArtifactNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this upload run artifact no content response has a 3xx status code
-func (o *UploadRunArtifactNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload run artifact no content response has a 4xx status code
-func (o *UploadRunArtifactNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this upload run artifact no content response has a 5xx status code
-func (o *UploadRunArtifactNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload run artifact no content response a status code equal to that given
-func (o *UploadRunArtifactNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the upload run artifact no content response
-func (o *UploadRunArtifactNoContent) Code() int {
-	return 204
-}
-
 func (o *UploadRunArtifactNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactNoContent  %+v", 204, o.Payload)
 }
-
-func (o *UploadRunArtifactNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactNoContent  %+v", 204, o.Payload)
-}
-
 func (o *UploadRunArtifactNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -189,7 +122,8 @@ func NewUploadRunArtifactForbidden() *UploadRunArtifactForbidden {
 	return &UploadRunArtifactForbidden{}
 }
 
-/* UploadRunArtifactForbidden describes a response with status code 403, with default header values.
+/*
+UploadRunArtifactForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -197,44 +131,9 @@ type UploadRunArtifactForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this upload run artifact forbidden response has a 2xx status code
-func (o *UploadRunArtifactForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this upload run artifact forbidden response has a 3xx status code
-func (o *UploadRunArtifactForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload run artifact forbidden response has a 4xx status code
-func (o *UploadRunArtifactForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this upload run artifact forbidden response has a 5xx status code
-func (o *UploadRunArtifactForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload run artifact forbidden response a status code equal to that given
-func (o *UploadRunArtifactForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the upload run artifact forbidden response
-func (o *UploadRunArtifactForbidden) Code() int {
-	return 403
-}
-
 func (o *UploadRunArtifactForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactForbidden  %+v", 403, o.Payload)
 }
-
-func (o *UploadRunArtifactForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactForbidden  %+v", 403, o.Payload)
-}
-
 func (o *UploadRunArtifactForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -254,7 +153,8 @@ func NewUploadRunArtifactNotFound() *UploadRunArtifactNotFound {
 	return &UploadRunArtifactNotFound{}
 }
 
-/* UploadRunArtifactNotFound describes a response with status code 404, with default header values.
+/*
+UploadRunArtifactNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -262,44 +162,9 @@ type UploadRunArtifactNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this upload run artifact not found response has a 2xx status code
-func (o *UploadRunArtifactNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this upload run artifact not found response has a 3xx status code
-func (o *UploadRunArtifactNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this upload run artifact not found response has a 4xx status code
-func (o *UploadRunArtifactNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this upload run artifact not found response has a 5xx status code
-func (o *UploadRunArtifactNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this upload run artifact not found response a status code equal to that given
-func (o *UploadRunArtifactNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the upload run artifact not found response
-func (o *UploadRunArtifactNotFound) Code() int {
-	return 404
-}
-
 func (o *UploadRunArtifactNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactNotFound  %+v", 404, o.Payload)
 }
-
-func (o *UploadRunArtifactNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload][%d] uploadRunArtifactNotFound  %+v", 404, o.Payload)
-}
-
 func (o *UploadRunArtifactNotFound) GetPayload() interface{} {
 	return o.Payload
 }

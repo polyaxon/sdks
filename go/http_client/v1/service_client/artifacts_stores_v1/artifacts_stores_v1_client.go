@@ -50,7 +50,7 @@ type ClientService interface {
 }
 
 /*
-  UploadArtifact uploads artifact to a store
+UploadArtifact uploads artifact to a store
 */
 func (a *Client) UploadArtifact(params *UploadArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadArtifactOK, *UploadArtifactNoContent, error) {
 	// TODO: Validate the params before sending

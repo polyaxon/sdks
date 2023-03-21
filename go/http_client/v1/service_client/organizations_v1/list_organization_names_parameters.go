@@ -66,10 +66,12 @@ func NewListOrganizationNamesParamsWithHTTPClient(client *http.Client) *ListOrga
 	}
 }
 
-/* ListOrganizationNamesParams contains all the parameters to send to the API endpoint
-   for the list organization names operation.
+/*
+ListOrganizationNamesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the list organization names operation.
+
+	Typically these are written to a http.Request.
 */
 type ListOrganizationNamesParams struct {
 	timeout    time.Duration

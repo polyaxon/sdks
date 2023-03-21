@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **mountArtifactsStore** | **Boolean** |  |  [optional]
 **collectArtifacts** | **Boolean** |  |  [optional]
 **collectLogs** | **Boolean** |  |  [optional]
-**collectResources** | **String** |  |  [optional]
+**collectResources** | **Boolean** |  |  [optional]
 **syncStatuses** | **Boolean** |  |  [optional]
 **autoResume** | **Boolean** |  |  [optional]
 **logLevel** | **String** |  |  [optional]

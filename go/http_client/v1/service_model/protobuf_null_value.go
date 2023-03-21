@@ -31,20 +31,16 @@ import (
 // ProtobufNullValue `NullValue` is a singleton enumeration to represent the null value for the
 // `Value` type union.
 //
-//  The JSON representation for `NullValue` is JSON `null`.
+//	The JSON representation for `NullValue` is JSON `null`.
 //
-//  - NULL_VALUE: Null value.
+//	- NULL_VALUE: Null value.
 //
 // swagger:model protobufNullValue
 type ProtobufNullValue string
 
 func NewProtobufNullValue(value ProtobufNullValue) *ProtobufNullValue {
-	return &value
-}
-
-// Pointer returns a pointer to a freshly-allocated ProtobufNullValue.
-func (m ProtobufNullValue) Pointer() *ProtobufNullValue {
-	return &m
+	v := value
+	return &v
 }
 
 const (

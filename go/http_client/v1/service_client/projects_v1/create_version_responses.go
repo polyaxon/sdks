@@ -78,7 +78,8 @@ func NewCreateVersionOK() *CreateVersionOK {
 	return &CreateVersionOK{}
 }
 
-/* CreateVersionOK describes a response with status code 200, with default header values.
+/*
+CreateVersionOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type CreateVersionOK struct {
 	Payload *service_model.V1ProjectVersion
 }
 
-// IsSuccess returns true when this create version o k response has a 2xx status code
-func (o *CreateVersionOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this create version o k response has a 3xx status code
-func (o *CreateVersionOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version o k response has a 4xx status code
-func (o *CreateVersionOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this create version o k response has a 5xx status code
-func (o *CreateVersionOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version o k response a status code equal to that given
-func (o *CreateVersionOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the create version o k response
-func (o *CreateVersionOK) Code() int {
-	return 200
-}
-
 func (o *CreateVersionOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK  %+v", 200, o.Payload)
 }
-
-func (o *CreateVersionOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK  %+v", 200, o.Payload)
-}
-
 func (o *CreateVersionOK) GetPayload() *service_model.V1ProjectVersion {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewCreateVersionNoContent() *CreateVersionNoContent {
 	return &CreateVersionNoContent{}
 }
 
-/* CreateVersionNoContent describes a response with status code 204, with default header values.
+/*
+CreateVersionNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type CreateVersionNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create version no content response has a 2xx status code
-func (o *CreateVersionNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this create version no content response has a 3xx status code
-func (o *CreateVersionNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version no content response has a 4xx status code
-func (o *CreateVersionNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this create version no content response has a 5xx status code
-func (o *CreateVersionNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version no content response a status code equal to that given
-func (o *CreateVersionNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the create version no content response
-func (o *CreateVersionNoContent) Code() int {
-	return 204
-}
-
 func (o *CreateVersionNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent  %+v", 204, o.Payload)
 }
-
-func (o *CreateVersionNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent  %+v", 204, o.Payload)
-}
-
 func (o *CreateVersionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewCreateVersionForbidden() *CreateVersionForbidden {
 	return &CreateVersionForbidden{}
 }
 
-/* CreateVersionForbidden describes a response with status code 403, with default header values.
+/*
+CreateVersionForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type CreateVersionForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create version forbidden response has a 2xx status code
-func (o *CreateVersionForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this create version forbidden response has a 3xx status code
-func (o *CreateVersionForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version forbidden response has a 4xx status code
-func (o *CreateVersionForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this create version forbidden response has a 5xx status code
-func (o *CreateVersionForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version forbidden response a status code equal to that given
-func (o *CreateVersionForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the create version forbidden response
-func (o *CreateVersionForbidden) Code() int {
-	return 403
-}
-
 func (o *CreateVersionForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionForbidden  %+v", 403, o.Payload)
 }
-
-func (o *CreateVersionForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionForbidden  %+v", 403, o.Payload)
-}
-
 func (o *CreateVersionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewCreateVersionNotFound() *CreateVersionNotFound {
 	return &CreateVersionNotFound{}
 }
 
-/* CreateVersionNotFound describes a response with status code 404, with default header values.
+/*
+CreateVersionNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type CreateVersionNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this create version not found response has a 2xx status code
-func (o *CreateVersionNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this create version not found response has a 3xx status code
-func (o *CreateVersionNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this create version not found response has a 4xx status code
-func (o *CreateVersionNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this create version not found response has a 5xx status code
-func (o *CreateVersionNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this create version not found response a status code equal to that given
-func (o *CreateVersionNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the create version not found response
-func (o *CreateVersionNotFound) Code() int {
-	return 404
-}
-
 func (o *CreateVersionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound  %+v", 404, o.Payload)
 }
-
-func (o *CreateVersionNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound  %+v", 404, o.Payload)
-}
-
 func (o *CreateVersionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewCreateVersionDefault(code int) *CreateVersionDefault {
 	}
 }
 
-/* CreateVersionDefault describes a response with status code -1, with default header values.
+/*
+CreateVersionDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type CreateVersionDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this create version default response has a 2xx status code
-func (o *CreateVersionDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this create version default response has a 3xx status code
-func (o *CreateVersionDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this create version default response has a 4xx status code
-func (o *CreateVersionDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this create version default response has a 5xx status code
-func (o *CreateVersionDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this create version default response a status code equal to that given
-func (o *CreateVersionDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the create version default response
@@ -385,11 +225,6 @@ func (o *CreateVersionDefault) Code() int {
 func (o *CreateVersionDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] CreateVersion default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *CreateVersionDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] CreateVersion default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *CreateVersionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

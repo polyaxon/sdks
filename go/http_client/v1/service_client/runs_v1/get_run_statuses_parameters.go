@@ -66,10 +66,12 @@ func NewGetRunStatusesParamsWithHTTPClient(client *http.Client) *GetRunStatusesP
 	}
 }
 
-/* GetRunStatusesParams contains all the parameters to send to the API endpoint
-   for the get run statuses operation.
+/*
+GetRunStatusesParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get run statuses operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRunStatusesParams struct {
 

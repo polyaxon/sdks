@@ -66,10 +66,12 @@ func NewGetServiceAccountTokenParamsWithHTTPClient(client *http.Client) *GetServ
 	}
 }
 
-/* GetServiceAccountTokenParams contains all the parameters to send to the API endpoint
-   for the get service account token operation.
+/*
+GetServiceAccountTokenParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get service account token operation.
+
+	Typically these are written to a http.Request.
 */
 type GetServiceAccountTokenParams struct {
 

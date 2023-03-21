@@ -66,10 +66,12 @@ func NewGetCompatibilityParamsWithHTTPClient(client *http.Client) *GetCompatibil
 	}
 }
 
-/* GetCompatibilityParams contains all the parameters to send to the API endpoint
-   for the get compatibility operation.
+/*
+GetCompatibilityParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get compatibility operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCompatibilityParams struct {
 

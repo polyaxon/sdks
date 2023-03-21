@@ -78,7 +78,8 @@ func NewGetVersionStagesOK() *GetVersionStagesOK {
 	return &GetVersionStagesOK{}
 }
 
-/* GetVersionStagesOK describes a response with status code 200, with default header values.
+/*
+GetVersionStagesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -86,44 +87,9 @@ type GetVersionStagesOK struct {
 	Payload *service_model.V1Stage
 }
 
-// IsSuccess returns true when this get version stages o k response has a 2xx status code
-func (o *GetVersionStagesOK) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get version stages o k response has a 3xx status code
-func (o *GetVersionStagesOK) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get version stages o k response has a 4xx status code
-func (o *GetVersionStagesOK) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get version stages o k response has a 5xx status code
-func (o *GetVersionStagesOK) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get version stages o k response a status code equal to that given
-func (o *GetVersionStagesOK) IsCode(code int) bool {
-	return code == 200
-}
-
-// Code gets the status code for the get version stages o k response
-func (o *GetVersionStagesOK) Code() int {
-	return 200
-}
-
 func (o *GetVersionStagesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesOK  %+v", 200, o.Payload)
 }
-
-func (o *GetVersionStagesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesOK  %+v", 200, o.Payload)
-}
-
 func (o *GetVersionStagesOK) GetPayload() *service_model.V1Stage {
 	return o.Payload
 }
@@ -145,7 +111,8 @@ func NewGetVersionStagesNoContent() *GetVersionStagesNoContent {
 	return &GetVersionStagesNoContent{}
 }
 
-/* GetVersionStagesNoContent describes a response with status code 204, with default header values.
+/*
+GetVersionStagesNoContent describes a response with status code 204, with default header values.
 
 No content.
 */
@@ -153,44 +120,9 @@ type GetVersionStagesNoContent struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get version stages no content response has a 2xx status code
-func (o *GetVersionStagesNoContent) IsSuccess() bool {
-	return true
-}
-
-// IsRedirect returns true when this get version stages no content response has a 3xx status code
-func (o *GetVersionStagesNoContent) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get version stages no content response has a 4xx status code
-func (o *GetVersionStagesNoContent) IsClientError() bool {
-	return false
-}
-
-// IsServerError returns true when this get version stages no content response has a 5xx status code
-func (o *GetVersionStagesNoContent) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get version stages no content response a status code equal to that given
-func (o *GetVersionStagesNoContent) IsCode(code int) bool {
-	return code == 204
-}
-
-// Code gets the status code for the get version stages no content response
-func (o *GetVersionStagesNoContent) Code() int {
-	return 204
-}
-
 func (o *GetVersionStagesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesNoContent  %+v", 204, o.Payload)
 }
-
-func (o *GetVersionStagesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesNoContent  %+v", 204, o.Payload)
-}
-
 func (o *GetVersionStagesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -210,7 +142,8 @@ func NewGetVersionStagesForbidden() *GetVersionStagesForbidden {
 	return &GetVersionStagesForbidden{}
 }
 
-/* GetVersionStagesForbidden describes a response with status code 403, with default header values.
+/*
+GetVersionStagesForbidden describes a response with status code 403, with default header values.
 
 You don't have permission to access the resource.
 */
@@ -218,44 +151,9 @@ type GetVersionStagesForbidden struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get version stages forbidden response has a 2xx status code
-func (o *GetVersionStagesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get version stages forbidden response has a 3xx status code
-func (o *GetVersionStagesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get version stages forbidden response has a 4xx status code
-func (o *GetVersionStagesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get version stages forbidden response has a 5xx status code
-func (o *GetVersionStagesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get version stages forbidden response a status code equal to that given
-func (o *GetVersionStagesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get version stages forbidden response
-func (o *GetVersionStagesForbidden) Code() int {
-	return 403
-}
-
 func (o *GetVersionStagesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesForbidden  %+v", 403, o.Payload)
 }
-
-func (o *GetVersionStagesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesForbidden  %+v", 403, o.Payload)
-}
-
 func (o *GetVersionStagesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -275,7 +173,8 @@ func NewGetVersionStagesNotFound() *GetVersionStagesNotFound {
 	return &GetVersionStagesNotFound{}
 }
 
-/* GetVersionStagesNotFound describes a response with status code 404, with default header values.
+/*
+GetVersionStagesNotFound describes a response with status code 404, with default header values.
 
 Resource does not exist.
 */
@@ -283,44 +182,9 @@ type GetVersionStagesNotFound struct {
 	Payload interface{}
 }
 
-// IsSuccess returns true when this get version stages not found response has a 2xx status code
-func (o *GetVersionStagesNotFound) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get version stages not found response has a 3xx status code
-func (o *GetVersionStagesNotFound) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get version stages not found response has a 4xx status code
-func (o *GetVersionStagesNotFound) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get version stages not found response has a 5xx status code
-func (o *GetVersionStagesNotFound) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get version stages not found response a status code equal to that given
-func (o *GetVersionStagesNotFound) IsCode(code int) bool {
-	return code == 404
-}
-
-// Code gets the status code for the get version stages not found response
-func (o *GetVersionStagesNotFound) Code() int {
-	return 404
-}
-
 func (o *GetVersionStagesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesNotFound  %+v", 404, o.Payload)
 }
-
-func (o *GetVersionStagesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] getVersionStagesNotFound  %+v", 404, o.Payload)
-}
-
 func (o *GetVersionStagesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -342,7 +206,8 @@ func NewGetVersionStagesDefault(code int) *GetVersionStagesDefault {
 	}
 }
 
-/* GetVersionStagesDefault describes a response with status code -1, with default header values.
+/*
+GetVersionStagesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
@@ -350,31 +215,6 @@ type GetVersionStagesDefault struct {
 	_statusCode int
 
 	Payload *service_model.RuntimeError
-}
-
-// IsSuccess returns true when this get version stages default response has a 2xx status code
-func (o *GetVersionStagesDefault) IsSuccess() bool {
-	return o._statusCode/100 == 2
-}
-
-// IsRedirect returns true when this get version stages default response has a 3xx status code
-func (o *GetVersionStagesDefault) IsRedirect() bool {
-	return o._statusCode/100 == 3
-}
-
-// IsClientError returns true when this get version stages default response has a 4xx status code
-func (o *GetVersionStagesDefault) IsClientError() bool {
-	return o._statusCode/100 == 4
-}
-
-// IsServerError returns true when this get version stages default response has a 5xx status code
-func (o *GetVersionStagesDefault) IsServerError() bool {
-	return o._statusCode/100 == 5
-}
-
-// IsCode returns true when this get version stages default response a status code equal to that given
-func (o *GetVersionStagesDefault) IsCode(code int) bool {
-	return o._statusCode == code
 }
 
 // Code gets the status code for the get version stages default response
@@ -385,11 +225,6 @@ func (o *GetVersionStagesDefault) Code() int {
 func (o *GetVersionStagesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] GetVersionStages default  %+v", o._statusCode, o.Payload)
 }
-
-func (o *GetVersionStagesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] GetVersionStages default  %+v", o._statusCode, o.Payload)
-}
-
 func (o *GetVersionStagesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

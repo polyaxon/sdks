@@ -66,10 +66,12 @@ func NewGetTeamParamsWithHTTPClient(client *http.Client) *GetTeamParams {
 	}
 }
 
-/* GetTeamParams contains all the parameters to send to the API endpoint
-   for the get team operation.
+/*
+GetTeamParams contains all the parameters to send to the API endpoint
 
-   Typically these are written to a http.Request.
+	for the get team operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTeamParams struct {
 
