@@ -34,12 +34,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1Search;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1ListSearchesResponse
@@ -62,6 +81,8 @@ public class V1ListSearchesResponse {
   @SerializedName(SERIALIZED_NAME_NEXT)
   private String next;
 
+  public V1ListSearchesResponse() {
+  }
 
   public V1ListSearchesResponse count(Integer count) {
     
@@ -74,7 +95,6 @@ public class V1ListSearchesResponse {
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getCount() {
     return count;
@@ -94,7 +114,7 @@ public class V1ListSearchesResponse {
 
   public V1ListSearchesResponse addResultsItem(V1Search resultsItem) {
     if (this.results == null) {
-      this.results = new ArrayList<V1Search>();
+      this.results = new ArrayList<>();
     }
     this.results.add(resultsItem);
     return this;
@@ -105,7 +125,6 @@ public class V1ListSearchesResponse {
    * @return results
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1Search> getResults() {
     return results;
@@ -128,7 +147,6 @@ public class V1ListSearchesResponse {
    * @return previous
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPrevious() {
     return previous;
@@ -151,7 +169,6 @@ public class V1ListSearchesResponse {
    * @return next
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getNext() {
     return next;
@@ -161,6 +178,7 @@ public class V1ListSearchesResponse {
   public void setNext(String next) {
     this.next = next;
   }
+
 
 
   @Override
@@ -206,5 +224,111 @@ public class V1ListSearchesResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("count");
+    openapiFields.add("results");
+    openapiFields.add("previous");
+    openapiFields.add("next");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1ListSearchesResponse
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1ListSearchesResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ListSearchesResponse is not found in the empty JSON string", V1ListSearchesResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1ListSearchesResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ListSearchesResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+        JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+        if (jsonArrayresults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("results").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+          }
+
+          // validate the optional field `results` (array)
+          for (int i = 0; i < jsonArrayresults.size(); i++) {
+            V1Search.validateJsonObject(jsonArrayresults.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("previous") != null && !jsonObj.get("previous").isJsonNull()) && !jsonObj.get("previous").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `previous` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previous").toString()));
+      }
+      if ((jsonObj.get("next") != null && !jsonObj.get("next").isJsonNull()) && !jsonObj.get("next").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `next` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1ListSearchesResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ListSearchesResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1ListSearchesResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ListSearchesResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1ListSearchesResponse>() {
+           @Override
+           public void write(JsonWriter out, V1ListSearchesResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1ListSearchesResponse read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1ListSearchesResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1ListSearchesResponse
+  * @throws IOException if the JSON string is invalid with respect to V1ListSearchesResponse
+  */
+  public static V1ListSearchesResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ListSearchesResponse.class);
+  }
+
+ /**
+  * Convert an instance of V1ListSearchesResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

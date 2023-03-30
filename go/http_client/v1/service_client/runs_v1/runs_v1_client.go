@@ -810,7 +810,7 @@ func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAut
 }
 
 /*
-DeprecatedCollectRunLogs deprecateds collect run logs
+DeprecatedCollectRunLogs deprecateds collect run logs t o d o remove in v2
 */
 func (a *Client) DeprecatedCollectRunLogs(params *DeprecatedCollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeprecatedCollectRunLogsOK, *DeprecatedCollectRunLogsNoContent, error) {
 	// TODO: Validate the params before sending

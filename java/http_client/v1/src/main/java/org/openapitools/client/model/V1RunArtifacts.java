@@ -34,12 +34,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1RunArtifact;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1RunArtifacts
@@ -50,6 +69,8 @@ public class V1RunArtifacts {
   @SerializedName(SERIALIZED_NAME_ARTIFACTS)
   private List<V1RunArtifact> artifacts = null;
 
+  public V1RunArtifacts() {
+  }
 
   public V1RunArtifacts artifacts(List<V1RunArtifact> artifacts) {
     
@@ -59,7 +80,7 @@ public class V1RunArtifacts {
 
   public V1RunArtifacts addArtifactsItem(V1RunArtifact artifactsItem) {
     if (this.artifacts == null) {
-      this.artifacts = new ArrayList<V1RunArtifact>();
+      this.artifacts = new ArrayList<>();
     }
     this.artifacts.add(artifactsItem);
     return this;
@@ -70,7 +91,6 @@ public class V1RunArtifacts {
    * @return artifacts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1RunArtifact> getArtifacts() {
     return artifacts;
@@ -80,6 +100,7 @@ public class V1RunArtifacts {
   public void setArtifacts(List<V1RunArtifact> artifacts) {
     this.artifacts = artifacts;
   }
+
 
 
   @Override
@@ -119,5 +140,102 @@ public class V1RunArtifacts {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("artifacts");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1RunArtifacts
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1RunArtifacts.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1RunArtifacts is not found in the empty JSON string", V1RunArtifacts.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1RunArtifacts.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RunArtifacts` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("artifacts") != null && !jsonObj.get("artifacts").isJsonNull()) {
+        JsonArray jsonArrayartifacts = jsonObj.getAsJsonArray("artifacts");
+        if (jsonArrayartifacts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("artifacts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `artifacts` to be an array in the JSON string but got `%s`", jsonObj.get("artifacts").toString()));
+          }
+
+          // validate the optional field `artifacts` (array)
+          for (int i = 0; i < jsonArrayartifacts.size(); i++) {
+            V1RunArtifact.validateJsonObject(jsonArrayartifacts.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1RunArtifacts.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1RunArtifacts' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1RunArtifacts> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1RunArtifacts.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1RunArtifacts>() {
+           @Override
+           public void write(JsonWriter out, V1RunArtifacts value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1RunArtifacts read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1RunArtifacts given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1RunArtifacts
+  * @throws IOException if the JSON string is invalid with respect to V1RunArtifacts
+  */
+  public static V1RunArtifacts fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1RunArtifacts.class);
+  }
+
+ /**
+  * Convert an instance of V1RunArtifacts to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

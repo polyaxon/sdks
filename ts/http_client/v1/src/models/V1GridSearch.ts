@@ -71,6 +71,15 @@ export interface V1GridSearch {
     earlyStopping?: Array<object>;
 }
 
+/**
+ * Check if a given object implements the V1GridSearch interface.
+ */
+export function instanceOfV1GridSearch(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1GridSearchFromJSON(json: any): V1GridSearch {
     return V1GridSearchFromJSONTyped(json, false);
 }

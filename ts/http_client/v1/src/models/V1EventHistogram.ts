@@ -47,6 +47,15 @@ export interface V1EventHistogram {
     counts?: Array<number>;
 }
 
+/**
+ * Check if a given object implements the V1EventHistogram interface.
+ */
+export function instanceOfV1EventHistogram(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventHistogramFromJSON(json: any): V1EventHistogram {
     return V1EventHistogramFromJSONTyped(json, false);
 }

@@ -34,13 +34,32 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1DockerfileType
@@ -103,6 +122,8 @@ public class V1DockerfileType {
   @SerializedName(SERIALIZED_NAME_SHELL)
   private String shell;
 
+  public V1DockerfileType() {
+  }
 
   public V1DockerfileType image(String image) {
     
@@ -115,7 +136,6 @@ public class V1DockerfileType {
    * @return image
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getImage() {
     return image;
@@ -135,7 +155,7 @@ public class V1DockerfileType {
 
   public V1DockerfileType putEnvItem(String key, String envItem) {
     if (this.env == null) {
-      this.env = new HashMap<String, String>();
+      this.env = new HashMap<>();
     }
     this.env.put(key, envItem);
     return this;
@@ -146,7 +166,6 @@ public class V1DockerfileType {
    * @return env
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getEnv() {
     return env;
@@ -166,7 +185,7 @@ public class V1DockerfileType {
 
   public V1DockerfileType addPathItem(String pathItem) {
     if (this.path == null) {
-      this.path = new ArrayList<String>();
+      this.path = new ArrayList<>();
     }
     this.path.add(pathItem);
     return this;
@@ -177,7 +196,6 @@ public class V1DockerfileType {
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getPath() {
     return path;
@@ -197,7 +215,7 @@ public class V1DockerfileType {
 
   public V1DockerfileType addCopyItem(Object copyItem) {
     if (this.copy == null) {
-      this.copy = new ArrayList<Object>();
+      this.copy = new ArrayList<>();
     }
     this.copy.add(copyItem);
     return this;
@@ -208,7 +226,6 @@ public class V1DockerfileType {
    * @return copy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getCopy() {
     return copy;
@@ -228,7 +245,7 @@ public class V1DockerfileType {
 
   public V1DockerfileType addPostRunCopyItem(Object postRunCopyItem) {
     if (this.postRunCopy == null) {
-      this.postRunCopy = new ArrayList<Object>();
+      this.postRunCopy = new ArrayList<>();
     }
     this.postRunCopy.add(postRunCopyItem);
     return this;
@@ -239,7 +256,6 @@ public class V1DockerfileType {
    * @return postRunCopy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getPostRunCopy() {
     return postRunCopy;
@@ -259,7 +275,7 @@ public class V1DockerfileType {
 
   public V1DockerfileType addRunItem(String runItem) {
     if (this.run == null) {
-      this.run = new ArrayList<String>();
+      this.run = new ArrayList<>();
     }
     this.run.add(runItem);
     return this;
@@ -270,7 +286,6 @@ public class V1DockerfileType {
    * @return run
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getRun() {
     return run;
@@ -293,7 +308,6 @@ public class V1DockerfileType {
    * @return langEnv
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getLangEnv() {
     return langEnv;
@@ -316,7 +330,6 @@ public class V1DockerfileType {
    * @return uid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getUid() {
     return uid;
@@ -339,7 +352,6 @@ public class V1DockerfileType {
    * @return gid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getGid() {
     return gid;
@@ -362,7 +374,6 @@ public class V1DockerfileType {
    * @return username
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getUsername() {
     return username;
@@ -385,7 +396,6 @@ public class V1DockerfileType {
    * @return filename
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFilename() {
     return filename;
@@ -408,7 +418,6 @@ public class V1DockerfileType {
    * @return workdir
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkdir() {
     return workdir;
@@ -431,7 +440,6 @@ public class V1DockerfileType {
    * @return workdirPath
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getWorkdirPath() {
     return workdirPath;
@@ -454,7 +462,6 @@ public class V1DockerfileType {
    * @return shell
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getShell() {
     return shell;
@@ -464,6 +471,7 @@ public class V1DockerfileType {
   public void setShell(String shell) {
     this.shell = shell;
   }
+
 
 
   @Override
@@ -529,5 +537,135 @@ public class V1DockerfileType {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("image");
+    openapiFields.add("env");
+    openapiFields.add("path");
+    openapiFields.add("copy");
+    openapiFields.add("post_run_copy");
+    openapiFields.add("run");
+    openapiFields.add("langEnv");
+    openapiFields.add("uid");
+    openapiFields.add("gid");
+    openapiFields.add("username");
+    openapiFields.add("filename");
+    openapiFields.add("workdir");
+    openapiFields.add("workdirPath");
+    openapiFields.add("shell");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1DockerfileType
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1DockerfileType.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DockerfileType is not found in the empty JSON string", V1DockerfileType.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1DockerfileType.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DockerfileType` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) && !jsonObj.get("image").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `path` to be an array in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("copy") != null && !jsonObj.get("copy").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `copy` to be an array in the JSON string but got `%s`", jsonObj.get("copy").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("post_run_copy") != null && !jsonObj.get("post_run_copy").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `post_run_copy` to be an array in the JSON string but got `%s`", jsonObj.get("post_run_copy").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("run") != null && !jsonObj.get("run").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `run` to be an array in the JSON string but got `%s`", jsonObj.get("run").toString()));
+      }
+      if ((jsonObj.get("langEnv") != null && !jsonObj.get("langEnv").isJsonNull()) && !jsonObj.get("langEnv").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `langEnv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("langEnv").toString()));
+      }
+      if ((jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonNull()) && !jsonObj.get("filename").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+      }
+      if ((jsonObj.get("workdir") != null && !jsonObj.get("workdir").isJsonNull()) && !jsonObj.get("workdir").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workdir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workdir").toString()));
+      }
+      if ((jsonObj.get("workdirPath") != null && !jsonObj.get("workdirPath").isJsonNull()) && !jsonObj.get("workdirPath").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workdirPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workdirPath").toString()));
+      }
+      if ((jsonObj.get("shell") != null && !jsonObj.get("shell").isJsonNull()) && !jsonObj.get("shell").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shell` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shell").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1DockerfileType.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1DockerfileType' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1DockerfileType> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1DockerfileType.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1DockerfileType>() {
+           @Override
+           public void write(JsonWriter out, V1DockerfileType value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1DockerfileType read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1DockerfileType given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1DockerfileType
+  * @throws IOException if the JSON string is invalid with respect to V1DockerfileType
+  */
+  public static V1DockerfileType fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1DockerfileType.class);
+  }
+
+ /**
+  * Convert an instance of V1DockerfileType to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

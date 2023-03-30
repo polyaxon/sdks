@@ -37,8 +37,12 @@ import (
 type V1Optimization string
 
 func NewV1Optimization(value V1Optimization) *V1Optimization {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1Optimization.
+func (m V1Optimization) Pointer() *V1Optimization {
+	return &m
 }
 
 const (

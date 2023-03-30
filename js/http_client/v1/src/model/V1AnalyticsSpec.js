@@ -77,8 +77,36 @@ class V1AnalyticsSpec {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1AnalyticsSpec</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1AnalyticsSpec</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['view'] && !(typeof data['view'] === 'string' || data['view'] instanceof String)) {
+            throw new Error("Expected the field `view` to be a primitive type in the JSON string but got " + data['view']);
+        }
+        // ensure the json data is a string
+        if (data['trunc'] && !(typeof data['trunc'] === 'string' || data['trunc'] instanceof String)) {
+            throw new Error("Expected the field `trunc` to be a primitive type in the JSON string but got " + data['trunc']);
+        }
+        // ensure the json data is a string
+        if (data['groupby'] && !(typeof data['groupby'] === 'string' || data['groupby'] instanceof String)) {
+            throw new Error("Expected the field `groupby` to be a primitive type in the JSON string but got " + data['groupby']);
+        }
+        // ensure the json data is a string
+        if (data['frequency'] && !(typeof data['frequency'] === 'string' || data['frequency'] instanceof String)) {
+            throw new Error("Expected the field `frequency` to be a primitive type in the JSON string but got " + data['frequency']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} view

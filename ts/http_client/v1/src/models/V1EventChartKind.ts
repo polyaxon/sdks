@@ -26,18 +26,20 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - plotly: Plotly chart
  *  - bokeh: Bokeh chart
  *  - vega: Vega chart
  * @export
- * @enum {string}
  */
-export enum V1EventChartKind {
-    Plotly = 'plotly',
-    Bokeh = 'bokeh',
-    Vega = 'vega'
-}
+export const V1EventChartKind = {
+    Plotly: 'plotly',
+    Bokeh: 'bokeh',
+    Vega: 'vega'
+} as const;
+export type V1EventChartKind = typeof V1EventChartKind[keyof typeof V1EventChartKind];
+
 
 export function V1EventChartKindFromJSON(json: any): V1EventChartKind {
     return V1EventChartKindFromJSONTyped(json, false);

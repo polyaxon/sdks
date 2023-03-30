@@ -41,6 +41,15 @@ export interface V1AverageStoppingPolicy {
     kind?: object;
 }
 
+/**
+ * Check if a given object implements the V1AverageStoppingPolicy interface.
+ */
+export function instanceOfV1AverageStoppingPolicy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1AverageStoppingPolicyFromJSON(json: any): V1AverageStoppingPolicy {
     return V1AverageStoppingPolicyFromJSONTyped(json, false);
 }

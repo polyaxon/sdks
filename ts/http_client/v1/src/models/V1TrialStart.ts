@@ -71,6 +71,15 @@ export interface V1TrialStart {
     details?: object;
 }
 
+/**
+ * Check if a given object implements the V1TrialStart interface.
+ */
+export function instanceOfV1TrialStart(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TrialStartFromJSON(json: any): V1TrialStart {
     return V1TrialStartFromJSONTyped(json, false);
 }

@@ -21,6 +21,7 @@ Get compatibility versions
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -36,7 +37,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -46,14 +47,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.VersionsV1Api(api_client)
     uuid = 'uuid_example' # str | UUid
-version = 'version_example' # str | Version
-service = 'service_example' # str | Service
+    version = 'version_example' # str | Version
+    service = 'service_example' # str | Service
 
     try:
         # Get compatibility versions
         api_response = api_instance.get_compatibility(uuid, version, service)
+        print("The response of VersionsV1Api->get_compatibility:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling VersionsV1Api->get_compatibility: %s\n" % e)
 ```
 
@@ -100,6 +102,7 @@ Get installation versions
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -115,7 +118,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -129,8 +132,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Get installation versions
         api_response = api_instance.get_installation(auth=auth)
+        print("The response of VersionsV1Api->get_installation:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling VersionsV1Api->get_installation: %s\n" % e)
 ```
 
@@ -175,6 +179,7 @@ Get log handler versions
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -190,7 +195,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -199,12 +204,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.VersionsV1Api(api_client)
-    
+
     try:
         # Get log handler versions
         api_response = api_instance.get_log_handler()
+        print("The response of VersionsV1Api->get_log_handler:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling VersionsV1Api->get_log_handler: %s\n" % e)
 ```
 

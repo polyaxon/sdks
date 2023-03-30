@@ -31,8 +31,13 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
+from pydantic import validate_arguments, ValidationError
+from typing_extensions import Annotated
+
+from pydantic import Field, StrictBool, StrictStr
+
+from typing import Optional
+
 
 from polyaxon_sdk.api_client import ApiClient
 from polyaxon_sdk.exceptions import (  # noqa: F401
@@ -50,16 +55,17 @@ class ArtifactsStoresV1Api(object):
 
     def __init__(self, api_client=None):
         if api_client is None:
-            api_client = ApiClient()
+            api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    def upload_artifact(self, owner, uuid, uploadfile, **kwargs):  # noqa: E501
+    @validate_arguments
+    def upload_artifact(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs) -> None:  # noqa: E501
         """Upload artifact to a store  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_artifact(owner, uuid, uploadfile, async_req=True)
+        >>> thread = api.upload_artifact(owner, uuid, uploadfile, path, overwrite, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -67,7 +73,7 @@ class ArtifactsStoresV1Api(object):
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
         :param uploadfile: The file to upload. (required)
-        :type uploadfile: file
+        :type uploadfile: str
         :param path: File path query params.
         :type path: str
         :param overwrite: File path query params.
@@ -88,15 +94,16 @@ class ArtifactsStoresV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.upload_artifact_with_http_info(owner, uuid, uploadfile, **kwargs)  # noqa: E501
+        return self.upload_artifact_with_http_info(owner, uuid, uploadfile, path, overwrite, **kwargs)  # noqa: E501
 
-    def upload_artifact_with_http_info(self, owner, uuid, uploadfile, **kwargs):  # noqa: E501
+    @validate_arguments
+    def upload_artifact_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs):  # noqa: E501
         """Upload artifact to a store  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_artifact_with_http_info(owner, uuid, uploadfile, async_req=True)
+        >>> thread = api.upload_artifact_with_http_info(owner, uuid, uploadfile, path, overwrite, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -104,7 +111,7 @@ class ArtifactsStoresV1Api(object):
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
         :param uploadfile: The file to upload. (required)
-        :type uploadfile: file
+        :type uploadfile: str
         :param path: File path query params.
         :type path: str
         :param overwrite: File path query params.
@@ -126,100 +133,101 @@ class ArtifactsStoresV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'uuid',
             'uploadfile',
             'path',
             'overwrite'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method upload_artifact" % key
+                    " to method upload_artifact" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `upload_artifact`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `upload_artifact`")  # noqa: E501
-        # verify the required parameter 'uploadfile' is set
-        if self.api_client.client_side_validation and ('uploadfile' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uploadfile'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uploadfile` when calling `upload_artifact`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
-        if 'overwrite' in local_var_params and local_var_params['overwrite'] is not None:  # noqa: E501
-            query_params.append(('overwrite', local_var_params['overwrite']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
+        if _params.get('overwrite') is not None:  # noqa: E501
+            _query_params.append(('overwrite', _params['overwrite']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
-        if 'uploadfile' in local_var_params:
-            local_var_files['uploadfile'] = local_var_params['uploadfile']  # noqa: E501
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        if _params['uploadfile']:
+            _files['uploadfile'] = _params['uploadfile']
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/form-data'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['multipart/form-data']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/catalogs/{owner}/artifacts/{uuid}/upload', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))

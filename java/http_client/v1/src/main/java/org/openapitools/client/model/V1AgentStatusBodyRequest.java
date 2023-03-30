@@ -34,10 +34,29 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1StatusCondition;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1AgentStatusBodyRequest
@@ -56,6 +75,8 @@ public class V1AgentStatusBodyRequest {
   @SerializedName(SERIALIZED_NAME_CONDITION)
   private V1StatusCondition condition;
 
+  public V1AgentStatusBodyRequest() {
+  }
 
   public V1AgentStatusBodyRequest owner(String owner) {
     
@@ -68,7 +89,6 @@ public class V1AgentStatusBodyRequest {
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOwner() {
     return owner;
@@ -91,7 +111,6 @@ public class V1AgentStatusBodyRequest {
    * @return uuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUuid() {
     return uuid;
@@ -114,7 +133,6 @@ public class V1AgentStatusBodyRequest {
    * @return condition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1StatusCondition getCondition() {
     return condition;
@@ -124,6 +142,7 @@ public class V1AgentStatusBodyRequest {
   public void setCondition(V1StatusCondition condition) {
     this.condition = condition;
   }
+
 
 
   @Override
@@ -167,5 +186,100 @@ public class V1AgentStatusBodyRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("owner");
+    openapiFields.add("uuid");
+    openapiFields.add("condition");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1AgentStatusBodyRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1AgentStatusBodyRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1AgentStatusBodyRequest is not found in the empty JSON string", V1AgentStatusBodyRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1AgentStatusBodyRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1AgentStatusBodyRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("uuid") != null && !jsonObj.get("uuid").isJsonNull()) && !jsonObj.get("uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uuid").toString()));
+      }
+      // validate the optional field `condition`
+      if (jsonObj.get("condition") != null && !jsonObj.get("condition").isJsonNull()) {
+        V1StatusCondition.validateJsonObject(jsonObj.getAsJsonObject("condition"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1AgentStatusBodyRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1AgentStatusBodyRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1AgentStatusBodyRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1AgentStatusBodyRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1AgentStatusBodyRequest>() {
+           @Override
+           public void write(JsonWriter out, V1AgentStatusBodyRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1AgentStatusBodyRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1AgentStatusBodyRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1AgentStatusBodyRequest
+  * @throws IOException if the JSON string is invalid with respect to V1AgentStatusBodyRequest
+  */
+  public static V1AgentStatusBodyRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1AgentStatusBodyRequest.class);
+  }
+
+ /**
+  * Convert an instance of V1AgentStatusBodyRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

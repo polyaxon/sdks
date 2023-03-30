@@ -3,23 +3,23 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
-[**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
-[**deleteAgent**](AgentsV1Api.md#deleteAgent) | **DELETE** /api/v1/orgs/{owner}/agents/{uuid} | Delete agent
-[**getAgent**](AgentsV1Api.md#getAgent) | **GET** /api/v1/orgs/{owner}/agents/{uuid} | Get agent
-[**getAgentConfig**](AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
-[**getAgentState**](AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
-[**getAgentToken**](AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
-[**listAgentNames**](AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
-[**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
-[**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
-[**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
-[**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
-[**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
-[**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
-[**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent |
+| [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status |
+| [**deleteAgent**](AgentsV1Api.md#deleteAgent) | **DELETE** /api/v1/orgs/{owner}/agents/{uuid} | Delete agent |
+| [**getAgent**](AgentsV1Api.md#getAgent) | **GET** /api/v1/orgs/{owner}/agents/{uuid} | Get agent |
+| [**getAgentConfig**](AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config |
+| [**getAgentState**](AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs) |
+| [**getAgentToken**](AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token |
+| [**listAgentNames**](AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names |
+| [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents |
+| [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent |
+| [**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token |
+| [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent |
+| [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent |
+| [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config |
+| [**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token |
 
 
 <a name="createAgent"></a>
@@ -68,10 +68,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Agent**](V1Agent.md)| Agent body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Agent**](V1Agent.md)| Agent body | |
 
 ### Return type
 
@@ -89,11 +89,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="createAgentStatus"></a>
 # **createAgentStatus**
@@ -142,11 +142,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the entity |
- **body** | [**V1AgentStatusBodyRequest**](V1AgentStatusBodyRequest.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+| **body** | [**V1AgentStatusBodyRequest**](V1AgentStatusBodyRequest.md)|  | |
 
 ### Return type
 
@@ -164,11 +164,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteAgent"></a>
 # **deleteAgent**
@@ -216,11 +216,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the sub-entity |
- **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] |
 
 ### Return type
 
@@ -238,11 +238,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getAgent"></a>
 # **getAgent**
@@ -291,11 +291,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the sub-entity |
- **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] |
 
 ### Return type
 
@@ -313,11 +313,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getAgentConfig"></a>
 # **getAgentConfig**
@@ -366,11 +366,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the sub-entity |
- **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] |
 
 ### Return type
 
@@ -388,11 +388,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getAgentState"></a>
 # **getAgentState**
@@ -440,10 +440,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
 
 ### Return type
 
@@ -461,11 +461,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getAgentToken"></a>
 # **getAgentToken**
@@ -513,10 +513,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
 
 ### Return type
 
@@ -534,11 +534,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listAgentNames"></a>
 # **listAgentNames**
@@ -592,16 +592,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -619,11 +619,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listAgents"></a>
 # **listAgents**
@@ -677,16 +677,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -704,11 +704,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchAgent"></a>
 # **patchAgent**
@@ -757,11 +757,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agentUuid** | **String**| UUID |
- **body** | [**V1Agent**](V1Agent.md)| Agent body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agentUuid** | **String**| UUID | |
+| **body** | [**V1Agent**](V1Agent.md)| Agent body | |
 
 ### Return type
 
@@ -779,11 +779,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchAgentToken"></a>
 # **patchAgentToken**
@@ -832,11 +832,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Rntity |
- **body** | [**V1Token**](V1Token.md)| Token body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Rntity | |
+| **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
 
@@ -854,11 +854,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="syncAgent"></a>
 # **syncAgent**
@@ -906,11 +906,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agentUuid** | **String**| UUID |
- **body** | [**V1Agent**](V1Agent.md)| Agent body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agentUuid** | **String**| UUID | |
+| **body** | [**V1Agent**](V1Agent.md)| Agent body | |
 
 ### Return type
 
@@ -928,11 +928,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateAgent"></a>
 # **updateAgent**
@@ -981,11 +981,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agentUuid** | **String**| UUID |
- **body** | [**V1Agent**](V1Agent.md)| Agent body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agentUuid** | **String**| UUID | |
+| **body** | [**V1Agent**](V1Agent.md)| Agent body | |
 
 ### Return type
 
@@ -1003,11 +1003,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateAgentConfig"></a>
 # **updateAgentConfig**
@@ -1056,11 +1056,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agentUuid** | **String**| UUID |
- **body** | [**V1Agent**](V1Agent.md)| Agent body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agentUuid** | **String**| UUID | |
+| **body** | [**V1Agent**](V1Agent.md)| Agent body | |
 
 ### Return type
 
@@ -1078,11 +1078,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateAgentToken"></a>
 # **updateAgentToken**
@@ -1131,11 +1131,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Rntity |
- **body** | [**V1Token**](V1Token.md)| Token body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Rntity | |
+| **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
 
@@ -1153,9 +1153,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

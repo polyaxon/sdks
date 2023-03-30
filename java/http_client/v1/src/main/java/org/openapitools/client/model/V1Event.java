@@ -34,9 +34,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.V1EventArtifact;
 import org.openapitools.client.model.V1EventAudio;
 import org.openapitools.client.model.V1EventChart;
@@ -47,7 +46,27 @@ import org.openapitools.client.model.V1EventHistogram;
 import org.openapitools.client.model.V1EventImage;
 import org.openapitools.client.model.V1EventModel;
 import org.openapitools.client.model.V1EventVideo;
-import org.threeten.bp.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Event
@@ -114,6 +133,8 @@ public class V1Event {
   @SerializedName(SERIALIZED_NAME_CONFUSION)
   private V1EventConfusionMatrix confusion;
 
+  public V1Event() {
+  }
 
   public V1Event timestamp(OffsetDateTime timestamp) {
     
@@ -126,7 +147,6 @@ public class V1Event {
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getTimestamp() {
     return timestamp;
@@ -149,7 +169,6 @@ public class V1Event {
    * @return step
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global step of the event.")
 
   public Integer getStep() {
     return step;
@@ -172,7 +191,6 @@ public class V1Event {
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Float getMetric() {
     return metric;
@@ -195,7 +213,6 @@ public class V1Event {
    * @return image
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventImage getImage() {
     return image;
@@ -218,7 +235,6 @@ public class V1Event {
    * @return histogram
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventHistogram getHistogram() {
     return histogram;
@@ -241,7 +257,6 @@ public class V1Event {
    * @return audio
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventAudio getAudio() {
     return audio;
@@ -264,7 +279,6 @@ public class V1Event {
    * @return video
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventVideo getVideo() {
     return video;
@@ -287,7 +301,6 @@ public class V1Event {
    * @return html
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getHtml() {
     return html;
@@ -310,7 +323,6 @@ public class V1Event {
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getText() {
     return text;
@@ -333,7 +345,6 @@ public class V1Event {
    * @return chart
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventChart getChart() {
     return chart;
@@ -356,7 +367,6 @@ public class V1Event {
    * @return model
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventModel getModel() {
     return model;
@@ -379,7 +389,6 @@ public class V1Event {
    * @return artifact
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventArtifact getArtifact() {
     return artifact;
@@ -402,7 +411,6 @@ public class V1Event {
    * @return dataframe
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventDataframe getDataframe() {
     return dataframe;
@@ -425,7 +433,6 @@ public class V1Event {
    * @return curve
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventCurve getCurve() {
     return curve;
@@ -448,7 +455,6 @@ public class V1Event {
    * @return confusion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventConfusionMatrix getConfusion() {
     return confusion;
@@ -458,6 +464,7 @@ public class V1Event {
   public void setConfusion(V1EventConfusionMatrix confusion) {
     this.confusion = confusion;
   }
+
 
 
   @Override
@@ -525,5 +532,148 @@ public class V1Event {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("timestamp");
+    openapiFields.add("step");
+    openapiFields.add("metric");
+    openapiFields.add("image");
+    openapiFields.add("histogram");
+    openapiFields.add("audio");
+    openapiFields.add("video");
+    openapiFields.add("html");
+    openapiFields.add("text");
+    openapiFields.add("chart");
+    openapiFields.add("model");
+    openapiFields.add("artifact");
+    openapiFields.add("dataframe");
+    openapiFields.add("curve");
+    openapiFields.add("confusion");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Event
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Event is not found in the empty JSON string", V1Event.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Event.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Event` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `image`
+      if (jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) {
+        V1EventImage.validateJsonObject(jsonObj.getAsJsonObject("image"));
+      }
+      // validate the optional field `histogram`
+      if (jsonObj.get("histogram") != null && !jsonObj.get("histogram").isJsonNull()) {
+        V1EventHistogram.validateJsonObject(jsonObj.getAsJsonObject("histogram"));
+      }
+      // validate the optional field `audio`
+      if (jsonObj.get("audio") != null && !jsonObj.get("audio").isJsonNull()) {
+        V1EventAudio.validateJsonObject(jsonObj.getAsJsonObject("audio"));
+      }
+      // validate the optional field `video`
+      if (jsonObj.get("video") != null && !jsonObj.get("video").isJsonNull()) {
+        V1EventVideo.validateJsonObject(jsonObj.getAsJsonObject("video"));
+      }
+      if ((jsonObj.get("html") != null && !jsonObj.get("html").isJsonNull()) && !jsonObj.get("html").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `html` to be a primitive type in the JSON string but got `%s`", jsonObj.get("html").toString()));
+      }
+      if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull()) && !jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
+      }
+      // validate the optional field `chart`
+      if (jsonObj.get("chart") != null && !jsonObj.get("chart").isJsonNull()) {
+        V1EventChart.validateJsonObject(jsonObj.getAsJsonObject("chart"));
+      }
+      // validate the optional field `model`
+      if (jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull()) {
+        V1EventModel.validateJsonObject(jsonObj.getAsJsonObject("model"));
+      }
+      // validate the optional field `artifact`
+      if (jsonObj.get("artifact") != null && !jsonObj.get("artifact").isJsonNull()) {
+        V1EventArtifact.validateJsonObject(jsonObj.getAsJsonObject("artifact"));
+      }
+      // validate the optional field `dataframe`
+      if (jsonObj.get("dataframe") != null && !jsonObj.get("dataframe").isJsonNull()) {
+        V1EventDataframe.validateJsonObject(jsonObj.getAsJsonObject("dataframe"));
+      }
+      // validate the optional field `curve`
+      if (jsonObj.get("curve") != null && !jsonObj.get("curve").isJsonNull()) {
+        V1EventCurve.validateJsonObject(jsonObj.getAsJsonObject("curve"));
+      }
+      // validate the optional field `confusion`
+      if (jsonObj.get("confusion") != null && !jsonObj.get("confusion").isJsonNull()) {
+        V1EventConfusionMatrix.validateJsonObject(jsonObj.getAsJsonObject("confusion"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Event.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Event' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Event> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Event.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Event>() {
+           @Override
+           public void write(JsonWriter out, V1Event value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Event read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Event given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Event
+  * @throws IOException if the JSON string is invalid with respect to V1Event
+  */
+  public static V1Event fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Event.class);
+  }
+
+ /**
+  * Convert an instance of V1Event to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

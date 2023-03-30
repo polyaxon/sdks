@@ -86,7 +86,41 @@ A successful response.
 type ChangePasswordOK struct {
 }
 
+// IsSuccess returns true when this change password o k response has a 2xx status code
+func (o *ChangePasswordOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this change password o k response has a 3xx status code
+func (o *ChangePasswordOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this change password o k response has a 4xx status code
+func (o *ChangePasswordOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this change password o k response has a 5xx status code
+func (o *ChangePasswordOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this change password o k response a status code equal to that given
+func (o *ChangePasswordOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the change password o k response
+func (o *ChangePasswordOK) Code() int {
+	return 200
+}
+
 func (o *ChangePasswordOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK ", 200)
+}
+
+func (o *ChangePasswordOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type ChangePasswordNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this change password no content response has a 2xx status code
+func (o *ChangePasswordNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this change password no content response has a 3xx status code
+func (o *ChangePasswordNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this change password no content response has a 4xx status code
+func (o *ChangePasswordNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this change password no content response has a 5xx status code
+func (o *ChangePasswordNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this change password no content response a status code equal to that given
+func (o *ChangePasswordNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the change password no content response
+func (o *ChangePasswordNoContent) Code() int {
+	return 204
+}
+
 func (o *ChangePasswordNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ChangePasswordNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ChangePasswordNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type ChangePasswordForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this change password forbidden response has a 2xx status code
+func (o *ChangePasswordForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this change password forbidden response has a 3xx status code
+func (o *ChangePasswordForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this change password forbidden response has a 4xx status code
+func (o *ChangePasswordForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this change password forbidden response has a 5xx status code
+func (o *ChangePasswordForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this change password forbidden response a status code equal to that given
+func (o *ChangePasswordForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the change password forbidden response
+func (o *ChangePasswordForbidden) Code() int {
+	return 403
+}
+
 func (o *ChangePasswordForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ChangePasswordForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ChangePasswordForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type ChangePasswordNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this change password not found response has a 2xx status code
+func (o *ChangePasswordNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this change password not found response has a 3xx status code
+func (o *ChangePasswordNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this change password not found response has a 4xx status code
+func (o *ChangePasswordNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this change password not found response has a 5xx status code
+func (o *ChangePasswordNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this change password not found response a status code equal to that given
+func (o *ChangePasswordNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the change password not found response
+func (o *ChangePasswordNotFound) Code() int {
+	return 404
+}
+
 func (o *ChangePasswordNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ChangePasswordNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ChangePasswordNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type ChangePasswordDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this change password default response has a 2xx status code
+func (o *ChangePasswordDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this change password default response has a 3xx status code
+func (o *ChangePasswordDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this change password default response has a 4xx status code
+func (o *ChangePasswordDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this change password default response has a 5xx status code
+func (o *ChangePasswordDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this change password default response a status code equal to that given
+func (o *ChangePasswordDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the change password default response
 func (o *ChangePasswordDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *ChangePasswordDefault) Code() int {
 func (o *ChangePasswordDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] ChangePassword default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ChangePasswordDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] ChangePassword default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ChangePasswordDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -5,17 +5,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
-**description** | **String** |  |  [optional]
-**tags** | **String** |  |  [optional]
-**kind** | **V1ConnectionKind** |  |  [optional]
-**schema** | **Object** |  |  [optional]
-**secret** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  |  [optional]
-**configMap** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  |  [optional]
-**env** | **List&lt;Object&gt;** |  |  [optional]
-**annotations** | **Map&lt;String, String&gt;** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**tags** | **String** |  |  [optional] |
+|**kind** | **V1ConnectionKind** |  |  [optional] |
+|**schema** | **Object** |  |  [optional] |
+|**secret** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  |  [optional] |
+|**configMap** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  |  [optional] |
+|**env** | **List&lt;Object&gt;** |  |  [optional] |
+|**annotations** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 
 

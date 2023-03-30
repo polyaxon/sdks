@@ -973,6 +973,71 @@ export default class RunsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the deprecatedCollectRunLogs operation.
+     * @callback module:api/RunsV1Api~deprecatedCollectRunLogsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Deprecated Collect run logs (# TODO: Remove in v2)
+     * @param {String} namespace 
+     * @param {String} owner Owner of the namespace
+     * @param {String} project Project where the run will be assigned
+     * @param {String} uuid Uuid identifier of the entity
+     * @param {String} kind Kind of the entity
+     * @param {module:api/RunsV1Api~deprecatedCollectRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deprecatedCollectRunLogs(namespace, owner, project, uuid, kind, callback) {
+      let postBody = null;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling deprecatedCollectRunLogs");
+      }
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling deprecatedCollectRunLogs");
+      }
+      // verify the required parameter 'project' is set
+      if (project === undefined || project === null) {
+        throw new Error("Missing the required parameter 'project' when calling deprecatedCollectRunLogs");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling deprecatedCollectRunLogs");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling deprecatedCollectRunLogs");
+      }
+
+      let pathParams = {
+        'namespace': namespace,
+        'owner': owner,
+        'project': project,
+        'uuid': uuid,
+        'kind': kind
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getMultiRunEvents operation.
      * @callback module:api/RunsV1Api~getMultiRunEventsCallback
      * @param {String} error Error message, if any.

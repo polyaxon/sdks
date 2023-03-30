@@ -28,14 +28,16 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ListPresetsResponse,
+  V1Preset,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ListPresetsResponse,
     V1ListPresetsResponseFromJSON,
     V1ListPresetsResponseToJSON,
-    V1Preset,
     V1PresetFromJSON,
     V1PresetToJSON,
 } from '../models';
@@ -99,7 +101,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Create scheduling presets
      */
-    async createPresetRaw(requestParameters: CreatePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Preset>> {
+    async createPresetRaw(requestParameters: CreatePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Preset>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createPreset.');
         }
@@ -132,7 +134,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Create scheduling presets
      */
-    async createPreset(requestParameters: CreatePresetRequest, initOverrides?: RequestInit): Promise<V1Preset> {
+    async createPreset(requestParameters: CreatePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Preset> {
         const response = await this.createPresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -140,7 +142,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Delete scheduling preset
      */
-    async deletePresetRaw(requestParameters: DeletePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deletePresetRaw(requestParameters: DeletePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deletePreset.');
         }
@@ -174,14 +176,14 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Delete scheduling preset
      */
-    async deletePreset(requestParameters: DeletePresetRequest, initOverrides?: RequestInit): Promise<void> {
+    async deletePreset(requestParameters: DeletePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deletePresetRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get scheduling preset
      */
-    async getPresetRaw(requestParameters: GetPresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Preset>> {
+    async getPresetRaw(requestParameters: GetPresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Preset>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getPreset.');
         }
@@ -215,7 +217,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Get scheduling preset
      */
-    async getPreset(requestParameters: GetPresetRequest, initOverrides?: RequestInit): Promise<V1Preset> {
+    async getPreset(requestParameters: GetPresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Preset> {
         const response = await this.getPresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -223,7 +225,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * List scheduling presets names
      */
-    async listPresetNamesRaw(requestParameters: ListPresetNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListPresetsResponse>> {
+    async listPresetNamesRaw(requestParameters: ListPresetNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListPresetsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listPresetNames.');
         }
@@ -277,7 +279,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * List scheduling presets names
      */
-    async listPresetNames(requestParameters: ListPresetNamesRequest, initOverrides?: RequestInit): Promise<V1ListPresetsResponse> {
+    async listPresetNames(requestParameters: ListPresetNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListPresetsResponse> {
         const response = await this.listPresetNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -285,7 +287,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * List scheduling presets
      */
-    async listPresetsRaw(requestParameters: ListPresetsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListPresetsResponse>> {
+    async listPresetsRaw(requestParameters: ListPresetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListPresetsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listPresets.');
         }
@@ -339,7 +341,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * List scheduling presets
      */
-    async listPresets(requestParameters: ListPresetsRequest, initOverrides?: RequestInit): Promise<V1ListPresetsResponse> {
+    async listPresets(requestParameters: ListPresetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListPresetsResponse> {
         const response = await this.listPresetsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -347,7 +349,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Patch scheduling preset
      */
-    async patchPresetRaw(requestParameters: PatchPresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Preset>> {
+    async patchPresetRaw(requestParameters: PatchPresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Preset>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchPreset.');
         }
@@ -384,7 +386,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Patch scheduling preset
      */
-    async patchPreset(requestParameters: PatchPresetRequest, initOverrides?: RequestInit): Promise<V1Preset> {
+    async patchPreset(requestParameters: PatchPresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Preset> {
         const response = await this.patchPresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -392,7 +394,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Update scheduling preset
      */
-    async updatePresetRaw(requestParameters: UpdatePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Preset>> {
+    async updatePresetRaw(requestParameters: UpdatePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Preset>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updatePreset.');
         }
@@ -429,7 +431,7 @@ export class PresetsV1Api extends runtime.BaseAPI {
     /**
      * Update scheduling preset
      */
-    async updatePreset(requestParameters: UpdatePresetRequest, initOverrides?: RequestInit): Promise<V1Preset> {
+    async updatePreset(requestParameters: UpdatePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Preset> {
         const response = await this.updatePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }

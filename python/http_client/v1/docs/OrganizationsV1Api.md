@@ -54,6 +54,7 @@ Approve cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -69,7 +70,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -79,12 +80,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Approve cross-project runs selection
         api_instance.approve_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->approve_organization_runs: %s\n" % e)
 ```
 
@@ -130,6 +131,7 @@ Archive cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -145,7 +147,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -155,12 +157,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Archive cross-project runs selection
         api_instance.archive_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->archive_organization_runs: %s\n" % e)
 ```
 
@@ -206,6 +208,7 @@ Bookmark cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -221,7 +224,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -231,12 +234,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Bookmark cross-project runs selection
         api_instance.bookmark_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->bookmark_organization_runs: %s\n" % e)
 ```
 
@@ -282,6 +285,7 @@ Create organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -297,7 +301,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -311,8 +315,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Create organization
         api_response = api_instance.create_organization(body)
+        print("The response of OrganizationsV1Api->create_organization:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->create_organization: %s\n" % e)
 ```
 
@@ -357,6 +362,7 @@ Create organization member
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -372,7 +378,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -382,14 +388,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
-email = 'email_example' # str | Optional email. (optional)
+    body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Create organization member
         api_response = api_instance.create_organization_member(owner, body, email=email)
+        print("The response of OrganizationsV1Api->create_organization_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->create_organization_member: %s\n" % e)
 ```
 
@@ -436,6 +443,7 @@ Delete organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -451,7 +459,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -461,12 +469,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-usage = 'usage_example' # str | Owner usage query param. (optional)
+    usage = 'usage_example' # str | Owner usage query param. (optional)
 
     try:
         # Delete organization
         api_instance.delete_organization(owner, usage=usage)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->delete_organization: %s\n" % e)
 ```
 
@@ -512,6 +520,7 @@ Delete organization invitation details
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -527,7 +536,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -537,18 +546,18 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-member_user = 'member_user_example' # str | User. (optional)
-member_user_email = 'member_user_email_example' # str | Read-only User email. (optional)
-member_role = 'member_role_example' # str | Role. (optional)
-member_kind = 'member_kind_example' # str | Kind. (optional)
-member_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
-member_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
-email = 'email_example' # str | Optional email. (optional)
+    member_user = 'member_user_example' # str | User. (optional)
+    member_user_email = 'member_user_email_example' # str | Read-only User email. (optional)
+    member_role = 'member_role_example' # str | Role. (optional)
+    member_kind = 'member_kind_example' # str | Kind. (optional)
+    member_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
+    member_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Delete organization invitation details
         api_instance.delete_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_kind=member_kind, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->delete_organization_invitation: %s\n" % e)
 ```
 
@@ -600,6 +609,7 @@ Delete organization member details
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -615,7 +625,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -625,12 +635,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Delete organization member details
         api_instance.delete_organization_member(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->delete_organization_member: %s\n" % e)
 ```
 
@@ -676,6 +686,7 @@ Delete cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -691,7 +702,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -701,12 +712,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Delete cross-project runs selection
         api_instance.delete_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->delete_organization_runs: %s\n" % e)
 ```
 
@@ -752,6 +763,7 @@ Get organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -767,7 +779,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -777,13 +789,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-usage = 'usage_example' # str | Owner usage query param. (optional)
+    usage = 'usage_example' # str | Owner usage query param. (optional)
 
     try:
         # Get organization
         api_response = api_instance.get_organization(owner, usage=usage)
+        print("The response of OrganizationsV1Api->get_organization:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization: %s\n" % e)
 ```
 
@@ -829,6 +842,7 @@ Get organization activities
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -844,7 +858,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -854,19 +868,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get organization activities
         api_response = api_instance.get_organization_activities(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of OrganizationsV1Api->get_organization_activities:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_activities: %s\n" % e)
 ```
 
@@ -918,6 +933,7 @@ Get organization invitation details
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -933,7 +949,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -943,19 +959,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-member_user = 'member_user_example' # str | User. (optional)
-member_user_email = 'member_user_email_example' # str | Read-only User email. (optional)
-member_role = 'member_role_example' # str | Role. (optional)
-member_kind = 'member_kind_example' # str | Kind. (optional)
-member_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
-member_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
-email = 'email_example' # str | Optional email. (optional)
+    member_user = 'member_user_example' # str | User. (optional)
+    member_user_email = 'member_user_email_example' # str | Read-only User email. (optional)
+    member_role = 'member_role_example' # str | Role. (optional)
+    member_kind = 'member_kind_example' # str | Kind. (optional)
+    member_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
+    member_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Get organization invitation details
         api_response = api_instance.get_organization_invitation(owner, member_user=member_user, member_user_email=member_user_email, member_role=member_role, member_kind=member_kind, member_created_at=member_created_at, member_updated_at=member_updated_at, email=email)
+        print("The response of OrganizationsV1Api->get_organization_invitation:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_invitation: %s\n" % e)
 ```
 
@@ -1007,6 +1024,7 @@ Get organization member details
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1022,7 +1040,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1032,13 +1050,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Get organization member details
         api_response = api_instance.get_organization_member(owner, name)
+        print("The response of OrganizationsV1Api->get_organization_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_member: %s\n" % e)
 ```
 
@@ -1084,6 +1103,7 @@ Get a run in an organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1099,7 +1119,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1109,13 +1129,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the entity
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
 
     try:
         # Get a run in an organization
         api_response = api_instance.get_organization_run(owner, uuid)
+        print("The response of OrganizationsV1Api->get_organization_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_run: %s\n" % e)
 ```
 
@@ -1161,6 +1182,7 @@ Get all runs in an organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1176,7 +1198,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1186,19 +1208,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get all runs in an organization
         api_response = api_instance.get_organization_runs(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of OrganizationsV1Api->get_organization_runs:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_runs: %s\n" % e)
 ```
 
@@ -1250,6 +1273,7 @@ Get organization settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1265,7 +1289,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1275,24 +1299,25 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-organization_user = 'organization_user_example' # str | User. (optional)
-organization_user_email = 'organization_user_email_example' # str | Read-only User email. (optional)
-organization_name = 'organization_name_example' # str | Name. (optional)
-organization_is_public = True # bool | Optional flag to tell if this organization is public. (optional)
-organization_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
-organization_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
-organization_support_revoke_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time to revoke support access. (optional)
-organization_expiration = 56 # int | Optional expiration for support. (optional)
-organization_role = 'organization_role_example' # str | Current user's role in this org. (optional)
-organization_queue = 'organization_queue_example' # str | Default queue. (optional)
-organization_preset = 'organization_preset_example' # str | Default preset. (optional)
-organization_is_cloud_viewable = True # bool | Setting to enable viewable metadata on cloud. (optional)
+    organization_user = 'organization_user_example' # str | User. (optional)
+    organization_user_email = 'organization_user_email_example' # str | Read-only User email. (optional)
+    organization_name = 'organization_name_example' # str | Name. (optional)
+    organization_is_public = True # bool | Optional flag to tell if this organization is public. (optional)
+    organization_created_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time when the entity was created. (optional)
+    organization_updated_at = '2013-10-20T19:20:30+01:00' # datetime | Optional last time the entity was updated. (optional)
+    organization_support_revoke_at = '2013-10-20T19:20:30+01:00' # datetime | Optional time to revoke support access. (optional)
+    organization_expiration = 56 # int | Optional expiration for support. (optional)
+    organization_role = 'organization_role_example' # str | Current user's role in this org. (optional)
+    organization_queue = 'organization_queue_example' # str | Default queue. (optional)
+    organization_preset = 'organization_preset_example' # str | Default preset. (optional)
+    organization_is_cloud_viewable = True # bool | Setting to enable viewable metadata on cloud. (optional)
 
     try:
         # Get organization settings
         api_response = api_instance.get_organization_settings(owner, organization_user=organization_user, organization_user_email=organization_user_email, organization_name=organization_name, organization_is_public=organization_is_public, organization_created_at=organization_created_at, organization_updated_at=organization_updated_at, organization_support_revoke_at=organization_support_revoke_at, organization_expiration=organization_expiration, organization_role=organization_role, organization_queue=organization_queue, organization_preset=organization_preset, organization_is_cloud_viewable=organization_is_cloud_viewable)
+        print("The response of OrganizationsV1Api->get_organization_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_settings: %s\n" % e)
 ```
 
@@ -1349,6 +1374,7 @@ Get organization stats
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1364,7 +1390,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1374,21 +1400,22 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-kind = 'kind_example' # str | Stats Kind. (optional)
-aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
-groupby = 'groupby_example' # str | Stats group. (optional)
-trunc = 'trunc_example' # str | Stats trunc. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    kind = 'kind_example' # str | Stats Kind. (optional)
+    aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
+    groupby = 'groupby_example' # str | Stats group. (optional)
+    trunc = 'trunc_example' # str | Stats trunc. (optional)
 
     try:
         # Get organization stats
         api_response = api_instance.get_organization_stats(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+        print("The response of OrganizationsV1Api->get_organization_stats:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->get_organization_stats: %s\n" % e)
 ```
 
@@ -1442,6 +1469,7 @@ Invalidate cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1457,7 +1485,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1467,12 +1495,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Invalidate cross-project runs selection
         api_instance.invalidate_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->invalidate_organization_runs: %s\n" % e)
 ```
 
@@ -1518,6 +1546,7 @@ Get organization member names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1533,7 +1562,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1543,19 +1572,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get organization member names
         api_response = api_instance.list_organization_member_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of OrganizationsV1Api->list_organization_member_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->list_organization_member_names: %s\n" % e)
 ```
 
@@ -1607,6 +1637,7 @@ Get organization members
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1622,7 +1653,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1632,19 +1663,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get organization members
         api_response = api_instance.list_organization_members(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of OrganizationsV1Api->list_organization_members:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->list_organization_members: %s\n" % e)
 ```
 
@@ -1696,6 +1728,7 @@ List organizations names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1711,7 +1744,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1720,12 +1753,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
-    
+
     try:
         # List organizations names
         api_response = api_instance.list_organization_names()
+        print("The response of OrganizationsV1Api->list_organization_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->list_organization_names: %s\n" % e)
 ```
 
@@ -1767,6 +1801,7 @@ List organizations
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1782,7 +1817,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1791,12 +1826,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
-    
+
     try:
         # List organizations
         api_response = api_instance.list_organizations()
+        print("The response of OrganizationsV1Api->list_organizations:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->list_organizations: %s\n" % e)
 ```
 
@@ -1838,6 +1874,7 @@ Organization plan
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1853,7 +1890,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1863,13 +1900,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
+    body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
 
     try:
         # Organization plan
         api_response = api_instance.organization_plan(owner, body)
+        print("The response of OrganizationsV1Api->organization_plan:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->organization_plan: %s\n" % e)
 ```
 
@@ -1915,6 +1953,7 @@ Patch organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1930,7 +1969,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1940,13 +1979,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
+    body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
 
     try:
         # Patch organization
         api_response = api_instance.patch_organization(owner, body)
+        print("The response of OrganizationsV1Api->patch_organization:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->patch_organization: %s\n" % e)
 ```
 
@@ -1992,6 +2032,7 @@ Patch organization invitation
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2007,7 +2048,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2017,14 +2058,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
-email = 'email_example' # str | Optional email. (optional)
+    body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Patch organization invitation
         api_response = api_instance.patch_organization_invitation(owner, body, email=email)
+        print("The response of OrganizationsV1Api->patch_organization_invitation:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->patch_organization_invitation: %s\n" % e)
 ```
 
@@ -2071,6 +2113,7 @@ Patch organization member
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2086,7 +2129,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2096,15 +2139,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-member_user = 'member_user_example' # str | User
-body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
-email = 'email_example' # str | Optional email. (optional)
+    member_user = 'member_user_example' # str | User
+    body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Patch organization member
         api_response = api_instance.patch_organization_member(owner, member_user, body, email=email)
+        print("The response of OrganizationsV1Api->patch_organization_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->patch_organization_member: %s\n" % e)
 ```
 
@@ -2152,6 +2196,7 @@ Patch oranization settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2167,7 +2212,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2177,13 +2222,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
+    body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
 
     try:
         # Patch oranization settings
         api_response = api_instance.patch_organization_settings(owner, body)
+        print("The response of OrganizationsV1Api->patch_organization_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->patch_organization_settings: %s\n" % e)
 ```
 
@@ -2229,6 +2275,7 @@ Resend organization invitation
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2244,7 +2291,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2254,14 +2301,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
-email = 'email_example' # str | Optional email. (optional)
+    body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Resend organization invitation
         api_response = api_instance.resend_organization_invitation(owner, body, email=email)
+        print("The response of OrganizationsV1Api->resend_organization_invitation:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->resend_organization_invitation: %s\n" % e)
 ```
 
@@ -2308,6 +2356,7 @@ Restore cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2323,7 +2372,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2333,12 +2382,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Restore cross-project runs selection
         api_instance.restore_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->restore_organization_runs: %s\n" % e)
 ```
 
@@ -2384,6 +2433,7 @@ Stop cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2399,7 +2449,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2409,12 +2459,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Stop cross-project runs selection
         api_instance.stop_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->stop_organization_runs: %s\n" % e)
 ```
 
@@ -2460,6 +2510,7 @@ Tag cross-project runs selection
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2475,7 +2526,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2485,12 +2536,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1EntitiesTags() # V1EntitiesTags | Data
+    body = polyaxon_sdk.V1EntitiesTags() # V1EntitiesTags | Data
 
     try:
         # Tag cross-project runs selection
         api_instance.tag_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->tag_organization_runs: %s\n" % e)
 ```
 
@@ -2536,6 +2587,7 @@ Transfer cross-project runs selection to a new project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2551,7 +2603,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2561,12 +2613,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1EntitiesTransfer() # V1EntitiesTransfer | Data
+    body = polyaxon_sdk.V1EntitiesTransfer() # V1EntitiesTransfer | Data
 
     try:
         # Transfer cross-project runs selection to a new project
         api_instance.transfer_organization_runs(owner, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->transfer_organization_runs: %s\n" % e)
 ```
 
@@ -2612,6 +2664,7 @@ Update organization
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2627,7 +2680,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2637,13 +2690,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
+    body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
 
     try:
         # Update organization
         api_response = api_instance.update_organization(owner, body)
+        print("The response of OrganizationsV1Api->update_organization:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->update_organization: %s\n" % e)
 ```
 
@@ -2689,6 +2743,7 @@ Update organization invitation
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2704,7 +2759,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2714,14 +2769,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
-email = 'email_example' # str | Optional email. (optional)
+    body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Update organization invitation
         api_response = api_instance.update_organization_invitation(owner, body, email=email)
+        print("The response of OrganizationsV1Api->update_organization_invitation:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->update_organization_invitation: %s\n" % e)
 ```
 
@@ -2768,6 +2824,7 @@ Update organization member
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2783,7 +2840,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2793,15 +2850,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-member_user = 'member_user_example' # str | User
-body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
-email = 'email_example' # str | Optional email. (optional)
+    member_user = 'member_user_example' # str | User
+    body = polyaxon_sdk.V1OrganizationMember() # V1OrganizationMember | Organization body
+    email = 'email_example' # str | Optional email. (optional)
 
     try:
         # Update organization member
         api_response = api_instance.update_organization_member(owner, member_user, body, email=email)
+        print("The response of OrganizationsV1Api->update_organization_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->update_organization_member: %s\n" % e)
 ```
 
@@ -2849,6 +2907,7 @@ Update organization settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2864,7 +2923,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2874,13 +2933,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
+    body = polyaxon_sdk.V1Organization() # V1Organization | Organization body
 
     try:
         # Update organization settings
         api_response = api_instance.update_organization_settings(owner, body)
+        print("The response of OrganizationsV1Api->update_organization_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationsV1Api->update_organization_settings: %s\n" % e)
 ```
 

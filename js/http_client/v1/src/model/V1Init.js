@@ -106,8 +106,64 @@ class V1Init {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Init</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Init</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `artifacts`
+        if (data['artifacts']) { // data not null
+          V1ArtifactsType.validateJSON(data['artifacts']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['paths'])) {
+            throw new Error("Expected the field `paths` to be an array in the JSON data but got " + data['paths']);
+        }
+        // validate the optional field `git`
+        if (data['git']) { // data not null
+          V1GitType.validateJSON(data['git']);
+        }
+        // validate the optional field `dockerfile`
+        if (data['dockerfile']) { // data not null
+          V1DockerfileType.validateJSON(data['dockerfile']);
+        }
+        // validate the optional field `file`
+        if (data['file']) { // data not null
+          V1FileType.validateJSON(data['file']);
+        }
+        // validate the optional field `tensorboard`
+        if (data['tensorboard']) { // data not null
+          V1TensorboardType.validateJSON(data['tensorboard']);
+        }
+        // ensure the json data is a string
+        if (data['lineageRef'] && !(typeof data['lineageRef'] === 'string' || data['lineageRef'] instanceof String)) {
+            throw new Error("Expected the field `lineageRef` to be a primitive type in the JSON string but got " + data['lineageRef']);
+        }
+        // ensure the json data is a string
+        if (data['artifactRef'] && !(typeof data['artifactRef'] === 'string' || data['artifactRef'] instanceof String)) {
+            throw new Error("Expected the field `artifactRef` to be a primitive type in the JSON string but got " + data['artifactRef']);
+        }
+        // ensure the json data is a string
+        if (data['modelRef'] && !(typeof data['modelRef'] === 'string' || data['modelRef'] instanceof String)) {
+            throw new Error("Expected the field `modelRef` to be a primitive type in the JSON string but got " + data['modelRef']);
+        }
+        // ensure the json data is a string
+        if (data['connection'] && !(typeof data['connection'] === 'string' || data['connection'] instanceof String)) {
+            throw new Error("Expected the field `connection` to be a primitive type in the JSON string but got " + data['connection']);
+        }
+        // ensure the json data is a string
+        if (data['path'] && !(typeof data['path'] === 'string' || data['path'] instanceof String)) {
+            throw new Error("Expected the field `path` to be a primitive type in the JSON string but got " + data['path']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1ArtifactsType} artifacts

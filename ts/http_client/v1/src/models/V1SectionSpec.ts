@@ -77,6 +77,15 @@ export interface V1SectionSpec {
     pageSize?: number;
 }
 
+/**
+ * Check if a given object implements the V1SectionSpec interface.
+ */
+export function instanceOfV1SectionSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SectionSpecFromJSON(json: any): V1SectionSpec {
     return V1SectionSpecFromJSONTyped(json, false);
 }

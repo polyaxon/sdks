@@ -47,6 +47,15 @@ export interface V1SettingsCatalog {
     name?: string;
 }
 
+/**
+ * Check if a given object implements the V1SettingsCatalog interface.
+ */
+export function instanceOfV1SettingsCatalog(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SettingsCatalogFromJSON(json: any): V1SettingsCatalog {
     return V1SettingsCatalogFromJSONTyped(json, false);
 }

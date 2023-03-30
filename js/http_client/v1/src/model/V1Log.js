@@ -80,8 +80,36 @@ class V1Log {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Log</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Log</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['node'] && !(typeof data['node'] === 'string' || data['node'] instanceof String)) {
+            throw new Error("Expected the field `node` to be a primitive type in the JSON string but got " + data['node']);
+        }
+        // ensure the json data is a string
+        if (data['pod'] && !(typeof data['pod'] === 'string' || data['pod'] instanceof String)) {
+            throw new Error("Expected the field `pod` to be a primitive type in the JSON string but got " + data['pod']);
+        }
+        // ensure the json data is a string
+        if (data['container'] && !(typeof data['container'] === 'string' || data['container'] instanceof String)) {
+            throw new Error("Expected the field `container` to be a primitive type in the JSON string but got " + data['container']);
+        }
+        // ensure the json data is a string
+        if (data['value'] && !(typeof data['value'] === 'string' || data['value'] instanceof String)) {
+            throw new Error("Expected the field `value` to be a primitive type in the JSON string but got " + data['value']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Date} timestamp

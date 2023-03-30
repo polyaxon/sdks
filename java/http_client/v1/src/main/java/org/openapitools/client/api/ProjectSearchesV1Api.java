@@ -50,9 +50,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectSearchesV1Api {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public ProjectSearchesV1Api() {
         this(Configuration.getDefaultApiClient());
@@ -68,6 +71,22 @@ public class ProjectSearchesV1Api {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
     }
 
     /**
@@ -89,12 +108,25 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call createProjectSearchCall(String owner, String project, V1Search body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{project}/searches"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "project" + "\\}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -114,33 +146,32 @@ public class ProjectSearchesV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createProjectSearchValidateBeforeCall(String owner, String project, V1Search body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling createProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createProjectSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createProjectSearchCall(owner, project, body, _callback);
-        return localVarCall;
+        return createProjectSearchCall(owner, project, body, _callback);
 
     }
 
@@ -236,13 +267,26 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call deleteProjectSearchCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{entity}/searches/{uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -259,36 +303,34 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProjectSearchValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling deleteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteProjectSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteProjectSearchCall(owner, entity, uuid, _callback);
-        return localVarCall;
+        return deleteProjectSearchCall(owner, entity, uuid, _callback);
 
     }
 
@@ -380,13 +422,26 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call getProjectSearchCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{entity}/searches/{uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -403,36 +458,34 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectSearchValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling getProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getProjectSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getProjectSearchCall(owner, entity, uuid, _callback);
-        return localVarCall;
+        return getProjectSearchCall(owner, entity, uuid, _callback);
 
     }
 
@@ -534,12 +587,25 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call listProjectSearchNamesCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{name}/searches/names"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -584,31 +650,29 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectSearchNamesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listProjectSearchNames(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listProjectSearchNames(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listProjectSearchNamesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
-        return localVarCall;
+        return listProjectSearchNamesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
 
     }
 
@@ -728,12 +792,25 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call listProjectSearchesCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{name}/searches"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -778,31 +855,29 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectSearchesValidateBeforeCall(String owner, String name, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listProjectSearches(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling listProjectSearches(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listProjectSearchesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
-        return localVarCall;
+        return listProjectSearchesCall(owner, name, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
 
     }
 
@@ -917,13 +992,26 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call patchProjectSearchCall(String owner, String project, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{project}/searches/{search.uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "project" + "\\}", localVarApiClient.escapeString(project.toString()))
-            .replaceAll("\\{" + "search.uuid" + "\\}", localVarApiClient.escapeString(searchUuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()))
+            .replace("{" + "search.uuid" + "}", localVarApiClient.escapeString(searchUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -943,38 +1031,37 @@ public class ProjectSearchesV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchProjectSearchValidateBeforeCall(String owner, String project, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling patchProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'searchUuid' is set
         if (searchUuid == null) {
             throw new ApiException("Missing the required parameter 'searchUuid' when calling patchProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchProjectSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = patchProjectSearchCall(owner, project, searchUuid, body, _callback);
-        return localVarCall;
+        return patchProjectSearchCall(owner, project, searchUuid, body, _callback);
 
     }
 
@@ -1073,13 +1160,26 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call promoteProjectSearchCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{entity}/searches/{uuid}/promote"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1096,36 +1196,34 @@ public class ProjectSearchesV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call promoteProjectSearchValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling promoteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling promoteProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling promoteProjectSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = promoteProjectSearchCall(owner, entity, uuid, _callback);
-        return localVarCall;
+        return promoteProjectSearchCall(owner, entity, uuid, _callback);
 
     }
 
@@ -1218,13 +1316,26 @@ public class ProjectSearchesV1Api {
      </table>
      */
     public okhttp3.Call updateProjectSearchCall(String owner, String project, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/{owner}/{project}/searches/{search.uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "project" + "\\}", localVarApiClient.escapeString(project.toString()))
-            .replaceAll("\\{" + "search.uuid" + "\\}", localVarApiClient.escapeString(searchUuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()))
+            .replace("{" + "search.uuid" + "}", localVarApiClient.escapeString(searchUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1244,38 +1355,37 @@ public class ProjectSearchesV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectSearchValidateBeforeCall(String owner, String project, String searchUuid, V1Search body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'project' is set
         if (project == null) {
             throw new ApiException("Missing the required parameter 'project' when calling updateProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'searchUuid' is set
         if (searchUuid == null) {
             throw new ApiException("Missing the required parameter 'searchUuid' when calling updateProjectSearch(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateProjectSearch(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateProjectSearchCall(owner, project, searchUuid, body, _callback);
-        return localVarCall;
+        return updateProjectSearchCall(owner, project, searchUuid, body, _callback);
 
     }
 

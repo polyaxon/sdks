@@ -86,8 +86,32 @@ class V1PolyaxonSidecarContainer {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1PolyaxonSidecarContainer</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1PolyaxonSidecarContainer</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['image'] && !(typeof data['image'] === 'string' || data['image'] instanceof String)) {
+            throw new Error("Expected the field `image` to be a primitive type in the JSON string but got " + data['image']);
+        }
+        // ensure the json data is a string
+        if (data['imageTag'] && !(typeof data['imageTag'] === 'string' || data['imageTag'] instanceof String)) {
+            throw new Error("Expected the field `imageTag` to be a primitive type in the JSON string but got " + data['imageTag']);
+        }
+        // ensure the json data is a string
+        if (data['imagePullPolicy'] && !(typeof data['imagePullPolicy'] === 'string' || data['imagePullPolicy'] instanceof String)) {
+            throw new Error("Expected the field `imagePullPolicy` to be a primitive type in the JSON string but got " + data['imagePullPolicy']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} image

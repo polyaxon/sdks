@@ -19,6 +19,7 @@ Upload artifact to a store
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -34,7 +35,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -44,15 +45,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ArtifactsStoresV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Unique integer identifier of the entity
-uploadfile = '/path/to/file' # file | The file to upload.
-path = 'path_example' # str | File path query params. (optional)
-overwrite = True # bool | File path query params. (optional)
+    uuid = 'uuid_example' # str | Unique integer identifier of the entity
+    uploadfile = 'uploadfile_example' # str | The file to upload.
+    path = 'path_example' # str | File path query params. (optional)
+    overwrite = True # bool | File path query params. (optional)
 
     try:
         # Upload artifact to a store
         api_instance.upload_artifact(owner, uuid, uploadfile, path=path, overwrite=overwrite)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ArtifactsStoresV1Api->upload_artifact: %s\n" % e)
 ```
 
@@ -62,7 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
  **uuid** | **str**| Unique integer identifier of the entity | 
- **uploadfile** | **file**| The file to upload. | 
+ **uploadfile** | **str**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
 

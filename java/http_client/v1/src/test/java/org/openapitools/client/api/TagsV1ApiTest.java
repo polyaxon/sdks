@@ -32,8 +32,8 @@ import org.openapitools.client.model.RuntimeError;
 import org.openapitools.client.model.V1EntitiesTags;
 import org.openapitools.client.model.V1ListTagsResponse;
 import org.openapitools.client.model.V1Tag;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,68 +43,55 @@ import java.util.Map;
 /**
  * API tests for TagsV1Api
  */
-@Ignore
+@Disabled
 public class TagsV1ApiTest {
 
     private final TagsV1Api api = new TagsV1Api();
 
-    
     /**
      * Create tag
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createTagTest() throws ApiException {
         String owner = null;
         V1Tag body = null;
-                V1Tag response = api.createTag(owner, body);
+        V1Tag response = api.createTag(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete tag
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteTagTest() throws ApiException {
         String owner = null;
         String uuid = null;
         Boolean cascade = null;
-                api.deleteTag(owner, uuid, cascade);
+        api.deleteTag(owner, uuid, cascade);
         // TODO: test validations
     }
-    
+
     /**
      * Get tag
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getTagTest() throws ApiException {
         String owner = null;
         String uuid = null;
-                V1Tag response = api.getTag(owner, uuid);
+        V1Tag response = api.getTag(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List tags
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTagsTest() throws ApiException {
@@ -116,17 +103,14 @@ public class TagsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListTagsResponse response = api.listTags(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListTagsResponse response = api.listTags(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Load tags
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void loadTagsTest() throws ApiException {
@@ -138,58 +122,49 @@ public class TagsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                Object response = api.loadTags(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        Object response = api.loadTags(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch tag
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void patchTagTest() throws ApiException {
         String owner = null;
         String tagUuid = null;
         V1Tag body = null;
-                V1Tag response = api.patchTag(owner, tagUuid, body);
+        V1Tag response = api.patchTag(owner, tagUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Sync tags
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void syncTagsTest() throws ApiException {
         String owner = null;
         V1EntitiesTags body = null;
-                api.syncTags(owner, body);
+        api.syncTags(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update tag
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateTagTest() throws ApiException {
         String owner = null;
         String tagUuid = null;
         V1Tag body = null;
-                V1Tag response = api.updateTag(owner, tagUuid, body);
+        V1Tag response = api.updateTag(owner, tagUuid, body);
         // TODO: test validations
     }
-    
+
 }

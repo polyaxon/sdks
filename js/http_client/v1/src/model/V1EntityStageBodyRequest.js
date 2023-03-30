@@ -81,8 +81,40 @@ class V1EntityStageBodyRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EntityStageBodyRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntityStageBodyRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
+            throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
+        if (data['entity'] && !(typeof data['entity'] === 'string' || data['entity'] instanceof String)) {
+            throw new Error("Expected the field `entity` to be a primitive type in the JSON string but got " + data['entity']);
+        }
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // validate the optional field `condition`
+        if (data['condition']) { // data not null
+          V1StageCondition.validateJSON(data['condition']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} owner

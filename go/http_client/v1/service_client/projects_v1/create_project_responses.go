@@ -87,9 +87,44 @@ type CreateProjectOK struct {
 	Payload *service_model.V1Project
 }
 
+// IsSuccess returns true when this create project o k response has a 2xx status code
+func (o *CreateProjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create project o k response has a 3xx status code
+func (o *CreateProjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project o k response has a 4xx status code
+func (o *CreateProjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create project o k response has a 5xx status code
+func (o *CreateProjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project o k response a status code equal to that given
+func (o *CreateProjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the create project o k response
+func (o *CreateProjectOK) Code() int {
+	return 200
+}
+
 func (o *CreateProjectOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateProjectOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateProjectOK) GetPayload() *service_model.V1Project {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type CreateProjectNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project no content response has a 2xx status code
+func (o *CreateProjectNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create project no content response has a 3xx status code
+func (o *CreateProjectNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project no content response has a 4xx status code
+func (o *CreateProjectNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create project no content response has a 5xx status code
+func (o *CreateProjectNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project no content response a status code equal to that given
+func (o *CreateProjectNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the create project no content response
+func (o *CreateProjectNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateProjectNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateProjectNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateProjectNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type CreateProjectForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project forbidden response has a 2xx status code
+func (o *CreateProjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create project forbidden response has a 3xx status code
+func (o *CreateProjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project forbidden response has a 4xx status code
+func (o *CreateProjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create project forbidden response has a 5xx status code
+func (o *CreateProjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project forbidden response a status code equal to that given
+func (o *CreateProjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the create project forbidden response
+func (o *CreateProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateProjectForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateProjectForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateProjectForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type CreateProjectNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project not found response has a 2xx status code
+func (o *CreateProjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create project not found response has a 3xx status code
+func (o *CreateProjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project not found response has a 4xx status code
+func (o *CreateProjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create project not found response has a 5xx status code
+func (o *CreateProjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project not found response a status code equal to that given
+func (o *CreateProjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create project not found response
+func (o *CreateProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateProjectNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateProjectNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] createProjectNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateProjectNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type CreateProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this create project default response has a 2xx status code
+func (o *CreateProjectDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create project default response has a 3xx status code
+func (o *CreateProjectDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create project default response has a 4xx status code
+func (o *CreateProjectDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create project default response has a 5xx status code
+func (o *CreateProjectDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create project default response a status code equal to that given
+func (o *CreateProjectDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the create project default response
 func (o *CreateProjectDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *CreateProjectDefault) Code() int {
 func (o *CreateProjectDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] CreateProject default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateProjectDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/projects/create][%d] CreateProject default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateProjectDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

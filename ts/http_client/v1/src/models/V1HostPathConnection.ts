@@ -59,6 +59,15 @@ export interface V1HostPathConnection {
     kind?: object;
 }
 
+/**
+ * Check if a given object implements the V1HostPathConnection interface.
+ */
+export function instanceOfV1HostPathConnection(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HostPathConnectionFromJSON(json: any): V1HostPathConnection {
     return V1HostPathConnectionFromJSONTyped(json, false);
 }

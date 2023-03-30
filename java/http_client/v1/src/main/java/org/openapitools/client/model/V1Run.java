@@ -34,9 +34,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1Cloning;
@@ -47,7 +46,27 @@ import org.openapitools.client.model.V1RunResources;
 import org.openapitools.client.model.V1RunSettings;
 import org.openapitools.client.model.V1StatusCondition;
 import org.openapitools.client.model.V1Statuses;
-import org.threeten.bp.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Run
@@ -198,6 +217,8 @@ public class V1Run {
   @SerializedName(SERIALIZED_NAME_MERGE)
   private Boolean merge;
 
+  public V1Run() {
+  }
 
   public V1Run uuid(String uuid) {
     
@@ -210,7 +231,6 @@ public class V1Run {
    * @return uuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUuid() {
     return uuid;
@@ -233,7 +253,6 @@ public class V1Run {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -256,7 +275,6 @@ public class V1Run {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -276,7 +294,7 @@ public class V1Run {
 
   public V1Run addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -287,7 +305,6 @@ public class V1Run {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTags() {
     return tags;
@@ -310,7 +327,6 @@ public class V1Run {
    * @return user
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUser() {
     return user;
@@ -333,7 +349,6 @@ public class V1Run {
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOwner() {
     return owner;
@@ -356,7 +371,6 @@ public class V1Run {
    * @return project
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getProject() {
     return project;
@@ -379,7 +393,6 @@ public class V1Run {
    * @return scheduleAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getScheduleAt() {
     return scheduleAt;
@@ -402,7 +415,6 @@ public class V1Run {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -425,7 +437,6 @@ public class V1Run {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -448,7 +459,6 @@ public class V1Run {
    * @return startedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getStartedAt() {
     return startedAt;
@@ -471,7 +481,6 @@ public class V1Run {
    * @return finishedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getFinishedAt() {
     return finishedAt;
@@ -494,7 +503,6 @@ public class V1Run {
    * @return waitTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getWaitTime() {
     return waitTime;
@@ -517,7 +525,6 @@ public class V1Run {
    * @return duration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getDuration() {
     return duration;
@@ -540,7 +547,6 @@ public class V1Run {
    * @return isManaged
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsManaged() {
     return isManaged;
@@ -563,7 +569,6 @@ public class V1Run {
    * @return isApproved
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsApproved() {
     return isApproved;
@@ -586,7 +591,6 @@ public class V1Run {
    * @return pending
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunPending getPending() {
     return pending;
@@ -609,7 +613,6 @@ public class V1Run {
    * @return content
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getContent() {
     return content;
@@ -632,7 +635,6 @@ public class V1Run {
    * @return rawContent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRawContent() {
     return rawContent;
@@ -655,7 +657,6 @@ public class V1Run {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Statuses getStatus() {
     return status;
@@ -678,7 +679,6 @@ public class V1Run {
    * @return bookmarked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getBookmarked() {
     return bookmarked;
@@ -701,7 +701,6 @@ public class V1Run {
    * @return liveState
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getLiveState() {
     return liveState;
@@ -724,7 +723,6 @@ public class V1Run {
    * @return readme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getReadme() {
     return readme;
@@ -747,7 +745,6 @@ public class V1Run {
    * @return metaInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getMetaInfo() {
     return metaInfo;
@@ -770,7 +767,6 @@ public class V1Run {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunKind getKind() {
     return kind;
@@ -793,7 +789,6 @@ public class V1Run {
    * @return runtime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunKind getRuntime() {
     return runtime;
@@ -816,7 +811,6 @@ public class V1Run {
    * @return inputs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getInputs() {
     return inputs;
@@ -839,7 +833,6 @@ public class V1Run {
    * @return outputs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getOutputs() {
     return outputs;
@@ -862,7 +855,6 @@ public class V1Run {
    * @return original
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Cloning getOriginal() {
     return original;
@@ -885,7 +877,6 @@ public class V1Run {
    * @return pipeline
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Pipeline getPipeline() {
     return pipeline;
@@ -905,7 +896,7 @@ public class V1Run {
 
   public V1Run addStatusConditionsItem(V1StatusCondition statusConditionsItem) {
     if (this.statusConditions == null) {
-      this.statusConditions = new ArrayList<V1StatusCondition>();
+      this.statusConditions = new ArrayList<>();
     }
     this.statusConditions.add(statusConditionsItem);
     return this;
@@ -916,7 +907,6 @@ public class V1Run {
    * @return statusConditions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1StatusCondition> getStatusConditions() {
     return statusConditions;
@@ -939,7 +929,6 @@ public class V1Run {
    * @return role
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRole() {
     return role;
@@ -962,7 +951,6 @@ public class V1Run {
    * @return settings
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunSettings getSettings() {
     return settings;
@@ -985,7 +973,6 @@ public class V1Run {
    * @return resources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunResources getResources() {
     return resources;
@@ -1008,7 +995,6 @@ public class V1Run {
    * @return graph
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getGraph() {
     return graph;
@@ -1031,7 +1017,6 @@ public class V1Run {
    * @return merge
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getMerge() {
     return merge;
@@ -1041,6 +1026,7 @@ public class V1Run {
   public void setMerge(Boolean merge) {
     this.merge = merge;
   }
+
 
 
   @Override
@@ -1150,5 +1136,187 @@ public class V1Run {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("uuid");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("tags");
+    openapiFields.add("user");
+    openapiFields.add("owner");
+    openapiFields.add("project");
+    openapiFields.add("schedule_at");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
+    openapiFields.add("started_at");
+    openapiFields.add("finished_at");
+    openapiFields.add("wait_time");
+    openapiFields.add("duration");
+    openapiFields.add("is_managed");
+    openapiFields.add("is_approved");
+    openapiFields.add("pending");
+    openapiFields.add("content");
+    openapiFields.add("raw_content");
+    openapiFields.add("status");
+    openapiFields.add("bookmarked");
+    openapiFields.add("live_state");
+    openapiFields.add("readme");
+    openapiFields.add("meta_info");
+    openapiFields.add("kind");
+    openapiFields.add("runtime");
+    openapiFields.add("inputs");
+    openapiFields.add("outputs");
+    openapiFields.add("original");
+    openapiFields.add("pipeline");
+    openapiFields.add("status_conditions");
+    openapiFields.add("role");
+    openapiFields.add("settings");
+    openapiFields.add("resources");
+    openapiFields.add("graph");
+    openapiFields.add("merge");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Run
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Run.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Run is not found in the empty JSON string", V1Run.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Run.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Run` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("uuid") != null && !jsonObj.get("uuid").isJsonNull()) && !jsonObj.get("uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uuid").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("project") != null && !jsonObj.get("project").isJsonNull()) && !jsonObj.get("project").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `project` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project").toString()));
+      }
+      if ((jsonObj.get("content") != null && !jsonObj.get("content").isJsonNull()) && !jsonObj.get("content").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
+      }
+      if ((jsonObj.get("raw_content") != null && !jsonObj.get("raw_content").isJsonNull()) && !jsonObj.get("raw_content").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `raw_content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_content").toString()));
+      }
+      if ((jsonObj.get("readme") != null && !jsonObj.get("readme").isJsonNull()) && !jsonObj.get("readme").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `readme` to be a primitive type in the JSON string but got `%s`", jsonObj.get("readme").toString()));
+      }
+      // validate the optional field `original`
+      if (jsonObj.get("original") != null && !jsonObj.get("original").isJsonNull()) {
+        V1Cloning.validateJsonObject(jsonObj.getAsJsonObject("original"));
+      }
+      // validate the optional field `pipeline`
+      if (jsonObj.get("pipeline") != null && !jsonObj.get("pipeline").isJsonNull()) {
+        V1Pipeline.validateJsonObject(jsonObj.getAsJsonObject("pipeline"));
+      }
+      if (jsonObj.get("status_conditions") != null && !jsonObj.get("status_conditions").isJsonNull()) {
+        JsonArray jsonArraystatusConditions = jsonObj.getAsJsonArray("status_conditions");
+        if (jsonArraystatusConditions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("status_conditions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `status_conditions` to be an array in the JSON string but got `%s`", jsonObj.get("status_conditions").toString()));
+          }
+
+          // validate the optional field `status_conditions` (array)
+          for (int i = 0; i < jsonArraystatusConditions.size(); i++) {
+            V1StatusCondition.validateJsonObject(jsonArraystatusConditions.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      // validate the optional field `settings`
+      if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
+        V1RunSettings.validateJsonObject(jsonObj.getAsJsonObject("settings"));
+      }
+      // validate the optional field `resources`
+      if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
+        V1RunResources.validateJsonObject(jsonObj.getAsJsonObject("resources"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Run.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Run' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Run> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Run.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Run>() {
+           @Override
+           public void write(JsonWriter out, V1Run value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Run read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Run given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Run
+  * @throws IOException if the JSON string is invalid with respect to V1Run
+  */
+  public static V1Run fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Run.class);
+  }
+
+ /**
+  * Convert an instance of V1Run to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

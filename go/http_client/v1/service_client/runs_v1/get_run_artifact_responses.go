@@ -78,9 +78,44 @@ type GetRunArtifactOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this get run artifact o k response has a 2xx status code
+func (o *GetRunArtifactOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run artifact o k response has a 3xx status code
+func (o *GetRunArtifactOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run artifact o k response has a 4xx status code
+func (o *GetRunArtifactOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run artifact o k response has a 5xx status code
+func (o *GetRunArtifactOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run artifact o k response a status code equal to that given
+func (o *GetRunArtifactOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the get run artifact o k response
+func (o *GetRunArtifactOK) Code() int {
+	return 200
+}
+
 func (o *GetRunArtifactOK) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunArtifactOK) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunArtifactOK) GetPayload() string {
 	return o.Payload
 }
@@ -109,9 +144,44 @@ type GetRunArtifactNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run artifact no content response has a 2xx status code
+func (o *GetRunArtifactNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run artifact no content response has a 3xx status code
+func (o *GetRunArtifactNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run artifact no content response has a 4xx status code
+func (o *GetRunArtifactNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run artifact no content response has a 5xx status code
+func (o *GetRunArtifactNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run artifact no content response a status code equal to that given
+func (o *GetRunArtifactNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the get run artifact no content response
+func (o *GetRunArtifactNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunArtifactNoContent) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunArtifactNoContent) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunArtifactNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +210,44 @@ type GetRunArtifactForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run artifact forbidden response has a 2xx status code
+func (o *GetRunArtifactForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run artifact forbidden response has a 3xx status code
+func (o *GetRunArtifactForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run artifact forbidden response has a 4xx status code
+func (o *GetRunArtifactForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run artifact forbidden response has a 5xx status code
+func (o *GetRunArtifactForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run artifact forbidden response a status code equal to that given
+func (o *GetRunArtifactForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the get run artifact forbidden response
+func (o *GetRunArtifactForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRunArtifactForbidden) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunArtifactForbidden) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunArtifactForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +276,44 @@ type GetRunArtifactNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run artifact not found response has a 2xx status code
+func (o *GetRunArtifactNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run artifact not found response has a 3xx status code
+func (o *GetRunArtifactNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run artifact not found response has a 4xx status code
+func (o *GetRunArtifactNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run artifact not found response has a 5xx status code
+func (o *GetRunArtifactNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run artifact not found response a status code equal to that given
+func (o *GetRunArtifactNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get run artifact not found response
+func (o *GetRunArtifactNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunArtifactNotFound) Error() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunArtifactNotFound) String() string {
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact][%d] getRunArtifactNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunArtifactNotFound) GetPayload() interface{} {
 	return o.Payload
 }

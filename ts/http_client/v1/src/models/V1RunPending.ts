@@ -26,17 +26,19 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1RunPending {
-    Approval = 'approval',
-    Upload = 'upload',
-    Cache = 'cache',
-    Build = 'build'
-}
+export const V1RunPending = {
+    Approval: 'approval',
+    Upload: 'upload',
+    Cache: 'cache',
+    Build: 'build'
+} as const;
+export type V1RunPending = typeof V1RunPending[keyof typeof V1RunPending];
+
 
 export function V1RunPendingFromJSON(json: any): V1RunPending {
     return V1RunPendingFromJSONTyped(json, false);

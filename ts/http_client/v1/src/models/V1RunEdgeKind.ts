@@ -26,21 +26,23 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1RunEdgeKind {
-    Action = 'action',
-    Event = 'event',
-    Hook = 'hook',
-    Dag = 'dag',
-    Join = 'join',
-    Run = 'run',
-    Tb = 'tb',
-    Build = 'build'
-}
+export const V1RunEdgeKind = {
+    Action: 'action',
+    Event: 'event',
+    Hook: 'hook',
+    Dag: 'dag',
+    Join: 'join',
+    Run: 'run',
+    Tb: 'tb',
+    Build: 'build'
+} as const;
+export type V1RunEdgeKind = typeof V1RunEdgeKind[keyof typeof V1RunEdgeKind];
+
 
 export function V1RunEdgeKindFromJSON(json: any): V1RunEdgeKind {
     return V1RunEdgeKindFromJSONTyped(json, false);

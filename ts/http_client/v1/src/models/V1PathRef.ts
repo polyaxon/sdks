@@ -47,6 +47,15 @@ export interface V1PathRef {
     path?: string;
 }
 
+/**
+ * Check if a given object implements the V1PathRef interface.
+ */
+export function instanceOfV1PathRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PathRefFromJSON(json: any): V1PathRef {
     return V1PathRefFromJSONTyped(json, false);
 }

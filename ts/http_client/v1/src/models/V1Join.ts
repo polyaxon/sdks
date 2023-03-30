@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1JoinParam } from './V1JoinParam';
 import {
-    V1JoinParam,
     V1JoinParamFromJSON,
     V1JoinParamFromJSONTyped,
     V1JoinParamToJSON,
-} from './';
+} from './V1JoinParam';
 
 /**
  * 
@@ -76,6 +76,15 @@ export interface V1Join {
      * @memberof V1Join
      */
     params?: { [key: string]: V1JoinParam; };
+}
+
+/**
+ * Check if a given object implements the V1Join interface.
+ */
+export function instanceOfV1Join(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1JoinFromJSON(json: any): V1Join {

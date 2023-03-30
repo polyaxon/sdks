@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1SectionSpec } from './V1SectionSpec';
 import {
-    V1SectionSpec,
     V1SectionSpecFromJSON,
     V1SectionSpecFromJSONTyped,
     V1SectionSpecToJSON,
-} from './';
+} from './V1SectionSpec';
 
 /**
  * 
@@ -46,6 +46,15 @@ export interface V1DashboardSpec {
      * @memberof V1DashboardSpec
      */
     sections?: Array<V1SectionSpec>;
+}
+
+/**
+ * Check if a given object implements the V1DashboardSpec interface.
+ */
+export function instanceOfV1DashboardSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DashboardSpecFromJSON(json: any): V1DashboardSpec {

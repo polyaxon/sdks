@@ -28,14 +28,16 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1Dashboard,
+  V1ListDashboardsResponse,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1Dashboard,
     V1DashboardFromJSON,
     V1DashboardToJSON,
-    V1ListDashboardsResponse,
     V1ListDashboardsResponseFromJSON,
     V1ListDashboardsResponseToJSON,
 } from '../models';
@@ -97,7 +99,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Create dashboard
      */
-    async createDashboardRaw(requestParameters: CreateDashboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Dashboard>> {
+    async createDashboardRaw(requestParameters: CreateDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Dashboard>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createDashboard.');
         }
@@ -130,7 +132,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Create dashboard
      */
-    async createDashboard(requestParameters: CreateDashboardRequest, initOverrides?: RequestInit): Promise<V1Dashboard> {
+    async createDashboard(requestParameters: CreateDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Dashboard> {
         const response = await this.createDashboardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -138,7 +140,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Delete dashboard
      */
-    async deleteDashboardRaw(requestParameters: DeleteDashboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteDashboardRaw(requestParameters: DeleteDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteDashboard.');
         }
@@ -168,14 +170,14 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Delete dashboard
      */
-    async deleteDashboard(requestParameters: DeleteDashboardRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteDashboard(requestParameters: DeleteDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteDashboardRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get dashboard
      */
-    async getDashboardRaw(requestParameters: GetDashboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Dashboard>> {
+    async getDashboardRaw(requestParameters: GetDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Dashboard>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getDashboard.');
         }
@@ -205,7 +207,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Get dashboard
      */
-    async getDashboard(requestParameters: GetDashboardRequest, initOverrides?: RequestInit): Promise<V1Dashboard> {
+    async getDashboard(requestParameters: GetDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Dashboard> {
         const response = await this.getDashboardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -213,7 +215,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * List dashboard names
      */
-    async listDashboardNamesRaw(requestParameters: ListDashboardNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListDashboardsResponse>> {
+    async listDashboardNamesRaw(requestParameters: ListDashboardNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListDashboardsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listDashboardNames.');
         }
@@ -267,7 +269,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * List dashboard names
      */
-    async listDashboardNames(requestParameters: ListDashboardNamesRequest, initOverrides?: RequestInit): Promise<V1ListDashboardsResponse> {
+    async listDashboardNames(requestParameters: ListDashboardNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListDashboardsResponse> {
         const response = await this.listDashboardNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -275,7 +277,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * List dashboards
      */
-    async listDashboardsRaw(requestParameters: ListDashboardsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListDashboardsResponse>> {
+    async listDashboardsRaw(requestParameters: ListDashboardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListDashboardsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listDashboards.');
         }
@@ -329,7 +331,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * List dashboards
      */
-    async listDashboards(requestParameters: ListDashboardsRequest, initOverrides?: RequestInit): Promise<V1ListDashboardsResponse> {
+    async listDashboards(requestParameters: ListDashboardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListDashboardsResponse> {
         const response = await this.listDashboardsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -337,7 +339,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Patch dashboard
      */
-    async patchDashboardRaw(requestParameters: PatchDashboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Dashboard>> {
+    async patchDashboardRaw(requestParameters: PatchDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Dashboard>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchDashboard.');
         }
@@ -374,7 +376,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Patch dashboard
      */
-    async patchDashboard(requestParameters: PatchDashboardRequest, initOverrides?: RequestInit): Promise<V1Dashboard> {
+    async patchDashboard(requestParameters: PatchDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Dashboard> {
         const response = await this.patchDashboardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -382,7 +384,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Update dashboard
      */
-    async updateDashboardRaw(requestParameters: UpdateDashboardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Dashboard>> {
+    async updateDashboardRaw(requestParameters: UpdateDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Dashboard>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateDashboard.');
         }
@@ -419,7 +421,7 @@ export class DashboardsV1Api extends runtime.BaseAPI {
     /**
      * Update dashboard
      */
-    async updateDashboard(requestParameters: UpdateDashboardRequest, initOverrides?: RequestInit): Promise<V1Dashboard> {
+    async updateDashboard(requestParameters: UpdateDashboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Dashboard> {
         const response = await this.updateDashboardRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -28,68 +28,70 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ArtifactTree,
+  V1Auth,
+  V1EntitiesTags,
+  V1EntitiesTransfer,
+  V1EntityNotificationBody,
+  V1EntityStatusBodyRequest,
+  V1EventsResponse,
+  V1ListBookmarksResponse,
+  V1ListRunArtifactsResponse,
+  V1ListRunConnectionsResponse,
+  V1ListRunEdgesResponse,
+  V1ListRunsResponse,
+  V1Logs,
+  V1OperationBody,
+  V1Run,
+  V1RunArtifact,
+  V1RunArtifacts,
+  V1RunSettings,
+  V1Status,
+  V1Uuids,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ArtifactTree,
     V1ArtifactTreeFromJSON,
     V1ArtifactTreeToJSON,
-    V1Auth,
     V1AuthFromJSON,
     V1AuthToJSON,
-    V1EntitiesTags,
     V1EntitiesTagsFromJSON,
     V1EntitiesTagsToJSON,
-    V1EntitiesTransfer,
     V1EntitiesTransferFromJSON,
     V1EntitiesTransferToJSON,
-    V1EntityNotificationBody,
     V1EntityNotificationBodyFromJSON,
     V1EntityNotificationBodyToJSON,
-    V1EntityStatusBodyRequest,
     V1EntityStatusBodyRequestFromJSON,
     V1EntityStatusBodyRequestToJSON,
-    V1EventsResponse,
     V1EventsResponseFromJSON,
     V1EventsResponseToJSON,
-    V1ListBookmarksResponse,
     V1ListBookmarksResponseFromJSON,
     V1ListBookmarksResponseToJSON,
-    V1ListRunArtifactsResponse,
     V1ListRunArtifactsResponseFromJSON,
     V1ListRunArtifactsResponseToJSON,
-    V1ListRunConnectionsResponse,
     V1ListRunConnectionsResponseFromJSON,
     V1ListRunConnectionsResponseToJSON,
-    V1ListRunEdgesResponse,
     V1ListRunEdgesResponseFromJSON,
     V1ListRunEdgesResponseToJSON,
-    V1ListRunsResponse,
     V1ListRunsResponseFromJSON,
     V1ListRunsResponseToJSON,
-    V1Logs,
     V1LogsFromJSON,
     V1LogsToJSON,
-    V1OperationBody,
     V1OperationBodyFromJSON,
     V1OperationBodyToJSON,
-    V1Run,
     V1RunFromJSON,
     V1RunToJSON,
-    V1RunArtifact,
     V1RunArtifactFromJSON,
     V1RunArtifactToJSON,
-    V1RunArtifacts,
     V1RunArtifactsFromJSON,
     V1RunArtifactsToJSON,
-    V1RunSettings,
     V1RunSettingsFromJSON,
     V1RunSettingsToJSON,
-    V1Status,
     V1StatusFromJSON,
     V1StatusToJSON,
-    V1Uuids,
     V1UuidsFromJSON,
     V1UuidsToJSON,
 } from '../models';
@@ -199,6 +201,14 @@ export interface DeleteRunsRequest {
     owner: string;
     project: string;
     body: V1Uuids;
+}
+
+export interface DeprecatedCollectRunLogsRequest {
+    namespace: string;
+    owner: string;
+    project: string;
+    uuid: string;
+    kind: string;
 }
 
 export interface GetMultiRunEventsRequest {
@@ -582,7 +592,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Approve run
      */
-    async approveRunRaw(requestParameters: ApproveRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async approveRunRaw(requestParameters: ApproveRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling approveRun.');
         }
@@ -616,14 +626,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Approve run
      */
-    async approveRun(requestParameters: ApproveRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async approveRun(requestParameters: ApproveRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.approveRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Approve runs
      */
-    async approveRunsRaw(requestParameters: ApproveRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async approveRunsRaw(requestParameters: ApproveRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling approveRuns.');
         }
@@ -660,14 +670,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Approve runs
      */
-    async approveRuns(requestParameters: ApproveRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async approveRuns(requestParameters: ApproveRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.approveRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Archive run
      */
-    async archiveRunRaw(requestParameters: ArchiveRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async archiveRunRaw(requestParameters: ArchiveRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling archiveRun.');
         }
@@ -701,14 +711,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Archive run
      */
-    async archiveRun(requestParameters: ArchiveRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async archiveRun(requestParameters: ArchiveRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.archiveRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Archive runs
      */
-    async archiveRunsRaw(requestParameters: ArchiveRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async archiveRunsRaw(requestParameters: ArchiveRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling archiveRuns.');
         }
@@ -745,14 +755,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Archive runs
      */
-    async archiveRuns(requestParameters: ArchiveRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async archiveRuns(requestParameters: ArchiveRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.archiveRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Bookmark run
      */
-    async bookmarkRunRaw(requestParameters: BookmarkRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async bookmarkRunRaw(requestParameters: BookmarkRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling bookmarkRun.');
         }
@@ -786,14 +796,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Bookmark run
      */
-    async bookmarkRun(requestParameters: BookmarkRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async bookmarkRun(requestParameters: BookmarkRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.bookmarkRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Bookmark runs
      */
-    async bookmarkRunsRaw(requestParameters: BookmarkRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async bookmarkRunsRaw(requestParameters: BookmarkRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling bookmarkRuns.');
         }
@@ -830,14 +840,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Bookmark runs
      */
-    async bookmarkRuns(requestParameters: BookmarkRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async bookmarkRuns(requestParameters: BookmarkRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.bookmarkRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Internal API to collect run logs
      */
-    async collectRunLogsRaw(requestParameters: CollectRunLogsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async collectRunLogsRaw(requestParameters: CollectRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling collectRunLogs.');
         }
@@ -879,14 +889,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Internal API to collect run logs
      */
-    async collectRunLogs(requestParameters: CollectRunLogsRequest, initOverrides?: RequestInit): Promise<void> {
+    async collectRunLogs(requestParameters: CollectRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.collectRunLogsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Restart run with copy
      */
-    async copyRunRaw(requestParameters: CopyRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async copyRunRaw(requestParameters: CopyRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling copyRun.');
         }
@@ -927,7 +937,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Restart run with copy
      */
-    async copyRun(requestParameters: CopyRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async copyRun(requestParameters: CopyRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.copyRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -935,7 +945,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Create new run
      */
-    async createRunRaw(requestParameters: CreateRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async createRunRaw(requestParameters: CreateRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createRun.');
         }
@@ -972,7 +982,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Create new run
      */
-    async createRun(requestParameters: CreateRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async createRun(requestParameters: CreateRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.createRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -980,7 +990,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Create bulk run artifacts lineage
      */
-    async createRunArtifactsLineageRaw(requestParameters: CreateRunArtifactsLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async createRunArtifactsLineageRaw(requestParameters: CreateRunArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createRunArtifactsLineage.');
         }
@@ -1021,14 +1031,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Create bulk run artifacts lineage
      */
-    async createRunArtifactsLineage(requestParameters: CreateRunArtifactsLineageRequest, initOverrides?: RequestInit): Promise<void> {
+    async createRunArtifactsLineage(requestParameters: CreateRunArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.createRunArtifactsLineageRaw(requestParameters, initOverrides);
     }
 
     /**
      * Create new run status
      */
-    async createRunStatusRaw(requestParameters: CreateRunStatusRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
+    async createRunStatusRaw(requestParameters: CreateRunStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Status>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createRunStatus.');
         }
@@ -1069,7 +1079,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Create new run status
      */
-    async createRunStatus(requestParameters: CreateRunStatusRequest, initOverrides?: RequestInit): Promise<V1Status> {
+    async createRunStatus(requestParameters: CreateRunStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Status> {
         const response = await this.createRunStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1077,7 +1087,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Delete run
      */
-    async deleteRunRaw(requestParameters: DeleteRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteRunRaw(requestParameters: DeleteRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteRun.');
         }
@@ -1111,14 +1121,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Delete run
      */
-    async deleteRun(requestParameters: DeleteRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteRun(requestParameters: DeleteRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete run artifact
      */
-    async deleteRunArtifactRaw(requestParameters: DeleteRunArtifactRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteRunArtifactRaw(requestParameters: DeleteRunArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteRunArtifact.');
         }
@@ -1160,14 +1170,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Delete run artifact
      */
-    async deleteRunArtifact(requestParameters: DeleteRunArtifactRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteRunArtifact(requestParameters: DeleteRunArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRunArtifactRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete run artifact lineage
      */
-    async deleteRunArtifactLineageRaw(requestParameters: DeleteRunArtifactLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteRunArtifactLineageRaw(requestParameters: DeleteRunArtifactLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteRunArtifactLineage.');
         }
@@ -1209,14 +1219,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Delete run artifact lineage
      */
-    async deleteRunArtifactLineage(requestParameters: DeleteRunArtifactLineageRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteRunArtifactLineage(requestParameters: DeleteRunArtifactLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRunArtifactLineageRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete run artifacts
      */
-    async deleteRunArtifactsRaw(requestParameters: DeleteRunArtifactsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteRunArtifactsRaw(requestParameters: DeleteRunArtifactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteRunArtifacts.');
         }
@@ -1258,14 +1268,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Delete run artifacts
      */
-    async deleteRunArtifacts(requestParameters: DeleteRunArtifactsRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteRunArtifacts(requestParameters: DeleteRunArtifactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRunArtifactsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete runs
      */
-    async deleteRunsRaw(requestParameters: DeleteRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteRunsRaw(requestParameters: DeleteRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteRuns.');
         }
@@ -1302,14 +1312,63 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Delete runs
      */
-    async deleteRuns(requestParameters: DeleteRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteRuns(requestParameters: DeleteRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Deprecated Collect run logs (# TODO: Remove in v2)
+     */
+    async deprecatedCollectRunLogsRaw(requestParameters: DeprecatedCollectRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deprecatedCollectRunLogs.');
+        }
+
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deprecatedCollectRunLogs.');
+        }
+
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling deprecatedCollectRunLogs.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling deprecatedCollectRunLogs.');
+        }
+
+        if (requestParameters.kind === null || requestParameters.kind === undefined) {
+            throw new runtime.RequiredError('kind','Required parameter requestParameters.kind was null or undefined when calling deprecatedCollectRunLogs.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Deprecated Collect run logs (# TODO: Remove in v2)
+     */
+    async deprecatedCollectRunLogs(requestParameters: DeprecatedCollectRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deprecatedCollectRunLogsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get multi runs events
      */
-    async getMultiRunEventsRaw(requestParameters: GetMultiRunEventsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1EventsResponse>> {
+    async getMultiRunEventsRaw(requestParameters: GetMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1EventsResponse>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getMultiRunEvents.');
         }
@@ -1367,7 +1426,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get multi runs events
      */
-    async getMultiRunEvents(requestParameters: GetMultiRunEventsRequest, initOverrides?: RequestInit): Promise<V1EventsResponse> {
+    async getMultiRunEvents(requestParameters: GetMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1EventsResponse> {
         const response = await this.getMultiRunEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1375,7 +1434,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run
      */
-    async getRunRaw(requestParameters: GetRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async getRunRaw(requestParameters: GetRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRun.');
         }
@@ -1409,7 +1468,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run
      */
-    async getRun(requestParameters: GetRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async getRun(requestParameters: GetRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.getRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1417,7 +1476,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifact
      */
-    async getRunArtifactRaw(requestParameters: GetRunArtifactRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async getRunArtifactRaw(requestParameters: GetRunArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunArtifact.');
         }
@@ -1467,7 +1526,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifact
      */
-    async getRunArtifact(requestParameters: GetRunArtifactRequest, initOverrides?: RequestInit): Promise<string> {
+    async getRunArtifact(requestParameters: GetRunArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.getRunArtifactRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1475,7 +1534,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts lineage
      */
-    async getRunArtifactLineageRaw(requestParameters: GetRunArtifactLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1RunArtifact>> {
+    async getRunArtifactLineageRaw(requestParameters: GetRunArtifactLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1RunArtifact>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunArtifactLineage.');
         }
@@ -1517,7 +1576,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts lineage
      */
-    async getRunArtifactLineage(requestParameters: GetRunArtifactLineageRequest, initOverrides?: RequestInit): Promise<V1RunArtifact> {
+    async getRunArtifactLineage(requestParameters: GetRunArtifactLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1RunArtifact> {
         const response = await this.getRunArtifactLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1525,7 +1584,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts
      */
-    async getRunArtifactsRaw(requestParameters: GetRunArtifactsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async getRunArtifactsRaw(requestParameters: GetRunArtifactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunArtifacts.');
         }
@@ -1571,7 +1630,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts
      */
-    async getRunArtifacts(requestParameters: GetRunArtifactsRequest, initOverrides?: RequestInit): Promise<string> {
+    async getRunArtifacts(requestParameters: GetRunArtifactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.getRunArtifactsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1579,7 +1638,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts lineage
      */
-    async getRunArtifactsLineageRaw(requestParameters: GetRunArtifactsLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
+    async getRunArtifactsLineageRaw(requestParameters: GetRunArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunArtifactsLineage.');
         }
@@ -1633,7 +1692,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts lineage
      */
-    async getRunArtifactsLineage(requestParameters: GetRunArtifactsLineageRequest, initOverrides?: RequestInit): Promise<V1ListRunArtifactsResponse> {
+    async getRunArtifactsLineage(requestParameters: GetRunArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunArtifactsResponse> {
         const response = await this.getRunArtifactsLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1641,7 +1700,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts lineage names
      */
-    async getRunArtifactsLineageNamesRaw(requestParameters: GetRunArtifactsLineageNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
+    async getRunArtifactsLineageNamesRaw(requestParameters: GetRunArtifactsLineageNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunArtifactsLineageNames.');
         }
@@ -1695,7 +1754,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts lineage names
      */
-    async getRunArtifactsLineageNames(requestParameters: GetRunArtifactsLineageNamesRequest, initOverrides?: RequestInit): Promise<V1ListRunArtifactsResponse> {
+    async getRunArtifactsLineageNames(requestParameters: GetRunArtifactsLineageNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunArtifactsResponse> {
         const response = await this.getRunArtifactsLineageNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1703,7 +1762,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts tree
      */
-    async getRunArtifactsTreeRaw(requestParameters: GetRunArtifactsTreeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ArtifactTree>> {
+    async getRunArtifactsTreeRaw(requestParameters: GetRunArtifactsTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ArtifactTree>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunArtifactsTree.');
         }
@@ -1745,7 +1804,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run artifacts tree
      */
-    async getRunArtifactsTree(requestParameters: GetRunArtifactsTreeRequest, initOverrides?: RequestInit): Promise<V1ArtifactTree> {
+    async getRunArtifactsTree(requestParameters: GetRunArtifactsTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ArtifactTree> {
         const response = await this.getRunArtifactsTreeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1753,7 +1812,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run clones lineage
      */
-    async getRunClonesLineageRaw(requestParameters: GetRunClonesLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
+    async getRunClonesLineageRaw(requestParameters: GetRunClonesLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunClonesLineage.');
         }
@@ -1807,7 +1866,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run clones lineage
      */
-    async getRunClonesLineage(requestParameters: GetRunClonesLineageRequest, initOverrides?: RequestInit): Promise<V1ListRunsResponse> {
+    async getRunClonesLineage(requestParameters: GetRunClonesLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
         const response = await this.getRunClonesLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1815,7 +1874,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run connections lineage
      */
-    async getRunConnectionsLineageRaw(requestParameters: GetRunConnectionsLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunConnectionsResponse>> {
+    async getRunConnectionsLineageRaw(requestParameters: GetRunConnectionsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunConnectionsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunConnectionsLineage.');
         }
@@ -1869,7 +1928,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run connections lineage
      */
-    async getRunConnectionsLineage(requestParameters: GetRunConnectionsLineageRequest, initOverrides?: RequestInit): Promise<V1ListRunConnectionsResponse> {
+    async getRunConnectionsLineage(requestParameters: GetRunConnectionsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunConnectionsResponse> {
         const response = await this.getRunConnectionsLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1877,7 +1936,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run downstream lineage
      */
-    async getRunDownstreamLineageRaw(requestParameters: GetRunDownstreamLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunEdgesResponse>> {
+    async getRunDownstreamLineageRaw(requestParameters: GetRunDownstreamLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunEdgesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunDownstreamLineage.');
         }
@@ -1931,7 +1990,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run downstream lineage
      */
-    async getRunDownstreamLineage(requestParameters: GetRunDownstreamLineageRequest, initOverrides?: RequestInit): Promise<V1ListRunEdgesResponse> {
+    async getRunDownstreamLineage(requestParameters: GetRunDownstreamLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunEdgesResponse> {
         const response = await this.getRunDownstreamLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1939,7 +1998,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run events
      */
-    async getRunEventsRaw(requestParameters: GetRunEventsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1EventsResponse>> {
+    async getRunEventsRaw(requestParameters: GetRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1EventsResponse>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunEvents.');
         }
@@ -1997,7 +2056,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run events
      */
-    async getRunEvents(requestParameters: GetRunEventsRequest, initOverrides?: RequestInit): Promise<V1EventsResponse> {
+    async getRunEvents(requestParameters: GetRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1EventsResponse> {
         const response = await this.getRunEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2005,7 +2064,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run importance
      */
-    async getRunImportanceRaw(requestParameters: GetRunImportanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1EventsResponse>> {
+    async getRunImportanceRaw(requestParameters: GetRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1EventsResponse>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunImportance.');
         }
@@ -2050,7 +2109,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run importance
      */
-    async getRunImportance(requestParameters: GetRunImportanceRequest, initOverrides?: RequestInit): Promise<V1EventsResponse> {
+    async getRunImportance(requestParameters: GetRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1EventsResponse> {
         const response = await this.getRunImportanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2058,7 +2117,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run logs
      */
-    async getRunLogsRaw(requestParameters: GetRunLogsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Logs>> {
+    async getRunLogsRaw(requestParameters: GetRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Logs>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunLogs.');
         }
@@ -2108,7 +2167,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run logs
      */
-    async getRunLogs(requestParameters: GetRunLogsRequest, initOverrides?: RequestInit): Promise<V1Logs> {
+    async getRunLogs(requestParameters: GetRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Logs> {
         const response = await this.getRunLogsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2116,7 +2175,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get Run namespace
      */
-    async getRunNamespaceRaw(requestParameters: GetRunNamespaceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1RunSettings>> {
+    async getRunNamespaceRaw(requestParameters: GetRunNamespaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1RunSettings>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunNamespace.');
         }
@@ -2150,7 +2209,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get Run namespace
      */
-    async getRunNamespace(requestParameters: GetRunNamespaceRequest, initOverrides?: RequestInit): Promise<V1RunSettings> {
+    async getRunNamespace(requestParameters: GetRunNamespaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1RunSettings> {
         const response = await this.getRunNamespaceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2158,7 +2217,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run resources events
      */
-    async getRunResourcesRaw(requestParameters: GetRunResourcesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1EventsResponse>> {
+    async getRunResourcesRaw(requestParameters: GetRunResourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1EventsResponse>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getRunResources.');
         }
@@ -2212,7 +2271,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run resources events
      */
-    async getRunResources(requestParameters: GetRunResourcesRequest, initOverrides?: RequestInit): Promise<V1EventsResponse> {
+    async getRunResources(requestParameters: GetRunResourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1EventsResponse> {
         const response = await this.getRunResourcesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2220,7 +2279,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get Run settings
      */
-    async getRunSettingsRaw(requestParameters: GetRunSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1RunSettings>> {
+    async getRunSettingsRaw(requestParameters: GetRunSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1RunSettings>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunSettings.');
         }
@@ -2254,7 +2313,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get Run settings
      */
-    async getRunSettings(requestParameters: GetRunSettingsRequest, initOverrides?: RequestInit): Promise<V1RunSettings> {
+    async getRunSettings(requestParameters: GetRunSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1RunSettings> {
         const response = await this.getRunSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2262,7 +2321,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run stats
      */
-    async getRunStatsRaw(requestParameters: GetRunStatsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+    async getRunStatsRaw(requestParameters: GetRunStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunStats.');
         }
@@ -2332,7 +2391,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run stats
      */
-    async getRunStats(requestParameters: GetRunStatsRequest, initOverrides?: RequestInit): Promise<object> {
+    async getRunStats(requestParameters: GetRunStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getRunStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2340,7 +2399,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run statuses
      */
-    async getRunStatusesRaw(requestParameters: GetRunStatusesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
+    async getRunStatusesRaw(requestParameters: GetRunStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Status>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunStatuses.');
         }
@@ -2374,7 +2433,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run statuses
      */
-    async getRunStatuses(requestParameters: GetRunStatusesRequest, initOverrides?: RequestInit): Promise<V1Status> {
+    async getRunStatuses(requestParameters: GetRunStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Status> {
         const response = await this.getRunStatusesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2382,7 +2441,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run upstream lineage
      */
-    async getRunUpstreamLineageRaw(requestParameters: GetRunUpstreamLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunEdgesResponse>> {
+    async getRunUpstreamLineageRaw(requestParameters: GetRunUpstreamLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunEdgesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunUpstreamLineage.');
         }
@@ -2436,7 +2495,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get run upstream lineage
      */
-    async getRunUpstreamLineage(requestParameters: GetRunUpstreamLineageRequest, initOverrides?: RequestInit): Promise<V1ListRunEdgesResponse> {
+    async getRunUpstreamLineage(requestParameters: GetRunUpstreamLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunEdgesResponse> {
         const response = await this.getRunUpstreamLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2444,7 +2503,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get runs artifacts lineage
      */
-    async getRunsArtifactsLineageRaw(requestParameters: GetRunsArtifactsLineageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
+    async getRunsArtifactsLineageRaw(requestParameters: GetRunsArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getRunsArtifactsLineage.');
         }
@@ -2502,7 +2561,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Get runs artifacts lineage
      */
-    async getRunsArtifactsLineage(requestParameters: GetRunsArtifactsLineageRequest, initOverrides?: RequestInit): Promise<V1ListRunArtifactsResponse> {
+    async getRunsArtifactsLineage(requestParameters: GetRunsArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunArtifactsResponse> {
         const response = await this.getRunsArtifactsLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2510,7 +2569,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Impersonate run token
      */
-    async impersonateTokenRaw(requestParameters: ImpersonateTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Auth>> {
+    async impersonateTokenRaw(requestParameters: ImpersonateTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Auth>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling impersonateToken.');
         }
@@ -2544,7 +2603,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Impersonate run token
      */
-    async impersonateToken(requestParameters: ImpersonateTokenRequest, initOverrides?: RequestInit): Promise<V1Auth> {
+    async impersonateToken(requestParameters: ImpersonateTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Auth> {
         const response = await this.impersonateTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2552,7 +2611,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Inspect an active run full conditions
      */
-    async inspectRunRaw(requestParameters: InspectRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+    async inspectRunRaw(requestParameters: InspectRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling inspectRun.');
         }
@@ -2606,7 +2665,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Inspect an active run full conditions
      */
-    async inspectRun(requestParameters: InspectRunRequest, initOverrides?: RequestInit): Promise<object> {
+    async inspectRun(requestParameters: InspectRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.inspectRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2614,7 +2673,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Invalidate run
      */
-    async invalidateRunRaw(requestParameters: InvalidateRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async invalidateRunRaw(requestParameters: InvalidateRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling invalidateRun.');
         }
@@ -2648,14 +2707,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Invalidate run
      */
-    async invalidateRun(requestParameters: InvalidateRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async invalidateRun(requestParameters: InvalidateRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.invalidateRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Invalidate runs
      */
-    async invalidateRunsRaw(requestParameters: InvalidateRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async invalidateRunsRaw(requestParameters: InvalidateRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling invalidateRuns.');
         }
@@ -2692,14 +2751,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Invalidate runs
      */
-    async invalidateRuns(requestParameters: InvalidateRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async invalidateRuns(requestParameters: InvalidateRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.invalidateRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * List archived runs for user
      */
-    async listArchivedRunsRaw(requestParameters: ListArchivedRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
+    async listArchivedRunsRaw(requestParameters: ListArchivedRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
         if (requestParameters.user === null || requestParameters.user === undefined) {
             throw new runtime.RequiredError('user','Required parameter requestParameters.user was null or undefined when calling listArchivedRuns.');
         }
@@ -2745,7 +2804,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * List archived runs for user
      */
-    async listArchivedRuns(requestParameters: ListArchivedRunsRequest, initOverrides?: RequestInit): Promise<V1ListRunsResponse> {
+    async listArchivedRuns(requestParameters: ListArchivedRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
         const response = await this.listArchivedRunsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2753,7 +2812,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * List bookmarked runs for user
      */
-    async listBookmarkedRunsRaw(requestParameters: ListBookmarkedRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListBookmarksResponse>> {
+    async listBookmarkedRunsRaw(requestParameters: ListBookmarkedRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListBookmarksResponse>> {
         if (requestParameters.user === null || requestParameters.user === undefined) {
             throw new runtime.RequiredError('user','Required parameter requestParameters.user was null or undefined when calling listBookmarkedRuns.');
         }
@@ -2799,7 +2858,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * List bookmarked runs for user
      */
-    async listBookmarkedRuns(requestParameters: ListBookmarkedRunsRequest, initOverrides?: RequestInit): Promise<V1ListBookmarksResponse> {
+    async listBookmarkedRuns(requestParameters: ListBookmarkedRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListBookmarksResponse> {
         const response = await this.listBookmarkedRunsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2807,7 +2866,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * List runs
      */
-    async listRunsRaw(requestParameters: ListRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
+    async listRunsRaw(requestParameters: ListRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listRuns.');
         }
@@ -2865,7 +2924,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * List runs
      */
-    async listRuns(requestParameters: ListRunsRequest, initOverrides?: RequestInit): Promise<V1ListRunsResponse> {
+    async listRuns(requestParameters: ListRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
         const response = await this.listRunsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2873,7 +2932,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Notify run status
      */
-    async notifyRunStatusRaw(requestParameters: NotifyRunStatusRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async notifyRunStatusRaw(requestParameters: NotifyRunStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling notifyRunStatus.');
         }
@@ -2918,14 +2977,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Notify run status
      */
-    async notifyRunStatus(requestParameters: NotifyRunStatusRequest, initOverrides?: RequestInit): Promise<void> {
+    async notifyRunStatus(requestParameters: NotifyRunStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.notifyRunStatusRaw(requestParameters, initOverrides);
     }
 
     /**
      * Patch run
      */
-    async patchRunRaw(requestParameters: PatchRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async patchRunRaw(requestParameters: PatchRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchRun.');
         }
@@ -2966,7 +3025,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Patch run
      */
-    async patchRun(requestParameters: PatchRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async patchRun(requestParameters: PatchRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.patchRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2974,7 +3033,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Restart run
      */
-    async restartRunRaw(requestParameters: RestartRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async restartRunRaw(requestParameters: RestartRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restartRun.');
         }
@@ -3015,7 +3074,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Restart run
      */
-    async restartRun(requestParameters: RestartRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async restartRun(requestParameters: RestartRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.restartRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3023,7 +3082,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Restore run
      */
-    async restoreRunRaw(requestParameters: RestoreRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async restoreRunRaw(requestParameters: RestoreRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restoreRun.');
         }
@@ -3057,14 +3116,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Restore run
      */
-    async restoreRun(requestParameters: RestoreRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async restoreRun(requestParameters: RestoreRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.restoreRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Restore runs
      */
-    async restoreRunsRaw(requestParameters: RestoreRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async restoreRunsRaw(requestParameters: RestoreRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restoreRuns.');
         }
@@ -3101,14 +3160,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Restore runs
      */
-    async restoreRuns(requestParameters: RestoreRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async restoreRuns(requestParameters: RestoreRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.restoreRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Resume run
      */
-    async resumeRunRaw(requestParameters: ResumeRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async resumeRunRaw(requestParameters: ResumeRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling resumeRun.');
         }
@@ -3149,7 +3208,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Resume run
      */
-    async resumeRun(requestParameters: ResumeRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async resumeRun(requestParameters: ResumeRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.resumeRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3157,7 +3216,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Stop run
      */
-    async stopRunRaw(requestParameters: StopRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async stopRunRaw(requestParameters: StopRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling stopRun.');
         }
@@ -3191,14 +3250,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Stop run
      */
-    async stopRun(requestParameters: StopRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async stopRun(requestParameters: StopRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.stopRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Stop runs
      */
-    async stopRunsRaw(requestParameters: StopRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async stopRunsRaw(requestParameters: StopRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling stopRuns.');
         }
@@ -3235,14 +3294,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Stop runs
      */
-    async stopRuns(requestParameters: StopRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async stopRuns(requestParameters: StopRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.stopRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Sync offline run
      */
-    async syncRunRaw(requestParameters: SyncRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async syncRunRaw(requestParameters: SyncRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling syncRun.');
         }
@@ -3279,14 +3338,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Sync offline run
      */
-    async syncRun(requestParameters: SyncRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async syncRun(requestParameters: SyncRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.syncRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Tag runs
      */
-    async tagRunsRaw(requestParameters: TagRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async tagRunsRaw(requestParameters: TagRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling tagRuns.');
         }
@@ -3323,14 +3382,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Tag runs
      */
-    async tagRuns(requestParameters: TagRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async tagRuns(requestParameters: TagRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.tagRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Transfer run
      */
-    async transferRunRaw(requestParameters: TransferRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async transferRunRaw(requestParameters: TransferRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling transferRun.');
         }
@@ -3371,14 +3430,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Transfer run
      */
-    async transferRun(requestParameters: TransferRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async transferRun(requestParameters: TransferRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.transferRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Transfer runs
      */
-    async transferRunsRaw(requestParameters: TransferRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async transferRunsRaw(requestParameters: TransferRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling transferRuns.');
         }
@@ -3415,14 +3474,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Transfer runs
      */
-    async transferRuns(requestParameters: TransferRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async transferRuns(requestParameters: TransferRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.transferRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Unbookmark run
      */
-    async unbookmarkRunRaw(requestParameters: UnbookmarkRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async unbookmarkRunRaw(requestParameters: UnbookmarkRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling unbookmarkRun.');
         }
@@ -3456,14 +3515,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Unbookmark run
      */
-    async unbookmarkRun(requestParameters: UnbookmarkRunRequest, initOverrides?: RequestInit): Promise<void> {
+    async unbookmarkRun(requestParameters: UnbookmarkRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.unbookmarkRunRaw(requestParameters, initOverrides);
     }
 
     /**
      * Update run
      */
-    async updateRunRaw(requestParameters: UpdateRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async updateRunRaw(requestParameters: UpdateRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateRun.');
         }
@@ -3504,7 +3563,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Update run
      */
-    async updateRun(requestParameters: UpdateRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async updateRun(requestParameters: UpdateRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.updateRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3512,7 +3571,7 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Upload an artifact file to a store via run access
      */
-    async uploadRunArtifactRaw(requestParameters: UploadRunArtifactRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async uploadRunArtifactRaw(requestParameters: UploadRunArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling uploadRunArtifact.');
         }
@@ -3579,14 +3638,14 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Upload an artifact file to a store via run access
      */
-    async uploadRunArtifact(requestParameters: UploadRunArtifactRequest, initOverrides?: RequestInit): Promise<void> {
+    async uploadRunArtifact(requestParameters: UploadRunArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.uploadRunArtifactRaw(requestParameters, initOverrides);
     }
 
     /**
      * Upload a logs file to a store via run access
      */
-    async uploadRunLogsRaw(requestParameters: UploadRunLogsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async uploadRunLogsRaw(requestParameters: UploadRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling uploadRunLogs.');
         }
@@ -3653,83 +3712,83 @@ export class RunsV1Api extends runtime.BaseAPI {
     /**
      * Upload a logs file to a store via run access
      */
-    async uploadRunLogs(requestParameters: UploadRunLogsRequest, initOverrides?: RequestInit): Promise<void> {
+    async uploadRunLogs(requestParameters: UploadRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.uploadRunLogsRaw(requestParameters, initOverrides);
     }
 
 }
 
 /**
-    * @export
-    * @enum {string}
-    */
-export enum GetMultiRunEventsKindEnum {
-    Model = 'model',
-    Audio = 'audio',
-    Video = 'video',
-    Histogram = 'histogram',
-    Image = 'image',
-    Tensor = 'tensor',
-    Dataframe = 'dataframe',
-    Chart = 'chart',
-    Csv = 'csv',
-    Tsv = 'tsv',
-    Psv = 'psv',
-    Ssv = 'ssv',
-    Metric = 'metric',
-    Env = 'env',
-    Html = 'html',
-    Text = 'text',
-    File = 'file',
-    Dir = 'dir',
-    Dockerfile = 'dockerfile',
-    DockerImage = 'docker_image',
-    Data = 'data',
-    Coderef = 'coderef',
-    Table = 'table',
-    Tensorboard = 'tensorboard',
-    Curve = 'curve',
-    Confusion = 'confusion',
-    Analysis = 'analysis',
-    Iteration = 'iteration',
-    Markdown = 'markdown',
-    System = 'system',
-    Artifact = 'artifact'
-}
+ * @export
+ */
+export const GetMultiRunEventsKindEnum = {
+    Model: 'model',
+    Audio: 'audio',
+    Video: 'video',
+    Histogram: 'histogram',
+    Image: 'image',
+    Tensor: 'tensor',
+    Dataframe: 'dataframe',
+    Chart: 'chart',
+    Csv: 'csv',
+    Tsv: 'tsv',
+    Psv: 'psv',
+    Ssv: 'ssv',
+    Metric: 'metric',
+    Env: 'env',
+    Html: 'html',
+    Text: 'text',
+    File: 'file',
+    Dir: 'dir',
+    Dockerfile: 'dockerfile',
+    DockerImage: 'docker_image',
+    Data: 'data',
+    Coderef: 'coderef',
+    Table: 'table',
+    Tensorboard: 'tensorboard',
+    Curve: 'curve',
+    Confusion: 'confusion',
+    Analysis: 'analysis',
+    Iteration: 'iteration',
+    Markdown: 'markdown',
+    System: 'system',
+    Artifact: 'artifact'
+} as const;
+export type GetMultiRunEventsKindEnum = typeof GetMultiRunEventsKindEnum[keyof typeof GetMultiRunEventsKindEnum];
 /**
-    * @export
-    * @enum {string}
-    */
-export enum GetRunEventsKindEnum {
-    Model = 'model',
-    Audio = 'audio',
-    Video = 'video',
-    Histogram = 'histogram',
-    Image = 'image',
-    Tensor = 'tensor',
-    Dataframe = 'dataframe',
-    Chart = 'chart',
-    Csv = 'csv',
-    Tsv = 'tsv',
-    Psv = 'psv',
-    Ssv = 'ssv',
-    Metric = 'metric',
-    Env = 'env',
-    Html = 'html',
-    Text = 'text',
-    File = 'file',
-    Dir = 'dir',
-    Dockerfile = 'dockerfile',
-    DockerImage = 'docker_image',
-    Data = 'data',
-    Coderef = 'coderef',
-    Table = 'table',
-    Tensorboard = 'tensorboard',
-    Curve = 'curve',
-    Confusion = 'confusion',
-    Analysis = 'analysis',
-    Iteration = 'iteration',
-    Markdown = 'markdown',
-    System = 'system',
-    Artifact = 'artifact'
-}
+ * @export
+ */
+export const GetRunEventsKindEnum = {
+    Model: 'model',
+    Audio: 'audio',
+    Video: 'video',
+    Histogram: 'histogram',
+    Image: 'image',
+    Tensor: 'tensor',
+    Dataframe: 'dataframe',
+    Chart: 'chart',
+    Csv: 'csv',
+    Tsv: 'tsv',
+    Psv: 'psv',
+    Ssv: 'ssv',
+    Metric: 'metric',
+    Env: 'env',
+    Html: 'html',
+    Text: 'text',
+    File: 'file',
+    Dir: 'dir',
+    Dockerfile: 'dockerfile',
+    DockerImage: 'docker_image',
+    Data: 'data',
+    Coderef: 'coderef',
+    Table: 'table',
+    Tensorboard: 'tensorboard',
+    Curve: 'curve',
+    Confusion: 'confusion',
+    Analysis: 'analysis',
+    Iteration: 'iteration',
+    Markdown: 'markdown',
+    System: 'system',
+    Artifact: 'artifact'
+} as const;
+export type GetRunEventsKindEnum = typeof GetRunEventsKindEnum[keyof typeof GetRunEventsKindEnum];

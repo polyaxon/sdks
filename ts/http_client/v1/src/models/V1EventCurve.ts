@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1EventCurveKind } from './V1EventCurveKind';
 import {
-    V1EventCurveKind,
     V1EventCurveKindFromJSON,
     V1EventCurveKindFromJSONTyped,
     V1EventCurveKindToJSON,
-} from './';
+} from './V1EventCurveKind';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1EventCurve {
      * @memberof V1EventCurve
      */
     annotation?: string;
+}
+
+/**
+ * Check if a given object implements the V1EventCurve interface.
+ */
+export function instanceOfV1EventCurve(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EventCurveFromJSON(json: any): V1EventCurve {

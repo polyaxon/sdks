@@ -54,9 +54,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class AgentsV1Api {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public AgentsV1Api() {
         this(Configuration.getDefaultApiClient());
@@ -72,6 +75,22 @@ public class AgentsV1Api {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
     }
 
     /**
@@ -92,11 +111,24 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call createAgentCall(String owner, V1Agent body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -116,28 +148,27 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAgentValidateBeforeCall(String owner, V1Agent body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createAgent(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createAgent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createAgentCall(owner, body, _callback);
-        return localVarCall;
+        return createAgentCall(owner, body, _callback);
 
     }
 
@@ -230,12 +261,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call createAgentStatusCall(String owner, String uuid, V1AgentStatusBodyRequest body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{uuid}/statuses"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -255,33 +299,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAgentStatusValidateBeforeCall(String owner, String uuid, V1AgentStatusBodyRequest body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling createAgentStatus(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling createAgentStatus(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createAgentStatus(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createAgentStatusCall(owner, uuid, body, _callback);
-        return localVarCall;
+        return createAgentStatusCall(owner, uuid, body, _callback);
 
     }
 
@@ -377,12 +420,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call deleteAgentCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -403,31 +459,29 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAgentValidateBeforeCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteAgent(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling deleteAgent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteAgentCall(owner, uuid, entity, _callback);
-        return localVarCall;
+        return deleteAgentCall(owner, uuid, entity, _callback);
 
     }
 
@@ -519,12 +573,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call getAgentCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -545,31 +612,29 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAgentValidateBeforeCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getAgent(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getAgent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getAgentCall(owner, uuid, entity, _callback);
-        return localVarCall;
+        return getAgentCall(owner, uuid, entity, _callback);
 
     }
 
@@ -665,12 +730,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call getAgentConfigCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{uuid}/config"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -691,31 +769,29 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAgentConfigValidateBeforeCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getAgentConfig(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getAgentConfig(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getAgentConfigCall(owner, uuid, entity, _callback);
-        return localVarCall;
+        return getAgentConfigCall(owner, uuid, entity, _callback);
 
     }
 
@@ -810,12 +886,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call getAgentStateCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{uuid}/state"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -832,31 +921,29 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAgentStateValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getAgentState(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getAgentState(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getAgentStateCall(owner, uuid, _callback);
-        return localVarCall;
+        return getAgentStateCall(owner, uuid, _callback);
 
     }
 
@@ -948,12 +1035,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call getAgentTokenCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{uuid}/token"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "uuid" + "\\}", localVarApiClient.escapeString(uuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -970,31 +1070,29 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAgentTokenValidateBeforeCall(String owner, String uuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getAgentToken(Async)");
         }
-        
+
         // verify the required parameter 'uuid' is set
         if (uuid == null) {
             throw new ApiException("Missing the required parameter 'uuid' when calling getAgentToken(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getAgentTokenCall(owner, uuid, _callback);
-        return localVarCall;
+        return getAgentTokenCall(owner, uuid, _callback);
 
     }
 
@@ -1092,11 +1190,24 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call listAgentNamesCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/names"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1141,26 +1252,24 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAgentNamesValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listAgentNames(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listAgentNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
-        return localVarCall;
+        return listAgentNamesCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
 
     }
 
@@ -1276,11 +1385,24 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call listAgentsCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1325,26 +1447,24 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAgentsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, Boolean noPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling listAgents(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listAgentsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
-        return localVarCall;
+        return listAgentsCall(owner, offset, limit, sort, query, bookmarks, mode, noPage, _callback);
 
     }
 
@@ -1455,12 +1575,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call patchAgentCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{agent.uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "agent.uuid" + "\\}", localVarApiClient.escapeString(agentUuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "agent.uuid" + "}", localVarApiClient.escapeString(agentUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1480,33 +1613,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchAgentValidateBeforeCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchAgent(Async)");
         }
-        
+
         // verify the required parameter 'agentUuid' is set
         if (agentUuid == null) {
             throw new ApiException("Missing the required parameter 'agentUuid' when calling patchAgent(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchAgent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = patchAgentCall(owner, agentUuid, body, _callback);
-        return localVarCall;
+        return patchAgentCall(owner, agentUuid, body, _callback);
 
     }
 
@@ -1602,12 +1734,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call patchAgentTokenCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{entity}/token"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1627,33 +1772,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchAgentTokenValidateBeforeCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling patchAgentToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling patchAgentToken(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling patchAgentToken(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = patchAgentTokenCall(owner, entity, body, _callback);
-        return localVarCall;
+        return patchAgentTokenCall(owner, entity, body, _callback);
 
     }
 
@@ -1749,12 +1893,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call syncAgentCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{agent.uuid}/sync"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "agent.uuid" + "\\}", localVarApiClient.escapeString(agentUuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "agent.uuid" + "}", localVarApiClient.escapeString(agentUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1774,33 +1931,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call syncAgentValidateBeforeCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling syncAgent(Async)");
         }
-        
+
         // verify the required parameter 'agentUuid' is set
         if (agentUuid == null) {
             throw new ApiException("Missing the required parameter 'agentUuid' when calling syncAgent(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling syncAgent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = syncAgentCall(owner, agentUuid, body, _callback);
-        return localVarCall;
+        return syncAgentCall(owner, agentUuid, body, _callback);
 
     }
 
@@ -1892,12 +2048,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call updateAgentCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{agent.uuid}"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "agent.uuid" + "\\}", localVarApiClient.escapeString(agentUuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "agent.uuid" + "}", localVarApiClient.escapeString(agentUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1917,33 +2086,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAgentValidateBeforeCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateAgent(Async)");
         }
-        
+
         // verify the required parameter 'agentUuid' is set
         if (agentUuid == null) {
             throw new ApiException("Missing the required parameter 'agentUuid' when calling updateAgent(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateAgent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateAgentCall(owner, agentUuid, body, _callback);
-        return localVarCall;
+        return updateAgentCall(owner, agentUuid, body, _callback);
 
     }
 
@@ -2039,12 +2207,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call updateAgentConfigCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{agent.uuid}/config"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "agent.uuid" + "\\}", localVarApiClient.escapeString(agentUuid.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "agent.uuid" + "}", localVarApiClient.escapeString(agentUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2064,33 +2245,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAgentConfigValidateBeforeCall(String owner, String agentUuid, V1Agent body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateAgentConfig(Async)");
         }
-        
+
         // verify the required parameter 'agentUuid' is set
         if (agentUuid == null) {
             throw new ApiException("Missing the required parameter 'agentUuid' when calling updateAgentConfig(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateAgentConfig(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateAgentConfigCall(owner, agentUuid, body, _callback);
-        return localVarCall;
+        return updateAgentConfigCall(owner, agentUuid, body, _callback);
 
     }
 
@@ -2186,12 +2366,25 @@ public class AgentsV1Api {
      </table>
      */
     public okhttp3.Call updateAgentTokenCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v1/orgs/{owner}/agents/{entity}/token"
-            .replaceAll("\\{" + "owner" + "\\}", localVarApiClient.escapeString(owner.toString()))
-            .replaceAll("\\{" + "entity" + "\\}", localVarApiClient.escapeString(entity.toString()));
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2211,33 +2404,32 @@ public class AgentsV1Api {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAgentTokenValidateBeforeCall(String owner, String entity, V1Token body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling updateAgentToken(Async)");
         }
-        
+
         // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new ApiException("Missing the required parameter 'entity' when calling updateAgentToken(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateAgentToken(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateAgentTokenCall(owner, entity, body, _callback);
-        return localVarCall;
+        return updateAgentTokenCall(owner, entity, body, _callback);
 
     }
 

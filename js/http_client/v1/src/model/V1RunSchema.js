@@ -117,8 +117,72 @@ class V1RunSchema {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1RunSchema</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RunSchema</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `job`
+        if (data['job']) { // data not null
+          V1Job.validateJSON(data['job']);
+        }
+        // validate the optional field `service`
+        if (data['service']) { // data not null
+          V1Service.validateJSON(data['service']);
+        }
+        // validate the optional field `dag`
+        if (data['dag']) { // data not null
+          V1Dag.validateJSON(data['dag']);
+        }
+        // validate the optional field `tfJob`
+        if (data['tfJob']) { // data not null
+          V1TFJob.validateJSON(data['tfJob']);
+        }
+        // validate the optional field `pytorchJob`
+        if (data['pytorchJob']) { // data not null
+          V1PytorchJob.validateJSON(data['pytorchJob']);
+        }
+        // validate the optional field `mpiJob`
+        if (data['mpiJob']) { // data not null
+          V1MPIJob.validateJSON(data['mpiJob']);
+        }
+        // validate the optional field `mxJob`
+        if (data['mxJob']) { // data not null
+          V1MXJob.validateJSON(data['mxJob']);
+        }
+        // validate the optional field `xgboostJob`
+        if (data['xgboostJob']) { // data not null
+          V1XGBoostJob.validateJSON(data['xgboostJob']);
+        }
+        // validate the optional field `paddleJob`
+        if (data['paddleJob']) { // data not null
+          V1PaddleJob.validateJSON(data['paddleJob']);
+        }
+        // validate the optional field `dask`
+        if (data['dask']) { // data not null
+          V1Dask.validateJSON(data['dask']);
+        }
+        // validate the optional field `spark`
+        if (data['spark']) { // data not null
+          V1Spark.validateJSON(data['spark']);
+        }
+        // validate the optional field `flink`
+        if (data['flink']) { // data not null
+          V1Flink.validateJSON(data['flink']);
+        }
+        // validate the optional field `ruy`
+        if (data['ruy']) { // data not null
+          V1Ray.validateJSON(data['ruy']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1Job} job

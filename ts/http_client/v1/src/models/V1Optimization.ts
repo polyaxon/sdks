@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - maximize: Minimize a metric
  *  - minimize: Minimize a metric
  * @export
- * @enum {string}
  */
-export enum V1Optimization {
-    Maximize = 'maximize',
-    Minimize = 'minimize'
-}
+export const V1Optimization = {
+    Maximize: 'maximize',
+    Minimize: 'minimize'
+} as const;
+export type V1Optimization = typeof V1Optimization[keyof typeof V1Optimization];
+
 
 export function V1OptimizationFromJSON(json: any): V1Optimization {
     return V1OptimizationFromJSONTyped(json, false);

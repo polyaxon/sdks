@@ -71,6 +71,15 @@ export interface V1TeamMember {
     updated_at?: Date;
 }
 
+/**
+ * Check if a given object implements the V1TeamMember interface.
+ */
+export function instanceOfV1TeamMember(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TeamMemberFromJSON(json: any): V1TeamMember {
     return V1TeamMemberFromJSONTyped(json, false);
 }

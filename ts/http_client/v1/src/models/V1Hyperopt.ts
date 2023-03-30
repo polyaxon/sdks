@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1HyperoptAlgorithms } from './V1HyperoptAlgorithms';
 import {
-    V1HyperoptAlgorithms,
     V1HyperoptAlgorithmsFromJSON,
     V1HyperoptAlgorithmsFromJSONTyped,
     V1HyperoptAlgorithmsToJSON,
-    V1OptimizationMetric,
+} from './V1HyperoptAlgorithms';
+import type { V1OptimizationMetric } from './V1OptimizationMetric';
+import {
     V1OptimizationMetricFromJSON,
     V1OptimizationMetricFromJSONTyped,
     V1OptimizationMetricToJSON,
-    V1Tuner,
+} from './V1OptimizationMetric';
+import type { V1Tuner } from './V1Tuner';
+import {
     V1TunerFromJSON,
     V1TunerFromJSONTyped,
     V1TunerToJSON,
-} from './';
+} from './V1Tuner';
 
 /**
  * 
@@ -108,6 +112,15 @@ export interface V1Hyperopt {
      * @memberof V1Hyperopt
      */
     earlyStopping?: Array<object>;
+}
+
+/**
+ * Check if a given object implements the V1Hyperopt interface.
+ */
+export function instanceOfV1Hyperopt(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1HyperoptFromJSON(json: any): V1Hyperopt {

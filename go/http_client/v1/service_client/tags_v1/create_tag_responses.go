@@ -87,9 +87,44 @@ type CreateTagOK struct {
 	Payload *service_model.V1Tag
 }
 
+// IsSuccess returns true when this create tag o k response has a 2xx status code
+func (o *CreateTagOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create tag o k response has a 3xx status code
+func (o *CreateTagOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create tag o k response has a 4xx status code
+func (o *CreateTagOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create tag o k response has a 5xx status code
+func (o *CreateTagOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create tag o k response a status code equal to that given
+func (o *CreateTagOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the create tag o k response
+func (o *CreateTagOK) Code() int {
+	return 200
+}
+
 func (o *CreateTagOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateTagOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateTagOK) GetPayload() *service_model.V1Tag {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type CreateTagNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create tag no content response has a 2xx status code
+func (o *CreateTagNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create tag no content response has a 3xx status code
+func (o *CreateTagNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create tag no content response has a 4xx status code
+func (o *CreateTagNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create tag no content response has a 5xx status code
+func (o *CreateTagNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create tag no content response a status code equal to that given
+func (o *CreateTagNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the create tag no content response
+func (o *CreateTagNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateTagNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateTagNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateTagNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type CreateTagForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create tag forbidden response has a 2xx status code
+func (o *CreateTagForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create tag forbidden response has a 3xx status code
+func (o *CreateTagForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create tag forbidden response has a 4xx status code
+func (o *CreateTagForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create tag forbidden response has a 5xx status code
+func (o *CreateTagForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create tag forbidden response a status code equal to that given
+func (o *CreateTagForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the create tag forbidden response
+func (o *CreateTagForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateTagForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateTagForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateTagForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type CreateTagNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create tag not found response has a 2xx status code
+func (o *CreateTagNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create tag not found response has a 3xx status code
+func (o *CreateTagNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create tag not found response has a 4xx status code
+func (o *CreateTagNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create tag not found response has a 5xx status code
+func (o *CreateTagNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create tag not found response a status code equal to that given
+func (o *CreateTagNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create tag not found response
+func (o *CreateTagNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateTagNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateTagNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateTagNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type CreateTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this create tag default response has a 2xx status code
+func (o *CreateTagDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create tag default response has a 3xx status code
+func (o *CreateTagDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create tag default response has a 4xx status code
+func (o *CreateTagDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create tag default response has a 5xx status code
+func (o *CreateTagDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create tag default response a status code equal to that given
+func (o *CreateTagDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the create tag default response
 func (o *CreateTagDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *CreateTagDefault) Code() int {
 func (o *CreateTagDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] CreateTag default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateTagDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] CreateTag default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateTagDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

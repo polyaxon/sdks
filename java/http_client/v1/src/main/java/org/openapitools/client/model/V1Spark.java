@@ -34,8 +34,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +42,27 @@ import java.util.Map;
 import org.openapitools.client.model.SparkDeployMode;
 import org.openapitools.client.model.V1SparkReplica;
 import org.openapitools.client.model.V1SparkType;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Spark
@@ -114,6 +133,8 @@ public class V1Spark {
   @SerializedName(SERIALIZED_NAME_DRIVER)
   private V1SparkReplica driver;
 
+  public V1Spark() {
+  }
 
   public V1Spark kind(String kind) {
     
@@ -126,7 +147,6 @@ public class V1Spark {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -146,7 +166,7 @@ public class V1Spark {
 
   public V1Spark addConnectionsItem(String connectionsItem) {
     if (this.connections == null) {
-      this.connections = new ArrayList<String>();
+      this.connections = new ArrayList<>();
     }
     this.connections.add(connectionsItem);
     return this;
@@ -157,7 +177,6 @@ public class V1Spark {
    * @return connections
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getConnections() {
     return connections;
@@ -177,7 +196,7 @@ public class V1Spark {
 
   public V1Spark addVolumesItem(Object volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<Object>();
+      this.volumes = new ArrayList<>();
     }
     this.volumes.add(volumesItem);
     return this;
@@ -188,7 +207,6 @@ public class V1Spark {
    * @return volumes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Volumes is a list of volumes that can be mounted.")
 
   public List<Object> getVolumes() {
     return volumes;
@@ -211,7 +229,6 @@ public class V1Spark {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1SparkType getType() {
     return type;
@@ -234,7 +251,6 @@ public class V1Spark {
    * @return sparkVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Spark version is the version of Spark the application uses.")
 
   public String getSparkVersion() {
     return sparkVersion;
@@ -257,7 +273,6 @@ public class V1Spark {
    * @return pythonVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Spark version is the version of Spark the application uses.")
 
   public String getPythonVersion() {
     return pythonVersion;
@@ -280,7 +295,6 @@ public class V1Spark {
    * @return deployMode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public SparkDeployMode getDeployMode() {
     return deployMode;
@@ -303,7 +317,6 @@ public class V1Spark {
    * @return mainClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MainClass is the fully-qualified main class of the Spark application. This only applies to Java/Scala Spark applications.")
 
   public String getMainClass() {
     return mainClass;
@@ -326,7 +339,6 @@ public class V1Spark {
    * @return mainApplicationFile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MainFile is the path to a bundled JAR, Python, or R file of the application.")
 
   public String getMainApplicationFile() {
     return mainApplicationFile;
@@ -346,7 +358,7 @@ public class V1Spark {
 
   public V1Spark addArgumentsItem(String argumentsItem) {
     if (this.arguments == null) {
-      this.arguments = new ArrayList<String>();
+      this.arguments = new ArrayList<>();
     }
     this.arguments.add(argumentsItem);
     return this;
@@ -357,7 +369,6 @@ public class V1Spark {
    * @return arguments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arguments is a list of arguments to be passed to the application.")
 
   public List<String> getArguments() {
     return arguments;
@@ -377,7 +388,7 @@ public class V1Spark {
 
   public V1Spark putHadoopConfItem(String key, String hadoopConfItem) {
     if (this.hadoopConf == null) {
-      this.hadoopConf = new HashMap<String, String>();
+      this.hadoopConf = new HashMap<>();
     }
     this.hadoopConf.put(key, hadoopConfItem);
     return this;
@@ -388,7 +399,6 @@ public class V1Spark {
    * @return hadoopConf
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "HadoopConf carries user-specified Hadoop configuration properties as they would use the  the \"--conf\" option in spark-submit.  The SparkApplication controller automatically adds prefix \"spark.hadoop.\" to Hadoop configuration properties.")
 
   public Map<String, String> getHadoopConf() {
     return hadoopConf;
@@ -408,7 +418,7 @@ public class V1Spark {
 
   public V1Spark putSparkConfItem(String key, String sparkConfItem) {
     if (this.sparkConf == null) {
-      this.sparkConf = new HashMap<String, String>();
+      this.sparkConf = new HashMap<>();
     }
     this.sparkConf.put(key, sparkConfItem);
     return this;
@@ -419,7 +429,6 @@ public class V1Spark {
    * @return sparkConf
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "HadoopConf carries user-specified Hadoop configuration properties as they would use the  the \"--conf\" option in spark-submit.  The SparkApplication controller automatically adds prefix \"spark.hadoop.\" to Hadoop configuration properties.")
 
   public Map<String, String> getSparkConf() {
     return sparkConf;
@@ -442,7 +451,6 @@ public class V1Spark {
    * @return sparkConfigMap
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SparkConfigMap carries the name of the ConfigMap containing Spark configuration files such as log4j.properties. The controller will add environment variable SPARK_CONF_DIR to the path where the ConfigMap is mounted to.")
 
   public String getSparkConfigMap() {
     return sparkConfigMap;
@@ -465,7 +473,6 @@ public class V1Spark {
    * @return hadoopConfigMap
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "HadoopConfigMap carries the name of the ConfigMap containing Hadoop configuration files such as core-site.xml. The controller will add environment variable HADOOP_CONF_DIR to the path where the ConfigMap is mounted to.")
 
   public String getHadoopConfigMap() {
     return hadoopConfigMap;
@@ -488,7 +495,6 @@ public class V1Spark {
    * @return executor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1SparkReplica getExecutor() {
     return executor;
@@ -511,7 +517,6 @@ public class V1Spark {
    * @return driver
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1SparkReplica getDriver() {
     return driver;
@@ -521,6 +526,7 @@ public class V1Spark {
   public void setDriver(V1SparkReplica driver) {
     this.driver = driver;
   }
+
 
 
   @Override
@@ -590,5 +596,144 @@ public class V1Spark {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("kind");
+    openapiFields.add("connections");
+    openapiFields.add("volumes");
+    openapiFields.add("type");
+    openapiFields.add("sparkVersion");
+    openapiFields.add("pythonVersion");
+    openapiFields.add("deployMode");
+    openapiFields.add("mainClass");
+    openapiFields.add("mainApplicationFile");
+    openapiFields.add("arguments");
+    openapiFields.add("hadoopConf");
+    openapiFields.add("sparkConf");
+    openapiFields.add("sparkConfigMap");
+    openapiFields.add("hadoopConfigMap");
+    openapiFields.add("executor");
+    openapiFields.add("driver");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Spark
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Spark.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Spark is not found in the empty JSON string", V1Spark.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Spark.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Spark` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volumes") != null && !jsonObj.get("volumes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `volumes` to be an array in the JSON string but got `%s`", jsonObj.get("volumes").toString()));
+      }
+      if ((jsonObj.get("sparkVersion") != null && !jsonObj.get("sparkVersion").isJsonNull()) && !jsonObj.get("sparkVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sparkVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sparkVersion").toString()));
+      }
+      if ((jsonObj.get("pythonVersion") != null && !jsonObj.get("pythonVersion").isJsonNull()) && !jsonObj.get("pythonVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pythonVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pythonVersion").toString()));
+      }
+      if ((jsonObj.get("mainClass") != null && !jsonObj.get("mainClass").isJsonNull()) && !jsonObj.get("mainClass").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mainClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mainClass").toString()));
+      }
+      if ((jsonObj.get("mainApplicationFile") != null && !jsonObj.get("mainApplicationFile").isJsonNull()) && !jsonObj.get("mainApplicationFile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mainApplicationFile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mainApplicationFile").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("arguments") != null && !jsonObj.get("arguments").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `arguments` to be an array in the JSON string but got `%s`", jsonObj.get("arguments").toString()));
+      }
+      if ((jsonObj.get("sparkConfigMap") != null && !jsonObj.get("sparkConfigMap").isJsonNull()) && !jsonObj.get("sparkConfigMap").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sparkConfigMap` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sparkConfigMap").toString()));
+      }
+      if ((jsonObj.get("hadoopConfigMap") != null && !jsonObj.get("hadoopConfigMap").isJsonNull()) && !jsonObj.get("hadoopConfigMap").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hadoopConfigMap` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hadoopConfigMap").toString()));
+      }
+      // validate the optional field `executor`
+      if (jsonObj.get("executor") != null && !jsonObj.get("executor").isJsonNull()) {
+        V1SparkReplica.validateJsonObject(jsonObj.getAsJsonObject("executor"));
+      }
+      // validate the optional field `driver`
+      if (jsonObj.get("driver") != null && !jsonObj.get("driver").isJsonNull()) {
+        V1SparkReplica.validateJsonObject(jsonObj.getAsJsonObject("driver"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Spark.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Spark' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Spark> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Spark.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Spark>() {
+           @Override
+           public void write(JsonWriter out, V1Spark value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Spark read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Spark given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Spark
+  * @throws IOException if the JSON string is invalid with respect to V1Spark
+  */
+  public static V1Spark fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Spark.class);
+  }
+
+ /**
+  * Convert an instance of V1Spark to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

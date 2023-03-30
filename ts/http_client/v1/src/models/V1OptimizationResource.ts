@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ResourceType } from './V1ResourceType';
 import {
-    V1ResourceType,
     V1ResourceTypeFromJSON,
     V1ResourceTypeFromJSONTyped,
     V1ResourceTypeToJSON,
-} from './';
+} from './V1ResourceType';
 
 /**
  * 
@@ -52,6 +52,15 @@ export interface V1OptimizationResource {
      * @memberof V1OptimizationResource
      */
     type?: V1ResourceType;
+}
+
+/**
+ * Check if a given object implements the V1OptimizationResource interface.
+ */
+export function instanceOfV1OptimizationResource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1OptimizationResourceFromJSON(json: any): V1OptimizationResource {

@@ -28,20 +28,22 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ListActivitiesResponse,
+  V1ListTokenResponse,
+  V1Token,
+  V1User,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ListActivitiesResponse,
     V1ListActivitiesResponseFromJSON,
     V1ListActivitiesResponseToJSON,
-    V1ListTokenResponse,
     V1ListTokenResponseFromJSON,
     V1ListTokenResponseToJSON,
-    V1Token,
     V1TokenFromJSON,
     V1TokenToJSON,
-    V1User,
     V1UserFromJSON,
     V1UserToJSON,
 } from '../models';
@@ -108,7 +110,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Create token
      */
-    async createTokenRaw(requestParameters: CreateTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async createTokenRaw(requestParameters: CreateTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createToken.');
         }
@@ -137,7 +139,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Create token
      */
-    async createToken(requestParameters: CreateTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async createToken(requestParameters: CreateTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.createTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -145,7 +147,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Delete token
      */
-    async deleteTokenRaw(requestParameters: DeleteTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteTokenRaw(requestParameters: DeleteTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
             throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling deleteToken.');
         }
@@ -171,14 +173,14 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Delete token
      */
-    async deleteToken(requestParameters: DeleteTokenRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteToken(requestParameters: DeleteTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteTokenRaw(requestParameters, initOverrides);
     }
 
     /**
      * User History
      */
-    async getHistoryRaw(requestParameters: GetHistoryRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
+    async getHistoryRaw(requestParameters: GetHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters.offset !== undefined) {
@@ -220,7 +222,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * User History
      */
-    async getHistory(requestParameters: GetHistoryRequest, initOverrides?: RequestInit): Promise<V1ListActivitiesResponse> {
+    async getHistory(requestParameters: GetHistoryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListActivitiesResponse> {
         const response = await this.getHistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -228,7 +230,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * User suggestions
      */
-    async getSuggestionsRaw(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+    async getSuggestionsRaw(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         const queryParameters: any = {};
 
         if (requestParameters.offset !== undefined) {
@@ -270,7 +272,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * User suggestions
      */
-    async getSuggestions(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit): Promise<object> {
+    async getSuggestions(requestParameters: GetSuggestionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getSuggestionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -278,7 +280,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Get token
      */
-    async getTokenRaw(requestParameters: GetTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async getTokenRaw(requestParameters: GetTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
             throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getToken.');
         }
@@ -304,7 +306,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Get token
      */
-    async getToken(requestParameters: GetTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async getToken(requestParameters: GetTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.getTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -312,7 +314,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Get current user
      */
-    async getUserRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1User>> {
+    async getUserRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1User>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -334,7 +336,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Get current user
      */
-    async getUser(initOverrides?: RequestInit): Promise<V1User> {
+    async getUser(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1User> {
         const response = await this.getUserRaw(initOverrides);
         return await response.value();
     }
@@ -342,7 +344,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * List tokens
      */
-    async listTokensRaw(requestParameters: ListTokensRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListTokenResponse>> {
+    async listTokensRaw(requestParameters: ListTokensRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListTokenResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters.offset !== undefined) {
@@ -384,7 +386,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * List tokens
      */
-    async listTokens(requestParameters: ListTokensRequest, initOverrides?: RequestInit): Promise<V1ListTokenResponse> {
+    async listTokens(requestParameters: ListTokensRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListTokenResponse> {
         const response = await this.listTokensRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -392,7 +394,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Patch token
      */
-    async patchTokenRaw(requestParameters: PatchTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async patchTokenRaw(requestParameters: PatchTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.tokenUuid === null || requestParameters.tokenUuid === undefined) {
             throw new runtime.RequiredError('tokenUuid','Required parameter requestParameters.tokenUuid was null or undefined when calling patchToken.');
         }
@@ -425,7 +427,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Patch token
      */
-    async patchToken(requestParameters: PatchTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async patchToken(requestParameters: PatchTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.patchTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -433,7 +435,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Patch current user
      */
-    async patchUserRaw(requestParameters: PatchUserRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1User>> {
+    async patchUserRaw(requestParameters: PatchUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1User>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchUser.');
         }
@@ -462,7 +464,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Patch current user
      */
-    async patchUser(requestParameters: PatchUserRequest, initOverrides?: RequestInit): Promise<V1User> {
+    async patchUser(requestParameters: PatchUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1User> {
         const response = await this.patchUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -470,7 +472,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Update token
      */
-    async updateTokenRaw(requestParameters: UpdateTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async updateTokenRaw(requestParameters: UpdateTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.tokenUuid === null || requestParameters.tokenUuid === undefined) {
             throw new runtime.RequiredError('tokenUuid','Required parameter requestParameters.tokenUuid was null or undefined when calling updateToken.');
         }
@@ -503,7 +505,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Update token
      */
-    async updateToken(requestParameters: UpdateTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async updateToken(requestParameters: UpdateTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.updateTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -511,7 +513,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Update current user
      */
-    async updateUserRaw(requestParameters: UpdateUserRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1User>> {
+    async updateUserRaw(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1User>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling updateUser.');
         }
@@ -540,7 +542,7 @@ export class UsersV1Api extends runtime.BaseAPI {
     /**
      * Update current user
      */
-    async updateUser(requestParameters: UpdateUserRequest, initOverrides?: RequestInit): Promise<V1User> {
+    async updateUser(requestParameters: UpdateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1User> {
         const response = await this.updateUserRaw(requestParameters, initOverrides);
         return await response.value();
     }

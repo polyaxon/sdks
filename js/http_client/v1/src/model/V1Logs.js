@@ -78,8 +78,38 @@ class V1Logs {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Logs</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Logs</code>.
+     */
+    static validateJSON(data) {
+        if (data['logs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['logs'])) {
+                throw new Error("Expected the field `logs` to be an array in the JSON data but got " + data['logs']);
+            }
+            // validate the optional field `logs` (array)
+            for (const item of data['logs']) {
+                V1Log.validateJsonObject(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['last_file'] && !(typeof data['last_file'] === 'string' || data['last_file'] instanceof String)) {
+            throw new Error("Expected the field `last_file` to be a primitive type in the JSON string but got " + data['last_file']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['files'])) {
+            throw new Error("Expected the field `files` to be an array in the JSON data but got " + data['files']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/V1Log>} logs

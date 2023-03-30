@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**sections** | [**List&lt;V1SectionSpec&gt;**](V1SectionSpec.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**sections** | [**List&lt;V1SectionSpec&gt;**](V1SectionSpec.md) |  |  [optional] |
 
 
 

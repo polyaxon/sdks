@@ -77,8 +77,32 @@ class V1ListBookmarksResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1ListBookmarksResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1ListBookmarksResponse</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['results'])) {
+            throw new Error("Expected the field `results` to be an array in the JSON data but got " + data['results']);
+        }
+        // ensure the json data is a string
+        if (data['previous'] && !(typeof data['previous'] === 'string' || data['previous'] instanceof String)) {
+            throw new Error("Expected the field `previous` to be a primitive type in the JSON string but got " + data['previous']);
+        }
+        // ensure the json data is a string
+        if (data['next'] && !(typeof data['next'] === 'string' || data['next'] instanceof String)) {
+            throw new Error("Expected the field `next` to be a primitive type in the JSON string but got " + data['next']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} count

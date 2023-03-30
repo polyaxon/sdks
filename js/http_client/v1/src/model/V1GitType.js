@@ -74,8 +74,32 @@ class V1GitType {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1GitType</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1GitType</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
+            throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
+        }
+        // ensure the json data is a string
+        if (data['revision'] && !(typeof data['revision'] === 'string' || data['revision'] instanceof String)) {
+            throw new Error("Expected the field `revision` to be a primitive type in the JSON string but got " + data['revision']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['flags'])) {
+            throw new Error("Expected the field `flags` to be an array in the JSON data but got " + data['flags']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} url

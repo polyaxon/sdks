@@ -71,8 +71,28 @@ class V1LogHandler {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1LogHandler</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1LogHandler</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['dsn'] && !(typeof data['dsn'] === 'string' || data['dsn'] instanceof String)) {
+            throw new Error("Expected the field `dsn` to be a primitive type in the JSON string but got " + data['dsn']);
+        }
+        // ensure the json data is a string
+        if (data['environment'] && !(typeof data['environment'] === 'string' || data['environment'] instanceof String)) {
+            throw new Error("Expected the field `environment` to be a primitive type in the JSON string but got " + data['environment']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} dsn

@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Statuses } from './V1Statuses';
 import {
-    V1Statuses,
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -52,6 +52,15 @@ export interface V1Notification {
      * @memberof V1Notification
      */
     trigger?: V1Statuses;
+}
+
+/**
+ * Check if a given object implements the V1Notification interface.
+ */
+export function instanceOfV1Notification(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1NotificationFromJSON(json: any): V1Notification {

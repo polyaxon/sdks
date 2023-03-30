@@ -47,6 +47,15 @@ export interface V1Flink {
     spec?: object;
 }
 
+/**
+ * Check if a given object implements the V1Flink interface.
+ */
+export function instanceOfV1Flink(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FlinkFromJSON(json: any): V1Flink {
     return V1FlinkFromJSONTyped(json, false);
 }

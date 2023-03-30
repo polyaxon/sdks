@@ -119,6 +119,15 @@ export interface V1DockerfileType {
     shell?: string;
 }
 
+/**
+ * Check if a given object implements the V1DockerfileType interface.
+ */
+export function instanceOfV1DockerfileType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DockerfileTypeFromJSON(json: any): V1DockerfileType {
     return V1DockerfileTypeFromJSONTyped(json, false);
 }

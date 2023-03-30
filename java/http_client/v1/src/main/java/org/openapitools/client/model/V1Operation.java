@@ -34,8 +34,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,6 +51,27 @@ import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
 import org.openapitools.client.model.V1TriggerPolicy;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Operation
@@ -187,6 +206,8 @@ public class V1Operation {
   @SerializedName(SERIALIZED_NAME_COMPONENT)
   private V1Component component;
 
+  public V1Operation() {
+  }
 
   public V1Operation version(Float version) {
     
@@ -199,7 +220,6 @@ public class V1Operation {
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Float getVersion() {
     return version;
@@ -222,7 +242,6 @@ public class V1Operation {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -245,7 +264,6 @@ public class V1Operation {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -268,7 +286,6 @@ public class V1Operation {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -288,7 +305,7 @@ public class V1Operation {
 
   public V1Operation addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -299,7 +316,6 @@ public class V1Operation {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTags() {
     return tags;
@@ -319,7 +335,7 @@ public class V1Operation {
 
   public V1Operation addPresetsItem(String presetsItem) {
     if (this.presets == null) {
-      this.presets = new ArrayList<String>();
+      this.presets = new ArrayList<>();
     }
     this.presets.add(presetsItem);
     return this;
@@ -330,7 +346,6 @@ public class V1Operation {
    * @return presets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getPresets() {
     return presets;
@@ -353,7 +368,6 @@ public class V1Operation {
    * @return queue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getQueue() {
     return queue;
@@ -376,7 +390,6 @@ public class V1Operation {
    * @return cache
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Cache getCache() {
     return cache;
@@ -399,7 +412,6 @@ public class V1Operation {
    * @return termination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Termination getTermination() {
     return termination;
@@ -422,7 +434,6 @@ public class V1Operation {
    * @return plugins
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Plugins getPlugins() {
     return plugins;
@@ -445,7 +456,6 @@ public class V1Operation {
    * @return schedule
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getSchedule() {
     return schedule;
@@ -465,7 +475,7 @@ public class V1Operation {
 
   public V1Operation addEventsItem(V1EventTrigger eventsItem) {
     if (this.events == null) {
-      this.events = new ArrayList<V1EventTrigger>();
+      this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
     return this;
@@ -476,7 +486,6 @@ public class V1Operation {
    * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1EventTrigger> getEvents() {
     return events;
@@ -496,7 +505,7 @@ public class V1Operation {
 
   public V1Operation addHooksItem(V1Hook hooksItem) {
     if (this.hooks == null) {
-      this.hooks = new ArrayList<V1Hook>();
+      this.hooks = new ArrayList<>();
     }
     this.hooks.add(hooksItem);
     return this;
@@ -507,7 +516,6 @@ public class V1Operation {
    * @return hooks
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1Hook> getHooks() {
     return hooks;
@@ -527,7 +535,7 @@ public class V1Operation {
 
   public V1Operation addDependenciesItem(String dependenciesItem) {
     if (this.dependencies == null) {
-      this.dependencies = new ArrayList<String>();
+      this.dependencies = new ArrayList<>();
     }
     this.dependencies.add(dependenciesItem);
     return this;
@@ -538,7 +546,6 @@ public class V1Operation {
    * @return dependencies
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getDependencies() {
     return dependencies;
@@ -561,7 +568,6 @@ public class V1Operation {
    * @return trigger
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1TriggerPolicy getTrigger() {
     return trigger;
@@ -584,7 +590,6 @@ public class V1Operation {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getConditions() {
     return conditions;
@@ -607,7 +612,6 @@ public class V1Operation {
    * @return skipOnUpstreamSkip
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getSkipOnUpstreamSkip() {
     return skipOnUpstreamSkip;
@@ -630,7 +634,6 @@ public class V1Operation {
    * @return matrix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getMatrix() {
     return matrix;
@@ -650,7 +653,7 @@ public class V1Operation {
 
   public V1Operation putJoinsItem(String key, V1Join joinsItem) {
     if (this.joins == null) {
-      this.joins = new HashMap<String, V1Join>();
+      this.joins = new HashMap<>();
     }
     this.joins.put(key, joinsItem);
     return this;
@@ -661,7 +664,6 @@ public class V1Operation {
    * @return joins
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, V1Join> getJoins() {
     return joins;
@@ -681,7 +683,7 @@ public class V1Operation {
 
   public V1Operation putParamsItem(String key, V1Param paramsItem) {
     if (this.params == null) {
-      this.params = new HashMap<String, V1Param>();
+      this.params = new HashMap<>();
     }
     this.params.put(key, paramsItem);
     return this;
@@ -692,7 +694,6 @@ public class V1Operation {
    * @return params
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, V1Param> getParams() {
     return params;
@@ -715,7 +716,6 @@ public class V1Operation {
    * @return runPatch
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getRunPatch() {
     return runPatch;
@@ -738,7 +738,6 @@ public class V1Operation {
    * @return patchStrategy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1PatchStrategy getPatchStrategy() {
     return patchStrategy;
@@ -761,7 +760,6 @@ public class V1Operation {
    * @return isPreset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsPreset() {
     return isPreset;
@@ -784,7 +782,6 @@ public class V1Operation {
    * @return isApproved
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsApproved() {
     return isApproved;
@@ -807,7 +804,6 @@ public class V1Operation {
    * @return template
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Template getTemplate() {
     return template;
@@ -830,7 +826,6 @@ public class V1Operation {
    * @return build
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Build getBuild() {
     return build;
@@ -853,7 +848,6 @@ public class V1Operation {
    * @return cost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Float getCost() {
     return cost;
@@ -876,7 +870,6 @@ public class V1Operation {
    * @return pathRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPathRef() {
     return pathRef;
@@ -899,7 +892,6 @@ public class V1Operation {
    * @return hubRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getHubRef() {
     return hubRef;
@@ -922,7 +914,6 @@ public class V1Operation {
    * @return dagRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDagRef() {
     return dagRef;
@@ -945,7 +936,6 @@ public class V1Operation {
    * @return urlRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUrlRef() {
     return urlRef;
@@ -968,7 +958,6 @@ public class V1Operation {
    * @return component
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Component getComponent() {
     return component;
@@ -978,6 +967,7 @@ public class V1Operation {
   public void setComponent(V1Component component) {
     this.component = component;
   }
+
 
 
   @Override
@@ -1079,5 +1069,210 @@ public class V1Operation {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("version");
+    openapiFields.add("kind");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("tags");
+    openapiFields.add("presets");
+    openapiFields.add("queue");
+    openapiFields.add("cache");
+    openapiFields.add("termination");
+    openapiFields.add("plugins");
+    openapiFields.add("schedule");
+    openapiFields.add("events");
+    openapiFields.add("hooks");
+    openapiFields.add("dependencies");
+    openapiFields.add("trigger");
+    openapiFields.add("conditions");
+    openapiFields.add("skipOnUpstreamSkip");
+    openapiFields.add("matrix");
+    openapiFields.add("joins");
+    openapiFields.add("params");
+    openapiFields.add("runPatch");
+    openapiFields.add("patchStrategy");
+    openapiFields.add("isPreset");
+    openapiFields.add("isApproved");
+    openapiFields.add("template");
+    openapiFields.add("build");
+    openapiFields.add("cost");
+    openapiFields.add("pathRef");
+    openapiFields.add("hubRef");
+    openapiFields.add("dagRef");
+    openapiFields.add("urlRef");
+    openapiFields.add("component");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Operation
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Operation.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Operation is not found in the empty JSON string", V1Operation.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Operation.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Operation` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("presets") != null && !jsonObj.get("presets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `presets` to be an array in the JSON string but got `%s`", jsonObj.get("presets").toString()));
+      }
+      if ((jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) && !jsonObj.get("queue").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `queue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue").toString()));
+      }
+      // validate the optional field `cache`
+      if (jsonObj.get("cache") != null && !jsonObj.get("cache").isJsonNull()) {
+        V1Cache.validateJsonObject(jsonObj.getAsJsonObject("cache"));
+      }
+      // validate the optional field `termination`
+      if (jsonObj.get("termination") != null && !jsonObj.get("termination").isJsonNull()) {
+        V1Termination.validateJsonObject(jsonObj.getAsJsonObject("termination"));
+      }
+      // validate the optional field `plugins`
+      if (jsonObj.get("plugins") != null && !jsonObj.get("plugins").isJsonNull()) {
+        V1Plugins.validateJsonObject(jsonObj.getAsJsonObject("plugins"));
+      }
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            V1EventTrigger.validateJsonObject(jsonArrayevents.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("hooks") != null && !jsonObj.get("hooks").isJsonNull()) {
+        JsonArray jsonArrayhooks = jsonObj.getAsJsonArray("hooks");
+        if (jsonArrayhooks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("hooks").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `hooks` to be an array in the JSON string but got `%s`", jsonObj.get("hooks").toString()));
+          }
+
+          // validate the optional field `hooks` (array)
+          for (int i = 0; i < jsonArrayhooks.size(); i++) {
+            V1Hook.validateJsonObject(jsonArrayhooks.get(i).getAsJsonObject());
+          };
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dependencies") != null && !jsonObj.get("dependencies").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dependencies` to be an array in the JSON string but got `%s`", jsonObj.get("dependencies").toString()));
+      }
+      if ((jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) && !jsonObj.get("conditions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conditions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+      }
+      // validate the optional field `template`
+      if (jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) {
+        V1Template.validateJsonObject(jsonObj.getAsJsonObject("template"));
+      }
+      // validate the optional field `build`
+      if (jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) {
+        V1Build.validateJsonObject(jsonObj.getAsJsonObject("build"));
+      }
+      if ((jsonObj.get("pathRef") != null && !jsonObj.get("pathRef").isJsonNull()) && !jsonObj.get("pathRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pathRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pathRef").toString()));
+      }
+      if ((jsonObj.get("hubRef") != null && !jsonObj.get("hubRef").isJsonNull()) && !jsonObj.get("hubRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hubRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hubRef").toString()));
+      }
+      if ((jsonObj.get("dagRef") != null && !jsonObj.get("dagRef").isJsonNull()) && !jsonObj.get("dagRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dagRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dagRef").toString()));
+      }
+      if ((jsonObj.get("urlRef") != null && !jsonObj.get("urlRef").isJsonNull()) && !jsonObj.get("urlRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlRef").toString()));
+      }
+      // validate the optional field `component`
+      if (jsonObj.get("component") != null && !jsonObj.get("component").isJsonNull()) {
+        V1Component.validateJsonObject(jsonObj.getAsJsonObject("component"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Operation.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Operation' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Operation> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Operation.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Operation>() {
+           @Override
+           public void write(JsonWriter out, V1Operation value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Operation read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Operation given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Operation
+  * @throws IOException if the JSON string is invalid with respect to V1Operation
+  */
+  public static V1Operation fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Operation.class);
+  }
+
+ /**
+  * Convert an instance of V1Operation to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

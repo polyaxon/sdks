@@ -83,8 +83,32 @@ class V1Param {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Param</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Param</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ref'] && !(typeof data['ref'] === 'string' || data['ref'] instanceof String)) {
+            throw new Error("Expected the field `ref` to be a primitive type in the JSON string but got " + data['ref']);
+        }
+        // ensure the json data is a string
+        if (data['connection'] && !(typeof data['connection'] === 'string' || data['connection'] instanceof String)) {
+            throw new Error("Expected the field `connection` to be a primitive type in the JSON string but got " + data['connection']);
+        }
+        // ensure the json data is a string
+        if (data['toEnv'] && !(typeof data['toEnv'] === 'string' || data['toEnv'] instanceof String)) {
+            throw new Error("Expected the field `toEnv` to be a primitive type in the JSON string but got " + data['toEnv']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Object} value

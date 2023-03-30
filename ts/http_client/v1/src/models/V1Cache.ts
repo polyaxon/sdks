@@ -59,6 +59,15 @@ export interface V1Cache {
     sections?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1Cache interface.
+ */
+export function instanceOfV1Cache(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CacheFromJSON(json: any): V1Cache {
     return V1CacheFromJSONTyped(json, false);
 }

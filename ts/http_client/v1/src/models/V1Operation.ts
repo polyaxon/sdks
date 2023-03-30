@@ -27,56 +27,78 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Build } from './V1Build';
 import {
-    V1Build,
     V1BuildFromJSON,
     V1BuildFromJSONTyped,
     V1BuildToJSON,
-    V1Cache,
+} from './V1Build';
+import type { V1Cache } from './V1Cache';
+import {
     V1CacheFromJSON,
     V1CacheFromJSONTyped,
     V1CacheToJSON,
-    V1Component,
+} from './V1Cache';
+import type { V1Component } from './V1Component';
+import {
     V1ComponentFromJSON,
     V1ComponentFromJSONTyped,
     V1ComponentToJSON,
-    V1EventTrigger,
+} from './V1Component';
+import type { V1EventTrigger } from './V1EventTrigger';
+import {
     V1EventTriggerFromJSON,
     V1EventTriggerFromJSONTyped,
     V1EventTriggerToJSON,
-    V1Hook,
+} from './V1EventTrigger';
+import type { V1Hook } from './V1Hook';
+import {
     V1HookFromJSON,
     V1HookFromJSONTyped,
     V1HookToJSON,
-    V1Join,
+} from './V1Hook';
+import type { V1Join } from './V1Join';
+import {
     V1JoinFromJSON,
     V1JoinFromJSONTyped,
     V1JoinToJSON,
-    V1Param,
+} from './V1Join';
+import type { V1Param } from './V1Param';
+import {
     V1ParamFromJSON,
     V1ParamFromJSONTyped,
     V1ParamToJSON,
-    V1PatchStrategy,
+} from './V1Param';
+import type { V1PatchStrategy } from './V1PatchStrategy';
+import {
     V1PatchStrategyFromJSON,
     V1PatchStrategyFromJSONTyped,
     V1PatchStrategyToJSON,
-    V1Plugins,
+} from './V1PatchStrategy';
+import type { V1Plugins } from './V1Plugins';
+import {
     V1PluginsFromJSON,
     V1PluginsFromJSONTyped,
     V1PluginsToJSON,
-    V1Template,
+} from './V1Plugins';
+import type { V1Template } from './V1Template';
+import {
     V1TemplateFromJSON,
     V1TemplateFromJSONTyped,
     V1TemplateToJSON,
-    V1Termination,
+} from './V1Template';
+import type { V1Termination } from './V1Termination';
+import {
     V1TerminationFromJSON,
     V1TerminationFromJSONTyped,
     V1TerminationToJSON,
-    V1TriggerPolicy,
+} from './V1Termination';
+import type { V1TriggerPolicy } from './V1TriggerPolicy';
+import {
     V1TriggerPolicyFromJSON,
     V1TriggerPolicyFromJSONTyped,
     V1TriggerPolicyToJSON,
-} from './';
+} from './V1TriggerPolicy';
 
 /**
  * 
@@ -276,6 +298,15 @@ export interface V1Operation {
      * @memberof V1Operation
      */
     component?: V1Component;
+}
+
+/**
+ * Check if a given object implements the V1Operation interface.
+ */
+export function instanceOfV1Operation(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1OperationFromJSON(json: any): V1Operation {

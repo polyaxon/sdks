@@ -87,9 +87,44 @@ type ListAgentsOK struct {
 	Payload *service_model.V1ListAgentsResponse
 }
 
+// IsSuccess returns true when this list agents o k response has a 2xx status code
+func (o *ListAgentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list agents o k response has a 3xx status code
+func (o *ListAgentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list agents o k response has a 4xx status code
+func (o *ListAgentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list agents o k response has a 5xx status code
+func (o *ListAgentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list agents o k response a status code equal to that given
+func (o *ListAgentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the list agents o k response
+func (o *ListAgentsOK) Code() int {
+	return 200
+}
+
 func (o *ListAgentsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListAgentsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListAgentsOK) GetPayload() *service_model.V1ListAgentsResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type ListAgentsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list agents no content response has a 2xx status code
+func (o *ListAgentsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list agents no content response has a 3xx status code
+func (o *ListAgentsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list agents no content response has a 4xx status code
+func (o *ListAgentsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list agents no content response has a 5xx status code
+func (o *ListAgentsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list agents no content response a status code equal to that given
+func (o *ListAgentsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the list agents no content response
+func (o *ListAgentsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListAgentsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListAgentsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListAgentsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type ListAgentsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list agents forbidden response has a 2xx status code
+func (o *ListAgentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list agents forbidden response has a 3xx status code
+func (o *ListAgentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list agents forbidden response has a 4xx status code
+func (o *ListAgentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list agents forbidden response has a 5xx status code
+func (o *ListAgentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list agents forbidden response a status code equal to that given
+func (o *ListAgentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the list agents forbidden response
+func (o *ListAgentsForbidden) Code() int {
+	return 403
+}
+
 func (o *ListAgentsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListAgentsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListAgentsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type ListAgentsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list agents not found response has a 2xx status code
+func (o *ListAgentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list agents not found response has a 3xx status code
+func (o *ListAgentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list agents not found response has a 4xx status code
+func (o *ListAgentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list agents not found response has a 5xx status code
+func (o *ListAgentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list agents not found response a status code equal to that given
+func (o *ListAgentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list agents not found response
+func (o *ListAgentsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListAgentsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListAgentsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] listAgentsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListAgentsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type ListAgentsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this list agents default response has a 2xx status code
+func (o *ListAgentsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list agents default response has a 3xx status code
+func (o *ListAgentsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list agents default response has a 4xx status code
+func (o *ListAgentsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list agents default response has a 5xx status code
+func (o *ListAgentsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list agents default response a status code equal to that given
+func (o *ListAgentsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the list agents default response
 func (o *ListAgentsDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *ListAgentsDefault) Code() int {
 func (o *ListAgentsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] ListAgents default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListAgentsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents][%d] ListAgents default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListAgentsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

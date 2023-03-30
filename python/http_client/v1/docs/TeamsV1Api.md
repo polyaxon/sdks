@@ -31,6 +31,7 @@ Create team
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -46,7 +47,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -56,13 +57,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Team() # V1Team | Team body
+    body = polyaxon_sdk.V1Team() # V1Team | Team body
 
     try:
         # Create team
         api_response = api_instance.create_team(owner, body)
+        print("The response of TeamsV1Api->create_team:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->create_team: %s\n" % e)
 ```
 
@@ -108,6 +110,7 @@ Create team member
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -123,7 +126,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -133,14 +136,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team = 'team_example' # str | Team
-body = polyaxon_sdk.V1TeamMember() # V1TeamMember | Team body
+    team = 'team_example' # str | Team
+    body = polyaxon_sdk.V1TeamMember() # V1TeamMember | Team body
 
     try:
         # Create team member
         api_response = api_instance.create_team_member(owner, team, body)
+        print("The response of TeamsV1Api->create_team_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->create_team_member: %s\n" % e)
 ```
 
@@ -187,6 +191,7 @@ Delete team
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -202,7 +207,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -212,12 +217,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Delete team
         api_instance.delete_team(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->delete_team: %s\n" % e)
 ```
 
@@ -263,6 +268,7 @@ Delete team member details
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -278,7 +284,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -288,13 +294,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team = 'team_example' # str | Team under namesapce
-user = 'user_example' # str | Member under team
+    team = 'team_example' # str | Team under namesapce
+    user = 'user_example' # str | Member under team
 
     try:
         # Delete team member details
         api_instance.delete_team_member(owner, team, user)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->delete_team_member: %s\n" % e)
 ```
 
@@ -341,6 +347,7 @@ Get team
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -356,7 +363,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -366,13 +373,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Get team
         api_response = api_instance.get_team(owner, name)
+        print("The response of TeamsV1Api->get_team:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->get_team: %s\n" % e)
 ```
 
@@ -418,6 +426,7 @@ Get team member details
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -433,7 +442,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -443,14 +452,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team = 'team_example' # str | Team under namesapce
-user = 'user_example' # str | Member under team
+    team = 'team_example' # str | Team under namesapce
+    user = 'user_example' # str | Member under team
 
     try:
         # Get team member details
         api_response = api_instance.get_team_member(owner, team, user)
+        print("The response of TeamsV1Api->get_team_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->get_team_member: %s\n" % e)
 ```
 
@@ -497,6 +507,7 @@ Get team members
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -512,7 +523,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -522,20 +533,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get team members
         api_response = api_instance.list_team_members(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of TeamsV1Api->list_team_members:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->list_team_members: %s\n" % e)
 ```
 
@@ -588,6 +600,7 @@ List teams names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -603,7 +616,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -613,19 +626,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List teams names
         api_response = api_instance.list_team_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of TeamsV1Api->list_team_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->list_team_names: %s\n" % e)
 ```
 
@@ -677,6 +691,7 @@ List teams
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -692,7 +707,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -702,19 +717,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List teams
         api_response = api_instance.list_teams(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of TeamsV1Api->list_teams:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->list_teams: %s\n" % e)
 ```
 
@@ -766,6 +782,7 @@ Patch team
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -781,7 +798,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -791,14 +808,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team_name = 'team_name_example' # str | Name
-body = polyaxon_sdk.V1Team() # V1Team | Team body
+    team_name = 'team_name_example' # str | Name
+    body = polyaxon_sdk.V1Team() # V1Team | Team body
 
     try:
         # Patch team
         api_response = api_instance.patch_team(owner, team_name, body)
+        print("The response of TeamsV1Api->patch_team:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->patch_team: %s\n" % e)
 ```
 
@@ -845,6 +863,7 @@ Patch team member
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -860,7 +879,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -870,15 +889,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team = 'team_example' # str | Team
-member_user = 'member_user_example' # str | User
-body = polyaxon_sdk.V1TeamMember() # V1TeamMember | Team body
+    team = 'team_example' # str | Team
+    member_user = 'member_user_example' # str | User
+    body = polyaxon_sdk.V1TeamMember() # V1TeamMember | Team body
 
     try:
         # Patch team member
         api_response = api_instance.patch_team_member(owner, team, member_user, body)
+        print("The response of TeamsV1Api->patch_team_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->patch_team_member: %s\n" % e)
 ```
 
@@ -926,6 +946,7 @@ Update team
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -941,7 +962,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -951,14 +972,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team_name = 'team_name_example' # str | Name
-body = polyaxon_sdk.V1Team() # V1Team | Team body
+    team_name = 'team_name_example' # str | Name
+    body = polyaxon_sdk.V1Team() # V1Team | Team body
 
     try:
         # Update team
         api_response = api_instance.update_team(owner, team_name, body)
+        print("The response of TeamsV1Api->update_team:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->update_team: %s\n" % e)
 ```
 
@@ -1005,6 +1027,7 @@ Update team member
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1020,7 +1043,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1030,15 +1053,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-team = 'team_example' # str | Team
-member_user = 'member_user_example' # str | User
-body = polyaxon_sdk.V1TeamMember() # V1TeamMember | Team body
+    team = 'team_example' # str | Team
+    member_user = 'member_user_example' # str | User
+    body = polyaxon_sdk.V1TeamMember() # V1TeamMember | Team body
 
     try:
         # Update team member
         api_response = api_instance.update_team_member(owner, team, member_user, body)
+        print("The response of TeamsV1Api->update_team_member:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling TeamsV1Api->update_team_member: %s\n" % e)
 ```
 

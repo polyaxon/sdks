@@ -27,104 +27,150 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ArtifactsMount } from './V1ArtifactsMount';
 import {
-    V1ArtifactsMount,
     V1ArtifactsMountFromJSON,
     V1ArtifactsMountFromJSONTyped,
     V1ArtifactsMountToJSON,
-    V1ArtifactsType,
+} from './V1ArtifactsMount';
+import type { V1ArtifactsType } from './V1ArtifactsType';
+import {
     V1ArtifactsTypeFromJSON,
     V1ArtifactsTypeFromJSONTyped,
     V1ArtifactsTypeToJSON,
-    V1AuthType,
+} from './V1ArtifactsType';
+import type { V1AuthType } from './V1AuthType';
+import {
     V1AuthTypeFromJSON,
     V1AuthTypeFromJSONTyped,
     V1AuthTypeToJSON,
-    V1CompiledOperation,
+} from './V1AuthType';
+import type { V1CompiledOperation } from './V1CompiledOperation';
+import {
     V1CompiledOperationFromJSON,
     V1CompiledOperationFromJSONTyped,
     V1CompiledOperationToJSON,
-    V1ConnectionSchema,
+} from './V1CompiledOperation';
+import type { V1ConnectionSchema } from './V1ConnectionSchema';
+import {
     V1ConnectionSchemaFromJSON,
     V1ConnectionSchemaFromJSONTyped,
     V1ConnectionSchemaToJSON,
-    V1ConnectionType,
+} from './V1ConnectionSchema';
+import type { V1ConnectionType } from './V1ConnectionType';
+import {
     V1ConnectionTypeFromJSON,
     V1ConnectionTypeFromJSONTyped,
     V1ConnectionTypeToJSON,
-    V1EarlyStopping,
+} from './V1ConnectionType';
+import type { V1EarlyStopping } from './V1EarlyStopping';
+import {
     V1EarlyStoppingFromJSON,
     V1EarlyStoppingFromJSONTyped,
     V1EarlyStoppingToJSON,
-    V1Event,
+} from './V1EarlyStopping';
+import type { V1Event } from './V1Event';
+import {
     V1EventFromJSON,
     V1EventFromJSONTyped,
     V1EventToJSON,
-    V1EventType,
+} from './V1Event';
+import type { V1EventType } from './V1EventType';
+import {
     V1EventTypeFromJSON,
     V1EventTypeFromJSONTyped,
     V1EventTypeToJSON,
-    V1GcsType,
+} from './V1EventType';
+import type { V1GcsType } from './V1GcsType';
+import {
     V1GcsTypeFromJSON,
     V1GcsTypeFromJSONTyped,
     V1GcsTypeToJSON,
-    V1HpParams,
+} from './V1GcsType';
+import type { V1HpParams } from './V1HpParams';
+import {
     V1HpParamsFromJSON,
     V1HpParamsFromJSONTyped,
     V1HpParamsToJSON,
-    V1K8sResourceType,
+} from './V1HpParams';
+import type { V1K8sResourceType } from './V1K8sResourceType';
+import {
     V1K8sResourceTypeFromJSON,
     V1K8sResourceTypeFromJSONTyped,
     V1K8sResourceTypeToJSON,
-    V1Matrix,
+} from './V1K8sResourceType';
+import type { V1Matrix } from './V1Matrix';
+import {
     V1MatrixFromJSON,
     V1MatrixFromJSONTyped,
     V1MatrixToJSON,
-    V1MatrixKind,
+} from './V1Matrix';
+import type { V1MatrixKind } from './V1MatrixKind';
+import {
     V1MatrixKindFromJSON,
     V1MatrixKindFromJSONTyped,
     V1MatrixKindToJSON,
-    V1Operation,
+} from './V1MatrixKind';
+import type { V1Operation } from './V1Operation';
+import {
     V1OperationFromJSON,
     V1OperationFromJSONTyped,
     V1OperationToJSON,
-    V1PolyaxonInitContainer,
+} from './V1Operation';
+import type { V1PolyaxonInitContainer } from './V1PolyaxonInitContainer';
+import {
     V1PolyaxonInitContainerFromJSON,
     V1PolyaxonInitContainerFromJSONTyped,
     V1PolyaxonInitContainerToJSON,
-    V1PolyaxonSidecarContainer,
+} from './V1PolyaxonInitContainer';
+import type { V1PolyaxonSidecarContainer } from './V1PolyaxonSidecarContainer';
+import {
     V1PolyaxonSidecarContainerFromJSON,
     V1PolyaxonSidecarContainerFromJSONTyped,
     V1PolyaxonSidecarContainerToJSON,
-    V1Reference,
+} from './V1PolyaxonSidecarContainer';
+import type { V1Reference } from './V1Reference';
+import {
     V1ReferenceFromJSON,
     V1ReferenceFromJSONTyped,
     V1ReferenceToJSON,
-    V1RunSchema,
+} from './V1Reference';
+import type { V1RunSchema } from './V1RunSchema';
+import {
     V1RunSchemaFromJSON,
     V1RunSchemaFromJSONTyped,
     V1RunSchemaToJSON,
-    V1S3Type,
+} from './V1RunSchema';
+import type { V1S3Type } from './V1S3Type';
+import {
     V1S3TypeFromJSON,
     V1S3TypeFromJSONTyped,
     V1S3TypeToJSON,
-    V1Schedule,
+} from './V1S3Type';
+import type { V1Schedule } from './V1Schedule';
+import {
     V1ScheduleFromJSON,
     V1ScheduleFromJSONTyped,
     V1ScheduleToJSON,
-    V1ScheduleKind,
+} from './V1Schedule';
+import type { V1ScheduleKind } from './V1ScheduleKind';
+import {
     V1ScheduleKindFromJSON,
     V1ScheduleKindFromJSONTyped,
     V1ScheduleKindToJSON,
-    V1UriType,
+} from './V1ScheduleKind';
+import type { V1UriType } from './V1UriType';
+import {
     V1UriTypeFromJSON,
     V1UriTypeFromJSONTyped,
     V1UriTypeToJSON,
-    V1WasbType,
+} from './V1UriType';
+import type { V1WasbType } from './V1WasbType';
+import {
     V1WasbTypeFromJSON,
     V1WasbTypeFromJSONTyped,
     V1WasbTypeToJSON,
-} from './';
+} from './V1WasbType';
 
 /**
  * 
@@ -276,6 +322,15 @@ export interface V1Schemas {
      * @memberof V1Schemas
      */
     event?: V1Event;
+}
+
+/**
+ * Check if a given object implements the V1Schemas interface.
+ */
+export function instanceOfV1Schemas(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SchemasFromJSON(json: any): V1Schemas {

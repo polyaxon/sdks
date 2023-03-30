@@ -34,12 +34,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1RunPending;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1OperationBody
@@ -74,6 +93,8 @@ public class V1OperationBody {
   @SerializedName(SERIALIZED_NAME_META_INFO)
   private Object metaInfo;
 
+  public V1OperationBody() {
+  }
 
   public V1OperationBody content(String content) {
     
@@ -86,7 +107,6 @@ public class V1OperationBody {
    * @return content
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getContent() {
     return content;
@@ -109,7 +129,6 @@ public class V1OperationBody {
    * @return isManaged
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsManaged() {
     return isManaged;
@@ -132,7 +151,6 @@ public class V1OperationBody {
    * @return pending
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunPending getPending() {
     return pending;
@@ -155,7 +173,6 @@ public class V1OperationBody {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -178,7 +195,6 @@ public class V1OperationBody {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -198,7 +214,7 @@ public class V1OperationBody {
 
   public V1OperationBody addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -209,7 +225,6 @@ public class V1OperationBody {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTags() {
     return tags;
@@ -232,7 +247,6 @@ public class V1OperationBody {
    * @return metaInfo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getMetaInfo() {
     return metaInfo;
@@ -242,6 +256,7 @@ public class V1OperationBody {
   public void setMetaInfo(Object metaInfo) {
     this.metaInfo = metaInfo;
   }
+
 
 
   @Override
@@ -293,5 +308,107 @@ public class V1OperationBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("content");
+    openapiFields.add("is_managed");
+    openapiFields.add("pending");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("tags");
+    openapiFields.add("meta_info");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1OperationBody
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1OperationBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1OperationBody is not found in the empty JSON string", V1OperationBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1OperationBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1OperationBody` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("content") != null && !jsonObj.get("content").isJsonNull()) && !jsonObj.get("content").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1OperationBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1OperationBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1OperationBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1OperationBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1OperationBody>() {
+           @Override
+           public void write(JsonWriter out, V1OperationBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1OperationBody read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1OperationBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1OperationBody
+  * @throws IOException if the JSON string is invalid with respect to V1OperationBody
+  */
+  public static V1OperationBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1OperationBody.class);
+  }
+
+ /**
+  * Convert an instance of V1OperationBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

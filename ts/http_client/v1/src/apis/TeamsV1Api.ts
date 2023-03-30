@@ -28,20 +28,22 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ListTeamMembersResponse,
+  V1ListTeamsResponse,
+  V1Team,
+  V1TeamMember,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ListTeamMembersResponse,
     V1ListTeamMembersResponseFromJSON,
     V1ListTeamMembersResponseToJSON,
-    V1ListTeamsResponse,
     V1ListTeamsResponseFromJSON,
     V1ListTeamsResponseToJSON,
-    V1Team,
     V1TeamFromJSON,
     V1TeamToJSON,
-    V1TeamMember,
     V1TeamMemberFromJSON,
     V1TeamMemberToJSON,
 } from '../models';
@@ -147,7 +149,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Create team
      */
-    async createTeamRaw(requestParameters: CreateTeamRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Team>> {
+    async createTeamRaw(requestParameters: CreateTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Team>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createTeam.');
         }
@@ -180,7 +182,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Create team
      */
-    async createTeam(requestParameters: CreateTeamRequest, initOverrides?: RequestInit): Promise<V1Team> {
+    async createTeam(requestParameters: CreateTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Team> {
         const response = await this.createTeamRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -188,7 +190,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Create team member
      */
-    async createTeamMemberRaw(requestParameters: CreateTeamMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1TeamMember>> {
+    async createTeamMemberRaw(requestParameters: CreateTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1TeamMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createTeamMember.');
         }
@@ -225,7 +227,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Create team member
      */
-    async createTeamMember(requestParameters: CreateTeamMemberRequest, initOverrides?: RequestInit): Promise<V1TeamMember> {
+    async createTeamMember(requestParameters: CreateTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.createTeamMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -233,7 +235,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Delete team
      */
-    async deleteTeamRaw(requestParameters: DeleteTeamRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteTeamRaw(requestParameters: DeleteTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteTeam.');
         }
@@ -263,14 +265,14 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Delete team
      */
-    async deleteTeam(requestParameters: DeleteTeamRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteTeam(requestParameters: DeleteTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteTeamRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete team member details
      */
-    async deleteTeamMemberRaw(requestParameters: DeleteTeamMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteTeamMemberRaw(requestParameters: DeleteTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteTeamMember.');
         }
@@ -304,14 +306,14 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Delete team member details
      */
-    async deleteTeamMember(requestParameters: DeleteTeamMemberRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteTeamMember(requestParameters: DeleteTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteTeamMemberRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get team
      */
-    async getTeamRaw(requestParameters: GetTeamRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Team>> {
+    async getTeamRaw(requestParameters: GetTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Team>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeam.');
         }
@@ -341,7 +343,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Get team
      */
-    async getTeam(requestParameters: GetTeamRequest, initOverrides?: RequestInit): Promise<V1Team> {
+    async getTeam(requestParameters: GetTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Team> {
         const response = await this.getTeamRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -349,7 +351,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Get team member details
      */
-    async getTeamMemberRaw(requestParameters: GetTeamMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1TeamMember>> {
+    async getTeamMemberRaw(requestParameters: GetTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1TeamMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamMember.');
         }
@@ -383,7 +385,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Get team member details
      */
-    async getTeamMember(requestParameters: GetTeamMemberRequest, initOverrides?: RequestInit): Promise<V1TeamMember> {
+    async getTeamMember(requestParameters: GetTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.getTeamMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -391,7 +393,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Get team members
      */
-    async listTeamMembersRaw(requestParameters: ListTeamMembersRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListTeamMembersResponse>> {
+    async listTeamMembersRaw(requestParameters: ListTeamMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListTeamMembersResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listTeamMembers.');
         }
@@ -449,7 +451,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Get team members
      */
-    async listTeamMembers(requestParameters: ListTeamMembersRequest, initOverrides?: RequestInit): Promise<V1ListTeamMembersResponse> {
+    async listTeamMembers(requestParameters: ListTeamMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListTeamMembersResponse> {
         const response = await this.listTeamMembersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -457,7 +459,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * List teams names
      */
-    async listTeamNamesRaw(requestParameters: ListTeamNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListTeamsResponse>> {
+    async listTeamNamesRaw(requestParameters: ListTeamNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListTeamsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listTeamNames.');
         }
@@ -511,7 +513,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * List teams names
      */
-    async listTeamNames(requestParameters: ListTeamNamesRequest, initOverrides?: RequestInit): Promise<V1ListTeamsResponse> {
+    async listTeamNames(requestParameters: ListTeamNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListTeamsResponse> {
         const response = await this.listTeamNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -519,7 +521,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * List teams
      */
-    async listTeamsRaw(requestParameters: ListTeamsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListTeamsResponse>> {
+    async listTeamsRaw(requestParameters: ListTeamsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListTeamsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listTeams.');
         }
@@ -573,7 +575,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * List teams
      */
-    async listTeams(requestParameters: ListTeamsRequest, initOverrides?: RequestInit): Promise<V1ListTeamsResponse> {
+    async listTeams(requestParameters: ListTeamsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListTeamsResponse> {
         const response = await this.listTeamsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -581,7 +583,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Patch team
      */
-    async patchTeamRaw(requestParameters: PatchTeamRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Team>> {
+    async patchTeamRaw(requestParameters: PatchTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Team>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchTeam.');
         }
@@ -618,7 +620,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Patch team
      */
-    async patchTeam(requestParameters: PatchTeamRequest, initOverrides?: RequestInit): Promise<V1Team> {
+    async patchTeam(requestParameters: PatchTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Team> {
         const response = await this.patchTeamRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -626,7 +628,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Patch team member
      */
-    async patchTeamMemberRaw(requestParameters: PatchTeamMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1TeamMember>> {
+    async patchTeamMemberRaw(requestParameters: PatchTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1TeamMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchTeamMember.');
         }
@@ -667,7 +669,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Patch team member
      */
-    async patchTeamMember(requestParameters: PatchTeamMemberRequest, initOverrides?: RequestInit): Promise<V1TeamMember> {
+    async patchTeamMember(requestParameters: PatchTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.patchTeamMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -675,7 +677,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Update team
      */
-    async updateTeamRaw(requestParameters: UpdateTeamRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Team>> {
+    async updateTeamRaw(requestParameters: UpdateTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Team>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateTeam.');
         }
@@ -712,7 +714,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Update team
      */
-    async updateTeam(requestParameters: UpdateTeamRequest, initOverrides?: RequestInit): Promise<V1Team> {
+    async updateTeam(requestParameters: UpdateTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Team> {
         const response = await this.updateTeamRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -720,7 +722,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Update team member
      */
-    async updateTeamMemberRaw(requestParameters: UpdateTeamMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1TeamMember>> {
+    async updateTeamMemberRaw(requestParameters: UpdateTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1TeamMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateTeamMember.');
         }
@@ -761,7 +763,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
     /**
      * Update team member
      */
-    async updateTeamMember(requestParameters: UpdateTeamMemberRequest, initOverrides?: RequestInit): Promise<V1TeamMember> {
+    async updateTeamMember(requestParameters: UpdateTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.updateTeamMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }

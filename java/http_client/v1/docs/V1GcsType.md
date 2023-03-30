@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**bucket** | **String** |  |  [optional]
-**blob** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**bucket** | **String** |  |  [optional] |
+|**blob** | **String** |  |  [optional] |
 
 
 

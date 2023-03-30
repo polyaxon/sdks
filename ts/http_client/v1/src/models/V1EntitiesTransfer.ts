@@ -47,6 +47,15 @@ export interface V1EntitiesTransfer {
     project?: string;
 }
 
+/**
+ * Check if a given object implements the V1EntitiesTransfer interface.
+ */
+export function instanceOfV1EntitiesTransfer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EntitiesTransferFromJSON(json: any): V1EntitiesTransfer {
     return V1EntitiesTransferFromJSONTyped(json, false);
 }

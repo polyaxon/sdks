@@ -87,9 +87,44 @@ type PatchPresetOK struct {
 	Payload *service_model.V1Preset
 }
 
+// IsSuccess returns true when this patch preset o k response has a 2xx status code
+func (o *PatchPresetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch preset o k response has a 3xx status code
+func (o *PatchPresetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch preset o k response has a 4xx status code
+func (o *PatchPresetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch preset o k response has a 5xx status code
+func (o *PatchPresetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch preset o k response a status code equal to that given
+func (o *PatchPresetOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch preset o k response
+func (o *PatchPresetOK) Code() int {
+	return 200
+}
+
 func (o *PatchPresetOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchPresetOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchPresetOK) GetPayload() *service_model.V1Preset {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchPresetNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch preset no content response has a 2xx status code
+func (o *PatchPresetNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch preset no content response has a 3xx status code
+func (o *PatchPresetNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch preset no content response has a 4xx status code
+func (o *PatchPresetNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch preset no content response has a 5xx status code
+func (o *PatchPresetNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch preset no content response a status code equal to that given
+func (o *PatchPresetNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch preset no content response
+func (o *PatchPresetNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchPresetNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchPresetNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchPresetNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchPresetForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch preset forbidden response has a 2xx status code
+func (o *PatchPresetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch preset forbidden response has a 3xx status code
+func (o *PatchPresetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch preset forbidden response has a 4xx status code
+func (o *PatchPresetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch preset forbidden response has a 5xx status code
+func (o *PatchPresetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch preset forbidden response a status code equal to that given
+func (o *PatchPresetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch preset forbidden response
+func (o *PatchPresetForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchPresetForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchPresetForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchPresetForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchPresetNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch preset not found response has a 2xx status code
+func (o *PatchPresetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch preset not found response has a 3xx status code
+func (o *PatchPresetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch preset not found response has a 4xx status code
+func (o *PatchPresetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch preset not found response has a 5xx status code
+func (o *PatchPresetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch preset not found response a status code equal to that given
+func (o *PatchPresetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch preset not found response
+func (o *PatchPresetNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchPresetNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchPresetNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] patchPresetNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchPresetNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchPresetDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch preset default response has a 2xx status code
+func (o *PatchPresetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch preset default response has a 3xx status code
+func (o *PatchPresetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch preset default response has a 4xx status code
+func (o *PatchPresetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch preset default response has a 5xx status code
+func (o *PatchPresetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch preset default response a status code equal to that given
+func (o *PatchPresetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch preset default response
 func (o *PatchPresetDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchPresetDefault) Code() int {
 func (o *PatchPresetDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] PatchPreset default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchPresetDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] PatchPreset default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchPresetDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

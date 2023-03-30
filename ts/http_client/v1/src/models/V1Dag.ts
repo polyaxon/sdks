@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Component } from './V1Component';
 import {
-    V1Component,
     V1ComponentFromJSON,
     V1ComponentFromJSONTyped,
     V1ComponentToJSON,
-    V1Environment,
+} from './V1Component';
+import type { V1Environment } from './V1Environment';
+import {
     V1EnvironmentFromJSON,
     V1EnvironmentFromJSONTyped,
     V1EnvironmentToJSON,
-    V1Operation,
+} from './V1Environment';
+import type { V1Operation } from './V1Operation';
+import {
     V1OperationFromJSON,
     V1OperationFromJSONTyped,
     V1OperationToJSON,
-} from './';
+} from './V1Operation';
 
 /**
  * 
@@ -96,6 +100,15 @@ export interface V1Dag {
      * @memberof V1Dag
      */
     volumes?: Array<object>;
+}
+
+/**
+ * Check if a given object implements the V1Dag interface.
+ */
+export function instanceOfV1Dag(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DagFromJSON(json: any): V1Dag {

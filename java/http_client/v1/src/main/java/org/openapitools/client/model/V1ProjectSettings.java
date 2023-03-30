@@ -34,12 +34,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1ProjectUserAccess;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1ProjectSettings
@@ -82,6 +101,8 @@ public class V1ProjectSettings {
   @SerializedName(SERIALIZED_NAME_PROJECTS)
   private List<String> projects = null;
 
+  public V1ProjectSettings() {
+  }
 
   public V1ProjectSettings connections(List<String> connections) {
     
@@ -91,7 +112,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addConnectionsItem(String connectionsItem) {
     if (this.connections == null) {
-      this.connections = new ArrayList<String>();
+      this.connections = new ArrayList<>();
     }
     this.connections.add(connectionsItem);
     return this;
@@ -102,7 +123,6 @@ public class V1ProjectSettings {
    * @return connections
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getConnections() {
     return connections;
@@ -125,7 +145,6 @@ public class V1ProjectSettings {
    * @return preset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPreset() {
     return preset;
@@ -145,7 +164,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addPresetsItem(String presetsItem) {
     if (this.presets == null) {
-      this.presets = new ArrayList<String>();
+      this.presets = new ArrayList<>();
     }
     this.presets.add(presetsItem);
     return this;
@@ -156,7 +175,6 @@ public class V1ProjectSettings {
    * @return presets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getPresets() {
     return presets;
@@ -179,7 +197,6 @@ public class V1ProjectSettings {
    * @return queue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getQueue() {
     return queue;
@@ -199,7 +216,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addQueuesItem(String queuesItem) {
     if (this.queues == null) {
-      this.queues = new ArrayList<String>();
+      this.queues = new ArrayList<>();
     }
     this.queues.add(queuesItem);
     return this;
@@ -210,7 +227,6 @@ public class V1ProjectSettings {
    * @return queues
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getQueues() {
     return queues;
@@ -230,7 +246,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addAgentsItem(String agentsItem) {
     if (this.agents == null) {
-      this.agents = new ArrayList<String>();
+      this.agents = new ArrayList<>();
     }
     this.agents.add(agentsItem);
     return this;
@@ -241,7 +257,6 @@ public class V1ProjectSettings {
    * @return agents
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getAgents() {
     return agents;
@@ -261,7 +276,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addUserAccessesItem(V1ProjectUserAccess userAccessesItem) {
     if (this.userAccesses == null) {
-      this.userAccesses = new ArrayList<V1ProjectUserAccess>();
+      this.userAccesses = new ArrayList<>();
     }
     this.userAccesses.add(userAccessesItem);
     return this;
@@ -272,7 +287,6 @@ public class V1ProjectSettings {
    * @return userAccesses
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1ProjectUserAccess> getUserAccesses() {
     return userAccesses;
@@ -292,7 +306,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addTeamsItem(String teamsItem) {
     if (this.teams == null) {
-      this.teams = new ArrayList<String>();
+      this.teams = new ArrayList<>();
     }
     this.teams.add(teamsItem);
     return this;
@@ -303,7 +317,6 @@ public class V1ProjectSettings {
    * @return teams
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTeams() {
     return teams;
@@ -323,7 +336,7 @@ public class V1ProjectSettings {
 
   public V1ProjectSettings addProjectsItem(String projectsItem) {
     if (this.projects == null) {
-      this.projects = new ArrayList<String>();
+      this.projects = new ArrayList<>();
     }
     this.projects.add(projectsItem);
     return this;
@@ -334,7 +347,6 @@ public class V1ProjectSettings {
    * @return projects
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getProjects() {
     return projects;
@@ -344,6 +356,7 @@ public class V1ProjectSettings {
   public void setProjects(List<String> projects) {
     this.projects = projects;
   }
+
 
 
   @Override
@@ -399,5 +412,140 @@ public class V1ProjectSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("connections");
+    openapiFields.add("preset");
+    openapiFields.add("presets");
+    openapiFields.add("queue");
+    openapiFields.add("queues");
+    openapiFields.add("agents");
+    openapiFields.add("user_accesses");
+    openapiFields.add("teams");
+    openapiFields.add("projects");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1ProjectSettings
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1ProjectSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ProjectSettings is not found in the empty JSON string", V1ProjectSettings.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1ProjectSettings.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ProjectSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
+      }
+      if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("presets") != null && !jsonObj.get("presets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `presets` to be an array in the JSON string but got `%s`", jsonObj.get("presets").toString()));
+      }
+      if ((jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) && !jsonObj.get("queue").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `queue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("queues") != null && !jsonObj.get("queues").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `queues` to be an array in the JSON string but got `%s`", jsonObj.get("queues").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("agents") != null && !jsonObj.get("agents").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agents` to be an array in the JSON string but got `%s`", jsonObj.get("agents").toString()));
+      }
+      if (jsonObj.get("user_accesses") != null && !jsonObj.get("user_accesses").isJsonNull()) {
+        JsonArray jsonArrayuserAccesses = jsonObj.getAsJsonArray("user_accesses");
+        if (jsonArrayuserAccesses != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("user_accesses").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `user_accesses` to be an array in the JSON string but got `%s`", jsonObj.get("user_accesses").toString()));
+          }
+
+          // validate the optional field `user_accesses` (array)
+          for (int i = 0; i < jsonArrayuserAccesses.size(); i++) {
+            V1ProjectUserAccess.validateJsonObject(jsonArrayuserAccesses.get(i).getAsJsonObject());
+          };
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("teams") != null && !jsonObj.get("teams").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projects") != null && !jsonObj.get("projects").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projects` to be an array in the JSON string but got `%s`", jsonObj.get("projects").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1ProjectSettings.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ProjectSettings' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1ProjectSettings> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ProjectSettings.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1ProjectSettings>() {
+           @Override
+           public void write(JsonWriter out, V1ProjectSettings value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1ProjectSettings read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1ProjectSettings given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1ProjectSettings
+  * @throws IOException if the JSON string is invalid with respect to V1ProjectSettings
+  */
+  public static V1ProjectSettings fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ProjectSettings.class);
+  }
+
+ /**
+  * Convert an instance of V1ProjectSettings to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

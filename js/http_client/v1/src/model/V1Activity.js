@@ -89,8 +89,48 @@ class V1Activity {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Activity</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Activity</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['actor'] && !(typeof data['actor'] === 'string' || data['actor'] instanceof String)) {
+            throw new Error("Expected the field `actor` to be a primitive type in the JSON string but got " + data['actor']);
+        }
+        // ensure the json data is a string
+        if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
+            throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
+        if (data['event_action'] && !(typeof data['event_action'] === 'string' || data['event_action'] instanceof String)) {
+            throw new Error("Expected the field `event_action` to be a primitive type in the JSON string but got " + data['event_action']);
+        }
+        // ensure the json data is a string
+        if (data['event_subject'] && !(typeof data['event_subject'] === 'string' || data['event_subject'] instanceof String)) {
+            throw new Error("Expected the field `event_subject` to be a primitive type in the JSON string but got " + data['event_subject']);
+        }
+        // ensure the json data is a string
+        if (data['object_name'] && !(typeof data['object_name'] === 'string' || data['object_name'] instanceof String)) {
+            throw new Error("Expected the field `object_name` to be a primitive type in the JSON string but got " + data['object_name']);
+        }
+        // ensure the json data is a string
+        if (data['object_uuid'] && !(typeof data['object_uuid'] === 'string' || data['object_uuid'] instanceof String)) {
+            throw new Error("Expected the field `object_uuid` to be a primitive type in the JSON string but got " + data['object_uuid']);
+        }
+        // ensure the json data is a string
+        if (data['object_parent'] && !(typeof data['object_parent'] === 'string' || data['object_parent'] instanceof String)) {
+            throw new Error("Expected the field `object_parent` to be a primitive type in the JSON string but got " + data['object_parent']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} actor

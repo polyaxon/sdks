@@ -26,20 +26,22 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - replace: Replaces the keys
  *  - isnull: Only set the keys if they do not exist or if they are null
  *  - post_merge: Merge the all keys and replace by new one
  *  - pre_merge: Merge the all keys and keep old ones
  * @export
- * @enum {string}
  */
-export enum V1PatchStrategy {
-    Replace = 'replace',
-    Isnull = 'isnull',
-    PostMerge = 'post_merge',
-    PreMerge = 'pre_merge'
-}
+export const V1PatchStrategy = {
+    Replace: 'replace',
+    Isnull: 'isnull',
+    PostMerge: 'post_merge',
+    PreMerge: 'pre_merge'
+} as const;
+export type V1PatchStrategy = typeof V1PatchStrategy[keyof typeof V1PatchStrategy];
+
 
 export function V1PatchStrategyFromJSON(json: any): V1PatchStrategy {
     return V1PatchStrategyFromJSONTyped(json, false);

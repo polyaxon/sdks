@@ -35,9 +35,7 @@ import logging
 import re
 import ssl
 
-# python 2 and python 3 compatibility library
-import six
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode, quote_plus
 import urllib3
 
 from polyaxon_sdk.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError
@@ -150,25 +148,25 @@ class RESTClientObject(object):
 
         post_params = post_params or {}
         headers = headers or {}
+        # url already contains the URL query string
+        # so reset query_params to empty dict
+        query_params = {}
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, six.integer_types + (float, )):  # noqa: E501,F821
+            if isinstance(_request_timeout, (int,float)):  # noqa: E501,F821
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif (isinstance(_request_timeout, tuple) and
                   len(_request_timeout) == 2):
                 timeout = urllib3.Timeout(
                     connect=_request_timeout[0], read=_request_timeout[1])
 
-        if 'Content-Type' not in headers:
-            headers['Content-Type'] = 'application/json'
-
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
             if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:
-                if query_params:
-                    url += '?' + urlencode(query_params)
-                if re.search('json', headers['Content-Type'], re.IGNORECASE):
+
+                # no content type provided or payload is json
+                if not headers.get('Content-Type') or re.search('json', headers['Content-Type'], re.IGNORECASE):
                     request_body = None
                     if body is not None:
                         request_body = json.dumps(body)
@@ -218,7 +216,7 @@ class RESTClientObject(object):
             # For `GET`, `HEAD`
             else:
                 r = self.pool_manager.request(method, url,
-                                              fields=query_params,
+                                              fields={},
                                               preload_content=_preload_content,
                                               timeout=timeout,
                                               headers=headers)
@@ -249,7 +247,7 @@ class RESTClientObject(object):
 
         return r
 
-    def GET(self, url, headers=None, query_params=None, _preload_content=True,
+    def get_request(self, url, headers=None, query_params=None, _preload_content=True,
             _request_timeout=None):
         return self.request("GET", url,
                             headers=headers,
@@ -257,7 +255,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             query_params=query_params)
 
-    def HEAD(self, url, headers=None, query_params=None, _preload_content=True,
+    def head_request(self, url, headers=None, query_params=None, _preload_content=True,
              _request_timeout=None):
         return self.request("HEAD", url,
                             headers=headers,
@@ -265,7 +263,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             query_params=query_params)
 
-    def OPTIONS(self, url, headers=None, query_params=None, post_params=None,
+    def options_request(self, url, headers=None, query_params=None, post_params=None,
                 body=None, _preload_content=True, _request_timeout=None):
         return self.request("OPTIONS", url,
                             headers=headers,
@@ -275,7 +273,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def DELETE(self, url, headers=None, query_params=None, body=None,
+    def delete_request(self, url, headers=None, query_params=None, body=None,
                _preload_content=True, _request_timeout=None):
         return self.request("DELETE", url,
                             headers=headers,
@@ -284,7 +282,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def POST(self, url, headers=None, query_params=None, post_params=None,
+    def post_request(self, url, headers=None, query_params=None, post_params=None,
              body=None, _preload_content=True, _request_timeout=None):
         return self.request("POST", url,
                             headers=headers,
@@ -294,7 +292,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def PUT(self, url, headers=None, query_params=None, post_params=None,
+    def put_request(self, url, headers=None, query_params=None, post_params=None,
             body=None, _preload_content=True, _request_timeout=None):
         return self.request("PUT", url,
                             headers=headers,
@@ -304,7 +302,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def PATCH(self, url, headers=None, query_params=None, post_params=None,
+    def patch_request(self, url, headers=None, query_params=None, post_params=None,
               body=None, _preload_content=True, _request_timeout=None):
         return self.request("PATCH", url,
                             headers=headers,

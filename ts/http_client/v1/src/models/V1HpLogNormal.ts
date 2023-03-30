@@ -47,6 +47,15 @@ export interface V1HpLogNormal {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpLogNormal interface.
+ */
+export function instanceOfV1HpLogNormal(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpLogNormalFromJSON(json: any): V1HpLogNormal {
     return V1HpLogNormalFromJSONTyped(json, false);
 }

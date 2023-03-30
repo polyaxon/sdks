@@ -34,13 +34,32 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.MXJobMode;
 import org.openapitools.client.model.V1CleanPodPolicy;
 import org.openapitools.client.model.V1KFReplica;
 import org.openapitools.client.model.V1SchedulingPolicy;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1MXJob
@@ -87,6 +106,8 @@ public class V1MXJob {
   @SerializedName(SERIALIZED_NAME_TUNER)
   private V1KFReplica tuner;
 
+  public V1MXJob() {
+  }
 
   public V1MXJob kind(String kind) {
     
@@ -99,7 +120,6 @@ public class V1MXJob {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -122,7 +142,6 @@ public class V1MXJob {
    * @return cleanPodPolicy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1CleanPodPolicy getCleanPodPolicy() {
     return cleanPodPolicy;
@@ -145,7 +164,6 @@ public class V1MXJob {
    * @return schedulingPolicy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1SchedulingPolicy getSchedulingPolicy() {
     return schedulingPolicy;
@@ -168,7 +186,6 @@ public class V1MXJob {
    * @return mode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public MXJobMode getMode() {
     return mode;
@@ -191,7 +208,6 @@ public class V1MXJob {
    * @return scheduler
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1KFReplica getScheduler() {
     return scheduler;
@@ -214,7 +230,6 @@ public class V1MXJob {
    * @return server
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1KFReplica getServer() {
     return server;
@@ -237,7 +252,6 @@ public class V1MXJob {
    * @return worker
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1KFReplica getWorker() {
     return worker;
@@ -260,7 +274,6 @@ public class V1MXJob {
    * @return tunerTracker
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1KFReplica getTunerTracker() {
     return tunerTracker;
@@ -283,7 +296,6 @@ public class V1MXJob {
    * @return tunerServer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1KFReplica getTunerServer() {
     return tunerServer;
@@ -306,7 +318,6 @@ public class V1MXJob {
    * @return tuner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1KFReplica getTuner() {
     return tuner;
@@ -316,6 +327,7 @@ public class V1MXJob {
   public void setTuner(V1KFReplica tuner) {
     this.tuner = tuner;
   }
+
 
 
   @Override
@@ -373,5 +385,128 @@ public class V1MXJob {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("kind");
+    openapiFields.add("cleanPodPolicy");
+    openapiFields.add("schedulingPolicy");
+    openapiFields.add("mode");
+    openapiFields.add("scheduler");
+    openapiFields.add("server");
+    openapiFields.add("worker");
+    openapiFields.add("tuner_tracker");
+    openapiFields.add("tuner_server");
+    openapiFields.add("tuner");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1MXJob
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1MXJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1MXJob is not found in the empty JSON string", V1MXJob.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1MXJob.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1MXJob` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the optional field `schedulingPolicy`
+      if (jsonObj.get("schedulingPolicy") != null && !jsonObj.get("schedulingPolicy").isJsonNull()) {
+        V1SchedulingPolicy.validateJsonObject(jsonObj.getAsJsonObject("schedulingPolicy"));
+      }
+      // validate the optional field `scheduler`
+      if (jsonObj.get("scheduler") != null && !jsonObj.get("scheduler").isJsonNull()) {
+        V1KFReplica.validateJsonObject(jsonObj.getAsJsonObject("scheduler"));
+      }
+      // validate the optional field `server`
+      if (jsonObj.get("server") != null && !jsonObj.get("server").isJsonNull()) {
+        V1KFReplica.validateJsonObject(jsonObj.getAsJsonObject("server"));
+      }
+      // validate the optional field `worker`
+      if (jsonObj.get("worker") != null && !jsonObj.get("worker").isJsonNull()) {
+        V1KFReplica.validateJsonObject(jsonObj.getAsJsonObject("worker"));
+      }
+      // validate the optional field `tuner_tracker`
+      if (jsonObj.get("tuner_tracker") != null && !jsonObj.get("tuner_tracker").isJsonNull()) {
+        V1KFReplica.validateJsonObject(jsonObj.getAsJsonObject("tuner_tracker"));
+      }
+      // validate the optional field `tuner_server`
+      if (jsonObj.get("tuner_server") != null && !jsonObj.get("tuner_server").isJsonNull()) {
+        V1KFReplica.validateJsonObject(jsonObj.getAsJsonObject("tuner_server"));
+      }
+      // validate the optional field `tuner`
+      if (jsonObj.get("tuner") != null && !jsonObj.get("tuner").isJsonNull()) {
+        V1KFReplica.validateJsonObject(jsonObj.getAsJsonObject("tuner"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1MXJob.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1MXJob' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1MXJob> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1MXJob.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1MXJob>() {
+           @Override
+           public void write(JsonWriter out, V1MXJob value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1MXJob read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1MXJob given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1MXJob
+  * @throws IOException if the JSON string is invalid with respect to V1MXJob
+  */
+  public static V1MXJob fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1MXJob.class);
+  }
+
+ /**
+  * Convert an instance of V1MXJob to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

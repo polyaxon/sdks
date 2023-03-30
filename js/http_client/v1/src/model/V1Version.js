@@ -71,8 +71,28 @@ class V1Version {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Version</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Version</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['min'] && !(typeof data['min'] === 'string' || data['min'] instanceof String)) {
+            throw new Error("Expected the field `min` to be a primitive type in the JSON string but got " + data['min']);
+        }
+        // ensure the json data is a string
+        if (data['latest'] && !(typeof data['latest'] === 'string' || data['latest'] instanceof String)) {
+            throw new Error("Expected the field `latest` to be a primitive type in the JSON string but got " + data['latest']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} min

@@ -13,8 +13,8 @@ Polyaxon SDKs and REST API specification.
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.7+
-2. Maven/Gradle
+1. Java 1.8+
+2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
 
@@ -50,7 +50,14 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.22.0"
+  repositories {
+    mavenCentral()     // Needed if the 'openapi-java-client' jar has been published to maven central.
+    mavenLocal()       // Needed if the 'openapi-java-client' jar has been published to the local maven repo.
+  }
+
+  dependencies {
+     implementation "org.openapitools:openapi-java-client:1.22.0"
+  }
 ```
 
 ### Others
@@ -266,6 +273,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**deleteRunArtifactLineage**](docs/RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 *RunsV1Api* | [**deleteRunArtifacts**](docs/RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 *RunsV1Api* | [**deleteRuns**](docs/RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
+*RunsV1Api* | [**deprecatedCollectRunLogs**](docs/RunsV1Api.md#deprecatedCollectRunLogs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2)
 *RunsV1Api* | [**getMultiRunEvents**](docs/RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 *RunsV1Api* | [**getRun**](docs/RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 *RunsV1Api* | [**getRunArtifact**](docs/RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact

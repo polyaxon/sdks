@@ -6,11 +6,11 @@ Termination specification, it defines how to handle failures, job runtime, and c
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**maxRetries** | **Integer** |  |  [optional]
-**ttl** | **Integer** |  |  [optional]
-**timeout** | **Integer** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**maxRetries** | **Integer** |  |  [optional] |
+|**ttl** | **Integer** |  |  [optional] |
+|**timeout** | **Integer** |  |  [optional] |
 
 
 

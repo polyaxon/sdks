@@ -65,6 +65,15 @@ export interface V1TensorboardType {
     plugins?: string;
 }
 
+/**
+ * Check if a given object implements the V1TensorboardType interface.
+ */
+export function instanceOfV1TensorboardType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TensorboardTypeFromJSON(json: any): V1TensorboardType {
     return V1TensorboardTypeFromJSONTyped(json, false);
 }

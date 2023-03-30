@@ -59,6 +59,15 @@ export interface V1K8sResourceSchema {
     defaultMode?: number;
 }
 
+/**
+ * Check if a given object implements the V1K8sResourceSchema interface.
+ */
+export function instanceOfV1K8sResourceSchema(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1K8sResourceSchemaFromJSON(json: any): V1K8sResourceSchema {
     return V1K8sResourceSchemaFromJSONTyped(json, false);
 }

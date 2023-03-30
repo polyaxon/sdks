@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Statuses } from './V1Statuses';
 import {
-    V1Statuses,
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -76,6 +76,15 @@ export interface V1StatusCondition {
      * @memberof V1StatusCondition
      */
     last_transition_time?: Date;
+}
+
+/**
+ * Check if a given object implements the V1StatusCondition interface.
+ */
+export function instanceOfV1StatusCondition(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1StatusConditionFromJSON(json: any): V1StatusCondition {

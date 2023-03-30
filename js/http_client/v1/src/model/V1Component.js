@@ -126,8 +126,94 @@ class V1Component {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Component</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Component</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tags'])) {
+            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['presets'])) {
+            throw new Error("Expected the field `presets` to be an array in the JSON data but got " + data['presets']);
+        }
+        // ensure the json data is a string
+        if (data['queue'] && !(typeof data['queue'] === 'string' || data['queue'] instanceof String)) {
+            throw new Error("Expected the field `queue` to be a primitive type in the JSON string but got " + data['queue']);
+        }
+        // validate the optional field `cache`
+        if (data['cache']) { // data not null
+          V1Cache.validateJSON(data['cache']);
+        }
+        // validate the optional field `termination`
+        if (data['termination']) { // data not null
+          V1Termination.validateJSON(data['termination']);
+        }
+        // validate the optional field `plugins`
+        if (data['plugins']) { // data not null
+          V1Plugins.validateJSON(data['plugins']);
+        }
+        if (data['hooks']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['hooks'])) {
+                throw new Error("Expected the field `hooks` to be an array in the JSON data but got " + data['hooks']);
+            }
+            // validate the optional field `hooks` (array)
+            for (const item of data['hooks']) {
+                V1Hook.validateJsonObject(item);
+            };
+        }
+        if (data['inputs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['inputs'])) {
+                throw new Error("Expected the field `inputs` to be an array in the JSON data but got " + data['inputs']);
+            }
+            // validate the optional field `inputs` (array)
+            for (const item of data['inputs']) {
+                V1IO.validateJsonObject(item);
+            };
+        }
+        if (data['outputs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['outputs'])) {
+                throw new Error("Expected the field `outputs` to be an array in the JSON data but got " + data['outputs']);
+            }
+            // validate the optional field `outputs` (array)
+            for (const item of data['outputs']) {
+                V1IO.validateJsonObject(item);
+            };
+        }
+        // validate the optional field `build`
+        if (data['build']) { // data not null
+          V1Build.validateJSON(data['build']);
+        }
+        // validate the optional field `template`
+        if (data['template']) { // data not null
+          V1Template.validateJSON(data['template']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} version

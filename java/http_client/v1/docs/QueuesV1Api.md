@@ -3,17 +3,17 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createQueue**](QueuesV1Api.md#createQueue) | **POST** /api/v1/orgs/{owner}/agents/{agent}/queues | Create queue
-[**deleteQueue**](QueuesV1Api.md#deleteQueue) | **DELETE** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Delete queue
-[**getQueue**](QueuesV1Api.md#getQueue) | **GET** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Get queue
-[**listOrganizationQueueNames**](QueuesV1Api.md#listOrganizationQueueNames) | **GET** /api/v1/orgs/{owner}/queues/names | List organization level queues names
-[**listOrganizationQueues**](QueuesV1Api.md#listOrganizationQueues) | **GET** /api/v1/orgs/{owner}/queues | List organization level queues
-[**listQueueNames**](QueuesV1Api.md#listQueueNames) | **GET** /api/v1/orgs/{owner}/agents/{name}/queues/names | List queues names
-[**listQueues**](QueuesV1Api.md#listQueues) | **GET** /api/v1/orgs/{owner}/agents/{name}/queues | List queues
-[**patchQueue**](QueuesV1Api.md#patchQueue) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid} | Patch queue
-[**updateQueue**](QueuesV1Api.md#updateQueue) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid} | Update queue
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createQueue**](QueuesV1Api.md#createQueue) | **POST** /api/v1/orgs/{owner}/agents/{agent}/queues | Create queue |
+| [**deleteQueue**](QueuesV1Api.md#deleteQueue) | **DELETE** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Delete queue |
+| [**getQueue**](QueuesV1Api.md#getQueue) | **GET** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Get queue |
+| [**listOrganizationQueueNames**](QueuesV1Api.md#listOrganizationQueueNames) | **GET** /api/v1/orgs/{owner}/queues/names | List organization level queues names |
+| [**listOrganizationQueues**](QueuesV1Api.md#listOrganizationQueues) | **GET** /api/v1/orgs/{owner}/queues | List organization level queues |
+| [**listQueueNames**](QueuesV1Api.md#listQueueNames) | **GET** /api/v1/orgs/{owner}/agents/{name}/queues/names | List queues names |
+| [**listQueues**](QueuesV1Api.md#listQueues) | **GET** /api/v1/orgs/{owner}/agents/{name}/queues | List queues |
+| [**patchQueue**](QueuesV1Api.md#patchQueue) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid} | Patch queue |
+| [**updateQueue**](QueuesV1Api.md#updateQueue) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid} | Update queue |
 
 
 <a name="createQueue"></a>
@@ -63,11 +63,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agent** | **String**| Agent that consumes the queue |
- **body** | [**V1Queue**](V1Queue.md)| Queue body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agent** | **String**| Agent that consumes the queue | |
+| **body** | [**V1Queue**](V1Queue.md)| Queue body | |
 
 ### Return type
 
@@ -85,11 +85,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteQueue"></a>
 # **deleteQueue**
@@ -137,11 +137,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Entity: project name, hub name, registry name, ... |
- **uuid** | **String**| Uuid identifier of the sub-entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
 
 ### Return type
 
@@ -159,11 +159,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getQueue"></a>
 # **getQueue**
@@ -212,11 +212,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Entity: project name, hub name, registry name, ... |
- **uuid** | **String**| Uuid identifier of the sub-entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
 
 ### Return type
 
@@ -234,11 +234,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listOrganizationQueueNames"></a>
 # **listOrganizationQueueNames**
@@ -292,16 +292,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -319,11 +319,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listOrganizationQueues"></a>
 # **listOrganizationQueues**
@@ -377,16 +377,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -404,11 +404,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listQueueNames"></a>
 # **listQueueNames**
@@ -463,17 +463,17 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Entity managing the resource |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Entity managing the resource | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -491,11 +491,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listQueues"></a>
 # **listQueues**
@@ -550,17 +550,17 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Entity managing the resource |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Entity managing the resource | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -578,11 +578,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchQueue"></a>
 # **patchQueue**
@@ -632,12 +632,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agent** | **String**| Agent that consumes the queue |
- **queueUuid** | **String**| UUID |
- **body** | [**V1Queue**](V1Queue.md)| Queue body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agent** | **String**| Agent that consumes the queue | |
+| **queueUuid** | **String**| UUID | |
+| **body** | [**V1Queue**](V1Queue.md)| Queue body | |
 
 ### Return type
 
@@ -655,11 +655,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateQueue"></a>
 # **updateQueue**
@@ -709,12 +709,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **agent** | **String**| Agent that consumes the queue |
- **queueUuid** | **String**| UUID |
- **body** | [**V1Queue**](V1Queue.md)| Queue body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **agent** | **String**| Agent that consumes the queue | |
+| **queueUuid** | **String**| UUID | |
+| **body** | [**V1Queue**](V1Queue.md)| Queue body | |
 
 ### Return type
 
@@ -732,9 +732,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

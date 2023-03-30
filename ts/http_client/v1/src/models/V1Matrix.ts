@@ -27,36 +27,48 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Bayes } from './V1Bayes';
 import {
-    V1Bayes,
     V1BayesFromJSON,
     V1BayesFromJSONTyped,
     V1BayesToJSON,
-    V1GridSearch,
+} from './V1Bayes';
+import type { V1GridSearch } from './V1GridSearch';
+import {
     V1GridSearchFromJSON,
     V1GridSearchFromJSONTyped,
     V1GridSearchToJSON,
-    V1Hyperband,
+} from './V1GridSearch';
+import type { V1Hyperband } from './V1Hyperband';
+import {
     V1HyperbandFromJSON,
     V1HyperbandFromJSONTyped,
     V1HyperbandToJSON,
-    V1Hyperopt,
+} from './V1Hyperband';
+import type { V1Hyperopt } from './V1Hyperopt';
+import {
     V1HyperoptFromJSON,
     V1HyperoptFromJSONTyped,
     V1HyperoptToJSON,
-    V1Iterative,
+} from './V1Hyperopt';
+import type { V1Iterative } from './V1Iterative';
+import {
     V1IterativeFromJSON,
     V1IterativeFromJSONTyped,
     V1IterativeToJSON,
-    V1Mapping,
+} from './V1Iterative';
+import type { V1Mapping } from './V1Mapping';
+import {
     V1MappingFromJSON,
     V1MappingFromJSONTyped,
     V1MappingToJSON,
-    V1RandomSearch,
+} from './V1Mapping';
+import type { V1RandomSearch } from './V1RandomSearch';
+import {
     V1RandomSearchFromJSON,
     V1RandomSearchFromJSONTyped,
     V1RandomSearchToJSON,
-} from './';
+} from './V1RandomSearch';
 
 /**
  * 
@@ -106,6 +118,15 @@ export interface V1Matrix {
      * @memberof V1Matrix
      */
     mapping?: V1Mapping;
+}
+
+/**
+ * Check if a given object implements the V1Matrix interface.
+ */
+export function instanceOfV1Matrix(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MatrixFromJSON(json: any): V1Matrix {

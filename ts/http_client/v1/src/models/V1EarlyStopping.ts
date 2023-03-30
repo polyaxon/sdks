@@ -27,28 +27,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DiffStoppingPolicy } from './V1DiffStoppingPolicy';
 import {
-    V1DiffStoppingPolicy,
     V1DiffStoppingPolicyFromJSON,
     V1DiffStoppingPolicyFromJSONTyped,
     V1DiffStoppingPolicyToJSON,
-    V1FailureEarlyStopping,
+} from './V1DiffStoppingPolicy';
+import type { V1FailureEarlyStopping } from './V1FailureEarlyStopping';
+import {
     V1FailureEarlyStoppingFromJSON,
     V1FailureEarlyStoppingFromJSONTyped,
     V1FailureEarlyStoppingToJSON,
-    V1MedianStoppingPolicy,
+} from './V1FailureEarlyStopping';
+import type { V1MedianStoppingPolicy } from './V1MedianStoppingPolicy';
+import {
     V1MedianStoppingPolicyFromJSON,
     V1MedianStoppingPolicyFromJSONTyped,
     V1MedianStoppingPolicyToJSON,
-    V1MetricEarlyStopping,
+} from './V1MedianStoppingPolicy';
+import type { V1MetricEarlyStopping } from './V1MetricEarlyStopping';
+import {
     V1MetricEarlyStoppingFromJSON,
     V1MetricEarlyStoppingFromJSONTyped,
     V1MetricEarlyStoppingToJSON,
-    V1TruncationStoppingPolicy,
+} from './V1MetricEarlyStopping';
+import type { V1TruncationStoppingPolicy } from './V1TruncationStoppingPolicy';
+import {
     V1TruncationStoppingPolicyFromJSON,
     V1TruncationStoppingPolicyFromJSONTyped,
     V1TruncationStoppingPolicyToJSON,
-} from './';
+} from './V1TruncationStoppingPolicy';
 
 /**
  * 
@@ -86,6 +94,15 @@ export interface V1EarlyStopping {
      * @memberof V1EarlyStopping
      */
     failure?: V1FailureEarlyStopping;
+}
+
+/**
+ * Check if a given object implements the V1EarlyStopping interface.
+ */
+export function instanceOfV1EarlyStopping(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EarlyStoppingFromJSON(json: any): V1EarlyStopping {

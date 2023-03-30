@@ -29,7 +29,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import java.io.File;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import org.openapitools.client.model.RuntimeError;
 import org.openapitools.client.model.V1ArtifactTree;
 import org.openapitools.client.model.V1Auth;
@@ -51,8 +51,8 @@ import org.openapitools.client.model.V1RunArtifacts;
 import org.openapitools.client.model.V1RunSettings;
 import org.openapitools.client.model.V1Status;
 import org.openapitools.client.model.V1Uuids;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,121 +62,99 @@ import java.util.Map;
 /**
  * API tests for RunsV1Api
  */
-@Ignore
+@Disabled
 public class RunsV1ApiTest {
 
     private final RunsV1Api api = new RunsV1Api();
 
-    
     /**
      * Approve run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void approveRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.approveRun(owner, entity, uuid);
+        api.approveRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Approve runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void approveRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.approveRuns(owner, project, body);
+        api.approveRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Archive run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void archiveRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.archiveRun(owner, entity, uuid);
+        api.archiveRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Archive runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void archiveRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.archiveRuns(owner, project, body);
+        api.archiveRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Bookmark run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void bookmarkRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.bookmarkRun(owner, entity, uuid);
+        api.bookmarkRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Bookmark runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void bookmarkRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.bookmarkRuns(owner, project, body);
+        api.bookmarkRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Internal API to collect run logs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void collectRunLogsTest() throws ApiException {
@@ -185,17 +163,14 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String kind = null;
-                api.collectRunLogs(namespace, owner, project, uuid, kind);
+        api.collectRunLogs(namespace, owner, project, uuid, kind);
         // TODO: test validations
     }
-    
+
     /**
      * Restart run with copy
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void copyRunTest() throws ApiException {
@@ -203,34 +178,28 @@ public class RunsV1ApiTest {
         String project = null;
         String runUuid = null;
         V1Run body = null;
-                V1Run response = api.copyRun(owner, project, runUuid, body);
+        V1Run response = api.copyRun(owner, project, runUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create new run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createRunTest() throws ApiException {
         String owner = null;
         String project = null;
         V1OperationBody body = null;
-                V1Run response = api.createRun(owner, project, body);
+        V1Run response = api.createRun(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create bulk run artifacts lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createRunArtifactsLineageTest() throws ApiException {
@@ -238,17 +207,14 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         V1RunArtifacts body = null;
-                api.createRunArtifactsLineage(owner, project, uuid, body);
+        api.createRunArtifactsLineage(owner, project, uuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create new run status
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createRunStatusTest() throws ApiException {
@@ -256,34 +222,28 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         V1EntityStatusBodyRequest body = null;
-                V1Status response = api.createRunStatus(owner, project, uuid, body);
+        V1Status response = api.createRunStatus(owner, project, uuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.deleteRun(owner, entity, uuid);
+        api.deleteRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete run artifact
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRunArtifactTest() throws ApiException {
@@ -292,17 +252,14 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String path = null;
-                api.deleteRunArtifact(namespace, owner, project, uuid, path);
+        api.deleteRunArtifact(namespace, owner, project, uuid, path);
         // TODO: test validations
     }
-    
+
     /**
      * Delete run artifact lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRunArtifactLineageTest() throws ApiException {
@@ -311,17 +268,14 @@ public class RunsV1ApiTest {
         String uuid = null;
         String name = null;
         String namespace = null;
-                api.deleteRunArtifactLineage(owner, project, uuid, name, namespace);
+        api.deleteRunArtifactLineage(owner, project, uuid, name, namespace);
         // TODO: test validations
     }
-    
+
     /**
      * Delete run artifacts
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRunArtifactsTest() throws ApiException {
@@ -330,34 +284,44 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String path = null;
-                api.deleteRunArtifacts(namespace, owner, project, uuid, path);
+        api.deleteRunArtifacts(namespace, owner, project, uuid, path);
         // TODO: test validations
     }
-    
+
     /**
      * Delete runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.deleteRuns(owner, project, body);
+        api.deleteRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
+    /**
+     * Deprecated Collect run logs (# TODO: Remove in v2)
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deprecatedCollectRunLogsTest() throws ApiException {
+        String namespace = null;
+        String owner = null;
+        String project = null;
+        String uuid = null;
+        String kind = null;
+        api.deprecatedCollectRunLogs(namespace, owner, project, uuid, kind);
+        // TODO: test validations
+    }
+
     /**
      * Get multi runs events
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getMultiRunEventsTest() throws ApiException {
@@ -370,34 +334,28 @@ public class RunsV1ApiTest {
         String orient = null;
         Boolean force = null;
         Integer sample = null;
-                V1EventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample);
+        V1EventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample);
         // TODO: test validations
     }
-    
+
     /**
      * Get run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1Run response = api.getRun(owner, entity, uuid);
+        V1Run response = api.getRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get run artifact
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunArtifactTest() throws ApiException {
@@ -408,17 +366,14 @@ public class RunsV1ApiTest {
         String path = null;
         Boolean stream = null;
         Boolean force = null;
-                String response = api.getRunArtifact(namespace, owner, project, uuid, path, stream, force);
+        String response = api.getRunArtifact(namespace, owner, project, uuid, path, stream, force);
         // TODO: test validations
     }
-    
+
     /**
      * Get run artifacts lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunArtifactLineageTest() throws ApiException {
@@ -427,17 +382,14 @@ public class RunsV1ApiTest {
         String uuid = null;
         String name = null;
         String namespace = null;
-                V1RunArtifact response = api.getRunArtifactLineage(owner, project, uuid, name, namespace);
+        V1RunArtifact response = api.getRunArtifactLineage(owner, project, uuid, name, namespace);
         // TODO: test validations
     }
-    
+
     /**
      * Get run artifacts
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunArtifactsTest() throws ApiException {
@@ -447,17 +399,14 @@ public class RunsV1ApiTest {
         String uuid = null;
         String path = null;
         Boolean force = null;
-                String response = api.getRunArtifacts(namespace, owner, project, uuid, path, force);
+        String response = api.getRunArtifacts(namespace, owner, project, uuid, path, force);
         // TODO: test validations
     }
-    
+
     /**
      * Get run artifacts lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunArtifactsLineageTest() throws ApiException {
@@ -469,17 +418,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunArtifactsResponse response = api.getRunArtifactsLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
+        V1ListRunArtifactsResponse response = api.getRunArtifactsLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get run artifacts lineage names
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunArtifactsLineageNamesTest() throws ApiException {
@@ -491,17 +437,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunArtifactsResponse response = api.getRunArtifactsLineageNames(owner, entity, uuid, offset, limit, sort, query, noPage);
+        V1ListRunArtifactsResponse response = api.getRunArtifactsLineageNames(owner, entity, uuid, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get run artifacts tree
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunArtifactsTreeTest() throws ApiException {
@@ -510,17 +453,14 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String path = null;
-                V1ArtifactTree response = api.getRunArtifactsTree(namespace, owner, project, uuid, path);
+        V1ArtifactTree response = api.getRunArtifactsTree(namespace, owner, project, uuid, path);
         // TODO: test validations
     }
-    
+
     /**
      * Get run clones lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunClonesLineageTest() throws ApiException {
@@ -532,17 +472,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunsResponse response = api.getRunClonesLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
+        V1ListRunsResponse response = api.getRunClonesLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get run connections lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunConnectionsLineageTest() throws ApiException {
@@ -554,17 +491,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunConnectionsResponse response = api.getRunConnectionsLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
+        V1ListRunConnectionsResponse response = api.getRunConnectionsLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get run downstream lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunDownstreamLineageTest() throws ApiException {
@@ -576,17 +510,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunEdgesResponse response = api.getRunDownstreamLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
+        V1ListRunEdgesResponse response = api.getRunDownstreamLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get run events
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunEventsTest() throws ApiException {
@@ -599,17 +530,14 @@ public class RunsV1ApiTest {
         String orient = null;
         Boolean force = null;
         Integer sample = null;
-                V1EventsResponse response = api.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample);
+        V1EventsResponse response = api.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample);
         // TODO: test validations
     }
-    
+
     /**
      * Get run importance
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunImportanceTest() throws ApiException {
@@ -618,17 +546,14 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         Object body = null;
-                V1EventsResponse response = api.getRunImportance(namespace, owner, project, uuid, body);
+        V1EventsResponse response = api.getRunImportance(namespace, owner, project, uuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Get run logs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunLogsTest() throws ApiException {
@@ -639,34 +564,28 @@ public class RunsV1ApiTest {
         OffsetDateTime lastTime = null;
         String lastFile = null;
         Boolean force = null;
-                V1Logs response = api.getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force);
+        V1Logs response = api.getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force);
         // TODO: test validations
     }
-    
+
     /**
      * Get Run namespace
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunNamespaceTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1RunSettings response = api.getRunNamespace(owner, entity, uuid);
+        V1RunSettings response = api.getRunNamespace(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get run resources events
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunResourcesTest() throws ApiException {
@@ -678,34 +597,28 @@ public class RunsV1ApiTest {
         Boolean tail = null;
         Boolean force = null;
         Integer sample = null;
-                V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample);
+        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample);
         // TODO: test validations
     }
-    
+
     /**
      * Get Run settings
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunSettingsTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1RunSettings response = api.getRunSettings(owner, entity, uuid);
+        V1RunSettings response = api.getRunSettings(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get run stats
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunStatsTest() throws ApiException {
@@ -721,34 +634,28 @@ public class RunsV1ApiTest {
         String aggregate = null;
         String groupby = null;
         String trunc = null;
-                Object response = api.getRunStats(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
+        Object response = api.getRunStats(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
         // TODO: test validations
     }
-    
+
     /**
      * Get run statuses
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunStatusesTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1Status response = api.getRunStatuses(owner, entity, uuid);
+        V1Status response = api.getRunStatuses(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get run upstream lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunUpstreamLineageTest() throws ApiException {
@@ -760,17 +667,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunEdgesResponse response = api.getRunUpstreamLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
+        V1ListRunEdgesResponse response = api.getRunUpstreamLineage(owner, entity, uuid, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Get runs artifacts lineage
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getRunsArtifactsLineageTest() throws ApiException {
@@ -783,34 +687,28 @@ public class RunsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListRunArtifactsResponse response = api.getRunsArtifactsLineage(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListRunArtifactsResponse response = api.getRunsArtifactsLineage(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Impersonate run token
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void impersonateTokenTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1Auth response = api.impersonateToken(owner, entity, uuid);
+        V1Auth response = api.impersonateToken(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Inspect an active run full conditions
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void inspectRunTest() throws ApiException {
@@ -822,51 +720,42 @@ public class RunsV1ApiTest {
         Boolean tail = null;
         Boolean force = null;
         Integer sample = null;
-                Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample);
+        Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample);
         // TODO: test validations
     }
-    
+
     /**
      * Invalidate run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void invalidateRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.invalidateRun(owner, entity, uuid);
+        api.invalidateRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Invalidate runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void invalidateRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.invalidateRuns(owner, project, body);
+        api.invalidateRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * List archived runs for user
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listArchivedRunsTest() throws ApiException {
@@ -876,17 +765,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListRunsResponse response = api.listArchivedRuns(user, offset, limit, sort, query, noPage);
+        V1ListRunsResponse response = api.listArchivedRuns(user, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List bookmarked runs for user
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listBookmarkedRunsTest() throws ApiException {
@@ -896,17 +782,14 @@ public class RunsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListBookmarksResponse response = api.listBookmarkedRuns(user, offset, limit, sort, query, noPage);
+        V1ListBookmarksResponse response = api.listBookmarkedRuns(user, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listRunsTest() throws ApiException {
@@ -919,17 +802,14 @@ public class RunsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListRunsResponse response = api.listRuns(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListRunsResponse response = api.listRuns(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Notify run status
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void notifyRunStatusTest() throws ApiException {
@@ -938,17 +818,14 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         V1EntityNotificationBody body = null;
-                api.notifyRunStatus(namespace, owner, project, uuid, body);
+        api.notifyRunStatus(namespace, owner, project, uuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void patchRunTest() throws ApiException {
@@ -956,17 +833,14 @@ public class RunsV1ApiTest {
         String project = null;
         String runUuid = null;
         V1Run body = null;
-                V1Run response = api.patchRun(owner, project, runUuid, body);
+        V1Run response = api.patchRun(owner, project, runUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Restart run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void restartRunTest() throws ApiException {
@@ -974,51 +848,42 @@ public class RunsV1ApiTest {
         String project = null;
         String runUuid = null;
         V1Run body = null;
-                V1Run response = api.restartRun(owner, project, runUuid, body);
+        V1Run response = api.restartRun(owner, project, runUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Restore run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void restoreRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.restoreRun(owner, entity, uuid);
+        api.restoreRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Restore runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void restoreRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.restoreRuns(owner, project, body);
+        api.restoreRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Resume run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void resumeRunTest() throws ApiException {
@@ -1026,85 +891,70 @@ public class RunsV1ApiTest {
         String project = null;
         String runUuid = null;
         V1Run body = null;
-                V1Run response = api.resumeRun(owner, project, runUuid, body);
+        V1Run response = api.resumeRun(owner, project, runUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Stop run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void stopRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.stopRun(owner, entity, uuid);
+        api.stopRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Stop runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void stopRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Uuids body = null;
-                api.stopRuns(owner, project, body);
+        api.stopRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Sync offline run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void syncRunTest() throws ApiException {
         String owner = null;
         String project = null;
         V1Run body = null;
-                api.syncRun(owner, project, body);
+        api.syncRun(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Tag runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void tagRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1EntitiesTags body = null;
-                api.tagRuns(owner, project, body);
+        api.tagRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Transfer run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void transferRunTest() throws ApiException {
@@ -1112,51 +962,42 @@ public class RunsV1ApiTest {
         String project = null;
         String runUuid = null;
         V1Run body = null;
-                api.transferRun(owner, project, runUuid, body);
+        api.transferRun(owner, project, runUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Transfer runs
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void transferRunsTest() throws ApiException {
         String owner = null;
         String project = null;
         V1EntitiesTransfer body = null;
-                api.transferRuns(owner, project, body);
+        api.transferRuns(owner, project, body);
         // TODO: test validations
     }
-    
+
     /**
      * Unbookmark run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void unbookmarkRunTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.unbookmarkRun(owner, entity, uuid);
+        api.unbookmarkRun(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Update run
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateRunTest() throws ApiException {
@@ -1164,17 +1005,14 @@ public class RunsV1ApiTest {
         String project = null;
         String runUuid = null;
         V1Run body = null;
-                V1Run response = api.updateRun(owner, project, runUuid, body);
+        V1Run response = api.updateRun(owner, project, runUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Upload an artifact file to a store via run access
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void uploadRunArtifactTest() throws ApiException {
@@ -1184,17 +1022,14 @@ public class RunsV1ApiTest {
         File uploadfile = null;
         String path = null;
         Boolean overwrite = null;
-                api.uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite);
+        api.uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite);
         // TODO: test validations
     }
-    
+
     /**
      * Upload a logs file to a store via run access
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void uploadRunLogsTest() throws ApiException {
@@ -1204,8 +1039,8 @@ public class RunsV1ApiTest {
         File uploadfile = null;
         String path = null;
         Boolean overwrite = null;
-                api.uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite);
+        api.uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite);
         // TODO: test validations
     }
-    
+
 }

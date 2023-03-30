@@ -68,8 +68,24 @@ class V1EventsResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EventsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EventsResponse</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['data'])) {
+            throw new Error("Expected the field `data` to be an array in the JSON data but got " + data['data']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<Object>} data

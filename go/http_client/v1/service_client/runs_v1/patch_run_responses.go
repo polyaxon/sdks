@@ -87,9 +87,44 @@ type PatchRunOK struct {
 	Payload *service_model.V1Run
 }
 
+// IsSuccess returns true when this patch run o k response has a 2xx status code
+func (o *PatchRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch run o k response has a 3xx status code
+func (o *PatchRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch run o k response has a 4xx status code
+func (o *PatchRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch run o k response has a 5xx status code
+func (o *PatchRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch run o k response a status code equal to that given
+func (o *PatchRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch run o k response
+func (o *PatchRunOK) Code() int {
+	return 200
+}
+
 func (o *PatchRunOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchRunOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchRunOK) GetPayload() *service_model.V1Run {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch run no content response has a 2xx status code
+func (o *PatchRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch run no content response has a 3xx status code
+func (o *PatchRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch run no content response has a 4xx status code
+func (o *PatchRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch run no content response has a 5xx status code
+func (o *PatchRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch run no content response a status code equal to that given
+func (o *PatchRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch run no content response
+func (o *PatchRunNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchRunNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchRunNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch run forbidden response has a 2xx status code
+func (o *PatchRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch run forbidden response has a 3xx status code
+func (o *PatchRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch run forbidden response has a 4xx status code
+func (o *PatchRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch run forbidden response has a 5xx status code
+func (o *PatchRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch run forbidden response a status code equal to that given
+func (o *PatchRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch run forbidden response
+func (o *PatchRunForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchRunForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchRunForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch run not found response has a 2xx status code
+func (o *PatchRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch run not found response has a 3xx status code
+func (o *PatchRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch run not found response has a 4xx status code
+func (o *PatchRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch run not found response has a 5xx status code
+func (o *PatchRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch run not found response a status code equal to that given
+func (o *PatchRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch run not found response
+func (o *PatchRunNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchRunNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchRunNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] patchRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch run default response has a 2xx status code
+func (o *PatchRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch run default response has a 3xx status code
+func (o *PatchRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch run default response has a 4xx status code
+func (o *PatchRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch run default response has a 5xx status code
+func (o *PatchRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch run default response a status code equal to that given
+func (o *PatchRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch run default response
 func (o *PatchRunDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchRunDefault) Code() int {
 func (o *PatchRunDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] PatchRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchRunDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/runs/{run.uuid}][%d] PatchRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

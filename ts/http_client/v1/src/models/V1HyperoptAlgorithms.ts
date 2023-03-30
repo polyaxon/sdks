@@ -26,18 +26,20 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - tpe: tpe algorithm
  *  - rand: random algorithm
  *  - anneal: anneal algorithm
  * @export
- * @enum {string}
  */
-export enum V1HyperoptAlgorithms {
-    Tpe = 'tpe',
-    Rand = 'rand',
-    Anneal = 'anneal'
-}
+export const V1HyperoptAlgorithms = {
+    Tpe: 'tpe',
+    Rand: 'rand',
+    Anneal: 'anneal'
+} as const;
+export type V1HyperoptAlgorithms = typeof V1HyperoptAlgorithms[keyof typeof V1HyperoptAlgorithms];
+
 
 export function V1HyperoptAlgorithmsFromJSON(json: any): V1HyperoptAlgorithms {
     return V1HyperoptAlgorithmsFromJSONTyped(json, false);

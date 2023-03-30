@@ -35,8 +35,7 @@ import multiprocessing
 import sys
 import urllib3
 
-import six
-from six.moves import http_client as httplib
+import http.client as httplib
 from polyaxon_sdk.exceptions import ApiValueError
 
 
@@ -52,16 +51,16 @@ class Configuration(object):
     Ref: https://openapi-generator.tech
     Do not edit the class manually.
 
-    :param host: Base url
+    :param host: Base url.
     :param api_key: Dict to store API key(s).
       Each entry in the dict specifies an API key.
       The dict key is the name of the security scheme in the OAS specification.
       The dict value is the API key secret.
-    :param api_key_prefix: Dict to store API prefix (e.g. Bearer)
+    :param api_key_prefix: Dict to store API prefix (e.g. Bearer).
       The dict key is the name of the security scheme in the OAS specification.
       The dict value is an API key prefix when generating the auth data.
-    :param username: Username for HTTP basic authentication
-    :param password: Password for HTTP basic authentication
+    :param username: Username for HTTP basic authentication.
+    :param password: Password for HTTP basic authentication.
     :param discard_unknown_keys: Boolean value indicating whether to discard
       unknown properties. A server may send a response that includes additional
       properties that are not known by the client in the following scenarios:
@@ -96,7 +95,7 @@ class Configuration(object):
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
     :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
-      in PEM format
+      in PEM format.
 
     :Example:
 
@@ -268,21 +267,31 @@ conf = polyaxon_sdk.Configuration(
 
         :param default: object of Configuration
         """
-        cls._default = copy.deepcopy(default)
+        cls._default = default
 
     @classmethod
     def get_default_copy(cls):
-        """Return new instance of configuration.
+        """Deprecated. Please use `get_default` instead.
 
-        This method returns newly created, based on default constructor,
-        object of Configuration class or returns a copy of default
-        configuration passed by the set_default method.
+        Deprecated. Please use `get_default` instead.
 
         :return: The configuration object.
         """
-        if cls._default is not None:
-            return copy.deepcopy(cls._default)
-        return Configuration()
+        return cls.get_default()
+
+    @classmethod
+    def get_default(cls):
+        """Return the default configuration.
+
+        This method returns newly created, based on default constructor,
+        object of Configuration class or returns a copy of default
+        configuration.
+
+        :return: The configuration object.
+        """
+        if cls._default is None:
+            cls._default = Configuration()
+        return cls._default
 
     @property
     def logger_file(self):
@@ -312,7 +321,7 @@ conf = polyaxon_sdk.Configuration(
             # then add file handler and remove stream handler.
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
             self.logger_file_handler.setFormatter(self.logger_formatter)
-            for _, logger in six.iteritems(self.logger):
+            for _, logger in self.logger.items():
                 logger.addHandler(self.logger_file_handler)
 
     @property
@@ -334,14 +343,14 @@ conf = polyaxon_sdk.Configuration(
         self.__debug = value
         if self.__debug:
             # if debug status is True, turn on debug logging
-            for _, logger in six.iteritems(self.logger):
+            for _, logger in self.logger.items():
                 logger.setLevel(logging.DEBUG)
             # turn on httplib debug
             httplib.HTTPConnection.debuglevel = 1
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
-            for _, logger in six.iteritems(self.logger):
+            for _, logger in self.logger.items():
                 logger.setLevel(logging.WARNING)
             # turn off httplib debug
             httplib.HTTPConnection.debuglevel = 0

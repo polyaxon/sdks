@@ -27,36 +27,48 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Build } from './V1Build';
 import {
-    V1Build,
     V1BuildFromJSON,
     V1BuildFromJSONTyped,
     V1BuildToJSON,
-    V1Cache,
+} from './V1Build';
+import type { V1Cache } from './V1Cache';
+import {
     V1CacheFromJSON,
     V1CacheFromJSONTyped,
     V1CacheToJSON,
-    V1Hook,
+} from './V1Cache';
+import type { V1Hook } from './V1Hook';
+import {
     V1HookFromJSON,
     V1HookFromJSONTyped,
     V1HookToJSON,
-    V1IO,
+} from './V1Hook';
+import type { V1IO } from './V1IO';
+import {
     V1IOFromJSON,
     V1IOFromJSONTyped,
     V1IOToJSON,
-    V1Plugins,
+} from './V1IO';
+import type { V1Plugins } from './V1Plugins';
+import {
     V1PluginsFromJSON,
     V1PluginsFromJSONTyped,
     V1PluginsToJSON,
-    V1Template,
+} from './V1Plugins';
+import type { V1Template } from './V1Template';
+import {
     V1TemplateFromJSON,
     V1TemplateFromJSONTyped,
     V1TemplateToJSON,
-    V1Termination,
+} from './V1Template';
+import type { V1Termination } from './V1Termination';
+import {
     V1TerminationFromJSON,
     V1TerminationFromJSONTyped,
     V1TerminationToJSON,
-} from './';
+} from './V1Termination';
 
 /**
  * 
@@ -172,6 +184,15 @@ export interface V1Component {
      * @memberof V1Component
      */
     cost?: number;
+}
+
+/**
+ * Check if a given object implements the V1Component interface.
+ */
+export function instanceOfV1Component(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ComponentFromJSON(json: any): V1Component {

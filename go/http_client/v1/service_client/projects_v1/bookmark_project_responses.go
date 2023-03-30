@@ -86,7 +86,41 @@ A successful response.
 type BookmarkProjectOK struct {
 }
 
+// IsSuccess returns true when this bookmark project o k response has a 2xx status code
+func (o *BookmarkProjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this bookmark project o k response has a 3xx status code
+func (o *BookmarkProjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this bookmark project o k response has a 4xx status code
+func (o *BookmarkProjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this bookmark project o k response has a 5xx status code
+func (o *BookmarkProjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this bookmark project o k response a status code equal to that given
+func (o *BookmarkProjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the bookmark project o k response
+func (o *BookmarkProjectOK) Code() int {
+	return 200
+}
+
 func (o *BookmarkProjectOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectOK ", 200)
+}
+
+func (o *BookmarkProjectOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type BookmarkProjectNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this bookmark project no content response has a 2xx status code
+func (o *BookmarkProjectNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this bookmark project no content response has a 3xx status code
+func (o *BookmarkProjectNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this bookmark project no content response has a 4xx status code
+func (o *BookmarkProjectNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this bookmark project no content response has a 5xx status code
+func (o *BookmarkProjectNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this bookmark project no content response a status code equal to that given
+func (o *BookmarkProjectNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the bookmark project no content response
+func (o *BookmarkProjectNoContent) Code() int {
+	return 204
+}
+
 func (o *BookmarkProjectNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNoContent  %+v", 204, o.Payload)
 }
+
+func (o *BookmarkProjectNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNoContent  %+v", 204, o.Payload)
+}
+
 func (o *BookmarkProjectNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type BookmarkProjectForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this bookmark project forbidden response has a 2xx status code
+func (o *BookmarkProjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this bookmark project forbidden response has a 3xx status code
+func (o *BookmarkProjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this bookmark project forbidden response has a 4xx status code
+func (o *BookmarkProjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this bookmark project forbidden response has a 5xx status code
+func (o *BookmarkProjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this bookmark project forbidden response a status code equal to that given
+func (o *BookmarkProjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the bookmark project forbidden response
+func (o *BookmarkProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *BookmarkProjectForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectForbidden  %+v", 403, o.Payload)
 }
+
+func (o *BookmarkProjectForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectForbidden  %+v", 403, o.Payload)
+}
+
 func (o *BookmarkProjectForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type BookmarkProjectNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this bookmark project not found response has a 2xx status code
+func (o *BookmarkProjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this bookmark project not found response has a 3xx status code
+func (o *BookmarkProjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this bookmark project not found response has a 4xx status code
+func (o *BookmarkProjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this bookmark project not found response has a 5xx status code
+func (o *BookmarkProjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this bookmark project not found response a status code equal to that given
+func (o *BookmarkProjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the bookmark project not found response
+func (o *BookmarkProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *BookmarkProjectNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNotFound  %+v", 404, o.Payload)
 }
+
+func (o *BookmarkProjectNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNotFound  %+v", 404, o.Payload)
+}
+
 func (o *BookmarkProjectNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type BookmarkProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this bookmark project default response has a 2xx status code
+func (o *BookmarkProjectDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this bookmark project default response has a 3xx status code
+func (o *BookmarkProjectDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this bookmark project default response has a 4xx status code
+func (o *BookmarkProjectDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this bookmark project default response has a 5xx status code
+func (o *BookmarkProjectDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this bookmark project default response a status code equal to that given
+func (o *BookmarkProjectDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the bookmark project default response
 func (o *BookmarkProjectDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *BookmarkProjectDefault) Code() int {
 func (o *BookmarkProjectDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] BookmarkProject default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *BookmarkProjectDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] BookmarkProject default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *BookmarkProjectDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

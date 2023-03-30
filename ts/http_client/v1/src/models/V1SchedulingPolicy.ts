@@ -53,6 +53,15 @@ export interface V1SchedulingPolicy {
     priorityClass?: string;
 }
 
+/**
+ * Check if a given object implements the V1SchedulingPolicy interface.
+ */
+export function instanceOfV1SchedulingPolicy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SchedulingPolicyFromJSON(json: any): V1SchedulingPolicy {
     return V1SchedulingPolicyFromJSONTyped(json, false);
 }

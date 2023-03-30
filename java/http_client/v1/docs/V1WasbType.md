@@ -5,11 +5,11 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**container** | **String** |  |  [optional]
-**storageAccount** | **String** |  |  [optional]
-**path** | **Boolean** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**container** | **String** |  |  [optional] |
+|**storageAccount** | **String** |  |  [optional] |
+|**path** | **Boolean** |  |  [optional] |
 
 
 

@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1EventChartKind } from './V1EventChartKind';
 import {
-    V1EventChartKind,
     V1EventChartKindFromJSON,
     V1EventChartKindFromJSONTyped,
     V1EventChartKindToJSON,
-} from './';
+} from './V1EventChartKind';
 
 /**
  * 
@@ -52,6 +52,15 @@ export interface V1EventChart {
      * @memberof V1EventChart
      */
     figure?: object;
+}
+
+/**
+ * Check if a given object implements the V1EventChart interface.
+ */
+export function instanceOfV1EventChart(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EventChartFromJSON(json: any): V1EventChart {

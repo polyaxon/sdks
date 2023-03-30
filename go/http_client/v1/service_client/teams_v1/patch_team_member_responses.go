@@ -87,9 +87,44 @@ type PatchTeamMemberOK struct {
 	Payload *service_model.V1TeamMember
 }
 
+// IsSuccess returns true when this patch team member o k response has a 2xx status code
+func (o *PatchTeamMemberOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch team member o k response has a 3xx status code
+func (o *PatchTeamMemberOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team member o k response has a 4xx status code
+func (o *PatchTeamMemberOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch team member o k response has a 5xx status code
+func (o *PatchTeamMemberOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team member o k response a status code equal to that given
+func (o *PatchTeamMemberOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch team member o k response
+func (o *PatchTeamMemberOK) Code() int {
+	return 200
+}
+
 func (o *PatchTeamMemberOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchTeamMemberOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchTeamMemberOK) GetPayload() *service_model.V1TeamMember {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchTeamMemberNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch team member no content response has a 2xx status code
+func (o *PatchTeamMemberNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch team member no content response has a 3xx status code
+func (o *PatchTeamMemberNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team member no content response has a 4xx status code
+func (o *PatchTeamMemberNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch team member no content response has a 5xx status code
+func (o *PatchTeamMemberNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team member no content response a status code equal to that given
+func (o *PatchTeamMemberNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch team member no content response
+func (o *PatchTeamMemberNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchTeamMemberNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchTeamMemberNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchTeamMemberNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchTeamMemberForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch team member forbidden response has a 2xx status code
+func (o *PatchTeamMemberForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team member forbidden response has a 3xx status code
+func (o *PatchTeamMemberForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team member forbidden response has a 4xx status code
+func (o *PatchTeamMemberForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team member forbidden response has a 5xx status code
+func (o *PatchTeamMemberForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team member forbidden response a status code equal to that given
+func (o *PatchTeamMemberForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch team member forbidden response
+func (o *PatchTeamMemberForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchTeamMemberForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchTeamMemberForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchTeamMemberForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchTeamMemberNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch team member not found response has a 2xx status code
+func (o *PatchTeamMemberNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team member not found response has a 3xx status code
+func (o *PatchTeamMemberNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team member not found response has a 4xx status code
+func (o *PatchTeamMemberNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team member not found response has a 5xx status code
+func (o *PatchTeamMemberNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team member not found response a status code equal to that given
+func (o *PatchTeamMemberNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch team member not found response
+func (o *PatchTeamMemberNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchTeamMemberNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchTeamMemberNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchTeamMemberNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchTeamMemberDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch team member default response has a 2xx status code
+func (o *PatchTeamMemberDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch team member default response has a 3xx status code
+func (o *PatchTeamMemberDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch team member default response has a 4xx status code
+func (o *PatchTeamMemberDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch team member default response has a 5xx status code
+func (o *PatchTeamMemberDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch team member default response a status code equal to that given
+func (o *PatchTeamMemberDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch team member default response
 func (o *PatchTeamMemberDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchTeamMemberDefault) Code() int {
 func (o *PatchTeamMemberDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] PatchTeamMember default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchTeamMemberDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] PatchTeamMember default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchTeamMemberDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -93,8 +93,62 @@ class V1ProjectSettings {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1ProjectSettings</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1ProjectSettings</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['connections'])) {
+            throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
+        }
+        // ensure the json data is a string
+        if (data['preset'] && !(typeof data['preset'] === 'string' || data['preset'] instanceof String)) {
+            throw new Error("Expected the field `preset` to be a primitive type in the JSON string but got " + data['preset']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['presets'])) {
+            throw new Error("Expected the field `presets` to be an array in the JSON data but got " + data['presets']);
+        }
+        // ensure the json data is a string
+        if (data['queue'] && !(typeof data['queue'] === 'string' || data['queue'] instanceof String)) {
+            throw new Error("Expected the field `queue` to be a primitive type in the JSON string but got " + data['queue']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['queues'])) {
+            throw new Error("Expected the field `queues` to be an array in the JSON data but got " + data['queues']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['agents'])) {
+            throw new Error("Expected the field `agents` to be an array in the JSON data but got " + data['agents']);
+        }
+        if (data['user_accesses']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['user_accesses'])) {
+                throw new Error("Expected the field `user_accesses` to be an array in the JSON data but got " + data['user_accesses']);
+            }
+            // validate the optional field `user_accesses` (array)
+            for (const item of data['user_accesses']) {
+                V1ProjectUserAccess.validateJsonObject(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['teams'])) {
+            throw new Error("Expected the field `teams` to be an array in the JSON data but got " + data['teams']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['projects'])) {
+            throw new Error("Expected the field `projects` to be an array in the JSON data but got " + data['projects']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} connections

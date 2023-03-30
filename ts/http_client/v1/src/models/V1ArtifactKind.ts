@@ -26,6 +26,7 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - model: Model asset/event
  *  - audio: Audio asset/event
@@ -59,41 +60,42 @@
  *  - system: System event
  *  - artifact: Generic artifact
  * @export
- * @enum {string}
  */
-export enum V1ArtifactKind {
-    Model = 'model',
-    Audio = 'audio',
-    Video = 'video',
-    Histogram = 'histogram',
-    Image = 'image',
-    Tensor = 'tensor',
-    Dataframe = 'dataframe',
-    Chart = 'chart',
-    Csv = 'csv',
-    Tsv = 'tsv',
-    Psv = 'psv',
-    Ssv = 'ssv',
-    Metric = 'metric',
-    Env = 'env',
-    Html = 'html',
-    Text = 'text',
-    File = 'file',
-    Dir = 'dir',
-    Dockerfile = 'dockerfile',
-    DockerImage = 'docker_image',
-    Data = 'data',
-    Coderef = 'coderef',
-    Table = 'table',
-    Tensorboard = 'tensorboard',
-    Curve = 'curve',
-    Confusion = 'confusion',
-    Analysis = 'analysis',
-    Iteration = 'iteration',
-    Markdown = 'markdown',
-    System = 'system',
-    Artifact = 'artifact'
-}
+export const V1ArtifactKind = {
+    Model: 'model',
+    Audio: 'audio',
+    Video: 'video',
+    Histogram: 'histogram',
+    Image: 'image',
+    Tensor: 'tensor',
+    Dataframe: 'dataframe',
+    Chart: 'chart',
+    Csv: 'csv',
+    Tsv: 'tsv',
+    Psv: 'psv',
+    Ssv: 'ssv',
+    Metric: 'metric',
+    Env: 'env',
+    Html: 'html',
+    Text: 'text',
+    File: 'file',
+    Dir: 'dir',
+    Dockerfile: 'dockerfile',
+    DockerImage: 'docker_image',
+    Data: 'data',
+    Coderef: 'coderef',
+    Table: 'table',
+    Tensorboard: 'tensorboard',
+    Curve: 'curve',
+    Confusion: 'confusion',
+    Analysis: 'analysis',
+    Iteration: 'iteration',
+    Markdown: 'markdown',
+    System: 'system',
+    Artifact: 'artifact'
+} as const;
+export type V1ArtifactKind = typeof V1ArtifactKind[keyof typeof V1ArtifactKind];
+
 
 export function V1ArtifactKindFromJSON(json: any): V1ArtifactKind {
     return V1ArtifactKindFromJSONTyped(json, false);

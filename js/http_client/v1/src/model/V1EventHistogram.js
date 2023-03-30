@@ -71,8 +71,28 @@ class V1EventHistogram {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EventHistogram</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EventHistogram</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['values'])) {
+            throw new Error("Expected the field `values` to be an array in the JSON data but got " + data['values']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['counts'])) {
+            throw new Error("Expected the field `counts` to be an array in the JSON data but got " + data['counts']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<Number>} values

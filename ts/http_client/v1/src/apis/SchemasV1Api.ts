@@ -28,11 +28,13 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1Schemas,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1Schemas,
     V1SchemasFromJSON,
     V1SchemasToJSON,
 } from '../models';
@@ -45,7 +47,7 @@ export class SchemasV1Api extends runtime.BaseAPI {
     /**
      * NoOp
      */
-    async noOpRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Schemas>> {
+    async noOpRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Schemas>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -67,7 +69,7 @@ export class SchemasV1Api extends runtime.BaseAPI {
     /**
      * NoOp
      */
-    async noOp(initOverrides?: RequestInit): Promise<V1Schemas> {
+    async noOp(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Schemas> {
         const response = await this.noOpRaw(initOverrides);
         return await response.value();
     }

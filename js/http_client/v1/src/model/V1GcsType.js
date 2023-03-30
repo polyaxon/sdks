@@ -71,8 +71,28 @@ class V1GcsType {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1GcsType</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1GcsType</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['bucket'] && !(typeof data['bucket'] === 'string' || data['bucket'] instanceof String)) {
+            throw new Error("Expected the field `bucket` to be a primitive type in the JSON string but got " + data['bucket']);
+        }
+        // ensure the json data is a string
+        if (data['blob'] && !(typeof data['blob'] === 'string' || data['blob'] instanceof String)) {
+            throw new Error("Expected the field `blob` to be a primitive type in the JSON string but got " + data['blob']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} bucket

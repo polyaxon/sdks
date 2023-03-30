@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AgentStateResponseAgentState } from './AgentStateResponseAgentState';
 import {
-    AgentStateResponseAgentState,
     AgentStateResponseAgentStateFromJSON,
     AgentStateResponseAgentStateFromJSONTyped,
     AgentStateResponseAgentStateToJSON,
-    V1Statuses,
+} from './AgentStateResponseAgentState';
+import type { V1Statuses } from './V1Statuses';
+import {
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -68,6 +70,15 @@ export interface V1AgentStateResponse {
      * @memberof V1AgentStateResponse
      */
     compatible_updates?: object;
+}
+
+/**
+ * Check if a given object implements the V1AgentStateResponse interface.
+ */
+export function instanceOfV1AgentStateResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1AgentStateResponseFromJSON(json: any): V1AgentStateResponse {

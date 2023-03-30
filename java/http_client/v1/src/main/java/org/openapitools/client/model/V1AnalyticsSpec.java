@@ -34,9 +34,28 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1AnalyticsSpec
@@ -59,6 +78,8 @@ public class V1AnalyticsSpec {
   @SerializedName(SERIALIZED_NAME_FREQUENCY)
   private String frequency;
 
+  public V1AnalyticsSpec() {
+  }
 
   public V1AnalyticsSpec view(String view) {
     
@@ -71,7 +92,6 @@ public class V1AnalyticsSpec {
    * @return view
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getView() {
     return view;
@@ -94,7 +114,6 @@ public class V1AnalyticsSpec {
    * @return trunc
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTrunc() {
     return trunc;
@@ -117,7 +136,6 @@ public class V1AnalyticsSpec {
    * @return groupby
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getGroupby() {
     return groupby;
@@ -140,7 +158,6 @@ public class V1AnalyticsSpec {
    * @return frequency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFrequency() {
     return frequency;
@@ -150,6 +167,7 @@ public class V1AnalyticsSpec {
   public void setFrequency(String frequency) {
     this.frequency = frequency;
   }
+
 
 
   @Override
@@ -195,5 +213,103 @@ public class V1AnalyticsSpec {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("view");
+    openapiFields.add("trunc");
+    openapiFields.add("groupby");
+    openapiFields.add("frequency");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1AnalyticsSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1AnalyticsSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1AnalyticsSpec is not found in the empty JSON string", V1AnalyticsSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1AnalyticsSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1AnalyticsSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("view") != null && !jsonObj.get("view").isJsonNull()) && !jsonObj.get("view").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `view` to be a primitive type in the JSON string but got `%s`", jsonObj.get("view").toString()));
+      }
+      if ((jsonObj.get("trunc") != null && !jsonObj.get("trunc").isJsonNull()) && !jsonObj.get("trunc").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trunc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trunc").toString()));
+      }
+      if ((jsonObj.get("groupby") != null && !jsonObj.get("groupby").isJsonNull()) && !jsonObj.get("groupby").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groupby` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupby").toString()));
+      }
+      if ((jsonObj.get("frequency") != null && !jsonObj.get("frequency").isJsonNull()) && !jsonObj.get("frequency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `frequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("frequency").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1AnalyticsSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1AnalyticsSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1AnalyticsSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1AnalyticsSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1AnalyticsSpec>() {
+           @Override
+           public void write(JsonWriter out, V1AnalyticsSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1AnalyticsSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1AnalyticsSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1AnalyticsSpec
+  * @throws IOException if the JSON string is invalid with respect to V1AnalyticsSpec
+  */
+  public static V1AnalyticsSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1AnalyticsSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1AnalyticsSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

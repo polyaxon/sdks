@@ -71,6 +71,15 @@ export interface V1Tag {
     stats?: object;
 }
 
+/**
+ * Check if a given object implements the V1Tag interface.
+ */
+export function instanceOfV1Tag(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TagFromJSON(json: any): V1Tag {
     return V1TagFromJSONTyped(json, false);
 }

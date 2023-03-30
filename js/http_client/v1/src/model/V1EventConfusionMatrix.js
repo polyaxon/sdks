@@ -74,8 +74,32 @@ class V1EventConfusionMatrix {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EventConfusionMatrix</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EventConfusionMatrix</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['x'])) {
+            throw new Error("Expected the field `x` to be an array in the JSON data but got " + data['x']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['y'])) {
+            throw new Error("Expected the field `y` to be an array in the JSON data but got " + data['y']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['z'])) {
+            throw new Error("Expected the field `z` to be an array in the JSON data but got " + data['z']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<Object>} x

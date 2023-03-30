@@ -3,9 +3,9 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**uploadArtifact**](ArtifactsStoresV1Api.md#uploadArtifact) | **POST** /api/v1/catalogs/{owner}/artifacts/{uuid}/upload | Upload artifact to a store
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**uploadArtifact**](ArtifactsStoresV1Api.md#uploadArtifact) | **POST** /api/v1/catalogs/{owner}/artifacts/{uuid}/upload | Upload artifact to a store |
 
 
 <a name="uploadArtifact"></a>
@@ -56,13 +56,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Unique integer identifier of the entity |
- **uploadfile** | **File**| The file to upload. |
- **path** | **String**| File path query params. | [optional]
- **overwrite** | **Boolean**| File path query params. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Unique integer identifier of the entity | |
+| **uploadfile** | **File**| The file to upload. | |
+| **path** | **String**| File path query params. | [optional] |
+| **overwrite** | **Boolean**| File path query params. | [optional] |
 
 ### Return type
 
@@ -80,8 +80,8 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
 

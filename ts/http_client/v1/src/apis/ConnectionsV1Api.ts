@@ -28,14 +28,16 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ConnectionResponse,
+  V1ListConnectionsResponse,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ConnectionResponse,
     V1ConnectionResponseFromJSON,
     V1ConnectionResponseToJSON,
-    V1ListConnectionsResponse,
     V1ListConnectionsResponseFromJSON,
     V1ListConnectionsResponseToJSON,
 } from '../models';
@@ -97,7 +99,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Create connection
      */
-    async createConnectionRaw(requestParameters: CreateConnectionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
+    async createConnectionRaw(requestParameters: CreateConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createConnection.');
         }
@@ -130,7 +132,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Create connection
      */
-    async createConnection(requestParameters: CreateConnectionRequest, initOverrides?: RequestInit): Promise<V1ConnectionResponse> {
+    async createConnection(requestParameters: CreateConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ConnectionResponse> {
         const response = await this.createConnectionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -138,7 +140,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Delete connection
      */
-    async deleteConnectionRaw(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteConnectionRaw(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteConnection.');
         }
@@ -168,14 +170,14 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Delete connection
      */
-    async deleteConnection(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteConnection(requestParameters: DeleteConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteConnectionRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get connection
      */
-    async getConnectionRaw(requestParameters: GetConnectionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
+    async getConnectionRaw(requestParameters: GetConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getConnection.');
         }
@@ -205,7 +207,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Get connection
      */
-    async getConnection(requestParameters: GetConnectionRequest, initOverrides?: RequestInit): Promise<V1ConnectionResponse> {
+    async getConnection(requestParameters: GetConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ConnectionResponse> {
         const response = await this.getConnectionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -213,7 +215,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * List connections names
      */
-    async listConnectionNamesRaw(requestParameters: ListConnectionNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListConnectionsResponse>> {
+    async listConnectionNamesRaw(requestParameters: ListConnectionNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListConnectionsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listConnectionNames.');
         }
@@ -267,7 +269,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * List connections names
      */
-    async listConnectionNames(requestParameters: ListConnectionNamesRequest, initOverrides?: RequestInit): Promise<V1ListConnectionsResponse> {
+    async listConnectionNames(requestParameters: ListConnectionNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListConnectionsResponse> {
         const response = await this.listConnectionNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -275,7 +277,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * List connections
      */
-    async listConnectionsRaw(requestParameters: ListConnectionsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListConnectionsResponse>> {
+    async listConnectionsRaw(requestParameters: ListConnectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListConnectionsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listConnections.');
         }
@@ -329,7 +331,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * List connections
      */
-    async listConnections(requestParameters: ListConnectionsRequest, initOverrides?: RequestInit): Promise<V1ListConnectionsResponse> {
+    async listConnections(requestParameters: ListConnectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListConnectionsResponse> {
         const response = await this.listConnectionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -337,7 +339,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Patch connection
      */
-    async patchConnectionRaw(requestParameters: PatchConnectionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
+    async patchConnectionRaw(requestParameters: PatchConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchConnection.');
         }
@@ -374,7 +376,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Patch connection
      */
-    async patchConnection(requestParameters: PatchConnectionRequest, initOverrides?: RequestInit): Promise<V1ConnectionResponse> {
+    async patchConnection(requestParameters: PatchConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ConnectionResponse> {
         const response = await this.patchConnectionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -382,7 +384,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Update connection
      */
-    async updateConnectionRaw(requestParameters: UpdateConnectionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
+    async updateConnectionRaw(requestParameters: UpdateConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ConnectionResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateConnection.');
         }
@@ -419,7 +421,7 @@ export class ConnectionsV1Api extends runtime.BaseAPI {
     /**
      * Update connection
      */
-    async updateConnection(requestParameters: UpdateConnectionRequest, initOverrides?: RequestInit): Promise<V1ConnectionResponse> {
+    async updateConnection(requestParameters: UpdateConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ConnectionResponse> {
         const response = await this.updateConnectionRaw(requestParameters, initOverrides);
         return await response.value();
     }

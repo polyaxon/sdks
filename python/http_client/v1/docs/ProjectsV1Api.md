@@ -49,6 +49,7 @@ Archive project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -64,7 +65,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -74,12 +75,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Archive project
         api_instance.archive_project(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->archive_project: %s\n" % e)
 ```
 
@@ -125,6 +126,7 @@ Bookmark project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -140,7 +142,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -150,12 +152,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Bookmark project
         api_instance.bookmark_project(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->bookmark_project: %s\n" % e)
 ```
 
@@ -201,6 +203,7 @@ Create new project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -216,7 +219,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -226,13 +229,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Project() # V1Project | Project body
+    body = polyaxon_sdk.V1Project() # V1Project | Project body
 
     try:
         # Create new project
         api_response = api_instance.create_project(owner, body)
+        print("The response of ProjectsV1Api->create_project:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->create_project: %s\n" % e)
 ```
 
@@ -278,6 +282,7 @@ Create version
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -293,7 +298,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -303,15 +308,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project name
-version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
-body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
+    project = 'project_example' # str | Project name
+    version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
+    body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
 
     try:
         # Create version
         api_response = api_instance.create_version(owner, project, version_kind, body)
+        print("The response of ProjectsV1Api->create_version:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->create_version: %s\n" % e)
 ```
 
@@ -359,6 +365,7 @@ Create new artifact version stage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -374,7 +381,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -384,16 +391,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity namespace
-kind = 'kind_example' # str | Optional kind, only required for an version entity
-name = 'name_example' # str | Name of the entity to apply the stage to
-body = polyaxon_sdk.V1EntityStageBodyRequest() # V1EntityStageBodyRequest | 
+    entity = 'entity_example' # str | Entity namespace
+    kind = 'kind_example' # str | Optional kind, only required for an version entity
+    name = 'name_example' # str | Name of the entity to apply the stage to
+    body = polyaxon_sdk.V1EntityStageBodyRequest() # V1EntityStageBodyRequest | 
 
     try:
         # Create new artifact version stage
         api_response = api_instance.create_version_stage(owner, entity, kind, name, body)
+        print("The response of ProjectsV1Api->create_version_stage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->create_version_stage: %s\n" % e)
 ```
 
@@ -442,6 +450,7 @@ Delete project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -457,7 +466,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -467,12 +476,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Delete project
         api_instance.delete_project(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->delete_project: %s\n" % e)
 ```
 
@@ -518,6 +527,7 @@ Delete version
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -533,7 +543,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -543,14 +553,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-kind = 'kind_example' # str | Version Kind
-name = 'name_example' # str | Sub-entity name
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    kind = 'kind_example' # str | Version Kind
+    name = 'name_example' # str | Sub-entity name
 
     try:
         # Delete version
         api_instance.delete_version(owner, entity, kind, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->delete_version: %s\n" % e)
 ```
 
@@ -598,6 +608,7 @@ Disbale project CI
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -613,7 +624,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -623,12 +634,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Disbale project CI
         api_instance.disable_project_ci(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->disable_project_ci: %s\n" % e)
 ```
 
@@ -674,6 +685,7 @@ Enable project CI
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -689,7 +701,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -699,12 +711,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Enable project CI
         api_instance.enable_project_ci(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->enable_project_ci: %s\n" % e)
 ```
 
@@ -750,6 +762,7 @@ Get project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -765,7 +778,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -775,13 +788,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Get project
         api_response = api_instance.get_project(owner, name)
+        print("The response of ProjectsV1Api->get_project:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->get_project: %s\n" % e)
 ```
 
@@ -827,6 +841,7 @@ Get project activities
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -842,7 +857,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -852,20 +867,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get project activities
         api_response = api_instance.get_project_activities(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of ProjectsV1Api->get_project_activities:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->get_project_activities: %s\n" % e)
 ```
 
@@ -918,6 +934,7 @@ Get Project settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -933,7 +950,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -943,13 +960,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Get Project settings
         api_response = api_instance.get_project_settings(owner, name)
+        print("The response of ProjectsV1Api->get_project_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->get_project_settings: %s\n" % e)
 ```
 
@@ -995,6 +1013,7 @@ Get project stats
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1010,7 +1029,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1020,22 +1039,23 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-kind = 'kind_example' # str | Stats Kind. (optional)
-aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
-groupby = 'groupby_example' # str | Stats group. (optional)
-trunc = 'trunc_example' # str | Stats trunc. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    kind = 'kind_example' # str | Stats Kind. (optional)
+    aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
+    groupby = 'groupby_example' # str | Stats group. (optional)
+    trunc = 'trunc_example' # str | Stats trunc. (optional)
 
     try:
         # Get project stats
         api_response = api_instance.get_project_stats(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+        print("The response of ProjectsV1Api->get_project_stats:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->get_project_stats: %s\n" % e)
 ```
 
@@ -1090,6 +1110,7 @@ Get version
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1105,7 +1126,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1115,15 +1136,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-kind = 'kind_example' # str | Version Kind
-name = 'name_example' # str | Sub-entity name
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    kind = 'kind_example' # str | Version Kind
+    name = 'name_example' # str | Sub-entity name
 
     try:
         # Get version
         api_response = api_instance.get_version(owner, entity, kind, name)
+        print("The response of ProjectsV1Api->get_version:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->get_version: %s\n" % e)
 ```
 
@@ -1171,6 +1193,7 @@ Get version stages
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1186,7 +1209,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1196,15 +1219,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-kind = 'kind_example' # str | Version Kind
-name = 'name_example' # str | Sub-entity name
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    kind = 'kind_example' # str | Version Kind
+    name = 'name_example' # str | Sub-entity name
 
     try:
         # Get version stages
         api_response = api_instance.get_version_stages(owner, entity, kind, name)
+        print("The response of ProjectsV1Api->get_version_stages:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->get_version_stages: %s\n" % e)
 ```
 
@@ -1252,6 +1276,7 @@ List archived projects for user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1267,7 +1292,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1277,17 +1302,18 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     user = 'user_example' # str | User
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List archived projects for user
         api_response = api_instance.list_archived_projects(user, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of ProjectsV1Api->list_archived_projects:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->list_archived_projects: %s\n" % e)
 ```
 
@@ -1337,6 +1363,7 @@ List bookmarked projects for user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1352,7 +1379,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1362,17 +1389,18 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     user = 'user_example' # str | User
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List bookmarked projects for user
         api_response = api_instance.list_bookmarked_projects(user, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of ProjectsV1Api->list_bookmarked_projects:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->list_bookmarked_projects: %s\n" % e)
 ```
 
@@ -1422,6 +1450,7 @@ List project names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1437,7 +1466,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1447,19 +1476,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List project names
         api_response = api_instance.list_project_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of ProjectsV1Api->list_project_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->list_project_names: %s\n" % e)
 ```
 
@@ -1511,6 +1541,7 @@ List projects
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1526,7 +1557,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1536,19 +1567,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List projects
         api_response = api_instance.list_projects(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of ProjectsV1Api->list_projects:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->list_projects: %s\n" % e)
 ```
 
@@ -1600,6 +1632,7 @@ List versions names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1615,7 +1648,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1625,19 +1658,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-kind = 'kind_example' # str | Version Kind
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    kind = 'kind_example' # str | Version Kind
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List versions names
         api_response = api_instance.list_version_names(owner, entity, kind, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of ProjectsV1Api->list_version_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->list_version_names: %s\n" % e)
 ```
 
@@ -1689,6 +1723,7 @@ List versions
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1704,7 +1739,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1714,19 +1749,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-kind = 'kind_example' # str | Version Kind
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    kind = 'kind_example' # str | Version Kind
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List versions
         api_response = api_instance.list_versions(owner, entity, kind, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of ProjectsV1Api->list_versions:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->list_versions: %s\n" % e)
 ```
 
@@ -1778,6 +1814,7 @@ Patch project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1793,7 +1830,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1803,14 +1840,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project_name = 'project_name_example' # str | Required name
-body = polyaxon_sdk.V1Project() # V1Project | Project body
+    project_name = 'project_name_example' # str | Required name
+    body = polyaxon_sdk.V1Project() # V1Project | Project body
 
     try:
         # Patch project
         api_response = api_instance.patch_project(owner, project_name, body)
+        print("The response of ProjectsV1Api->patch_project:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->patch_project: %s\n" % e)
 ```
 
@@ -1857,6 +1895,7 @@ Patch project settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1872,7 +1911,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1882,14 +1921,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project name
-body = polyaxon_sdk.V1ProjectSettings() # V1ProjectSettings | Project settings body
+    project = 'project_example' # str | Project name
+    body = polyaxon_sdk.V1ProjectSettings() # V1ProjectSettings | Project settings body
 
     try:
         # Patch project settings
         api_response = api_instance.patch_project_settings(owner, project, body)
+        print("The response of ProjectsV1Api->patch_project_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->patch_project_settings: %s\n" % e)
 ```
 
@@ -1936,6 +1976,7 @@ Patch version
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1951,7 +1992,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1961,16 +2002,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project name
-version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
-version_name = 'version_name_example' # str | Optional component name, should be a valid fully qualified value: name[:version]
-body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
+    project = 'project_example' # str | Project name
+    version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
+    version_name = 'version_name_example' # str | Optional component name, should be a valid fully qualified value: name[:version]
+    body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
 
     try:
         # Patch version
         api_response = api_instance.patch_version(owner, project, version_kind, version_name, body)
+        print("The response of ProjectsV1Api->patch_version:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->patch_version: %s\n" % e)
 ```
 
@@ -2019,6 +2061,7 @@ Restore project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2034,7 +2077,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2044,12 +2087,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Restore project
         api_instance.restore_project(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->restore_project: %s\n" % e)
 ```
 
@@ -2095,6 +2138,7 @@ Transfer version
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2110,7 +2154,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2120,15 +2164,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project name
-version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
-version_name = 'version_name_example' # str | Optional component name, should be a valid fully qualified value: name[:version]
-body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
+    project = 'project_example' # str | Project name
+    version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
+    version_name = 'version_name_example' # str | Optional component name, should be a valid fully qualified value: name[:version]
+    body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
 
     try:
         # Transfer version
         api_instance.transfer_version(owner, project, version_kind, version_name, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->transfer_version: %s\n" % e)
 ```
 
@@ -2177,6 +2221,7 @@ Unbookmark project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2192,7 +2237,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2202,12 +2247,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namesapce
 
     try:
         # Unbookmark project
         api_instance.unbookmark_project(owner, name)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->unbookmark_project: %s\n" % e)
 ```
 
@@ -2253,6 +2298,7 @@ Update project
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2268,7 +2314,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2278,14 +2324,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project_name = 'project_name_example' # str | Required name
-body = polyaxon_sdk.V1Project() # V1Project | Project body
+    project_name = 'project_name_example' # str | Required name
+    body = polyaxon_sdk.V1Project() # V1Project | Project body
 
     try:
         # Update project
         api_response = api_instance.update_project(owner, project_name, body)
+        print("The response of ProjectsV1Api->update_project:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->update_project: %s\n" % e)
 ```
 
@@ -2332,6 +2379,7 @@ Update project settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2347,7 +2395,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2357,14 +2405,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project name
-body = polyaxon_sdk.V1ProjectSettings() # V1ProjectSettings | Project settings body
+    project = 'project_example' # str | Project name
+    body = polyaxon_sdk.V1ProjectSettings() # V1ProjectSettings | Project settings body
 
     try:
         # Update project settings
         api_response = api_instance.update_project_settings(owner, project, body)
+        print("The response of ProjectsV1Api->update_project_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->update_project_settings: %s\n" % e)
 ```
 
@@ -2411,6 +2460,7 @@ Update version
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2426,7 +2476,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2436,16 +2486,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project name
-version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
-version_name = 'version_name_example' # str | Optional component name, should be a valid fully qualified value: name[:version]
-body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
+    project = 'project_example' # str | Project name
+    version_kind = 'version_kind_example' # str | Optional kind to tell the kind of this version
+    version_name = 'version_name_example' # str | Optional component name, should be a valid fully qualified value: name[:version]
+    body = polyaxon_sdk.V1ProjectVersion() # V1ProjectVersion | Project version body
 
     try:
         # Update version
         api_response = api_instance.update_version(owner, project, version_kind, version_name, body)
+        print("The response of ProjectsV1Api->update_version:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->update_version: %s\n" % e)
 ```
 
@@ -2494,6 +2545,7 @@ Upload artifact to a store via project access
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2509,7 +2561,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2519,16 +2571,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project having access to the store
-uuid = 'uuid_example' # str | Unique integer identifier of the entity
-uploadfile = '/path/to/file' # file | The file to upload.
-path = 'path_example' # str | File path query params. (optional)
-overwrite = True # bool | File path query params. (optional)
+    project = 'project_example' # str | Project having access to the store
+    uuid = 'uuid_example' # str | Unique integer identifier of the entity
+    uploadfile = 'uploadfile_example' # str | The file to upload.
+    path = 'path_example' # str | File path query params. (optional)
+    overwrite = True # bool | File path query params. (optional)
 
     try:
         # Upload artifact to a store via project access
         api_instance.upload_project_artifact(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsV1Api->upload_project_artifact: %s\n" % e)
 ```
 
@@ -2539,7 +2591,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project having access to the store | 
  **uuid** | **str**| Unique integer identifier of the entity | 
- **uploadfile** | **file**| The file to upload. | 
+ **uploadfile** | **str**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
 

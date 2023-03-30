@@ -47,6 +47,15 @@ export interface V1HpLogSpace {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpLogSpace interface.
+ */
+export function instanceOfV1HpLogSpace(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpLogSpaceFromJSON(json: any): V1HpLogSpace {
     return V1HpLogSpaceFromJSONTyped(json, false);
 }

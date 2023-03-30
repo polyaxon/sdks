@@ -76,8 +76,34 @@ class V1Stage {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Stage</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Stage</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        if (data['stage_conditions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['stage_conditions'])) {
+                throw new Error("Expected the field `stage_conditions` to be an array in the JSON data but got " + data['stage_conditions']);
+            }
+            // validate the optional field `stage_conditions` (array)
+            for (const item of data['stage_conditions']) {
+                V1StageCondition.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} uuid

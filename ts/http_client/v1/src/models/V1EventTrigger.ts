@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1EventKind } from './V1EventKind';
 import {
-    V1EventKind,
     V1EventKindFromJSON,
     V1EventKindFromJSONTyped,
     V1EventKindToJSON,
-} from './';
+} from './V1EventKind';
 
 /**
  * 
@@ -52,6 +52,15 @@ export interface V1EventTrigger {
      * @memberof V1EventTrigger
      */
     ref?: string;
+}
+
+/**
+ * Check if a given object implements the V1EventTrigger interface.
+ */
+export function instanceOfV1EventTrigger(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EventTriggerFromJSON(json: any): V1EventTrigger {

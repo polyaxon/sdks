@@ -26,17 +26,19 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1Stages {
-    Testing = 'testing',
-    Staging = 'staging',
-    Production = 'production',
-    Disabled = 'disabled'
-}
+export const V1Stages = {
+    Testing: 'testing',
+    Staging: 'staging',
+    Production: 'production',
+    Disabled: 'disabled'
+} as const;
+export type V1Stages = typeof V1Stages[keyof typeof V1Stages];
+
 
 export function V1StagesFromJSON(json: any): V1Stages {
     return V1StagesFromJSONTyped(json, false);

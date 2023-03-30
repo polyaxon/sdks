@@ -26,33 +26,35 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1Statuses {
-    Created = 'created',
-    Resuming = 'resuming',
-    OnSchedule = 'on_schedule',
-    Compiled = 'compiled',
-    Queued = 'queued',
-    Scheduled = 'scheduled',
-    Starting = 'starting',
-    Running = 'running',
-    Processing = 'processing',
-    Stopping = 'stopping',
-    Failed = 'failed',
-    Stopped = 'stopped',
-    Succeeded = 'succeeded',
-    Skipped = 'skipped',
-    Warning = 'warning',
-    Unschedulable = 'unschedulable',
-    UpstreamFailed = 'upstream_failed',
-    Retrying = 'retrying',
-    Unknown = 'unknown',
-    Done = 'done'
-}
+export const V1Statuses = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type V1Statuses = typeof V1Statuses[keyof typeof V1Statuses];
+
 
 export function V1StatusesFromJSON(json: any): V1Statuses {
     return V1StatusesFromJSONTyped(json, false);

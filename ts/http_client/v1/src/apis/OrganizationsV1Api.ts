@@ -28,38 +28,40 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1EntitiesTags,
+  V1EntitiesTransfer,
+  V1ListActivitiesResponse,
+  V1ListOrganizationMembersResponse,
+  V1ListOrganizationsResponse,
+  V1ListRunsResponse,
+  V1Organization,
+  V1OrganizationMember,
+  V1Run,
+  V1Uuids,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1EntitiesTags,
     V1EntitiesTagsFromJSON,
     V1EntitiesTagsToJSON,
-    V1EntitiesTransfer,
     V1EntitiesTransferFromJSON,
     V1EntitiesTransferToJSON,
-    V1ListActivitiesResponse,
     V1ListActivitiesResponseFromJSON,
     V1ListActivitiesResponseToJSON,
-    V1ListOrganizationMembersResponse,
     V1ListOrganizationMembersResponseFromJSON,
     V1ListOrganizationMembersResponseToJSON,
-    V1ListOrganizationsResponse,
     V1ListOrganizationsResponseFromJSON,
     V1ListOrganizationsResponseToJSON,
-    V1ListRunsResponse,
     V1ListRunsResponseFromJSON,
     V1ListRunsResponseToJSON,
-    V1Organization,
     V1OrganizationFromJSON,
     V1OrganizationToJSON,
-    V1OrganizationMember,
     V1OrganizationMemberFromJSON,
     V1OrganizationMemberToJSON,
-    V1Run,
     V1RunFromJSON,
     V1RunToJSON,
-    V1Uuids,
     V1UuidsFromJSON,
     V1UuidsToJSON,
 } from '../models';
@@ -304,7 +306,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Approve cross-project runs selection
      */
-    async approveOrganizationRunsRaw(requestParameters: ApproveOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async approveOrganizationRunsRaw(requestParameters: ApproveOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling approveOrganizationRuns.');
         }
@@ -337,14 +339,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Approve cross-project runs selection
      */
-    async approveOrganizationRuns(requestParameters: ApproveOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async approveOrganizationRuns(requestParameters: ApproveOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.approveOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Archive cross-project runs selection
      */
-    async archiveOrganizationRunsRaw(requestParameters: ArchiveOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async archiveOrganizationRunsRaw(requestParameters: ArchiveOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling archiveOrganizationRuns.');
         }
@@ -377,14 +379,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Archive cross-project runs selection
      */
-    async archiveOrganizationRuns(requestParameters: ArchiveOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async archiveOrganizationRuns(requestParameters: ArchiveOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.archiveOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Bookmark cross-project runs selection
      */
-    async bookmarkOrganizationRunsRaw(requestParameters: BookmarkOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async bookmarkOrganizationRunsRaw(requestParameters: BookmarkOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling bookmarkOrganizationRuns.');
         }
@@ -417,14 +419,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Bookmark cross-project runs selection
      */
-    async bookmarkOrganizationRuns(requestParameters: BookmarkOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async bookmarkOrganizationRuns(requestParameters: BookmarkOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.bookmarkOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Create organization
      */
-    async createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createOrganization.');
         }
@@ -453,7 +455,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Create organization
      */
-    async createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.createOrganizationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -461,7 +463,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Create organization member
      */
-    async createOrganizationMemberRaw(requestParameters: CreateOrganizationMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async createOrganizationMemberRaw(requestParameters: CreateOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createOrganizationMember.');
         }
@@ -498,7 +500,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Create organization member
      */
-    async createOrganizationMember(requestParameters: CreateOrganizationMemberRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async createOrganizationMember(requestParameters: CreateOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.createOrganizationMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -506,7 +508,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Delete organization
      */
-    async deleteOrganizationRaw(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteOrganizationRaw(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteOrganization.');
         }
@@ -536,14 +538,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Delete organization
      */
-    async deleteOrganization(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteOrganization(requestParameters: DeleteOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteOrganizationRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete organization invitation details
      */
-    async deleteOrganizationInvitationRaw(requestParameters: DeleteOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteOrganizationInvitationRaw(requestParameters: DeleteOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteOrganizationInvitation.');
         }
@@ -597,14 +599,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Delete organization invitation details
      */
-    async deleteOrganizationInvitation(requestParameters: DeleteOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteOrganizationInvitation(requestParameters: DeleteOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteOrganizationInvitationRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete organization member details
      */
-    async deleteOrganizationMemberRaw(requestParameters: DeleteOrganizationMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteOrganizationMemberRaw(requestParameters: DeleteOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteOrganizationMember.');
         }
@@ -634,14 +636,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Delete organization member details
      */
-    async deleteOrganizationMember(requestParameters: DeleteOrganizationMemberRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteOrganizationMember(requestParameters: DeleteOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteOrganizationMemberRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete cross-project runs selection
      */
-    async deleteOrganizationRunsRaw(requestParameters: DeleteOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteOrganizationRunsRaw(requestParameters: DeleteOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteOrganizationRuns.');
         }
@@ -674,14 +676,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Delete cross-project runs selection
      */
-    async deleteOrganizationRuns(requestParameters: DeleteOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteOrganizationRuns(requestParameters: DeleteOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get organization
      */
-    async getOrganizationRaw(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async getOrganizationRaw(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganization.');
         }
@@ -711,7 +713,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization
      */
-    async getOrganization(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async getOrganization(requestParameters: GetOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.getOrganizationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -719,7 +721,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization activities
      */
-    async getOrganizationActivitiesRaw(requestParameters: GetOrganizationActivitiesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
+    async getOrganizationActivitiesRaw(requestParameters: GetOrganizationActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationActivities.');
         }
@@ -773,7 +775,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization activities
      */
-    async getOrganizationActivities(requestParameters: GetOrganizationActivitiesRequest, initOverrides?: RequestInit): Promise<V1ListActivitiesResponse> {
+    async getOrganizationActivities(requestParameters: GetOrganizationActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListActivitiesResponse> {
         const response = await this.getOrganizationActivitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -781,7 +783,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization invitation details
      */
-    async getOrganizationInvitationRaw(requestParameters: GetOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async getOrganizationInvitationRaw(requestParameters: GetOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationInvitation.');
         }
@@ -835,7 +837,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization invitation details
      */
-    async getOrganizationInvitation(requestParameters: GetOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async getOrganizationInvitation(requestParameters: GetOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.getOrganizationInvitationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -843,7 +845,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization member details
      */
-    async getOrganizationMemberRaw(requestParameters: GetOrganizationMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async getOrganizationMemberRaw(requestParameters: GetOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationMember.');
         }
@@ -873,7 +875,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization member details
      */
-    async getOrganizationMember(requestParameters: GetOrganizationMemberRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async getOrganizationMember(requestParameters: GetOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.getOrganizationMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -881,7 +883,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get a run in an organization
      */
-    async getOrganizationRunRaw(requestParameters: GetOrganizationRunRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Run>> {
+    async getOrganizationRunRaw(requestParameters: GetOrganizationRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationRun.');
         }
@@ -911,7 +913,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get a run in an organization
      */
-    async getOrganizationRun(requestParameters: GetOrganizationRunRequest, initOverrides?: RequestInit): Promise<V1Run> {
+    async getOrganizationRun(requestParameters: GetOrganizationRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.getOrganizationRunRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -919,7 +921,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get all runs in an organization
      */
-    async getOrganizationRunsRaw(requestParameters: GetOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
+    async getOrganizationRunsRaw(requestParameters: GetOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationRuns.');
         }
@@ -973,7 +975,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get all runs in an organization
      */
-    async getOrganizationRuns(requestParameters: GetOrganizationRunsRequest, initOverrides?: RequestInit): Promise<V1ListRunsResponse> {
+    async getOrganizationRuns(requestParameters: GetOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
         const response = await this.getOrganizationRunsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -981,7 +983,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization settings
      */
-    async getOrganizationSettingsRaw(requestParameters: GetOrganizationSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async getOrganizationSettingsRaw(requestParameters: GetOrganizationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationSettings.');
         }
@@ -1055,7 +1057,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization settings
      */
-    async getOrganizationSettings(requestParameters: GetOrganizationSettingsRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async getOrganizationSettings(requestParameters: GetOrganizationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.getOrganizationSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1063,7 +1065,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization stats
      */
-    async getOrganizationStatsRaw(requestParameters: GetOrganizationStatsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+    async getOrganizationStatsRaw(requestParameters: GetOrganizationStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationStats.');
         }
@@ -1125,7 +1127,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization stats
      */
-    async getOrganizationStats(requestParameters: GetOrganizationStatsRequest, initOverrides?: RequestInit): Promise<object> {
+    async getOrganizationStats(requestParameters: GetOrganizationStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getOrganizationStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1133,7 +1135,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Invalidate cross-project runs selection
      */
-    async invalidateOrganizationRunsRaw(requestParameters: InvalidateOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async invalidateOrganizationRunsRaw(requestParameters: InvalidateOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling invalidateOrganizationRuns.');
         }
@@ -1166,14 +1168,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Invalidate cross-project runs selection
      */
-    async invalidateOrganizationRuns(requestParameters: InvalidateOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async invalidateOrganizationRuns(requestParameters: InvalidateOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.invalidateOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get organization member names
      */
-    async listOrganizationMemberNamesRaw(requestParameters: ListOrganizationMemberNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListOrganizationMembersResponse>> {
+    async listOrganizationMemberNamesRaw(requestParameters: ListOrganizationMemberNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListOrganizationMembersResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listOrganizationMemberNames.');
         }
@@ -1227,7 +1229,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization member names
      */
-    async listOrganizationMemberNames(requestParameters: ListOrganizationMemberNamesRequest, initOverrides?: RequestInit): Promise<V1ListOrganizationMembersResponse> {
+    async listOrganizationMemberNames(requestParameters: ListOrganizationMemberNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListOrganizationMembersResponse> {
         const response = await this.listOrganizationMemberNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1235,7 +1237,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization members
      */
-    async listOrganizationMembersRaw(requestParameters: ListOrganizationMembersRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListOrganizationMembersResponse>> {
+    async listOrganizationMembersRaw(requestParameters: ListOrganizationMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListOrganizationMembersResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listOrganizationMembers.');
         }
@@ -1289,7 +1291,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Get organization members
      */
-    async listOrganizationMembers(requestParameters: ListOrganizationMembersRequest, initOverrides?: RequestInit): Promise<V1ListOrganizationMembersResponse> {
+    async listOrganizationMembers(requestParameters: ListOrganizationMembersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListOrganizationMembersResponse> {
         const response = await this.listOrganizationMembersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1297,7 +1299,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * List organizations names
      */
-    async listOrganizationNamesRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListOrganizationsResponse>> {
+    async listOrganizationNamesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListOrganizationsResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1319,7 +1321,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * List organizations names
      */
-    async listOrganizationNames(initOverrides?: RequestInit): Promise<V1ListOrganizationsResponse> {
+    async listOrganizationNames(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListOrganizationsResponse> {
         const response = await this.listOrganizationNamesRaw(initOverrides);
         return await response.value();
     }
@@ -1327,7 +1329,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * List organizations
      */
-    async listOrganizationsRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListOrganizationsResponse>> {
+    async listOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListOrganizationsResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1349,7 +1351,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * List organizations
      */
-    async listOrganizations(initOverrides?: RequestInit): Promise<V1ListOrganizationsResponse> {
+    async listOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListOrganizationsResponse> {
         const response = await this.listOrganizationsRaw(initOverrides);
         return await response.value();
     }
@@ -1357,7 +1359,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Organization plan
      */
-    async organizationPlanRaw(requestParameters: OrganizationPlanRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async organizationPlanRaw(requestParameters: OrganizationPlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling organizationPlan.');
         }
@@ -1390,7 +1392,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Organization plan
      */
-    async organizationPlan(requestParameters: OrganizationPlanRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async organizationPlan(requestParameters: OrganizationPlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.organizationPlanRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1398,7 +1400,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch organization
      */
-    async patchOrganizationRaw(requestParameters: PatchOrganizationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async patchOrganizationRaw(requestParameters: PatchOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchOrganization.');
         }
@@ -1431,7 +1433,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch organization
      */
-    async patchOrganization(requestParameters: PatchOrganizationRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async patchOrganization(requestParameters: PatchOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.patchOrganizationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1439,7 +1441,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch organization invitation
      */
-    async patchOrganizationInvitationRaw(requestParameters: PatchOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async patchOrganizationInvitationRaw(requestParameters: PatchOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchOrganizationInvitation.');
         }
@@ -1476,7 +1478,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch organization invitation
      */
-    async patchOrganizationInvitation(requestParameters: PatchOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async patchOrganizationInvitation(requestParameters: PatchOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.patchOrganizationInvitationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1484,7 +1486,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch organization member
      */
-    async patchOrganizationMemberRaw(requestParameters: PatchOrganizationMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async patchOrganizationMemberRaw(requestParameters: PatchOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchOrganizationMember.');
         }
@@ -1525,7 +1527,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch organization member
      */
-    async patchOrganizationMember(requestParameters: PatchOrganizationMemberRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async patchOrganizationMember(requestParameters: PatchOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.patchOrganizationMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1533,7 +1535,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch oranization settings
      */
-    async patchOrganizationSettingsRaw(requestParameters: PatchOrganizationSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async patchOrganizationSettingsRaw(requestParameters: PatchOrganizationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchOrganizationSettings.');
         }
@@ -1566,7 +1568,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Patch oranization settings
      */
-    async patchOrganizationSettings(requestParameters: PatchOrganizationSettingsRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async patchOrganizationSettings(requestParameters: PatchOrganizationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.patchOrganizationSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1574,7 +1576,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Resend organization invitation
      */
-    async resendOrganizationInvitationRaw(requestParameters: ResendOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async resendOrganizationInvitationRaw(requestParameters: ResendOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling resendOrganizationInvitation.');
         }
@@ -1611,7 +1613,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Resend organization invitation
      */
-    async resendOrganizationInvitation(requestParameters: ResendOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async resendOrganizationInvitation(requestParameters: ResendOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.resendOrganizationInvitationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1619,7 +1621,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Restore cross-project runs selection
      */
-    async restoreOrganizationRunsRaw(requestParameters: RestoreOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async restoreOrganizationRunsRaw(requestParameters: RestoreOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restoreOrganizationRuns.');
         }
@@ -1652,14 +1654,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Restore cross-project runs selection
      */
-    async restoreOrganizationRuns(requestParameters: RestoreOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async restoreOrganizationRuns(requestParameters: RestoreOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.restoreOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Stop cross-project runs selection
      */
-    async stopOrganizationRunsRaw(requestParameters: StopOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async stopOrganizationRunsRaw(requestParameters: StopOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling stopOrganizationRuns.');
         }
@@ -1692,14 +1694,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Stop cross-project runs selection
      */
-    async stopOrganizationRuns(requestParameters: StopOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async stopOrganizationRuns(requestParameters: StopOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.stopOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Tag cross-project runs selection
      */
-    async tagOrganizationRunsRaw(requestParameters: TagOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async tagOrganizationRunsRaw(requestParameters: TagOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling tagOrganizationRuns.');
         }
@@ -1732,14 +1734,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Tag cross-project runs selection
      */
-    async tagOrganizationRuns(requestParameters: TagOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async tagOrganizationRuns(requestParameters: TagOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.tagOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Transfer cross-project runs selection to a new project
      */
-    async transferOrganizationRunsRaw(requestParameters: TransferOrganizationRunsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async transferOrganizationRunsRaw(requestParameters: TransferOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling transferOrganizationRuns.');
         }
@@ -1772,14 +1774,14 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Transfer cross-project runs selection to a new project
      */
-    async transferOrganizationRuns(requestParameters: TransferOrganizationRunsRequest, initOverrides?: RequestInit): Promise<void> {
+    async transferOrganizationRuns(requestParameters: TransferOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.transferOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Update organization
      */
-    async updateOrganizationRaw(requestParameters: UpdateOrganizationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async updateOrganizationRaw(requestParameters: UpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateOrganization.');
         }
@@ -1812,7 +1814,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization
      */
-    async updateOrganization(requestParameters: UpdateOrganizationRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async updateOrganization(requestParameters: UpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.updateOrganizationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1820,7 +1822,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization invitation
      */
-    async updateOrganizationInvitationRaw(requestParameters: UpdateOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async updateOrganizationInvitationRaw(requestParameters: UpdateOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateOrganizationInvitation.');
         }
@@ -1857,7 +1859,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization invitation
      */
-    async updateOrganizationInvitation(requestParameters: UpdateOrganizationInvitationRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async updateOrganizationInvitation(requestParameters: UpdateOrganizationInvitationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.updateOrganizationInvitationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1865,7 +1867,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization member
      */
-    async updateOrganizationMemberRaw(requestParameters: UpdateOrganizationMemberRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1OrganizationMember>> {
+    async updateOrganizationMemberRaw(requestParameters: UpdateOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1OrganizationMember>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateOrganizationMember.');
         }
@@ -1906,7 +1908,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization member
      */
-    async updateOrganizationMember(requestParameters: UpdateOrganizationMemberRequest, initOverrides?: RequestInit): Promise<V1OrganizationMember> {
+    async updateOrganizationMember(requestParameters: UpdateOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.updateOrganizationMemberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1914,7 +1916,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization settings
      */
-    async updateOrganizationSettingsRaw(requestParameters: UpdateOrganizationSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Organization>> {
+    async updateOrganizationSettingsRaw(requestParameters: UpdateOrganizationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Organization>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateOrganizationSettings.');
         }
@@ -1947,7 +1949,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     /**
      * Update organization settings
      */
-    async updateOrganizationSettings(requestParameters: UpdateOrganizationSettingsRequest, initOverrides?: RequestInit): Promise<V1Organization> {
+    async updateOrganizationSettings(requestParameters: UpdateOrganizationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Organization> {
         const response = await this.updateOrganizationSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }

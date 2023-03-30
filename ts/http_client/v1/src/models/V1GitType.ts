@@ -53,6 +53,15 @@ export interface V1GitType {
     flags?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1GitType interface.
+ */
+export function instanceOfV1GitType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1GitTypeFromJSON(json: any): V1GitType {
     return V1GitTypeFromJSONTyped(json, false);
 }

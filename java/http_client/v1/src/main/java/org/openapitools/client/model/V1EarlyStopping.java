@@ -34,14 +34,33 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1DiffStoppingPolicy;
 import org.openapitools.client.model.V1FailureEarlyStopping;
 import org.openapitools.client.model.V1MedianStoppingPolicy;
 import org.openapitools.client.model.V1MetricEarlyStopping;
 import org.openapitools.client.model.V1TruncationStoppingPolicy;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1EarlyStopping
@@ -68,6 +87,8 @@ public class V1EarlyStopping {
   @SerializedName(SERIALIZED_NAME_FAILURE)
   private V1FailureEarlyStopping failure;
 
+  public V1EarlyStopping() {
+  }
 
   public V1EarlyStopping median(V1MedianStoppingPolicy median) {
     
@@ -80,7 +101,6 @@ public class V1EarlyStopping {
    * @return median
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1MedianStoppingPolicy getMedian() {
     return median;
@@ -103,7 +123,6 @@ public class V1EarlyStopping {
    * @return diff
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1DiffStoppingPolicy getDiff() {
     return diff;
@@ -126,7 +145,6 @@ public class V1EarlyStopping {
    * @return truncation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1TruncationStoppingPolicy getTruncation() {
     return truncation;
@@ -149,7 +167,6 @@ public class V1EarlyStopping {
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1MetricEarlyStopping getMetric() {
     return metric;
@@ -172,7 +189,6 @@ public class V1EarlyStopping {
    * @return failure
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1FailureEarlyStopping getFailure() {
     return failure;
@@ -182,6 +198,7 @@ public class V1EarlyStopping {
   public void setFailure(V1FailureEarlyStopping failure) {
     this.failure = failure;
   }
+
 
 
   @Override
@@ -229,5 +246,112 @@ public class V1EarlyStopping {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("median");
+    openapiFields.add("diff");
+    openapiFields.add("truncation");
+    openapiFields.add("metric");
+    openapiFields.add("failure");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1EarlyStopping
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1EarlyStopping.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1EarlyStopping is not found in the empty JSON string", V1EarlyStopping.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1EarlyStopping.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1EarlyStopping` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `median`
+      if (jsonObj.get("median") != null && !jsonObj.get("median").isJsonNull()) {
+        V1MedianStoppingPolicy.validateJsonObject(jsonObj.getAsJsonObject("median"));
+      }
+      // validate the optional field `diff`
+      if (jsonObj.get("diff") != null && !jsonObj.get("diff").isJsonNull()) {
+        V1DiffStoppingPolicy.validateJsonObject(jsonObj.getAsJsonObject("diff"));
+      }
+      // validate the optional field `truncation`
+      if (jsonObj.get("truncation") != null && !jsonObj.get("truncation").isJsonNull()) {
+        V1TruncationStoppingPolicy.validateJsonObject(jsonObj.getAsJsonObject("truncation"));
+      }
+      // validate the optional field `metric`
+      if (jsonObj.get("metric") != null && !jsonObj.get("metric").isJsonNull()) {
+        V1MetricEarlyStopping.validateJsonObject(jsonObj.getAsJsonObject("metric"));
+      }
+      // validate the optional field `failure`
+      if (jsonObj.get("failure") != null && !jsonObj.get("failure").isJsonNull()) {
+        V1FailureEarlyStopping.validateJsonObject(jsonObj.getAsJsonObject("failure"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1EarlyStopping.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1EarlyStopping' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1EarlyStopping> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1EarlyStopping.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1EarlyStopping>() {
+           @Override
+           public void write(JsonWriter out, V1EarlyStopping value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1EarlyStopping read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1EarlyStopping given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1EarlyStopping
+  * @throws IOException if the JSON string is invalid with respect to V1EarlyStopping
+  */
+  public static V1EarlyStopping fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1EarlyStopping.class);
+  }
+
+ /**
+  * Convert an instance of V1EarlyStopping to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

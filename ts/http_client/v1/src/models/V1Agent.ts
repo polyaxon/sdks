@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Statuses } from './V1Statuses';
 import {
-    V1Statuses,
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -130,6 +130,15 @@ export interface V1Agent {
      * @memberof V1Agent
      */
     settings?: object;
+}
+
+/**
+ * Check if a given object implements the V1Agent interface.
+ */
+export function instanceOfV1Agent(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1AgentFromJSON(json: any): V1Agent {

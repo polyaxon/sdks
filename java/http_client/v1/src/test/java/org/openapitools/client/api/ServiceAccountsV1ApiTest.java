@@ -33,8 +33,8 @@ import org.openapitools.client.model.V1ListServiceAccountsResponse;
 import org.openapitools.client.model.V1ListTokenResponse;
 import org.openapitools.client.model.V1ServiceAccount;
 import org.openapitools.client.model.V1Token;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,118 +44,96 @@ import java.util.Map;
 /**
  * API tests for ServiceAccountsV1Api
  */
-@Ignore
+@Disabled
 public class ServiceAccountsV1ApiTest {
 
     private final ServiceAccountsV1Api api = new ServiceAccountsV1Api();
 
-    
     /**
      * Create service account
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createServiceAccountTest() throws ApiException {
         String owner = null;
         V1ServiceAccount body = null;
-                V1ServiceAccount response = api.createServiceAccount(owner, body);
+        V1ServiceAccount response = api.createServiceAccount(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Create service account token
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createServiceAccountTokenTest() throws ApiException {
         String owner = null;
         String entity = null;
         V1Token body = null;
-                V1Token response = api.createServiceAccountToken(owner, entity, body);
+        V1Token response = api.createServiceAccountToken(owner, entity, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete service account
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteServiceAccountTest() throws ApiException {
         String owner = null;
         String uuid = null;
-                api.deleteServiceAccount(owner, uuid);
+        api.deleteServiceAccount(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete service account token
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteServiceAccountTokenTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.deleteServiceAccountToken(owner, entity, uuid);
+        api.deleteServiceAccountToken(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get service account
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getServiceAccountTest() throws ApiException {
         String owner = null;
         String uuid = null;
-                V1ServiceAccount response = api.getServiceAccount(owner, uuid);
+        V1ServiceAccount response = api.getServiceAccount(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get service account token
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getServiceAccountTokenTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1Token response = api.getServiceAccountToken(owner, entity, uuid);
+        V1Token response = api.getServiceAccountToken(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List service accounts names
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listServiceAccountNamesTest() throws ApiException {
@@ -167,17 +145,14 @@ public class ServiceAccountsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListServiceAccountsResponse response = api.listServiceAccountNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListServiceAccountsResponse response = api.listServiceAccountNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List service account tokens
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listServiceAccountTokensTest() throws ApiException {
@@ -189,17 +164,14 @@ public class ServiceAccountsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean noPage = null;
-                V1ListTokenResponse response = api.listServiceAccountTokens(owner, uuid, entity, offset, limit, sort, query, noPage);
+        V1ListTokenResponse response = api.listServiceAccountTokens(owner, uuid, entity, offset, limit, sort, query, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List service accounts
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listServiceAccountsTest() throws ApiException {
@@ -211,34 +183,28 @@ public class ServiceAccountsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListServiceAccountsResponse response = api.listServiceAccounts(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListServiceAccountsResponse response = api.listServiceAccounts(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch service account
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void patchServiceAccountTest() throws ApiException {
         String owner = null;
         String saUuid = null;
         V1ServiceAccount body = null;
-                V1ServiceAccount response = api.patchServiceAccount(owner, saUuid, body);
+        V1ServiceAccount response = api.patchServiceAccount(owner, saUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Patch service account token
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void patchServiceAccountTokenTest() throws ApiException {
@@ -246,34 +212,28 @@ public class ServiceAccountsV1ApiTest {
         String entity = null;
         String tokenUuid = null;
         V1Token body = null;
-                V1Token response = api.patchServiceAccountToken(owner, entity, tokenUuid, body);
+        V1Token response = api.patchServiceAccountToken(owner, entity, tokenUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update service account
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateServiceAccountTest() throws ApiException {
         String owner = null;
         String saUuid = null;
         V1ServiceAccount body = null;
-                V1ServiceAccount response = api.updateServiceAccount(owner, saUuid, body);
+        V1ServiceAccount response = api.updateServiceAccount(owner, saUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update service account token
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateServiceAccountTokenTest() throws ApiException {
@@ -281,8 +241,8 @@ public class ServiceAccountsV1ApiTest {
         String entity = null;
         String tokenUuid = null;
         V1Token body = null;
-                V1Token response = api.updateServiceAccountToken(owner, entity, tokenUuid, body);
+        V1Token response = api.updateServiceAccountToken(owner, entity, tokenUuid, body);
         // TODO: test validations
     }
-    
+
 }

@@ -47,6 +47,15 @@ export interface V1DateTimeSchedule {
     startAt?: Date;
 }
 
+/**
+ * Check if a given object implements the V1DateTimeSchedule interface.
+ */
+export function instanceOfV1DateTimeSchedule(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DateTimeScheduleFromJSON(json: any): V1DateTimeSchedule {
     return V1DateTimeScheduleFromJSONTyped(json, false);
 }

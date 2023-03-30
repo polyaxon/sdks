@@ -34,9 +34,28 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1UserSingup
@@ -63,6 +82,8 @@ public class V1UserSingup {
   @SerializedName(SERIALIZED_NAME_INVITATION_KEY)
   private String invitationKey;
 
+  public V1UserSingup() {
+  }
 
   public V1UserSingup username(String username) {
     
@@ -75,7 +96,6 @@ public class V1UserSingup {
    * @return username
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUsername() {
     return username;
@@ -98,7 +118,6 @@ public class V1UserSingup {
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getEmail() {
     return email;
@@ -121,7 +140,6 @@ public class V1UserSingup {
    * @return organization
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOrganization() {
     return organization;
@@ -144,7 +162,6 @@ public class V1UserSingup {
    * @return password
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPassword() {
     return password;
@@ -167,7 +184,6 @@ public class V1UserSingup {
    * @return invitationKey
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getInvitationKey() {
     return invitationKey;
@@ -177,6 +193,7 @@ public class V1UserSingup {
   public void setInvitationKey(String invitationKey) {
     this.invitationKey = invitationKey;
   }
+
 
 
   @Override
@@ -224,5 +241,107 @@ public class V1UserSingup {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("username");
+    openapiFields.add("email");
+    openapiFields.add("organization");
+    openapiFields.add("password");
+    openapiFields.add("invitation_key");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1UserSingup
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1UserSingup.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1UserSingup is not found in the empty JSON string", V1UserSingup.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1UserSingup.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1UserSingup` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("organization") != null && !jsonObj.get("organization").isJsonNull()) && !jsonObj.get("organization").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization").toString()));
+      }
+      if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+      }
+      if ((jsonObj.get("invitation_key") != null && !jsonObj.get("invitation_key").isJsonNull()) && !jsonObj.get("invitation_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `invitation_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invitation_key").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1UserSingup.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1UserSingup' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1UserSingup> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1UserSingup.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1UserSingup>() {
+           @Override
+           public void write(JsonWriter out, V1UserSingup value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1UserSingup read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1UserSingup given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1UserSingup
+  * @throws IOException if the JSON string is invalid with respect to V1UserSingup
+  */
+  public static V1UserSingup fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1UserSingup.class);
+  }
+
+ /**
+  * Convert an instance of V1UserSingup to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

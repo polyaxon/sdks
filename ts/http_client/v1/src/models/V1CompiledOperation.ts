@@ -27,44 +27,60 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Build } from './V1Build';
 import {
-    V1Build,
     V1BuildFromJSON,
     V1BuildFromJSONTyped,
     V1BuildToJSON,
-    V1Cache,
+} from './V1Build';
+import type { V1Cache } from './V1Cache';
+import {
     V1CacheFromJSON,
     V1CacheFromJSONTyped,
     V1CacheToJSON,
-    V1EventTrigger,
+} from './V1Cache';
+import type { V1EventTrigger } from './V1EventTrigger';
+import {
     V1EventTriggerFromJSON,
     V1EventTriggerFromJSONTyped,
     V1EventTriggerToJSON,
-    V1Hook,
+} from './V1EventTrigger';
+import type { V1Hook } from './V1Hook';
+import {
     V1HookFromJSON,
     V1HookFromJSONTyped,
     V1HookToJSON,
-    V1IO,
+} from './V1Hook';
+import type { V1IO } from './V1IO';
+import {
     V1IOFromJSON,
     V1IOFromJSONTyped,
     V1IOToJSON,
-    V1Join,
+} from './V1IO';
+import type { V1Join } from './V1Join';
+import {
     V1JoinFromJSON,
     V1JoinFromJSONTyped,
     V1JoinToJSON,
-    V1Plugins,
+} from './V1Join';
+import type { V1Plugins } from './V1Plugins';
+import {
     V1PluginsFromJSON,
     V1PluginsFromJSONTyped,
     V1PluginsToJSON,
-    V1Termination,
+} from './V1Plugins';
+import type { V1Termination } from './V1Termination';
+import {
     V1TerminationFromJSON,
     V1TerminationFromJSONTyped,
     V1TerminationToJSON,
-    V1TriggerPolicy,
+} from './V1Termination';
+import type { V1TriggerPolicy } from './V1TriggerPolicy';
+import {
     V1TriggerPolicyFromJSON,
     V1TriggerPolicyFromJSONTyped,
     V1TriggerPolicyToJSON,
-} from './';
+} from './V1TriggerPolicy';
 
 /**
  * 
@@ -228,6 +244,15 @@ export interface V1CompiledOperation {
      * @memberof V1CompiledOperation
      */
     run?: object;
+}
+
+/**
+ * Check if a given object implements the V1CompiledOperation interface.
+ */
+export function instanceOfV1CompiledOperation(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CompiledOperationFromJSON(json: any): V1CompiledOperation {

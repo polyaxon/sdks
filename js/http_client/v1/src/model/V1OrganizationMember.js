@@ -83,8 +83,36 @@ class V1OrganizationMember {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1OrganizationMember</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1OrganizationMember</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
+        }
+        // ensure the json data is a string
+        if (data['user_email'] && !(typeof data['user_email'] === 'string' || data['user_email'] instanceof String)) {
+            throw new Error("Expected the field `user_email` to be a primitive type in the JSON string but got " + data['user_email']);
+        }
+        // ensure the json data is a string
+        if (data['role'] && !(typeof data['role'] === 'string' || data['role'] instanceof String)) {
+            throw new Error("Expected the field `role` to be a primitive type in the JSON string but got " + data['role']);
+        }
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} user

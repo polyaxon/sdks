@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ServiceAccount } from './V1ServiceAccount';
 import {
-    V1ServiceAccount,
     V1ServiceAccountFromJSON,
     V1ServiceAccountFromJSONTyped,
     V1ServiceAccountToJSON,
-} from './';
+} from './V1ServiceAccount';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListServiceAccountsResponse {
      * @memberof V1ListServiceAccountsResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListServiceAccountsResponse interface.
+ */
+export function instanceOfV1ListServiceAccountsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListServiceAccountsResponseFromJSON(json: any): V1ListServiceAccountsResponse {

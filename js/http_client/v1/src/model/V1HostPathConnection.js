@@ -77,8 +77,28 @@ class V1HostPathConnection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1HostPathConnection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1HostPathConnection</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['hostPath'] && !(typeof data['hostPath'] === 'string' || data['hostPath'] instanceof String)) {
+            throw new Error("Expected the field `hostPath` to be a primitive type in the JSON string but got " + data['hostPath']);
+        }
+        // ensure the json data is a string
+        if (data['mountPath'] && !(typeof data['mountPath'] === 'string' || data['mountPath'] instanceof String)) {
+            throw new Error("Expected the field `mountPath` to be a primitive type in the JSON string but got " + data['mountPath']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} hostPath

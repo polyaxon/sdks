@@ -5,20 +5,20 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**uuid** | **String** |  |  [optional]
-**agent** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
-**description** | **String** |  |  [optional]
-**tags** | **List&lt;String&gt;** |  |  [optional]
-**priority** | **Integer** |  |  [optional]
-**concurrency** | **Integer** |  |  [optional]
-**resource** | **String** |  |  [optional]
-**quota** | **String** |  |  [optional]
-**stats** | **Object** |  |  [optional]
-**createdAt** | **OffsetDateTime** |  |  [optional]
-**updatedAt** | **OffsetDateTime** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**uuid** | **String** |  |  [optional] |
+|**agent** | **String** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**tags** | **List&lt;String&gt;** |  |  [optional] |
+|**priority** | **Integer** |  |  [optional] |
+|**concurrency** | **Integer** |  |  [optional] |
+|**resource** | **String** |  |  [optional] |
+|**quota** | **String** |  |  [optional] |
+|**stats** | **Object** |  |  [optional] |
+|**createdAt** | **OffsetDateTime** |  |  [optional] |
+|**updatedAt** | **OffsetDateTime** |  |  [optional] |
 
 
 

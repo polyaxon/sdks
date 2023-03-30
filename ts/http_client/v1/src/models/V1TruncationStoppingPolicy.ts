@@ -73,6 +73,15 @@ export interface V1TruncationStoppingPolicy {
     includeSucceeded?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1TruncationStoppingPolicy interface.
+ */
+export function instanceOfV1TruncationStoppingPolicy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TruncationStoppingPolicyFromJSON(json: any): V1TruncationStoppingPolicy {
     return V1TruncationStoppingPolicyFromJSONTyped(json, false);
 }

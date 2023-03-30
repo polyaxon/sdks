@@ -53,6 +53,15 @@ export interface V1RunConnection {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1RunConnection interface.
+ */
+export function instanceOfV1RunConnection(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RunConnectionFromJSON(json: any): V1RunConnection {
     return V1RunConnectionFromJSONTyped(json, false);
 }

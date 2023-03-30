@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Dashboard } from './V1Dashboard';
 import {
-    V1Dashboard,
     V1DashboardFromJSON,
     V1DashboardFromJSONTyped,
     V1DashboardToJSON,
-} from './';
+} from './V1Dashboard';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListDashboardsResponse {
      * @memberof V1ListDashboardsResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListDashboardsResponse interface.
+ */
+export function instanceOfV1ListDashboardsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListDashboardsResponseFromJSON(json: any): V1ListDashboardsResponse {

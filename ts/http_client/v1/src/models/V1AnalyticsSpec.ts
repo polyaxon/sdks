@@ -59,6 +59,15 @@ export interface V1AnalyticsSpec {
     frequency?: string;
 }
 
+/**
+ * Check if a given object implements the V1AnalyticsSpec interface.
+ */
+export function instanceOfV1AnalyticsSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1AnalyticsSpecFromJSON(json: any): V1AnalyticsSpec {
     return V1AnalyticsSpecFromJSONTyped(json, false);
 }

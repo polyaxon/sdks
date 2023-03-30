@@ -34,8 +34,12 @@ import (
 type SparkDeployMode string
 
 func NewSparkDeployMode(value SparkDeployMode) *SparkDeployMode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated SparkDeployMode.
+func (m SparkDeployMode) Pointer() *SparkDeployMode {
+	return &m
 }
 
 const (

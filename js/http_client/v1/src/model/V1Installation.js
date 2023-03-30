@@ -83,8 +83,44 @@ class V1Installation {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Installation</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Installation</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
+            throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
+        }
+        // ensure the json data is a string
+        if (data['version'] && !(typeof data['version'] === 'string' || data['version'] instanceof String)) {
+            throw new Error("Expected the field `version` to be a primitive type in the JSON string but got " + data['version']);
+        }
+        // ensure the json data is a string
+        if (data['dist'] && !(typeof data['dist'] === 'string' || data['dist'] instanceof String)) {
+            throw new Error("Expected the field `dist` to be a primitive type in the JSON string but got " + data['dist']);
+        }
+        // ensure the json data is a string
+        if (data['host'] && !(typeof data['host'] === 'string' || data['host'] instanceof String)) {
+            throw new Error("Expected the field `host` to be a primitive type in the JSON string but got " + data['host']);
+        }
+        // ensure the json data is a string
+        if (data['hmac'] && !(typeof data['hmac'] === 'string' || data['hmac'] instanceof String)) {
+            throw new Error("Expected the field `hmac` to be a primitive type in the JSON string but got " + data['hmac']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['auth'])) {
+            throw new Error("Expected the field `auth` to be an array in the JSON data but got " + data['auth']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} key

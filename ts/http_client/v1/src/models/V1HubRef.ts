@@ -47,6 +47,15 @@ export interface V1HubRef {
     name?: string;
 }
 
+/**
+ * Check if a given object implements the V1HubRef interface.
+ */
+export function instanceOfV1HubRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HubRefFromJSON(json: any): V1HubRef {
     return V1HubRefFromJSONTyped(json, false);
 }

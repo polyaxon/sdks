@@ -27,60 +27,84 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Dag } from './V1Dag';
 import {
-    V1Dag,
     V1DagFromJSON,
     V1DagFromJSONTyped,
     V1DagToJSON,
-    V1Dask,
+} from './V1Dag';
+import type { V1Dask } from './V1Dask';
+import {
     V1DaskFromJSON,
     V1DaskFromJSONTyped,
     V1DaskToJSON,
-    V1Flink,
+} from './V1Dask';
+import type { V1Flink } from './V1Flink';
+import {
     V1FlinkFromJSON,
     V1FlinkFromJSONTyped,
     V1FlinkToJSON,
-    V1Job,
+} from './V1Flink';
+import type { V1Job } from './V1Job';
+import {
     V1JobFromJSON,
     V1JobFromJSONTyped,
     V1JobToJSON,
-    V1MPIJob,
+} from './V1Job';
+import type { V1MPIJob } from './V1MPIJob';
+import {
     V1MPIJobFromJSON,
     V1MPIJobFromJSONTyped,
     V1MPIJobToJSON,
-    V1MXJob,
+} from './V1MPIJob';
+import type { V1MXJob } from './V1MXJob';
+import {
     V1MXJobFromJSON,
     V1MXJobFromJSONTyped,
     V1MXJobToJSON,
-    V1PaddleJob,
+} from './V1MXJob';
+import type { V1PaddleJob } from './V1PaddleJob';
+import {
     V1PaddleJobFromJSON,
     V1PaddleJobFromJSONTyped,
     V1PaddleJobToJSON,
-    V1PytorchJob,
+} from './V1PaddleJob';
+import type { V1PytorchJob } from './V1PytorchJob';
+import {
     V1PytorchJobFromJSON,
     V1PytorchJobFromJSONTyped,
     V1PytorchJobToJSON,
-    V1Ray,
+} from './V1PytorchJob';
+import type { V1Ray } from './V1Ray';
+import {
     V1RayFromJSON,
     V1RayFromJSONTyped,
     V1RayToJSON,
-    V1Service,
+} from './V1Ray';
+import type { V1Service } from './V1Service';
+import {
     V1ServiceFromJSON,
     V1ServiceFromJSONTyped,
     V1ServiceToJSON,
-    V1Spark,
+} from './V1Service';
+import type { V1Spark } from './V1Spark';
+import {
     V1SparkFromJSON,
     V1SparkFromJSONTyped,
     V1SparkToJSON,
-    V1TFJob,
+} from './V1Spark';
+import type { V1TFJob } from './V1TFJob';
+import {
     V1TFJobFromJSON,
     V1TFJobFromJSONTyped,
     V1TFJobToJSON,
-    V1XGBoostJob,
+} from './V1TFJob';
+import type { V1XGBoostJob } from './V1XGBoostJob';
+import {
     V1XGBoostJobFromJSON,
     V1XGBoostJobFromJSONTyped,
     V1XGBoostJobToJSON,
-} from './';
+} from './V1XGBoostJob';
 
 /**
  * 
@@ -166,6 +190,15 @@ export interface V1RunSchema {
      * @memberof V1RunSchema
      */
     ruy?: V1Ray;
+}
+
+/**
+ * Check if a given object implements the V1RunSchema interface.
+ */
+export function instanceOfV1RunSchema(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RunSchemaFromJSON(json: any): V1RunSchema {

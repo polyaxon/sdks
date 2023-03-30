@@ -87,9 +87,44 @@ type ListServiceAccountTokensOK struct {
 	Payload *service_model.V1ListTokenResponse
 }
 
+// IsSuccess returns true when this list service account tokens o k response has a 2xx status code
+func (o *ListServiceAccountTokensOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list service account tokens o k response has a 3xx status code
+func (o *ListServiceAccountTokensOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account tokens o k response has a 4xx status code
+func (o *ListServiceAccountTokensOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list service account tokens o k response has a 5xx status code
+func (o *ListServiceAccountTokensOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account tokens o k response a status code equal to that given
+func (o *ListServiceAccountTokensOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the list service account tokens o k response
+func (o *ListServiceAccountTokensOK) Code() int {
+	return 200
+}
+
 func (o *ListServiceAccountTokensOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensOK  %+v", 200, o.Payload)
 }
+
+func (o *ListServiceAccountTokensOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensOK  %+v", 200, o.Payload)
+}
+
 func (o *ListServiceAccountTokensOK) GetPayload() *service_model.V1ListTokenResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type ListServiceAccountTokensNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list service account tokens no content response has a 2xx status code
+func (o *ListServiceAccountTokensNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list service account tokens no content response has a 3xx status code
+func (o *ListServiceAccountTokensNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account tokens no content response has a 4xx status code
+func (o *ListServiceAccountTokensNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list service account tokens no content response has a 5xx status code
+func (o *ListServiceAccountTokensNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account tokens no content response a status code equal to that given
+func (o *ListServiceAccountTokensNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the list service account tokens no content response
+func (o *ListServiceAccountTokensNoContent) Code() int {
+	return 204
+}
+
 func (o *ListServiceAccountTokensNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListServiceAccountTokensNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListServiceAccountTokensNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type ListServiceAccountTokensForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list service account tokens forbidden response has a 2xx status code
+func (o *ListServiceAccountTokensForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list service account tokens forbidden response has a 3xx status code
+func (o *ListServiceAccountTokensForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account tokens forbidden response has a 4xx status code
+func (o *ListServiceAccountTokensForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list service account tokens forbidden response has a 5xx status code
+func (o *ListServiceAccountTokensForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account tokens forbidden response a status code equal to that given
+func (o *ListServiceAccountTokensForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the list service account tokens forbidden response
+func (o *ListServiceAccountTokensForbidden) Code() int {
+	return 403
+}
+
 func (o *ListServiceAccountTokensForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListServiceAccountTokensForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListServiceAccountTokensForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type ListServiceAccountTokensNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list service account tokens not found response has a 2xx status code
+func (o *ListServiceAccountTokensNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list service account tokens not found response has a 3xx status code
+func (o *ListServiceAccountTokensNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list service account tokens not found response has a 4xx status code
+func (o *ListServiceAccountTokensNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list service account tokens not found response has a 5xx status code
+func (o *ListServiceAccountTokensNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list service account tokens not found response a status code equal to that given
+func (o *ListServiceAccountTokensNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list service account tokens not found response
+func (o *ListServiceAccountTokensNotFound) Code() int {
+	return 404
+}
+
 func (o *ListServiceAccountTokensNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListServiceAccountTokensNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] listServiceAccountTokensNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListServiceAccountTokensNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type ListServiceAccountTokensDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this list service account tokens default response has a 2xx status code
+func (o *ListServiceAccountTokensDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list service account tokens default response has a 3xx status code
+func (o *ListServiceAccountTokensDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list service account tokens default response has a 4xx status code
+func (o *ListServiceAccountTokensDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list service account tokens default response has a 5xx status code
+func (o *ListServiceAccountTokensDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list service account tokens default response a status code equal to that given
+func (o *ListServiceAccountTokensDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the list service account tokens default response
 func (o *ListServiceAccountTokensDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *ListServiceAccountTokensDefault) Code() int {
 func (o *ListServiceAccountTokensDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] ListServiceAccountTokens default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListServiceAccountTokensDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}/tokens][%d] ListServiceAccountTokens default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListServiceAccountTokensDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

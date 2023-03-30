@@ -71,8 +71,28 @@ class V1S3Type {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1S3Type</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1S3Type</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['bucket'] && !(typeof data['bucket'] === 'string' || data['bucket'] instanceof String)) {
+            throw new Error("Expected the field `bucket` to be a primitive type in the JSON string but got " + data['bucket']);
+        }
+        // ensure the json data is a string
+        if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
+            throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} bucket

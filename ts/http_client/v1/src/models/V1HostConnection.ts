@@ -47,6 +47,15 @@ export interface V1HostConnection {
     insecure?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1HostConnection interface.
+ */
+export function instanceOfV1HostConnection(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HostConnectionFromJSON(json: any): V1HostConnection {
     return V1HostConnectionFromJSONTyped(json, false);
 }

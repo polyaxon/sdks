@@ -77,8 +77,32 @@ class V1Schedule {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Schedule</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Schedule</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `cron`
+        if (data['cron']) { // data not null
+          V1CronSchedule.validateJSON(data['cron']);
+        }
+        // validate the optional field `datetime`
+        if (data['datetime']) { // data not null
+          V1DateTimeSchedule.validateJSON(data['datetime']);
+        }
+        // validate the optional field `interval`
+        if (data['interval']) { // data not null
+          V1IntervalSchedule.validateJSON(data['interval']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1CronSchedule} cron

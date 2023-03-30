@@ -28,17 +28,19 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1Compatibility,
+  V1Installation,
+  V1LogHandler,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1Compatibility,
     V1CompatibilityFromJSON,
     V1CompatibilityToJSON,
-    V1Installation,
     V1InstallationFromJSON,
     V1InstallationToJSON,
-    V1LogHandler,
     V1LogHandlerFromJSON,
     V1LogHandlerToJSON,
 } from '../models';
@@ -61,7 +63,7 @@ export class VersionsV1Api extends runtime.BaseAPI {
     /**
      * Get compatibility versions
      */
-    async getCompatibilityRaw(requestParameters: GetCompatibilityRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Compatibility>> {
+    async getCompatibilityRaw(requestParameters: GetCompatibilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Compatibility>> {
         if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
             throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getCompatibility.');
         }
@@ -95,7 +97,7 @@ export class VersionsV1Api extends runtime.BaseAPI {
     /**
      * Get compatibility versions
      */
-    async getCompatibility(requestParameters: GetCompatibilityRequest, initOverrides?: RequestInit): Promise<V1Compatibility> {
+    async getCompatibility(requestParameters: GetCompatibilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Compatibility> {
         const response = await this.getCompatibilityRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -103,7 +105,7 @@ export class VersionsV1Api extends runtime.BaseAPI {
     /**
      * Get installation versions
      */
-    async getInstallationRaw(requestParameters: GetInstallationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Installation>> {
+    async getInstallationRaw(requestParameters: GetInstallationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Installation>> {
         const queryParameters: any = {};
 
         if (requestParameters.auth !== undefined) {
@@ -129,7 +131,7 @@ export class VersionsV1Api extends runtime.BaseAPI {
     /**
      * Get installation versions
      */
-    async getInstallation(requestParameters: GetInstallationRequest, initOverrides?: RequestInit): Promise<V1Installation> {
+    async getInstallation(requestParameters: GetInstallationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Installation> {
         const response = await this.getInstallationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -137,7 +139,7 @@ export class VersionsV1Api extends runtime.BaseAPI {
     /**
      * Get log handler versions
      */
-    async getLogHandlerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1LogHandler>> {
+    async getLogHandlerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1LogHandler>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -159,7 +161,7 @@ export class VersionsV1Api extends runtime.BaseAPI {
     /**
      * Get log handler versions
      */
-    async getLogHandler(initOverrides?: RequestInit): Promise<V1LogHandler> {
+    async getLogHandler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1LogHandler> {
         const response = await this.getLogHandlerRaw(initOverrides);
         return await response.value();
     }

@@ -93,8 +93,40 @@ class V1RunArtifact {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1RunArtifact</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RunArtifact</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
+            throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
+        }
+        // ensure the json data is a string
+        if (data['path'] && !(typeof data['path'] === 'string' || data['path'] instanceof String)) {
+            throw new Error("Expected the field `path` to be a primitive type in the JSON string but got " + data['path']);
+        }
+        // ensure the json data is a string
+        if (data['connection'] && !(typeof data['connection'] === 'string' || data['connection'] instanceof String)) {
+            throw new Error("Expected the field `connection` to be a primitive type in the JSON string but got " + data['connection']);
+        }
+        // ensure the json data is a string
+        if (data['run'] && !(typeof data['run'] === 'string' || data['run'] instanceof String)) {
+            throw new Error("Expected the field `run` to be a primitive type in the JSON string but got " + data['run']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} name

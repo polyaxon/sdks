@@ -66,6 +66,15 @@ export interface V1DiffStoppingPolicy {
     minSamples?: number;
 }
 
+/**
+ * Check if a given object implements the V1DiffStoppingPolicy interface.
+ */
+export function instanceOfV1DiffStoppingPolicy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DiffStoppingPolicyFromJSON(json: any): V1DiffStoppingPolicy {
     return V1DiffStoppingPolicyFromJSONTyped(json, false);
 }

@@ -95,6 +95,15 @@ export interface AgentStateResponseAgentState {
     full?: boolean;
 }
 
+/**
+ * Check if a given object implements the AgentStateResponseAgentState interface.
+ */
+export function instanceOfAgentStateResponseAgentState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function AgentStateResponseAgentStateFromJSON(json: any): AgentStateResponseAgentState {
     return AgentStateResponseAgentStateFromJSONTyped(json, false);
 }

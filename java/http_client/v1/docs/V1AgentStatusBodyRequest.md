@@ -5,11 +5,11 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**owner** | **String** |  |  [optional]
-**uuid** | **String** |  |  [optional]
-**condition** | [**V1StatusCondition**](V1StatusCondition.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**owner** | **String** |  |  [optional] |
+|**uuid** | **String** |  |  [optional] |
+|**condition** | [**V1StatusCondition**](V1StatusCondition.md) |  |  [optional] |
 
 
 

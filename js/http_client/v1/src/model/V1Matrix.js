@@ -93,8 +93,48 @@ class V1Matrix {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Matrix</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Matrix</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `random`
+        if (data['random']) { // data not null
+          V1RandomSearch.validateJSON(data['random']);
+        }
+        // validate the optional field `grid`
+        if (data['grid']) { // data not null
+          V1GridSearch.validateJSON(data['grid']);
+        }
+        // validate the optional field `hyperband`
+        if (data['hyperband']) { // data not null
+          V1Hyperband.validateJSON(data['hyperband']);
+        }
+        // validate the optional field `bayes`
+        if (data['bayes']) { // data not null
+          V1Bayes.validateJSON(data['bayes']);
+        }
+        // validate the optional field `hyperopt`
+        if (data['hyperopt']) { // data not null
+          V1Hyperopt.validateJSON(data['hyperopt']);
+        }
+        // validate the optional field `iterative`
+        if (data['iterative']) { // data not null
+          V1Iterative.validateJSON(data['iterative']);
+        }
+        // validate the optional field `mapping`
+        if (data['mapping']) { // data not null
+          V1Mapping.validateJSON(data['mapping']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1RandomSearch} random

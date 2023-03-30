@@ -26,20 +26,22 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1MatrixKind {
-    Random = 'random',
-    Grid = 'grid',
-    Hyperband = 'hyperband',
-    Bayes = 'bayes',
-    Hyperopt = 'hyperopt',
-    Iterative = 'iterative',
-    Mapping = 'mapping'
-}
+export const V1MatrixKind = {
+    Random: 'random',
+    Grid: 'grid',
+    Hyperband: 'hyperband',
+    Bayes: 'bayes',
+    Hyperopt: 'hyperopt',
+    Iterative: 'iterative',
+    Mapping: 'mapping'
+} as const;
+export type V1MatrixKind = typeof V1MatrixKind[keyof typeof V1MatrixKind];
+
 
 export function V1MatrixKindFromJSON(json: any): V1MatrixKind {
     return V1MatrixKindFromJSONTyped(json, false);

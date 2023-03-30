@@ -86,7 +86,41 @@ A successful response.
 type TransferRunOK struct {
 }
 
+// IsSuccess returns true when this transfer run o k response has a 2xx status code
+func (o *TransferRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this transfer run o k response has a 3xx status code
+func (o *TransferRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer run o k response has a 4xx status code
+func (o *TransferRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this transfer run o k response has a 5xx status code
+func (o *TransferRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer run o k response a status code equal to that given
+func (o *TransferRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the transfer run o k response
+func (o *TransferRunOK) Code() int {
+	return 200
+}
+
 func (o *TransferRunOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunOK ", 200)
+}
+
+func (o *TransferRunOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type TransferRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this transfer run no content response has a 2xx status code
+func (o *TransferRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this transfer run no content response has a 3xx status code
+func (o *TransferRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer run no content response has a 4xx status code
+func (o *TransferRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this transfer run no content response has a 5xx status code
+func (o *TransferRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer run no content response a status code equal to that given
+func (o *TransferRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the transfer run no content response
+func (o *TransferRunNoContent) Code() int {
+	return 204
+}
+
 func (o *TransferRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *TransferRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *TransferRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type TransferRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this transfer run forbidden response has a 2xx status code
+func (o *TransferRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this transfer run forbidden response has a 3xx status code
+func (o *TransferRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer run forbidden response has a 4xx status code
+func (o *TransferRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this transfer run forbidden response has a 5xx status code
+func (o *TransferRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer run forbidden response a status code equal to that given
+func (o *TransferRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the transfer run forbidden response
+func (o *TransferRunForbidden) Code() int {
+	return 403
+}
+
 func (o *TransferRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TransferRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TransferRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type TransferRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this transfer run not found response has a 2xx status code
+func (o *TransferRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this transfer run not found response has a 3xx status code
+func (o *TransferRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer run not found response has a 4xx status code
+func (o *TransferRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this transfer run not found response has a 5xx status code
+func (o *TransferRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer run not found response a status code equal to that given
+func (o *TransferRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the transfer run not found response
+func (o *TransferRunNotFound) Code() int {
+	return 404
+}
+
 func (o *TransferRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *TransferRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] transferRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *TransferRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type TransferRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this transfer run default response has a 2xx status code
+func (o *TransferRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this transfer run default response has a 3xx status code
+func (o *TransferRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this transfer run default response has a 4xx status code
+func (o *TransferRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this transfer run default response has a 5xx status code
+func (o *TransferRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this transfer run default response a status code equal to that given
+func (o *TransferRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the transfer run default response
 func (o *TransferRunDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *TransferRunDefault) Code() int {
 func (o *TransferRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] TransferRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TransferRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/transfer][%d] TransferRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TransferRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

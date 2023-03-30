@@ -71,6 +71,15 @@ export interface V1Installation {
     auth?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1Installation interface.
+ */
+export function instanceOfV1Installation(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1InstallationFromJSON(json: any): V1Installation {
     return V1InstallationFromJSONTyped(json, false);
 }

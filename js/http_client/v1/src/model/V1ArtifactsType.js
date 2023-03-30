@@ -74,8 +74,28 @@ class V1ArtifactsType {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1ArtifactsType</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1ArtifactsType</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['files'])) {
+            throw new Error("Expected the field `files` to be an array in the JSON data but got " + data['files']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['dirs'])) {
+            throw new Error("Expected the field `dirs` to be an array in the JSON data but got " + data['dirs']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<Object>} files

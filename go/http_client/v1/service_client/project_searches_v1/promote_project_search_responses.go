@@ -86,7 +86,41 @@ A successful response.
 type PromoteProjectSearchOK struct {
 }
 
+// IsSuccess returns true when this promote project search o k response has a 2xx status code
+func (o *PromoteProjectSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this promote project search o k response has a 3xx status code
+func (o *PromoteProjectSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project search o k response has a 4xx status code
+func (o *PromoteProjectSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this promote project search o k response has a 5xx status code
+func (o *PromoteProjectSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project search o k response a status code equal to that given
+func (o *PromoteProjectSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the promote project search o k response
+func (o *PromoteProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *PromoteProjectSearchOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK ", 200)
+}
+
+func (o *PromoteProjectSearchOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type PromoteProjectSearchNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this promote project search no content response has a 2xx status code
+func (o *PromoteProjectSearchNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this promote project search no content response has a 3xx status code
+func (o *PromoteProjectSearchNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project search no content response has a 4xx status code
+func (o *PromoteProjectSearchNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this promote project search no content response has a 5xx status code
+func (o *PromoteProjectSearchNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project search no content response a status code equal to that given
+func (o *PromoteProjectSearchNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the promote project search no content response
+func (o *PromoteProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *PromoteProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PromoteProjectSearchNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PromoteProjectSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type PromoteProjectSearchForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this promote project search forbidden response has a 2xx status code
+func (o *PromoteProjectSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this promote project search forbidden response has a 3xx status code
+func (o *PromoteProjectSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project search forbidden response has a 4xx status code
+func (o *PromoteProjectSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this promote project search forbidden response has a 5xx status code
+func (o *PromoteProjectSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project search forbidden response a status code equal to that given
+func (o *PromoteProjectSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the promote project search forbidden response
+func (o *PromoteProjectSearchForbidden) Code() int {
+	return 403
+}
+
 func (o *PromoteProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PromoteProjectSearchForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PromoteProjectSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type PromoteProjectSearchNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this promote project search not found response has a 2xx status code
+func (o *PromoteProjectSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this promote project search not found response has a 3xx status code
+func (o *PromoteProjectSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project search not found response has a 4xx status code
+func (o *PromoteProjectSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this promote project search not found response has a 5xx status code
+func (o *PromoteProjectSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project search not found response a status code equal to that given
+func (o *PromoteProjectSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the promote project search not found response
+func (o *PromoteProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *PromoteProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PromoteProjectSearchNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PromoteProjectSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type PromoteProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this promote project search default response has a 2xx status code
+func (o *PromoteProjectSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this promote project search default response has a 3xx status code
+func (o *PromoteProjectSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this promote project search default response has a 4xx status code
+func (o *PromoteProjectSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this promote project search default response has a 5xx status code
+func (o *PromoteProjectSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this promote project search default response a status code equal to that given
+func (o *PromoteProjectSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the promote project search default response
 func (o *PromoteProjectSearchDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *PromoteProjectSearchDefault) Code() int {
 func (o *PromoteProjectSearchDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] PromoteProjectSearch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PromoteProjectSearchDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] PromoteProjectSearch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PromoteProjectSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

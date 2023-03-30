@@ -47,6 +47,15 @@ export interface V1UrlRef {
     url?: string;
 }
 
+/**
+ * Check if a given object implements the V1UrlRef interface.
+ */
+export function instanceOfV1UrlRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UrlRefFromJSON(json: any): V1UrlRef {
     return V1UrlRefFromJSONTyped(json, false);
 }

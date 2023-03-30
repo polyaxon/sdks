@@ -53,6 +53,15 @@ export interface V1Termination {
     timeout?: number;
 }
 
+/**
+ * Check if a given object implements the V1Termination interface.
+ */
+export function instanceOfV1Termination(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TerminationFromJSON(json: any): V1Termination {
     return V1TerminationFromJSONTyped(json, false);
 }

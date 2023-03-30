@@ -47,6 +47,15 @@ export interface V1Ray {
     spec?: object;
 }
 
+/**
+ * Check if a given object implements the V1Ray interface.
+ */
+export function instanceOfV1Ray(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RayFromJSON(json: any): V1Ray {
     return V1RayFromJSONTyped(json, false);
 }

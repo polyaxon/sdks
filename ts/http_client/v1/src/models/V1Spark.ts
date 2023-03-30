@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { SparkDeployMode } from './SparkDeployMode';
 import {
-    SparkDeployMode,
     SparkDeployModeFromJSON,
     SparkDeployModeFromJSONTyped,
     SparkDeployModeToJSON,
-    V1SparkReplica,
+} from './SparkDeployMode';
+import type { V1SparkReplica } from './V1SparkReplica';
+import {
     V1SparkReplicaFromJSON,
     V1SparkReplicaFromJSONTyped,
     V1SparkReplicaToJSON,
-    V1SparkType,
+} from './V1SparkReplica';
+import type { V1SparkType } from './V1SparkType';
+import {
     V1SparkTypeFromJSON,
     V1SparkTypeFromJSONTyped,
     V1SparkTypeToJSON,
-} from './';
+} from './V1SparkType';
 
 /**
  * 
@@ -151,6 +155,15 @@ export interface V1Spark {
      * @memberof V1Spark
      */
     driver?: V1SparkReplica;
+}
+
+/**
+ * Check if a given object implements the V1Spark interface.
+ */
+export function instanceOfV1Spark(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SparkFromJSON(json: any): V1Spark {

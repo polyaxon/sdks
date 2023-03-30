@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - int: Int resource
  *  - float: Float resource
  * @export
- * @enum {string}
  */
-export enum V1ResourceType {
-    Int = 'int',
-    Float = 'float'
-}
+export const V1ResourceType = {
+    Int: 'int',
+    Float: 'float'
+} as const;
+export type V1ResourceType = typeof V1ResourceType[keyof typeof V1ResourceType];
+
 
 export function V1ResourceTypeFromJSON(json: any): V1ResourceType {
     return V1ResourceTypeFromJSONTyped(json, false);

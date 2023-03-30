@@ -83,6 +83,15 @@ export interface V1Activity {
     object_parent?: string;
 }
 
+/**
+ * Check if a given object implements the V1Activity interface.
+ */
+export function instanceOfV1Activity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ActivityFromJSON(json: any): V1Activity {
     return V1ActivityFromJSONTyped(json, false);
 }

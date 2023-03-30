@@ -94,8 +94,56 @@ class V1RunSettings {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1RunSettings</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RunSettings</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['namespace'] && !(typeof data['namespace'] === 'string' || data['namespace'] instanceof String)) {
+            throw new Error("Expected the field `namespace` to be a primitive type in the JSON string but got " + data['namespace']);
+        }
+        // validate the optional field `agent`
+        if (data['agent']) { // data not null
+          V1SettingsCatalog.validateJSON(data['agent']);
+        }
+        // validate the optional field `queue`
+        if (data['queue']) { // data not null
+          V1SettingsCatalog.validateJSON(data['queue']);
+        }
+        // validate the optional field `artifacts_store`
+        if (data['artifacts_store']) { // data not null
+          V1SettingsCatalog.validateJSON(data['artifacts_store']);
+        }
+        if (data['models']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['models'])) {
+                throw new Error("Expected the field `models` to be an array in the JSON data but got " + data['models']);
+            }
+            // validate the optional field `models` (array)
+            for (const item of data['models']) {
+                V1RunReferenceCatalog.validateJsonObject(item);
+            };
+        }
+        if (data['artifacts']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['artifacts'])) {
+                throw new Error("Expected the field `artifacts` to be an array in the JSON data but got " + data['artifacts']);
+            }
+            // validate the optional field `artifacts` (array)
+            for (const item of data['artifacts']) {
+                V1RunReferenceCatalog.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} namespace

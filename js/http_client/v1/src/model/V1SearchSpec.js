@@ -109,8 +109,60 @@ class V1SearchSpec {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1SearchSpec</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1SearchSpec</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
+            throw new Error("Expected the field `query` to be a primitive type in the JSON string but got " + data['query']);
+        }
+        // ensure the json data is a string
+        if (data['sort'] && !(typeof data['sort'] === 'string' || data['sort'] instanceof String)) {
+            throw new Error("Expected the field `sort` to be a primitive type in the JSON string but got " + data['sort']);
+        }
+        // ensure the json data is a string
+        if (data['groupby'] && !(typeof data['groupby'] === 'string' || data['groupby'] instanceof String)) {
+            throw new Error("Expected the field `groupby` to be a primitive type in the JSON string but got " + data['groupby']);
+        }
+        // ensure the json data is a string
+        if (data['columns'] && !(typeof data['columns'] === 'string' || data['columns'] instanceof String)) {
+            throw new Error("Expected the field `columns` to be a primitive type in the JSON string but got " + data['columns']);
+        }
+        // ensure the json data is a string
+        if (data['layout'] && !(typeof data['layout'] === 'string' || data['layout'] instanceof String)) {
+            throw new Error("Expected the field `layout` to be a primitive type in the JSON string but got " + data['layout']);
+        }
+        // ensure the json data is a string
+        if (data['sections'] && !(typeof data['sections'] === 'string' || data['sections'] instanceof String)) {
+            throw new Error("Expected the field `sections` to be a primitive type in the JSON string but got " + data['sections']);
+        }
+        // ensure the json data is a string
+        if (data['compares'] && !(typeof data['compares'] === 'string' || data['compares'] instanceof String)) {
+            throw new Error("Expected the field `compares` to be a primitive type in the JSON string but got " + data['compares']);
+        }
+        // ensure the json data is a string
+        if (data['heat'] && !(typeof data['heat'] === 'string' || data['heat'] instanceof String)) {
+            throw new Error("Expected the field `heat` to be a primitive type in the JSON string but got " + data['heat']);
+        }
+        // validate the optional field `events`
+        if (data['events']) { // data not null
+          V1DashboardSpec.validateJSON(data['events']);
+        }
+        // validate the optional field `analytics`
+        if (data['analytics']) { // data not null
+          V1AnalyticsSpec.validateJSON(data['analytics']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} query

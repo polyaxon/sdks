@@ -47,6 +47,15 @@ export interface V1DagRef {
     name?: string;
 }
 
+/**
+ * Check if a given object implements the V1DagRef interface.
+ */
+export function instanceOfV1DagRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DagRefFromJSON(json: any): V1DagRef {
     return V1DagRefFromJSONTyped(json, false);
 }

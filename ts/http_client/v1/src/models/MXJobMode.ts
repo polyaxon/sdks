@@ -26,15 +26,17 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum MXJobMode {
-    MxTrain = 'MXTrain',
-    MxTune = 'MXTune'
-}
+export const MXJobMode = {
+    MxTrain: 'MXTrain',
+    MxTune: 'MXTune'
+} as const;
+export type MXJobMode = typeof MXJobMode[keyof typeof MXJobMode];
+
 
 export function MXJobModeFromJSON(json: any): MXJobMode {
     return MXJobModeFromJSONTyped(json, false);

@@ -34,8 +34,12 @@ import (
 type V1ScheduleKind string
 
 func NewV1ScheduleKind(value V1ScheduleKind) *V1ScheduleKind {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1ScheduleKind.
+func (m V1ScheduleKind) Pointer() *V1ScheduleKind {
+	return &m
 }
 
 const (

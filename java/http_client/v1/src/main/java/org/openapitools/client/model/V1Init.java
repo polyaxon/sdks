@@ -34,8 +34,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +42,27 @@ import org.openapitools.client.model.V1DockerfileType;
 import org.openapitools.client.model.V1FileType;
 import org.openapitools.client.model.V1GitType;
 import org.openapitools.client.model.V1TensorboardType;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Init
@@ -68,7 +87,7 @@ public class V1Init {
 
   public static final String SERIALIZED_NAME_FILE = "file";
   @SerializedName(SERIALIZED_NAME_FILE)
-  private V1FileType file;
+  private V1FileType _file;
 
   public static final String SERIALIZED_NAME_TENSORBOARD = "tensorboard";
   @SerializedName(SERIALIZED_NAME_TENSORBOARD)
@@ -98,6 +117,8 @@ public class V1Init {
   @SerializedName(SERIALIZED_NAME_CONTAINER)
   private Object container;
 
+  public V1Init() {
+  }
 
   public V1Init artifacts(V1ArtifactsType artifacts) {
     
@@ -110,7 +131,6 @@ public class V1Init {
    * @return artifacts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ArtifactsType getArtifacts() {
     return artifacts;
@@ -130,7 +150,7 @@ public class V1Init {
 
   public V1Init addPathsItem(Object pathsItem) {
     if (this.paths == null) {
-      this.paths = new ArrayList<Object>();
+      this.paths = new ArrayList<>();
     }
     this.paths.add(pathsItem);
     return this;
@@ -141,7 +161,6 @@ public class V1Init {
    * @return paths
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getPaths() {
     return paths;
@@ -164,7 +183,6 @@ public class V1Init {
    * @return git
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1GitType getGit() {
     return git;
@@ -187,7 +205,6 @@ public class V1Init {
    * @return dockerfile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1DockerfileType getDockerfile() {
     return dockerfile;
@@ -199,26 +216,25 @@ public class V1Init {
   }
 
 
-  public V1Init file(V1FileType file) {
+  public V1Init _file(V1FileType _file) {
     
-    this.file = file;
+    this._file = _file;
     return this;
   }
 
    /**
-   * Get file
-   * @return file
+   * Get _file
+   * @return _file
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1FileType getFile() {
-    return file;
+    return _file;
   }
 
 
-  public void setFile(V1FileType file) {
-    this.file = file;
+  public void setFile(V1FileType _file) {
+    this._file = _file;
   }
 
 
@@ -233,7 +249,6 @@ public class V1Init {
    * @return tensorboard
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1TensorboardType getTensorboard() {
     return tensorboard;
@@ -256,7 +271,6 @@ public class V1Init {
    * @return lineageRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getLineageRef() {
     return lineageRef;
@@ -279,7 +293,6 @@ public class V1Init {
    * @return artifactRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getArtifactRef() {
     return artifactRef;
@@ -302,7 +315,6 @@ public class V1Init {
    * @return modelRef
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getModelRef() {
     return modelRef;
@@ -325,7 +337,6 @@ public class V1Init {
    * @return connection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getConnection() {
     return connection;
@@ -348,7 +359,6 @@ public class V1Init {
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPath() {
     return path;
@@ -371,7 +381,6 @@ public class V1Init {
    * @return container
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getContainer() {
     return container;
@@ -381,6 +390,7 @@ public class V1Init {
   public void setContainer(Object container) {
     this.container = container;
   }
+
 
 
   @Override
@@ -396,7 +406,7 @@ public class V1Init {
         Objects.equals(this.paths, v1Init.paths) &&
         Objects.equals(this.git, v1Init.git) &&
         Objects.equals(this.dockerfile, v1Init.dockerfile) &&
-        Objects.equals(this.file, v1Init.file) &&
+        Objects.equals(this._file, v1Init._file) &&
         Objects.equals(this.tensorboard, v1Init.tensorboard) &&
         Objects.equals(this.lineageRef, v1Init.lineageRef) &&
         Objects.equals(this.artifactRef, v1Init.artifactRef) &&
@@ -408,7 +418,7 @@ public class V1Init {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifacts, paths, git, dockerfile, file, tensorboard, lineageRef, artifactRef, modelRef, connection, path, container);
+    return Objects.hash(artifacts, paths, git, dockerfile, _file, tensorboard, lineageRef, artifactRef, modelRef, connection, path, container);
   }
 
   @Override
@@ -419,7 +429,7 @@ public class V1Init {
     sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    dockerfile: ").append(toIndentedString(dockerfile)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("    tensorboard: ").append(toIndentedString(tensorboard)).append("\n");
     sb.append("    lineageRef: ").append(toIndentedString(lineageRef)).append("\n");
     sb.append("    artifactRef: ").append(toIndentedString(artifactRef)).append("\n");
@@ -442,5 +452,138 @@ public class V1Init {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("artifacts");
+    openapiFields.add("paths");
+    openapiFields.add("git");
+    openapiFields.add("dockerfile");
+    openapiFields.add("file");
+    openapiFields.add("tensorboard");
+    openapiFields.add("lineageRef");
+    openapiFields.add("artifactRef");
+    openapiFields.add("modelRef");
+    openapiFields.add("connection");
+    openapiFields.add("path");
+    openapiFields.add("container");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Init
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Init.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Init is not found in the empty JSON string", V1Init.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Init.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Init` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `artifacts`
+      if (jsonObj.get("artifacts") != null && !jsonObj.get("artifacts").isJsonNull()) {
+        V1ArtifactsType.validateJsonObject(jsonObj.getAsJsonObject("artifacts"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("paths") != null && !jsonObj.get("paths").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `paths` to be an array in the JSON string but got `%s`", jsonObj.get("paths").toString()));
+      }
+      // validate the optional field `git`
+      if (jsonObj.get("git") != null && !jsonObj.get("git").isJsonNull()) {
+        V1GitType.validateJsonObject(jsonObj.getAsJsonObject("git"));
+      }
+      // validate the optional field `dockerfile`
+      if (jsonObj.get("dockerfile") != null && !jsonObj.get("dockerfile").isJsonNull()) {
+        V1DockerfileType.validateJsonObject(jsonObj.getAsJsonObject("dockerfile"));
+      }
+      // validate the optional field `file`
+      if (jsonObj.get("file") != null && !jsonObj.get("file").isJsonNull()) {
+        V1FileType.validateJsonObject(jsonObj.getAsJsonObject("file"));
+      }
+      // validate the optional field `tensorboard`
+      if (jsonObj.get("tensorboard") != null && !jsonObj.get("tensorboard").isJsonNull()) {
+        V1TensorboardType.validateJsonObject(jsonObj.getAsJsonObject("tensorboard"));
+      }
+      if ((jsonObj.get("lineageRef") != null && !jsonObj.get("lineageRef").isJsonNull()) && !jsonObj.get("lineageRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lineageRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lineageRef").toString()));
+      }
+      if ((jsonObj.get("artifactRef") != null && !jsonObj.get("artifactRef").isJsonNull()) && !jsonObj.get("artifactRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `artifactRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactRef").toString()));
+      }
+      if ((jsonObj.get("modelRef") != null && !jsonObj.get("modelRef").isJsonNull()) && !jsonObj.get("modelRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modelRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modelRef").toString()));
+      }
+      if ((jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()) && !jsonObj.get("connection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection").toString()));
+      }
+      if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Init.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Init' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Init> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Init.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Init>() {
+           @Override
+           public void write(JsonWriter out, V1Init value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Init read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Init given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Init
+  * @throws IOException if the JSON string is invalid with respect to V1Init
+  */
+  public static V1Init fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Init.class);
+  }
+
+ /**
+  * Convert an instance of V1Init to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

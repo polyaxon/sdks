@@ -3,21 +3,21 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createTeam**](TeamsV1Api.md#createTeam) | **POST** /api/v1/orgs/{owner}/teams | Create team
-[**createTeamMember**](TeamsV1Api.md#createTeamMember) | **POST** /api/v1/orgs/{owner}/teams/{team}/members | Create team member
-[**deleteTeam**](TeamsV1Api.md#deleteTeam) | **DELETE** /api/v1/orgs/{owner}/teams/{name} | Delete team
-[**deleteTeamMember**](TeamsV1Api.md#deleteTeamMember) | **DELETE** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Delete team member details
-[**getTeam**](TeamsV1Api.md#getTeam) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
-[**getTeamMember**](TeamsV1Api.md#getTeamMember) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
-[**listTeamMembers**](TeamsV1Api.md#listTeamMembers) | **GET** /api/v1/orgs/{owner}/teams/{name}/members | Get team members
-[**listTeamNames**](TeamsV1Api.md#listTeamNames) | **GET** /api/v1/orgs/{owner}/teams/names | List teams names
-[**listTeams**](TeamsV1Api.md#listTeams) | **GET** /api/v1/orgs/{owner}/teams | List teams
-[**patchTeam**](TeamsV1Api.md#patchTeam) | **PATCH** /api/v1/orgs/{owner}/teams/{team.name} | Patch team
-[**patchTeamMember**](TeamsV1Api.md#patchTeamMember) | **PATCH** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Patch team member
-[**updateTeam**](TeamsV1Api.md#updateTeam) | **PUT** /api/v1/orgs/{owner}/teams/{team.name} | Update team
-[**updateTeamMember**](TeamsV1Api.md#updateTeamMember) | **PUT** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Update team member
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createTeam**](TeamsV1Api.md#createTeam) | **POST** /api/v1/orgs/{owner}/teams | Create team |
+| [**createTeamMember**](TeamsV1Api.md#createTeamMember) | **POST** /api/v1/orgs/{owner}/teams/{team}/members | Create team member |
+| [**deleteTeam**](TeamsV1Api.md#deleteTeam) | **DELETE** /api/v1/orgs/{owner}/teams/{name} | Delete team |
+| [**deleteTeamMember**](TeamsV1Api.md#deleteTeamMember) | **DELETE** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Delete team member details |
+| [**getTeam**](TeamsV1Api.md#getTeam) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team |
+| [**getTeamMember**](TeamsV1Api.md#getTeamMember) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details |
+| [**listTeamMembers**](TeamsV1Api.md#listTeamMembers) | **GET** /api/v1/orgs/{owner}/teams/{name}/members | Get team members |
+| [**listTeamNames**](TeamsV1Api.md#listTeamNames) | **GET** /api/v1/orgs/{owner}/teams/names | List teams names |
+| [**listTeams**](TeamsV1Api.md#listTeams) | **GET** /api/v1/orgs/{owner}/teams | List teams |
+| [**patchTeam**](TeamsV1Api.md#patchTeam) | **PATCH** /api/v1/orgs/{owner}/teams/{team.name} | Patch team |
+| [**patchTeamMember**](TeamsV1Api.md#patchTeamMember) | **PATCH** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Patch team member |
+| [**updateTeam**](TeamsV1Api.md#updateTeam) | **PUT** /api/v1/orgs/{owner}/teams/{team.name} | Update team |
+| [**updateTeamMember**](TeamsV1Api.md#updateTeamMember) | **PUT** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Update team member |
 
 
 <a name="createTeam"></a>
@@ -66,10 +66,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Team**](V1Team.md)| Team body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Team**](V1Team.md)| Team body | |
 
 ### Return type
 
@@ -87,11 +87,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="createTeamMember"></a>
 # **createTeamMember**
@@ -140,11 +140,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **team** | **String**| Team |
- **body** | [**V1TeamMember**](V1TeamMember.md)| Team body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **team** | **String**| Team | |
+| **body** | [**V1TeamMember**](V1TeamMember.md)| Team body | |
 
 ### Return type
 
@@ -162,11 +162,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteTeam"></a>
 # **deleteTeam**
@@ -213,10 +213,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Component under namesapce |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Component under namesapce | |
 
 ### Return type
 
@@ -234,11 +234,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteTeamMember"></a>
 # **deleteTeamMember**
@@ -286,11 +286,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **team** | **String**| Team under namesapce |
- **user** | **String**| Member under team |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **team** | **String**| Team under namesapce | |
+| **user** | **String**| Member under team | |
 
 ### Return type
 
@@ -308,11 +308,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getTeam"></a>
 # **getTeam**
@@ -360,10 +360,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Component under namesapce |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Component under namesapce | |
 
 ### Return type
 
@@ -381,11 +381,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getTeamMember"></a>
 # **getTeamMember**
@@ -434,11 +434,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **team** | **String**| Team under namesapce |
- **user** | **String**| Member under team |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **team** | **String**| Team under namesapce | |
+| **user** | **String**| Member under team | |
 
 ### Return type
 
@@ -456,11 +456,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listTeamMembers"></a>
 # **listTeamMembers**
@@ -515,17 +515,17 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Entity managing the resource |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Entity managing the resource | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -543,11 +543,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listTeamNames"></a>
 # **listTeamNames**
@@ -601,16 +601,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -628,11 +628,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listTeams"></a>
 # **listTeams**
@@ -686,16 +686,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -713,11 +713,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchTeam"></a>
 # **patchTeam**
@@ -766,11 +766,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **teamName** | **String**| Name |
- **body** | [**V1Team**](V1Team.md)| Team body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **teamName** | **String**| Name | |
+| **body** | [**V1Team**](V1Team.md)| Team body | |
 
 ### Return type
 
@@ -788,11 +788,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchTeamMember"></a>
 # **patchTeamMember**
@@ -842,12 +842,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **team** | **String**| Team |
- **memberUser** | **String**| User |
- **body** | [**V1TeamMember**](V1TeamMember.md)| Team body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **team** | **String**| Team | |
+| **memberUser** | **String**| User | |
+| **body** | [**V1TeamMember**](V1TeamMember.md)| Team body | |
 
 ### Return type
 
@@ -865,11 +865,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateTeam"></a>
 # **updateTeam**
@@ -918,11 +918,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **teamName** | **String**| Name |
- **body** | [**V1Team**](V1Team.md)| Team body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **teamName** | **String**| Name | |
+| **body** | [**V1Team**](V1Team.md)| Team body | |
 
 ### Return type
 
@@ -940,11 +940,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateTeamMember"></a>
 # **updateTeamMember**
@@ -994,12 +994,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **team** | **String**| Team |
- **memberUser** | **String**| User |
- **body** | [**V1TeamMember**](V1TeamMember.md)| Team body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **team** | **String**| Team | |
+| **memberUser** | **String**| User | |
+| **body** | [**V1TeamMember**](V1TeamMember.md)| Team body | |
 
 ### Return type
 
@@ -1017,9 +1017,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

@@ -68,8 +68,24 @@ class V1Auth {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Auth</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Auth</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['token'] && !(typeof data['token'] === 'string' || data['token'] instanceof String)) {
+            throw new Error("Expected the field `token` to be a primitive type in the JSON string but got " + data['token']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} token

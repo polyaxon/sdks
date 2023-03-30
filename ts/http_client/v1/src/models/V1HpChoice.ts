@@ -47,6 +47,15 @@ export interface V1HpChoice {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpChoice interface.
+ */
+export function instanceOfV1HpChoice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpChoiceFromJSON(json: any): V1HpChoice {
     return V1HpChoiceFromJSONTyped(json, false);
 }

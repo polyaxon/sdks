@@ -71,6 +71,15 @@ export interface V1IntervalSchedule {
     dependsOnPast?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1IntervalSchedule interface.
+ */
+export function instanceOfV1IntervalSchedule(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1IntervalScheduleFromJSON(json: any): V1IntervalSchedule {
     return V1IntervalScheduleFromJSONTyped(json, false);
 }

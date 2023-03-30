@@ -87,9 +87,44 @@ type PatchProjectOK struct {
 	Payload *service_model.V1Project
 }
 
+// IsSuccess returns true when this patch project o k response has a 2xx status code
+func (o *PatchProjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch project o k response has a 3xx status code
+func (o *PatchProjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project o k response has a 4xx status code
+func (o *PatchProjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch project o k response has a 5xx status code
+func (o *PatchProjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project o k response a status code equal to that given
+func (o *PatchProjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch project o k response
+func (o *PatchProjectOK) Code() int {
+	return 200
+}
+
 func (o *PatchProjectOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchProjectOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchProjectOK) GetPayload() *service_model.V1Project {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchProjectNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project no content response has a 2xx status code
+func (o *PatchProjectNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch project no content response has a 3xx status code
+func (o *PatchProjectNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project no content response has a 4xx status code
+func (o *PatchProjectNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch project no content response has a 5xx status code
+func (o *PatchProjectNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project no content response a status code equal to that given
+func (o *PatchProjectNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch project no content response
+func (o *PatchProjectNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchProjectNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchProjectNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchProjectNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchProjectForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project forbidden response has a 2xx status code
+func (o *PatchProjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch project forbidden response has a 3xx status code
+func (o *PatchProjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project forbidden response has a 4xx status code
+func (o *PatchProjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch project forbidden response has a 5xx status code
+func (o *PatchProjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project forbidden response a status code equal to that given
+func (o *PatchProjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch project forbidden response
+func (o *PatchProjectForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchProjectForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchProjectForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchProjectForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchProjectNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project not found response has a 2xx status code
+func (o *PatchProjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch project not found response has a 3xx status code
+func (o *PatchProjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project not found response has a 4xx status code
+func (o *PatchProjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch project not found response has a 5xx status code
+func (o *PatchProjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project not found response a status code equal to that given
+func (o *PatchProjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch project not found response
+func (o *PatchProjectNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchProjectNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchProjectNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] patchProjectNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchProjectNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchProjectDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch project default response has a 2xx status code
+func (o *PatchProjectDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch project default response has a 3xx status code
+func (o *PatchProjectDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch project default response has a 4xx status code
+func (o *PatchProjectDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch project default response has a 5xx status code
+func (o *PatchProjectDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch project default response a status code equal to that given
+func (o *PatchProjectDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch project default response
 func (o *PatchProjectDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchProjectDefault) Code() int {
 func (o *PatchProjectDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] PatchProject default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchProjectDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project.name}][%d] PatchProject default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchProjectDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

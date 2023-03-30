@@ -161,8 +161,108 @@ class V1Schemas {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Schemas</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Schemas</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `earlyStopping`
+        if (data['earlyStopping']) { // data not null
+          V1EarlyStopping.validateJSON(data['earlyStopping']);
+        }
+        // validate the optional field `matrix`
+        if (data['matrix']) { // data not null
+          V1Matrix.validateJSON(data['matrix']);
+        }
+        // validate the optional field `run`
+        if (data['run']) { // data not null
+          V1RunSchema.validateJSON(data['run']);
+        }
+        // validate the optional field `operation`
+        if (data['operation']) { // data not null
+          V1Operation.validateJSON(data['operation']);
+        }
+        // validate the optional field `compiledOperation`
+        if (data['compiledOperation']) { // data not null
+          V1CompiledOperation.validateJSON(data['compiledOperation']);
+        }
+        // validate the optional field `schedule`
+        if (data['schedule']) { // data not null
+          V1Schedule.validateJSON(data['schedule']);
+        }
+        // validate the optional field `connectionSchema`
+        if (data['connectionSchema']) { // data not null
+          V1ConnectionSchema.validateJSON(data['connectionSchema']);
+        }
+        // validate the optional field `hpParams`
+        if (data['hpParams']) { // data not null
+          V1HpParams.validateJSON(data['hpParams']);
+        }
+        // validate the optional field `reference`
+        if (data['reference']) { // data not null
+          V1Reference.validateJSON(data['reference']);
+        }
+        // validate the optional field `artifactsMount`
+        if (data['artifactsMount']) { // data not null
+          V1ArtifactsMount.validateJSON(data['artifactsMount']);
+        }
+        // validate the optional field `polyaxonSidecarContainer`
+        if (data['polyaxonSidecarContainer']) { // data not null
+          V1PolyaxonSidecarContainer.validateJSON(data['polyaxonSidecarContainer']);
+        }
+        // validate the optional field `polyaxonInitContainer`
+        if (data['polyaxonInitContainer']) { // data not null
+          V1PolyaxonInitContainer.validateJSON(data['polyaxonInitContainer']);
+        }
+        // validate the optional field `artifacs`
+        if (data['artifacs']) { // data not null
+          V1ArtifactsType.validateJSON(data['artifacs']);
+        }
+        // validate the optional field `wasb`
+        if (data['wasb']) { // data not null
+          V1WasbType.validateJSON(data['wasb']);
+        }
+        // validate the optional field `gcs`
+        if (data['gcs']) { // data not null
+          V1GcsType.validateJSON(data['gcs']);
+        }
+        // validate the optional field `s3`
+        if (data['s3']) { // data not null
+          V1S3Type.validateJSON(data['s3']);
+        }
+        // validate the optional field `auth`
+        if (data['auth']) { // data not null
+          V1AuthType.validateJSON(data['auth']);
+        }
+        // validate the optional field `uri`
+        if (data['uri']) { // data not null
+          V1UriType.validateJSON(data['uri']);
+        }
+        // validate the optional field `k8sResource`
+        if (data['k8sResource']) { // data not null
+          V1K8sResourceType.validateJSON(data['k8sResource']);
+        }
+        // validate the optional field `connection`
+        if (data['connection']) { // data not null
+          V1ConnectionType.validateJSON(data['connection']);
+        }
+        // validate the optional field `eventType`
+        if (data['eventType']) { // data not null
+          V1EventType.validateJSON(data['eventType']);
+        }
+        // validate the optional field `event`
+        if (data['event']) { // data not null
+          V1Event.validateJSON(data['event']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1EarlyStopping} earlyStopping

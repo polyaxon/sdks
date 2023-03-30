@@ -87,9 +87,44 @@ type PatchTagOK struct {
 	Payload *service_model.V1Tag
 }
 
+// IsSuccess returns true when this patch tag o k response has a 2xx status code
+func (o *PatchTagOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch tag o k response has a 3xx status code
+func (o *PatchTagOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch tag o k response has a 4xx status code
+func (o *PatchTagOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch tag o k response has a 5xx status code
+func (o *PatchTagOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch tag o k response a status code equal to that given
+func (o *PatchTagOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch tag o k response
+func (o *PatchTagOK) Code() int {
+	return 200
+}
+
 func (o *PatchTagOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchTagOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchTagOK) GetPayload() *service_model.V1Tag {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchTagNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch tag no content response has a 2xx status code
+func (o *PatchTagNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch tag no content response has a 3xx status code
+func (o *PatchTagNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch tag no content response has a 4xx status code
+func (o *PatchTagNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch tag no content response has a 5xx status code
+func (o *PatchTagNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch tag no content response a status code equal to that given
+func (o *PatchTagNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch tag no content response
+func (o *PatchTagNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchTagNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchTagNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchTagNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchTagForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch tag forbidden response has a 2xx status code
+func (o *PatchTagForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch tag forbidden response has a 3xx status code
+func (o *PatchTagForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch tag forbidden response has a 4xx status code
+func (o *PatchTagForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch tag forbidden response has a 5xx status code
+func (o *PatchTagForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch tag forbidden response a status code equal to that given
+func (o *PatchTagForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch tag forbidden response
+func (o *PatchTagForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchTagForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchTagForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchTagForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchTagNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch tag not found response has a 2xx status code
+func (o *PatchTagNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch tag not found response has a 3xx status code
+func (o *PatchTagNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch tag not found response has a 4xx status code
+func (o *PatchTagNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch tag not found response has a 5xx status code
+func (o *PatchTagNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch tag not found response a status code equal to that given
+func (o *PatchTagNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch tag not found response
+func (o *PatchTagNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchTagNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchTagNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchTagNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch tag default response has a 2xx status code
+func (o *PatchTagDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch tag default response has a 3xx status code
+func (o *PatchTagDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch tag default response has a 4xx status code
+func (o *PatchTagDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch tag default response has a 5xx status code
+func (o *PatchTagDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch tag default response a status code equal to that given
+func (o *PatchTagDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch tag default response
 func (o *PatchTagDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchTagDefault) Code() int {
 func (o *PatchTagDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] PatchTag default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchTagDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] PatchTag default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchTagDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

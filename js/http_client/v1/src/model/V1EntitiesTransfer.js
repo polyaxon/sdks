@@ -71,8 +71,28 @@ class V1EntitiesTransfer {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EntitiesTransfer</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntitiesTransfer</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['uuids'])) {
+            throw new Error("Expected the field `uuids` to be an array in the JSON data but got " + data['uuids']);
+        }
+        // ensure the json data is a string
+        if (data['project'] && !(typeof data['project'] === 'string' || data['project'] instanceof String)) {
+            throw new Error("Expected the field `project` to be a primitive type in the JSON string but got " + data['project']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} uuids

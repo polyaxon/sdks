@@ -28,35 +28,37 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1EntityStageBodyRequest,
+  V1ListActivitiesResponse,
+  V1ListBookmarksResponse,
+  V1ListProjectVersionsResponse,
+  V1ListProjectsResponse,
+  V1Project,
+  V1ProjectSettings,
+  V1ProjectVersion,
+  V1Stage,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1EntityStageBodyRequest,
     V1EntityStageBodyRequestFromJSON,
     V1EntityStageBodyRequestToJSON,
-    V1ListActivitiesResponse,
     V1ListActivitiesResponseFromJSON,
     V1ListActivitiesResponseToJSON,
-    V1ListBookmarksResponse,
     V1ListBookmarksResponseFromJSON,
     V1ListBookmarksResponseToJSON,
-    V1ListProjectVersionsResponse,
     V1ListProjectVersionsResponseFromJSON,
     V1ListProjectVersionsResponseToJSON,
-    V1ListProjectsResponse,
     V1ListProjectsResponseFromJSON,
     V1ListProjectsResponseToJSON,
-    V1Project,
     V1ProjectFromJSON,
     V1ProjectToJSON,
-    V1ProjectSettings,
     V1ProjectSettingsFromJSON,
     V1ProjectSettingsToJSON,
-    V1ProjectVersion,
     V1ProjectVersionFromJSON,
     V1ProjectVersionToJSON,
-    V1Stage,
     V1StageFromJSON,
     V1StageToJSON,
 } from '../models';
@@ -300,7 +302,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Archive project
      */
-    async archiveProjectRaw(requestParameters: ArchiveProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async archiveProjectRaw(requestParameters: ArchiveProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling archiveProject.');
         }
@@ -330,14 +332,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Archive project
      */
-    async archiveProject(requestParameters: ArchiveProjectRequest, initOverrides?: RequestInit): Promise<void> {
+    async archiveProject(requestParameters: ArchiveProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.archiveProjectRaw(requestParameters, initOverrides);
     }
 
     /**
      * Bookmark project
      */
-    async bookmarkProjectRaw(requestParameters: BookmarkProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async bookmarkProjectRaw(requestParameters: BookmarkProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling bookmarkProject.');
         }
@@ -367,14 +369,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Bookmark project
      */
-    async bookmarkProject(requestParameters: BookmarkProjectRequest, initOverrides?: RequestInit): Promise<void> {
+    async bookmarkProject(requestParameters: BookmarkProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.bookmarkProjectRaw(requestParameters, initOverrides);
     }
 
     /**
      * Create new project
      */
-    async createProjectRaw(requestParameters: CreateProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Project>> {
+    async createProjectRaw(requestParameters: CreateProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Project>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createProject.');
         }
@@ -407,7 +409,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Create new project
      */
-    async createProject(requestParameters: CreateProjectRequest, initOverrides?: RequestInit): Promise<V1Project> {
+    async createProject(requestParameters: CreateProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Project> {
         const response = await this.createProjectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -415,7 +417,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Create version
      */
-    async createVersionRaw(requestParameters: CreateVersionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectVersion>> {
+    async createVersionRaw(requestParameters: CreateVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectVersion>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createVersion.');
         }
@@ -456,7 +458,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Create version
      */
-    async createVersion(requestParameters: CreateVersionRequest, initOverrides?: RequestInit): Promise<V1ProjectVersion> {
+    async createVersion(requestParameters: CreateVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectVersion> {
         const response = await this.createVersionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -464,7 +466,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Create new artifact version stage
      */
-    async createVersionStageRaw(requestParameters: CreateVersionStageRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Stage>> {
+    async createVersionStageRaw(requestParameters: CreateVersionStageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Stage>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createVersionStage.');
         }
@@ -509,7 +511,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Create new artifact version stage
      */
-    async createVersionStage(requestParameters: CreateVersionStageRequest, initOverrides?: RequestInit): Promise<V1Stage> {
+    async createVersionStage(requestParameters: CreateVersionStageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Stage> {
         const response = await this.createVersionStageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -517,7 +519,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Delete project
      */
-    async deleteProjectRaw(requestParameters: DeleteProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteProjectRaw(requestParameters: DeleteProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteProject.');
         }
@@ -547,14 +549,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Delete project
      */
-    async deleteProject(requestParameters: DeleteProjectRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteProject(requestParameters: DeleteProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteProjectRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete version
      */
-    async deleteVersionRaw(requestParameters: DeleteVersionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteVersionRaw(requestParameters: DeleteVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteVersion.');
         }
@@ -592,14 +594,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Delete version
      */
-    async deleteVersion(requestParameters: DeleteVersionRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteVersion(requestParameters: DeleteVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteVersionRaw(requestParameters, initOverrides);
     }
 
     /**
      * Disbale project CI
      */
-    async disableProjectCIRaw(requestParameters: DisableProjectCIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async disableProjectCIRaw(requestParameters: DisableProjectCIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling disableProjectCI.');
         }
@@ -629,14 +631,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Disbale project CI
      */
-    async disableProjectCI(requestParameters: DisableProjectCIRequest, initOverrides?: RequestInit): Promise<void> {
+    async disableProjectCI(requestParameters: DisableProjectCIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.disableProjectCIRaw(requestParameters, initOverrides);
     }
 
     /**
      * Enable project CI
      */
-    async enableProjectCIRaw(requestParameters: EnableProjectCIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async enableProjectCIRaw(requestParameters: EnableProjectCIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling enableProjectCI.');
         }
@@ -666,14 +668,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Enable project CI
      */
-    async enableProjectCI(requestParameters: EnableProjectCIRequest, initOverrides?: RequestInit): Promise<void> {
+    async enableProjectCI(requestParameters: EnableProjectCIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.enableProjectCIRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get project
      */
-    async getProjectRaw(requestParameters: GetProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Project>> {
+    async getProjectRaw(requestParameters: GetProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Project>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getProject.');
         }
@@ -703,7 +705,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get project
      */
-    async getProject(requestParameters: GetProjectRequest, initOverrides?: RequestInit): Promise<V1Project> {
+    async getProject(requestParameters: GetProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Project> {
         const response = await this.getProjectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -711,7 +713,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get project activities
      */
-    async getProjectActivitiesRaw(requestParameters: GetProjectActivitiesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
+    async getProjectActivitiesRaw(requestParameters: GetProjectActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getProjectActivities.');
         }
@@ -769,7 +771,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get project activities
      */
-    async getProjectActivities(requestParameters: GetProjectActivitiesRequest, initOverrides?: RequestInit): Promise<V1ListActivitiesResponse> {
+    async getProjectActivities(requestParameters: GetProjectActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListActivitiesResponse> {
         const response = await this.getProjectActivitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -777,7 +779,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get Project settings
      */
-    async getProjectSettingsRaw(requestParameters: GetProjectSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectSettings>> {
+    async getProjectSettingsRaw(requestParameters: GetProjectSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectSettings>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getProjectSettings.');
         }
@@ -807,7 +809,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get Project settings
      */
-    async getProjectSettings(requestParameters: GetProjectSettingsRequest, initOverrides?: RequestInit): Promise<V1ProjectSettings> {
+    async getProjectSettings(requestParameters: GetProjectSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectSettings> {
         const response = await this.getProjectSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -815,7 +817,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get project stats
      */
-    async getProjectStatsRaw(requestParameters: GetProjectStatsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+    async getProjectStatsRaw(requestParameters: GetProjectStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getProjectStats.');
         }
@@ -881,7 +883,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get project stats
      */
-    async getProjectStats(requestParameters: GetProjectStatsRequest, initOverrides?: RequestInit): Promise<object> {
+    async getProjectStats(requestParameters: GetProjectStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getProjectStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -889,7 +891,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get version
      */
-    async getVersionRaw(requestParameters: GetVersionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectVersion>> {
+    async getVersionRaw(requestParameters: GetVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectVersion>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getVersion.');
         }
@@ -927,7 +929,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get version
      */
-    async getVersion(requestParameters: GetVersionRequest, initOverrides?: RequestInit): Promise<V1ProjectVersion> {
+    async getVersion(requestParameters: GetVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectVersion> {
         const response = await this.getVersionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -935,7 +937,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get version stages
      */
-    async getVersionStagesRaw(requestParameters: GetVersionStagesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Stage>> {
+    async getVersionStagesRaw(requestParameters: GetVersionStagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Stage>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getVersionStages.');
         }
@@ -973,7 +975,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Get version stages
      */
-    async getVersionStages(requestParameters: GetVersionStagesRequest, initOverrides?: RequestInit): Promise<V1Stage> {
+    async getVersionStages(requestParameters: GetVersionStagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Stage> {
         const response = await this.getVersionStagesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -981,7 +983,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List archived projects for user
      */
-    async listArchivedProjectsRaw(requestParameters: ListArchivedProjectsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListProjectsResponse>> {
+    async listArchivedProjectsRaw(requestParameters: ListArchivedProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListProjectsResponse>> {
         if (requestParameters.user === null || requestParameters.user === undefined) {
             throw new runtime.RequiredError('user','Required parameter requestParameters.user was null or undefined when calling listArchivedProjects.');
         }
@@ -1027,7 +1029,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List archived projects for user
      */
-    async listArchivedProjects(requestParameters: ListArchivedProjectsRequest, initOverrides?: RequestInit): Promise<V1ListProjectsResponse> {
+    async listArchivedProjects(requestParameters: ListArchivedProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListProjectsResponse> {
         const response = await this.listArchivedProjectsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1035,7 +1037,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List bookmarked projects for user
      */
-    async listBookmarkedProjectsRaw(requestParameters: ListBookmarkedProjectsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListBookmarksResponse>> {
+    async listBookmarkedProjectsRaw(requestParameters: ListBookmarkedProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListBookmarksResponse>> {
         if (requestParameters.user === null || requestParameters.user === undefined) {
             throw new runtime.RequiredError('user','Required parameter requestParameters.user was null or undefined when calling listBookmarkedProjects.');
         }
@@ -1081,7 +1083,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List bookmarked projects for user
      */
-    async listBookmarkedProjects(requestParameters: ListBookmarkedProjectsRequest, initOverrides?: RequestInit): Promise<V1ListBookmarksResponse> {
+    async listBookmarkedProjects(requestParameters: ListBookmarkedProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListBookmarksResponse> {
         const response = await this.listBookmarkedProjectsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1089,7 +1091,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List project names
      */
-    async listProjectNamesRaw(requestParameters: ListProjectNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListProjectsResponse>> {
+    async listProjectNamesRaw(requestParameters: ListProjectNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListProjectsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listProjectNames.');
         }
@@ -1143,7 +1145,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List project names
      */
-    async listProjectNames(requestParameters: ListProjectNamesRequest, initOverrides?: RequestInit): Promise<V1ListProjectsResponse> {
+    async listProjectNames(requestParameters: ListProjectNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListProjectsResponse> {
         const response = await this.listProjectNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1151,7 +1153,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List projects
      */
-    async listProjectsRaw(requestParameters: ListProjectsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListProjectsResponse>> {
+    async listProjectsRaw(requestParameters: ListProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListProjectsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listProjects.');
         }
@@ -1205,7 +1207,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List projects
      */
-    async listProjects(requestParameters: ListProjectsRequest, initOverrides?: RequestInit): Promise<V1ListProjectsResponse> {
+    async listProjects(requestParameters: ListProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListProjectsResponse> {
         const response = await this.listProjectsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1213,7 +1215,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List versions names
      */
-    async listVersionNamesRaw(requestParameters: ListVersionNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListProjectVersionsResponse>> {
+    async listVersionNamesRaw(requestParameters: ListVersionNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListProjectVersionsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listVersionNames.');
         }
@@ -1267,7 +1269,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List versions names
      */
-    async listVersionNames(requestParameters: ListVersionNamesRequest, initOverrides?: RequestInit): Promise<V1ListProjectVersionsResponse> {
+    async listVersionNames(requestParameters: ListVersionNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListProjectVersionsResponse> {
         const response = await this.listVersionNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1275,7 +1277,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List versions
      */
-    async listVersionsRaw(requestParameters: ListVersionsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListProjectVersionsResponse>> {
+    async listVersionsRaw(requestParameters: ListVersionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListProjectVersionsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listVersions.');
         }
@@ -1329,7 +1331,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * List versions
      */
-    async listVersions(requestParameters: ListVersionsRequest, initOverrides?: RequestInit): Promise<V1ListProjectVersionsResponse> {
+    async listVersions(requestParameters: ListVersionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListProjectVersionsResponse> {
         const response = await this.listVersionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1337,7 +1339,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Patch project
      */
-    async patchProjectRaw(requestParameters: PatchProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Project>> {
+    async patchProjectRaw(requestParameters: PatchProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Project>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchProject.');
         }
@@ -1374,7 +1376,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Patch project
      */
-    async patchProject(requestParameters: PatchProjectRequest, initOverrides?: RequestInit): Promise<V1Project> {
+    async patchProject(requestParameters: PatchProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Project> {
         const response = await this.patchProjectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1382,7 +1384,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Patch project settings
      */
-    async patchProjectSettingsRaw(requestParameters: PatchProjectSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectSettings>> {
+    async patchProjectSettingsRaw(requestParameters: PatchProjectSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectSettings>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchProjectSettings.');
         }
@@ -1419,7 +1421,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Patch project settings
      */
-    async patchProjectSettings(requestParameters: PatchProjectSettingsRequest, initOverrides?: RequestInit): Promise<V1ProjectSettings> {
+    async patchProjectSettings(requestParameters: PatchProjectSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectSettings> {
         const response = await this.patchProjectSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1427,7 +1429,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Patch version
      */
-    async patchVersionRaw(requestParameters: PatchVersionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectVersion>> {
+    async patchVersionRaw(requestParameters: PatchVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectVersion>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchVersion.');
         }
@@ -1472,7 +1474,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Patch version
      */
-    async patchVersion(requestParameters: PatchVersionRequest, initOverrides?: RequestInit): Promise<V1ProjectVersion> {
+    async patchVersion(requestParameters: PatchVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectVersion> {
         const response = await this.patchVersionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1480,7 +1482,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Restore project
      */
-    async restoreProjectRaw(requestParameters: RestoreProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async restoreProjectRaw(requestParameters: RestoreProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restoreProject.');
         }
@@ -1510,14 +1512,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Restore project
      */
-    async restoreProject(requestParameters: RestoreProjectRequest, initOverrides?: RequestInit): Promise<void> {
+    async restoreProject(requestParameters: RestoreProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.restoreProjectRaw(requestParameters, initOverrides);
     }
 
     /**
      * Transfer version
      */
-    async transferVersionRaw(requestParameters: TransferVersionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async transferVersionRaw(requestParameters: TransferVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling transferVersion.');
         }
@@ -1562,14 +1564,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Transfer version
      */
-    async transferVersion(requestParameters: TransferVersionRequest, initOverrides?: RequestInit): Promise<void> {
+    async transferVersion(requestParameters: TransferVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.transferVersionRaw(requestParameters, initOverrides);
     }
 
     /**
      * Unbookmark project
      */
-    async unbookmarkProjectRaw(requestParameters: UnbookmarkProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async unbookmarkProjectRaw(requestParameters: UnbookmarkProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling unbookmarkProject.');
         }
@@ -1599,14 +1601,14 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Unbookmark project
      */
-    async unbookmarkProject(requestParameters: UnbookmarkProjectRequest, initOverrides?: RequestInit): Promise<void> {
+    async unbookmarkProject(requestParameters: UnbookmarkProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.unbookmarkProjectRaw(requestParameters, initOverrides);
     }
 
     /**
      * Update project
      */
-    async updateProjectRaw(requestParameters: UpdateProjectRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Project>> {
+    async updateProjectRaw(requestParameters: UpdateProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Project>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateProject.');
         }
@@ -1643,7 +1645,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Update project
      */
-    async updateProject(requestParameters: UpdateProjectRequest, initOverrides?: RequestInit): Promise<V1Project> {
+    async updateProject(requestParameters: UpdateProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Project> {
         const response = await this.updateProjectRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1651,7 +1653,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Update project settings
      */
-    async updateProjectSettingsRaw(requestParameters: UpdateProjectSettingsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectSettings>> {
+    async updateProjectSettingsRaw(requestParameters: UpdateProjectSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectSettings>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateProjectSettings.');
         }
@@ -1688,7 +1690,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Update project settings
      */
-    async updateProjectSettings(requestParameters: UpdateProjectSettingsRequest, initOverrides?: RequestInit): Promise<V1ProjectSettings> {
+    async updateProjectSettings(requestParameters: UpdateProjectSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectSettings> {
         const response = await this.updateProjectSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1696,7 +1698,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Update version
      */
-    async updateVersionRaw(requestParameters: UpdateVersionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ProjectVersion>> {
+    async updateVersionRaw(requestParameters: UpdateVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ProjectVersion>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateVersion.');
         }
@@ -1741,7 +1743,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Update version
      */
-    async updateVersion(requestParameters: UpdateVersionRequest, initOverrides?: RequestInit): Promise<V1ProjectVersion> {
+    async updateVersion(requestParameters: UpdateVersionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ProjectVersion> {
         const response = await this.updateVersionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1749,7 +1751,7 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Upload artifact to a store via project access
      */
-    async uploadProjectArtifactRaw(requestParameters: UploadProjectArtifactRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async uploadProjectArtifactRaw(requestParameters: UploadProjectArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling uploadProjectArtifact.');
         }
@@ -1816,45 +1818,45 @@ export class ProjectsV1Api extends runtime.BaseAPI {
     /**
      * Upload artifact to a store via project access
      */
-    async uploadProjectArtifact(requestParameters: UploadProjectArtifactRequest, initOverrides?: RequestInit): Promise<void> {
+    async uploadProjectArtifact(requestParameters: UploadProjectArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.uploadProjectArtifactRaw(requestParameters, initOverrides);
     }
 
 }
 
 /**
-    * @export
-    * @enum {string}
-    */
-export enum CreateVersionVersionKindEnum {
-    Component = 'component',
-    Model = 'model',
-    Artifact = 'artifact'
-}
+ * @export
+ */
+export const CreateVersionVersionKindEnum = {
+    Component: 'component',
+    Model: 'model',
+    Artifact: 'artifact'
+} as const;
+export type CreateVersionVersionKindEnum = typeof CreateVersionVersionKindEnum[keyof typeof CreateVersionVersionKindEnum];
 /**
-    * @export
-    * @enum {string}
-    */
-export enum PatchVersionVersionKindEnum {
-    Component = 'component',
-    Model = 'model',
-    Artifact = 'artifact'
-}
+ * @export
+ */
+export const PatchVersionVersionKindEnum = {
+    Component: 'component',
+    Model: 'model',
+    Artifact: 'artifact'
+} as const;
+export type PatchVersionVersionKindEnum = typeof PatchVersionVersionKindEnum[keyof typeof PatchVersionVersionKindEnum];
 /**
-    * @export
-    * @enum {string}
-    */
-export enum TransferVersionVersionKindEnum {
-    Component = 'component',
-    Model = 'model',
-    Artifact = 'artifact'
-}
+ * @export
+ */
+export const TransferVersionVersionKindEnum = {
+    Component: 'component',
+    Model: 'model',
+    Artifact: 'artifact'
+} as const;
+export type TransferVersionVersionKindEnum = typeof TransferVersionVersionKindEnum[keyof typeof TransferVersionVersionKindEnum];
 /**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateVersionVersionKindEnum {
-    Component = 'component',
-    Model = 'model',
-    Artifact = 'artifact'
-}
+ * @export
+ */
+export const UpdateVersionVersionKindEnum = {
+    Component: 'component',
+    Model: 'model',
+    Artifact: 'artifact'
+} as const;
+export type UpdateVersionVersionKindEnum = typeof UpdateVersionVersionKindEnum[keyof typeof UpdateVersionVersionKindEnum];

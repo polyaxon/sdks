@@ -5,11 +5,11 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**files** | **Map&lt;String, String&gt;** |  |  [optional]
-**dirs** | **List&lt;String&gt;** |  |  [optional]
-**isDone** | **Boolean** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**files** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**dirs** | **List&lt;String&gt;** |  |  [optional] |
+|**isDone** | **Boolean** |  |  [optional] |
 
 
 

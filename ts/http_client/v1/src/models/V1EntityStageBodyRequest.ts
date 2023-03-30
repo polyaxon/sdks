@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1StageCondition } from './V1StageCondition';
 import {
-    V1StageCondition,
     V1StageConditionFromJSON,
     V1StageConditionFromJSONTyped,
     V1StageConditionToJSON,
-} from './';
+} from './V1StageCondition';
 
 /**
  * 
@@ -70,6 +70,15 @@ export interface V1EntityStageBodyRequest {
      * @memberof V1EntityStageBodyRequest
      */
     condition?: V1StageCondition;
+}
+
+/**
+ * Check if a given object implements the V1EntityStageBodyRequest interface.
+ */
+export function instanceOfV1EntityStageBodyRequest(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EntityStageBodyRequestFromJSON(json: any): V1EntityStageBodyRequest {

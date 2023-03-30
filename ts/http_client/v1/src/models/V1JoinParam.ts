@@ -65,6 +65,15 @@ export interface V1JoinParam {
     contextOnly?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1JoinParam interface.
+ */
+export function instanceOfV1JoinParam(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1JoinParamFromJSON(json: any): V1JoinParam {
     return V1JoinParamFromJSONTyped(json, false);
 }

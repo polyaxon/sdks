@@ -27,28 +27,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1BucketConnection } from './V1BucketConnection';
 import {
-    V1BucketConnection,
     V1BucketConnectionFromJSON,
     V1BucketConnectionFromJSONTyped,
     V1BucketConnectionToJSON,
-    V1ClaimConnection,
+} from './V1BucketConnection';
+import type { V1ClaimConnection } from './V1ClaimConnection';
+import {
     V1ClaimConnectionFromJSON,
     V1ClaimConnectionFromJSONTyped,
     V1ClaimConnectionToJSON,
-    V1GitConnection,
+} from './V1ClaimConnection';
+import type { V1GitConnection } from './V1GitConnection';
+import {
     V1GitConnectionFromJSON,
     V1GitConnectionFromJSONTyped,
     V1GitConnectionToJSON,
-    V1HostConnection,
+} from './V1GitConnection';
+import type { V1HostConnection } from './V1HostConnection';
+import {
     V1HostConnectionFromJSON,
     V1HostConnectionFromJSONTyped,
     V1HostConnectionToJSON,
-    V1HostPathConnection,
+} from './V1HostConnection';
+import type { V1HostPathConnection } from './V1HostPathConnection';
+import {
     V1HostPathConnectionFromJSON,
     V1HostPathConnectionFromJSONTyped,
     V1HostPathConnectionToJSON,
-} from './';
+} from './V1HostPathConnection';
 
 /**
  * 
@@ -86,6 +94,15 @@ export interface V1ConnectionSchema {
      * @memberof V1ConnectionSchema
      */
     gitConnection?: V1GitConnection;
+}
+
+/**
+ * Check if a given object implements the V1ConnectionSchema interface.
+ */
+export function instanceOfV1ConnectionSchema(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ConnectionSchemaFromJSON(json: any): V1ConnectionSchema {

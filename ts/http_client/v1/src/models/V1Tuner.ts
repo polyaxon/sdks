@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Param } from './V1Param';
 import {
-    V1Param,
     V1ParamFromJSON,
     V1ParamFromJSONTyped,
     V1ParamToJSON,
-} from './';
+} from './V1Param';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1Tuner {
      * @memberof V1Tuner
      */
     params?: { [key: string]: V1Param; };
+}
+
+/**
+ * Check if a given object implements the V1Tuner interface.
+ */
+export function instanceOfV1Tuner(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1TunerFromJSON(json: any): V1Tuner {

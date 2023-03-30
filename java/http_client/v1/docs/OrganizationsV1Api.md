@@ -3,44 +3,44 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**approveOrganizationRuns**](OrganizationsV1Api.md#approveOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/approve | Approve cross-project runs selection
-[**archiveOrganizationRuns**](OrganizationsV1Api.md#archiveOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/archive | Archive cross-project runs selection
-[**bookmarkOrganizationRuns**](OrganizationsV1Api.md#bookmarkOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/bookmark | Bookmark cross-project runs selection
-[**createOrganization**](OrganizationsV1Api.md#createOrganization) | **POST** /api/v1/orgs/create | Create organization
-[**createOrganizationMember**](OrganizationsV1Api.md#createOrganizationMember) | **POST** /api/v1/orgs/{owner}/members | Create organization member
-[**deleteOrganization**](OrganizationsV1Api.md#deleteOrganization) | **DELETE** /api/v1/orgs/{owner} | Delete organization
-[**deleteOrganizationInvitation**](OrganizationsV1Api.md#deleteOrganizationInvitation) | **DELETE** /api/v1/orgs/{owner}/invitations | Delete organization invitation details
-[**deleteOrganizationMember**](OrganizationsV1Api.md#deleteOrganizationMember) | **DELETE** /api/v1/orgs/{owner}/members/{name} | Delete organization member details
-[**deleteOrganizationRuns**](OrganizationsV1Api.md#deleteOrganizationRuns) | **DELETE** /api/v1/orgs/{owner}/runs/delete | Delete cross-project runs selection
-[**getOrganization**](OrganizationsV1Api.md#getOrganization) | **GET** /api/v1/orgs/{owner} | Get organization
-[**getOrganizationActivities**](OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
-[**getOrganizationInvitation**](OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
-[**getOrganizationMember**](OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
-[**getOrganizationRun**](OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
-[**getOrganizationRuns**](OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
-[**getOrganizationSettings**](OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
-[**getOrganizationStats**](OrganizationsV1Api.md#getOrganizationStats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats
-[**invalidateOrganizationRuns**](OrganizationsV1Api.md#invalidateOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/invalidate | Invalidate cross-project runs selection
-[**listOrganizationMemberNames**](OrganizationsV1Api.md#listOrganizationMemberNames) | **GET** /api/v1/orgs/{owner}/members/names | Get organization member names
-[**listOrganizationMembers**](OrganizationsV1Api.md#listOrganizationMembers) | **GET** /api/v1/orgs/{owner}/members | Get organization members
-[**listOrganizationNames**](OrganizationsV1Api.md#listOrganizationNames) | **GET** /api/v1/orgs/names | List organizations names
-[**listOrganizations**](OrganizationsV1Api.md#listOrganizations) | **GET** /api/v1/orgs/list | List organizations
-[**organizationPlan**](OrganizationsV1Api.md#organizationPlan) | **POST** /api/v1/orgs/{owner}/plan | Organization plan
-[**patchOrganization**](OrganizationsV1Api.md#patchOrganization) | **PATCH** /api/v1/orgs/{owner} | Patch organization
-[**patchOrganizationInvitation**](OrganizationsV1Api.md#patchOrganizationInvitation) | **PATCH** /api/v1/orgs/{owner}/invitations | Patch organization invitation
-[**patchOrganizationMember**](OrganizationsV1Api.md#patchOrganizationMember) | **PATCH** /api/v1/orgs/{owner}/members/{member.user} | Patch organization member
-[**patchOrganizationSettings**](OrganizationsV1Api.md#patchOrganizationSettings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings
-[**resendOrganizationInvitation**](OrganizationsV1Api.md#resendOrganizationInvitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation
-[**restoreOrganizationRuns**](OrganizationsV1Api.md#restoreOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection
-[**stopOrganizationRuns**](OrganizationsV1Api.md#stopOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection
-[**tagOrganizationRuns**](OrganizationsV1Api.md#tagOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection
-[**transferOrganizationRuns**](OrganizationsV1Api.md#transferOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project
-[**updateOrganization**](OrganizationsV1Api.md#updateOrganization) | **PUT** /api/v1/orgs/{owner} | Update organization
-[**updateOrganizationInvitation**](OrganizationsV1Api.md#updateOrganizationInvitation) | **PUT** /api/v1/orgs/{owner}/invitations | Update organization invitation
-[**updateOrganizationMember**](OrganizationsV1Api.md#updateOrganizationMember) | **PUT** /api/v1/orgs/{owner}/members/{member.user} | Update organization member
-[**updateOrganizationSettings**](OrganizationsV1Api.md#updateOrganizationSettings) | **PUT** /api/v1/orgs/{owner}/settings | Update organization settings
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**approveOrganizationRuns**](OrganizationsV1Api.md#approveOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/approve | Approve cross-project runs selection |
+| [**archiveOrganizationRuns**](OrganizationsV1Api.md#archiveOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/archive | Archive cross-project runs selection |
+| [**bookmarkOrganizationRuns**](OrganizationsV1Api.md#bookmarkOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/bookmark | Bookmark cross-project runs selection |
+| [**createOrganization**](OrganizationsV1Api.md#createOrganization) | **POST** /api/v1/orgs/create | Create organization |
+| [**createOrganizationMember**](OrganizationsV1Api.md#createOrganizationMember) | **POST** /api/v1/orgs/{owner}/members | Create organization member |
+| [**deleteOrganization**](OrganizationsV1Api.md#deleteOrganization) | **DELETE** /api/v1/orgs/{owner} | Delete organization |
+| [**deleteOrganizationInvitation**](OrganizationsV1Api.md#deleteOrganizationInvitation) | **DELETE** /api/v1/orgs/{owner}/invitations | Delete organization invitation details |
+| [**deleteOrganizationMember**](OrganizationsV1Api.md#deleteOrganizationMember) | **DELETE** /api/v1/orgs/{owner}/members/{name} | Delete organization member details |
+| [**deleteOrganizationRuns**](OrganizationsV1Api.md#deleteOrganizationRuns) | **DELETE** /api/v1/orgs/{owner}/runs/delete | Delete cross-project runs selection |
+| [**getOrganization**](OrganizationsV1Api.md#getOrganization) | **GET** /api/v1/orgs/{owner} | Get organization |
+| [**getOrganizationActivities**](OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities |
+| [**getOrganizationInvitation**](OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details |
+| [**getOrganizationMember**](OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details |
+| [**getOrganizationRun**](OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization |
+| [**getOrganizationRuns**](OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization |
+| [**getOrganizationSettings**](OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings |
+| [**getOrganizationStats**](OrganizationsV1Api.md#getOrganizationStats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats |
+| [**invalidateOrganizationRuns**](OrganizationsV1Api.md#invalidateOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/invalidate | Invalidate cross-project runs selection |
+| [**listOrganizationMemberNames**](OrganizationsV1Api.md#listOrganizationMemberNames) | **GET** /api/v1/orgs/{owner}/members/names | Get organization member names |
+| [**listOrganizationMembers**](OrganizationsV1Api.md#listOrganizationMembers) | **GET** /api/v1/orgs/{owner}/members | Get organization members |
+| [**listOrganizationNames**](OrganizationsV1Api.md#listOrganizationNames) | **GET** /api/v1/orgs/names | List organizations names |
+| [**listOrganizations**](OrganizationsV1Api.md#listOrganizations) | **GET** /api/v1/orgs/list | List organizations |
+| [**organizationPlan**](OrganizationsV1Api.md#organizationPlan) | **POST** /api/v1/orgs/{owner}/plan | Organization plan |
+| [**patchOrganization**](OrganizationsV1Api.md#patchOrganization) | **PATCH** /api/v1/orgs/{owner} | Patch organization |
+| [**patchOrganizationInvitation**](OrganizationsV1Api.md#patchOrganizationInvitation) | **PATCH** /api/v1/orgs/{owner}/invitations | Patch organization invitation |
+| [**patchOrganizationMember**](OrganizationsV1Api.md#patchOrganizationMember) | **PATCH** /api/v1/orgs/{owner}/members/{member.user} | Patch organization member |
+| [**patchOrganizationSettings**](OrganizationsV1Api.md#patchOrganizationSettings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings |
+| [**resendOrganizationInvitation**](OrganizationsV1Api.md#resendOrganizationInvitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation |
+| [**restoreOrganizationRuns**](OrganizationsV1Api.md#restoreOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection |
+| [**stopOrganizationRuns**](OrganizationsV1Api.md#stopOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection |
+| [**tagOrganizationRuns**](OrganizationsV1Api.md#tagOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection |
+| [**transferOrganizationRuns**](OrganizationsV1Api.md#transferOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project |
+| [**updateOrganization**](OrganizationsV1Api.md#updateOrganization) | **PUT** /api/v1/orgs/{owner} | Update organization |
+| [**updateOrganizationInvitation**](OrganizationsV1Api.md#updateOrganizationInvitation) | **PUT** /api/v1/orgs/{owner}/invitations | Update organization invitation |
+| [**updateOrganizationMember**](OrganizationsV1Api.md#updateOrganizationMember) | **PUT** /api/v1/orgs/{owner}/members/{member.user} | Update organization member |
+| [**updateOrganizationSettings**](OrganizationsV1Api.md#updateOrganizationSettings) | **PUT** /api/v1/orgs/{owner}/settings | Update organization settings |
 
 
 <a name="approveOrganizationRuns"></a>
@@ -88,10 +88,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -109,11 +109,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="archiveOrganizationRuns"></a>
 # **archiveOrganizationRuns**
@@ -160,10 +160,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -181,11 +181,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="bookmarkOrganizationRuns"></a>
 # **bookmarkOrganizationRuns**
@@ -232,10 +232,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -253,11 +253,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="createOrganization"></a>
 # **createOrganization**
@@ -304,9 +304,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1Organization**](V1Organization.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1Organization**](V1Organization.md)|  | |
 
 ### Return type
 
@@ -324,11 +324,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="createOrganizationMember"></a>
 # **createOrganizationMember**
@@ -377,11 +377,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body |
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body | |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -399,11 +399,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteOrganization"></a>
 # **deleteOrganization**
@@ -450,10 +450,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **usage** | **String**| Owner usage query param. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **usage** | **String**| Owner usage query param. | [optional] |
 
 ### Return type
 
@@ -471,11 +471,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteOrganizationInvitation"></a>
 # **deleteOrganizationInvitation**
@@ -528,16 +528,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **memberUser** | **String**| User. | [optional]
- **memberUserEmail** | **String**| Read-only User email. | [optional]
- **memberRole** | **String**| Role. | [optional]
- **memberKind** | **String**| Kind. | [optional]
- **memberCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional]
- **memberUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional]
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **memberUser** | **String**| User. | [optional] |
+| **memberUserEmail** | **String**| Read-only User email. | [optional] |
+| **memberRole** | **String**| Role. | [optional] |
+| **memberKind** | **String**| Kind. | [optional] |
+| **memberCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional] |
+| **memberUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional] |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -555,11 +555,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteOrganizationMember"></a>
 # **deleteOrganizationMember**
@@ -606,10 +606,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Component under namesapce |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Component under namesapce | |
 
 ### Return type
 
@@ -627,11 +627,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteOrganizationRuns"></a>
 # **deleteOrganizationRuns**
@@ -678,10 +678,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -699,11 +699,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganization"></a>
 # **getOrganization**
@@ -751,10 +751,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **usage** | **String**| Owner usage query param. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **usage** | **String**| Owner usage query param. | [optional] |
 
 ### Return type
 
@@ -772,11 +772,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationActivities"></a>
 # **getOrganizationActivities**
@@ -830,16 +830,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -857,11 +857,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationInvitation"></a>
 # **getOrganizationInvitation**
@@ -915,16 +915,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **memberUser** | **String**| User. | [optional]
- **memberUserEmail** | **String**| Read-only User email. | [optional]
- **memberRole** | **String**| Role. | [optional]
- **memberKind** | **String**| Kind. | [optional]
- **memberCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional]
- **memberUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional]
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **memberUser** | **String**| User. | [optional] |
+| **memberUserEmail** | **String**| Read-only User email. | [optional] |
+| **memberRole** | **String**| Role. | [optional] |
+| **memberKind** | **String**| Kind. | [optional] |
+| **memberCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional] |
+| **memberUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional] |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -942,11 +942,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationMember"></a>
 # **getOrganizationMember**
@@ -994,10 +994,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **name** | **String**| Component under namesapce |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **name** | **String**| Component under namesapce | |
 
 ### Return type
 
@@ -1015,11 +1015,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationRun"></a>
 # **getOrganizationRun**
@@ -1067,10 +1067,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
 
 ### Return type
 
@@ -1088,11 +1088,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationRuns"></a>
 # **getOrganizationRuns**
@@ -1146,16 +1146,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -1173,11 +1173,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationSettings"></a>
 # **getOrganizationSettings**
@@ -1236,21 +1236,21 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **organizationUser** | **String**| User. | [optional]
- **organizationUserEmail** | **String**| Read-only User email. | [optional]
- **organizationName** | **String**| Name. | [optional]
- **organizationIsPublic** | **Boolean**| Optional flag to tell if this organization is public. | [optional]
- **organizationCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional]
- **organizationUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional]
- **organizationSupportRevokeAt** | **OffsetDateTime**| Optional time to revoke support access. | [optional]
- **organizationExpiration** | **Integer**| Optional expiration for support. | [optional]
- **organizationRole** | **String**| Current user&#39;s role in this org. | [optional]
- **organizationQueue** | **String**| Default queue. | [optional]
- **organizationPreset** | **String**| Default preset. | [optional]
- **organizationIsCloudViewable** | **Boolean**| Setting to enable viewable metadata on cloud. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **organizationUser** | **String**| User. | [optional] |
+| **organizationUserEmail** | **String**| Read-only User email. | [optional] |
+| **organizationName** | **String**| Name. | [optional] |
+| **organizationIsPublic** | **Boolean**| Optional flag to tell if this organization is public. | [optional] |
+| **organizationCreatedAt** | **OffsetDateTime**| Optional time when the entity was created. | [optional] |
+| **organizationUpdatedAt** | **OffsetDateTime**| Optional last time the entity was updated. | [optional] |
+| **organizationSupportRevokeAt** | **OffsetDateTime**| Optional time to revoke support access. | [optional] |
+| **organizationExpiration** | **Integer**| Optional expiration for support. | [optional] |
+| **organizationRole** | **String**| Current user&#39;s role in this org. | [optional] |
+| **organizationQueue** | **String**| Default queue. | [optional] |
+| **organizationPreset** | **String**| Default preset. | [optional] |
+| **organizationIsCloudViewable** | **Boolean**| Setting to enable viewable metadata on cloud. | [optional] |
 
 ### Return type
 
@@ -1268,11 +1268,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getOrganizationStats"></a>
 # **getOrganizationStats**
@@ -1328,18 +1328,18 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **kind** | **String**| Stats Kind. | [optional]
- **aggregate** | **String**| Stats aggregate. | [optional]
- **groupby** | **String**| Stats group. | [optional]
- **trunc** | **String**| Stats trunc. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **kind** | **String**| Stats Kind. | [optional] |
+| **aggregate** | **String**| Stats aggregate. | [optional] |
+| **groupby** | **String**| Stats group. | [optional] |
+| **trunc** | **String**| Stats trunc. | [optional] |
 
 ### Return type
 
@@ -1357,11 +1357,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="invalidateOrganizationRuns"></a>
 # **invalidateOrganizationRuns**
@@ -1408,10 +1408,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -1429,11 +1429,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listOrganizationMemberNames"></a>
 # **listOrganizationMemberNames**
@@ -1487,16 +1487,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -1514,11 +1514,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listOrganizationMembers"></a>
 # **listOrganizationMembers**
@@ -1572,16 +1572,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -1599,11 +1599,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listOrganizationNames"></a>
 # **listOrganizationNames**
@@ -1666,11 +1666,11 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listOrganizations"></a>
 # **listOrganizations**
@@ -1733,11 +1733,11 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="organizationPlan"></a>
 # **organizationPlan**
@@ -1785,10 +1785,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Organization**](V1Organization.md)| Organization body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Organization**](V1Organization.md)| Organization body | |
 
 ### Return type
 
@@ -1806,11 +1806,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchOrganization"></a>
 # **patchOrganization**
@@ -1858,10 +1858,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Organization**](V1Organization.md)| Organization body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Organization**](V1Organization.md)| Organization body | |
 
 ### Return type
 
@@ -1879,11 +1879,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchOrganizationInvitation"></a>
 # **patchOrganizationInvitation**
@@ -1932,11 +1932,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body |
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body | |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -1954,11 +1954,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchOrganizationMember"></a>
 # **patchOrganizationMember**
@@ -2008,12 +2008,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **memberUser** | **String**| User |
- **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body |
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **memberUser** | **String**| User | |
+| **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body | |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -2031,11 +2031,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchOrganizationSettings"></a>
 # **patchOrganizationSettings**
@@ -2083,10 +2083,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Organization**](V1Organization.md)| Organization body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Organization**](V1Organization.md)| Organization body | |
 
 ### Return type
 
@@ -2104,11 +2104,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="resendOrganizationInvitation"></a>
 # **resendOrganizationInvitation**
@@ -2157,11 +2157,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body |
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body | |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -2179,11 +2179,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="restoreOrganizationRuns"></a>
 # **restoreOrganizationRuns**
@@ -2230,10 +2230,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -2251,11 +2251,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="stopOrganizationRuns"></a>
 # **stopOrganizationRuns**
@@ -2302,10 +2302,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
 
 ### Return type
 
@@ -2323,11 +2323,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="tagOrganizationRuns"></a>
 # **tagOrganizationRuns**
@@ -2374,10 +2374,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1EntitiesTags**](V1EntitiesTags.md)| Data |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1EntitiesTags**](V1EntitiesTags.md)| Data | |
 
 ### Return type
 
@@ -2395,11 +2395,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="transferOrganizationRuns"></a>
 # **transferOrganizationRuns**
@@ -2446,10 +2446,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1EntitiesTransfer**](V1EntitiesTransfer.md)| Data |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1EntitiesTransfer**](V1EntitiesTransfer.md)| Data | |
 
 ### Return type
 
@@ -2467,11 +2467,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateOrganization"></a>
 # **updateOrganization**
@@ -2519,10 +2519,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Organization**](V1Organization.md)| Organization body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Organization**](V1Organization.md)| Organization body | |
 
 ### Return type
 
@@ -2540,11 +2540,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateOrganizationInvitation"></a>
 # **updateOrganizationInvitation**
@@ -2593,11 +2593,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body |
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body | |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -2615,11 +2615,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateOrganizationMember"></a>
 # **updateOrganizationMember**
@@ -2669,12 +2669,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **memberUser** | **String**| User |
- **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body |
- **email** | **String**| Optional email. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **memberUser** | **String**| User | |
+| **body** | [**V1OrganizationMember**](V1OrganizationMember.md)| Organization body | |
+| **email** | **String**| Optional email. | [optional] |
 
 ### Return type
 
@@ -2692,11 +2692,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateOrganizationSettings"></a>
 # **updateOrganizationSettings**
@@ -2744,10 +2744,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Organization**](V1Organization.md)| Organization body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Organization**](V1Organization.md)| Organization body | |
 
 ### Return type
 
@@ -2765,9 +2765,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

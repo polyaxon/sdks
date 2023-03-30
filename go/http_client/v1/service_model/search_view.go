@@ -43,8 +43,12 @@ import (
 type SearchView string
 
 func NewSearchView(value SearchView) *SearchView {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated SearchView.
+func (m SearchView) Pointer() *SearchView {
+	return &m
 }
 
 const (

@@ -107,6 +107,15 @@ export interface V1Queue {
     updated_at?: Date;
 }
 
+/**
+ * Check if a given object implements the V1Queue interface.
+ */
+export function instanceOfV1Queue(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1QueueFromJSON(json: any): V1Queue {
     return V1QueueFromJSONTyped(json, false);
 }

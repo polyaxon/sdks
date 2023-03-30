@@ -37,9 +37,7 @@ import os
 import re
 import tempfile
 
-# python 2 and python 3 compatibility library
-import six
-from six.moves.urllib.parse import quote
+from urllib.parse import quote
 
 from polyaxon_sdk.configuration import Configuration
 import polyaxon_sdk.models
@@ -69,10 +67,10 @@ class ApiClient(object):
         to the API. More threads means more concurrent API requests.
     """
 
-    PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
+    PRIMITIVE_TYPES = (float, bool, bytes, str, int)
     NATIVE_TYPES_MAPPING = {
         'int': int,
-        'long': int if six.PY3 else long,  # noqa: F821
+        'long': int, # TODO remove as only py3 is supported?
         'float': float,
         'str': str,
         'bool': bool,
@@ -84,8 +82,9 @@ class ApiClient(object):
 
     def __init__(self, configuration=None, header_name=None, header_value=None,
                  cookie=None, pool_threads=1):
+        # use default configuraiton if none is provided
         if configuration is None:
-            configuration = Configuration.get_default_copy()
+            configuration = Configuration.get_default()
         self.configuration = configuration
         self.pool_threads = pool_threads
 
@@ -134,6 +133,33 @@ class ApiClient(object):
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
 
+
+    _default = None
+
+    @classmethod
+    def get_default(cls):
+        """Return new instance of ApiClient.
+
+        This method returns newly created, based on default constructor,
+        object of ApiClient class or returns a copy of default
+        ApiClient.
+
+        :return: The ApiClient object.
+        """
+        if cls._default is None:
+            cls._default = ApiClient()
+        return cls._default
+
+    @classmethod
+    def set_default(cls, default):
+        """Set default instance of ApiClient.
+
+        It stores default ApiClient.
+
+        :param default: object of ApiClient.
+        """
+        cls._default = default
+
     def __call_api(
             self, resource_path, method, path_params=None,
             query_params=None, header_params=None, body=None, post_params=None,
@@ -166,12 +192,6 @@ class ApiClient(object):
                     quote(str(v), safe=config.safe_chars_for_path_param)
                 )
 
-        # query parameters
-        if query_params:
-            query_params = self.sanitize_for_serialization(query_params)
-            query_params = self.parameters_to_tuples(query_params,
-                                                     collection_formats)
-
         # post parameters
         if post_params or files:
             post_params = post_params if post_params else []
@@ -183,6 +203,7 @@ class ApiClient(object):
         # auth setting
         self.update_params_for_auth(
             header_params, query_params, auth_settings,
+            resource_path, method, body,
             request_auth=_request_auth)
 
         # body
@@ -196,15 +217,25 @@ class ApiClient(object):
             # use server/host defined in path or operation instead
             url = _host + resource_path
 
+        # query parameters
+        if query_params:
+            query_params = self.sanitize_for_serialization(query_params)
+            url_query = self.parameters_to_url_query(query_params,
+                                                     collection_formats)
+            url += "?" + url_query
+
         try:
             # perform request and return response
             response_data = self.request(
-                method, url, query_params=query_params, headers=header_params,
+                method, url,
+                query_params=query_params,
+                headers=header_params,
                 post_params=post_params, body=body,
                 _preload_content=_preload_content,
                 _request_timeout=_request_timeout)
         except ApiException as e:
-            e.body = e.body.decode('utf-8') if six.PY3 else e.body
+            if e.body:
+                e.body = e.body.decode('utf-8')
             raise e
 
         self.last_response = response_data
@@ -214,13 +245,13 @@ class ApiClient(object):
         if not _preload_content:
             return return_data
 
-        response_type = response_types_map.get(response_data.status, None)
+        response_type = response_types_map.get(str(response_data.status), None)
 
-        if six.PY3 and response_type not in ["file", "bytes"]:
+        if response_type not in ["file", "bytes"]:
             match = None
             content_type = response_data.getheader('content-type')
             if content_type is not None:
-                match = re.search(r"charset=([a-zA-Z\-\d]+)[\s\;]?", content_type)
+                match = re.search(r"charset=([a-zA-Z\-\d]+)[\s;]?", content_type)
             encoding = match.group(1) if match else "utf-8"
             response_data.data = response_data.data.decode(encoding)
 
@@ -272,12 +303,10 @@ class ApiClient(object):
             # and attributes which value is not None.
             # Convert attribute name to json key in
             # model definition for request.
-            obj_dict = {obj.attribute_map[attr]: getattr(obj, attr)
-                        for attr, _ in six.iteritems(obj.openapi_types)
-                        if getattr(obj, attr) is not None}
+            obj_dict = obj.to_dict()
 
         return {key: self.sanitize_for_serialization(val)
-                for key, val in six.iteritems(obj_dict)}
+                for key, val in obj_dict.items()}
 
     def deserialize(self, response, response_type):
         """Deserializes response into an object.
@@ -313,15 +342,15 @@ class ApiClient(object):
             return None
 
         if type(klass) == str:
-            if klass.startswith('list['):
-                sub_kls = re.match(r'list\[(.*)\]', klass).group(1)
+            if klass.startswith('List['):
+                sub_kls = re.match(r'List\[(.*)]', klass).group(1)
                 return [self.__deserialize(sub_data, sub_kls)
                         for sub_data in data]
 
-            if klass.startswith('dict('):
-                sub_kls = re.match(r'dict\(([^,]*), (.*)\)', klass).group(2)
+            if klass.startswith('Dict['):
+                sub_kls = re.match(r'Dict\[([^,]*), (.*)]', klass).group(2)
                 return {k: self.__deserialize(v, sub_kls)
-                        for k, v in six.iteritems(data)}
+                        for k, v in data.items()}
 
             # convert str to class
             if klass in self.NATIVE_TYPES_MAPPING:
@@ -414,25 +443,25 @@ class ApiClient(object):
                 _request_timeout=None):
         """Makes the HTTP request using RESTClient."""
         if method == "GET":
-            return self.rest_client.GET(url,
+            return self.rest_client.get_request(url,
                                         query_params=query_params,
                                         _preload_content=_preload_content,
                                         _request_timeout=_request_timeout,
                                         headers=headers)
         elif method == "HEAD":
-            return self.rest_client.HEAD(url,
+            return self.rest_client.head_request(url,
                                          query_params=query_params,
                                          _preload_content=_preload_content,
                                          _request_timeout=_request_timeout,
                                          headers=headers)
         elif method == "OPTIONS":
-            return self.rest_client.OPTIONS(url,
+            return self.rest_client.options_request(url,
                                             query_params=query_params,
                                             headers=headers,
                                             _preload_content=_preload_content,
                                             _request_timeout=_request_timeout)
         elif method == "POST":
-            return self.rest_client.POST(url,
+            return self.rest_client.post_request(url,
                                          query_params=query_params,
                                          headers=headers,
                                          post_params=post_params,
@@ -440,7 +469,7 @@ class ApiClient(object):
                                          _request_timeout=_request_timeout,
                                          body=body)
         elif method == "PUT":
-            return self.rest_client.PUT(url,
+            return self.rest_client.put_request(url,
                                         query_params=query_params,
                                         headers=headers,
                                         post_params=post_params,
@@ -448,7 +477,7 @@ class ApiClient(object):
                                         _request_timeout=_request_timeout,
                                         body=body)
         elif method == "PATCH":
-            return self.rest_client.PATCH(url,
+            return self.rest_client.patch_request(url,
                                           query_params=query_params,
                                           headers=headers,
                                           post_params=post_params,
@@ -456,7 +485,7 @@ class ApiClient(object):
                                           _request_timeout=_request_timeout,
                                           body=body)
         elif method == "DELETE":
-            return self.rest_client.DELETE(url,
+            return self.rest_client.delete_request(url,
                                            query_params=query_params,
                                            headers=headers,
                                            _preload_content=_preload_content,
@@ -478,7 +507,7 @@ class ApiClient(object):
         new_params = []
         if collection_formats is None:
             collection_formats = {}
-        for k, v in six.iteritems(params) if isinstance(params, dict) else params:  # noqa: E501
+        for k, v in params.items() if isinstance(params, dict) else params:  # noqa: E501
             if k in collection_formats:
                 collection_format = collection_formats[k]
                 if collection_format == 'multi':
@@ -498,6 +527,42 @@ class ApiClient(object):
                 new_params.append((k, v))
         return new_params
 
+    def parameters_to_url_query(self, params, collection_formats):
+        """Get parameters as list of tuples, formatting collections.
+
+        :param params: Parameters as dict or list of two-tuples
+        :param dict collection_formats: Parameter collection formats
+        :return: URL query string (e.g. a=Hello%20World&b=123)
+        """
+        new_params = []
+        if collection_formats is None:
+            collection_formats = {}
+        for k, v in params.items() if isinstance(params, dict) else params:  # noqa: E501
+            if isinstance(v, (int, float)):
+                v = str(v)
+            if isinstance(v, bool):
+                v = str(v).lower()
+
+            if k in collection_formats:
+                collection_format = collection_formats[k]
+                if collection_format == 'multi':
+                    new_params.extend((k, value) for value in v)
+                else:
+                    if collection_format == 'ssv':
+                        delimiter = ' '
+                    elif collection_format == 'tsv':
+                        delimiter = '\t'
+                    elif collection_format == 'pipes':
+                        delimiter = '|'
+                    else:  # csv is the default
+                        delimiter = ','
+                    new_params.append(
+                        (k, delimiter.join(quote(str(value)) for value in v)))
+            else:
+                new_params.append((k, v))
+
+        return "&".join(["=".join(item) for item in new_params])
+
     def files_parameters(self, files=None):
         """Builds form parameters.
 
@@ -507,7 +572,7 @@ class ApiClient(object):
         params = []
 
         if files:
-            for k, v in six.iteritems(files):
+            for k, v in files.items():
                 if not v:
                     continue
                 file_names = v if type(v) is list else [v]
@@ -531,12 +596,11 @@ class ApiClient(object):
         if not accepts:
             return
 
-        accepts = [x.lower() for x in accepts]
+        for accept in accepts:
+            if re.search('json', accept, re.IGNORECASE):
+                return accept
 
-        if 'application/json' in accepts:
-            return 'application/json'
-        else:
-            return ', '.join(accepts)
+        return accepts[0]
 
     def select_header_content_type(self, content_types):
         """Returns `Content-Type` based on an array of content_types provided.
@@ -545,22 +609,26 @@ class ApiClient(object):
         :return: Content-Type (e.g. application/json).
         """
         if not content_types:
-            return 'application/json'
+            return None
 
-        content_types = [x.lower() for x in content_types]
+        for content_type in content_types:
+            if re.search('json', content_type, re.IGNORECASE):
+                return content_type
 
-        if 'application/json' in content_types or '*/*' in content_types:
-            return 'application/json'
-        else:
-            return content_types[0]
+        return content_types[0]
 
     def update_params_for_auth(self, headers, queries, auth_settings,
+                               resource_path, method, body,
                                request_auth=None):
         """Updates header and query params based on authentication setting.
 
         :param headers: Header parameters dict to be updated.
         :param queries: Query parameters tuple list to be updated.
         :param auth_settings: Authentication setting identifiers list.
+        :resource_path: A string representation of the HTTP request resource path.
+        :method: A string representation of the HTTP request method.
+        :body: A object representing the body of the HTTP request.
+        The object type is the return value of sanitize_for_serialization().
         :param request_auth: if set, the provided settings will
                              override the token in the configuration.
         """
@@ -568,25 +636,36 @@ class ApiClient(object):
             return
 
         if request_auth:
-            self._apply_auth_params(headers, queries, request_auth)
+            self._apply_auth_params(headers, queries,
+                                    resource_path, method, body,
+                                    request_auth)
             return
 
         for auth in auth_settings:
             auth_setting = self.configuration.auth_settings().get(auth)
             if auth_setting:
-                self._apply_auth_params(headers, queries, auth_setting)
+                self._apply_auth_params(headers, queries,
+                                        resource_path, method, body,
+                                        auth_setting)
 
-    def _apply_auth_params(self, headers, queries, auth_setting):
+    def _apply_auth_params(self, headers, queries,
+                           resource_path, method, body,
+                           auth_setting):
         """Updates the request parameters based on a single auth_setting
 
         :param headers: Header parameters dict to be updated.
         :param queries: Query parameters tuple list to be updated.
+        :resource_path: A string representation of the HTTP request resource path.
+        :method: A string representation of the HTTP request method.
+        :body: A object representing the body of the HTTP request.
+        The object type is the return value of sanitize_for_serialization().
         :param auth_setting: auth settings for the endpoint
         """
         if auth_setting['in'] == 'cookie':
             headers['Cookie'] = auth_setting['value']
         elif auth_setting['in'] == 'header':
-            headers[auth_setting['key']] = auth_setting['value']
+            if auth_setting['type'] != 'http-signature':
+                headers[auth_setting['key']] = auth_setting['value']
         elif auth_setting['in'] == 'query':
             queries.append((auth_setting['key'], auth_setting['value']))
         else:
@@ -629,7 +708,7 @@ class ApiClient(object):
         try:
             return klass(data)
         except UnicodeEncodeError:
-            return six.text_type(data)
+            return str(data)
         except TypeError:
             return data
 
@@ -684,27 +763,5 @@ class ApiClient(object):
         :param klass: class literal.
         :return: model object.
         """
-        has_discriminator = False
-        if (hasattr(klass, 'get_real_child_model')
-                and klass.discriminator_value_class_map):
-            has_discriminator = True
 
-        if not klass.openapi_types and has_discriminator is False:
-            return data
-
-        kwargs = {}
-        if (data is not None and
-                klass.openapi_types is not None and
-                isinstance(data, (list, dict))):
-            for attr, attr_type in six.iteritems(klass.openapi_types):
-                if klass.attribute_map[attr] in data:
-                    value = data[klass.attribute_map[attr]]
-                    kwargs[attr] = self.__deserialize(value, attr_type)
-
-        instance = klass(**kwargs)
-
-        if has_discriminator:
-            klass_name = instance.get_real_child_model(data)
-            if klass_name:
-                instance = self.__deserialize(data, klass_name)
-        return instance
+        return klass.from_dict(data)

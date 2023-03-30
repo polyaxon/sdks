@@ -87,9 +87,44 @@ type PatchProjectSettingsOK struct {
 	Payload *service_model.V1ProjectSettings
 }
 
+// IsSuccess returns true when this patch project settings o k response has a 2xx status code
+func (o *PatchProjectSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch project settings o k response has a 3xx status code
+func (o *PatchProjectSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project settings o k response has a 4xx status code
+func (o *PatchProjectSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch project settings o k response has a 5xx status code
+func (o *PatchProjectSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project settings o k response a status code equal to that given
+func (o *PatchProjectSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch project settings o k response
+func (o *PatchProjectSettingsOK) Code() int {
+	return 200
+}
+
 func (o *PatchProjectSettingsOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchProjectSettingsOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchProjectSettingsOK) GetPayload() *service_model.V1ProjectSettings {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchProjectSettingsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project settings no content response has a 2xx status code
+func (o *PatchProjectSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch project settings no content response has a 3xx status code
+func (o *PatchProjectSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project settings no content response has a 4xx status code
+func (o *PatchProjectSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch project settings no content response has a 5xx status code
+func (o *PatchProjectSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project settings no content response a status code equal to that given
+func (o *PatchProjectSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch project settings no content response
+func (o *PatchProjectSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchProjectSettingsNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchProjectSettingsNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchProjectSettingsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchProjectSettingsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project settings forbidden response has a 2xx status code
+func (o *PatchProjectSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch project settings forbidden response has a 3xx status code
+func (o *PatchProjectSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project settings forbidden response has a 4xx status code
+func (o *PatchProjectSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch project settings forbidden response has a 5xx status code
+func (o *PatchProjectSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project settings forbidden response a status code equal to that given
+func (o *PatchProjectSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch project settings forbidden response
+func (o *PatchProjectSettingsForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchProjectSettingsForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchProjectSettingsForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchProjectSettingsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchProjectSettingsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch project settings not found response has a 2xx status code
+func (o *PatchProjectSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch project settings not found response has a 3xx status code
+func (o *PatchProjectSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch project settings not found response has a 4xx status code
+func (o *PatchProjectSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch project settings not found response has a 5xx status code
+func (o *PatchProjectSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch project settings not found response a status code equal to that given
+func (o *PatchProjectSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch project settings not found response
+func (o *PatchProjectSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchProjectSettingsNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchProjectSettingsNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchProjectSettingsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchProjectSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch project settings default response has a 2xx status code
+func (o *PatchProjectSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch project settings default response has a 3xx status code
+func (o *PatchProjectSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch project settings default response has a 4xx status code
+func (o *PatchProjectSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch project settings default response has a 5xx status code
+func (o *PatchProjectSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch project settings default response a status code equal to that given
+func (o *PatchProjectSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch project settings default response
 func (o *PatchProjectSettingsDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchProjectSettingsDefault) Code() int {
 func (o *PatchProjectSettingsDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] PatchProjectSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchProjectSettingsDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] PatchProjectSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchProjectSettingsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

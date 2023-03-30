@@ -51,6 +51,15 @@ export interface V1FailureEarlyStopping {
     percent?: number;
 }
 
+/**
+ * Check if a given object implements the V1FailureEarlyStopping interface.
+ */
+export function instanceOfV1FailureEarlyStopping(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FailureEarlyStoppingFromJSON(json: any): V1FailureEarlyStopping {
     return V1FailureEarlyStoppingFromJSONTyped(json, false);
 }

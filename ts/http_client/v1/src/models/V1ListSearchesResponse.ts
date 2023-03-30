@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Search } from './V1Search';
 import {
-    V1Search,
     V1SearchFromJSON,
     V1SearchFromJSONTyped,
     V1SearchToJSON,
-} from './';
+} from './V1Search';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListSearchesResponse {
      * @memberof V1ListSearchesResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListSearchesResponse interface.
+ */
+export function instanceOfV1ListSearchesResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListSearchesResponseFromJSON(json: any): V1ListSearchesResponse {

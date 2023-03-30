@@ -53,6 +53,15 @@ export interface V1ArtifactTree {
     is_done?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1ArtifactTree interface.
+ */
+export function instanceOfV1ArtifactTree(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ArtifactTreeFromJSON(json: any): V1ArtifactTree {
     return V1ArtifactTreeFromJSONTyped(json, false);
 }

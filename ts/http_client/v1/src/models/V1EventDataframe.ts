@@ -47,6 +47,15 @@ export interface V1EventDataframe {
     content_type?: string;
 }
 
+/**
+ * Check if a given object implements the V1EventDataframe interface.
+ */
+export function instanceOfV1EventDataframe(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventDataframeFromJSON(json: any): V1EventDataframe {
     return V1EventDataframeFromJSONTyped(json, false);
 }

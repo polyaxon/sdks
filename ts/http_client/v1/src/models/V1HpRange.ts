@@ -47,6 +47,15 @@ export interface V1HpRange {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpRange interface.
+ */
+export function instanceOfV1HpRange(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpRangeFromJSON(json: any): V1HpRange {
     return V1HpRangeFromJSONTyped(json, false);
 }

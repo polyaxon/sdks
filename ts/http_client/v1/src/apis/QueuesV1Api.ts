@@ -28,14 +28,16 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ListQueuesResponse,
+  V1Queue,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ListQueuesResponse,
     V1ListQueuesResponseFromJSON,
     V1ListQueuesResponseToJSON,
-    V1Queue,
     V1QueueFromJSON,
     V1QueueToJSON,
 } from '../models';
@@ -126,7 +128,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Create queue
      */
-    async createQueueRaw(requestParameters: CreateQueueRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Queue>> {
+    async createQueueRaw(requestParameters: CreateQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Queue>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createQueue.');
         }
@@ -163,7 +165,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Create queue
      */
-    async createQueue(requestParameters: CreateQueueRequest, initOverrides?: RequestInit): Promise<V1Queue> {
+    async createQueue(requestParameters: CreateQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Queue> {
         const response = await this.createQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -171,7 +173,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Delete queue
      */
-    async deleteQueueRaw(requestParameters: DeleteQueueRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteQueueRaw(requestParameters: DeleteQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteQueue.');
         }
@@ -205,14 +207,14 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Delete queue
      */
-    async deleteQueue(requestParameters: DeleteQueueRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteQueue(requestParameters: DeleteQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteQueueRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get queue
      */
-    async getQueueRaw(requestParameters: GetQueueRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Queue>> {
+    async getQueueRaw(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Queue>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getQueue.');
         }
@@ -246,7 +248,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Get queue
      */
-    async getQueue(requestParameters: GetQueueRequest, initOverrides?: RequestInit): Promise<V1Queue> {
+    async getQueue(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Queue> {
         const response = await this.getQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -254,7 +256,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List organization level queues names
      */
-    async listOrganizationQueueNamesRaw(requestParameters: ListOrganizationQueueNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
+    async listOrganizationQueueNamesRaw(requestParameters: ListOrganizationQueueNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listOrganizationQueueNames.');
         }
@@ -308,7 +310,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List organization level queues names
      */
-    async listOrganizationQueueNames(requestParameters: ListOrganizationQueueNamesRequest, initOverrides?: RequestInit): Promise<V1ListQueuesResponse> {
+    async listOrganizationQueueNames(requestParameters: ListOrganizationQueueNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListQueuesResponse> {
         const response = await this.listOrganizationQueueNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -316,7 +318,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List organization level queues
      */
-    async listOrganizationQueuesRaw(requestParameters: ListOrganizationQueuesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
+    async listOrganizationQueuesRaw(requestParameters: ListOrganizationQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listOrganizationQueues.');
         }
@@ -370,7 +372,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List organization level queues
      */
-    async listOrganizationQueues(requestParameters: ListOrganizationQueuesRequest, initOverrides?: RequestInit): Promise<V1ListQueuesResponse> {
+    async listOrganizationQueues(requestParameters: ListOrganizationQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListQueuesResponse> {
         const response = await this.listOrganizationQueuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -378,7 +380,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List queues names
      */
-    async listQueueNamesRaw(requestParameters: ListQueueNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
+    async listQueueNamesRaw(requestParameters: ListQueueNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listQueueNames.');
         }
@@ -436,7 +438,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List queues names
      */
-    async listQueueNames(requestParameters: ListQueueNamesRequest, initOverrides?: RequestInit): Promise<V1ListQueuesResponse> {
+    async listQueueNames(requestParameters: ListQueueNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListQueuesResponse> {
         const response = await this.listQueueNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -444,7 +446,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List queues
      */
-    async listQueuesRaw(requestParameters: ListQueuesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
+    async listQueuesRaw(requestParameters: ListQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListQueuesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listQueues.');
         }
@@ -502,7 +504,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * List queues
      */
-    async listQueues(requestParameters: ListQueuesRequest, initOverrides?: RequestInit): Promise<V1ListQueuesResponse> {
+    async listQueues(requestParameters: ListQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListQueuesResponse> {
         const response = await this.listQueuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -510,7 +512,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Patch queue
      */
-    async patchQueueRaw(requestParameters: PatchQueueRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Queue>> {
+    async patchQueueRaw(requestParameters: PatchQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Queue>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchQueue.');
         }
@@ -551,7 +553,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Patch queue
      */
-    async patchQueue(requestParameters: PatchQueueRequest, initOverrides?: RequestInit): Promise<V1Queue> {
+    async patchQueue(requestParameters: PatchQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Queue> {
         const response = await this.patchQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -559,7 +561,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Update queue
      */
-    async updateQueueRaw(requestParameters: UpdateQueueRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Queue>> {
+    async updateQueueRaw(requestParameters: UpdateQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Queue>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateQueue.');
         }
@@ -600,7 +602,7 @@ export class QueuesV1Api extends runtime.BaseAPI {
     /**
      * Update queue
      */
-    async updateQueue(requestParameters: UpdateQueueRequest, initOverrides?: RequestInit): Promise<V1Queue> {
+    async updateQueue(requestParameters: UpdateQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Queue> {
         const response = await this.updateQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }

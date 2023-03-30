@@ -59,6 +59,15 @@ export interface V1ListBookmarksResponse {
     next?: string;
 }
 
+/**
+ * Check if a given object implements the V1ListBookmarksResponse interface.
+ */
+export function instanceOfV1ListBookmarksResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ListBookmarksResponseFromJSON(json: any): V1ListBookmarksResponse {
     return V1ListBookmarksResponseFromJSONTyped(json, false);
 }

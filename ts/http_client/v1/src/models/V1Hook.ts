@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Param } from './V1Param';
 import {
-    V1Param,
     V1ParamFromJSON,
     V1ParamFromJSONTyped,
     V1ParamToJSON,
-    V1Statuses,
+} from './V1Param';
+import type { V1Statuses } from './V1Statuses';
+import {
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -92,6 +94,15 @@ export interface V1Hook {
      * @memberof V1Hook
      */
     disableDefaults?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1Hook interface.
+ */
+export function instanceOfV1Hook(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1HookFromJSON(json: any): V1Hook {

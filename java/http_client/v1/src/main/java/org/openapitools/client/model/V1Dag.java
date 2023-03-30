@@ -34,14 +34,33 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1Component;
 import org.openapitools.client.model.V1Environment;
 import org.openapitools.client.model.V1Operation;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Dag
@@ -80,6 +99,8 @@ public class V1Dag {
   @SerializedName(SERIALIZED_NAME_VOLUMES)
   private List<Object> volumes = null;
 
+  public V1Dag() {
+  }
 
   public V1Dag kind(String kind) {
     
@@ -92,7 +113,6 @@ public class V1Dag {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -112,7 +132,7 @@ public class V1Dag {
 
   public V1Dag addOperationsItem(V1Operation operationsItem) {
     if (this.operations == null) {
-      this.operations = new ArrayList<V1Operation>();
+      this.operations = new ArrayList<>();
     }
     this.operations.add(operationsItem);
     return this;
@@ -123,7 +143,6 @@ public class V1Dag {
    * @return operations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1Operation> getOperations() {
     return operations;
@@ -143,7 +162,7 @@ public class V1Dag {
 
   public V1Dag addComponentsItem(V1Component componentsItem) {
     if (this.components == null) {
-      this.components = new ArrayList<V1Component>();
+      this.components = new ArrayList<>();
     }
     this.components.add(componentsItem);
     return this;
@@ -154,7 +173,6 @@ public class V1Dag {
    * @return components
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<V1Component> getComponents() {
     return components;
@@ -177,7 +195,6 @@ public class V1Dag {
    * @return concurrency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getConcurrency() {
     return concurrency;
@@ -197,7 +214,7 @@ public class V1Dag {
 
   public V1Dag addEarlyStoppingItem(Object earlyStoppingItem) {
     if (this.earlyStopping == null) {
-      this.earlyStopping = new ArrayList<Object>();
+      this.earlyStopping = new ArrayList<>();
     }
     this.earlyStopping.add(earlyStoppingItem);
     return this;
@@ -208,7 +225,6 @@ public class V1Dag {
    * @return earlyStopping
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getEarlyStopping() {
     return earlyStopping;
@@ -231,7 +247,6 @@ public class V1Dag {
    * @return environment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Environment getEnvironment() {
     return environment;
@@ -251,7 +266,7 @@ public class V1Dag {
 
   public V1Dag addConnectionsItem(String connectionsItem) {
     if (this.connections == null) {
-      this.connections = new ArrayList<String>();
+      this.connections = new ArrayList<>();
     }
     this.connections.add(connectionsItem);
     return this;
@@ -262,7 +277,6 @@ public class V1Dag {
    * @return connections
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getConnections() {
     return connections;
@@ -282,7 +296,7 @@ public class V1Dag {
 
   public V1Dag addVolumesItem(Object volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<Object>();
+      this.volumes = new ArrayList<>();
     }
     this.volumes.add(volumesItem);
     return this;
@@ -293,7 +307,6 @@ public class V1Dag {
    * @return volumes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Volumes is a list of volumes that can be mounted.")
 
   public List<Object> getVolumes() {
     return volumes;
@@ -303,6 +316,7 @@ public class V1Dag {
   public void setVolumes(List<Object> volumes) {
     this.volumes = volumes;
   }
+
 
 
   @Override
@@ -356,5 +370,142 @@ public class V1Dag {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("kind");
+    openapiFields.add("operations");
+    openapiFields.add("components");
+    openapiFields.add("concurrency");
+    openapiFields.add("earlyStopping");
+    openapiFields.add("environment");
+    openapiFields.add("connections");
+    openapiFields.add("volumes");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Dag
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Dag.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Dag is not found in the empty JSON string", V1Dag.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Dag.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Dag` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      if (jsonObj.get("operations") != null && !jsonObj.get("operations").isJsonNull()) {
+        JsonArray jsonArrayoperations = jsonObj.getAsJsonArray("operations");
+        if (jsonArrayoperations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("operations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
+          }
+
+          // validate the optional field `operations` (array)
+          for (int i = 0; i < jsonArrayoperations.size(); i++) {
+            V1Operation.validateJsonObject(jsonArrayoperations.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("components") != null && !jsonObj.get("components").isJsonNull()) {
+        JsonArray jsonArraycomponents = jsonObj.getAsJsonArray("components");
+        if (jsonArraycomponents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("components").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `components` to be an array in the JSON string but got `%s`", jsonObj.get("components").toString()));
+          }
+
+          // validate the optional field `components` (array)
+          for (int i = 0; i < jsonArraycomponents.size(); i++) {
+            V1Component.validateJsonObject(jsonArraycomponents.get(i).getAsJsonObject());
+          };
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("earlyStopping") != null && !jsonObj.get("earlyStopping").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `earlyStopping` to be an array in the JSON string but got `%s`", jsonObj.get("earlyStopping").toString()));
+      }
+      // validate the optional field `environment`
+      if (jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) {
+        V1Environment.validateJsonObject(jsonObj.getAsJsonObject("environment"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volumes") != null && !jsonObj.get("volumes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `volumes` to be an array in the JSON string but got `%s`", jsonObj.get("volumes").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Dag.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Dag' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Dag> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Dag.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Dag>() {
+           @Override
+           public void write(JsonWriter out, V1Dag value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Dag read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Dag given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Dag
+  * @throws IOException if the JSON string is invalid with respect to V1Dag
+  */
+  public static V1Dag fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Dag.class);
+  }
+
+ /**
+  * Convert an instance of V1Dag to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

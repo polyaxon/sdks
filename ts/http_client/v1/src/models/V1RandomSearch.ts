@@ -71,6 +71,15 @@ export interface V1RandomSearch {
     earlyStopping?: Array<object>;
 }
 
+/**
+ * Check if a given object implements the V1RandomSearch interface.
+ */
+export function instanceOfV1RandomSearch(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RandomSearchFromJSON(json: any): V1RandomSearch {
     return V1RandomSearchFromJSONTyped(json, false);
 }

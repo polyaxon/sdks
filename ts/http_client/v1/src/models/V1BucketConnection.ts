@@ -41,6 +41,15 @@ export interface V1BucketConnection {
     bucket?: string;
 }
 
+/**
+ * Check if a given object implements the V1BucketConnection interface.
+ */
+export function instanceOfV1BucketConnection(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1BucketConnectionFromJSON(json: any): V1BucketConnection {
     return V1BucketConnectionFromJSONTyped(json, false);
 }

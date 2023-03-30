@@ -20,6 +20,23 @@ Name | Type | Description | Notes
 **curve** | [**V1EventCurve**](V1EventCurve.md) |  | [optional] 
 **confusion** | [**V1EventConfusionMatrix**](V1EventConfusionMatrix.md) |  | [optional] 
 
+## Example
+
+```python
+from polyaxon_sdk.models.v1_event import V1Event
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of V1Event from a JSON string
+v1_event_instance = V1Event.from_json(json)
+# print the JSON string representation of the object
+print V1Event.to_json()
+
+# convert the object into a dict
+v1_event_dict = v1_event_instance.to_dict()
+# create an instance of V1Event from a dict
+v1_event_form_dict = v1_event.from_dict(v1_event_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

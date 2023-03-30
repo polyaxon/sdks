@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Run } from './V1Run';
 import {
-    V1Run,
     V1RunFromJSON,
     V1RunFromJSONTyped,
     V1RunToJSON,
-    V1RunEdgeKind,
+} from './V1Run';
+import type { V1RunEdgeKind } from './V1RunEdgeKind';
+import {
     V1RunEdgeKindFromJSON,
     V1RunEdgeKindFromJSONTyped,
     V1RunEdgeKindToJSON,
-    V1Statuses,
+} from './V1RunEdgeKind';
+import type { V1Statuses } from './V1Statuses';
+import {
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -78,6 +82,15 @@ export interface V1RunEdge {
      * @memberof V1RunEdge
      */
     statuses?: Array<V1Statuses>;
+}
+
+/**
+ * Check if a given object implements the V1RunEdge interface.
+ */
+export function instanceOfV1RunEdge(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RunEdgeFromJSON(json: any): V1RunEdge {

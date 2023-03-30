@@ -68,8 +68,24 @@ class V1Uuids {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Uuids</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Uuids</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['uuids'])) {
+            throw new Error("Expected the field `uuids` to be an array in the JSON data but got " + data['uuids']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} uuids

@@ -120,8 +120,68 @@ class V1Event {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Event</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Event</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `image`
+        if (data['image']) { // data not null
+          V1EventImage.validateJSON(data['image']);
+        }
+        // validate the optional field `histogram`
+        if (data['histogram']) { // data not null
+          V1EventHistogram.validateJSON(data['histogram']);
+        }
+        // validate the optional field `audio`
+        if (data['audio']) { // data not null
+          V1EventAudio.validateJSON(data['audio']);
+        }
+        // validate the optional field `video`
+        if (data['video']) { // data not null
+          V1EventVideo.validateJSON(data['video']);
+        }
+        // ensure the json data is a string
+        if (data['html'] && !(typeof data['html'] === 'string' || data['html'] instanceof String)) {
+            throw new Error("Expected the field `html` to be a primitive type in the JSON string but got " + data['html']);
+        }
+        // ensure the json data is a string
+        if (data['text'] && !(typeof data['text'] === 'string' || data['text'] instanceof String)) {
+            throw new Error("Expected the field `text` to be a primitive type in the JSON string but got " + data['text']);
+        }
+        // validate the optional field `chart`
+        if (data['chart']) { // data not null
+          V1EventChart.validateJSON(data['chart']);
+        }
+        // validate the optional field `model`
+        if (data['model']) { // data not null
+          V1EventModel.validateJSON(data['model']);
+        }
+        // validate the optional field `artifact`
+        if (data['artifact']) { // data not null
+          V1EventArtifact.validateJSON(data['artifact']);
+        }
+        // validate the optional field `dataframe`
+        if (data['dataframe']) { // data not null
+          V1EventDataframe.validateJSON(data['dataframe']);
+        }
+        // validate the optional field `curve`
+        if (data['curve']) { // data not null
+          V1EventCurve.validateJSON(data['curve']);
+        }
+        // validate the optional field `confusion`
+        if (data['confusion']) { // data not null
+          V1EventConfusionMatrix.validateJSON(data['confusion']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Date} timestamp

@@ -53,6 +53,15 @@ export interface V1WasbType {
     path?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1WasbType interface.
+ */
+export function instanceOfV1WasbType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1WasbTypeFromJSON(json: any): V1WasbType {
     return V1WasbTypeFromJSONTyped(json, false);
 }

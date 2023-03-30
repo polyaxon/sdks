@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ConnectionKind } from './V1ConnectionKind';
 import {
-    V1ConnectionKind,
     V1ConnectionKindFromJSON,
     V1ConnectionKindFromJSONTyped,
     V1ConnectionKindToJSON,
-    V1K8sResourceSchema,
+} from './V1ConnectionKind';
+import type { V1K8sResourceSchema } from './V1K8sResourceSchema';
+import {
     V1K8sResourceSchemaFromJSON,
     V1K8sResourceSchemaFromJSONTyped,
     V1K8sResourceSchemaToJSON,
-} from './';
+} from './V1K8sResourceSchema';
 
 /**
  * 
@@ -98,6 +100,15 @@ export interface V1ConnectionType {
      * @memberof V1ConnectionType
      */
     annotations?: { [key: string]: string; };
+}
+
+/**
+ * Check if a given object implements the V1ConnectionType interface.
+ */
+export function instanceOfV1ConnectionType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ConnectionTypeFromJSON(json: any): V1ConnectionType {

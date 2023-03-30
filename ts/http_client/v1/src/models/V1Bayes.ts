@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1OptimizationMetric } from './V1OptimizationMetric';
 import {
-    V1OptimizationMetric,
     V1OptimizationMetricFromJSON,
     V1OptimizationMetricFromJSONTyped,
     V1OptimizationMetricToJSON,
-    V1Tuner,
+} from './V1OptimizationMetric';
+import type { V1Tuner } from './V1Tuner';
+import {
     V1TunerFromJSON,
     V1TunerFromJSONTyped,
     V1TunerToJSON,
-} from './';
+} from './V1Tuner';
 
 /**
  * 
@@ -104,6 +106,15 @@ export interface V1Bayes {
      * @memberof V1Bayes
      */
     earlyStopping?: Array<object>;
+}
+
+/**
+ * Check if a given object implements the V1Bayes interface.
+ */
+export function instanceOfV1Bayes(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1BayesFromJSON(json: any): V1Bayes {

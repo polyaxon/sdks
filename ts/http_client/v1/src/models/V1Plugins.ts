@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Notification } from './V1Notification';
 import {
-    V1Notification,
     V1NotificationFromJSON,
     V1NotificationFromJSONTyped,
     V1NotificationToJSON,
-    V1PolyaxonSidecarContainer,
+} from './V1Notification';
+import type { V1PolyaxonSidecarContainer } from './V1PolyaxonSidecarContainer';
+import {
     V1PolyaxonSidecarContainerFromJSON,
     V1PolyaxonSidecarContainerFromJSONTyped,
     V1PolyaxonSidecarContainerToJSON,
-} from './';
+} from './V1PolyaxonSidecarContainer';
 
 /**
  * 
@@ -122,6 +124,15 @@ export interface V1Plugins {
      * @memberof V1Plugins
      */
     notifications?: Array<V1Notification>;
+}
+
+/**
+ * Check if a given object implements the V1Plugins interface.
+ */
+export function instanceOfV1Plugins(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1PluginsFromJSON(json: any): V1Plugins {

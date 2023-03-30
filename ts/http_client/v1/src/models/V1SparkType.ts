@@ -26,17 +26,19 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1SparkType {
-    Java = 'java',
-    Scala = 'scala',
-    Python = 'python',
-    R = 'r'
-}
+export const V1SparkType = {
+    Java: 'java',
+    Scala: 'scala',
+    Python: 'python',
+    R: 'r'
+} as const;
+export type V1SparkType = typeof V1SparkType[keyof typeof V1SparkType];
+
 
 export function V1SparkTypeFromJSON(json: any): V1SparkType {
     return V1SparkTypeFromJSONTyped(json, false);

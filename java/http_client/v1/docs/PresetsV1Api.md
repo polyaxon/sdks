@@ -3,15 +3,15 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createPreset**](PresetsV1Api.md#createPreset) | **POST** /api/v1/orgs/{owner}/presets | Create scheduling presets
-[**deletePreset**](PresetsV1Api.md#deletePreset) | **DELETE** /api/v1/orgs/{owner}/presets/{uuid} | Delete scheduling preset
-[**getPreset**](PresetsV1Api.md#getPreset) | **GET** /api/v1/orgs/{owner}/presets/{uuid} | Get scheduling preset
-[**listPresetNames**](PresetsV1Api.md#listPresetNames) | **GET** /api/v1/orgs/{owner}/presets/names | List scheduling presets names
-[**listPresets**](PresetsV1Api.md#listPresets) | **GET** /api/v1/orgs/{owner}/presets | List scheduling presets
-[**patchPreset**](PresetsV1Api.md#patchPreset) | **PATCH** /api/v1/orgs/{owner}/presets/{preset.uuid} | Patch scheduling preset
-[**updatePreset**](PresetsV1Api.md#updatePreset) | **PUT** /api/v1/orgs/{owner}/presets/{preset.uuid} | Update scheduling preset
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createPreset**](PresetsV1Api.md#createPreset) | **POST** /api/v1/orgs/{owner}/presets | Create scheduling presets |
+| [**deletePreset**](PresetsV1Api.md#deletePreset) | **DELETE** /api/v1/orgs/{owner}/presets/{uuid} | Delete scheduling preset |
+| [**getPreset**](PresetsV1Api.md#getPreset) | **GET** /api/v1/orgs/{owner}/presets/{uuid} | Get scheduling preset |
+| [**listPresetNames**](PresetsV1Api.md#listPresetNames) | **GET** /api/v1/orgs/{owner}/presets/names | List scheduling presets names |
+| [**listPresets**](PresetsV1Api.md#listPresets) | **GET** /api/v1/orgs/{owner}/presets | List scheduling presets |
+| [**patchPreset**](PresetsV1Api.md#patchPreset) | **PATCH** /api/v1/orgs/{owner}/presets/{preset.uuid} | Patch scheduling preset |
+| [**updatePreset**](PresetsV1Api.md#updatePreset) | **PUT** /api/v1/orgs/{owner}/presets/{preset.uuid} | Update scheduling preset |
 
 
 <a name="createPreset"></a>
@@ -60,10 +60,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1Preset**](V1Preset.md)| Preset body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Preset**](V1Preset.md)| Preset body | |
 
 ### Return type
 
@@ -81,11 +81,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deletePreset"></a>
 # **deletePreset**
@@ -133,11 +133,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the sub-entity |
- **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] |
 
 ### Return type
 
@@ -155,11 +155,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getPreset"></a>
 # **getPreset**
@@ -208,11 +208,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the sub-entity |
- **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] |
 
 ### Return type
 
@@ -230,11 +230,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listPresetNames"></a>
 # **listPresetNames**
@@ -288,16 +288,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -315,11 +315,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listPresets"></a>
 # **listPresets**
@@ -373,16 +373,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -400,11 +400,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchPreset"></a>
 # **patchPreset**
@@ -453,11 +453,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **presetUuid** | **String**| UUID |
- **body** | [**V1Preset**](V1Preset.md)| Preset body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **presetUuid** | **String**| UUID | |
+| **body** | [**V1Preset**](V1Preset.md)| Preset body | |
 
 ### Return type
 
@@ -475,11 +475,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updatePreset"></a>
 # **updatePreset**
@@ -528,11 +528,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **presetUuid** | **String**| UUID |
- **body** | [**V1Preset**](V1Preset.md)| Preset body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **presetUuid** | **String**| UUID | |
+| **body** | [**V1Preset**](V1Preset.md)| Preset body | |
 
 ### Return type
 
@@ -550,9 +550,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

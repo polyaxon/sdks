@@ -27,6 +27,7 @@ Create queue
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -42,7 +43,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -52,14 +53,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent = 'agent_example' # str | Agent that consumes the queue
-body = polyaxon_sdk.V1Queue() # V1Queue | Queue body
+    agent = 'agent_example' # str | Agent that consumes the queue
+    body = polyaxon_sdk.V1Queue() # V1Queue | Queue body
 
     try:
         # Create queue
         api_response = api_instance.create_queue(owner, agent, body)
+        print("The response of QueuesV1Api->create_queue:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->create_queue: %s\n" % e)
 ```
 
@@ -106,6 +108,7 @@ Delete queue
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -121,7 +124,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -131,13 +134,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Delete queue
         api_instance.delete_queue(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->delete_queue: %s\n" % e)
 ```
 
@@ -184,6 +187,7 @@ Get queue
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -199,7 +203,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -209,14 +213,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Get queue
         api_response = api_instance.get_queue(owner, entity, uuid)
+        print("The response of QueuesV1Api->get_queue:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->get_queue: %s\n" % e)
 ```
 
@@ -263,6 +268,7 @@ List organization level queues names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -278,7 +284,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -288,19 +294,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List organization level queues names
         api_response = api_instance.list_organization_queue_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of QueuesV1Api->list_organization_queue_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->list_organization_queue_names: %s\n" % e)
 ```
 
@@ -352,6 +359,7 @@ List organization level queues
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -367,7 +375,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -377,19 +385,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List organization level queues
         api_response = api_instance.list_organization_queues(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of QueuesV1Api->list_organization_queues:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->list_organization_queues: %s\n" % e)
 ```
 
@@ -441,6 +450,7 @@ List queues names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -456,7 +466,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -466,20 +476,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List queues names
         api_response = api_instance.list_queue_names(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of QueuesV1Api->list_queue_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->list_queue_names: %s\n" % e)
 ```
 
@@ -532,6 +543,7 @@ List queues
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -547,7 +559,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -557,20 +569,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List queues
         api_response = api_instance.list_queues(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of QueuesV1Api->list_queues:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->list_queues: %s\n" % e)
 ```
 
@@ -623,6 +636,7 @@ Patch queue
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -638,7 +652,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -648,15 +662,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent = 'agent_example' # str | Agent that consumes the queue
-queue_uuid = 'queue_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Queue() # V1Queue | Queue body
+    agent = 'agent_example' # str | Agent that consumes the queue
+    queue_uuid = 'queue_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Queue() # V1Queue | Queue body
 
     try:
         # Patch queue
         api_response = api_instance.patch_queue(owner, agent, queue_uuid, body)
+        print("The response of QueuesV1Api->patch_queue:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->patch_queue: %s\n" % e)
 ```
 
@@ -704,6 +719,7 @@ Update queue
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -719,7 +735,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -729,15 +745,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.QueuesV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent = 'agent_example' # str | Agent that consumes the queue
-queue_uuid = 'queue_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Queue() # V1Queue | Queue body
+    agent = 'agent_example' # str | Agent that consumes the queue
+    queue_uuid = 'queue_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Queue() # V1Queue | Queue body
 
     try:
         # Update queue
         api_response = api_instance.update_queue(owner, agent, queue_uuid, body)
+        print("The response of QueuesV1Api->update_queue:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling QueuesV1Api->update_queue: %s\n" % e)
 ```
 

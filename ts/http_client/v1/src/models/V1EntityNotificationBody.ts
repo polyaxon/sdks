@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1StatusCondition } from './V1StatusCondition';
 import {
-    V1StatusCondition,
     V1StatusConditionFromJSON,
     V1StatusConditionFromJSONTyped,
     V1StatusConditionToJSON,
-} from './';
+} from './V1StatusCondition';
 
 /**
  * 
@@ -82,6 +82,15 @@ export interface V1EntityNotificationBody {
      * @memberof V1EntityNotificationBody
      */
     connections?: Array<string>;
+}
+
+/**
+ * Check if a given object implements the V1EntityNotificationBody interface.
+ */
+export function instanceOfV1EntityNotificationBody(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EntityNotificationBodyFromJSON(json: any): V1EntityNotificationBody {

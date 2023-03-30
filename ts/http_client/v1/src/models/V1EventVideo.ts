@@ -65,6 +65,15 @@ export interface V1EventVideo {
     content_type?: string;
 }
 
+/**
+ * Check if a given object implements the V1EventVideo interface.
+ */
+export function instanceOfV1EventVideo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventVideoFromJSON(json: any): V1EventVideo {
     return V1EventVideoFromJSONTyped(json, false);
 }

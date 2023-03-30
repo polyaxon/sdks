@@ -34,13 +34,32 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1ProjectSettings;
-import org.threeten.bp.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Project
@@ -107,6 +126,8 @@ public class V1Project {
   @SerializedName(SERIALIZED_NAME_LIVE_STATE)
   private Integer liveState;
 
+  public V1Project() {
+  }
 
   public V1Project uuid(String uuid) {
     
@@ -119,7 +140,6 @@ public class V1Project {
    * @return uuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUuid() {
     return uuid;
@@ -142,7 +162,6 @@ public class V1Project {
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOwner() {
     return owner;
@@ -165,7 +184,6 @@ public class V1Project {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -188,7 +206,6 @@ public class V1Project {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -208,7 +225,7 @@ public class V1Project {
 
   public V1Project addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -219,7 +236,6 @@ public class V1Project {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTags() {
     return tags;
@@ -242,7 +258,6 @@ public class V1Project {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -265,7 +280,6 @@ public class V1Project {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -288,7 +302,6 @@ public class V1Project {
    * @return isPublic
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsPublic() {
     return isPublic;
@@ -311,7 +324,6 @@ public class V1Project {
    * @return bookmarked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getBookmarked() {
     return bookmarked;
@@ -334,7 +346,6 @@ public class V1Project {
    * @return readme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getReadme() {
     return readme;
@@ -354,7 +365,7 @@ public class V1Project {
 
   public V1Project addExcludedFeaturesItem(String excludedFeaturesItem) {
     if (this.excludedFeatures == null) {
-      this.excludedFeatures = new ArrayList<String>();
+      this.excludedFeatures = new ArrayList<>();
     }
     this.excludedFeatures.add(excludedFeaturesItem);
     return this;
@@ -365,7 +376,6 @@ public class V1Project {
    * @return excludedFeatures
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getExcludedFeatures() {
     return excludedFeatures;
@@ -385,7 +395,7 @@ public class V1Project {
 
   public V1Project addExcludedRuntimesItem(String excludedRuntimesItem) {
     if (this.excludedRuntimes == null) {
-      this.excludedRuntimes = new ArrayList<String>();
+      this.excludedRuntimes = new ArrayList<>();
     }
     this.excludedRuntimes.add(excludedRuntimesItem);
     return this;
@@ -396,7 +406,6 @@ public class V1Project {
    * @return excludedRuntimes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getExcludedRuntimes() {
     return excludedRuntimes;
@@ -419,7 +428,6 @@ public class V1Project {
    * @return settings
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ProjectSettings getSettings() {
     return settings;
@@ -442,7 +450,6 @@ public class V1Project {
    * @return role
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRole() {
     return role;
@@ -465,7 +472,6 @@ public class V1Project {
    * @return liveState
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getLiveState() {
     return liveState;
@@ -475,6 +481,7 @@ public class V1Project {
   public void setLiveState(Integer liveState) {
     this.liveState = liveState;
   }
+
 
 
   @Override
@@ -542,5 +549,136 @@ public class V1Project {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("uuid");
+    openapiFields.add("owner");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("tags");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
+    openapiFields.add("is_public");
+    openapiFields.add("bookmarked");
+    openapiFields.add("readme");
+    openapiFields.add("excluded_features");
+    openapiFields.add("excluded_runtimes");
+    openapiFields.add("settings");
+    openapiFields.add("role");
+    openapiFields.add("live_state");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Project
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Project.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Project is not found in the empty JSON string", V1Project.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Project.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Project` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("uuid") != null && !jsonObj.get("uuid").isJsonNull()) && !jsonObj.get("uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uuid").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if ((jsonObj.get("readme") != null && !jsonObj.get("readme").isJsonNull()) && !jsonObj.get("readme").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `readme` to be a primitive type in the JSON string but got `%s`", jsonObj.get("readme").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("excluded_features") != null && !jsonObj.get("excluded_features").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `excluded_features` to be an array in the JSON string but got `%s`", jsonObj.get("excluded_features").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("excluded_runtimes") != null && !jsonObj.get("excluded_runtimes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `excluded_runtimes` to be an array in the JSON string but got `%s`", jsonObj.get("excluded_runtimes").toString()));
+      }
+      // validate the optional field `settings`
+      if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
+        V1ProjectSettings.validateJsonObject(jsonObj.getAsJsonObject("settings"));
+      }
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Project.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Project' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Project> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Project.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Project>() {
+           @Override
+           public void write(JsonWriter out, V1Project value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Project read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Project given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Project
+  * @throws IOException if the JSON string is invalid with respect to V1Project
+  */
+  public static V1Project fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Project.class);
+  }
+
+ /**
+  * Convert an instance of V1Project to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

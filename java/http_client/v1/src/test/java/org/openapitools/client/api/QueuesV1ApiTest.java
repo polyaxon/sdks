@@ -31,8 +31,8 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.model.RuntimeError;
 import org.openapitools.client.model.V1ListQueuesResponse;
 import org.openapitools.client.model.V1Queue;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,70 +42,57 @@ import java.util.Map;
 /**
  * API tests for QueuesV1Api
  */
-@Ignore
+@Disabled
 public class QueuesV1ApiTest {
 
     private final QueuesV1Api api = new QueuesV1Api();
 
-    
     /**
      * Create queue
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createQueueTest() throws ApiException {
         String owner = null;
         String agent = null;
         V1Queue body = null;
-                V1Queue response = api.createQueue(owner, agent, body);
+        V1Queue response = api.createQueue(owner, agent, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete queue
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteQueueTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                api.deleteQueue(owner, entity, uuid);
+        api.deleteQueue(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get queue
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getQueueTest() throws ApiException {
         String owner = null;
         String entity = null;
         String uuid = null;
-                V1Queue response = api.getQueue(owner, entity, uuid);
+        V1Queue response = api.getQueue(owner, entity, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List organization level queues names
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listOrganizationQueueNamesTest() throws ApiException {
@@ -117,17 +104,14 @@ public class QueuesV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListQueuesResponse response = api.listOrganizationQueueNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListQueuesResponse response = api.listOrganizationQueueNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List organization level queues
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listOrganizationQueuesTest() throws ApiException {
@@ -139,17 +123,14 @@ public class QueuesV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListQueuesResponse response = api.listOrganizationQueues(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListQueuesResponse response = api.listOrganizationQueues(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List queues names
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listQueueNamesTest() throws ApiException {
@@ -162,17 +143,14 @@ public class QueuesV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListQueuesResponse response = api.listQueueNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListQueuesResponse response = api.listQueueNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List queues
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listQueuesTest() throws ApiException {
@@ -185,17 +163,14 @@ public class QueuesV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListQueuesResponse response = api.listQueues(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListQueuesResponse response = api.listQueues(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch queue
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void patchQueueTest() throws ApiException {
@@ -203,17 +178,14 @@ public class QueuesV1ApiTest {
         String agent = null;
         String queueUuid = null;
         V1Queue body = null;
-                V1Queue response = api.patchQueue(owner, agent, queueUuid, body);
+        V1Queue response = api.patchQueue(owner, agent, queueUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update queue
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateQueueTest() throws ApiException {
@@ -221,8 +193,8 @@ public class QueuesV1ApiTest {
         String agent = null;
         String queueUuid = null;
         V1Queue body = null;
-                V1Queue response = api.updateQueue(owner, agent, queueUuid, body);
+        V1Queue response = api.updateQueue(owner, agent, queueUuid, body);
         // TODO: test validations
     }
-    
+
 }

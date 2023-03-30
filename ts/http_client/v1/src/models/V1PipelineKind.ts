@@ -26,15 +26,17 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1PipelineKind {
-    Dag = 'dag',
-    Matrix = 'matrix'
-}
+export const V1PipelineKind = {
+    Dag: 'dag',
+    Matrix: 'matrix'
+} as const;
+export type V1PipelineKind = typeof V1PipelineKind[keyof typeof V1PipelineKind];
+
 
 export function V1PipelineKindFromJSON(json: any): V1PipelineKind {
     return V1PipelineKindFromJSONTyped(json, false);

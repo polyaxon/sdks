@@ -32,8 +32,8 @@ import org.openapitools.client.model.RuntimeError;
 import org.openapitools.client.model.V1Compatibility;
 import org.openapitools.client.model.V1Installation;
 import org.openapitools.client.model.V1LogHandler;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,56 +43,46 @@ import java.util.Map;
 /**
  * API tests for VersionsV1Api
  */
-@Ignore
+@Disabled
 public class VersionsV1ApiTest {
 
     private final VersionsV1Api api = new VersionsV1Api();
 
-    
     /**
      * Get compatibility versions
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getCompatibilityTest() throws ApiException {
         String uuid = null;
         String version = null;
         String service = null;
-                V1Compatibility response = api.getCompatibility(uuid, version, service);
+        V1Compatibility response = api.getCompatibility(uuid, version, service);
         // TODO: test validations
     }
-    
+
     /**
      * Get installation versions
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getInstallationTest() throws ApiException {
         Boolean auth = null;
-                V1Installation response = api.getInstallation(auth);
+        V1Installation response = api.getInstallation(auth);
         // TODO: test validations
     }
-    
+
     /**
      * Get log handler versions
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getLogHandlerTest() throws ApiException {
-                V1LogHandler response = api.getLogHandler();
+        V1LogHandler response = api.getLogHandler();
         // TODO: test validations
     }
-    
+
 }

@@ -86,7 +86,41 @@ A successful response.
 type InvalidateRunsOK struct {
 }
 
+// IsSuccess returns true when this invalidate runs o k response has a 2xx status code
+func (o *InvalidateRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this invalidate runs o k response has a 3xx status code
+func (o *InvalidateRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate runs o k response has a 4xx status code
+func (o *InvalidateRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this invalidate runs o k response has a 5xx status code
+func (o *InvalidateRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate runs o k response a status code equal to that given
+func (o *InvalidateRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the invalidate runs o k response
+func (o *InvalidateRunsOK) Code() int {
+	return 200
+}
+
 func (o *InvalidateRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsOK ", 200)
+}
+
+func (o *InvalidateRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type InvalidateRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this invalidate runs no content response has a 2xx status code
+func (o *InvalidateRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this invalidate runs no content response has a 3xx status code
+func (o *InvalidateRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate runs no content response has a 4xx status code
+func (o *InvalidateRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this invalidate runs no content response has a 5xx status code
+func (o *InvalidateRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate runs no content response a status code equal to that given
+func (o *InvalidateRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the invalidate runs no content response
+func (o *InvalidateRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *InvalidateRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *InvalidateRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *InvalidateRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type InvalidateRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this invalidate runs forbidden response has a 2xx status code
+func (o *InvalidateRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this invalidate runs forbidden response has a 3xx status code
+func (o *InvalidateRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate runs forbidden response has a 4xx status code
+func (o *InvalidateRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this invalidate runs forbidden response has a 5xx status code
+func (o *InvalidateRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate runs forbidden response a status code equal to that given
+func (o *InvalidateRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the invalidate runs forbidden response
+func (o *InvalidateRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *InvalidateRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *InvalidateRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *InvalidateRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type InvalidateRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this invalidate runs not found response has a 2xx status code
+func (o *InvalidateRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this invalidate runs not found response has a 3xx status code
+func (o *InvalidateRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate runs not found response has a 4xx status code
+func (o *InvalidateRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this invalidate runs not found response has a 5xx status code
+func (o *InvalidateRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate runs not found response a status code equal to that given
+func (o *InvalidateRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the invalidate runs not found response
+func (o *InvalidateRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *InvalidateRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *InvalidateRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *InvalidateRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type InvalidateRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this invalidate runs default response has a 2xx status code
+func (o *InvalidateRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this invalidate runs default response has a 3xx status code
+func (o *InvalidateRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this invalidate runs default response has a 4xx status code
+func (o *InvalidateRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this invalidate runs default response has a 5xx status code
+func (o *InvalidateRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this invalidate runs default response a status code equal to that given
+func (o *InvalidateRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the invalidate runs default response
 func (o *InvalidateRunsDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *InvalidateRunsDefault) Code() int {
 func (o *InvalidateRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *InvalidateRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *InvalidateRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

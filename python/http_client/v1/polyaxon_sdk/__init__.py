@@ -289,4 +289,3 @@ from polyaxon_sdk.models.v1_uuids import V1Uuids
 from polyaxon_sdk.models.v1_version import V1Version
 from polyaxon_sdk.models.v1_wasb_type import V1WasbType
 from polyaxon_sdk.models.v1_xg_boost_job import V1XGBoostJob
-

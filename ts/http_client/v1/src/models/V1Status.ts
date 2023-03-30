@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1StatusCondition } from './V1StatusCondition';
 import {
-    V1StatusCondition,
     V1StatusConditionFromJSON,
     V1StatusConditionFromJSONTyped,
     V1StatusConditionToJSON,
-    V1Statuses,
+} from './V1StatusCondition';
+import type { V1Statuses } from './V1Statuses';
+import {
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -68,6 +70,15 @@ export interface V1Status {
      * @memberof V1Status
      */
     meta_info?: object;
+}
+
+/**
+ * Check if a given object implements the V1Status interface.
+ */
+export function instanceOfV1Status(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1StatusFromJSON(json: any): V1Status {

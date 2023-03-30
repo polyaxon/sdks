@@ -15277,7 +15277,7 @@
     },
     "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs": {
       "post": {
-        "summary": "Deprecated Collect run logs",
+        "summary": "Deprecated Collect run logs (# TODO: Remove in v2)",
         "operationId": "DeprecatedCollectRunLogs",
         "responses": {
           "200": {

@@ -87,9 +87,44 @@ type GetTagOK struct {
 	Payload *service_model.V1Tag
 }
 
+// IsSuccess returns true when this get tag o k response has a 2xx status code
+func (o *GetTagOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get tag o k response has a 3xx status code
+func (o *GetTagOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tag o k response has a 4xx status code
+func (o *GetTagOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get tag o k response has a 5xx status code
+func (o *GetTagOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tag o k response a status code equal to that given
+func (o *GetTagOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the get tag o k response
+func (o *GetTagOK) Code() int {
+	return 200
+}
+
 func (o *GetTagOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagOK  %+v", 200, o.Payload)
 }
+
+func (o *GetTagOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagOK  %+v", 200, o.Payload)
+}
+
 func (o *GetTagOK) GetPayload() *service_model.V1Tag {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type GetTagNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get tag no content response has a 2xx status code
+func (o *GetTagNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get tag no content response has a 3xx status code
+func (o *GetTagNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tag no content response has a 4xx status code
+func (o *GetTagNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get tag no content response has a 5xx status code
+func (o *GetTagNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tag no content response a status code equal to that given
+func (o *GetTagNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the get tag no content response
+func (o *GetTagNoContent) Code() int {
+	return 204
+}
+
 func (o *GetTagNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetTagNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetTagNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type GetTagForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get tag forbidden response has a 2xx status code
+func (o *GetTagForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tag forbidden response has a 3xx status code
+func (o *GetTagForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tag forbidden response has a 4xx status code
+func (o *GetTagForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tag forbidden response has a 5xx status code
+func (o *GetTagForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tag forbidden response a status code equal to that given
+func (o *GetTagForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the get tag forbidden response
+func (o *GetTagForbidden) Code() int {
+	return 403
+}
+
 func (o *GetTagForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetTagForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetTagForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type GetTagNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get tag not found response has a 2xx status code
+func (o *GetTagNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tag not found response has a 3xx status code
+func (o *GetTagNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tag not found response has a 4xx status code
+func (o *GetTagNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tag not found response has a 5xx status code
+func (o *GetTagNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tag not found response a status code equal to that given
+func (o *GetTagNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get tag not found response
+func (o *GetTagNotFound) Code() int {
+	return 404
+}
+
 func (o *GetTagNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetTagNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] getTagNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetTagNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type GetTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this get tag default response has a 2xx status code
+func (o *GetTagDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get tag default response has a 3xx status code
+func (o *GetTagDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get tag default response has a 4xx status code
+func (o *GetTagDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get tag default response has a 5xx status code
+func (o *GetTagDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get tag default response a status code equal to that given
+func (o *GetTagDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the get tag default response
 func (o *GetTagDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *GetTagDefault) Code() int {
 func (o *GetTagDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] GetTag default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetTagDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/{uuid}][%d] GetTag default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetTagDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

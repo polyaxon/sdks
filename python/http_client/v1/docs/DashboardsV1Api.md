@@ -25,6 +25,7 @@ Create dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -40,7 +41,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -50,13 +51,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
+    body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
         # Create dashboard
         api_response = api_instance.create_dashboard(owner, body)
+        print("The response of DashboardsV1Api->create_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->create_dashboard: %s\n" % e)
 ```
 
@@ -102,6 +104,7 @@ Delete dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -117,7 +120,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -127,12 +130,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the entity
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
 
     try:
         # Delete dashboard
         api_instance.delete_dashboard(owner, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->delete_dashboard: %s\n" % e)
 ```
 
@@ -178,6 +181,7 @@ Get dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -193,7 +197,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -203,13 +207,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the entity
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
 
     try:
         # Get dashboard
         api_response = api_instance.get_dashboard(owner, uuid)
+        print("The response of DashboardsV1Api->get_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->get_dashboard: %s\n" % e)
 ```
 
@@ -255,6 +260,7 @@ List dashboard names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -270,7 +276,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -280,19 +286,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List dashboard names
         api_response = api_instance.list_dashboard_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of DashboardsV1Api->list_dashboard_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->list_dashboard_names: %s\n" % e)
 ```
 
@@ -344,6 +351,7 @@ List dashboards
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -359,7 +367,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -369,19 +377,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List dashboards
         api_response = api_instance.list_dashboards(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of DashboardsV1Api->list_dashboards:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->list_dashboards: %s\n" % e)
 ```
 
@@ -433,6 +442,7 @@ Patch dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -448,7 +458,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -458,14 +468,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-dashboard_uuid = 'dashboard_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
+    dashboard_uuid = 'dashboard_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
         # Patch dashboard
         api_response = api_instance.patch_dashboard(owner, dashboard_uuid, body)
+        print("The response of DashboardsV1Api->patch_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->patch_dashboard: %s\n" % e)
 ```
 
@@ -512,6 +523,7 @@ Update dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -527,7 +539,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -537,14 +549,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.DashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-dashboard_uuid = 'dashboard_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
+    dashboard_uuid = 'dashboard_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
         # Update dashboard
         api_response = api_instance.update_dashboard(owner, dashboard_uuid, body)
+        print("The response of DashboardsV1Api->update_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling DashboardsV1Api->update_dashboard: %s\n" % e)
 ```
 

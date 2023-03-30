@@ -53,6 +53,15 @@ export interface V1RunReferenceCatalog {
     name?: string;
 }
 
+/**
+ * Check if a given object implements the V1RunReferenceCatalog interface.
+ */
+export function instanceOfV1RunReferenceCatalog(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RunReferenceCatalogFromJSON(json: any): V1RunReferenceCatalog {
     return V1RunReferenceCatalogFromJSONTyped(json, false);
 }

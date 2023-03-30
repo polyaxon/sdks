@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ProtobufAny } from './ProtobufAny';
 import {
-    ProtobufAny,
     ProtobufAnyFromJSON,
     ProtobufAnyFromJSONTyped,
     ProtobufAnyToJSON,
-} from './';
+} from './ProtobufAny';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface RuntimeError {
      * @memberof RuntimeError
      */
     details?: Array<ProtobufAny>;
+}
+
+/**
+ * Check if a given object implements the RuntimeError interface.
+ */
+export function instanceOfRuntimeError(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function RuntimeErrorFromJSON(json: any): RuntimeError {

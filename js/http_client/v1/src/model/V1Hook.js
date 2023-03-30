@@ -91,8 +91,40 @@ class V1Hook {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Hook</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Hook</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['hubRef'] && !(typeof data['hubRef'] === 'string' || data['hubRef'] instanceof String)) {
+            throw new Error("Expected the field `hubRef` to be a primitive type in the JSON string but got " + data['hubRef']);
+        }
+        // ensure the json data is a string
+        if (data['connection'] && !(typeof data['connection'] === 'string' || data['connection'] instanceof String)) {
+            throw new Error("Expected the field `connection` to be a primitive type in the JSON string but got " + data['connection']);
+        }
+        // ensure the json data is a string
+        if (data['conditions'] && !(typeof data['conditions'] === 'string' || data['conditions'] instanceof String)) {
+            throw new Error("Expected the field `conditions` to be a primitive type in the JSON string but got " + data['conditions']);
+        }
+        // ensure the json data is a string
+        if (data['queue'] && !(typeof data['queue'] === 'string' || data['queue'] instanceof String)) {
+            throw new Error("Expected the field `queue` to be a primitive type in the JSON string but got " + data['queue']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['presets'])) {
+            throw new Error("Expected the field `presets` to be an array in the JSON data but got " + data['presets']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} hubRef

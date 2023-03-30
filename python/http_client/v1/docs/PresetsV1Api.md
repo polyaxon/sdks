@@ -25,6 +25,7 @@ Create scheduling presets
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -40,7 +41,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -50,13 +51,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Preset() # V1Preset | Preset body
+    body = polyaxon_sdk.V1Preset() # V1Preset | Preset body
 
     try:
         # Create scheduling presets
         api_response = api_instance.create_preset(owner, body)
+        print("The response of PresetsV1Api->create_preset:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->create_preset: %s\n" % e)
 ```
 
@@ -102,6 +104,7 @@ Delete scheduling preset
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -117,7 +120,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -127,13 +130,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
 
     try:
         # Delete scheduling preset
         api_instance.delete_preset(owner, uuid, entity=entity)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->delete_preset: %s\n" % e)
 ```
 
@@ -180,6 +183,7 @@ Get scheduling preset
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -195,7 +199,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -205,14 +209,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
 
     try:
         # Get scheduling preset
         api_response = api_instance.get_preset(owner, uuid, entity=entity)
+        print("The response of PresetsV1Api->get_preset:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->get_preset: %s\n" % e)
 ```
 
@@ -259,6 +264,7 @@ List scheduling presets names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -274,7 +280,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -284,19 +290,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List scheduling presets names
         api_response = api_instance.list_preset_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of PresetsV1Api->list_preset_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->list_preset_names: %s\n" % e)
 ```
 
@@ -348,6 +355,7 @@ List scheduling presets
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -363,7 +371,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -373,19 +381,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List scheduling presets
         api_response = api_instance.list_presets(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of PresetsV1Api->list_presets:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->list_presets: %s\n" % e)
 ```
 
@@ -437,6 +446,7 @@ Patch scheduling preset
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -452,7 +462,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -462,14 +472,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-preset_uuid = 'preset_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Preset() # V1Preset | Preset body
+    preset_uuid = 'preset_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Preset() # V1Preset | Preset body
 
     try:
         # Patch scheduling preset
         api_response = api_instance.patch_preset(owner, preset_uuid, body)
+        print("The response of PresetsV1Api->patch_preset:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->patch_preset: %s\n" % e)
 ```
 
@@ -516,6 +527,7 @@ Update scheduling preset
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -531,7 +543,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -541,14 +553,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.PresetsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-preset_uuid = 'preset_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Preset() # V1Preset | Preset body
+    preset_uuid = 'preset_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Preset() # V1Preset | Preset body
 
     try:
         # Update scheduling preset
         api_response = api_instance.update_preset(owner, preset_uuid, body)
+        print("The response of PresetsV1Api->update_preset:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling PresetsV1Api->update_preset: %s\n" % e)
 ```
 

@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DashboardSpec } from './V1DashboardSpec';
 import {
-    V1DashboardSpec,
     V1DashboardSpecFromJSON,
     V1DashboardSpecFromJSONTyped,
     V1DashboardSpecToJSON,
-} from './';
+} from './V1DashboardSpec';
 
 /**
  * 
@@ -94,6 +94,15 @@ export interface V1Dashboard {
      * @memberof V1Dashboard
      */
     updated_at?: Date;
+}
+
+/**
+ * Check if a given object implements the V1Dashboard interface.
+ */
+export function instanceOfV1Dashboard(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DashboardFromJSON(json: any): V1Dashboard {

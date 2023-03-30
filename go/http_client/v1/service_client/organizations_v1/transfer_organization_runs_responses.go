@@ -86,7 +86,41 @@ A successful response.
 type TransferOrganizationRunsOK struct {
 }
 
+// IsSuccess returns true when this transfer organization runs o k response has a 2xx status code
+func (o *TransferOrganizationRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this transfer organization runs o k response has a 3xx status code
+func (o *TransferOrganizationRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer organization runs o k response has a 4xx status code
+func (o *TransferOrganizationRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this transfer organization runs o k response has a 5xx status code
+func (o *TransferOrganizationRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer organization runs o k response a status code equal to that given
+func (o *TransferOrganizationRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the transfer organization runs o k response
+func (o *TransferOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *TransferOrganizationRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsOK ", 200)
+}
+
+func (o *TransferOrganizationRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type TransferOrganizationRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this transfer organization runs no content response has a 2xx status code
+func (o *TransferOrganizationRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this transfer organization runs no content response has a 3xx status code
+func (o *TransferOrganizationRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer organization runs no content response has a 4xx status code
+func (o *TransferOrganizationRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this transfer organization runs no content response has a 5xx status code
+func (o *TransferOrganizationRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer organization runs no content response a status code equal to that given
+func (o *TransferOrganizationRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the transfer organization runs no content response
+func (o *TransferOrganizationRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *TransferOrganizationRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *TransferOrganizationRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *TransferOrganizationRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type TransferOrganizationRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this transfer organization runs forbidden response has a 2xx status code
+func (o *TransferOrganizationRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this transfer organization runs forbidden response has a 3xx status code
+func (o *TransferOrganizationRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer organization runs forbidden response has a 4xx status code
+func (o *TransferOrganizationRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this transfer organization runs forbidden response has a 5xx status code
+func (o *TransferOrganizationRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer organization runs forbidden response a status code equal to that given
+func (o *TransferOrganizationRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the transfer organization runs forbidden response
+func (o *TransferOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *TransferOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *TransferOrganizationRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *TransferOrganizationRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type TransferOrganizationRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this transfer organization runs not found response has a 2xx status code
+func (o *TransferOrganizationRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this transfer organization runs not found response has a 3xx status code
+func (o *TransferOrganizationRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this transfer organization runs not found response has a 4xx status code
+func (o *TransferOrganizationRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this transfer organization runs not found response has a 5xx status code
+func (o *TransferOrganizationRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this transfer organization runs not found response a status code equal to that given
+func (o *TransferOrganizationRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the transfer organization runs not found response
+func (o *TransferOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *TransferOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *TransferOrganizationRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] transferOrganizationRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *TransferOrganizationRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type TransferOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this transfer organization runs default response has a 2xx status code
+func (o *TransferOrganizationRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this transfer organization runs default response has a 3xx status code
+func (o *TransferOrganizationRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this transfer organization runs default response has a 4xx status code
+func (o *TransferOrganizationRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this transfer organization runs default response has a 5xx status code
+func (o *TransferOrganizationRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this transfer organization runs default response a status code equal to that given
+func (o *TransferOrganizationRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the transfer organization runs default response
 func (o *TransferOrganizationRunsDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *TransferOrganizationRunsDefault) Code() int {
 func (o *TransferOrganizationRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] TransferOrganizationRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *TransferOrganizationRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/transfer][%d] TransferOrganizationRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *TransferOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

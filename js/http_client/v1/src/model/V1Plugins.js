@@ -106,8 +106,38 @@ class V1Plugins {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Plugins</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Plugins</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['logLevel'] && !(typeof data['logLevel'] === 'string' || data['logLevel'] instanceof String)) {
+            throw new Error("Expected the field `logLevel` to be a primitive type in the JSON string but got " + data['logLevel']);
+        }
+        // validate the optional field `sidecar`
+        if (data['sidecar']) { // data not null
+          V1PolyaxonSidecarContainer.validateJSON(data['sidecar']);
+        }
+        if (data['notifications']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['notifications'])) {
+                throw new Error("Expected the field `notifications` to be an array in the JSON data but got " + data['notifications']);
+            }
+            // validate the optional field `notifications` (array)
+            for (const item of data['notifications']) {
+                V1Notification.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} auth

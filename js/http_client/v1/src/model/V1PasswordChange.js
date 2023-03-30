@@ -74,8 +74,32 @@ class V1PasswordChange {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1PasswordChange</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1PasswordChange</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['old_password'] && !(typeof data['old_password'] === 'string' || data['old_password'] instanceof String)) {
+            throw new Error("Expected the field `old_password` to be a primitive type in the JSON string but got " + data['old_password']);
+        }
+        // ensure the json data is a string
+        if (data['new_password1'] && !(typeof data['new_password1'] === 'string' || data['new_password1'] instanceof String)) {
+            throw new Error("Expected the field `new_password1` to be a primitive type in the JSON string but got " + data['new_password1']);
+        }
+        // ensure the json data is a string
+        if (data['new_password2'] && !(typeof data['new_password2'] === 'string' || data['new_password2'] instanceof String)) {
+            throw new Error("Expected the field `new_password2` to be a primitive type in the JSON string but got " + data['new_password2']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} old_password

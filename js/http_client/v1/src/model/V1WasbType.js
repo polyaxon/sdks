@@ -74,8 +74,28 @@ class V1WasbType {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1WasbType</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1WasbType</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['container'] && !(typeof data['container'] === 'string' || data['container'] instanceof String)) {
+            throw new Error("Expected the field `container` to be a primitive type in the JSON string but got " + data['container']);
+        }
+        // ensure the json data is a string
+        if (data['storageAccount'] && !(typeof data['storageAccount'] === 'string' || data['storageAccount'] instanceof String)) {
+            throw new Error("Expected the field `storageAccount` to be a primitive type in the JSON string but got " + data['storageAccount']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} container

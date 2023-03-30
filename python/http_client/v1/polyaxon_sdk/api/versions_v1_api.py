@@ -31,8 +31,16 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
+from pydantic import validate_arguments, ValidationError
+from typing_extensions import Annotated
+
+from pydantic import Field, StrictBool, StrictStr
+
+from typing import Optional
+
+from polyaxon_sdk.models.v1_compatibility import V1Compatibility
+from polyaxon_sdk.models.v1_installation import V1Installation
+from polyaxon_sdk.models.v1_log_handler import V1LogHandler
 
 from polyaxon_sdk.api_client import ApiClient
 from polyaxon_sdk.exceptions import (  # noqa: F401
@@ -50,10 +58,11 @@ class VersionsV1Api(object):
 
     def __init__(self, api_client=None):
         if api_client is None:
-            api_client = ApiClient()
+            api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    def get_compatibility(self, uuid, version, service, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_compatibility(self, uuid : Annotated[StrictStr, Field(..., description="UUid")], version : Annotated[StrictStr, Field(..., description="Version")], service : Annotated[StrictStr, Field(..., description="Service")], **kwargs) -> V1Compatibility:  # noqa: E501
         """Get compatibility versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -86,7 +95,8 @@ class VersionsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_compatibility_with_http_info(uuid, version, service, **kwargs)  # noqa: E501
 
-    def get_compatibility_with_http_info(self, uuid, version, service, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_compatibility_with_http_info(self, uuid : Annotated[StrictStr, Field(..., description="UUid")], version : Annotated[StrictStr, Field(..., description="Version")], service : Annotated[StrictStr, Field(..., description="Service")], **kwargs):  # noqa: E501
         """Get compatibility versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -118,106 +128,105 @@ class VersionsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Compatibility, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'uuid',
             'version',
             'service'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_compatibility" % key
+                    " to method get_compatibility" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_compatibility`")  # noqa: E501
-        # verify the required parameter 'version' is set
-        if self.api_client.client_side_validation and ('version' not in local_var_params or  # noqa: E501
-                                                        local_var_params['version'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `version` when calling `get_compatibility`")  # noqa: E501
-        # verify the required parameter 'service' is set
-        if self.api_client.client_side_validation and ('service' not in local_var_params or  # noqa: E501
-                                                        local_var_params['service'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `service` when calling `get_compatibility`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
-        if 'version' in local_var_params:
-            path_params['version'] = local_var_params['version']  # noqa: E501
-        if 'service' in local_var_params:
-            path_params['service'] = local_var_params['service']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
+        if _params['version']:
+            _path_params['version'] = _params['version']
+        if _params['service']:
+            _path_params['service'] = _params['service']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Compatibility",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Compatibility",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/compatibility/{uuid}/{version}/{service}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_installation(self, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_installation(self, auth : Annotated[Optional[StrictBool], Field(description="auth.")] = None, **kwargs) -> V1Installation:  # noqa: E501
         """Get installation versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_installation(async_req=True)
+        >>> thread = api.get_installation(auth, async_req=True)
         >>> result = thread.get()
 
         :param auth: auth.
@@ -238,15 +247,16 @@ class VersionsV1Api(object):
         :rtype: V1Installation
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_installation_with_http_info(**kwargs)  # noqa: E501
+        return self.get_installation_with_http_info(auth, **kwargs)  # noqa: E501
 
-    def get_installation_with_http_info(self, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_installation_with_http_info(self, auth : Annotated[Optional[StrictBool], Field(description="auth.")] = None, **kwargs):  # noqa: E501
         """Get installation versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_installation_with_http_info(async_req=True)
+        >>> thread = api.get_installation_with_http_info(auth, async_req=True)
         >>> result = thread.get()
 
         :param auth: auth.
@@ -268,82 +278,93 @@ class VersionsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Installation, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'auth'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_installation" % key
+                    " to method get_installation" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
+        # process the path parameters
+        _path_params = {}
 
-        query_params = []
-        if 'auth' in local_var_params and local_var_params['auth'] is not None:  # noqa: E501
-            query_params.append(('auth', local_var_params['auth']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('auth') is not None:  # noqa: E501
+            _query_params.append(('auth', _params['auth']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Installation",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Installation",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/installation', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_log_handler(self, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_log_handler(self, **kwargs) -> V1LogHandler:  # noqa: E501
         """Get log handler versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -370,6 +391,7 @@ class VersionsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_log_handler_with_http_info(**kwargs)  # noqa: E501
 
+    @validate_arguments
     def get_log_handler_with_http_info(self, **kwargs):  # noqa: E501
         """Get log handler versions  # noqa: E501
 
@@ -396,74 +418,84 @@ class VersionsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1LogHandler, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_log_handler" % key
+                    " to method get_log_handler" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
+        # process the path parameters
+        _path_params = {}
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1LogHandler",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1LogHandler",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/log_handler', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))

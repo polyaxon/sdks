@@ -87,9 +87,44 @@ type CreateOrganizationMemberOK struct {
 	Payload *service_model.V1OrganizationMember
 }
 
+// IsSuccess returns true when this create organization member o k response has a 2xx status code
+func (o *CreateOrganizationMemberOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create organization member o k response has a 3xx status code
+func (o *CreateOrganizationMemberOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create organization member o k response has a 4xx status code
+func (o *CreateOrganizationMemberOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create organization member o k response has a 5xx status code
+func (o *CreateOrganizationMemberOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create organization member o k response a status code equal to that given
+func (o *CreateOrganizationMemberOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the create organization member o k response
+func (o *CreateOrganizationMemberOK) Code() int {
+	return 200
+}
+
 func (o *CreateOrganizationMemberOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateOrganizationMemberOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateOrganizationMemberOK) GetPayload() *service_model.V1OrganizationMember {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type CreateOrganizationMemberNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create organization member no content response has a 2xx status code
+func (o *CreateOrganizationMemberNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create organization member no content response has a 3xx status code
+func (o *CreateOrganizationMemberNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create organization member no content response has a 4xx status code
+func (o *CreateOrganizationMemberNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create organization member no content response has a 5xx status code
+func (o *CreateOrganizationMemberNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create organization member no content response a status code equal to that given
+func (o *CreateOrganizationMemberNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the create organization member no content response
+func (o *CreateOrganizationMemberNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateOrganizationMemberNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateOrganizationMemberNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateOrganizationMemberNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type CreateOrganizationMemberForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create organization member forbidden response has a 2xx status code
+func (o *CreateOrganizationMemberForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create organization member forbidden response has a 3xx status code
+func (o *CreateOrganizationMemberForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create organization member forbidden response has a 4xx status code
+func (o *CreateOrganizationMemberForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create organization member forbidden response has a 5xx status code
+func (o *CreateOrganizationMemberForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create organization member forbidden response a status code equal to that given
+func (o *CreateOrganizationMemberForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the create organization member forbidden response
+func (o *CreateOrganizationMemberForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateOrganizationMemberForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateOrganizationMemberForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateOrganizationMemberForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type CreateOrganizationMemberNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create organization member not found response has a 2xx status code
+func (o *CreateOrganizationMemberNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create organization member not found response has a 3xx status code
+func (o *CreateOrganizationMemberNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create organization member not found response has a 4xx status code
+func (o *CreateOrganizationMemberNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create organization member not found response has a 5xx status code
+func (o *CreateOrganizationMemberNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create organization member not found response a status code equal to that given
+func (o *CreateOrganizationMemberNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create organization member not found response
+func (o *CreateOrganizationMemberNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateOrganizationMemberNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateOrganizationMemberNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateOrganizationMemberNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type CreateOrganizationMemberDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this create organization member default response has a 2xx status code
+func (o *CreateOrganizationMemberDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create organization member default response has a 3xx status code
+func (o *CreateOrganizationMemberDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create organization member default response has a 4xx status code
+func (o *CreateOrganizationMemberDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create organization member default response has a 5xx status code
+func (o *CreateOrganizationMemberDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create organization member default response a status code equal to that given
+func (o *CreateOrganizationMemberDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the create organization member default response
 func (o *CreateOrganizationMemberDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *CreateOrganizationMemberDefault) Code() int {
 func (o *CreateOrganizationMemberDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] CreateOrganizationMember default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateOrganizationMemberDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] CreateOrganizationMember default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateOrganizationMemberDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

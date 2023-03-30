@@ -87,9 +87,44 @@ type ListProjectNamesOK struct {
 	Payload *service_model.V1ListProjectsResponse
 }
 
+// IsSuccess returns true when this list project names o k response has a 2xx status code
+func (o *ListProjectNamesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list project names o k response has a 3xx status code
+func (o *ListProjectNamesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project names o k response has a 4xx status code
+func (o *ListProjectNamesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list project names o k response has a 5xx status code
+func (o *ListProjectNamesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project names o k response a status code equal to that given
+func (o *ListProjectNamesOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the list project names o k response
+func (o *ListProjectNamesOK) Code() int {
+	return 200
+}
+
 func (o *ListProjectNamesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesOK  %+v", 200, o.Payload)
 }
+
+func (o *ListProjectNamesOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesOK  %+v", 200, o.Payload)
+}
+
 func (o *ListProjectNamesOK) GetPayload() *service_model.V1ListProjectsResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type ListProjectNamesNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list project names no content response has a 2xx status code
+func (o *ListProjectNamesNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list project names no content response has a 3xx status code
+func (o *ListProjectNamesNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project names no content response has a 4xx status code
+func (o *ListProjectNamesNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list project names no content response has a 5xx status code
+func (o *ListProjectNamesNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project names no content response a status code equal to that given
+func (o *ListProjectNamesNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the list project names no content response
+func (o *ListProjectNamesNoContent) Code() int {
+	return 204
+}
+
 func (o *ListProjectNamesNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListProjectNamesNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListProjectNamesNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type ListProjectNamesForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list project names forbidden response has a 2xx status code
+func (o *ListProjectNamesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list project names forbidden response has a 3xx status code
+func (o *ListProjectNamesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project names forbidden response has a 4xx status code
+func (o *ListProjectNamesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list project names forbidden response has a 5xx status code
+func (o *ListProjectNamesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project names forbidden response a status code equal to that given
+func (o *ListProjectNamesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the list project names forbidden response
+func (o *ListProjectNamesForbidden) Code() int {
+	return 403
+}
+
 func (o *ListProjectNamesForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListProjectNamesForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListProjectNamesForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type ListProjectNamesNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list project names not found response has a 2xx status code
+func (o *ListProjectNamesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list project names not found response has a 3xx status code
+func (o *ListProjectNamesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list project names not found response has a 4xx status code
+func (o *ListProjectNamesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list project names not found response has a 5xx status code
+func (o *ListProjectNamesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list project names not found response a status code equal to that given
+func (o *ListProjectNamesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list project names not found response
+func (o *ListProjectNamesNotFound) Code() int {
+	return 404
+}
+
 func (o *ListProjectNamesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListProjectNamesNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] listProjectNamesNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListProjectNamesNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type ListProjectNamesDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this list project names default response has a 2xx status code
+func (o *ListProjectNamesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list project names default response has a 3xx status code
+func (o *ListProjectNamesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list project names default response has a 4xx status code
+func (o *ListProjectNamesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list project names default response has a 5xx status code
+func (o *ListProjectNamesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list project names default response a status code equal to that given
+func (o *ListProjectNamesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the list project names default response
 func (o *ListProjectNamesDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *ListProjectNamesDefault) Code() int {
 func (o *ListProjectNamesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] ListProjectNames default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListProjectNamesDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/projects/names][%d] ListProjectNames default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListProjectNamesDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

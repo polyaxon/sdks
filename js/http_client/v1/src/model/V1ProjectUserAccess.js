@@ -74,8 +74,32 @@ class V1ProjectUserAccess {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1ProjectUserAccess</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1ProjectUserAccess</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
+        }
+        // ensure the json data is a string
+        if (data['queue'] && !(typeof data['queue'] === 'string' || data['queue'] instanceof String)) {
+            throw new Error("Expected the field `queue` to be a primitive type in the JSON string but got " + data['queue']);
+        }
+        // ensure the json data is a string
+        if (data['preset'] && !(typeof data['preset'] === 'string' || data['preset'] instanceof String)) {
+            throw new Error("Expected the field `preset` to be a primitive type in the JSON string but got " + data['preset']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} user

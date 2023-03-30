@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Preset } from './V1Preset';
 import {
-    V1Preset,
     V1PresetFromJSON,
     V1PresetFromJSONTyped,
     V1PresetToJSON,
-} from './';
+} from './V1Preset';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListPresetsResponse {
      * @memberof V1ListPresetsResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListPresetsResponse interface.
+ */
+export function instanceOfV1ListPresetsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListPresetsResponseFromJSON(json: any): V1ListPresetsResponse {

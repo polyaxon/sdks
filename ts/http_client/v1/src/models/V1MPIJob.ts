@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CleanPodPolicy } from './V1CleanPodPolicy';
 import {
-    V1CleanPodPolicy,
     V1CleanPodPolicyFromJSON,
     V1CleanPodPolicyFromJSONTyped,
     V1CleanPodPolicyToJSON,
-    V1KFReplica,
+} from './V1CleanPodPolicy';
+import type { V1KFReplica } from './V1KFReplica';
+import {
     V1KFReplicaFromJSON,
     V1KFReplicaFromJSONTyped,
     V1KFReplicaToJSON,
-    V1SchedulingPolicy,
+} from './V1KFReplica';
+import type { V1SchedulingPolicy } from './V1SchedulingPolicy';
+import {
     V1SchedulingPolicyFromJSON,
     V1SchedulingPolicyFromJSONTyped,
     V1SchedulingPolicyToJSON,
-} from './';
+} from './V1SchedulingPolicy';
 
 /**
  * 
@@ -84,6 +88,15 @@ export interface V1MPIJob {
      * @memberof V1MPIJob
      */
     launcher?: V1KFReplica;
+}
+
+/**
+ * Check if a given object implements the V1MPIJob interface.
+ */
+export function instanceOfV1MPIJob(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MPIJobFromJSON(json: any): V1MPIJob {

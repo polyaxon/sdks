@@ -34,10 +34,29 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1StageCondition;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1EntityStageBodyRequest
@@ -64,6 +83,8 @@ public class V1EntityStageBodyRequest {
   @SerializedName(SERIALIZED_NAME_CONDITION)
   private V1StageCondition condition;
 
+  public V1EntityStageBodyRequest() {
+  }
 
   public V1EntityStageBodyRequest owner(String owner) {
     
@@ -76,7 +97,6 @@ public class V1EntityStageBodyRequest {
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOwner() {
     return owner;
@@ -99,7 +119,6 @@ public class V1EntityStageBodyRequest {
    * @return entity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getEntity() {
     return entity;
@@ -122,7 +141,6 @@ public class V1EntityStageBodyRequest {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -145,7 +163,6 @@ public class V1EntityStageBodyRequest {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -168,7 +185,6 @@ public class V1EntityStageBodyRequest {
    * @return condition
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1StageCondition getCondition() {
     return condition;
@@ -178,6 +194,7 @@ public class V1EntityStageBodyRequest {
   public void setCondition(V1StageCondition condition) {
     this.condition = condition;
   }
+
 
 
   @Override
@@ -225,5 +242,108 @@ public class V1EntityStageBodyRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("owner");
+    openapiFields.add("entity");
+    openapiFields.add("kind");
+    openapiFields.add("name");
+    openapiFields.add("condition");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1EntityStageBodyRequest
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1EntityStageBodyRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1EntityStageBodyRequest is not found in the empty JSON string", V1EntityStageBodyRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1EntityStageBodyRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1EntityStageBodyRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("entity") != null && !jsonObj.get("entity").isJsonNull()) && !jsonObj.get("entity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity").toString()));
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `condition`
+      if (jsonObj.get("condition") != null && !jsonObj.get("condition").isJsonNull()) {
+        V1StageCondition.validateJsonObject(jsonObj.getAsJsonObject("condition"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1EntityStageBodyRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1EntityStageBodyRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1EntityStageBodyRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1EntityStageBodyRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1EntityStageBodyRequest>() {
+           @Override
+           public void write(JsonWriter out, V1EntityStageBodyRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1EntityStageBodyRequest read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1EntityStageBodyRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1EntityStageBodyRequest
+  * @throws IOException if the JSON string is invalid with respect to V1EntityStageBodyRequest
+  */
+  public static V1EntityStageBodyRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1EntityStageBodyRequest.class);
+  }
+
+ /**
+  * Convert an instance of V1EntityStageBodyRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -29,8 +29,8 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import java.io.File;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,19 +40,15 @@ import java.util.Map;
 /**
  * API tests for ArtifactsStoresV1Api
  */
-@Ignore
+@Disabled
 public class ArtifactsStoresV1ApiTest {
 
     private final ArtifactsStoresV1Api api = new ArtifactsStoresV1Api();
 
-    
     /**
      * Upload artifact to a store
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void uploadArtifactTest() throws ApiException {
@@ -61,8 +57,8 @@ public class ArtifactsStoresV1ApiTest {
         File uploadfile = null;
         String path = null;
         Boolean overwrite = null;
-                api.uploadArtifact(owner, uuid, uploadfile, path, overwrite);
+        api.uploadArtifact(owner, uuid, uploadfile, path, overwrite);
         // TODO: test validations
     }
-    
+
 }

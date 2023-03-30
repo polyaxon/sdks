@@ -45,7 +45,7 @@ export class ArtifactsStoresV1Api extends runtime.BaseAPI {
     /**
      * Upload artifact to a store
      */
-    async uploadArtifactRaw(requestParameters: UploadArtifactRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async uploadArtifactRaw(requestParameters: UploadArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling uploadArtifact.');
         }
@@ -108,7 +108,7 @@ export class ArtifactsStoresV1Api extends runtime.BaseAPI {
     /**
      * Upload artifact to a store
      */
-    async uploadArtifact(requestParameters: UploadArtifactRequest, initOverrides?: RequestInit): Promise<void> {
+    async uploadArtifact(requestParameters: UploadArtifactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.uploadArtifactRaw(requestParameters, initOverrides);
     }
 

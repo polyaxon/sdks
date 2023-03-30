@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { SearchView } from './SearchView';
 import {
-    SearchView,
     SearchViewFromJSON,
     SearchViewFromJSONTyped,
     SearchViewToJSON,
-    V1SearchSpec,
+} from './SearchView';
+import type { V1SearchSpec } from './V1SearchSpec';
+import {
     V1SearchSpecFromJSON,
     V1SearchSpecFromJSONTyped,
     V1SearchSpecToJSON,
-} from './';
+} from './V1SearchSpec';
 
 /**
  * 
@@ -104,6 +106,15 @@ export interface V1Search {
      * @memberof V1Search
      */
     updated_at?: Date;
+}
+
+/**
+ * Check if a given object implements the V1Search interface.
+ */
+export function instanceOfV1Search(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SearchFromJSON(json: any): V1Search {

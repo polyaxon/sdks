@@ -74,8 +74,28 @@ class V1Template {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Template</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Template</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['fields'])) {
+            throw new Error("Expected the field `fields` to be an array in the JSON data but got " + data['fields']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} enabled

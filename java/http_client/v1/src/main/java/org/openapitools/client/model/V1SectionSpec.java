@@ -34,11 +34,30 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1SectionSpec
@@ -73,6 +92,8 @@ public class V1SectionSpec {
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   private Integer pageSize;
 
+  public V1SectionSpec() {
+  }
 
   public V1SectionSpec name(String name) {
     
@@ -85,7 +106,6 @@ public class V1SectionSpec {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -108,7 +128,6 @@ public class V1SectionSpec {
    * @return isMinimized
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsMinimized() {
     return isMinimized;
@@ -131,7 +150,6 @@ public class V1SectionSpec {
    * @return columns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getColumns() {
     return columns;
@@ -154,7 +172,6 @@ public class V1SectionSpec {
    * @return height
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getHeight() {
     return height;
@@ -174,7 +191,7 @@ public class V1SectionSpec {
 
   public V1SectionSpec addWidgetsItem(Object widgetsItem) {
     if (this.widgets == null) {
-      this.widgets = new ArrayList<Object>();
+      this.widgets = new ArrayList<>();
     }
     this.widgets.add(widgetsItem);
     return this;
@@ -185,7 +202,6 @@ public class V1SectionSpec {
    * @return widgets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getWidgets() {
     return widgets;
@@ -208,7 +224,6 @@ public class V1SectionSpec {
    * @return pageIndex
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPageIndex() {
     return pageIndex;
@@ -231,7 +246,6 @@ public class V1SectionSpec {
    * @return pageSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPageSize() {
     return pageSize;
@@ -241,6 +255,7 @@ public class V1SectionSpec {
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
+
 
 
   @Override
@@ -292,5 +307,101 @@ public class V1SectionSpec {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("is_minimized");
+    openapiFields.add("columns");
+    openapiFields.add("height");
+    openapiFields.add("widgets");
+    openapiFields.add("pageIndex");
+    openapiFields.add("pageSize");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1SectionSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1SectionSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1SectionSpec is not found in the empty JSON string", V1SectionSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1SectionSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SectionSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("widgets") != null && !jsonObj.get("widgets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `widgets` to be an array in the JSON string but got `%s`", jsonObj.get("widgets").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1SectionSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1SectionSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1SectionSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1SectionSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1SectionSpec>() {
+           @Override
+           public void write(JsonWriter out, V1SectionSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1SectionSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1SectionSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1SectionSpec
+  * @throws IOException if the JSON string is invalid with respect to V1SectionSpec
+  */
+  public static V1SectionSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1SectionSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1SectionSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

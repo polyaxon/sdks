@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1RunPending } from './V1RunPending';
 import {
-    V1RunPending,
     V1RunPendingFromJSON,
     V1RunPendingFromJSONTyped,
     V1RunPendingToJSON,
-} from './';
+} from './V1RunPending';
 
 /**
  * 
@@ -82,6 +82,15 @@ export interface V1OperationBody {
      * @memberof V1OperationBody
      */
     meta_info?: object;
+}
+
+/**
+ * Check if a given object implements the V1OperationBody interface.
+ */
+export function instanceOfV1OperationBody(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1OperationBodyFromJSON(json: any): V1OperationBody {

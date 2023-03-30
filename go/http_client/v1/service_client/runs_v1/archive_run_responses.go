@@ -86,7 +86,41 @@ A successful response.
 type ArchiveRunOK struct {
 }
 
+// IsSuccess returns true when this archive run o k response has a 2xx status code
+func (o *ArchiveRunOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this archive run o k response has a 3xx status code
+func (o *ArchiveRunOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this archive run o k response has a 4xx status code
+func (o *ArchiveRunOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this archive run o k response has a 5xx status code
+func (o *ArchiveRunOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this archive run o k response a status code equal to that given
+func (o *ArchiveRunOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the archive run o k response
+func (o *ArchiveRunOK) Code() int {
+	return 200
+}
+
 func (o *ArchiveRunOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunOK ", 200)
+}
+
+func (o *ArchiveRunOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type ArchiveRunNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this archive run no content response has a 2xx status code
+func (o *ArchiveRunNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this archive run no content response has a 3xx status code
+func (o *ArchiveRunNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this archive run no content response has a 4xx status code
+func (o *ArchiveRunNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this archive run no content response has a 5xx status code
+func (o *ArchiveRunNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this archive run no content response a status code equal to that given
+func (o *ArchiveRunNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the archive run no content response
+func (o *ArchiveRunNoContent) Code() int {
+	return 204
+}
+
 func (o *ArchiveRunNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ArchiveRunNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ArchiveRunNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type ArchiveRunForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this archive run forbidden response has a 2xx status code
+func (o *ArchiveRunForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this archive run forbidden response has a 3xx status code
+func (o *ArchiveRunForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this archive run forbidden response has a 4xx status code
+func (o *ArchiveRunForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this archive run forbidden response has a 5xx status code
+func (o *ArchiveRunForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this archive run forbidden response a status code equal to that given
+func (o *ArchiveRunForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the archive run forbidden response
+func (o *ArchiveRunForbidden) Code() int {
+	return 403
+}
+
 func (o *ArchiveRunForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ArchiveRunForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ArchiveRunForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type ArchiveRunNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this archive run not found response has a 2xx status code
+func (o *ArchiveRunNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this archive run not found response has a 3xx status code
+func (o *ArchiveRunNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this archive run not found response has a 4xx status code
+func (o *ArchiveRunNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this archive run not found response has a 5xx status code
+func (o *ArchiveRunNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this archive run not found response a status code equal to that given
+func (o *ArchiveRunNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the archive run not found response
+func (o *ArchiveRunNotFound) Code() int {
+	return 404
+}
+
 func (o *ArchiveRunNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ArchiveRunNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] archiveRunNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ArchiveRunNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type ArchiveRunDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this archive run default response has a 2xx status code
+func (o *ArchiveRunDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this archive run default response has a 3xx status code
+func (o *ArchiveRunDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this archive run default response has a 4xx status code
+func (o *ArchiveRunDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this archive run default response has a 5xx status code
+func (o *ArchiveRunDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this archive run default response a status code equal to that given
+func (o *ArchiveRunDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the archive run default response
 func (o *ArchiveRunDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *ArchiveRunDefault) Code() int {
 func (o *ArchiveRunDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] ArchiveRun default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ArchiveRunDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/archive][%d] ArchiveRun default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ArchiveRunDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

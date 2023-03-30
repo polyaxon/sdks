@@ -53,6 +53,15 @@ export interface V1ArtifactsType {
     workers?: number;
 }
 
+/**
+ * Check if a given object implements the V1ArtifactsType interface.
+ */
+export function instanceOfV1ArtifactsType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ArtifactsTypeFromJSON(json: any): V1ArtifactsType {
     return V1ArtifactsTypeFromJSONTyped(json, false);
 }

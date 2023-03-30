@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ProjectVersionKind } from './V1ProjectVersionKind';
 import {
-    V1ProjectVersionKind,
     V1ProjectVersionKindFromJSON,
     V1ProjectVersionKindFromJSONTyped,
     V1ProjectVersionKindToJSON,
-    V1StageCondition,
+} from './V1ProjectVersionKind';
+import type { V1StageCondition } from './V1StageCondition';
+import {
     V1StageConditionFromJSON,
     V1StageConditionFromJSONTyped,
     V1StageConditionToJSON,
-    V1Stages,
+} from './V1StageCondition';
+import type { V1Stages } from './V1Stages';
+import {
     V1StagesFromJSON,
     V1StagesFromJSONTyped,
     V1StagesToJSON,
-} from './';
+} from './V1Stages';
 
 /**
  * 
@@ -162,6 +166,15 @@ export interface V1ProjectVersion {
      * @memberof V1ProjectVersion
      */
     role?: string;
+}
+
+/**
+ * Check if a given object implements the V1ProjectVersion interface.
+ */
+export function instanceOfV1ProjectVersion(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ProjectVersionFromJSON(json: any): V1ProjectVersion {

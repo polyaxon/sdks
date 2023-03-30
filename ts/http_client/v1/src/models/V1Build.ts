@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Cache } from './V1Cache';
 import {
-    V1Cache,
     V1CacheFromJSON,
     V1CacheFromJSONTyped,
     V1CacheToJSON,
-    V1Param,
+} from './V1Cache';
+import type { V1Param } from './V1Param';
+import {
     V1ParamFromJSON,
     V1ParamFromJSONTyped,
     V1ParamToJSON,
-    V1PatchStrategy,
+} from './V1Param';
+import type { V1PatchStrategy } from './V1PatchStrategy';
+import {
     V1PatchStrategyFromJSON,
     V1PatchStrategyFromJSONTyped,
     V1PatchStrategyToJSON,
-} from './';
+} from './V1PatchStrategy';
 
 /**
  * 
@@ -96,6 +100,15 @@ export interface V1Build {
      * @memberof V1Build
      */
     patchStrategy?: V1PatchStrategy;
+}
+
+/**
+ * Check if a given object implements the V1Build interface.
+ */
+export function instanceOfV1Build(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1BuildFromJSON(json: any): V1Build {

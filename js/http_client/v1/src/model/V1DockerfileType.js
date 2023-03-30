@@ -107,8 +107,60 @@ class V1DockerfileType {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1DockerfileType</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1DockerfileType</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['image'] && !(typeof data['image'] === 'string' || data['image'] instanceof String)) {
+            throw new Error("Expected the field `image` to be a primitive type in the JSON string but got " + data['image']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['path'])) {
+            throw new Error("Expected the field `path` to be an array in the JSON data but got " + data['path']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['copy'])) {
+            throw new Error("Expected the field `copy` to be an array in the JSON data but got " + data['copy']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['post_run_copy'])) {
+            throw new Error("Expected the field `post_run_copy` to be an array in the JSON data but got " + data['post_run_copy']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['run'])) {
+            throw new Error("Expected the field `run` to be an array in the JSON data but got " + data['run']);
+        }
+        // ensure the json data is a string
+        if (data['langEnv'] && !(typeof data['langEnv'] === 'string' || data['langEnv'] instanceof String)) {
+            throw new Error("Expected the field `langEnv` to be a primitive type in the JSON string but got " + data['langEnv']);
+        }
+        // ensure the json data is a string
+        if (data['filename'] && !(typeof data['filename'] === 'string' || data['filename'] instanceof String)) {
+            throw new Error("Expected the field `filename` to be a primitive type in the JSON string but got " + data['filename']);
+        }
+        // ensure the json data is a string
+        if (data['workdir'] && !(typeof data['workdir'] === 'string' || data['workdir'] instanceof String)) {
+            throw new Error("Expected the field `workdir` to be a primitive type in the JSON string but got " + data['workdir']);
+        }
+        // ensure the json data is a string
+        if (data['workdirPath'] && !(typeof data['workdirPath'] === 'string' || data['workdirPath'] instanceof String)) {
+            throw new Error("Expected the field `workdirPath` to be a primitive type in the JSON string but got " + data['workdirPath']);
+        }
+        // ensure the json data is a string
+        if (data['shell'] && !(typeof data['shell'] === 'string' || data['shell'] instanceof String)) {
+            throw new Error("Expected the field `shell` to be a primitive type in the JSON string but got " + data['shell']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} image

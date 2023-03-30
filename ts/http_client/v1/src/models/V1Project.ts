@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ProjectSettings } from './V1ProjectSettings';
 import {
-    V1ProjectSettings,
     V1ProjectSettingsFromJSON,
     V1ProjectSettingsFromJSONTyped,
     V1ProjectSettingsToJSON,
-} from './';
+} from './V1ProjectSettings';
 
 /**
  * 
@@ -130,6 +130,15 @@ export interface V1Project {
      * @memberof V1Project
      */
     live_state?: number;
+}
+
+/**
+ * Check if a given object implements the V1Project interface.
+ */
+export function instanceOfV1Project(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ProjectFromJSON(json: any): V1Project {

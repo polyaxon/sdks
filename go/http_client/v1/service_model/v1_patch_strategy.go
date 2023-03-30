@@ -39,8 +39,12 @@ import (
 type V1PatchStrategy string
 
 func NewV1PatchStrategy(value V1PatchStrategy) *V1PatchStrategy {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1PatchStrategy.
+func (m V1PatchStrategy) Pointer() *V1PatchStrategy {
+	return &m
 }
 
 const (

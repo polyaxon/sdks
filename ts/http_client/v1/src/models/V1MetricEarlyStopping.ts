@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Optimization } from './V1Optimization';
 import {
-    V1Optimization,
     V1OptimizationFromJSON,
     V1OptimizationFromJSONTyped,
     V1OptimizationToJSON,
-} from './';
+} from './V1Optimization';
 
 /**
  * MetricEarlyStoppingSchema specification
@@ -71,6 +71,15 @@ export interface V1MetricEarlyStopping {
      * @memberof V1MetricEarlyStopping
      */
     policy?: object;
+}
+
+/**
+ * Check if a given object implements the V1MetricEarlyStopping interface.
+ */
+export function instanceOfV1MetricEarlyStopping(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MetricEarlyStoppingFromJSON(json: any): V1MetricEarlyStopping {

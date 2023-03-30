@@ -34,10 +34,29 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Log
@@ -64,6 +83,8 @@ public class V1Log {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public V1Log() {
+  }
 
   public V1Log timestamp(OffsetDateTime timestamp) {
     
@@ -76,7 +97,6 @@ public class V1Log {
    * @return timestamp
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getTimestamp() {
     return timestamp;
@@ -99,7 +119,6 @@ public class V1Log {
    * @return node
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getNode() {
     return node;
@@ -122,7 +141,6 @@ public class V1Log {
    * @return pod
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPod() {
     return pod;
@@ -145,7 +163,6 @@ public class V1Log {
    * @return container
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getContainer() {
     return container;
@@ -168,7 +185,6 @@ public class V1Log {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getValue() {
     return value;
@@ -178,6 +194,7 @@ public class V1Log {
   public void setValue(String value) {
     this.value = value;
   }
+
 
 
   @Override
@@ -225,5 +242,104 @@ public class V1Log {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("timestamp");
+    openapiFields.add("node");
+    openapiFields.add("pod");
+    openapiFields.add("container");
+    openapiFields.add("value");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Log
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Log.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Log is not found in the empty JSON string", V1Log.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Log.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Log` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("node") != null && !jsonObj.get("node").isJsonNull()) && !jsonObj.get("node").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `node` to be a primitive type in the JSON string but got `%s`", jsonObj.get("node").toString()));
+      }
+      if ((jsonObj.get("pod") != null && !jsonObj.get("pod").isJsonNull()) && !jsonObj.get("pod").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pod").toString()));
+      }
+      if ((jsonObj.get("container") != null && !jsonObj.get("container").isJsonNull()) && !jsonObj.get("container").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container").toString()));
+      }
+      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Log.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Log' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Log> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Log.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Log>() {
+           @Override
+           public void write(JsonWriter out, V1Log value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Log read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Log given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Log
+  * @throws IOException if the JSON string is invalid with respect to V1Log
+  */
+  public static V1Log fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Log.class);
+  }
+
+ /**
+  * Convert an instance of V1Log to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

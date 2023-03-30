@@ -80,8 +80,20 @@ class V1RunResources {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1RunResources</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RunResources</code>.
+     */
+    static validateJSON(data) {
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} cpu

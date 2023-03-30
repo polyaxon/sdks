@@ -74,8 +74,32 @@ class V1RunReferenceCatalog {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1RunReferenceCatalog</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RunReferenceCatalog</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
+            throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
+        if (data['project'] && !(typeof data['project'] === 'string' || data['project'] instanceof String)) {
+            throw new Error("Expected the field `project` to be a primitive type in the JSON string but got " + data['project']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} owner

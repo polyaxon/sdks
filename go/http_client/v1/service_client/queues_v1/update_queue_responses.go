@@ -87,9 +87,44 @@ type UpdateQueueOK struct {
 	Payload *service_model.V1Queue
 }
 
+// IsSuccess returns true when this update queue o k response has a 2xx status code
+func (o *UpdateQueueOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update queue o k response has a 3xx status code
+func (o *UpdateQueueOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update queue o k response has a 4xx status code
+func (o *UpdateQueueOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update queue o k response has a 5xx status code
+func (o *UpdateQueueOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update queue o k response a status code equal to that given
+func (o *UpdateQueueOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the update queue o k response
+func (o *UpdateQueueOK) Code() int {
+	return 200
+}
+
 func (o *UpdateQueueOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateQueueOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateQueueOK) GetPayload() *service_model.V1Queue {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type UpdateQueueNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update queue no content response has a 2xx status code
+func (o *UpdateQueueNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update queue no content response has a 3xx status code
+func (o *UpdateQueueNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update queue no content response has a 4xx status code
+func (o *UpdateQueueNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update queue no content response has a 5xx status code
+func (o *UpdateQueueNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update queue no content response a status code equal to that given
+func (o *UpdateQueueNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the update queue no content response
+func (o *UpdateQueueNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateQueueNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateQueueNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateQueueNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type UpdateQueueForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update queue forbidden response has a 2xx status code
+func (o *UpdateQueueForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update queue forbidden response has a 3xx status code
+func (o *UpdateQueueForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update queue forbidden response has a 4xx status code
+func (o *UpdateQueueForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update queue forbidden response has a 5xx status code
+func (o *UpdateQueueForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update queue forbidden response a status code equal to that given
+func (o *UpdateQueueForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the update queue forbidden response
+func (o *UpdateQueueForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateQueueForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateQueueForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateQueueForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type UpdateQueueNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update queue not found response has a 2xx status code
+func (o *UpdateQueueNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update queue not found response has a 3xx status code
+func (o *UpdateQueueNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update queue not found response has a 4xx status code
+func (o *UpdateQueueNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update queue not found response has a 5xx status code
+func (o *UpdateQueueNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update queue not found response a status code equal to that given
+func (o *UpdateQueueNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the update queue not found response
+func (o *UpdateQueueNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateQueueNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateQueueNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateQueueNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type UpdateQueueDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this update queue default response has a 2xx status code
+func (o *UpdateQueueDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update queue default response has a 3xx status code
+func (o *UpdateQueueDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update queue default response has a 4xx status code
+func (o *UpdateQueueDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update queue default response has a 5xx status code
+func (o *UpdateQueueDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update queue default response a status code equal to that given
+func (o *UpdateQueueDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the update queue default response
 func (o *UpdateQueueDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *UpdateQueueDefault) Code() int {
 func (o *UpdateQueueDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] UpdateQueue default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateQueueDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] UpdateQueue default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateQueueDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

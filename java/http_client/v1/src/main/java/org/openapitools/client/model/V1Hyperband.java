@@ -34,8 +34,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +42,27 @@ import java.util.Map;
 import org.openapitools.client.model.V1OptimizationMetric;
 import org.openapitools.client.model.V1OptimizationResource;
 import org.openapitools.client.model.V1Tuner;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Hyperband
@@ -94,6 +113,8 @@ public class V1Hyperband {
   @SerializedName(SERIALIZED_NAME_EARLY_STOPPING)
   private List<Object> earlyStopping = null;
 
+  public V1Hyperband() {
+  }
 
   public V1Hyperband kind(String kind) {
     
@@ -106,7 +127,6 @@ public class V1Hyperband {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -126,7 +146,7 @@ public class V1Hyperband {
 
   public V1Hyperband putParamsItem(String key, Object paramsItem) {
     if (this.params == null) {
-      this.params = new HashMap<String, Object>();
+      this.params = new HashMap<>();
     }
     this.params.put(key, paramsItem);
     return this;
@@ -137,7 +157,6 @@ public class V1Hyperband {
    * @return params
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Object> getParams() {
     return params;
@@ -160,7 +179,6 @@ public class V1Hyperband {
    * @return maxIterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getMaxIterations() {
     return maxIterations;
@@ -183,7 +201,6 @@ public class V1Hyperband {
    * @return eta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getEta() {
     return eta;
@@ -206,7 +223,6 @@ public class V1Hyperband {
    * @return resource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1OptimizationResource getResource() {
     return resource;
@@ -229,7 +245,6 @@ public class V1Hyperband {
    * @return metric
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1OptimizationMetric getMetric() {
     return metric;
@@ -252,7 +267,6 @@ public class V1Hyperband {
    * @return resume
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getResume() {
     return resume;
@@ -275,7 +289,6 @@ public class V1Hyperband {
    * @return seed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getSeed() {
     return seed;
@@ -298,7 +311,6 @@ public class V1Hyperband {
    * @return concurrency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getConcurrency() {
     return concurrency;
@@ -321,7 +333,6 @@ public class V1Hyperband {
    * @return tuner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Tuner getTuner() {
     return tuner;
@@ -341,7 +352,7 @@ public class V1Hyperband {
 
   public V1Hyperband addEarlyStoppingItem(Object earlyStoppingItem) {
     if (this.earlyStopping == null) {
-      this.earlyStopping = new ArrayList<Object>();
+      this.earlyStopping = new ArrayList<>();
     }
     this.earlyStopping.add(earlyStoppingItem);
     return this;
@@ -352,7 +363,6 @@ public class V1Hyperband {
    * @return earlyStopping
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getEarlyStopping() {
     return earlyStopping;
@@ -362,6 +372,7 @@ public class V1Hyperband {
   public void setEarlyStopping(List<Object> earlyStopping) {
     this.earlyStopping = earlyStopping;
   }
+
 
 
   @Override
@@ -421,5 +432,117 @@ public class V1Hyperband {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("kind");
+    openapiFields.add("params");
+    openapiFields.add("maxIterations");
+    openapiFields.add("eta");
+    openapiFields.add("resource");
+    openapiFields.add("metric");
+    openapiFields.add("resume");
+    openapiFields.add("seed");
+    openapiFields.add("concurrency");
+    openapiFields.add("tuner");
+    openapiFields.add("earlyStopping");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Hyperband
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Hyperband.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Hyperband is not found in the empty JSON string", V1Hyperband.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Hyperband.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Hyperband` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the optional field `resource`
+      if (jsonObj.get("resource") != null && !jsonObj.get("resource").isJsonNull()) {
+        V1OptimizationResource.validateJsonObject(jsonObj.getAsJsonObject("resource"));
+      }
+      // validate the optional field `metric`
+      if (jsonObj.get("metric") != null && !jsonObj.get("metric").isJsonNull()) {
+        V1OptimizationMetric.validateJsonObject(jsonObj.getAsJsonObject("metric"));
+      }
+      // validate the optional field `tuner`
+      if (jsonObj.get("tuner") != null && !jsonObj.get("tuner").isJsonNull()) {
+        V1Tuner.validateJsonObject(jsonObj.getAsJsonObject("tuner"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("earlyStopping") != null && !jsonObj.get("earlyStopping").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `earlyStopping` to be an array in the JSON string but got `%s`", jsonObj.get("earlyStopping").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Hyperband.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Hyperband' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Hyperband> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Hyperband.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Hyperband>() {
+           @Override
+           public void write(JsonWriter out, V1Hyperband value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Hyperband read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Hyperband given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Hyperband
+  * @throws IOException if the JSON string is invalid with respect to V1Hyperband
+  */
+  public static V1Hyperband fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Hyperband.class);
+  }
+
+ /**
+  * Convert an instance of V1Hyperband to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

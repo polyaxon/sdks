@@ -129,8 +129,84 @@ class V1HpParams {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1HpParams</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1HpParams</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `choice`
+        if (data['choice']) { // data not null
+          V1HpChoice.validateJSON(data['choice']);
+        }
+        // validate the optional field `pchoice`
+        if (data['pchoice']) { // data not null
+          V1HpPChoice.validateJSON(data['pchoice']);
+        }
+        // validate the optional field `range`
+        if (data['range']) { // data not null
+          V1HpRange.validateJSON(data['range']);
+        }
+        // validate the optional field `linspace`
+        if (data['linspace']) { // data not null
+          V1HpLinSpace.validateJSON(data['linspace']);
+        }
+        // validate the optional field `logspace`
+        if (data['logspace']) { // data not null
+          V1HpLogSpace.validateJSON(data['logspace']);
+        }
+        // validate the optional field `geomspace`
+        if (data['geomspace']) { // data not null
+          V1HpGeomSpace.validateJSON(data['geomspace']);
+        }
+        // validate the optional field `uniform`
+        if (data['uniform']) { // data not null
+          V1HpUniform.validateJSON(data['uniform']);
+        }
+        // validate the optional field `quniform`
+        if (data['quniform']) { // data not null
+          V1HpQUniform.validateJSON(data['quniform']);
+        }
+        // validate the optional field `loguniform`
+        if (data['loguniform']) { // data not null
+          V1HpLogUniform.validateJSON(data['loguniform']);
+        }
+        // validate the optional field `qloguniform`
+        if (data['qloguniform']) { // data not null
+          V1HpQLogUniform.validateJSON(data['qloguniform']);
+        }
+        // validate the optional field `normal`
+        if (data['normal']) { // data not null
+          V1HpNormal.validateJSON(data['normal']);
+        }
+        // validate the optional field `qnormal`
+        if (data['qnormal']) { // data not null
+          V1HpQNormal.validateJSON(data['qnormal']);
+        }
+        // validate the optional field `lognormal`
+        if (data['lognormal']) { // data not null
+          V1HpLogNormal.validateJSON(data['lognormal']);
+        }
+        // validate the optional field `qlognormal`
+        if (data['qlognormal']) { // data not null
+          V1HpQLogNormal.validateJSON(data['qlognormal']);
+        }
+        // validate the optional field `daterange`
+        if (data['daterange']) { // data not null
+          V1HpDateRange.validateJSON(data['daterange']);
+        }
+        // validate the optional field `datetimerange`
+        if (data['datetimerange']) { // data not null
+          V1HpDateTimeRange.validateJSON(data['datetimerange']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1HpChoice} choice

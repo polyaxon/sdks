@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1CloningKind {
-    Copy = 'copy',
-    Restart = 'restart',
-    Cache = 'cache'
-}
+export const V1CloningKind = {
+    Copy: 'copy',
+    Restart: 'restart',
+    Cache: 'cache'
+} as const;
+export type V1CloningKind = typeof V1CloningKind[keyof typeof V1CloningKind];
+
 
 export function V1CloningKindFromJSON(json: any): V1CloningKind {
     return V1CloningKindFromJSONTyped(json, false);

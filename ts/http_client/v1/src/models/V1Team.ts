@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1TeamSettings } from './V1TeamSettings';
 import {
-    V1TeamSettings,
     V1TeamSettingsFromJSON,
     V1TeamSettingsFromJSONTyped,
     V1TeamSettingsToJSON,
-} from './';
+} from './V1TeamSettings';
 
 /**
  * 
@@ -88,6 +88,15 @@ export interface V1Team {
      * @memberof V1Team
      */
     updated_at?: Date;
+}
+
+/**
+ * Check if a given object implements the V1Team interface.
+ */
+export function instanceOfV1Team(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1TeamFromJSON(json: any): V1Team {

@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Optimization } from './V1Optimization';
 import {
-    V1Optimization,
     V1OptimizationFromJSON,
     V1OptimizationFromJSONTyped,
     V1OptimizationToJSON,
-} from './';
+} from './V1Optimization';
 
 /**
  * 
@@ -52,6 +52,15 @@ export interface V1OptimizationMetric {
      * @memberof V1OptimizationMetric
      */
     optimization?: V1Optimization;
+}
+
+/**
+ * Check if a given object implements the V1OptimizationMetric interface.
+ */
+export function instanceOfV1OptimizationMetric(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1OptimizationMetricFromJSON(json: any): V1OptimizationMetric {

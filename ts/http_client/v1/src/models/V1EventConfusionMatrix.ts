@@ -53,6 +53,15 @@ export interface V1EventConfusionMatrix {
     z?: Array<object>;
 }
 
+/**
+ * Check if a given object implements the V1EventConfusionMatrix interface.
+ */
+export function instanceOfV1EventConfusionMatrix(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventConfusionMatrixFromJSON(json: any): V1EventConfusionMatrix {
     return V1EventConfusionMatrixFromJSONTyped(json, false);
 }

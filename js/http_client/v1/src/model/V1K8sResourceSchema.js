@@ -77,8 +77,32 @@ class V1K8sResourceSchema {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1K8sResourceSchema</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1K8sResourceSchema</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['mountPath'] && !(typeof data['mountPath'] === 'string' || data['mountPath'] instanceof String)) {
+            throw new Error("Expected the field `mountPath` to be a primitive type in the JSON string but got " + data['mountPath']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['items'])) {
+            throw new Error("Expected the field `items` to be an array in the JSON data but got " + data['items']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} name

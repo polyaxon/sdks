@@ -71,6 +71,15 @@ export interface V1CronSchedule {
     dependsOnPast?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1CronSchedule interface.
+ */
+export function instanceOfV1CronSchedule(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CronScheduleFromJSON(json: any): V1CronSchedule {
     return V1CronScheduleFromJSONTyped(json, false);
 }

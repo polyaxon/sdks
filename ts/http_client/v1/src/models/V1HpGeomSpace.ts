@@ -47,6 +47,15 @@ export interface V1HpGeomSpace {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpGeomSpace interface.
+ */
+export function instanceOfV1HpGeomSpace(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpGeomSpaceFromJSON(json: any): V1HpGeomSpace {
     return V1HpGeomSpaceFromJSONTyped(json, false);
 }

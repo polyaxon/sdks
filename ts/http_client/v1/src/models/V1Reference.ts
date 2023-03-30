@@ -27,24 +27,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DagRef } from './V1DagRef';
 import {
-    V1DagRef,
     V1DagRefFromJSON,
     V1DagRefFromJSONTyped,
     V1DagRefToJSON,
-    V1HubRef,
+} from './V1DagRef';
+import type { V1HubRef } from './V1HubRef';
+import {
     V1HubRefFromJSON,
     V1HubRefFromJSONTyped,
     V1HubRefToJSON,
-    V1PathRef,
+} from './V1HubRef';
+import type { V1PathRef } from './V1PathRef';
+import {
     V1PathRefFromJSON,
     V1PathRefFromJSONTyped,
     V1PathRefToJSON,
-    V1UrlRef,
+} from './V1PathRef';
+import type { V1UrlRef } from './V1UrlRef';
+import {
     V1UrlRefFromJSON,
     V1UrlRefFromJSONTyped,
     V1UrlRefToJSON,
-} from './';
+} from './V1UrlRef';
 
 /**
  * 
@@ -76,6 +82,15 @@ export interface V1Reference {
      * @memberof V1Reference
      */
     pathRef?: V1PathRef;
+}
+
+/**
+ * Check if a given object implements the V1Reference interface.
+ */
+export function instanceOfV1Reference(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ReferenceFromJSON(json: any): V1Reference {

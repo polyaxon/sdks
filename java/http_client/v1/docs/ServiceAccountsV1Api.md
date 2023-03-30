@@ -3,21 +3,21 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createServiceAccount**](ServiceAccountsV1Api.md#createServiceAccount) | **POST** /api/v1/orgs/{owner}/sa | Create service account
-[**createServiceAccountToken**](ServiceAccountsV1Api.md#createServiceAccountToken) | **POST** /api/v1/orgs/{owner}/sa/{entity}/tokens | Create service account token
-[**deleteServiceAccount**](ServiceAccountsV1Api.md#deleteServiceAccount) | **DELETE** /api/v1/orgs/{owner}/sa/{uuid} | Delete service account
-[**deleteServiceAccountToken**](ServiceAccountsV1Api.md#deleteServiceAccountToken) | **DELETE** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Delete service account token
-[**getServiceAccount**](ServiceAccountsV1Api.md#getServiceAccount) | **GET** /api/v1/orgs/{owner}/sa/{uuid} | Get service account
-[**getServiceAccountToken**](ServiceAccountsV1Api.md#getServiceAccountToken) | **GET** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Get service account token
-[**listServiceAccountNames**](ServiceAccountsV1Api.md#listServiceAccountNames) | **GET** /api/v1/orgs/{owner}/sa/names | List service accounts names
-[**listServiceAccountTokens**](ServiceAccountsV1Api.md#listServiceAccountTokens) | **GET** /api/v1/orgs/{owner}/sa/{uuid}/tokens | List service account tokens
-[**listServiceAccounts**](ServiceAccountsV1Api.md#listServiceAccounts) | **GET** /api/v1/orgs/{owner}/sa | List service accounts
-[**patchServiceAccount**](ServiceAccountsV1Api.md#patchServiceAccount) | **PATCH** /api/v1/orgs/{owner}/sa/{sa.uuid} | Patch service account
-[**patchServiceAccountToken**](ServiceAccountsV1Api.md#patchServiceAccountToken) | **PATCH** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Patch service account token
-[**updateServiceAccount**](ServiceAccountsV1Api.md#updateServiceAccount) | **PUT** /api/v1/orgs/{owner}/sa/{sa.uuid} | Update service account
-[**updateServiceAccountToken**](ServiceAccountsV1Api.md#updateServiceAccountToken) | **PUT** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Update service account token
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createServiceAccount**](ServiceAccountsV1Api.md#createServiceAccount) | **POST** /api/v1/orgs/{owner}/sa | Create service account |
+| [**createServiceAccountToken**](ServiceAccountsV1Api.md#createServiceAccountToken) | **POST** /api/v1/orgs/{owner}/sa/{entity}/tokens | Create service account token |
+| [**deleteServiceAccount**](ServiceAccountsV1Api.md#deleteServiceAccount) | **DELETE** /api/v1/orgs/{owner}/sa/{uuid} | Delete service account |
+| [**deleteServiceAccountToken**](ServiceAccountsV1Api.md#deleteServiceAccountToken) | **DELETE** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Delete service account token |
+| [**getServiceAccount**](ServiceAccountsV1Api.md#getServiceAccount) | **GET** /api/v1/orgs/{owner}/sa/{uuid} | Get service account |
+| [**getServiceAccountToken**](ServiceAccountsV1Api.md#getServiceAccountToken) | **GET** /api/v1/orgs/{owner}/sa/{entity}/tokens/{uuid} | Get service account token |
+| [**listServiceAccountNames**](ServiceAccountsV1Api.md#listServiceAccountNames) | **GET** /api/v1/orgs/{owner}/sa/names | List service accounts names |
+| [**listServiceAccountTokens**](ServiceAccountsV1Api.md#listServiceAccountTokens) | **GET** /api/v1/orgs/{owner}/sa/{uuid}/tokens | List service account tokens |
+| [**listServiceAccounts**](ServiceAccountsV1Api.md#listServiceAccounts) | **GET** /api/v1/orgs/{owner}/sa | List service accounts |
+| [**patchServiceAccount**](ServiceAccountsV1Api.md#patchServiceAccount) | **PATCH** /api/v1/orgs/{owner}/sa/{sa.uuid} | Patch service account |
+| [**patchServiceAccountToken**](ServiceAccountsV1Api.md#patchServiceAccountToken) | **PATCH** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Patch service account token |
+| [**updateServiceAccount**](ServiceAccountsV1Api.md#updateServiceAccount) | **PUT** /api/v1/orgs/{owner}/sa/{sa.uuid} | Update service account |
+| [**updateServiceAccountToken**](ServiceAccountsV1Api.md#updateServiceAccountToken) | **PUT** /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid} | Update service account token |
 
 
 <a name="createServiceAccount"></a>
@@ -66,10 +66,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **body** | [**V1ServiceAccount**](V1ServiceAccount.md)| ServiceAccount body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1ServiceAccount**](V1ServiceAccount.md)| ServiceAccount body | |
 
 ### Return type
 
@@ -87,11 +87,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="createServiceAccountToken"></a>
 # **createServiceAccountToken**
@@ -140,11 +140,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Rntity |
- **body** | [**V1Token**](V1Token.md)| Token body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Rntity | |
+| **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
 
@@ -162,11 +162,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteServiceAccount"></a>
 # **deleteServiceAccount**
@@ -213,10 +213,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
 
 ### Return type
 
@@ -234,11 +234,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="deleteServiceAccountToken"></a>
 # **deleteServiceAccountToken**
@@ -286,11 +286,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Entity: project name, hub name, registry name, ... |
- **uuid** | **String**| Uuid identifier of the sub-entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
 
 ### Return type
 
@@ -308,11 +308,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getServiceAccount"></a>
 # **getServiceAccount**
@@ -360,10 +360,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| Uuid identifier of the entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
 
 ### Return type
 
@@ -381,11 +381,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getServiceAccountToken"></a>
 # **getServiceAccountToken**
@@ -434,11 +434,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Entity: project name, hub name, registry name, ... |
- **uuid** | **String**| Uuid identifier of the sub-entity |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Entity: project name, hub name, registry name, ... | |
+| **uuid** | **String**| Uuid identifier of the sub-entity | |
 
 ### Return type
 
@@ -456,11 +456,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listServiceAccountNames"></a>
 # **listServiceAccountNames**
@@ -514,16 +514,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -541,11 +541,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listServiceAccountTokens"></a>
 # **listServiceAccountTokens**
@@ -599,16 +599,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **uuid** | **String**| SubEntity uuid |
- **entity** | **String**| Entity name under namesapce. | [optional]
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| SubEntity uuid | |
+| **entity** | **String**| Entity name under namesapce. | [optional] |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -626,11 +626,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="listServiceAccounts"></a>
 # **listServiceAccounts**
@@ -684,16 +684,16 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **offset** | **Integer**| Pagination offset. | [optional]
- **limit** | **Integer**| Limit size. | [optional]
- **sort** | **String**| Sort to order the search. | [optional]
- **query** | **String**| Query filter the search. | [optional]
- **bookmarks** | **Boolean**| Filter by bookmarks. | [optional]
- **mode** | **String**| Mode of the search. | [optional]
- **noPage** | **Boolean**| No pagination. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Mode of the search. | [optional] |
+| **noPage** | **Boolean**| No pagination. | [optional] |
 
 ### Return type
 
@@ -711,11 +711,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchServiceAccount"></a>
 # **patchServiceAccount**
@@ -764,11 +764,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **saUuid** | **String**| UUID |
- **body** | [**V1ServiceAccount**](V1ServiceAccount.md)| ServiceAccount body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **saUuid** | **String**| UUID | |
+| **body** | [**V1ServiceAccount**](V1ServiceAccount.md)| ServiceAccount body | |
 
 ### Return type
 
@@ -786,11 +786,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="patchServiceAccountToken"></a>
 # **patchServiceAccountToken**
@@ -840,12 +840,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Rntity |
- **tokenUuid** | **String**| UUID |
- **body** | [**V1Token**](V1Token.md)| Token body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Rntity | |
+| **tokenUuid** | **String**| UUID | |
+| **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
 
@@ -863,11 +863,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateServiceAccount"></a>
 # **updateServiceAccount**
@@ -916,11 +916,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **saUuid** | **String**| UUID |
- **body** | [**V1ServiceAccount**](V1ServiceAccount.md)| ServiceAccount body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **saUuid** | **String**| UUID | |
+| **body** | [**V1ServiceAccount**](V1ServiceAccount.md)| ServiceAccount body | |
 
 ### Return type
 
@@ -938,11 +938,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="updateServiceAccountToken"></a>
 # **updateServiceAccountToken**
@@ -992,12 +992,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**| Owner of the namespace |
- **entity** | **String**| Rntity |
- **tokenUuid** | **String**| UUID |
- **body** | [**V1Token**](V1Token.md)| Token body |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Rntity | |
+| **tokenUuid** | **String**| UUID | |
+| **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
 
@@ -1015,9 +1015,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

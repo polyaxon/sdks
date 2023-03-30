@@ -86,7 +86,41 @@ A successful response.
 type DisableProjectCIOK struct {
 }
 
+// IsSuccess returns true when this disable project c i o k response has a 2xx status code
+func (o *DisableProjectCIOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this disable project c i o k response has a 3xx status code
+func (o *DisableProjectCIOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this disable project c i o k response has a 4xx status code
+func (o *DisableProjectCIOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this disable project c i o k response has a 5xx status code
+func (o *DisableProjectCIOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this disable project c i o k response a status code equal to that given
+func (o *DisableProjectCIOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the disable project c i o k response
+func (o *DisableProjectCIOK) Code() int {
+	return 200
+}
+
 func (o *DisableProjectCIOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK ", 200)
+}
+
+func (o *DisableProjectCIOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type DisableProjectCINoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this disable project c i no content response has a 2xx status code
+func (o *DisableProjectCINoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this disable project c i no content response has a 3xx status code
+func (o *DisableProjectCINoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this disable project c i no content response has a 4xx status code
+func (o *DisableProjectCINoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this disable project c i no content response has a 5xx status code
+func (o *DisableProjectCINoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this disable project c i no content response a status code equal to that given
+func (o *DisableProjectCINoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the disable project c i no content response
+func (o *DisableProjectCINoContent) Code() int {
+	return 204
+}
+
 func (o *DisableProjectCINoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINoContent  %+v", 204, o.Payload)
 }
+
+func (o *DisableProjectCINoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINoContent  %+v", 204, o.Payload)
+}
+
 func (o *DisableProjectCINoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type DisableProjectCIForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this disable project c i forbidden response has a 2xx status code
+func (o *DisableProjectCIForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this disable project c i forbidden response has a 3xx status code
+func (o *DisableProjectCIForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this disable project c i forbidden response has a 4xx status code
+func (o *DisableProjectCIForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this disable project c i forbidden response has a 5xx status code
+func (o *DisableProjectCIForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this disable project c i forbidden response a status code equal to that given
+func (o *DisableProjectCIForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the disable project c i forbidden response
+func (o *DisableProjectCIForbidden) Code() int {
+	return 403
+}
+
 func (o *DisableProjectCIForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DisableProjectCIForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DisableProjectCIForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type DisableProjectCINotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this disable project c i not found response has a 2xx status code
+func (o *DisableProjectCINotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this disable project c i not found response has a 3xx status code
+func (o *DisableProjectCINotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this disable project c i not found response has a 4xx status code
+func (o *DisableProjectCINotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this disable project c i not found response has a 5xx status code
+func (o *DisableProjectCINotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this disable project c i not found response a status code equal to that given
+func (o *DisableProjectCINotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the disable project c i not found response
+func (o *DisableProjectCINotFound) Code() int {
+	return 404
+}
+
 func (o *DisableProjectCINotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound  %+v", 404, o.Payload)
 }
+
+func (o *DisableProjectCINotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound  %+v", 404, o.Payload)
+}
+
 func (o *DisableProjectCINotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type DisableProjectCIDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this disable project c i default response has a 2xx status code
+func (o *DisableProjectCIDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this disable project c i default response has a 3xx status code
+func (o *DisableProjectCIDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this disable project c i default response has a 4xx status code
+func (o *DisableProjectCIDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this disable project c i default response has a 5xx status code
+func (o *DisableProjectCIDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this disable project c i default response a status code equal to that given
+func (o *DisableProjectCIDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the disable project c i default response
 func (o *DisableProjectCIDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *DisableProjectCIDefault) Code() int {
 func (o *DisableProjectCIDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] DisableProjectCI default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DisableProjectCIDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] DisableProjectCI default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DisableProjectCIDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

@@ -87,9 +87,44 @@ type ListBookmarkedProjectsOK struct {
 	Payload *service_model.V1ListBookmarksResponse
 }
 
+// IsSuccess returns true when this list bookmarked projects o k response has a 2xx status code
+func (o *ListBookmarkedProjectsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list bookmarked projects o k response has a 3xx status code
+func (o *ListBookmarkedProjectsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked projects o k response has a 4xx status code
+func (o *ListBookmarkedProjectsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list bookmarked projects o k response has a 5xx status code
+func (o *ListBookmarkedProjectsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked projects o k response a status code equal to that given
+func (o *ListBookmarkedProjectsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the list bookmarked projects o k response
+func (o *ListBookmarkedProjectsOK) Code() int {
+	return 200
+}
+
 func (o *ListBookmarkedProjectsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListBookmarkedProjectsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListBookmarkedProjectsOK) GetPayload() *service_model.V1ListBookmarksResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type ListBookmarkedProjectsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list bookmarked projects no content response has a 2xx status code
+func (o *ListBookmarkedProjectsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list bookmarked projects no content response has a 3xx status code
+func (o *ListBookmarkedProjectsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked projects no content response has a 4xx status code
+func (o *ListBookmarkedProjectsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list bookmarked projects no content response has a 5xx status code
+func (o *ListBookmarkedProjectsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked projects no content response a status code equal to that given
+func (o *ListBookmarkedProjectsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the list bookmarked projects no content response
+func (o *ListBookmarkedProjectsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListBookmarkedProjectsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListBookmarkedProjectsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListBookmarkedProjectsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type ListBookmarkedProjectsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list bookmarked projects forbidden response has a 2xx status code
+func (o *ListBookmarkedProjectsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list bookmarked projects forbidden response has a 3xx status code
+func (o *ListBookmarkedProjectsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked projects forbidden response has a 4xx status code
+func (o *ListBookmarkedProjectsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list bookmarked projects forbidden response has a 5xx status code
+func (o *ListBookmarkedProjectsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked projects forbidden response a status code equal to that given
+func (o *ListBookmarkedProjectsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the list bookmarked projects forbidden response
+func (o *ListBookmarkedProjectsForbidden) Code() int {
+	return 403
+}
+
 func (o *ListBookmarkedProjectsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListBookmarkedProjectsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListBookmarkedProjectsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type ListBookmarkedProjectsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list bookmarked projects not found response has a 2xx status code
+func (o *ListBookmarkedProjectsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list bookmarked projects not found response has a 3xx status code
+func (o *ListBookmarkedProjectsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list bookmarked projects not found response has a 4xx status code
+func (o *ListBookmarkedProjectsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list bookmarked projects not found response has a 5xx status code
+func (o *ListBookmarkedProjectsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list bookmarked projects not found response a status code equal to that given
+func (o *ListBookmarkedProjectsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list bookmarked projects not found response
+func (o *ListBookmarkedProjectsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListBookmarkedProjectsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListBookmarkedProjectsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListBookmarkedProjectsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type ListBookmarkedProjectsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this list bookmarked projects default response has a 2xx status code
+func (o *ListBookmarkedProjectsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list bookmarked projects default response has a 3xx status code
+func (o *ListBookmarkedProjectsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list bookmarked projects default response has a 4xx status code
+func (o *ListBookmarkedProjectsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list bookmarked projects default response has a 5xx status code
+func (o *ListBookmarkedProjectsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list bookmarked projects default response a status code equal to that given
+func (o *ListBookmarkedProjectsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the list bookmarked projects default response
 func (o *ListBookmarkedProjectsDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *ListBookmarkedProjectsDefault) Code() int {
 func (o *ListBookmarkedProjectsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] ListBookmarkedProjects default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListBookmarkedProjectsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] ListBookmarkedProjects default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListBookmarkedProjectsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

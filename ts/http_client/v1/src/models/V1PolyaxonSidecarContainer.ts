@@ -77,6 +77,15 @@ export interface V1PolyaxonSidecarContainer {
     resources?: object;
 }
 
+/**
+ * Check if a given object implements the V1PolyaxonSidecarContainer interface.
+ */
+export function instanceOfV1PolyaxonSidecarContainer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PolyaxonSidecarContainerFromJSON(json: any): V1PolyaxonSidecarContainer {
     return V1PolyaxonSidecarContainerFromJSONTyped(json, false);
 }

@@ -47,6 +47,15 @@ export interface V1GcsType {
     blob?: string;
 }
 
+/**
+ * Check if a given object implements the V1GcsType interface.
+ */
+export function instanceOfV1GcsType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1GcsTypeFromJSON(json: any): V1GcsType {
     return V1GcsTypeFromJSONTyped(json, false);
 }

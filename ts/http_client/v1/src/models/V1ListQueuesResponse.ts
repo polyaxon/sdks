@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Queue } from './V1Queue';
 import {
-    V1Queue,
     V1QueueFromJSON,
     V1QueueFromJSONTyped,
     V1QueueToJSON,
-} from './';
+} from './V1Queue';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListQueuesResponse {
      * @memberof V1ListQueuesResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListQueuesResponse interface.
+ */
+export function instanceOfV1ListQueuesResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListQueuesResponseFromJSON(json: any): V1ListQueuesResponse {

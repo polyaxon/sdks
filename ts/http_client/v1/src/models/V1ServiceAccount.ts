@@ -89,6 +89,15 @@ export interface V1ServiceAccount {
     services?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1ServiceAccount interface.
+ */
+export function instanceOfV1ServiceAccount(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ServiceAccountFromJSON(json: any): V1ServiceAccount {
     return V1ServiceAccountFromJSONTyped(json, false);
 }

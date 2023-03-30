@@ -159,6 +159,15 @@ export interface V1Environment {
     restartPolicy?: string;
 }
 
+/**
+ * Check if a given object implements the V1Environment interface.
+ */
+export function instanceOfV1Environment(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EnvironmentFromJSON(json: any): V1Environment {
     return V1EnvironmentFromJSONTyped(json, false);
 }

@@ -34,10 +34,29 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Activity
@@ -76,6 +95,8 @@ public class V1Activity {
   @SerializedName(SERIALIZED_NAME_OBJECT_PARENT)
   private String objectParent;
 
+  public V1Activity() {
+  }
 
   public V1Activity actor(String actor) {
     
@@ -88,7 +109,6 @@ public class V1Activity {
    * @return actor
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getActor() {
     return actor;
@@ -111,7 +131,6 @@ public class V1Activity {
    * @return owner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOwner() {
     return owner;
@@ -134,7 +153,6 @@ public class V1Activity {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -157,7 +175,6 @@ public class V1Activity {
    * @return eventAction
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getEventAction() {
     return eventAction;
@@ -180,7 +197,6 @@ public class V1Activity {
    * @return eventSubject
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getEventSubject() {
     return eventSubject;
@@ -203,7 +219,6 @@ public class V1Activity {
    * @return objectName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getObjectName() {
     return objectName;
@@ -226,7 +241,6 @@ public class V1Activity {
    * @return objectUuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getObjectUuid() {
     return objectUuid;
@@ -249,7 +263,6 @@ public class V1Activity {
    * @return objectParent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getObjectParent() {
     return objectParent;
@@ -259,6 +272,7 @@ public class V1Activity {
   public void setObjectParent(String objectParent) {
     this.objectParent = objectParent;
   }
+
 
 
   @Override
@@ -312,5 +326,116 @@ public class V1Activity {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("actor");
+    openapiFields.add("owner");
+    openapiFields.add("created_at");
+    openapiFields.add("event_action");
+    openapiFields.add("event_subject");
+    openapiFields.add("object_name");
+    openapiFields.add("object_uuid");
+    openapiFields.add("object_parent");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Activity
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Activity.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Activity is not found in the empty JSON string", V1Activity.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Activity.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Activity` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("actor") != null && !jsonObj.get("actor").isJsonNull()) && !jsonObj.get("actor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `actor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actor").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("event_action") != null && !jsonObj.get("event_action").isJsonNull()) && !jsonObj.get("event_action").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `event_action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event_action").toString()));
+      }
+      if ((jsonObj.get("event_subject") != null && !jsonObj.get("event_subject").isJsonNull()) && !jsonObj.get("event_subject").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `event_subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event_subject").toString()));
+      }
+      if ((jsonObj.get("object_name") != null && !jsonObj.get("object_name").isJsonNull()) && !jsonObj.get("object_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_name").toString()));
+      }
+      if ((jsonObj.get("object_uuid") != null && !jsonObj.get("object_uuid").isJsonNull()) && !jsonObj.get("object_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_uuid").toString()));
+      }
+      if ((jsonObj.get("object_parent") != null && !jsonObj.get("object_parent").isJsonNull()) && !jsonObj.get("object_parent").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object_parent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_parent").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Activity.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Activity' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Activity> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Activity.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Activity>() {
+           @Override
+           public void write(JsonWriter out, V1Activity value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Activity read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Activity given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Activity
+  * @throws IOException if the JSON string is invalid with respect to V1Activity
+  */
+  public static V1Activity fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Activity.class);
+  }
+
+ /**
+  * Convert an instance of V1Activity to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

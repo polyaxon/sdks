@@ -87,9 +87,44 @@ type GetServiceAccountOK struct {
 	Payload *service_model.V1ServiceAccount
 }
 
+// IsSuccess returns true when this get service account o k response has a 2xx status code
+func (o *GetServiceAccountOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get service account o k response has a 3xx status code
+func (o *GetServiceAccountOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get service account o k response has a 4xx status code
+func (o *GetServiceAccountOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get service account o k response has a 5xx status code
+func (o *GetServiceAccountOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get service account o k response a status code equal to that given
+func (o *GetServiceAccountOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the get service account o k response
+func (o *GetServiceAccountOK) Code() int {
+	return 200
+}
+
 func (o *GetServiceAccountOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK  %+v", 200, o.Payload)
 }
+
+func (o *GetServiceAccountOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK  %+v", 200, o.Payload)
+}
+
 func (o *GetServiceAccountOK) GetPayload() *service_model.V1ServiceAccount {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type GetServiceAccountNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get service account no content response has a 2xx status code
+func (o *GetServiceAccountNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get service account no content response has a 3xx status code
+func (o *GetServiceAccountNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get service account no content response has a 4xx status code
+func (o *GetServiceAccountNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get service account no content response has a 5xx status code
+func (o *GetServiceAccountNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get service account no content response a status code equal to that given
+func (o *GetServiceAccountNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the get service account no content response
+func (o *GetServiceAccountNoContent) Code() int {
+	return 204
+}
+
 func (o *GetServiceAccountNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetServiceAccountNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetServiceAccountNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type GetServiceAccountForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get service account forbidden response has a 2xx status code
+func (o *GetServiceAccountForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get service account forbidden response has a 3xx status code
+func (o *GetServiceAccountForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get service account forbidden response has a 4xx status code
+func (o *GetServiceAccountForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get service account forbidden response has a 5xx status code
+func (o *GetServiceAccountForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get service account forbidden response a status code equal to that given
+func (o *GetServiceAccountForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the get service account forbidden response
+func (o *GetServiceAccountForbidden) Code() int {
+	return 403
+}
+
 func (o *GetServiceAccountForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetServiceAccountForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetServiceAccountForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type GetServiceAccountNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get service account not found response has a 2xx status code
+func (o *GetServiceAccountNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get service account not found response has a 3xx status code
+func (o *GetServiceAccountNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get service account not found response has a 4xx status code
+func (o *GetServiceAccountNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get service account not found response has a 5xx status code
+func (o *GetServiceAccountNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get service account not found response a status code equal to that given
+func (o *GetServiceAccountNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get service account not found response
+func (o *GetServiceAccountNotFound) Code() int {
+	return 404
+}
+
 func (o *GetServiceAccountNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetServiceAccountNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetServiceAccountNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type GetServiceAccountDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this get service account default response has a 2xx status code
+func (o *GetServiceAccountDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get service account default response has a 3xx status code
+func (o *GetServiceAccountDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get service account default response has a 4xx status code
+func (o *GetServiceAccountDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get service account default response has a 5xx status code
+func (o *GetServiceAccountDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get service account default response a status code equal to that given
+func (o *GetServiceAccountDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the get service account default response
 func (o *GetServiceAccountDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *GetServiceAccountDefault) Code() int {
 func (o *GetServiceAccountDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] GetServiceAccount default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetServiceAccountDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] GetServiceAccount default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetServiceAccountDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

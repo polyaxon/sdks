@@ -80,8 +80,28 @@ class V1EventVideo {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EventVideo</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EventVideo</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['path'] && !(typeof data['path'] === 'string' || data['path'] instanceof String)) {
+            throw new Error("Expected the field `path` to be a primitive type in the JSON string but got " + data['path']);
+        }
+        // ensure the json data is a string
+        if (data['content_type'] && !(typeof data['content_type'] === 'string' || data['content_type'] instanceof String)) {
+            throw new Error("Expected the field `content_type` to be a primitive type in the JSON string but got " + data['content_type']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * Height of the video.

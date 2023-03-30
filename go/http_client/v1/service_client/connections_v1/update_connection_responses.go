@@ -87,9 +87,44 @@ type UpdateConnectionOK struct {
 	Payload *service_model.V1ConnectionResponse
 }
 
+// IsSuccess returns true when this update connection o k response has a 2xx status code
+func (o *UpdateConnectionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update connection o k response has a 3xx status code
+func (o *UpdateConnectionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update connection o k response has a 4xx status code
+func (o *UpdateConnectionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update connection o k response has a 5xx status code
+func (o *UpdateConnectionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update connection o k response a status code equal to that given
+func (o *UpdateConnectionOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the update connection o k response
+func (o *UpdateConnectionOK) Code() int {
+	return 200
+}
+
 func (o *UpdateConnectionOK) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionOK  %+v", 200, o.Payload)
 }
+
+func (o *UpdateConnectionOK) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionOK  %+v", 200, o.Payload)
+}
+
 func (o *UpdateConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type UpdateConnectionNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update connection no content response has a 2xx status code
+func (o *UpdateConnectionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this update connection no content response has a 3xx status code
+func (o *UpdateConnectionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update connection no content response has a 4xx status code
+func (o *UpdateConnectionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this update connection no content response has a 5xx status code
+func (o *UpdateConnectionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update connection no content response a status code equal to that given
+func (o *UpdateConnectionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the update connection no content response
+func (o *UpdateConnectionNoContent) Code() int {
+	return 204
+}
+
 func (o *UpdateConnectionNoContent) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *UpdateConnectionNoContent) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *UpdateConnectionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type UpdateConnectionForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update connection forbidden response has a 2xx status code
+func (o *UpdateConnectionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update connection forbidden response has a 3xx status code
+func (o *UpdateConnectionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update connection forbidden response has a 4xx status code
+func (o *UpdateConnectionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update connection forbidden response has a 5xx status code
+func (o *UpdateConnectionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update connection forbidden response a status code equal to that given
+func (o *UpdateConnectionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the update connection forbidden response
+func (o *UpdateConnectionForbidden) Code() int {
+	return 403
+}
+
 func (o *UpdateConnectionForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *UpdateConnectionForbidden) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *UpdateConnectionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type UpdateConnectionNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this update connection not found response has a 2xx status code
+func (o *UpdateConnectionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this update connection not found response has a 3xx status code
+func (o *UpdateConnectionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this update connection not found response has a 4xx status code
+func (o *UpdateConnectionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this update connection not found response has a 5xx status code
+func (o *UpdateConnectionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this update connection not found response a status code equal to that given
+func (o *UpdateConnectionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the update connection not found response
+func (o *UpdateConnectionNotFound) Code() int {
+	return 404
+}
+
 func (o *UpdateConnectionNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *UpdateConnectionNotFound) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *UpdateConnectionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type UpdateConnectionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this update connection default response has a 2xx status code
+func (o *UpdateConnectionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this update connection default response has a 3xx status code
+func (o *UpdateConnectionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this update connection default response has a 4xx status code
+func (o *UpdateConnectionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this update connection default response has a 5xx status code
+func (o *UpdateConnectionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this update connection default response a status code equal to that given
+func (o *UpdateConnectionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the update connection default response
 func (o *UpdateConnectionDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *UpdateConnectionDefault) Code() int {
 func (o *UpdateConnectionDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] UpdateConnection default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *UpdateConnectionDefault) String() string {
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] UpdateConnection default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *UpdateConnectionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

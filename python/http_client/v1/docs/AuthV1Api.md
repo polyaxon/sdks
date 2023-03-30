@@ -24,6 +24,7 @@ Change password
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -39,7 +40,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -53,7 +54,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Change password
         api_instance.change_password(body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuthV1Api->change_password: %s\n" % e)
 ```
 
@@ -98,6 +99,7 @@ Login
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -113,7 +115,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -127,8 +129,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Login
         api_response = api_instance.login(body)
+        print("The response of AuthV1Api->login:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuthV1Api->login: %s\n" % e)
 ```
 
@@ -173,6 +176,7 @@ Reset password
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -188,7 +192,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -202,7 +206,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Reset password
         api_instance.reset_password(body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuthV1Api->reset_password: %s\n" % e)
 ```
 
@@ -247,6 +251,7 @@ Reset password confirm
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -262,7 +267,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -276,8 +281,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Reset password confirm
         api_response = api_instance.reset_password_confirm(body)
+        print("The response of AuthV1Api->reset_password_confirm:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuthV1Api->reset_password_confirm: %s\n" % e)
 ```
 
@@ -322,6 +328,7 @@ Signup
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -337,7 +344,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -351,8 +358,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Signup
         api_response = api_instance.signup(body)
+        print("The response of AuthV1Api->signup:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuthV1Api->signup: %s\n" % e)
 ```
 
@@ -397,6 +405,7 @@ Trial Start
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -412,7 +421,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -426,7 +435,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Trial Start
         api_instance.trial(body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AuthV1Api->trial: %s\n" % e)
 ```
 

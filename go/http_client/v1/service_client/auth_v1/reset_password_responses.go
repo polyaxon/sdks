@@ -86,7 +86,41 @@ A successful response.
 type ResetPasswordOK struct {
 }
 
+// IsSuccess returns true when this reset password o k response has a 2xx status code
+func (o *ResetPasswordOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this reset password o k response has a 3xx status code
+func (o *ResetPasswordOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password o k response has a 4xx status code
+func (o *ResetPasswordOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this reset password o k response has a 5xx status code
+func (o *ResetPasswordOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password o k response a status code equal to that given
+func (o *ResetPasswordOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the reset password o k response
+func (o *ResetPasswordOK) Code() int {
+	return 200
+}
+
 func (o *ResetPasswordOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordOK ", 200)
+}
+
+func (o *ResetPasswordOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type ResetPasswordNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this reset password no content response has a 2xx status code
+func (o *ResetPasswordNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this reset password no content response has a 3xx status code
+func (o *ResetPasswordNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password no content response has a 4xx status code
+func (o *ResetPasswordNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this reset password no content response has a 5xx status code
+func (o *ResetPasswordNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password no content response a status code equal to that given
+func (o *ResetPasswordNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the reset password no content response
+func (o *ResetPasswordNoContent) Code() int {
+	return 204
+}
+
 func (o *ResetPasswordNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ResetPasswordNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ResetPasswordNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type ResetPasswordForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this reset password forbidden response has a 2xx status code
+func (o *ResetPasswordForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reset password forbidden response has a 3xx status code
+func (o *ResetPasswordForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password forbidden response has a 4xx status code
+func (o *ResetPasswordForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reset password forbidden response has a 5xx status code
+func (o *ResetPasswordForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password forbidden response a status code equal to that given
+func (o *ResetPasswordForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the reset password forbidden response
+func (o *ResetPasswordForbidden) Code() int {
+	return 403
+}
+
 func (o *ResetPasswordForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ResetPasswordForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ResetPasswordForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type ResetPasswordNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this reset password not found response has a 2xx status code
+func (o *ResetPasswordNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this reset password not found response has a 3xx status code
+func (o *ResetPasswordNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this reset password not found response has a 4xx status code
+func (o *ResetPasswordNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this reset password not found response has a 5xx status code
+func (o *ResetPasswordNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this reset password not found response a status code equal to that given
+func (o *ResetPasswordNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the reset password not found response
+func (o *ResetPasswordNotFound) Code() int {
+	return 404
+}
+
 func (o *ResetPasswordNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ResetPasswordNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ResetPasswordNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type ResetPasswordDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this reset password default response has a 2xx status code
+func (o *ResetPasswordDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this reset password default response has a 3xx status code
+func (o *ResetPasswordDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this reset password default response has a 4xx status code
+func (o *ResetPasswordDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this reset password default response has a 5xx status code
+func (o *ResetPasswordDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this reset password default response a status code equal to that given
+func (o *ResetPasswordDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the reset password default response
 func (o *ResetPasswordDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *ResetPasswordDefault) Code() int {
 func (o *ResetPasswordDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] ResetPassword default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ResetPasswordDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] ResetPassword default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ResetPasswordDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

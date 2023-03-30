@@ -47,6 +47,15 @@ export interface V1EntitiesTags {
     tags?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1EntitiesTags interface.
+ */
+export function instanceOfV1EntitiesTags(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EntitiesTagsFromJSON(json: any): V1EntitiesTags {
     return V1EntitiesTagsFromJSONTyped(json, false);
 }

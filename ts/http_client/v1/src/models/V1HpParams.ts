@@ -27,72 +27,102 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1HpChoice } from './V1HpChoice';
 import {
-    V1HpChoice,
     V1HpChoiceFromJSON,
     V1HpChoiceFromJSONTyped,
     V1HpChoiceToJSON,
-    V1HpDateRange,
+} from './V1HpChoice';
+import type { V1HpDateRange } from './V1HpDateRange';
+import {
     V1HpDateRangeFromJSON,
     V1HpDateRangeFromJSONTyped,
     V1HpDateRangeToJSON,
-    V1HpDateTimeRange,
+} from './V1HpDateRange';
+import type { V1HpDateTimeRange } from './V1HpDateTimeRange';
+import {
     V1HpDateTimeRangeFromJSON,
     V1HpDateTimeRangeFromJSONTyped,
     V1HpDateTimeRangeToJSON,
-    V1HpGeomSpace,
+} from './V1HpDateTimeRange';
+import type { V1HpGeomSpace } from './V1HpGeomSpace';
+import {
     V1HpGeomSpaceFromJSON,
     V1HpGeomSpaceFromJSONTyped,
     V1HpGeomSpaceToJSON,
-    V1HpLinSpace,
+} from './V1HpGeomSpace';
+import type { V1HpLinSpace } from './V1HpLinSpace';
+import {
     V1HpLinSpaceFromJSON,
     V1HpLinSpaceFromJSONTyped,
     V1HpLinSpaceToJSON,
-    V1HpLogNormal,
+} from './V1HpLinSpace';
+import type { V1HpLogNormal } from './V1HpLogNormal';
+import {
     V1HpLogNormalFromJSON,
     V1HpLogNormalFromJSONTyped,
     V1HpLogNormalToJSON,
-    V1HpLogSpace,
+} from './V1HpLogNormal';
+import type { V1HpLogSpace } from './V1HpLogSpace';
+import {
     V1HpLogSpaceFromJSON,
     V1HpLogSpaceFromJSONTyped,
     V1HpLogSpaceToJSON,
-    V1HpLogUniform,
+} from './V1HpLogSpace';
+import type { V1HpLogUniform } from './V1HpLogUniform';
+import {
     V1HpLogUniformFromJSON,
     V1HpLogUniformFromJSONTyped,
     V1HpLogUniformToJSON,
-    V1HpNormal,
+} from './V1HpLogUniform';
+import type { V1HpNormal } from './V1HpNormal';
+import {
     V1HpNormalFromJSON,
     V1HpNormalFromJSONTyped,
     V1HpNormalToJSON,
-    V1HpPChoice,
+} from './V1HpNormal';
+import type { V1HpPChoice } from './V1HpPChoice';
+import {
     V1HpPChoiceFromJSON,
     V1HpPChoiceFromJSONTyped,
     V1HpPChoiceToJSON,
-    V1HpQLogNormal,
+} from './V1HpPChoice';
+import type { V1HpQLogNormal } from './V1HpQLogNormal';
+import {
     V1HpQLogNormalFromJSON,
     V1HpQLogNormalFromJSONTyped,
     V1HpQLogNormalToJSON,
-    V1HpQLogUniform,
+} from './V1HpQLogNormal';
+import type { V1HpQLogUniform } from './V1HpQLogUniform';
+import {
     V1HpQLogUniformFromJSON,
     V1HpQLogUniformFromJSONTyped,
     V1HpQLogUniformToJSON,
-    V1HpQNormal,
+} from './V1HpQLogUniform';
+import type { V1HpQNormal } from './V1HpQNormal';
+import {
     V1HpQNormalFromJSON,
     V1HpQNormalFromJSONTyped,
     V1HpQNormalToJSON,
-    V1HpQUniform,
+} from './V1HpQNormal';
+import type { V1HpQUniform } from './V1HpQUniform';
+import {
     V1HpQUniformFromJSON,
     V1HpQUniformFromJSONTyped,
     V1HpQUniformToJSON,
-    V1HpRange,
+} from './V1HpQUniform';
+import type { V1HpRange } from './V1HpRange';
+import {
     V1HpRangeFromJSON,
     V1HpRangeFromJSONTyped,
     V1HpRangeToJSON,
-    V1HpUniform,
+} from './V1HpRange';
+import type { V1HpUniform } from './V1HpUniform';
+import {
     V1HpUniformFromJSON,
     V1HpUniformFromJSONTyped,
     V1HpUniformToJSON,
-} from './';
+} from './V1HpUniform';
 
 /**
  * 
@@ -196,6 +226,15 @@ export interface V1HpParams {
      * @memberof V1HpParams
      */
     datetimerange?: V1HpDateTimeRange;
+}
+
+/**
+ * Check if a given object implements the V1HpParams interface.
+ */
+export function instanceOfV1HpParams(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1HpParamsFromJSON(json: any): V1HpParams {

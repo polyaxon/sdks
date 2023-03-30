@@ -47,6 +47,15 @@ export interface V1S3Type {
     key?: string;
 }
 
+/**
+ * Check if a given object implements the V1S3Type interface.
+ */
+export function instanceOfV1S3Type(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1S3TypeFromJSON(json: any): V1S3Type {
     return V1S3TypeFromJSONTyped(json, false);
 }

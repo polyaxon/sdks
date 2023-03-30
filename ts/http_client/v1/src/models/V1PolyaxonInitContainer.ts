@@ -59,6 +59,15 @@ export interface V1PolyaxonInitContainer {
     resources?: object;
 }
 
+/**
+ * Check if a given object implements the V1PolyaxonInitContainer interface.
+ */
+export function instanceOfV1PolyaxonInitContainer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PolyaxonInitContainerFromJSON(json: any): V1PolyaxonInitContainer {
     return V1PolyaxonInitContainerFromJSONTyped(json, false);
 }

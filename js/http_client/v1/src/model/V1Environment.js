@@ -119,8 +119,60 @@ class V1Environment {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Environment</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Environment</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['tolerations'])) {
+            throw new Error("Expected the field `tolerations` to be an array in the JSON data but got " + data['tolerations']);
+        }
+        // ensure the json data is a string
+        if (data['nodeName'] && !(typeof data['nodeName'] === 'string' || data['nodeName'] instanceof String)) {
+            throw new Error("Expected the field `nodeName` to be a primitive type in the JSON string but got " + data['nodeName']);
+        }
+        // ensure the json data is a string
+        if (data['serviceAccountName'] && !(typeof data['serviceAccountName'] === 'string' || data['serviceAccountName'] instanceof String)) {
+            throw new Error("Expected the field `serviceAccountName` to be a primitive type in the JSON string but got " + data['serviceAccountName']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['hostAliases'])) {
+            throw new Error("Expected the field `hostAliases` to be an array in the JSON data but got " + data['hostAliases']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['imagePullSecrets'])) {
+            throw new Error("Expected the field `imagePullSecrets` to be an array in the JSON data but got " + data['imagePullSecrets']);
+        }
+        // ensure the json data is a string
+        if (data['hostPID'] && !(typeof data['hostPID'] === 'string' || data['hostPID'] instanceof String)) {
+            throw new Error("Expected the field `hostPID` to be a primitive type in the JSON string but got " + data['hostPID']);
+        }
+        // ensure the json data is a string
+        if (data['dnsPolicy'] && !(typeof data['dnsPolicy'] === 'string' || data['dnsPolicy'] instanceof String)) {
+            throw new Error("Expected the field `dnsPolicy` to be a primitive type in the JSON string but got " + data['dnsPolicy']);
+        }
+        // ensure the json data is a string
+        if (data['schedulerName'] && !(typeof data['schedulerName'] === 'string' || data['schedulerName'] instanceof String)) {
+            throw new Error("Expected the field `schedulerName` to be a primitive type in the JSON string but got " + data['schedulerName']);
+        }
+        // ensure the json data is a string
+        if (data['priorityClassName'] && !(typeof data['priorityClassName'] === 'string' || data['priorityClassName'] instanceof String)) {
+            throw new Error("Expected the field `priorityClassName` to be a primitive type in the JSON string but got " + data['priorityClassName']);
+        }
+        // ensure the json data is a string
+        if (data['restartPolicy'] && !(typeof data['restartPolicy'] === 'string' || data['restartPolicy'] instanceof String)) {
+            throw new Error("Expected the field `restartPolicy` to be a primitive type in the JSON string but got " + data['restartPolicy']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Object.<String, String>} labels

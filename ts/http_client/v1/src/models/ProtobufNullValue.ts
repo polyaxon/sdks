@@ -26,6 +26,7 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the
  * `Value` type union.
@@ -34,11 +35,12 @@
  * 
  *  - NULL_VALUE: Null value.
  * @export
- * @enum {string}
  */
-export enum ProtobufNullValue {
-    NullValue = 'NULL_VALUE'
-}
+export const ProtobufNullValue = {
+    NullValue: 'NULL_VALUE'
+} as const;
+export type ProtobufNullValue = typeof ProtobufNullValue[keyof typeof ProtobufNullValue];
+
 
 export function ProtobufNullValueFromJSON(json: any): ProtobufNullValue {
     return ProtobufNullValueFromJSONTyped(json, false);

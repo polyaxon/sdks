@@ -34,8 +34,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1HpChoice;
 import org.openapitools.client.model.V1HpDateRange;
@@ -53,6 +51,27 @@ import org.openapitools.client.model.V1HpQNormal;
 import org.openapitools.client.model.V1HpQUniform;
 import org.openapitools.client.model.V1HpRange;
 import org.openapitools.client.model.V1HpUniform;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1HpParams
@@ -123,6 +142,8 @@ public class V1HpParams {
   @SerializedName(SERIALIZED_NAME_DATETIMERANGE)
   private V1HpDateTimeRange datetimerange;
 
+  public V1HpParams() {
+  }
 
   public V1HpParams choice(V1HpChoice choice) {
     
@@ -135,7 +156,6 @@ public class V1HpParams {
    * @return choice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpChoice getChoice() {
     return choice;
@@ -158,7 +178,6 @@ public class V1HpParams {
    * @return pchoice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpPChoice getPchoice() {
     return pchoice;
@@ -181,7 +200,6 @@ public class V1HpParams {
    * @return range
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpRange getRange() {
     return range;
@@ -204,7 +222,6 @@ public class V1HpParams {
    * @return linspace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpLinSpace getLinspace() {
     return linspace;
@@ -227,7 +244,6 @@ public class V1HpParams {
    * @return logspace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpLogSpace getLogspace() {
     return logspace;
@@ -250,7 +266,6 @@ public class V1HpParams {
    * @return geomspace
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpGeomSpace getGeomspace() {
     return geomspace;
@@ -273,7 +288,6 @@ public class V1HpParams {
    * @return uniform
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpUniform getUniform() {
     return uniform;
@@ -296,7 +310,6 @@ public class V1HpParams {
    * @return quniform
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpQUniform getQuniform() {
     return quniform;
@@ -319,7 +332,6 @@ public class V1HpParams {
    * @return loguniform
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpLogUniform getLoguniform() {
     return loguniform;
@@ -342,7 +354,6 @@ public class V1HpParams {
    * @return qloguniform
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpQLogUniform getQloguniform() {
     return qloguniform;
@@ -365,7 +376,6 @@ public class V1HpParams {
    * @return normal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpNormal getNormal() {
     return normal;
@@ -388,7 +398,6 @@ public class V1HpParams {
    * @return qnormal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpQNormal getQnormal() {
     return qnormal;
@@ -411,7 +420,6 @@ public class V1HpParams {
    * @return lognormal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpLogNormal getLognormal() {
     return lognormal;
@@ -434,7 +442,6 @@ public class V1HpParams {
    * @return qlognormal
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpQLogNormal getQlognormal() {
     return qlognormal;
@@ -457,7 +464,6 @@ public class V1HpParams {
    * @return daterange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpDateRange getDaterange() {
     return daterange;
@@ -480,7 +486,6 @@ public class V1HpParams {
    * @return datetimerange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpDateTimeRange getDatetimerange() {
     return datetimerange;
@@ -490,6 +495,7 @@ public class V1HpParams {
   public void setDatetimerange(V1HpDateTimeRange datetimerange) {
     this.datetimerange = datetimerange;
   }
+
 
 
   @Override
@@ -559,5 +565,167 @@ public class V1HpParams {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("choice");
+    openapiFields.add("pchoice");
+    openapiFields.add("range");
+    openapiFields.add("linspace");
+    openapiFields.add("logspace");
+    openapiFields.add("geomspace");
+    openapiFields.add("uniform");
+    openapiFields.add("quniform");
+    openapiFields.add("loguniform");
+    openapiFields.add("qloguniform");
+    openapiFields.add("normal");
+    openapiFields.add("qnormal");
+    openapiFields.add("lognormal");
+    openapiFields.add("qlognormal");
+    openapiFields.add("daterange");
+    openapiFields.add("datetimerange");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1HpParams
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1HpParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1HpParams is not found in the empty JSON string", V1HpParams.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1HpParams.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1HpParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `choice`
+      if (jsonObj.get("choice") != null && !jsonObj.get("choice").isJsonNull()) {
+        V1HpChoice.validateJsonObject(jsonObj.getAsJsonObject("choice"));
+      }
+      // validate the optional field `pchoice`
+      if (jsonObj.get("pchoice") != null && !jsonObj.get("pchoice").isJsonNull()) {
+        V1HpPChoice.validateJsonObject(jsonObj.getAsJsonObject("pchoice"));
+      }
+      // validate the optional field `range`
+      if (jsonObj.get("range") != null && !jsonObj.get("range").isJsonNull()) {
+        V1HpRange.validateJsonObject(jsonObj.getAsJsonObject("range"));
+      }
+      // validate the optional field `linspace`
+      if (jsonObj.get("linspace") != null && !jsonObj.get("linspace").isJsonNull()) {
+        V1HpLinSpace.validateJsonObject(jsonObj.getAsJsonObject("linspace"));
+      }
+      // validate the optional field `logspace`
+      if (jsonObj.get("logspace") != null && !jsonObj.get("logspace").isJsonNull()) {
+        V1HpLogSpace.validateJsonObject(jsonObj.getAsJsonObject("logspace"));
+      }
+      // validate the optional field `geomspace`
+      if (jsonObj.get("geomspace") != null && !jsonObj.get("geomspace").isJsonNull()) {
+        V1HpGeomSpace.validateJsonObject(jsonObj.getAsJsonObject("geomspace"));
+      }
+      // validate the optional field `uniform`
+      if (jsonObj.get("uniform") != null && !jsonObj.get("uniform").isJsonNull()) {
+        V1HpUniform.validateJsonObject(jsonObj.getAsJsonObject("uniform"));
+      }
+      // validate the optional field `quniform`
+      if (jsonObj.get("quniform") != null && !jsonObj.get("quniform").isJsonNull()) {
+        V1HpQUniform.validateJsonObject(jsonObj.getAsJsonObject("quniform"));
+      }
+      // validate the optional field `loguniform`
+      if (jsonObj.get("loguniform") != null && !jsonObj.get("loguniform").isJsonNull()) {
+        V1HpLogUniform.validateJsonObject(jsonObj.getAsJsonObject("loguniform"));
+      }
+      // validate the optional field `qloguniform`
+      if (jsonObj.get("qloguniform") != null && !jsonObj.get("qloguniform").isJsonNull()) {
+        V1HpQLogUniform.validateJsonObject(jsonObj.getAsJsonObject("qloguniform"));
+      }
+      // validate the optional field `normal`
+      if (jsonObj.get("normal") != null && !jsonObj.get("normal").isJsonNull()) {
+        V1HpNormal.validateJsonObject(jsonObj.getAsJsonObject("normal"));
+      }
+      // validate the optional field `qnormal`
+      if (jsonObj.get("qnormal") != null && !jsonObj.get("qnormal").isJsonNull()) {
+        V1HpQNormal.validateJsonObject(jsonObj.getAsJsonObject("qnormal"));
+      }
+      // validate the optional field `lognormal`
+      if (jsonObj.get("lognormal") != null && !jsonObj.get("lognormal").isJsonNull()) {
+        V1HpLogNormal.validateJsonObject(jsonObj.getAsJsonObject("lognormal"));
+      }
+      // validate the optional field `qlognormal`
+      if (jsonObj.get("qlognormal") != null && !jsonObj.get("qlognormal").isJsonNull()) {
+        V1HpQLogNormal.validateJsonObject(jsonObj.getAsJsonObject("qlognormal"));
+      }
+      // validate the optional field `daterange`
+      if (jsonObj.get("daterange") != null && !jsonObj.get("daterange").isJsonNull()) {
+        V1HpDateRange.validateJsonObject(jsonObj.getAsJsonObject("daterange"));
+      }
+      // validate the optional field `datetimerange`
+      if (jsonObj.get("datetimerange") != null && !jsonObj.get("datetimerange").isJsonNull()) {
+        V1HpDateTimeRange.validateJsonObject(jsonObj.getAsJsonObject("datetimerange"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1HpParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1HpParams' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1HpParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1HpParams.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1HpParams>() {
+           @Override
+           public void write(JsonWriter out, V1HpParams value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1HpParams read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1HpParams given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1HpParams
+  * @throws IOException if the JSON string is invalid with respect to V1HpParams
+  */
+  public static V1HpParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1HpParams.class);
+  }
+
+ /**
+  * Convert an instance of V1HpParams to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

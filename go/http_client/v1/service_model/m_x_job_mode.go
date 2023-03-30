@@ -35,8 +35,12 @@ import (
 type MXJobMode string
 
 func NewMXJobMode(value MXJobMode) *MXJobMode {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated MXJobMode.
+func (m MXJobMode) Pointer() *MXJobMode {
+	return &m
 }
 
 const (

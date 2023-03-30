@@ -34,8 +34,12 @@ import (
 type V1SparkType string
 
 func NewV1SparkType(value V1SparkType) *V1SparkType {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1SparkType.
+func (m V1SparkType) Pointer() *V1SparkType {
+	return &m
 }
 
 const (

@@ -28,26 +28,28 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1Agent,
+  V1AgentStateResponse,
+  V1AgentStatusBodyRequest,
+  V1ListAgentsResponse,
+  V1Status,
+  V1Token,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1Agent,
     V1AgentFromJSON,
     V1AgentToJSON,
-    V1AgentStateResponse,
     V1AgentStateResponseFromJSON,
     V1AgentStateResponseToJSON,
-    V1AgentStatusBodyRequest,
     V1AgentStatusBodyRequestFromJSON,
     V1AgentStatusBodyRequestToJSON,
-    V1ListAgentsResponse,
     V1ListAgentsResponseFromJSON,
     V1ListAgentsResponseToJSON,
-    V1Status,
     V1StatusFromJSON,
     V1StatusToJSON,
-    V1Token,
     V1TokenFromJSON,
     V1TokenToJSON,
 } from '../models';
@@ -157,7 +159,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Create agent
      */
-    async createAgentRaw(requestParameters: CreateAgentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Agent>> {
+    async createAgentRaw(requestParameters: CreateAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createAgent.');
         }
@@ -190,7 +192,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Create agent
      */
-    async createAgent(requestParameters: CreateAgentRequest, initOverrides?: RequestInit): Promise<V1Agent> {
+    async createAgent(requestParameters: CreateAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
         const response = await this.createAgentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -198,7 +200,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Create new agent status
      */
-    async createAgentStatusRaw(requestParameters: CreateAgentStatusRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
+    async createAgentStatusRaw(requestParameters: CreateAgentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Status>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createAgentStatus.');
         }
@@ -235,7 +237,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Create new agent status
      */
-    async createAgentStatus(requestParameters: CreateAgentStatusRequest, initOverrides?: RequestInit): Promise<V1Status> {
+    async createAgentStatus(requestParameters: CreateAgentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Status> {
         const response = await this.createAgentStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -243,7 +245,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Delete agent
      */
-    async deleteAgentRaw(requestParameters: DeleteAgentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteAgentRaw(requestParameters: DeleteAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteAgent.');
         }
@@ -277,14 +279,14 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Delete agent
      */
-    async deleteAgent(requestParameters: DeleteAgentRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteAgent(requestParameters: DeleteAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteAgentRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get agent
      */
-    async getAgentRaw(requestParameters: GetAgentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Agent>> {
+    async getAgentRaw(requestParameters: GetAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getAgent.');
         }
@@ -318,7 +320,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get agent
      */
-    async getAgent(requestParameters: GetAgentRequest, initOverrides?: RequestInit): Promise<V1Agent> {
+    async getAgent(requestParameters: GetAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
         const response = await this.getAgentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -326,7 +328,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get agent config
      */
-    async getAgentConfigRaw(requestParameters: GetAgentConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Agent>> {
+    async getAgentConfigRaw(requestParameters: GetAgentConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getAgentConfig.');
         }
@@ -360,7 +362,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get agent config
      */
-    async getAgentConfig(requestParameters: GetAgentConfigRequest, initOverrides?: RequestInit): Promise<V1Agent> {
+    async getAgentConfig(requestParameters: GetAgentConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
         const response = await this.getAgentConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -368,7 +370,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get State (queues/runs)
      */
-    async getAgentStateRaw(requestParameters: GetAgentStateRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1AgentStateResponse>> {
+    async getAgentStateRaw(requestParameters: GetAgentStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1AgentStateResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getAgentState.');
         }
@@ -398,7 +400,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get State (queues/runs)
      */
-    async getAgentState(requestParameters: GetAgentStateRequest, initOverrides?: RequestInit): Promise<V1AgentStateResponse> {
+    async getAgentState(requestParameters: GetAgentStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1AgentStateResponse> {
         const response = await this.getAgentStateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -406,7 +408,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get agent token
      */
-    async getAgentTokenRaw(requestParameters: GetAgentTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async getAgentTokenRaw(requestParameters: GetAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getAgentToken.');
         }
@@ -436,7 +438,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get agent token
      */
-    async getAgentToken(requestParameters: GetAgentTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async getAgentToken(requestParameters: GetAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.getAgentTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -444,7 +446,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * List agents names
      */
-    async listAgentNamesRaw(requestParameters: ListAgentNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListAgentsResponse>> {
+    async listAgentNamesRaw(requestParameters: ListAgentNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListAgentsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listAgentNames.');
         }
@@ -498,7 +500,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * List agents names
      */
-    async listAgentNames(requestParameters: ListAgentNamesRequest, initOverrides?: RequestInit): Promise<V1ListAgentsResponse> {
+    async listAgentNames(requestParameters: ListAgentNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListAgentsResponse> {
         const response = await this.listAgentNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -506,7 +508,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * List agents
      */
-    async listAgentsRaw(requestParameters: ListAgentsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListAgentsResponse>> {
+    async listAgentsRaw(requestParameters: ListAgentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListAgentsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listAgents.');
         }
@@ -560,7 +562,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * List agents
      */
-    async listAgents(requestParameters: ListAgentsRequest, initOverrides?: RequestInit): Promise<V1ListAgentsResponse> {
+    async listAgents(requestParameters: ListAgentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListAgentsResponse> {
         const response = await this.listAgentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -568,7 +570,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Patch agent
      */
-    async patchAgentRaw(requestParameters: PatchAgentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Agent>> {
+    async patchAgentRaw(requestParameters: PatchAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchAgent.');
         }
@@ -605,7 +607,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Patch agent
      */
-    async patchAgent(requestParameters: PatchAgentRequest, initOverrides?: RequestInit): Promise<V1Agent> {
+    async patchAgent(requestParameters: PatchAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
         const response = await this.patchAgentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -613,7 +615,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Patch agent token
      */
-    async patchAgentTokenRaw(requestParameters: PatchAgentTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async patchAgentTokenRaw(requestParameters: PatchAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchAgentToken.');
         }
@@ -650,7 +652,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Patch agent token
      */
-    async patchAgentToken(requestParameters: PatchAgentTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async patchAgentToken(requestParameters: PatchAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.patchAgentTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -658,7 +660,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Sync agent
      */
-    async syncAgentRaw(requestParameters: SyncAgentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async syncAgentRaw(requestParameters: SyncAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling syncAgent.');
         }
@@ -695,14 +697,14 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Sync agent
      */
-    async syncAgent(requestParameters: SyncAgentRequest, initOverrides?: RequestInit): Promise<void> {
+    async syncAgent(requestParameters: SyncAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.syncAgentRaw(requestParameters, initOverrides);
     }
 
     /**
      * Update agent
      */
-    async updateAgentRaw(requestParameters: UpdateAgentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Agent>> {
+    async updateAgentRaw(requestParameters: UpdateAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateAgent.');
         }
@@ -739,7 +741,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Update agent
      */
-    async updateAgent(requestParameters: UpdateAgentRequest, initOverrides?: RequestInit): Promise<V1Agent> {
+    async updateAgent(requestParameters: UpdateAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
         const response = await this.updateAgentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -747,7 +749,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Update agent config
      */
-    async updateAgentConfigRaw(requestParameters: UpdateAgentConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Agent>> {
+    async updateAgentConfigRaw(requestParameters: UpdateAgentConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateAgentConfig.');
         }
@@ -784,7 +786,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Update agent config
      */
-    async updateAgentConfig(requestParameters: UpdateAgentConfigRequest, initOverrides?: RequestInit): Promise<V1Agent> {
+    async updateAgentConfig(requestParameters: UpdateAgentConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
         const response = await this.updateAgentConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -792,7 +794,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Update agent token
      */
-    async updateAgentTokenRaw(requestParameters: UpdateAgentTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async updateAgentTokenRaw(requestParameters: UpdateAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateAgentToken.');
         }
@@ -829,7 +831,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Update agent token
      */
-    async updateAgentToken(requestParameters: UpdateAgentTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async updateAgentToken(requestParameters: UpdateAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.updateAgentTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -78,8 +78,36 @@ class V1Compatibility {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Compatibility</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Compatibility</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `cli`
+        if (data['cli']) { // data not null
+          V1Version.validateJSON(data['cli']);
+        }
+        // validate the optional field `platform`
+        if (data['platform']) { // data not null
+          V1Version.validateJSON(data['platform']);
+        }
+        // validate the optional field `agent`
+        if (data['agent']) { // data not null
+          V1Version.validateJSON(data['agent']);
+        }
+        // validate the optional field `ui`
+        if (data['ui']) { // data not null
+          V1Version.validateJSON(data['ui']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1Version} cli

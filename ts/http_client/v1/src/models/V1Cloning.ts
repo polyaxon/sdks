@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CloningKind } from './V1CloningKind';
 import {
-    V1CloningKind,
     V1CloningKindFromJSON,
     V1CloningKindFromJSONTyped,
     V1CloningKindToJSON,
-} from './';
+} from './V1CloningKind';
 
 /**
  * 
@@ -58,6 +58,15 @@ export interface V1Cloning {
      * @memberof V1Cloning
      */
     kind?: V1CloningKind;
+}
+
+/**
+ * Check if a given object implements the V1Cloning interface.
+ */
+export function instanceOfV1Cloning(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CloningFromJSON(json: any): V1Cloning {

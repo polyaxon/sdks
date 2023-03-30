@@ -33,6 +33,7 @@ Create agent
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -48,7 +49,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -58,13 +59,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
+    body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
 
     try:
         # Create agent
         api_response = api_instance.create_agent(owner, body)
+        print("The response of AgentsV1Api->create_agent:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->create_agent: %s\n" % e)
 ```
 
@@ -110,6 +112,7 @@ Create new agent status
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -125,7 +128,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -135,14 +138,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-body = polyaxon_sdk.V1AgentStatusBodyRequest() # V1AgentStatusBodyRequest | 
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    body = polyaxon_sdk.V1AgentStatusBodyRequest() # V1AgentStatusBodyRequest | 
 
     try:
         # Create new agent status
         api_response = api_instance.create_agent_status(owner, uuid, body)
+        print("The response of AgentsV1Api->create_agent_status:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->create_agent_status: %s\n" % e)
 ```
 
@@ -189,6 +193,7 @@ Delete agent
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -204,7 +209,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -214,13 +219,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
 
     try:
         # Delete agent
         api_instance.delete_agent(owner, uuid, entity=entity)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->delete_agent: %s\n" % e)
 ```
 
@@ -267,6 +272,7 @@ Get agent
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -282,7 +288,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -292,14 +298,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
 
     try:
         # Get agent
         api_response = api_instance.get_agent(owner, uuid, entity=entity)
+        print("The response of AgentsV1Api->get_agent:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->get_agent: %s\n" % e)
 ```
 
@@ -346,6 +353,7 @@ Get agent config
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -361,7 +369,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -371,14 +379,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
 
     try:
         # Get agent config
         api_response = api_instance.get_agent_config(owner, uuid, entity=entity)
+        print("The response of AgentsV1Api->get_agent_config:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->get_agent_config: %s\n" % e)
 ```
 
@@ -425,6 +434,7 @@ Get State (queues/runs)
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -440,7 +450,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -450,13 +460,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the entity
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
 
     try:
         # Get State (queues/runs)
         api_response = api_instance.get_agent_state(owner, uuid)
+        print("The response of AgentsV1Api->get_agent_state:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->get_agent_state: %s\n" % e)
 ```
 
@@ -502,6 +513,7 @@ Get agent token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -517,7 +529,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -527,13 +539,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-uuid = 'uuid_example' # str | Uuid identifier of the entity
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
 
     try:
         # Get agent token
         api_response = api_instance.get_agent_token(owner, uuid)
+        print("The response of AgentsV1Api->get_agent_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->get_agent_token: %s\n" % e)
 ```
 
@@ -579,6 +592,7 @@ List agents names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -594,7 +608,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -604,19 +618,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List agents names
         api_response = api_instance.list_agent_names(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of AgentsV1Api->list_agent_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->list_agent_names: %s\n" % e)
 ```
 
@@ -668,6 +683,7 @@ List agents
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -683,7 +699,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -693,19 +709,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List agents
         api_response = api_instance.list_agents(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of AgentsV1Api->list_agents:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->list_agents: %s\n" % e)
 ```
 
@@ -757,6 +774,7 @@ Patch agent
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -772,7 +790,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -782,14 +800,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent_uuid = 'agent_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
+    agent_uuid = 'agent_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
 
     try:
         # Patch agent
         api_response = api_instance.patch_agent(owner, agent_uuid, body)
+        print("The response of AgentsV1Api->patch_agent:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->patch_agent: %s\n" % e)
 ```
 
@@ -836,6 +855,7 @@ Patch agent token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -851,7 +871,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -861,14 +881,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Rntity
-body = polyaxon_sdk.V1Token() # V1Token | Token body
+    entity = 'entity_example' # str | Rntity
+    body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
         # Patch agent token
         api_response = api_instance.patch_agent_token(owner, entity, body)
+        print("The response of AgentsV1Api->patch_agent_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->patch_agent_token: %s\n" % e)
 ```
 
@@ -915,6 +936,7 @@ Sync agent
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -930,7 +952,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -940,13 +962,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent_uuid = 'agent_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
+    agent_uuid = 'agent_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
 
     try:
         # Sync agent
         api_instance.sync_agent(owner, agent_uuid, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->sync_agent: %s\n" % e)
 ```
 
@@ -993,6 +1015,7 @@ Update agent
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1008,7 +1031,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1018,14 +1041,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent_uuid = 'agent_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
+    agent_uuid = 'agent_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
 
     try:
         # Update agent
         api_response = api_instance.update_agent(owner, agent_uuid, body)
+        print("The response of AgentsV1Api->update_agent:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->update_agent: %s\n" % e)
 ```
 
@@ -1072,6 +1096,7 @@ Update agent config
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1087,7 +1112,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1097,14 +1122,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-agent_uuid = 'agent_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
+    agent_uuid = 'agent_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Agent() # V1Agent | Agent body
 
     try:
         # Update agent config
         api_response = api_instance.update_agent_config(owner, agent_uuid, body)
+        print("The response of AgentsV1Api->update_agent_config:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->update_agent_config: %s\n" % e)
 ```
 
@@ -1151,6 +1177,7 @@ Update agent token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1166,7 +1193,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1176,14 +1203,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Rntity
-body = polyaxon_sdk.V1Token() # V1Token | Token body
+    entity = 'entity_example' # str | Rntity
+    body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
         # Update agent token
         api_response = api_instance.update_agent_token(owner, entity, body)
+        print("The response of AgentsV1Api->update_agent_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling AgentsV1Api->update_agent_token: %s\n" % e)
 ```
 

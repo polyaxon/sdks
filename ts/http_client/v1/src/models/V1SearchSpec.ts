@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1AnalyticsSpec } from './V1AnalyticsSpec';
 import {
-    V1AnalyticsSpec,
     V1AnalyticsSpecFromJSON,
     V1AnalyticsSpecFromJSONTyped,
     V1AnalyticsSpecToJSON,
-    V1DashboardSpec,
+} from './V1AnalyticsSpec';
+import type { V1DashboardSpec } from './V1DashboardSpec';
+import {
     V1DashboardSpecFromJSON,
     V1DashboardSpecFromJSONTyped,
     V1DashboardSpecToJSON,
-} from './';
+} from './V1DashboardSpec';
 
 /**
  * 
@@ -128,6 +130,15 @@ export interface V1SearchSpec {
      * @memberof V1SearchSpec
      */
     analytics?: V1AnalyticsSpec;
+}
+
+/**
+ * Check if a given object implements the V1SearchSpec interface.
+ */
+export function instanceOfV1SearchSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SearchSpecFromJSON(json: any): V1SearchSpec {

@@ -47,6 +47,15 @@ export interface V1HpLinSpace {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpLinSpace interface.
+ */
+export function instanceOfV1HpLinSpace(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpLinSpaceFromJSON(json: any): V1HpLinSpace {
     return V1HpLinSpaceFromJSONTyped(json, false);
 }

@@ -5,13 +5,13 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**cpu** | **Float** |  |  [optional]
-**memory** | **Float** |  |  [optional]
-**gpu** | **Float** |  |  [optional]
-**custom** | **Float** |  |  [optional]
-**cost** | **Float** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**cpu** | **Float** |  |  [optional] |
+|**memory** | **Float** |  |  [optional] |
+|**gpu** | **Float** |  |  [optional] |
+|**custom** | **Float** |  |  [optional] |
+|**cost** | **Float** |  |  [optional] |
 
 
 

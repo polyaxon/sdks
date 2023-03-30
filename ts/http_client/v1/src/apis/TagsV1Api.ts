@@ -28,17 +28,19 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1EntitiesTags,
+  V1ListTagsResponse,
+  V1Tag,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1EntitiesTags,
     V1EntitiesTagsFromJSON,
     V1EntitiesTagsToJSON,
-    V1ListTagsResponse,
     V1ListTagsResponseFromJSON,
     V1ListTagsResponseToJSON,
-    V1Tag,
     V1TagFromJSON,
     V1TagToJSON,
 } from '../models';
@@ -106,7 +108,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Create tag
      */
-    async createTagRaw(requestParameters: CreateTagRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Tag>> {
+    async createTagRaw(requestParameters: CreateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Tag>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createTag.');
         }
@@ -139,7 +141,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Create tag
      */
-    async createTag(requestParameters: CreateTagRequest, initOverrides?: RequestInit): Promise<V1Tag> {
+    async createTag(requestParameters: CreateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Tag> {
         const response = await this.createTagRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -147,7 +149,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Delete tag
      */
-    async deleteTagRaw(requestParameters: DeleteTagRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteTagRaw(requestParameters: DeleteTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteTag.');
         }
@@ -181,14 +183,14 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Delete tag
      */
-    async deleteTag(requestParameters: DeleteTagRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteTag(requestParameters: DeleteTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteTagRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get tag
      */
-    async getTagRaw(requestParameters: GetTagRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Tag>> {
+    async getTagRaw(requestParameters: GetTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Tag>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTag.');
         }
@@ -218,7 +220,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Get tag
      */
-    async getTag(requestParameters: GetTagRequest, initOverrides?: RequestInit): Promise<V1Tag> {
+    async getTag(requestParameters: GetTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Tag> {
         const response = await this.getTagRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -226,7 +228,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * List tags
      */
-    async listTagsRaw(requestParameters: ListTagsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListTagsResponse>> {
+    async listTagsRaw(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListTagsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listTags.');
         }
@@ -280,7 +282,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * List tags
      */
-    async listTags(requestParameters: ListTagsRequest, initOverrides?: RequestInit): Promise<V1ListTagsResponse> {
+    async listTags(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListTagsResponse> {
         const response = await this.listTagsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -288,7 +290,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Load tags
      */
-    async loadTagsRaw(requestParameters: LoadTagsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<object>> {
+    async loadTagsRaw(requestParameters: LoadTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling loadTags.');
         }
@@ -342,7 +344,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Load tags
      */
-    async loadTags(requestParameters: LoadTagsRequest, initOverrides?: RequestInit): Promise<object> {
+    async loadTags(requestParameters: LoadTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.loadTagsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -350,7 +352,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Patch tag
      */
-    async patchTagRaw(requestParameters: PatchTagRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Tag>> {
+    async patchTagRaw(requestParameters: PatchTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Tag>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchTag.');
         }
@@ -387,7 +389,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Patch tag
      */
-    async patchTag(requestParameters: PatchTagRequest, initOverrides?: RequestInit): Promise<V1Tag> {
+    async patchTag(requestParameters: PatchTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Tag> {
         const response = await this.patchTagRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -395,7 +397,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Sync tags
      */
-    async syncTagsRaw(requestParameters: SyncTagsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async syncTagsRaw(requestParameters: SyncTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling syncTags.');
         }
@@ -428,14 +430,14 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Sync tags
      */
-    async syncTags(requestParameters: SyncTagsRequest, initOverrides?: RequestInit): Promise<void> {
+    async syncTags(requestParameters: SyncTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.syncTagsRaw(requestParameters, initOverrides);
     }
 
     /**
      * Update tag
      */
-    async updateTagRaw(requestParameters: UpdateTagRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Tag>> {
+    async updateTagRaw(requestParameters: UpdateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Tag>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateTag.');
         }
@@ -472,7 +474,7 @@ export class TagsV1Api extends runtime.BaseAPI {
     /**
      * Update tag
      */
-    async updateTag(requestParameters: UpdateTagRequest, initOverrides?: RequestInit): Promise<V1Tag> {
+    async updateTag(requestParameters: UpdateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Tag> {
         const response = await this.updateTagRaw(requestParameters, initOverrides);
         return await response.value();
     }

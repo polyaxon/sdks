@@ -71,6 +71,15 @@ export interface V1OrganizationMember {
     updated_at?: Date;
 }
 
+/**
+ * Check if a given object implements the V1OrganizationMember interface.
+ */
+export function instanceOfV1OrganizationMember(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1OrganizationMemberFromJSON(json: any): V1OrganizationMember {
     return V1OrganizationMemberFromJSONTyped(json, false);
 }

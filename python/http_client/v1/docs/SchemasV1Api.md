@@ -19,6 +19,7 @@ NoOp
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -34,7 +35,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -43,12 +44,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.SchemasV1Api(api_client)
-    
+
     try:
         # NoOp
         api_response = api_instance.no_op()
+        print("The response of SchemasV1Api->no_op:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling SchemasV1Api->no_op: %s\n" % e)
 ```
 

@@ -47,6 +47,15 @@ export interface V1HpPChoice {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpPChoice interface.
+ */
+export function instanceOfV1HpPChoice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpPChoiceFromJSON(json: any): V1HpPChoice {
     return V1HpPChoiceFromJSONTyped(json, false);
 }

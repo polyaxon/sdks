@@ -61,6 +61,15 @@ export interface V1MedianStoppingPolicy {
     minSamples?: number;
 }
 
+/**
+ * Check if a given object implements the V1MedianStoppingPolicy interface.
+ */
+export function instanceOfV1MedianStoppingPolicy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1MedianStoppingPolicyFromJSON(json: any): V1MedianStoppingPolicy {
     return V1MedianStoppingPolicyFromJSONTyped(json, false);
 }

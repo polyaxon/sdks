@@ -85,8 +85,40 @@ class V1ConnectionSchema {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1ConnectionSchema</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1ConnectionSchema</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `bucketConnection`
+        if (data['bucketConnection']) { // data not null
+          V1BucketConnection.validateJSON(data['bucketConnection']);
+        }
+        // validate the optional field `hostPathConnection`
+        if (data['hostPathConnection']) { // data not null
+          V1HostPathConnection.validateJSON(data['hostPathConnection']);
+        }
+        // validate the optional field `claimConnection`
+        if (data['claimConnection']) { // data not null
+          V1ClaimConnection.validateJSON(data['claimConnection']);
+        }
+        // validate the optional field `hostConnection`
+        if (data['hostConnection']) { // data not null
+          V1HostConnection.validateJSON(data['hostConnection']);
+        }
+        // validate the optional field `gitConnection`
+        if (data['gitConnection']) { // data not null
+          V1GitConnection.validateJSON(data['gitConnection']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1BucketConnection} bucketConnection

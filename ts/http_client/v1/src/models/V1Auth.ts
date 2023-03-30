@@ -41,6 +41,15 @@ export interface V1Auth {
     token?: string;
 }
 
+/**
+ * Check if a given object implements the V1Auth interface.
+ */
+export function instanceOfV1Auth(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1AuthFromJSON(json: any): V1Auth {
     return V1AuthFromJSONTyped(json, false);
 }

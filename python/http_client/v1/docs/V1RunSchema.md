@@ -18,6 +18,23 @@ Name | Type | Description | Notes
 **flink** | [**V1Flink**](V1Flink.md) |  | [optional] 
 **ruy** | [**V1Ray**](V1Ray.md) |  | [optional] 
 
+## Example
+
+```python
+from polyaxon_sdk.models.v1_run_schema import V1RunSchema
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of V1RunSchema from a JSON string
+v1_run_schema_instance = V1RunSchema.from_json(json)
+# print the JSON string representation of the object
+print V1RunSchema.to_json()
+
+# convert the object into a dict
+v1_run_schema_dict = v1_run_schema_instance.to_dict()
+# create an instance of V1RunSchema from a dict
+v1_run_schema_form_dict = v1_run_schema.from_dict(v1_run_schema_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

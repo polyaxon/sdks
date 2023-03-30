@@ -34,8 +34,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1ArtifactsMount;
 import org.openapitools.client.model.V1ArtifactsType;
@@ -61,6 +59,27 @@ import org.openapitools.client.model.V1Schedule;
 import org.openapitools.client.model.V1ScheduleKind;
 import org.openapitools.client.model.V1UriType;
 import org.openapitools.client.model.V1WasbType;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Schemas
@@ -163,6 +182,8 @@ public class V1Schemas {
   @SerializedName(SERIALIZED_NAME_EVENT)
   private V1Event event;
 
+  public V1Schemas() {
+  }
 
   public V1Schemas earlyStopping(V1EarlyStopping earlyStopping) {
     
@@ -175,7 +196,6 @@ public class V1Schemas {
    * @return earlyStopping
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EarlyStopping getEarlyStopping() {
     return earlyStopping;
@@ -198,7 +218,6 @@ public class V1Schemas {
    * @return matrix
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Matrix getMatrix() {
     return matrix;
@@ -221,7 +240,6 @@ public class V1Schemas {
    * @return run
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1RunSchema getRun() {
     return run;
@@ -244,7 +262,6 @@ public class V1Schemas {
    * @return operation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Operation getOperation() {
     return operation;
@@ -267,7 +284,6 @@ public class V1Schemas {
    * @return compiledOperation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1CompiledOperation getCompiledOperation() {
     return compiledOperation;
@@ -290,7 +306,6 @@ public class V1Schemas {
    * @return schedule
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Schedule getSchedule() {
     return schedule;
@@ -313,7 +328,6 @@ public class V1Schemas {
    * @return connectionSchema
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ConnectionSchema getConnectionSchema() {
     return connectionSchema;
@@ -336,7 +350,6 @@ public class V1Schemas {
    * @return hpParams
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1HpParams getHpParams() {
     return hpParams;
@@ -359,7 +372,6 @@ public class V1Schemas {
    * @return reference
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Reference getReference() {
     return reference;
@@ -382,7 +394,6 @@ public class V1Schemas {
    * @return artifactsMount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ArtifactsMount getArtifactsMount() {
     return artifactsMount;
@@ -405,7 +416,6 @@ public class V1Schemas {
    * @return polyaxonSidecarContainer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1PolyaxonSidecarContainer getPolyaxonSidecarContainer() {
     return polyaxonSidecarContainer;
@@ -428,7 +438,6 @@ public class V1Schemas {
    * @return polyaxonInitContainer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1PolyaxonInitContainer getPolyaxonInitContainer() {
     return polyaxonInitContainer;
@@ -451,7 +460,6 @@ public class V1Schemas {
    * @return artifacs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ArtifactsType getArtifacs() {
     return artifacs;
@@ -474,7 +482,6 @@ public class V1Schemas {
    * @return wasb
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1WasbType getWasb() {
     return wasb;
@@ -497,7 +504,6 @@ public class V1Schemas {
    * @return gcs
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1GcsType getGcs() {
     return gcs;
@@ -520,7 +526,6 @@ public class V1Schemas {
    * @return s3
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1S3Type getS3() {
     return s3;
@@ -543,7 +548,6 @@ public class V1Schemas {
    * @return auth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1AuthType getAuth() {
     return auth;
@@ -566,7 +570,6 @@ public class V1Schemas {
    * @return uri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1UriType getUri() {
     return uri;
@@ -589,7 +592,6 @@ public class V1Schemas {
    * @return k8sResource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1K8sResourceType getK8sResource() {
     return k8sResource;
@@ -612,7 +614,6 @@ public class V1Schemas {
    * @return connection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ConnectionType getConnection() {
     return connection;
@@ -635,7 +636,6 @@ public class V1Schemas {
    * @return eventType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1EventType getEventType() {
     return eventType;
@@ -658,7 +658,6 @@ public class V1Schemas {
    * @return matrixKind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1MatrixKind getMatrixKind() {
     return matrixKind;
@@ -681,7 +680,6 @@ public class V1Schemas {
    * @return scheduleKind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1ScheduleKind getScheduleKind() {
     return scheduleKind;
@@ -704,7 +702,6 @@ public class V1Schemas {
    * @return event
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Event getEvent() {
     return event;
@@ -714,6 +711,7 @@ public class V1Schemas {
   public void setEvent(V1Event event) {
     this.event = event;
   }
+
 
 
   @Override
@@ -799,5 +797,199 @@ public class V1Schemas {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("earlyStopping");
+    openapiFields.add("matrix");
+    openapiFields.add("run");
+    openapiFields.add("operation");
+    openapiFields.add("compiledOperation");
+    openapiFields.add("schedule");
+    openapiFields.add("connectionSchema");
+    openapiFields.add("hpParams");
+    openapiFields.add("reference");
+    openapiFields.add("artifactsMount");
+    openapiFields.add("polyaxonSidecarContainer");
+    openapiFields.add("polyaxonInitContainer");
+    openapiFields.add("artifacs");
+    openapiFields.add("wasb");
+    openapiFields.add("gcs");
+    openapiFields.add("s3");
+    openapiFields.add("auth");
+    openapiFields.add("uri");
+    openapiFields.add("k8sResource");
+    openapiFields.add("connection");
+    openapiFields.add("eventType");
+    openapiFields.add("matrixKind");
+    openapiFields.add("scheduleKind");
+    openapiFields.add("event");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Schemas
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Schemas.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Schemas is not found in the empty JSON string", V1Schemas.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Schemas.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Schemas` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `earlyStopping`
+      if (jsonObj.get("earlyStopping") != null && !jsonObj.get("earlyStopping").isJsonNull()) {
+        V1EarlyStopping.validateJsonObject(jsonObj.getAsJsonObject("earlyStopping"));
+      }
+      // validate the optional field `matrix`
+      if (jsonObj.get("matrix") != null && !jsonObj.get("matrix").isJsonNull()) {
+        V1Matrix.validateJsonObject(jsonObj.getAsJsonObject("matrix"));
+      }
+      // validate the optional field `run`
+      if (jsonObj.get("run") != null && !jsonObj.get("run").isJsonNull()) {
+        V1RunSchema.validateJsonObject(jsonObj.getAsJsonObject("run"));
+      }
+      // validate the optional field `operation`
+      if (jsonObj.get("operation") != null && !jsonObj.get("operation").isJsonNull()) {
+        V1Operation.validateJsonObject(jsonObj.getAsJsonObject("operation"));
+      }
+      // validate the optional field `compiledOperation`
+      if (jsonObj.get("compiledOperation") != null && !jsonObj.get("compiledOperation").isJsonNull()) {
+        V1CompiledOperation.validateJsonObject(jsonObj.getAsJsonObject("compiledOperation"));
+      }
+      // validate the optional field `schedule`
+      if (jsonObj.get("schedule") != null && !jsonObj.get("schedule").isJsonNull()) {
+        V1Schedule.validateJsonObject(jsonObj.getAsJsonObject("schedule"));
+      }
+      // validate the optional field `connectionSchema`
+      if (jsonObj.get("connectionSchema") != null && !jsonObj.get("connectionSchema").isJsonNull()) {
+        V1ConnectionSchema.validateJsonObject(jsonObj.getAsJsonObject("connectionSchema"));
+      }
+      // validate the optional field `hpParams`
+      if (jsonObj.get("hpParams") != null && !jsonObj.get("hpParams").isJsonNull()) {
+        V1HpParams.validateJsonObject(jsonObj.getAsJsonObject("hpParams"));
+      }
+      // validate the optional field `reference`
+      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonNull()) {
+        V1Reference.validateJsonObject(jsonObj.getAsJsonObject("reference"));
+      }
+      // validate the optional field `artifactsMount`
+      if (jsonObj.get("artifactsMount") != null && !jsonObj.get("artifactsMount").isJsonNull()) {
+        V1ArtifactsMount.validateJsonObject(jsonObj.getAsJsonObject("artifactsMount"));
+      }
+      // validate the optional field `polyaxonSidecarContainer`
+      if (jsonObj.get("polyaxonSidecarContainer") != null && !jsonObj.get("polyaxonSidecarContainer").isJsonNull()) {
+        V1PolyaxonSidecarContainer.validateJsonObject(jsonObj.getAsJsonObject("polyaxonSidecarContainer"));
+      }
+      // validate the optional field `polyaxonInitContainer`
+      if (jsonObj.get("polyaxonInitContainer") != null && !jsonObj.get("polyaxonInitContainer").isJsonNull()) {
+        V1PolyaxonInitContainer.validateJsonObject(jsonObj.getAsJsonObject("polyaxonInitContainer"));
+      }
+      // validate the optional field `artifacs`
+      if (jsonObj.get("artifacs") != null && !jsonObj.get("artifacs").isJsonNull()) {
+        V1ArtifactsType.validateJsonObject(jsonObj.getAsJsonObject("artifacs"));
+      }
+      // validate the optional field `wasb`
+      if (jsonObj.get("wasb") != null && !jsonObj.get("wasb").isJsonNull()) {
+        V1WasbType.validateJsonObject(jsonObj.getAsJsonObject("wasb"));
+      }
+      // validate the optional field `gcs`
+      if (jsonObj.get("gcs") != null && !jsonObj.get("gcs").isJsonNull()) {
+        V1GcsType.validateJsonObject(jsonObj.getAsJsonObject("gcs"));
+      }
+      // validate the optional field `s3`
+      if (jsonObj.get("s3") != null && !jsonObj.get("s3").isJsonNull()) {
+        V1S3Type.validateJsonObject(jsonObj.getAsJsonObject("s3"));
+      }
+      // validate the optional field `auth`
+      if (jsonObj.get("auth") != null && !jsonObj.get("auth").isJsonNull()) {
+        V1AuthType.validateJsonObject(jsonObj.getAsJsonObject("auth"));
+      }
+      // validate the optional field `uri`
+      if (jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) {
+        V1UriType.validateJsonObject(jsonObj.getAsJsonObject("uri"));
+      }
+      // validate the optional field `k8sResource`
+      if (jsonObj.get("k8sResource") != null && !jsonObj.get("k8sResource").isJsonNull()) {
+        V1K8sResourceType.validateJsonObject(jsonObj.getAsJsonObject("k8sResource"));
+      }
+      // validate the optional field `connection`
+      if (jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()) {
+        V1ConnectionType.validateJsonObject(jsonObj.getAsJsonObject("connection"));
+      }
+      // validate the optional field `eventType`
+      if (jsonObj.get("eventType") != null && !jsonObj.get("eventType").isJsonNull()) {
+        V1EventType.validateJsonObject(jsonObj.getAsJsonObject("eventType"));
+      }
+      // validate the optional field `event`
+      if (jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) {
+        V1Event.validateJsonObject(jsonObj.getAsJsonObject("event"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Schemas.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Schemas' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Schemas> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Schemas.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Schemas>() {
+           @Override
+           public void write(JsonWriter out, V1Schemas value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Schemas read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Schemas given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Schemas
+  * @throws IOException if the JSON string is invalid with respect to V1Schemas
+  */
+  public static V1Schemas fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Schemas.class);
+  }
+
+ /**
+  * Convert an instance of V1Schemas to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

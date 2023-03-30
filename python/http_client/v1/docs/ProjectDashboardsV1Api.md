@@ -26,6 +26,7 @@ Create project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -41,7 +42,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -51,14 +52,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
         # Create project dashboard
         api_response = api_instance.create_project_dashboard(owner, project, body)
+        print("The response of ProjectDashboardsV1Api->create_project_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->create_project_dashboard: %s\n" % e)
 ```
 
@@ -105,6 +107,7 @@ Delete project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -120,7 +123,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -130,13 +133,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Delete project dashboard
         api_instance.delete_project_dashboard(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->delete_project_dashboard: %s\n" % e)
 ```
 
@@ -183,6 +186,7 @@ Get project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -198,7 +202,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -208,14 +212,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Get project dashboard
         api_response = api_instance.get_project_dashboard(owner, entity, uuid)
+        print("The response of ProjectDashboardsV1Api->get_project_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->get_project_dashboard: %s\n" % e)
 ```
 
@@ -262,6 +267,7 @@ List project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -277,7 +283,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -287,20 +293,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List project dashboard
         api_response = api_instance.list_project_dashboard_names(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of ProjectDashboardsV1Api->list_project_dashboard_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->list_project_dashboard_names: %s\n" % e)
 ```
 
@@ -353,6 +360,7 @@ List project dashboards
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -368,7 +376,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -378,20 +386,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List project dashboards
         api_response = api_instance.list_project_dashboards(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of ProjectDashboardsV1Api->list_project_dashboards:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->list_project_dashboards: %s\n" % e)
 ```
 
@@ -444,6 +453,7 @@ Patch project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -459,7 +469,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -469,15 +479,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-dashboard_uuid = 'dashboard_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
+    project = 'project_example' # str | Project under namesapce
+    dashboard_uuid = 'dashboard_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
         # Patch project dashboard
         api_response = api_instance.patch_project_dashboard(owner, project, dashboard_uuid, body)
+        print("The response of ProjectDashboardsV1Api->patch_project_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->patch_project_dashboard: %s\n" % e)
 ```
 
@@ -525,6 +536,7 @@ Promote project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -540,7 +552,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -550,13 +562,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Promote project dashboard
         api_instance.promote_project_dashboard(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->promote_project_dashboard: %s\n" % e)
 ```
 
@@ -603,6 +615,7 @@ Update project dashboard
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -618,7 +631,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -628,15 +641,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-dashboard_uuid = 'dashboard_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
+    project = 'project_example' # str | Project under namesapce
+    dashboard_uuid = 'dashboard_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
         # Update project dashboard
         api_response = api_instance.update_project_dashboard(owner, project, dashboard_uuid, body)
+        print("The response of ProjectDashboardsV1Api->update_project_dashboard:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->update_project_dashboard: %s\n" % e)
 ```
 

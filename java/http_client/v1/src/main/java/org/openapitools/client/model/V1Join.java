@@ -34,13 +34,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.V1JoinParam;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Join
@@ -71,6 +89,8 @@ public class V1Join {
   @SerializedName(SERIALIZED_NAME_PARAMS)
   private Map<String, V1JoinParam> params = null;
 
+  public V1Join() {
+  }
 
   public V1Join ref(String ref) {
     
@@ -83,7 +103,6 @@ public class V1Join {
    * @return ref
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRef() {
     return ref;
@@ -106,7 +125,6 @@ public class V1Join {
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getQuery() {
     return query;
@@ -129,7 +147,6 @@ public class V1Join {
    * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getSort() {
     return sort;
@@ -152,7 +169,6 @@ public class V1Join {
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getLimit() {
     return limit;
@@ -175,7 +191,6 @@ public class V1Join {
    * @return offset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getOffset() {
     return offset;
@@ -195,7 +210,7 @@ public class V1Join {
 
   public V1Join putParamsItem(String key, V1JoinParam paramsItem) {
     if (this.params == null) {
-      this.params = new HashMap<String, V1JoinParam>();
+      this.params = new HashMap<>();
     }
     this.params.put(key, paramsItem);
     return this;
@@ -206,7 +221,6 @@ public class V1Join {
    * @return params
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, V1JoinParam> getParams() {
     return params;
@@ -216,6 +230,7 @@ public class V1Join {
   public void setParams(Map<String, V1JoinParam> params) {
     this.params = params;
   }
+
 
 
   @Override
@@ -265,5 +280,102 @@ public class V1Join {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("ref");
+    openapiFields.add("query");
+    openapiFields.add("sort");
+    openapiFields.add("limit");
+    openapiFields.add("offset");
+    openapiFields.add("params");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Join
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Join.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Join is not found in the empty JSON string", V1Join.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Join.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Join` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("ref") != null && !jsonObj.get("ref").isJsonNull()) && !jsonObj.get("ref").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ref` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ref").toString()));
+      }
+      if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull()) && !jsonObj.get("query").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
+      }
+      if ((jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()) && !jsonObj.get("sort").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Join.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Join' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Join> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Join.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Join>() {
+           @Override
+           public void write(JsonWriter out, V1Join value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Join read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Join given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Join
+  * @throws IOException if the JSON string is invalid with respect to V1Join
+  */
+  public static V1Join fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Join.class);
+  }
+
+ /**
+  * Convert an instance of V1Join to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -86,7 +86,41 @@ A successful response.
 type DeprecatedCollectRunLogsOK struct {
 }
 
+// IsSuccess returns true when this deprecated collect run logs o k response has a 2xx status code
+func (o *DeprecatedCollectRunLogsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this deprecated collect run logs o k response has a 3xx status code
+func (o *DeprecatedCollectRunLogsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this deprecated collect run logs o k response has a 4xx status code
+func (o *DeprecatedCollectRunLogsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this deprecated collect run logs o k response has a 5xx status code
+func (o *DeprecatedCollectRunLogsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this deprecated collect run logs o k response a status code equal to that given
+func (o *DeprecatedCollectRunLogsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the deprecated collect run logs o k response
+func (o *DeprecatedCollectRunLogsOK) Code() int {
+	return 200
+}
+
 func (o *DeprecatedCollectRunLogsOK) Error() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsOK ", 200)
+}
+
+func (o *DeprecatedCollectRunLogsOK) String() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type DeprecatedCollectRunLogsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this deprecated collect run logs no content response has a 2xx status code
+func (o *DeprecatedCollectRunLogsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this deprecated collect run logs no content response has a 3xx status code
+func (o *DeprecatedCollectRunLogsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this deprecated collect run logs no content response has a 4xx status code
+func (o *DeprecatedCollectRunLogsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this deprecated collect run logs no content response has a 5xx status code
+func (o *DeprecatedCollectRunLogsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this deprecated collect run logs no content response a status code equal to that given
+func (o *DeprecatedCollectRunLogsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the deprecated collect run logs no content response
+func (o *DeprecatedCollectRunLogsNoContent) Code() int {
+	return 204
+}
+
 func (o *DeprecatedCollectRunLogsNoContent) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeprecatedCollectRunLogsNoContent) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeprecatedCollectRunLogsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type DeprecatedCollectRunLogsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this deprecated collect run logs forbidden response has a 2xx status code
+func (o *DeprecatedCollectRunLogsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this deprecated collect run logs forbidden response has a 3xx status code
+func (o *DeprecatedCollectRunLogsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this deprecated collect run logs forbidden response has a 4xx status code
+func (o *DeprecatedCollectRunLogsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this deprecated collect run logs forbidden response has a 5xx status code
+func (o *DeprecatedCollectRunLogsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this deprecated collect run logs forbidden response a status code equal to that given
+func (o *DeprecatedCollectRunLogsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the deprecated collect run logs forbidden response
+func (o *DeprecatedCollectRunLogsForbidden) Code() int {
+	return 403
+}
+
 func (o *DeprecatedCollectRunLogsForbidden) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeprecatedCollectRunLogsForbidden) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeprecatedCollectRunLogsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type DeprecatedCollectRunLogsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this deprecated collect run logs not found response has a 2xx status code
+func (o *DeprecatedCollectRunLogsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this deprecated collect run logs not found response has a 3xx status code
+func (o *DeprecatedCollectRunLogsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this deprecated collect run logs not found response has a 4xx status code
+func (o *DeprecatedCollectRunLogsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this deprecated collect run logs not found response has a 5xx status code
+func (o *DeprecatedCollectRunLogsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this deprecated collect run logs not found response a status code equal to that given
+func (o *DeprecatedCollectRunLogsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the deprecated collect run logs not found response
+func (o *DeprecatedCollectRunLogsNotFound) Code() int {
+	return 404
+}
+
 func (o *DeprecatedCollectRunLogsNotFound) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeprecatedCollectRunLogsNotFound) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] deprecatedCollectRunLogsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeprecatedCollectRunLogsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type DeprecatedCollectRunLogsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this deprecated collect run logs default response has a 2xx status code
+func (o *DeprecatedCollectRunLogsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this deprecated collect run logs default response has a 3xx status code
+func (o *DeprecatedCollectRunLogsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this deprecated collect run logs default response has a 4xx status code
+func (o *DeprecatedCollectRunLogsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this deprecated collect run logs default response has a 5xx status code
+func (o *DeprecatedCollectRunLogsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this deprecated collect run logs default response a status code equal to that given
+func (o *DeprecatedCollectRunLogsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the deprecated collect run logs default response
 func (o *DeprecatedCollectRunLogsDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *DeprecatedCollectRunLogsDefault) Code() int {
 func (o *DeprecatedCollectRunLogsDefault) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] DeprecatedCollectRunLogs default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeprecatedCollectRunLogsDefault) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] DeprecatedCollectRunLogs default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeprecatedCollectRunLogsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

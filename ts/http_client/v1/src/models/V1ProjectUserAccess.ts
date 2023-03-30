@@ -53,6 +53,15 @@ export interface V1ProjectUserAccess {
     preset?: string;
 }
 
+/**
+ * Check if a given object implements the V1ProjectUserAccess interface.
+ */
+export function instanceOfV1ProjectUserAccess(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ProjectUserAccessFromJSON(json: any): V1ProjectUserAccess {
     return V1ProjectUserAccessFromJSONTyped(json, false);
 }

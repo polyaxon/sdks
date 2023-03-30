@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Version } from './V1Version';
 import {
-    V1Version,
     V1VersionFromJSON,
     V1VersionFromJSONTyped,
     V1VersionToJSON,
-} from './';
+} from './V1Version';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1Compatibility {
      * @memberof V1Compatibility
      */
     ui?: V1Version;
+}
+
+/**
+ * Check if a given object implements the V1Compatibility interface.
+ */
+export function instanceOfV1Compatibility(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CompatibilityFromJSON(json: any): V1Compatibility {

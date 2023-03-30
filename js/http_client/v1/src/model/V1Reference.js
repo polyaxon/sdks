@@ -81,8 +81,36 @@ class V1Reference {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Reference</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Reference</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `hubRef`
+        if (data['hubRef']) { // data not null
+          V1HubRef.validateJSON(data['hubRef']);
+        }
+        // validate the optional field `dagRef`
+        if (data['dagRef']) { // data not null
+          V1DagRef.validateJSON(data['dagRef']);
+        }
+        // validate the optional field `urlRef`
+        if (data['urlRef']) { // data not null
+          V1UrlRef.validateJSON(data['urlRef']);
+        }
+        // validate the optional field `pathRef`
+        if (data['pathRef']) { // data not null
+          V1PathRef.validateJSON(data['pathRef']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1HubRef} hubRef

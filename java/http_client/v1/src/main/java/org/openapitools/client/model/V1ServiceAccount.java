@@ -34,12 +34,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1ServiceAccount
@@ -82,6 +101,8 @@ public class V1ServiceAccount {
   @SerializedName(SERIALIZED_NAME_SERVICES)
   private List<String> services = null;
 
+  public V1ServiceAccount() {
+  }
 
   public V1ServiceAccount uuid(String uuid) {
     
@@ -94,7 +115,6 @@ public class V1ServiceAccount {
    * @return uuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUuid() {
     return uuid;
@@ -117,7 +137,6 @@ public class V1ServiceAccount {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -140,7 +159,6 @@ public class V1ServiceAccount {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -160,7 +178,7 @@ public class V1ServiceAccount {
 
   public V1ServiceAccount addTagsItem(String tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -171,7 +189,6 @@ public class V1ServiceAccount {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getTags() {
     return tags;
@@ -194,7 +211,6 @@ public class V1ServiceAccount {
    * @return liveState
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getLiveState() {
     return liveState;
@@ -217,7 +233,6 @@ public class V1ServiceAccount {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -240,7 +255,6 @@ public class V1ServiceAccount {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -260,7 +274,7 @@ public class V1ServiceAccount {
 
   public V1ServiceAccount addScopesItem(String scopesItem) {
     if (this.scopes == null) {
-      this.scopes = new ArrayList<String>();
+      this.scopes = new ArrayList<>();
     }
     this.scopes.add(scopesItem);
     return this;
@@ -271,7 +285,6 @@ public class V1ServiceAccount {
    * @return scopes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getScopes() {
     return scopes;
@@ -291,7 +304,7 @@ public class V1ServiceAccount {
 
   public V1ServiceAccount addServicesItem(String servicesItem) {
     if (this.services == null) {
-      this.services = new ArrayList<String>();
+      this.services = new ArrayList<>();
     }
     this.services.add(servicesItem);
     return this;
@@ -302,7 +315,6 @@ public class V1ServiceAccount {
    * @return services
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getServices() {
     return services;
@@ -312,6 +324,7 @@ public class V1ServiceAccount {
   public void setServices(List<String> services) {
     this.services = services;
   }
+
 
 
   @Override
@@ -367,5 +380,117 @@ public class V1ServiceAccount {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("uuid");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("tags");
+    openapiFields.add("live_state");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
+    openapiFields.add("scopes");
+    openapiFields.add("services");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1ServiceAccount
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1ServiceAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ServiceAccount is not found in the empty JSON string", V1ServiceAccount.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1ServiceAccount.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServiceAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("uuid") != null && !jsonObj.get("uuid").isJsonNull()) && !jsonObj.get("uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uuid").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("scopes") != null && !jsonObj.get("scopes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `scopes` to be an array in the JSON string but got `%s`", jsonObj.get("scopes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("services") != null && !jsonObj.get("services").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `services` to be an array in the JSON string but got `%s`", jsonObj.get("services").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1ServiceAccount.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ServiceAccount' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1ServiceAccount> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ServiceAccount.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1ServiceAccount>() {
+           @Override
+           public void write(JsonWriter out, V1ServiceAccount value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1ServiceAccount read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1ServiceAccount given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1ServiceAccount
+  * @throws IOException if the JSON string is invalid with respect to V1ServiceAccount
+  */
+  public static V1ServiceAccount fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ServiceAccount.class);
+  }
+
+ /**
+  * Convert an instance of V1ServiceAccount to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

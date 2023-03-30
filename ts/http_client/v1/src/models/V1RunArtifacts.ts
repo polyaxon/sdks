@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1RunArtifact } from './V1RunArtifact';
 import {
-    V1RunArtifact,
     V1RunArtifactFromJSON,
     V1RunArtifactFromJSONTyped,
     V1RunArtifactToJSON,
-} from './';
+} from './V1RunArtifact';
 
 /**
  * 
@@ -46,6 +46,15 @@ export interface V1RunArtifacts {
      * @memberof V1RunArtifacts
      */
     artifacts?: Array<V1RunArtifact>;
+}
+
+/**
+ * Check if a given object implements the V1RunArtifacts interface.
+ */
+export function instanceOfV1RunArtifacts(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RunArtifactsFromJSON(json: any): V1RunArtifacts {

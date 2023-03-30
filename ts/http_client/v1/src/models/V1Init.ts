@@ -27,28 +27,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ArtifactsType } from './V1ArtifactsType';
 import {
-    V1ArtifactsType,
     V1ArtifactsTypeFromJSON,
     V1ArtifactsTypeFromJSONTyped,
     V1ArtifactsTypeToJSON,
-    V1DockerfileType,
+} from './V1ArtifactsType';
+import type { V1DockerfileType } from './V1DockerfileType';
+import {
     V1DockerfileTypeFromJSON,
     V1DockerfileTypeFromJSONTyped,
     V1DockerfileTypeToJSON,
-    V1FileType,
+} from './V1DockerfileType';
+import type { V1FileType } from './V1FileType';
+import {
     V1FileTypeFromJSON,
     V1FileTypeFromJSONTyped,
     V1FileTypeToJSON,
-    V1GitType,
+} from './V1FileType';
+import type { V1GitType } from './V1GitType';
+import {
     V1GitTypeFromJSON,
     V1GitTypeFromJSONTyped,
     V1GitTypeToJSON,
-    V1TensorboardType,
+} from './V1GitType';
+import type { V1TensorboardType } from './V1TensorboardType';
+import {
     V1TensorboardTypeFromJSON,
     V1TensorboardTypeFromJSONTyped,
     V1TensorboardTypeToJSON,
-} from './';
+} from './V1TensorboardType';
 
 /**
  * 
@@ -128,6 +136,15 @@ export interface V1Init {
      * @memberof V1Init
      */
     container?: object;
+}
+
+/**
+ * Check if a given object implements the V1Init interface.
+ */
+export function instanceOfV1Init(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1InitFromJSON(json: any): V1Init {

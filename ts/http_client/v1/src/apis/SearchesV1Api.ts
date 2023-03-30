@@ -28,14 +28,16 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ListSearchesResponse,
+  V1Search,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ListSearchesResponse,
     V1ListSearchesResponseFromJSON,
     V1ListSearchesResponseToJSON,
-    V1Search,
     V1SearchFromJSON,
     V1SearchToJSON,
 } from '../models';
@@ -97,7 +99,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Create search
      */
-    async createSearchRaw(requestParameters: CreateSearchRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Search>> {
+    async createSearchRaw(requestParameters: CreateSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Search>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createSearch.');
         }
@@ -130,7 +132,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Create search
      */
-    async createSearch(requestParameters: CreateSearchRequest, initOverrides?: RequestInit): Promise<V1Search> {
+    async createSearch(requestParameters: CreateSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Search> {
         const response = await this.createSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -138,7 +140,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Delete search
      */
-    async deleteSearchRaw(requestParameters: DeleteSearchRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteSearchRaw(requestParameters: DeleteSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteSearch.');
         }
@@ -168,14 +170,14 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Delete search
      */
-    async deleteSearch(requestParameters: DeleteSearchRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteSearch(requestParameters: DeleteSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteSearchRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get search
      */
-    async getSearchRaw(requestParameters: GetSearchRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Search>> {
+    async getSearchRaw(requestParameters: GetSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Search>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getSearch.');
         }
@@ -205,7 +207,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Get search
      */
-    async getSearch(requestParameters: GetSearchRequest, initOverrides?: RequestInit): Promise<V1Search> {
+    async getSearch(requestParameters: GetSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Search> {
         const response = await this.getSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -213,7 +215,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * List search names
      */
-    async listSearchNamesRaw(requestParameters: ListSearchNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListSearchesResponse>> {
+    async listSearchNamesRaw(requestParameters: ListSearchNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListSearchesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listSearchNames.');
         }
@@ -267,7 +269,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * List search names
      */
-    async listSearchNames(requestParameters: ListSearchNamesRequest, initOverrides?: RequestInit): Promise<V1ListSearchesResponse> {
+    async listSearchNames(requestParameters: ListSearchNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListSearchesResponse> {
         const response = await this.listSearchNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -275,7 +277,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * List searches
      */
-    async listSearchesRaw(requestParameters: ListSearchesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListSearchesResponse>> {
+    async listSearchesRaw(requestParameters: ListSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListSearchesResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listSearches.');
         }
@@ -329,7 +331,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * List searches
      */
-    async listSearches(requestParameters: ListSearchesRequest, initOverrides?: RequestInit): Promise<V1ListSearchesResponse> {
+    async listSearches(requestParameters: ListSearchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListSearchesResponse> {
         const response = await this.listSearchesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -337,7 +339,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Patch search
      */
-    async patchSearchRaw(requestParameters: PatchSearchRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Search>> {
+    async patchSearchRaw(requestParameters: PatchSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Search>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchSearch.');
         }
@@ -374,7 +376,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Patch search
      */
-    async patchSearch(requestParameters: PatchSearchRequest, initOverrides?: RequestInit): Promise<V1Search> {
+    async patchSearch(requestParameters: PatchSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Search> {
         const response = await this.patchSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -382,7 +384,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Update search
      */
-    async updateSearchRaw(requestParameters: UpdateSearchRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Search>> {
+    async updateSearchRaw(requestParameters: UpdateSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Search>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateSearch.');
         }
@@ -419,7 +421,7 @@ export class SearchesV1Api extends runtime.BaseAPI {
     /**
      * Update search
      */
-    async updateSearch(requestParameters: UpdateSearchRequest, initOverrides?: RequestInit): Promise<V1Search> {
+    async updateSearch(requestParameters: UpdateSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Search> {
         const response = await this.updateSearchRaw(requestParameters, initOverrides);
         return await response.value();
     }

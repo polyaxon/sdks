@@ -86,7 +86,41 @@ A successful response.
 type DeleteProjectSearchOK struct {
 }
 
+// IsSuccess returns true when this delete project search o k response has a 2xx status code
+func (o *DeleteProjectSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete project search o k response has a 3xx status code
+func (o *DeleteProjectSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project search o k response has a 4xx status code
+func (o *DeleteProjectSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete project search o k response has a 5xx status code
+func (o *DeleteProjectSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project search o k response a status code equal to that given
+func (o *DeleteProjectSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the delete project search o k response
+func (o *DeleteProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *DeleteProjectSearchOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchOK ", 200)
+}
+
+func (o *DeleteProjectSearchOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type DeleteProjectSearchNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete project search no content response has a 2xx status code
+func (o *DeleteProjectSearchNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete project search no content response has a 3xx status code
+func (o *DeleteProjectSearchNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project search no content response has a 4xx status code
+func (o *DeleteProjectSearchNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete project search no content response has a 5xx status code
+func (o *DeleteProjectSearchNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project search no content response a status code equal to that given
+func (o *DeleteProjectSearchNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the delete project search no content response
+func (o *DeleteProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *DeleteProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteProjectSearchNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteProjectSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type DeleteProjectSearchForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete project search forbidden response has a 2xx status code
+func (o *DeleteProjectSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete project search forbidden response has a 3xx status code
+func (o *DeleteProjectSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project search forbidden response has a 4xx status code
+func (o *DeleteProjectSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete project search forbidden response has a 5xx status code
+func (o *DeleteProjectSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project search forbidden response a status code equal to that given
+func (o *DeleteProjectSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the delete project search forbidden response
+func (o *DeleteProjectSearchForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteProjectSearchForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteProjectSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type DeleteProjectSearchNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete project search not found response has a 2xx status code
+func (o *DeleteProjectSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete project search not found response has a 3xx status code
+func (o *DeleteProjectSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete project search not found response has a 4xx status code
+func (o *DeleteProjectSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete project search not found response has a 5xx status code
+func (o *DeleteProjectSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete project search not found response a status code equal to that given
+func (o *DeleteProjectSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the delete project search not found response
+func (o *DeleteProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteProjectSearchNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] deleteProjectSearchNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteProjectSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type DeleteProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this delete project search default response has a 2xx status code
+func (o *DeleteProjectSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete project search default response has a 3xx status code
+func (o *DeleteProjectSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete project search default response has a 4xx status code
+func (o *DeleteProjectSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete project search default response has a 5xx status code
+func (o *DeleteProjectSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete project search default response a status code equal to that given
+func (o *DeleteProjectSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the delete project search default response
 func (o *DeleteProjectSearchDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *DeleteProjectSearchDefault) Code() int {
 func (o *DeleteProjectSearchDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] DeleteProjectSearch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteProjectSearchDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/searches/{uuid}][%d] DeleteProjectSearch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteProjectSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

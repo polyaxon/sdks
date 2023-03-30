@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum SparkDeployMode {
-    Cluster = 'cluster',
-    Client = 'client',
-    InClusterClient = 'in_cluster_client'
-}
+export const SparkDeployMode = {
+    Cluster: 'cluster',
+    Client: 'client',
+    InClusterClient: 'in_cluster_client'
+} as const;
+export type SparkDeployMode = typeof SparkDeployMode[keyof typeof SparkDeployMode];
+
 
 export function SparkDeployModeFromJSON(json: any): SparkDeployMode {
     return SparkDeployModeFromJSONTyped(json, false);

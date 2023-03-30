@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Organization } from './V1Organization';
 import {
-    V1Organization,
     V1OrganizationFromJSON,
     V1OrganizationFromJSONTyped,
     V1OrganizationToJSON,
-} from './';
+} from './V1Organization';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListOrganizationsResponse {
      * @memberof V1ListOrganizationsResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListOrganizationsResponse interface.
+ */
+export function instanceOfV1ListOrganizationsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListOrganizationsResponseFromJSON(json: any): V1ListOrganizationsResponse {

@@ -86,7 +86,41 @@ A successful response.
 type InvalidateOrganizationRunsOK struct {
 }
 
+// IsSuccess returns true when this invalidate organization runs o k response has a 2xx status code
+func (o *InvalidateOrganizationRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this invalidate organization runs o k response has a 3xx status code
+func (o *InvalidateOrganizationRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate organization runs o k response has a 4xx status code
+func (o *InvalidateOrganizationRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this invalidate organization runs o k response has a 5xx status code
+func (o *InvalidateOrganizationRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate organization runs o k response a status code equal to that given
+func (o *InvalidateOrganizationRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the invalidate organization runs o k response
+func (o *InvalidateOrganizationRunsOK) Code() int {
+	return 200
+}
+
 func (o *InvalidateOrganizationRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsOK ", 200)
+}
+
+func (o *InvalidateOrganizationRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type InvalidateOrganizationRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this invalidate organization runs no content response has a 2xx status code
+func (o *InvalidateOrganizationRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this invalidate organization runs no content response has a 3xx status code
+func (o *InvalidateOrganizationRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate organization runs no content response has a 4xx status code
+func (o *InvalidateOrganizationRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this invalidate organization runs no content response has a 5xx status code
+func (o *InvalidateOrganizationRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate organization runs no content response a status code equal to that given
+func (o *InvalidateOrganizationRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the invalidate organization runs no content response
+func (o *InvalidateOrganizationRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *InvalidateOrganizationRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *InvalidateOrganizationRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *InvalidateOrganizationRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type InvalidateOrganizationRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this invalidate organization runs forbidden response has a 2xx status code
+func (o *InvalidateOrganizationRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this invalidate organization runs forbidden response has a 3xx status code
+func (o *InvalidateOrganizationRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate organization runs forbidden response has a 4xx status code
+func (o *InvalidateOrganizationRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this invalidate organization runs forbidden response has a 5xx status code
+func (o *InvalidateOrganizationRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate organization runs forbidden response a status code equal to that given
+func (o *InvalidateOrganizationRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the invalidate organization runs forbidden response
+func (o *InvalidateOrganizationRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *InvalidateOrganizationRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *InvalidateOrganizationRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *InvalidateOrganizationRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type InvalidateOrganizationRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this invalidate organization runs not found response has a 2xx status code
+func (o *InvalidateOrganizationRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this invalidate organization runs not found response has a 3xx status code
+func (o *InvalidateOrganizationRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this invalidate organization runs not found response has a 4xx status code
+func (o *InvalidateOrganizationRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this invalidate organization runs not found response has a 5xx status code
+func (o *InvalidateOrganizationRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this invalidate organization runs not found response a status code equal to that given
+func (o *InvalidateOrganizationRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the invalidate organization runs not found response
+func (o *InvalidateOrganizationRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *InvalidateOrganizationRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *InvalidateOrganizationRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] invalidateOrganizationRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *InvalidateOrganizationRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type InvalidateOrganizationRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this invalidate organization runs default response has a 2xx status code
+func (o *InvalidateOrganizationRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this invalidate organization runs default response has a 3xx status code
+func (o *InvalidateOrganizationRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this invalidate organization runs default response has a 4xx status code
+func (o *InvalidateOrganizationRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this invalidate organization runs default response has a 5xx status code
+func (o *InvalidateOrganizationRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this invalidate organization runs default response a status code equal to that given
+func (o *InvalidateOrganizationRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the invalidate organization runs default response
 func (o *InvalidateOrganizationRunsDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *InvalidateOrganizationRunsDefault) Code() int {
 func (o *InvalidateOrganizationRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] InvalidateOrganizationRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *InvalidateOrganizationRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/invalidate][%d] InvalidateOrganizationRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *InvalidateOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

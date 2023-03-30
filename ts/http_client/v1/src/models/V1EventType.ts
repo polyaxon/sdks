@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ArtifactKind } from './V1ArtifactKind';
 import {
-    V1ArtifactKind,
     V1ArtifactKindFromJSON,
     V1ArtifactKindFromJSONTyped,
     V1ArtifactKindToJSON,
-} from './';
+} from './V1ArtifactKind';
 
 /**
  * 
@@ -52,6 +52,15 @@ export interface V1EventType {
      * @memberof V1EventType
      */
     kind?: V1ArtifactKind;
+}
+
+/**
+ * Check if a given object implements the V1EventType interface.
+ */
+export function instanceOfV1EventType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EventTypeFromJSON(json: any): V1EventType {

@@ -34,13 +34,32 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Environment
@@ -119,6 +138,8 @@ public class V1Environment {
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
   private String restartPolicy;
 
+  public V1Environment() {
+  }
 
   public V1Environment labels(Map<String, String> labels) {
     
@@ -128,7 +149,7 @@ public class V1Environment {
 
   public V1Environment putLabelsItem(String key, String labelsItem) {
     if (this.labels == null) {
-      this.labels = new HashMap<String, String>();
+      this.labels = new HashMap<>();
     }
     this.labels.put(key, labelsItem);
     return this;
@@ -139,7 +160,6 @@ public class V1Environment {
    * @return labels
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getLabels() {
     return labels;
@@ -159,7 +179,7 @@ public class V1Environment {
 
   public V1Environment putAnnotationsItem(String key, String annotationsItem) {
     if (this.annotations == null) {
-      this.annotations = new HashMap<String, String>();
+      this.annotations = new HashMap<>();
     }
     this.annotations.put(key, annotationsItem);
     return this;
@@ -170,7 +190,6 @@ public class V1Environment {
    * @return annotations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getAnnotations() {
     return annotations;
@@ -190,7 +209,7 @@ public class V1Environment {
 
   public V1Environment putNodeSelectorItem(String key, String nodeSelectorItem) {
     if (this.nodeSelector == null) {
-      this.nodeSelector = new HashMap<String, String>();
+      this.nodeSelector = new HashMap<>();
     }
     this.nodeSelector.put(key, nodeSelectorItem);
     return this;
@@ -201,7 +220,6 @@ public class V1Environment {
    * @return nodeSelector
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
@@ -224,7 +242,6 @@ public class V1Environment {
    * @return affinity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getAffinity() {
     return affinity;
@@ -244,7 +261,7 @@ public class V1Environment {
 
   public V1Environment addTolerationsItem(Object tolerationsItem) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList<Object>();
+      this.tolerations = new ArrayList<>();
     }
     this.tolerations.add(tolerationsItem);
     return this;
@@ -255,7 +272,6 @@ public class V1Environment {
    * @return tolerations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional Tolerations to apply.")
 
   public List<Object> getTolerations() {
     return tolerations;
@@ -278,7 +294,6 @@ public class V1Environment {
    * @return nodeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.")
 
   public String getNodeName() {
     return nodeName;
@@ -301,7 +316,6 @@ public class V1Environment {
    * @return serviceAccountName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getServiceAccountName() {
     return serviceAccountName;
@@ -321,7 +335,7 @@ public class V1Environment {
 
   public V1Environment addHostAliasesItem(Object hostAliasesItem) {
     if (this.hostAliases == null) {
-      this.hostAliases = new ArrayList<Object>();
+      this.hostAliases = new ArrayList<>();
     }
     this.hostAliases.add(hostAliasesItem);
     return this;
@@ -332,7 +346,6 @@ public class V1Environment {
    * @return hostAliases
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional HostAliases is an optional list of hosts and IPs that will be injected into the pod spec.")
 
   public List<Object> getHostAliases() {
     return hostAliases;
@@ -355,7 +368,6 @@ public class V1Environment {
    * @return securityContext
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getSecurityContext() {
     return securityContext;
@@ -375,7 +387,7 @@ public class V1Environment {
 
   public V1Environment addImagePullSecretsItem(String imagePullSecretsItem) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets = new ArrayList<String>();
+      this.imagePullSecrets = new ArrayList<>();
     }
     this.imagePullSecrets.add(imagePullSecretsItem);
     return this;
@@ -386,7 +398,6 @@ public class V1Environment {
    * @return imagePullSecrets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getImagePullSecrets() {
     return imagePullSecrets;
@@ -409,7 +420,6 @@ public class V1Environment {
    * @return hostNetwork
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host networking requested for this workflow pod. Default to false.")
 
   public Boolean getHostNetwork() {
     return hostNetwork;
@@ -432,7 +442,6 @@ public class V1Environment {
    * @return hostPID
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use the host's pid namespace. Default to false.")
 
   public String getHostPID() {
     return hostPID;
@@ -455,7 +464,6 @@ public class V1Environment {
    * @return dnsPolicy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.")
 
   public String getDnsPolicy() {
     return dnsPolicy;
@@ -478,7 +486,6 @@ public class V1Environment {
    * @return dnsConfig
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getDnsConfig() {
     return dnsConfig;
@@ -501,7 +508,6 @@ public class V1Environment {
    * @return schedulerName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getSchedulerName() {
     return schedulerName;
@@ -524,7 +530,6 @@ public class V1Environment {
    * @return priorityClassName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If specified, indicates the pod's priority. \"system-node-critical\" and \"system-cluster-critical\" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.")
 
   public String getPriorityClassName() {
     return priorityClassName;
@@ -547,7 +552,6 @@ public class V1Environment {
    * @return priority
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The priority value. Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority.")
 
   public Integer getPriority() {
     return priority;
@@ -570,7 +574,6 @@ public class V1Environment {
    * @return restartPolicy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRestartPolicy() {
     return restartPolicy;
@@ -580,6 +583,7 @@ public class V1Environment {
   public void setRestartPolicy(String restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
+
 
 
   @Override
@@ -653,5 +657,138 @@ public class V1Environment {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("labels");
+    openapiFields.add("annotations");
+    openapiFields.add("nodeSelector");
+    openapiFields.add("affinity");
+    openapiFields.add("tolerations");
+    openapiFields.add("nodeName");
+    openapiFields.add("serviceAccountName");
+    openapiFields.add("hostAliases");
+    openapiFields.add("securityContext");
+    openapiFields.add("imagePullSecrets");
+    openapiFields.add("hostNetwork");
+    openapiFields.add("hostPID");
+    openapiFields.add("dnsPolicy");
+    openapiFields.add("dnsConfig");
+    openapiFields.add("schedulerName");
+    openapiFields.add("priorityClassName");
+    openapiFields.add("priority");
+    openapiFields.add("restartPolicy");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Environment
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Environment.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Environment is not found in the empty JSON string", V1Environment.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Environment.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Environment` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tolerations") != null && !jsonObj.get("tolerations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tolerations` to be an array in the JSON string but got `%s`", jsonObj.get("tolerations").toString()));
+      }
+      if ((jsonObj.get("nodeName") != null && !jsonObj.get("nodeName").isJsonNull()) && !jsonObj.get("nodeName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nodeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeName").toString()));
+      }
+      if ((jsonObj.get("serviceAccountName") != null && !jsonObj.get("serviceAccountName").isJsonNull()) && !jsonObj.get("serviceAccountName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `serviceAccountName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceAccountName").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("hostAliases") != null && !jsonObj.get("hostAliases").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hostAliases` to be an array in the JSON string but got `%s`", jsonObj.get("hostAliases").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("imagePullSecrets") != null && !jsonObj.get("imagePullSecrets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `imagePullSecrets` to be an array in the JSON string but got `%s`", jsonObj.get("imagePullSecrets").toString()));
+      }
+      if ((jsonObj.get("hostPID") != null && !jsonObj.get("hostPID").isJsonNull()) && !jsonObj.get("hostPID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hostPID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostPID").toString()));
+      }
+      if ((jsonObj.get("dnsPolicy") != null && !jsonObj.get("dnsPolicy").isJsonNull()) && !jsonObj.get("dnsPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dnsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dnsPolicy").toString()));
+      }
+      if ((jsonObj.get("schedulerName") != null && !jsonObj.get("schedulerName").isJsonNull()) && !jsonObj.get("schedulerName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `schedulerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schedulerName").toString()));
+      }
+      if ((jsonObj.get("priorityClassName") != null && !jsonObj.get("priorityClassName").isJsonNull()) && !jsonObj.get("priorityClassName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priorityClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityClassName").toString()));
+      }
+      if ((jsonObj.get("restartPolicy") != null && !jsonObj.get("restartPolicy").isJsonNull()) && !jsonObj.get("restartPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Environment.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Environment' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Environment> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Environment.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Environment>() {
+           @Override
+           public void write(JsonWriter out, V1Environment value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Environment read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Environment given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Environment
+  * @throws IOException if the JSON string is invalid with respect to V1Environment
+  */
+  public static V1Environment fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Environment.class);
+  }
+
+ /**
+  * Convert an instance of V1Environment to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

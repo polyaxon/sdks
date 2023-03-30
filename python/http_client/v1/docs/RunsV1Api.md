@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**delete_run_artifact_lineage**](RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 [**delete_run_artifacts**](RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 [**delete_runs**](RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
+[**deprecated_collect_run_logs**](RunsV1Api.md#deprecated_collect_run_logs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2)
 [**get_multi_run_events**](RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 [**get_run**](RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 [**get_run_artifact**](RunsV1Api.md#get_run_artifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
@@ -78,6 +79,7 @@ Approve run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -93,7 +95,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -103,13 +105,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Approve run
         api_instance.approve_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->approve_run: %s\n" % e)
 ```
 
@@ -156,6 +158,7 @@ Approve runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -171,7 +174,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -181,13 +184,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Approve runs
         api_instance.approve_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->approve_runs: %s\n" % e)
 ```
 
@@ -234,6 +237,7 @@ Archive run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -249,7 +253,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -259,13 +263,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Archive run
         api_instance.archive_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->archive_run: %s\n" % e)
 ```
 
@@ -312,6 +316,7 @@ Archive runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -327,7 +332,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -337,13 +342,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Archive runs
         api_instance.archive_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->archive_runs: %s\n" % e)
 ```
 
@@ -390,6 +395,7 @@ Bookmark run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -405,7 +411,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -415,13 +421,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Bookmark run
         api_instance.bookmark_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->bookmark_run: %s\n" % e)
 ```
 
@@ -468,6 +474,7 @@ Bookmark runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -483,7 +490,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -493,13 +500,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Bookmark runs
         api_instance.bookmark_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->bookmark_runs: %s\n" % e)
 ```
 
@@ -546,6 +553,7 @@ Internal API to collect run logs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -561,7 +569,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -571,15 +579,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | 
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-kind = 'kind_example' # str | Kind of the entity
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    kind = 'kind_example' # str | Kind of the entity
 
     try:
         # Internal API to collect run logs
         api_instance.collect_run_logs(namespace, owner, project, uuid, kind)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->collect_run_logs: %s\n" % e)
 ```
 
@@ -628,6 +636,7 @@ Restart run with copy
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -643,7 +652,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -653,15 +662,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-run_uuid = 'run_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    run_uuid = 'run_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Restart run with copy
         api_response = api_instance.copy_run(owner, project, run_uuid, body)
+        print("The response of RunsV1Api->copy_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->copy_run: %s\n" % e)
 ```
 
@@ -709,6 +719,7 @@ Create new run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -724,7 +735,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -734,14 +745,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-body = polyaxon_sdk.V1OperationBody() # V1OperationBody | operation object
+    project = 'project_example' # str | Project where the run will be assigned
+    body = polyaxon_sdk.V1OperationBody() # V1OperationBody | operation object
 
     try:
         # Create new run
         api_response = api_instance.create_run(owner, project, body)
+        print("The response of RunsV1Api->create_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->create_run: %s\n" % e)
 ```
 
@@ -788,6 +800,7 @@ Create bulk run artifacts lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -803,7 +816,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -813,14 +826,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-body = polyaxon_sdk.V1RunArtifacts() # V1RunArtifacts | Run Artifacts
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    body = polyaxon_sdk.V1RunArtifacts() # V1RunArtifacts | Run Artifacts
 
     try:
         # Create bulk run artifacts lineage
         api_instance.create_run_artifacts_lineage(owner, project, uuid, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->create_run_artifacts_lineage: %s\n" % e)
 ```
 
@@ -868,6 +881,7 @@ Create new run status
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -883,7 +897,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -893,15 +907,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-body = polyaxon_sdk.V1EntityStatusBodyRequest() # V1EntityStatusBodyRequest | 
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    body = polyaxon_sdk.V1EntityStatusBodyRequest() # V1EntityStatusBodyRequest | 
 
     try:
         # Create new run status
         api_response = api_instance.create_run_status(owner, project, uuid, body)
+        print("The response of RunsV1Api->create_run_status:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->create_run_status: %s\n" % e)
 ```
 
@@ -949,6 +964,7 @@ Delete run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -964,7 +980,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -974,13 +990,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Delete run
         api_instance.delete_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->delete_run: %s\n" % e)
 ```
 
@@ -1027,6 +1043,7 @@ Delete run artifact
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1042,7 +1059,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1052,15 +1069,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-path = 'path_example' # str | Path query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    path = 'path_example' # str | Path query param. (optional)
 
     try:
         # Delete run artifact
         api_instance.delete_run_artifact(namespace, owner, project, uuid, path=path)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->delete_run_artifact: %s\n" % e)
 ```
 
@@ -1109,6 +1126,7 @@ Delete run artifact lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1124,7 +1142,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1134,15 +1152,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-name = 'name_example' # str | Artifact name
-namespace = 'namespace_example' # str | namespace. (optional)
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    name = 'name_example' # str | Artifact name
+    namespace = 'namespace_example' # str | namespace. (optional)
 
     try:
         # Delete run artifact lineage
         api_instance.delete_run_artifact_lineage(owner, project, uuid, name, namespace=namespace)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->delete_run_artifact_lineage: %s\n" % e)
 ```
 
@@ -1191,6 +1209,7 @@ Delete run artifacts
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1206,7 +1225,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1216,15 +1235,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-path = 'path_example' # str | Path query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    path = 'path_example' # str | Path query param. (optional)
 
     try:
         # Delete run artifacts
         api_instance.delete_run_artifacts(namespace, owner, project, uuid, path=path)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->delete_run_artifacts: %s\n" % e)
 ```
 
@@ -1273,6 +1292,7 @@ Delete runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1288,7 +1308,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1298,13 +1318,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Delete runs
         api_instance.delete_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->delete_runs: %s\n" % e)
 ```
 
@@ -1340,10 +1360,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_multi_run_events**
-> V1EventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample)
+# **deprecated_collect_run_logs**
+> deprecated_collect_run_logs(namespace, owner, project, uuid, kind)
 
-Get multi runs events
+Deprecated Collect run logs (# TODO: Remove in v2)
 
 ### Example
 
@@ -1351,6 +1371,7 @@ Get multi runs events
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1366,7 +1387,90 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.RunsV1Api(api_client)
+    namespace = 'namespace_example' # str | 
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    kind = 'kind_example' # str | Kind of the entity
+
+    try:
+        # Deprecated Collect run logs (# TODO: Remove in v2)
+        api_instance.deprecated_collect_run_logs(namespace, owner, project, uuid, kind)
+    except Exception as e:
+        print("Exception when calling RunsV1Api->deprecated_collect_run_logs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **str**|  | 
+ **owner** | **str**| Owner of the namespace | 
+ **project** | **str**| Project where the run will be assigned | 
+ **uuid** | **str**| Uuid identifier of the entity | 
+ **kind** | **str**| Kind of the entity | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_multi_run_events**
+> V1EventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample)
+
+Get multi runs events
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1376,20 +1480,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-kind = 'kind_example' # str | The artifact kind
-names = 'names_example' # str | Names query param. (optional)
-runs = 'runs_example' # str | Runs query param. (optional)
-orient = 'orient_example' # str | Orient query param. (optional)
-force = True # bool | Force query param. (optional)
-sample = 56 # int | Sample query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    kind = 'kind_example' # str | The artifact kind
+    names = 'names_example' # str | Names query param. (optional)
+    runs = 'runs_example' # str | Runs query param. (optional)
+    orient = 'orient_example' # str | Orient query param. (optional)
+    force = True # bool | Force query param. (optional)
+    sample = 56 # int | Sample query param. (optional)
 
     try:
         # Get multi runs events
         api_response = api_instance.get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample)
+        print("The response of RunsV1Api->get_multi_run_events:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_multi_run_events: %s\n" % e)
 ```
 
@@ -1442,6 +1547,7 @@ Get run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1457,7 +1563,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1467,14 +1573,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Get run
         api_response = api_instance.get_run(owner, entity, uuid)
+        print("The response of RunsV1Api->get_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run: %s\n" % e)
 ```
 
@@ -1521,6 +1628,7 @@ Get run artifact
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1536,7 +1644,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1546,18 +1654,19 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the experiement will be assigned
-uuid = 'uuid_example' # str | Unique integer identifier of the entity
-path = 'path_example' # str | Artifact filepath. (optional)
-stream = True # bool | Whether to stream the file. (optional)
-force = True # bool | Whether to force reload. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the experiement will be assigned
+    uuid = 'uuid_example' # str | Unique integer identifier of the entity
+    path = 'path_example' # str | Artifact filepath. (optional)
+    stream = True # bool | Whether to stream the file. (optional)
+    force = True # bool | Whether to force reload. (optional)
 
     try:
         # Get run artifact
         api_response = api_instance.get_run_artifact(namespace, owner, project, uuid, path=path, stream=stream, force=force)
+        print("The response of RunsV1Api->get_run_artifact:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_artifact: %s\n" % e)
 ```
 
@@ -1607,6 +1716,7 @@ Get run artifacts lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1622,7 +1732,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1632,16 +1742,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-name = 'name_example' # str | Artifact name
-namespace = 'namespace_example' # str | namespace. (optional)
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    name = 'name_example' # str | Artifact name
+    namespace = 'namespace_example' # str | namespace. (optional)
 
     try:
         # Get run artifacts lineage
         api_response = api_instance.get_run_artifact_lineage(owner, project, uuid, name, namespace=namespace)
+        print("The response of RunsV1Api->get_run_artifact_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_artifact_lineage: %s\n" % e)
 ```
 
@@ -1690,6 +1801,7 @@ Get run artifacts
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1705,7 +1817,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1715,17 +1827,18 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the experiement will be assigned
-uuid = 'uuid_example' # str | Unique integer identifier of the entity
-path = 'path_example' # str | Artifact filepath. (optional)
-force = True # bool | Whether to force reload. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the experiement will be assigned
+    uuid = 'uuid_example' # str | Unique integer identifier of the entity
+    path = 'path_example' # str | Artifact filepath. (optional)
+    force = True # bool | Whether to force reload. (optional)
 
     try:
         # Get run artifacts
         api_response = api_instance.get_run_artifacts(namespace, owner, project, uuid, path=path, force=force)
+        print("The response of RunsV1Api->get_run_artifacts:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_artifacts: %s\n" % e)
 ```
 
@@ -1774,6 +1887,7 @@ Get run artifacts lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1789,7 +1903,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1799,19 +1913,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get run artifacts lineage
         api_response = api_instance.get_run_artifacts_lineage(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->get_run_artifacts_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_artifacts_lineage: %s\n" % e)
 ```
 
@@ -1863,6 +1978,7 @@ Get run artifacts lineage names
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1878,7 +1994,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1888,19 +2004,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get run artifacts lineage names
         api_response = api_instance.get_run_artifacts_lineage_names(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->get_run_artifacts_lineage_names:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_artifacts_lineage_names: %s\n" % e)
 ```
 
@@ -1952,6 +2069,7 @@ Get run artifacts tree
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -1967,7 +2085,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -1977,16 +2095,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-path = 'path_example' # str | Path query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    path = 'path_example' # str | Path query param. (optional)
 
     try:
         # Get run artifacts tree
         api_response = api_instance.get_run_artifacts_tree(namespace, owner, project, uuid, path=path)
+        print("The response of RunsV1Api->get_run_artifacts_tree:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_artifacts_tree: %s\n" % e)
 ```
 
@@ -2035,6 +2154,7 @@ Get run clones lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2050,7 +2170,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2060,19 +2180,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get run clones lineage
         api_response = api_instance.get_run_clones_lineage(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->get_run_clones_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_clones_lineage: %s\n" % e)
 ```
 
@@ -2124,6 +2245,7 @@ Get run connections lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2139,7 +2261,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2149,19 +2271,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get run connections lineage
         api_response = api_instance.get_run_connections_lineage(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->get_run_connections_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_connections_lineage: %s\n" % e)
 ```
 
@@ -2213,6 +2336,7 @@ Get run downstream lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2228,7 +2352,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2238,19 +2362,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get run downstream lineage
         api_response = api_instance.get_run_downstream_lineage(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->get_run_downstream_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_downstream_lineage: %s\n" % e)
 ```
 
@@ -2302,6 +2427,7 @@ Get run events
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2317,7 +2443,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2327,20 +2453,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-kind = 'kind_example' # str | The artifact kind
-names = 'names_example' # str | Names query param. (optional)
-orient = 'orient_example' # str | Orient query param. (optional)
-force = True # bool | Force query param. (optional)
-sample = 56 # int | Sample query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    kind = 'kind_example' # str | The artifact kind
+    names = 'names_example' # str | Names query param. (optional)
+    orient = 'orient_example' # str | Orient query param. (optional)
+    force = True # bool | Force query param. (optional)
+    sample = 56 # int | Sample query param. (optional)
 
     try:
         # Get run events
         api_response = api_instance.get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample)
+        print("The response of RunsV1Api->get_run_events:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_events: %s\n" % e)
 ```
 
@@ -2393,6 +2520,7 @@ Get run importance
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2408,7 +2536,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2418,16 +2546,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-body = None # object | Params/Metrics data
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    body = None # object | Params/Metrics data
 
     try:
         # Get run importance
         api_response = api_instance.get_run_importance(namespace, owner, project, uuid, body)
+        print("The response of RunsV1Api->get_run_importance:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_importance: %s\n" % e)
 ```
 
@@ -2476,6 +2605,7 @@ Get run logs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2491,7 +2621,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2501,18 +2631,19 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | 
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-last_time = '2013-10-20T19:20:30+01:00' # datetime | last time. (optional)
-last_file = 'last_file_example' # str | last file. (optional)
-force = True # bool | Force query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    last_time = '2013-10-20T19:20:30+01:00' # datetime | last time. (optional)
+    last_file = 'last_file_example' # str | last file. (optional)
+    force = True # bool | Force query param. (optional)
 
     try:
         # Get run logs
         api_response = api_instance.get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force)
+        print("The response of RunsV1Api->get_run_logs:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_logs: %s\n" % e)
 ```
 
@@ -2563,6 +2694,7 @@ Get Run namespace
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2578,7 +2710,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2588,14 +2720,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Get Run namespace
         api_response = api_instance.get_run_namespace(owner, entity, uuid)
+        print("The response of RunsV1Api->get_run_namespace:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_namespace: %s\n" % e)
 ```
 
@@ -2642,6 +2775,7 @@ Get run resources events
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2657,7 +2791,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2667,19 +2801,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-names = 'names_example' # str | Names query param. (optional)
-tail = True # bool | Query param flag to tail the values. (optional)
-force = True # bool | Force query param. (optional)
-sample = 56 # int | Sample query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    names = 'names_example' # str | Names query param. (optional)
+    tail = True # bool | Query param flag to tail the values. (optional)
+    force = True # bool | Force query param. (optional)
+    sample = 56 # int | Sample query param. (optional)
 
     try:
         # Get run resources events
         api_response = api_instance.get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample)
+        print("The response of RunsV1Api->get_run_resources:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_resources: %s\n" % e)
 ```
 
@@ -2731,6 +2866,7 @@ Get Run settings
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2746,7 +2882,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2756,14 +2892,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Get Run settings
         api_response = api_instance.get_run_settings(owner, entity, uuid)
+        print("The response of RunsV1Api->get_run_settings:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_settings: %s\n" % e)
 ```
 
@@ -2810,6 +2947,7 @@ Get run stats
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2825,7 +2963,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2835,23 +2973,24 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-kind = 'kind_example' # str | Stats Kind. (optional)
-aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
-groupby = 'groupby_example' # str | Stats group. (optional)
-trunc = 'trunc_example' # str | Stats trunc. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    kind = 'kind_example' # str | Stats Kind. (optional)
+    aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
+    groupby = 'groupby_example' # str | Stats group. (optional)
+    trunc = 'trunc_example' # str | Stats trunc. (optional)
 
     try:
         # Get run stats
         api_response = api_instance.get_run_stats(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+        print("The response of RunsV1Api->get_run_stats:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_stats: %s\n" % e)
 ```
 
@@ -2907,6 +3046,7 @@ Get run statuses
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -2922,7 +3062,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -2932,14 +3072,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Get run statuses
         api_response = api_instance.get_run_statuses(owner, entity, uuid)
+        print("The response of RunsV1Api->get_run_statuses:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_statuses: %s\n" % e)
 ```
 
@@ -2986,6 +3127,7 @@ Get run upstream lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3001,7 +3143,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3011,19 +3153,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity name under namesapce
-uuid = 'uuid_example' # str | SubEntity uuid
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    entity = 'entity_example' # str | Entity name under namesapce
+    uuid = 'uuid_example' # str | SubEntity uuid
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get run upstream lineage
         api_response = api_instance.get_run_upstream_lineage(owner, entity, uuid, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->get_run_upstream_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_run_upstream_lineage: %s\n" % e)
 ```
 
@@ -3075,6 +3218,7 @@ Get runs artifacts lineage
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3090,7 +3234,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3100,20 +3244,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # Get runs artifacts lineage
         api_response = api_instance.get_runs_artifacts_lineage(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of RunsV1Api->get_runs_artifacts_lineage:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->get_runs_artifacts_lineage: %s\n" % e)
 ```
 
@@ -3166,6 +3311,7 @@ Impersonate run token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3181,7 +3327,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3191,14 +3337,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Impersonate run token
         api_response = api_instance.impersonate_token(owner, entity, uuid)
+        print("The response of RunsV1Api->impersonate_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->impersonate_token: %s\n" % e)
 ```
 
@@ -3245,6 +3392,7 @@ Inspect an active run full conditions
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3260,7 +3408,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3270,19 +3418,20 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-names = 'names_example' # str | Names query param. (optional)
-tail = True # bool | Query param flag to tail the values. (optional)
-force = True # bool | Force query param. (optional)
-sample = 56 # int | Sample query param. (optional)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    names = 'names_example' # str | Names query param. (optional)
+    tail = True # bool | Query param flag to tail the values. (optional)
+    force = True # bool | Force query param. (optional)
+    sample = 56 # int | Sample query param. (optional)
 
     try:
         # Inspect an active run full conditions
         api_response = api_instance.inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample)
+        print("The response of RunsV1Api->inspect_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->inspect_run: %s\n" % e)
 ```
 
@@ -3334,6 +3483,7 @@ Invalidate run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3349,7 +3499,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3359,13 +3509,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Invalidate run
         api_instance.invalidate_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->invalidate_run: %s\n" % e)
 ```
 
@@ -3412,6 +3562,7 @@ Invalidate runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3427,7 +3578,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3437,13 +3588,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Invalidate runs
         api_instance.invalidate_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->invalidate_runs: %s\n" % e)
 ```
 
@@ -3490,6 +3641,7 @@ List archived runs for user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3505,7 +3657,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3515,17 +3667,18 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     user = 'user_example' # str | User
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List archived runs for user
         api_response = api_instance.list_archived_runs(user, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->list_archived_runs:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->list_archived_runs: %s\n" % e)
 ```
 
@@ -3575,6 +3728,7 @@ List bookmarked runs for user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3590,7 +3744,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3600,17 +3754,18 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     user = 'user_example' # str | User
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List bookmarked runs for user
         api_response = api_instance.list_bookmarked_runs(user, offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of RunsV1Api->list_bookmarked_runs:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->list_bookmarked_runs: %s\n" % e)
 ```
 
@@ -3660,6 +3815,7 @@ List runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3675,7 +3831,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3685,20 +3841,21 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-name = 'name_example' # str | Entity managing the resource
-offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-bookmarks = True # bool | Filter by bookmarks. (optional)
-mode = 'mode_example' # str | Mode of the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List runs
         api_response = api_instance.list_runs(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of RunsV1Api->list_runs:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->list_runs: %s\n" % e)
 ```
 
@@ -3751,6 +3908,7 @@ Notify run status
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3766,7 +3924,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3776,15 +3934,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | Na,espace
-owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-uuid = 'uuid_example' # str | Uuid identifier of the entity
-body = polyaxon_sdk.V1EntityNotificationBody() # V1EntityNotificationBody | 
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project where the run will be assigned
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    body = polyaxon_sdk.V1EntityNotificationBody() # V1EntityNotificationBody | 
 
     try:
         # Notify run status
         api_instance.notify_run_status(namespace, owner, project, uuid, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->notify_run_status: %s\n" % e)
 ```
 
@@ -3833,6 +3991,7 @@ Patch run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3848,7 +4007,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3858,15 +4017,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-run_uuid = 'run_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    run_uuid = 'run_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Patch run
         api_response = api_instance.patch_run(owner, project, run_uuid, body)
+        print("The response of RunsV1Api->patch_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->patch_run: %s\n" % e)
 ```
 
@@ -3914,6 +4074,7 @@ Restart run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -3929,7 +4090,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -3939,15 +4100,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-run_uuid = 'run_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    run_uuid = 'run_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Restart run
         api_response = api_instance.restart_run(owner, project, run_uuid, body)
+        print("The response of RunsV1Api->restart_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->restart_run: %s\n" % e)
 ```
 
@@ -3995,6 +4157,7 @@ Restore run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4010,7 +4173,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4020,13 +4183,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Restore run
         api_instance.restore_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->restore_run: %s\n" % e)
 ```
 
@@ -4073,6 +4236,7 @@ Restore runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4088,7 +4252,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4098,13 +4262,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Restore runs
         api_instance.restore_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->restore_runs: %s\n" % e)
 ```
 
@@ -4151,6 +4315,7 @@ Resume run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4166,7 +4331,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4176,15 +4341,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-run_uuid = 'run_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    run_uuid = 'run_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Resume run
         api_response = api_instance.resume_run(owner, project, run_uuid, body)
+        print("The response of RunsV1Api->resume_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->resume_run: %s\n" % e)
 ```
 
@@ -4232,6 +4398,7 @@ Stop run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4247,7 +4414,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4257,13 +4424,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Stop run
         api_instance.stop_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->stop_run: %s\n" % e)
 ```
 
@@ -4310,6 +4477,7 @@ Stop runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4325,7 +4493,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4335,13 +4503,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Stop runs
         api_instance.stop_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->stop_runs: %s\n" % e)
 ```
 
@@ -4388,6 +4556,7 @@ Sync offline run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4403,7 +4572,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4413,13 +4582,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Sync offline run
         api_instance.sync_run(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->sync_run: %s\n" % e)
 ```
 
@@ -4466,6 +4635,7 @@ Tag runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4481,7 +4651,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4491,13 +4661,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1EntitiesTags() # V1EntitiesTags | Data
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1EntitiesTags() # V1EntitiesTags | Data
 
     try:
         # Tag runs
         api_instance.tag_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->tag_runs: %s\n" % e)
 ```
 
@@ -4544,6 +4714,7 @@ Transfer run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4559,7 +4730,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4569,14 +4740,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-run_uuid = 'run_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    run_uuid = 'run_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Transfer run
         api_instance.transfer_run(owner, project, run_uuid, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->transfer_run: %s\n" % e)
 ```
 
@@ -4624,6 +4795,7 @@ Transfer runs
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4639,7 +4811,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4649,13 +4821,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project under namesapce
-body = polyaxon_sdk.V1EntitiesTransfer() # V1EntitiesTransfer | Data
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1EntitiesTransfer() # V1EntitiesTransfer | Data
 
     try:
         # Transfer runs
         api_instance.transfer_runs(owner, project, body)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->transfer_runs: %s\n" % e)
 ```
 
@@ -4702,6 +4874,7 @@ Unbookmark run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4717,7 +4890,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4727,13 +4900,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
-uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
 
     try:
         # Unbookmark run
         api_instance.unbookmark_run(owner, entity, uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->unbookmark_run: %s\n" % e)
 ```
 
@@ -4780,6 +4953,7 @@ Update run
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4795,7 +4969,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4805,15 +4979,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project where the run will be assigned
-run_uuid = 'run_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Run() # V1Run | Run object
+    project = 'project_example' # str | Project where the run will be assigned
+    run_uuid = 'run_uuid_example' # str | UUID
+    body = polyaxon_sdk.V1Run() # V1Run | Run object
 
     try:
         # Update run
         api_response = api_instance.update_run(owner, project, run_uuid, body)
+        print("The response of RunsV1Api->update_run:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->update_run: %s\n" % e)
 ```
 
@@ -4861,6 +5036,7 @@ Upload an artifact file to a store via run access
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4876,7 +5052,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4886,16 +5062,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project having access to the store
-uuid = 'uuid_example' # str | Unique integer identifier of the entity
-uploadfile = '/path/to/file' # file | The file to upload.
-path = 'path_example' # str | File path query params. (optional)
-overwrite = True # bool | File path query params. (optional)
+    project = 'project_example' # str | Project having access to the store
+    uuid = 'uuid_example' # str | Unique integer identifier of the entity
+    uploadfile = 'uploadfile_example' # str | The file to upload.
+    path = 'path_example' # str | File path query params. (optional)
+    overwrite = True # bool | File path query params. (optional)
 
     try:
         # Upload an artifact file to a store via run access
         api_instance.upload_run_artifact(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->upload_run_artifact: %s\n" % e)
 ```
 
@@ -4906,7 +5082,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project having access to the store | 
  **uuid** | **str**| Unique integer identifier of the entity | 
- **uploadfile** | **file**| The file to upload. | 
+ **uploadfile** | **str**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
 
@@ -4944,6 +5120,7 @@ Upload a logs file to a store via run access
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -4959,7 +5136,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -4969,16 +5146,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-project = 'project_example' # str | Project having access to the store
-uuid = 'uuid_example' # str | Unique integer identifier of the entity
-uploadfile = '/path/to/file' # file | The file to upload.
-path = 'path_example' # str | File path query params. (optional)
-overwrite = True # bool | File path query params. (optional)
+    project = 'project_example' # str | Project having access to the store
+    uuid = 'uuid_example' # str | Unique integer identifier of the entity
+    uploadfile = 'uploadfile_example' # str | The file to upload.
+    path = 'path_example' # str | File path query params. (optional)
+    overwrite = True # bool | File path query params. (optional)
 
     try:
         # Upload a logs file to a store via run access
         api_instance.upload_run_logs(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling RunsV1Api->upload_run_logs: %s\n" % e)
 ```
 
@@ -4989,7 +5166,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project having access to the store | 
  **uuid** | **str**| Unique integer identifier of the entity | 
- **uploadfile** | **file**| The file to upload. | 
+ **uploadfile** | **str**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
 

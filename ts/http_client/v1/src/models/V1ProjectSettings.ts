@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ProjectUserAccess } from './V1ProjectUserAccess';
 import {
-    V1ProjectUserAccess,
     V1ProjectUserAccessFromJSON,
     V1ProjectUserAccessFromJSONTyped,
     V1ProjectUserAccessToJSON,
-} from './';
+} from './V1ProjectUserAccess';
 
 /**
  * 
@@ -94,6 +94,15 @@ export interface V1ProjectSettings {
      * @memberof V1ProjectSettings
      */
     projects?: Array<string>;
+}
+
+/**
+ * Check if a given object implements the V1ProjectSettings interface.
+ */
+export function instanceOfV1ProjectSettings(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ProjectSettingsFromJSON(json: any): V1ProjectSettings {

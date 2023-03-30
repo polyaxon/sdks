@@ -3,14 +3,14 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**changePassword**](AuthV1Api.md#changePassword) | **POST** /api/v1/auth/change-password | Change password
-[**login**](AuthV1Api.md#login) | **POST** /api/v1/auth/token | Login
-[**resetPassword**](AuthV1Api.md#resetPassword) | **POST** /api/v1/auth/reset-password | Reset password
-[**resetPasswordConfirm**](AuthV1Api.md#resetPasswordConfirm) | **POST** /api/v1/auth/reset-password-confirm | Reset password confirm
-[**signup**](AuthV1Api.md#signup) | **POST** /api/v1/auth/signup | Signup
-[**trial**](AuthV1Api.md#trial) | **POST** /api/v1/auth/trial | Trial Start
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**changePassword**](AuthV1Api.md#changePassword) | **POST** /api/v1/auth/change-password | Change password |
+| [**login**](AuthV1Api.md#login) | **POST** /api/v1/auth/token | Login |
+| [**resetPassword**](AuthV1Api.md#resetPassword) | **POST** /api/v1/auth/reset-password | Reset password |
+| [**resetPasswordConfirm**](AuthV1Api.md#resetPasswordConfirm) | **POST** /api/v1/auth/reset-password-confirm | Reset password confirm |
+| [**signup**](AuthV1Api.md#signup) | **POST** /api/v1/auth/signup | Signup |
+| [**trial**](AuthV1Api.md#trial) | **POST** /api/v1/auth/trial | Trial Start |
 
 
 <a name="changePassword"></a>
@@ -57,9 +57,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1PasswordChange**](V1PasswordChange.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1PasswordChange**](V1PasswordChange.md)|  | |
 
 ### Return type
 
@@ -77,11 +77,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="login"></a>
 # **login**
@@ -128,9 +128,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1Credentials**](V1Credentials.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1Credentials**](V1Credentials.md)|  | |
 
 ### Return type
 
@@ -148,11 +148,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="resetPassword"></a>
 # **resetPassword**
@@ -198,9 +198,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1UserEmail**](V1UserEmail.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1UserEmail**](V1UserEmail.md)|  | |
 
 ### Return type
 
@@ -218,11 +218,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="resetPasswordConfirm"></a>
 # **resetPasswordConfirm**
@@ -269,9 +269,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1PasswordChange**](V1PasswordChange.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1PasswordChange**](V1PasswordChange.md)|  | |
 
 ### Return type
 
@@ -289,11 +289,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="signup"></a>
 # **signup**
@@ -340,9 +340,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1UserSingup**](V1UserSingup.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1UserSingup**](V1UserSingup.md)|  | |
 
 ### Return type
 
@@ -360,11 +360,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="trial"></a>
 # **trial**
@@ -410,9 +410,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1TrialStart**](V1TrialStart.md)|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1TrialStart**](V1TrialStart.md)|  | |
 
 ### Return type
 
@@ -430,9 +430,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

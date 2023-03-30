@@ -28,20 +28,22 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  RuntimeError,
+  V1ListServiceAccountsResponse,
+  V1ListTokenResponse,
+  V1ServiceAccount,
+  V1Token,
+} from '../models';
 import {
-    RuntimeError,
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
-    V1ListServiceAccountsResponse,
     V1ListServiceAccountsResponseFromJSON,
     V1ListServiceAccountsResponseToJSON,
-    V1ListTokenResponse,
     V1ListTokenResponseFromJSON,
     V1ListTokenResponseToJSON,
-    V1ServiceAccount,
     V1ServiceAccountFromJSON,
     V1ServiceAccountToJSON,
-    V1Token,
     V1TokenFromJSON,
     V1TokenToJSON,
 } from '../models';
@@ -146,7 +148,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Create service account
      */
-    async createServiceAccountRaw(requestParameters: CreateServiceAccountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ServiceAccount>> {
+    async createServiceAccountRaw(requestParameters: CreateServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ServiceAccount>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createServiceAccount.');
         }
@@ -179,7 +181,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Create service account
      */
-    async createServiceAccount(requestParameters: CreateServiceAccountRequest, initOverrides?: RequestInit): Promise<V1ServiceAccount> {
+    async createServiceAccount(requestParameters: CreateServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ServiceAccount> {
         const response = await this.createServiceAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -187,7 +189,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Create service account token
      */
-    async createServiceAccountTokenRaw(requestParameters: CreateServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async createServiceAccountTokenRaw(requestParameters: CreateServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createServiceAccountToken.');
         }
@@ -224,7 +226,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Create service account token
      */
-    async createServiceAccountToken(requestParameters: CreateServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async createServiceAccountToken(requestParameters: CreateServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.createServiceAccountTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -232,7 +234,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Delete service account
      */
-    async deleteServiceAccountRaw(requestParameters: DeleteServiceAccountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteServiceAccountRaw(requestParameters: DeleteServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteServiceAccount.');
         }
@@ -262,14 +264,14 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Delete service account
      */
-    async deleteServiceAccount(requestParameters: DeleteServiceAccountRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteServiceAccount(requestParameters: DeleteServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteServiceAccountRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete service account token
      */
-    async deleteServiceAccountTokenRaw(requestParameters: DeleteServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async deleteServiceAccountTokenRaw(requestParameters: DeleteServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteServiceAccountToken.');
         }
@@ -303,14 +305,14 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Delete service account token
      */
-    async deleteServiceAccountToken(requestParameters: DeleteServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<void> {
+    async deleteServiceAccountToken(requestParameters: DeleteServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteServiceAccountTokenRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get service account
      */
-    async getServiceAccountRaw(requestParameters: GetServiceAccountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ServiceAccount>> {
+    async getServiceAccountRaw(requestParameters: GetServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ServiceAccount>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getServiceAccount.');
         }
@@ -340,7 +342,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Get service account
      */
-    async getServiceAccount(requestParameters: GetServiceAccountRequest, initOverrides?: RequestInit): Promise<V1ServiceAccount> {
+    async getServiceAccount(requestParameters: GetServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ServiceAccount> {
         const response = await this.getServiceAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -348,7 +350,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Get service account token
      */
-    async getServiceAccountTokenRaw(requestParameters: GetServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async getServiceAccountTokenRaw(requestParameters: GetServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getServiceAccountToken.');
         }
@@ -382,7 +384,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Get service account token
      */
-    async getServiceAccountToken(requestParameters: GetServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async getServiceAccountToken(requestParameters: GetServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.getServiceAccountTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -390,7 +392,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * List service accounts names
      */
-    async listServiceAccountNamesRaw(requestParameters: ListServiceAccountNamesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListServiceAccountsResponse>> {
+    async listServiceAccountNamesRaw(requestParameters: ListServiceAccountNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListServiceAccountsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listServiceAccountNames.');
         }
@@ -444,7 +446,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * List service accounts names
      */
-    async listServiceAccountNames(requestParameters: ListServiceAccountNamesRequest, initOverrides?: RequestInit): Promise<V1ListServiceAccountsResponse> {
+    async listServiceAccountNames(requestParameters: ListServiceAccountNamesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListServiceAccountsResponse> {
         const response = await this.listServiceAccountNamesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -452,7 +454,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * List service account tokens
      */
-    async listServiceAccountTokensRaw(requestParameters: ListServiceAccountTokensRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListTokenResponse>> {
+    async listServiceAccountTokensRaw(requestParameters: ListServiceAccountTokensRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListTokenResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listServiceAccountTokens.');
         }
@@ -506,7 +508,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * List service account tokens
      */
-    async listServiceAccountTokens(requestParameters: ListServiceAccountTokensRequest, initOverrides?: RequestInit): Promise<V1ListTokenResponse> {
+    async listServiceAccountTokens(requestParameters: ListServiceAccountTokensRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListTokenResponse> {
         const response = await this.listServiceAccountTokensRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -514,7 +516,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * List service accounts
      */
-    async listServiceAccountsRaw(requestParameters: ListServiceAccountsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ListServiceAccountsResponse>> {
+    async listServiceAccountsRaw(requestParameters: ListServiceAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListServiceAccountsResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling listServiceAccounts.');
         }
@@ -568,7 +570,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * List service accounts
      */
-    async listServiceAccounts(requestParameters: ListServiceAccountsRequest, initOverrides?: RequestInit): Promise<V1ListServiceAccountsResponse> {
+    async listServiceAccounts(requestParameters: ListServiceAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListServiceAccountsResponse> {
         const response = await this.listServiceAccountsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -576,7 +578,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Patch service account
      */
-    async patchServiceAccountRaw(requestParameters: PatchServiceAccountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ServiceAccount>> {
+    async patchServiceAccountRaw(requestParameters: PatchServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ServiceAccount>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchServiceAccount.');
         }
@@ -613,7 +615,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Patch service account
      */
-    async patchServiceAccount(requestParameters: PatchServiceAccountRequest, initOverrides?: RequestInit): Promise<V1ServiceAccount> {
+    async patchServiceAccount(requestParameters: PatchServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ServiceAccount> {
         const response = await this.patchServiceAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -621,7 +623,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Patch service account token
      */
-    async patchServiceAccountTokenRaw(requestParameters: PatchServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async patchServiceAccountTokenRaw(requestParameters: PatchServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling patchServiceAccountToken.');
         }
@@ -662,7 +664,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Patch service account token
      */
-    async patchServiceAccountToken(requestParameters: PatchServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async patchServiceAccountToken(requestParameters: PatchServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.patchServiceAccountTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -670,7 +672,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Update service account
      */
-    async updateServiceAccountRaw(requestParameters: UpdateServiceAccountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ServiceAccount>> {
+    async updateServiceAccountRaw(requestParameters: UpdateServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ServiceAccount>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateServiceAccount.');
         }
@@ -707,7 +709,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Update service account
      */
-    async updateServiceAccount(requestParameters: UpdateServiceAccountRequest, initOverrides?: RequestInit): Promise<V1ServiceAccount> {
+    async updateServiceAccount(requestParameters: UpdateServiceAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ServiceAccount> {
         const response = await this.updateServiceAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -715,7 +717,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Update service account token
      */
-    async updateServiceAccountTokenRaw(requestParameters: UpdateServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Token>> {
+    async updateServiceAccountTokenRaw(requestParameters: UpdateServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Token>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling updateServiceAccountToken.');
         }
@@ -756,7 +758,7 @@ export class ServiceAccountsV1Api extends runtime.BaseAPI {
     /**
      * Update service account token
      */
-    async updateServiceAccountToken(requestParameters: UpdateServiceAccountTokenRequest, initOverrides?: RequestInit): Promise<V1Token> {
+    async updateServiceAccountToken(requestParameters: UpdateServiceAccountTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.updateServiceAccountTokenRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -5,11 +5,11 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**uuid** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
-**kind** | **V1CloningKind** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**uuid** | **String** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**kind** | **V1CloningKind** |  |  [optional] |
 
 
 

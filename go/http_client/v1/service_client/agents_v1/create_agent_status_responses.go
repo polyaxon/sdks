@@ -87,9 +87,44 @@ type CreateAgentStatusOK struct {
 	Payload *service_model.V1Status
 }
 
+// IsSuccess returns true when this create agent status o k response has a 2xx status code
+func (o *CreateAgentStatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create agent status o k response has a 3xx status code
+func (o *CreateAgentStatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create agent status o k response has a 4xx status code
+func (o *CreateAgentStatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create agent status o k response has a 5xx status code
+func (o *CreateAgentStatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create agent status o k response a status code equal to that given
+func (o *CreateAgentStatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the create agent status o k response
+func (o *CreateAgentStatusOK) Code() int {
+	return 200
+}
+
 func (o *CreateAgentStatusOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateAgentStatusOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateAgentStatusOK) GetPayload() *service_model.V1Status {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type CreateAgentStatusNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create agent status no content response has a 2xx status code
+func (o *CreateAgentStatusNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create agent status no content response has a 3xx status code
+func (o *CreateAgentStatusNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create agent status no content response has a 4xx status code
+func (o *CreateAgentStatusNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create agent status no content response has a 5xx status code
+func (o *CreateAgentStatusNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create agent status no content response a status code equal to that given
+func (o *CreateAgentStatusNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the create agent status no content response
+func (o *CreateAgentStatusNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateAgentStatusNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateAgentStatusNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateAgentStatusNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type CreateAgentStatusForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create agent status forbidden response has a 2xx status code
+func (o *CreateAgentStatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create agent status forbidden response has a 3xx status code
+func (o *CreateAgentStatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create agent status forbidden response has a 4xx status code
+func (o *CreateAgentStatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create agent status forbidden response has a 5xx status code
+func (o *CreateAgentStatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create agent status forbidden response a status code equal to that given
+func (o *CreateAgentStatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the create agent status forbidden response
+func (o *CreateAgentStatusForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateAgentStatusForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateAgentStatusForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateAgentStatusForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type CreateAgentStatusNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create agent status not found response has a 2xx status code
+func (o *CreateAgentStatusNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create agent status not found response has a 3xx status code
+func (o *CreateAgentStatusNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create agent status not found response has a 4xx status code
+func (o *CreateAgentStatusNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create agent status not found response has a 5xx status code
+func (o *CreateAgentStatusNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create agent status not found response a status code equal to that given
+func (o *CreateAgentStatusNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create agent status not found response
+func (o *CreateAgentStatusNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateAgentStatusNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateAgentStatusNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateAgentStatusNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type CreateAgentStatusDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this create agent status default response has a 2xx status code
+func (o *CreateAgentStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create agent status default response has a 3xx status code
+func (o *CreateAgentStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create agent status default response has a 4xx status code
+func (o *CreateAgentStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create agent status default response has a 5xx status code
+func (o *CreateAgentStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create agent status default response a status code equal to that given
+func (o *CreateAgentStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the create agent status default response
 func (o *CreateAgentStatusDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *CreateAgentStatusDefault) Code() int {
 func (o *CreateAgentStatusDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] CreateAgentStatus default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateAgentStatusDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] CreateAgentStatus default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateAgentStatusDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

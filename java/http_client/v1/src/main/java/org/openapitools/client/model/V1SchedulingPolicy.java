@@ -34,9 +34,28 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1SchedulingPolicy
@@ -55,6 +74,8 @@ public class V1SchedulingPolicy {
   @SerializedName(SERIALIZED_NAME_PRIORITY_CLASS)
   private String priorityClass;
 
+  public V1SchedulingPolicy() {
+  }
 
   public V1SchedulingPolicy minAvailable(Integer minAvailable) {
     
@@ -67,7 +88,6 @@ public class V1SchedulingPolicy {
    * @return minAvailable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getMinAvailable() {
     return minAvailable;
@@ -90,7 +110,6 @@ public class V1SchedulingPolicy {
    * @return queue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getQueue() {
     return queue;
@@ -113,7 +132,6 @@ public class V1SchedulingPolicy {
    * @return priorityClass
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPriorityClass() {
     return priorityClass;
@@ -123,6 +141,7 @@ public class V1SchedulingPolicy {
   public void setPriorityClass(String priorityClass) {
     this.priorityClass = priorityClass;
   }
+
 
 
   @Override
@@ -166,5 +185,96 @@ public class V1SchedulingPolicy {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("minAvailable");
+    openapiFields.add("queue");
+    openapiFields.add("priorityClass");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1SchedulingPolicy
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1SchedulingPolicy.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1SchedulingPolicy is not found in the empty JSON string", V1SchedulingPolicy.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1SchedulingPolicy.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SchedulingPolicy` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) && !jsonObj.get("queue").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `queue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue").toString()));
+      }
+      if ((jsonObj.get("priorityClass") != null && !jsonObj.get("priorityClass").isJsonNull()) && !jsonObj.get("priorityClass").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priorityClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityClass").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1SchedulingPolicy.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1SchedulingPolicy' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1SchedulingPolicy> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1SchedulingPolicy.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1SchedulingPolicy>() {
+           @Override
+           public void write(JsonWriter out, V1SchedulingPolicy value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1SchedulingPolicy read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1SchedulingPolicy given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1SchedulingPolicy
+  * @throws IOException if the JSON string is invalid with respect to V1SchedulingPolicy
+  */
+  public static V1SchedulingPolicy fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1SchedulingPolicy.class);
+  }
+
+ /**
+  * Convert an instance of V1SchedulingPolicy to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

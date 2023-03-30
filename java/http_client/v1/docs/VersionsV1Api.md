@@ -3,11 +3,11 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCompatibility**](VersionsV1Api.md#getCompatibility) | **GET** /api/v1/compatibility/{uuid}/{version}/{service} | Get compatibility versions
-[**getInstallation**](VersionsV1Api.md#getInstallation) | **GET** /api/v1/installation | Get installation versions
-[**getLogHandler**](VersionsV1Api.md#getLogHandler) | **GET** /api/v1/log_handler | Get log handler versions
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getCompatibility**](VersionsV1Api.md#getCompatibility) | **GET** /api/v1/compatibility/{uuid}/{version}/{service} | Get compatibility versions |
+| [**getInstallation**](VersionsV1Api.md#getInstallation) | **GET** /api/v1/installation | Get installation versions |
+| [**getLogHandler**](VersionsV1Api.md#getLogHandler) | **GET** /api/v1/log_handler | Get log handler versions |
 
 
 <a name="getCompatibility"></a>
@@ -57,11 +57,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **String**| UUid |
- **version** | **String**| Version |
- **service** | **String**| Service |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uuid** | **String**| UUid | |
+| **version** | **String**| Version | |
+| **service** | **String**| Service | |
 
 ### Return type
 
@@ -79,11 +79,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getInstallation"></a>
 # **getInstallation**
@@ -130,9 +130,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **auth** | **Boolean**| auth. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **auth** | **Boolean**| auth. | [optional] |
 
 ### Return type
 
@@ -150,11 +150,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="getLogHandler"></a>
 # **getLogHandler**
@@ -217,9 +217,9 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

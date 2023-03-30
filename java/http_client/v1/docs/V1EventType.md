@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
-**kind** | **V1ArtifactKind** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** |  |  [optional] |
+|**kind** | **V1ArtifactKind** |  |  [optional] |
 
 
 

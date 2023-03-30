@@ -26,6 +26,7 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - any: Any view
  *  - runs: Runs view
@@ -36,18 +37,19 @@
  *  - artifacts: Artifacts view
  *  - projects: Projects view
  * @export
- * @enum {string}
  */
-export enum SearchView {
-    Any = 'any',
-    Runs = 'runs',
-    Selection = 'selection',
-    Analytics = 'analytics',
-    Components = 'components',
-    Models = 'models',
-    Artifacts = 'artifacts',
-    Projects = 'projects'
-}
+export const SearchView = {
+    Any: 'any',
+    Runs: 'runs',
+    Selection: 'selection',
+    Analytics: 'analytics',
+    Components: 'components',
+    Models: 'models',
+    Artifacts: 'artifacts',
+    Projects: 'projects'
+} as const;
+export type SearchView = typeof SearchView[keyof typeof SearchView];
+
 
 export function SearchViewFromJSON(json: any): SearchView {
     return SearchViewFromJSONTyped(json, false);

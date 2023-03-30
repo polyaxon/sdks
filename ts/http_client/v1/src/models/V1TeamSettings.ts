@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1SettingsCatalog } from './V1SettingsCatalog';
 import {
-    V1SettingsCatalog,
     V1SettingsCatalogFromJSON,
     V1SettingsCatalogFromJSONTyped,
     V1SettingsCatalogToJSON,
-} from './';
+} from './V1SettingsCatalog';
 
 /**
  * 
@@ -58,6 +58,15 @@ export interface V1TeamSettings {
      * @memberof V1TeamSettings
      */
     registries?: Array<V1SettingsCatalog>;
+}
+
+/**
+ * Check if a given object implements the V1TeamSettings interface.
+ */
+export function instanceOfV1TeamSettings(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1TeamSettingsFromJSON(json: any): V1TeamSettings {

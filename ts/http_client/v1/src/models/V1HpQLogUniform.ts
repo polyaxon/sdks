@@ -47,6 +47,15 @@ export interface V1HpQLogUniform {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpQLogUniform interface.
+ */
+export function instanceOfV1HpQLogUniform(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpQLogUniformFromJSON(json: any): V1HpQLogUniform {
     return V1HpQLogUniformFromJSONTyped(json, false);
 }

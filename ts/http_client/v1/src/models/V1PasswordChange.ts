@@ -53,6 +53,15 @@ export interface V1PasswordChange {
     new_password2?: string;
 }
 
+/**
+ * Check if a given object implements the V1PasswordChange interface.
+ */
+export function instanceOfV1PasswordChange(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PasswordChangeFromJSON(json: any): V1PasswordChange {
     return V1PasswordChangeFromJSONTyped(json, false);
 }

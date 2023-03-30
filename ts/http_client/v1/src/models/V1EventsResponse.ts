@@ -41,6 +41,15 @@ export interface V1EventsResponse {
     data?: Array<object>;
 }
 
+/**
+ * Check if a given object implements the V1EventsResponse interface.
+ */
+export function instanceOfV1EventsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventsResponseFromJSON(json: any): V1EventsResponse {
     return V1EventsResponseFromJSONTyped(json, false);
 }

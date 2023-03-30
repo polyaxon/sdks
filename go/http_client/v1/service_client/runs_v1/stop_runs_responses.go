@@ -86,7 +86,41 @@ A successful response.
 type StopRunsOK struct {
 }
 
+// IsSuccess returns true when this stop runs o k response has a 2xx status code
+func (o *StopRunsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stop runs o k response has a 3xx status code
+func (o *StopRunsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop runs o k response has a 4xx status code
+func (o *StopRunsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stop runs o k response has a 5xx status code
+func (o *StopRunsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop runs o k response a status code equal to that given
+func (o *StopRunsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the stop runs o k response
+func (o *StopRunsOK) Code() int {
+	return 200
+}
+
 func (o *StopRunsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsOK ", 200)
+}
+
+func (o *StopRunsOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type StopRunsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop runs no content response has a 2xx status code
+func (o *StopRunsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this stop runs no content response has a 3xx status code
+func (o *StopRunsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop runs no content response has a 4xx status code
+func (o *StopRunsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this stop runs no content response has a 5xx status code
+func (o *StopRunsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop runs no content response a status code equal to that given
+func (o *StopRunsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the stop runs no content response
+func (o *StopRunsNoContent) Code() int {
+	return 204
+}
+
 func (o *StopRunsNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *StopRunsNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *StopRunsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type StopRunsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop runs forbidden response has a 2xx status code
+func (o *StopRunsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this stop runs forbidden response has a 3xx status code
+func (o *StopRunsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop runs forbidden response has a 4xx status code
+func (o *StopRunsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this stop runs forbidden response has a 5xx status code
+func (o *StopRunsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop runs forbidden response a status code equal to that given
+func (o *StopRunsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the stop runs forbidden response
+func (o *StopRunsForbidden) Code() int {
+	return 403
+}
+
 func (o *StopRunsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *StopRunsForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *StopRunsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type StopRunsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this stop runs not found response has a 2xx status code
+func (o *StopRunsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this stop runs not found response has a 3xx status code
+func (o *StopRunsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this stop runs not found response has a 4xx status code
+func (o *StopRunsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this stop runs not found response has a 5xx status code
+func (o *StopRunsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this stop runs not found response a status code equal to that given
+func (o *StopRunsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the stop runs not found response
+func (o *StopRunsNotFound) Code() int {
+	return 404
+}
+
 func (o *StopRunsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *StopRunsNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *StopRunsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type StopRunsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this stop runs default response has a 2xx status code
+func (o *StopRunsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this stop runs default response has a 3xx status code
+func (o *StopRunsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this stop runs default response has a 4xx status code
+func (o *StopRunsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this stop runs default response has a 5xx status code
+func (o *StopRunsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this stop runs default response a status code equal to that given
+func (o *StopRunsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the stop runs default response
 func (o *StopRunsDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *StopRunsDefault) Code() int {
 func (o *StopRunsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] StopRuns default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *StopRunsDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] StopRuns default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *StopRunsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

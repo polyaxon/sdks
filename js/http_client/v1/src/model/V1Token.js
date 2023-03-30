@@ -95,8 +95,40 @@ class V1Token {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Token</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Token</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        // ensure the json data is a string
+        if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
+            throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['scopes'])) {
+            throw new Error("Expected the field `scopes` to be an array in the JSON data but got " + data['scopes']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['services'])) {
+            throw new Error("Expected the field `services` to be an array in the JSON data but got " + data['services']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} uuid

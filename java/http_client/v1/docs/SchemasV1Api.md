@@ -3,9 +3,9 @@ Polyaxon sdk
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**noOp**](SchemasV1Api.md#noOp) | **GET** /schemas | NoOp
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**noOp**](SchemasV1Api.md#noOp) | **GET** /schemas | NoOp |
 
 
 <a name="noOp"></a>
@@ -69,9 +69,9 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 

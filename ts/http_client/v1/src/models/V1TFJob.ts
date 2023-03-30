@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CleanPodPolicy } from './V1CleanPodPolicy';
 import {
-    V1CleanPodPolicy,
     V1CleanPodPolicyFromJSON,
     V1CleanPodPolicyFromJSONTyped,
     V1CleanPodPolicyToJSON,
-    V1KFReplica,
+} from './V1CleanPodPolicy';
+import type { V1KFReplica } from './V1KFReplica';
+import {
     V1KFReplicaFromJSON,
     V1KFReplicaFromJSONTyped,
     V1KFReplicaToJSON,
-    V1SchedulingPolicy,
+} from './V1KFReplica';
+import type { V1SchedulingPolicy } from './V1SchedulingPolicy';
+import {
     V1SchedulingPolicyFromJSON,
     V1SchedulingPolicyFromJSONTyped,
     V1SchedulingPolicyToJSON,
-} from './';
+} from './V1SchedulingPolicy';
 
 /**
  * 
@@ -96,6 +100,15 @@ export interface V1TFJob {
      * @memberof V1TFJob
      */
     evaluator?: V1KFReplica;
+}
+
+/**
+ * Check if a given object implements the V1TFJob interface.
+ */
+export function instanceOfV1TFJob(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1TFJobFromJSON(json: any): V1TFJob {

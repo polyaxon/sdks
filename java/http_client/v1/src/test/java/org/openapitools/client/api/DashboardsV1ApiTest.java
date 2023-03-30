@@ -31,8 +31,8 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.model.RuntimeError;
 import org.openapitools.client.model.V1Dashboard;
 import org.openapitools.client.model.V1ListDashboardsResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,67 +42,54 @@ import java.util.Map;
 /**
  * API tests for DashboardsV1Api
  */
-@Ignore
+@Disabled
 public class DashboardsV1ApiTest {
 
     private final DashboardsV1Api api = new DashboardsV1Api();
 
-    
     /**
      * Create dashboard
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createDashboardTest() throws ApiException {
         String owner = null;
         V1Dashboard body = null;
-                V1Dashboard response = api.createDashboard(owner, body);
+        V1Dashboard response = api.createDashboard(owner, body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete dashboard
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteDashboardTest() throws ApiException {
         String owner = null;
         String uuid = null;
-                api.deleteDashboard(owner, uuid);
+        api.deleteDashboard(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * Get dashboard
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getDashboardTest() throws ApiException {
         String owner = null;
         String uuid = null;
-                V1Dashboard response = api.getDashboard(owner, uuid);
+        V1Dashboard response = api.getDashboard(owner, uuid);
         // TODO: test validations
     }
-    
+
     /**
      * List dashboard names
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listDashboardNamesTest() throws ApiException {
@@ -114,17 +101,14 @@ public class DashboardsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListDashboardsResponse response = api.listDashboardNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListDashboardsResponse response = api.listDashboardNames(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * List dashboards
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listDashboardsTest() throws ApiException {
@@ -136,42 +120,36 @@ public class DashboardsV1ApiTest {
         Boolean bookmarks = null;
         String mode = null;
         Boolean noPage = null;
-                V1ListDashboardsResponse response = api.listDashboards(owner, offset, limit, sort, query, bookmarks, mode, noPage);
+        V1ListDashboardsResponse response = api.listDashboards(owner, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
-    
+
     /**
      * Patch dashboard
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void patchDashboardTest() throws ApiException {
         String owner = null;
         String dashboardUuid = null;
         V1Dashboard body = null;
-                V1Dashboard response = api.patchDashboard(owner, dashboardUuid, body);
+        V1Dashboard response = api.patchDashboard(owner, dashboardUuid, body);
         // TODO: test validations
     }
-    
+
     /**
      * Update dashboard
      *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateDashboardTest() throws ApiException {
         String owner = null;
         String dashboardUuid = null;
         V1Dashboard body = null;
-                V1Dashboard response = api.updateDashboard(owner, dashboardUuid, body);
+        V1Dashboard response = api.updateDashboard(owner, dashboardUuid, body);
         // TODO: test validations
     }
-    
+
 }

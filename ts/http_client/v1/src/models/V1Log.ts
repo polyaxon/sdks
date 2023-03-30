@@ -65,6 +65,15 @@ export interface V1Log {
     value?: string;
 }
 
+/**
+ * Check if a given object implements the V1Log interface.
+ */
+export function instanceOfV1Log(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1LogFromJSON(json: any): V1Log {
     return V1LogFromJSONTyped(json, false);
 }

@@ -53,6 +53,15 @@ export interface V1EventModel {
     spec?: object;
 }
 
+/**
+ * Check if a given object implements the V1EventModel interface.
+ */
+export function instanceOfV1EventModel(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventModelFromJSON(json: any): V1EventModel {
     return V1EventModelFromJSONTyped(json, false);
 }

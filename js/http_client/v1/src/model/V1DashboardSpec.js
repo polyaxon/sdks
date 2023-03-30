@@ -69,8 +69,30 @@ class V1DashboardSpec {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1DashboardSpec</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1DashboardSpec</code>.
+     */
+    static validateJSON(data) {
+        if (data['sections']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['sections'])) {
+                throw new Error("Expected the field `sections` to be an array in the JSON data but got " + data['sections']);
+            }
+            // validate the optional field `sections` (array)
+            for (const item of data['sections']) {
+                V1SectionSpec.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/V1SectionSpec>} sections

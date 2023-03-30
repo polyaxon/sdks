@@ -88,8 +88,46 @@ class V1KFReplica {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1KFReplica</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1KFReplica</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `environment`
+        if (data['environment']) { // data not null
+          V1Environment.validateJSON(data['environment']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['connections'])) {
+            throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['volumes'])) {
+            throw new Error("Expected the field `volumes` to be an array in the JSON data but got " + data['volumes']);
+        }
+        if (data['init']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['init'])) {
+                throw new Error("Expected the field `init` to be an array in the JSON data but got " + data['init']);
+            }
+            // validate the optional field `init` (array)
+            for (const item of data['init']) {
+                V1Init.validateJsonObject(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['sidecars'])) {
+            throw new Error("Expected the field `sidecars` to be an array in the JSON data but got " + data['sidecars']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} replicas

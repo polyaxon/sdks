@@ -71,6 +71,15 @@ export interface V1Param {
     contextOnly?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1Param interface.
+ */
+export function instanceOfV1Param(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ParamFromJSON(json: any): V1Param {
     return V1ParamFromJSONTyped(json, false);
 }

@@ -41,6 +41,15 @@ export interface V1UserEmail {
     email?: string;
 }
 
+/**
+ * Check if a given object implements the V1UserEmail interface.
+ */
+export function instanceOfV1UserEmail(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UserEmailFromJSON(json: any): V1UserEmail {
     return V1UserEmailFromJSONTyped(json, false);
 }

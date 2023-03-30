@@ -77,8 +77,28 @@ class V1Cache {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Cache</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Cache</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['io'])) {
+            throw new Error("Expected the field `io` to be an array in the JSON data but got " + data['io']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['sections'])) {
+            throw new Error("Expected the field `sections` to be an array in the JSON data but got " + data['sections']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} disable

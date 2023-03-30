@@ -65,6 +65,15 @@ export interface V1UserSingup {
     invitation_key?: string;
 }
 
+/**
+ * Check if a given object implements the V1UserSingup interface.
+ */
+export function instanceOfV1UserSingup(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UserSingupFromJSON(json: any): V1UserSingup {
     return V1UserSingupFromJSONTyped(json, false);
 }

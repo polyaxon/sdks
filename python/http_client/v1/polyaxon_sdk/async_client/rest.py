@@ -34,8 +34,7 @@ import re
 import ssl
 
 import aiohttp
-# python 2 and python 3 compatibility library
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode, quote_plus
 
 from polyaxon_sdk.exceptions import ApiException, ApiValueError
 
@@ -87,7 +86,8 @@ class RESTClientObject(object):
 
         # https pool manager
         self.pool_manager = aiohttp.ClientSession(
-            connector=connector
+            connector=connector,
+            trust_env=True
         )
 
     async def close(self):
@@ -124,6 +124,9 @@ class RESTClientObject(object):
 
         post_params = post_params or {}
         headers = headers or {}
+        # url already contains the URL query string
+        # so reset query_params to empty dict
+        query_params = {}
         timeout = _request_timeout or 5 * 60
 
         if 'Content-Type' not in headers:
@@ -194,7 +197,7 @@ class RESTClientObject(object):
 
         return r
 
-    async def GET(self, url, headers=None, query_params=None,
+    async def get_request(self, url, headers=None, query_params=None,
                   _preload_content=True, _request_timeout=None):
         return (await self.request("GET", url,
                                    headers=headers,
@@ -202,7 +205,7 @@ class RESTClientObject(object):
                                    _request_timeout=_request_timeout,
                                    query_params=query_params))
 
-    async def HEAD(self, url, headers=None, query_params=None,
+    async def head_request(self, url, headers=None, query_params=None,
                    _preload_content=True, _request_timeout=None):
         return (await self.request("HEAD", url,
                                    headers=headers,
@@ -210,7 +213,7 @@ class RESTClientObject(object):
                                    _request_timeout=_request_timeout,
                                    query_params=query_params))
 
-    async def OPTIONS(self, url, headers=None, query_params=None,
+    async def options_request(self, url, headers=None, query_params=None,
                       post_params=None, body=None, _preload_content=True,
                       _request_timeout=None):
         return (await self.request("OPTIONS", url,
@@ -221,7 +224,7 @@ class RESTClientObject(object):
                                    _request_timeout=_request_timeout,
                                    body=body))
 
-    async def DELETE(self, url, headers=None, query_params=None, body=None,
+    async def delete_request(self, url, headers=None, query_params=None, body=None,
                      _preload_content=True, _request_timeout=None):
         return (await self.request("DELETE", url,
                                    headers=headers,
@@ -230,7 +233,7 @@ class RESTClientObject(object):
                                    _request_timeout=_request_timeout,
                                    body=body))
 
-    async def POST(self, url, headers=None, query_params=None,
+    async def post_request(self, url, headers=None, query_params=None,
                    post_params=None, body=None, _preload_content=True,
                    _request_timeout=None):
         return (await self.request("POST", url,
@@ -241,7 +244,7 @@ class RESTClientObject(object):
                                    _request_timeout=_request_timeout,
                                    body=body))
 
-    async def PUT(self, url, headers=None, query_params=None, post_params=None,
+    async def put_request(self, url, headers=None, query_params=None, post_params=None,
                   body=None, _preload_content=True, _request_timeout=None):
         return (await self.request("PUT", url,
                                    headers=headers,
@@ -251,7 +254,7 @@ class RESTClientObject(object):
                                    _request_timeout=_request_timeout,
                                    body=body))
 
-    async def PATCH(self, url, headers=None, query_params=None,
+    async def patch_request(self, url, headers=None, query_params=None,
                     post_params=None, body=None, _preload_content=True,
                     _request_timeout=None):
         return (await self.request("PATCH", url,

@@ -95,6 +95,15 @@ export interface V1Token {
     expiration?: number;
 }
 
+/**
+ * Check if a given object implements the V1Token interface.
+ */
+export function instanceOfV1Token(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TokenFromJSON(json: any): V1Token {
     return V1TokenFromJSONTyped(json, false);
 }

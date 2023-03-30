@@ -116,8 +116,68 @@ class V1Spark {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Spark</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Spark</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['connections'])) {
+            throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['volumes'])) {
+            throw new Error("Expected the field `volumes` to be an array in the JSON data but got " + data['volumes']);
+        }
+        // ensure the json data is a string
+        if (data['sparkVersion'] && !(typeof data['sparkVersion'] === 'string' || data['sparkVersion'] instanceof String)) {
+            throw new Error("Expected the field `sparkVersion` to be a primitive type in the JSON string but got " + data['sparkVersion']);
+        }
+        // ensure the json data is a string
+        if (data['pythonVersion'] && !(typeof data['pythonVersion'] === 'string' || data['pythonVersion'] instanceof String)) {
+            throw new Error("Expected the field `pythonVersion` to be a primitive type in the JSON string but got " + data['pythonVersion']);
+        }
+        // ensure the json data is a string
+        if (data['mainClass'] && !(typeof data['mainClass'] === 'string' || data['mainClass'] instanceof String)) {
+            throw new Error("Expected the field `mainClass` to be a primitive type in the JSON string but got " + data['mainClass']);
+        }
+        // ensure the json data is a string
+        if (data['mainApplicationFile'] && !(typeof data['mainApplicationFile'] === 'string' || data['mainApplicationFile'] instanceof String)) {
+            throw new Error("Expected the field `mainApplicationFile` to be a primitive type in the JSON string but got " + data['mainApplicationFile']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['arguments'])) {
+            throw new Error("Expected the field `arguments` to be an array in the JSON data but got " + data['arguments']);
+        }
+        // ensure the json data is a string
+        if (data['sparkConfigMap'] && !(typeof data['sparkConfigMap'] === 'string' || data['sparkConfigMap'] instanceof String)) {
+            throw new Error("Expected the field `sparkConfigMap` to be a primitive type in the JSON string but got " + data['sparkConfigMap']);
+        }
+        // ensure the json data is a string
+        if (data['hadoopConfigMap'] && !(typeof data['hadoopConfigMap'] === 'string' || data['hadoopConfigMap'] instanceof String)) {
+            throw new Error("Expected the field `hadoopConfigMap` to be a primitive type in the JSON string but got " + data['hadoopConfigMap']);
+        }
+        // validate the optional field `executor`
+        if (data['executor']) { // data not null
+          V1SparkReplica.validateJSON(data['executor']);
+        }
+        // validate the optional field `driver`
+        if (data['driver']) { // data not null
+          V1SparkReplica.validateJSON(data['driver']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} kind

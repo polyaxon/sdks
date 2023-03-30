@@ -111,8 +111,48 @@ class V1Agent {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Agent</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Agent</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tags'])) {
+            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
+        }
+        // ensure the json data is a string
+        if (data['namespace'] && !(typeof data['namespace'] === 'string' || data['namespace'] instanceof String)) {
+            throw new Error("Expected the field `namespace` to be a primitive type in the JSON string but got " + data['namespace']);
+        }
+        // ensure the json data is a string
+        if (data['version'] && !(typeof data['version'] === 'string' || data['version'] instanceof String)) {
+            throw new Error("Expected the field `version` to be a primitive type in the JSON string but got " + data['version']);
+        }
+        // ensure the json data is a string
+        if (data['content'] && !(typeof data['content'] === 'string' || data['content'] instanceof String)) {
+            throw new Error("Expected the field `content` to be a primitive type in the JSON string but got " + data['content']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} uuid

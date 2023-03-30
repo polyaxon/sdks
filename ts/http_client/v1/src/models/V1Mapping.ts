@@ -59,6 +59,15 @@ export interface V1Mapping {
     earlyStopping?: Array<object>;
 }
 
+/**
+ * Check if a given object implements the V1Mapping interface.
+ */
+export function instanceOfV1Mapping(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1MappingFromJSON(json: any): V1Mapping {
     return V1MappingFromJSONTyped(json, false);
 }

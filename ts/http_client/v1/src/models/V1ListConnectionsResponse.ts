@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ConnectionResponse } from './V1ConnectionResponse';
 import {
-    V1ConnectionResponse,
     V1ConnectionResponseFromJSON,
     V1ConnectionResponseFromJSONTyped,
     V1ConnectionResponseToJSON,
-} from './';
+} from './V1ConnectionResponse';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListConnectionsResponse {
      * @memberof V1ListConnectionsResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListConnectionsResponse interface.
+ */
+export function instanceOfV1ListConnectionsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListConnectionsResponseFromJSON(json: any): V1ListConnectionsResponse {

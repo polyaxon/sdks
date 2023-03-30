@@ -47,6 +47,15 @@ export interface V1HpDateRange {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpDateRange interface.
+ */
+export function instanceOfV1HpDateRange(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpDateRangeFromJSON(json: any): V1HpDateRange {
     return V1HpDateRangeFromJSONTyped(json, false);
 }

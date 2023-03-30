@@ -26,18 +26,20 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * - roc: ROC curve
  *  - pr: Precision Recall curve
  *  - custom: Custom curve
  * @export
- * @enum {string}
  */
-export enum V1EventCurveKind {
-    Roc = 'roc',
-    Pr = 'pr',
-    Custom = 'custom'
-}
+export const V1EventCurveKind = {
+    Roc: 'roc',
+    Pr: 'pr',
+    Custom: 'custom'
+} as const;
+export type V1EventCurveKind = typeof V1EventCurveKind[keyof typeof V1EventCurveKind];
+
 
 export function V1EventCurveKindFromJSON(json: any): V1EventCurveKind {
     return V1EventCurveKindFromJSONTyped(json, false);

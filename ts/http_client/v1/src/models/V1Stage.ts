@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1StageCondition } from './V1StageCondition';
 import {
-    V1StageCondition,
     V1StageConditionFromJSON,
     V1StageConditionFromJSONTyped,
     V1StageConditionToJSON,
-    V1Stages,
+} from './V1StageCondition';
+import type { V1Stages } from './V1Stages';
+import {
     V1StagesFromJSON,
     V1StagesFromJSONTyped,
     V1StagesToJSON,
-} from './';
+} from './V1Stages';
 
 /**
  * 
@@ -62,6 +64,15 @@ export interface V1Stage {
      * @memberof V1Stage
      */
     stage_conditions?: Array<V1StageCondition>;
+}
+
+/**
+ * Check if a given object implements the V1Stage interface.
+ */
+export function instanceOfV1Stage(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1StageFromJSON(json: any): V1Stage {

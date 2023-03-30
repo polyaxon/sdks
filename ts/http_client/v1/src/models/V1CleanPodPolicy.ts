@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1CleanPodPolicy {
-    All = 'All',
-    Running = 'Running',
-    None = 'None'
-}
+export const V1CleanPodPolicy = {
+    All: 'All',
+    Running: 'Running',
+    None: 'None'
+} as const;
+export type V1CleanPodPolicy = typeof V1CleanPodPolicy[keyof typeof V1CleanPodPolicy];
+
 
 export function V1CleanPodPolicyFromJSON(json: any): V1CleanPodPolicy {
     return V1CleanPodPolicyFromJSONTyped(json, false);

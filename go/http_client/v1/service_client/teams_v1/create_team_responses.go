@@ -87,9 +87,44 @@ type CreateTeamOK struct {
 	Payload *service_model.V1Team
 }
 
+// IsSuccess returns true when this create team o k response has a 2xx status code
+func (o *CreateTeamOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create team o k response has a 3xx status code
+func (o *CreateTeamOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create team o k response has a 4xx status code
+func (o *CreateTeamOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create team o k response has a 5xx status code
+func (o *CreateTeamOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create team o k response a status code equal to that given
+func (o *CreateTeamOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the create team o k response
+func (o *CreateTeamOK) Code() int {
+	return 200
+}
+
 func (o *CreateTeamOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateTeamOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateTeamOK) GetPayload() *service_model.V1Team {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type CreateTeamNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create team no content response has a 2xx status code
+func (o *CreateTeamNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create team no content response has a 3xx status code
+func (o *CreateTeamNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create team no content response has a 4xx status code
+func (o *CreateTeamNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create team no content response has a 5xx status code
+func (o *CreateTeamNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create team no content response a status code equal to that given
+func (o *CreateTeamNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the create team no content response
+func (o *CreateTeamNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateTeamNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateTeamNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateTeamNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type CreateTeamForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create team forbidden response has a 2xx status code
+func (o *CreateTeamForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create team forbidden response has a 3xx status code
+func (o *CreateTeamForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create team forbidden response has a 4xx status code
+func (o *CreateTeamForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create team forbidden response has a 5xx status code
+func (o *CreateTeamForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create team forbidden response a status code equal to that given
+func (o *CreateTeamForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the create team forbidden response
+func (o *CreateTeamForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateTeamForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateTeamForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateTeamForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type CreateTeamNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create team not found response has a 2xx status code
+func (o *CreateTeamNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create team not found response has a 3xx status code
+func (o *CreateTeamNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create team not found response has a 4xx status code
+func (o *CreateTeamNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create team not found response has a 5xx status code
+func (o *CreateTeamNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create team not found response a status code equal to that given
+func (o *CreateTeamNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create team not found response
+func (o *CreateTeamNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateTeamNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateTeamNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateTeamNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type CreateTeamDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this create team default response has a 2xx status code
+func (o *CreateTeamDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create team default response has a 3xx status code
+func (o *CreateTeamDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create team default response has a 4xx status code
+func (o *CreateTeamDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create team default response has a 5xx status code
+func (o *CreateTeamDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create team default response a status code equal to that given
+func (o *CreateTeamDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the create team default response
 func (o *CreateTeamDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *CreateTeamDefault) Code() int {
 func (o *CreateTeamDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] CreateTeam default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateTeamDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] CreateTeam default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateTeamDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

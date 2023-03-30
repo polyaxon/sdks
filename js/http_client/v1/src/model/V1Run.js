@@ -181,8 +181,90 @@ class V1Run {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Run</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Run</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tags'])) {
+            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
+        }
+        // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
+        }
+        // ensure the json data is a string
+        if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
+            throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
+        if (data['project'] && !(typeof data['project'] === 'string' || data['project'] instanceof String)) {
+            throw new Error("Expected the field `project` to be a primitive type in the JSON string but got " + data['project']);
+        }
+        // ensure the json data is a string
+        if (data['content'] && !(typeof data['content'] === 'string' || data['content'] instanceof String)) {
+            throw new Error("Expected the field `content` to be a primitive type in the JSON string but got " + data['content']);
+        }
+        // ensure the json data is a string
+        if (data['raw_content'] && !(typeof data['raw_content'] === 'string' || data['raw_content'] instanceof String)) {
+            throw new Error("Expected the field `raw_content` to be a primitive type in the JSON string but got " + data['raw_content']);
+        }
+        // ensure the json data is a string
+        if (data['readme'] && !(typeof data['readme'] === 'string' || data['readme'] instanceof String)) {
+            throw new Error("Expected the field `readme` to be a primitive type in the JSON string but got " + data['readme']);
+        }
+        // validate the optional field `original`
+        if (data['original']) { // data not null
+          V1Cloning.validateJSON(data['original']);
+        }
+        // validate the optional field `pipeline`
+        if (data['pipeline']) { // data not null
+          V1Pipeline.validateJSON(data['pipeline']);
+        }
+        if (data['status_conditions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['status_conditions'])) {
+                throw new Error("Expected the field `status_conditions` to be an array in the JSON data but got " + data['status_conditions']);
+            }
+            // validate the optional field `status_conditions` (array)
+            for (const item of data['status_conditions']) {
+                V1StatusCondition.validateJsonObject(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['role'] && !(typeof data['role'] === 'string' || data['role'] instanceof String)) {
+            throw new Error("Expected the field `role` to be a primitive type in the JSON string but got " + data['role']);
+        }
+        // validate the optional field `settings`
+        if (data['settings']) { // data not null
+          V1RunSettings.validateJSON(data['settings']);
+        }
+        // validate the optional field `resources`
+        if (data['resources']) { // data not null
+          V1RunResources.validateJSON(data['resources']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} uuid

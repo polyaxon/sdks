@@ -90,8 +90,44 @@ class V1Team {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Team</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Team</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['projects'])) {
+            throw new Error("Expected the field `projects` to be an array in the JSON data but got " + data['projects']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['component_hubs'])) {
+            throw new Error("Expected the field `component_hubs` to be an array in the JSON data but got " + data['component_hubs']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['model_registries'])) {
+            throw new Error("Expected the field `model_registries` to be an array in the JSON data but got " + data['model_registries']);
+        }
+        // validate the optional field `settings`
+        if (data['settings']) { // data not null
+          V1TeamSettings.validateJSON(data['settings']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} uuid

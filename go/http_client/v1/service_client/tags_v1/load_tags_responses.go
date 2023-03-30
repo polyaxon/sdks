@@ -87,9 +87,44 @@ type LoadTagsOK struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this load tags o k response has a 2xx status code
+func (o *LoadTagsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this load tags o k response has a 3xx status code
+func (o *LoadTagsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this load tags o k response has a 4xx status code
+func (o *LoadTagsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this load tags o k response has a 5xx status code
+func (o *LoadTagsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this load tags o k response a status code equal to that given
+func (o *LoadTagsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the load tags o k response
+func (o *LoadTagsOK) Code() int {
+	return 200
+}
+
 func (o *LoadTagsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsOK  %+v", 200, o.Payload)
 }
+
+func (o *LoadTagsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsOK  %+v", 200, o.Payload)
+}
+
 func (o *LoadTagsOK) GetPayload() interface{} {
 	return o.Payload
 }
@@ -118,9 +153,44 @@ type LoadTagsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this load tags no content response has a 2xx status code
+func (o *LoadTagsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this load tags no content response has a 3xx status code
+func (o *LoadTagsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this load tags no content response has a 4xx status code
+func (o *LoadTagsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this load tags no content response has a 5xx status code
+func (o *LoadTagsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this load tags no content response a status code equal to that given
+func (o *LoadTagsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the load tags no content response
+func (o *LoadTagsNoContent) Code() int {
+	return 204
+}
+
 func (o *LoadTagsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *LoadTagsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *LoadTagsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -149,9 +219,44 @@ type LoadTagsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this load tags forbidden response has a 2xx status code
+func (o *LoadTagsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this load tags forbidden response has a 3xx status code
+func (o *LoadTagsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this load tags forbidden response has a 4xx status code
+func (o *LoadTagsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this load tags forbidden response has a 5xx status code
+func (o *LoadTagsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this load tags forbidden response a status code equal to that given
+func (o *LoadTagsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the load tags forbidden response
+func (o *LoadTagsForbidden) Code() int {
+	return 403
+}
+
 func (o *LoadTagsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *LoadTagsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *LoadTagsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -180,9 +285,44 @@ type LoadTagsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this load tags not found response has a 2xx status code
+func (o *LoadTagsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this load tags not found response has a 3xx status code
+func (o *LoadTagsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this load tags not found response has a 4xx status code
+func (o *LoadTagsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this load tags not found response has a 5xx status code
+func (o *LoadTagsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this load tags not found response a status code equal to that given
+func (o *LoadTagsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the load tags not found response
+func (o *LoadTagsNotFound) Code() int {
+	return 404
+}
+
 func (o *LoadTagsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *LoadTagsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *LoadTagsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -215,6 +355,31 @@ type LoadTagsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this load tags default response has a 2xx status code
+func (o *LoadTagsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this load tags default response has a 3xx status code
+func (o *LoadTagsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this load tags default response has a 4xx status code
+func (o *LoadTagsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this load tags default response has a 5xx status code
+func (o *LoadTagsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this load tags default response a status code equal to that given
+func (o *LoadTagsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the load tags default response
 func (o *LoadTagsDefault) Code() int {
 	return o._statusCode
@@ -223,6 +388,11 @@ func (o *LoadTagsDefault) Code() int {
 func (o *LoadTagsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] LoadTags default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *LoadTagsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] LoadTags default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *LoadTagsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

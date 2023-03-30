@@ -27,24 +27,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { MXJobMode } from './MXJobMode';
 import {
-    MXJobMode,
     MXJobModeFromJSON,
     MXJobModeFromJSONTyped,
     MXJobModeToJSON,
-    V1CleanPodPolicy,
+} from './MXJobMode';
+import type { V1CleanPodPolicy } from './V1CleanPodPolicy';
+import {
     V1CleanPodPolicyFromJSON,
     V1CleanPodPolicyFromJSONTyped,
     V1CleanPodPolicyToJSON,
-    V1KFReplica,
+} from './V1CleanPodPolicy';
+import type { V1KFReplica } from './V1KFReplica';
+import {
     V1KFReplicaFromJSON,
     V1KFReplicaFromJSONTyped,
     V1KFReplicaToJSON,
-    V1SchedulingPolicy,
+} from './V1KFReplica';
+import type { V1SchedulingPolicy } from './V1SchedulingPolicy';
+import {
     V1SchedulingPolicyFromJSON,
     V1SchedulingPolicyFromJSONTyped,
     V1SchedulingPolicyToJSON,
-} from './';
+} from './V1SchedulingPolicy';
 
 /**
  * 
@@ -112,6 +118,15 @@ export interface V1MXJob {
      * @memberof V1MXJob
      */
     tuner?: V1KFReplica;
+}
+
+/**
+ * Check if a given object implements the V1MXJob interface.
+ */
+export function instanceOfV1MXJob(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MXJobFromJSON(json: any): V1MXJob {

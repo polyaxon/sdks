@@ -79,8 +79,34 @@ class V1Status {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Status</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Status</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        if (data['status_conditions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['status_conditions'])) {
+                throw new Error("Expected the field `status_conditions` to be an array in the JSON data but got " + data['status_conditions']);
+            }
+            // validate the optional field `status_conditions` (array)
+            for (const item of data['status_conditions']) {
+                V1StatusCondition.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} uuid

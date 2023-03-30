@@ -87,8 +87,48 @@ class V1EntityNotificationBody {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EntityNotificationBody</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EntityNotificationBody</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['namespace'] && !(typeof data['namespace'] === 'string' || data['namespace'] instanceof String)) {
+            throw new Error("Expected the field `namespace` to be a primitive type in the JSON string but got " + data['namespace']);
+        }
+        // ensure the json data is a string
+        if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
+            throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
+        if (data['project'] && !(typeof data['project'] === 'string' || data['project'] instanceof String)) {
+            throw new Error("Expected the field `project` to be a primitive type in the JSON string but got " + data['project']);
+        }
+        // ensure the json data is a string
+        if (data['uuid'] && !(typeof data['uuid'] === 'string' || data['uuid'] instanceof String)) {
+            throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // validate the optional field `condition`
+        if (data['condition']) { // data not null
+          V1StatusCondition.validateJSON(data['condition']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['connections'])) {
+            throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} namespace

@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Tag } from './V1Tag';
 import {
-    V1Tag,
     V1TagFromJSON,
     V1TagFromJSONTyped,
     V1TagToJSON,
-} from './';
+} from './V1Tag';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListTagsResponse {
      * @memberof V1ListTagsResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListTagsResponse interface.
+ */
+export function instanceOfV1ListTagsResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListTagsResponseFromJSON(json: any): V1ListTagsResponse {

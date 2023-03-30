@@ -87,9 +87,44 @@ type CreateProjectSearchOK struct {
 	Payload *service_model.V1Search
 }
 
+// IsSuccess returns true when this create project search o k response has a 2xx status code
+func (o *CreateProjectSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create project search o k response has a 3xx status code
+func (o *CreateProjectSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project search o k response has a 4xx status code
+func (o *CreateProjectSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create project search o k response has a 5xx status code
+func (o *CreateProjectSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project search o k response a status code equal to that given
+func (o *CreateProjectSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the create project search o k response
+func (o *CreateProjectSearchOK) Code() int {
+	return 200
+}
+
 func (o *CreateProjectSearchOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchOK  %+v", 200, o.Payload)
 }
+
+func (o *CreateProjectSearchOK) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchOK  %+v", 200, o.Payload)
+}
+
 func (o *CreateProjectSearchOK) GetPayload() *service_model.V1Search {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type CreateProjectSearchNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project search no content response has a 2xx status code
+func (o *CreateProjectSearchNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this create project search no content response has a 3xx status code
+func (o *CreateProjectSearchNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project search no content response has a 4xx status code
+func (o *CreateProjectSearchNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this create project search no content response has a 5xx status code
+func (o *CreateProjectSearchNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project search no content response a status code equal to that given
+func (o *CreateProjectSearchNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the create project search no content response
+func (o *CreateProjectSearchNoContent) Code() int {
+	return 204
+}
+
 func (o *CreateProjectSearchNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchNoContent  %+v", 204, o.Payload)
 }
+
+func (o *CreateProjectSearchNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchNoContent  %+v", 204, o.Payload)
+}
+
 func (o *CreateProjectSearchNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type CreateProjectSearchForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project search forbidden response has a 2xx status code
+func (o *CreateProjectSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create project search forbidden response has a 3xx status code
+func (o *CreateProjectSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project search forbidden response has a 4xx status code
+func (o *CreateProjectSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create project search forbidden response has a 5xx status code
+func (o *CreateProjectSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project search forbidden response a status code equal to that given
+func (o *CreateProjectSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the create project search forbidden response
+func (o *CreateProjectSearchForbidden) Code() int {
+	return 403
+}
+
 func (o *CreateProjectSearchForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchForbidden  %+v", 403, o.Payload)
 }
+
+func (o *CreateProjectSearchForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchForbidden  %+v", 403, o.Payload)
+}
+
 func (o *CreateProjectSearchForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type CreateProjectSearchNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this create project search not found response has a 2xx status code
+func (o *CreateProjectSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this create project search not found response has a 3xx status code
+func (o *CreateProjectSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this create project search not found response has a 4xx status code
+func (o *CreateProjectSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this create project search not found response has a 5xx status code
+func (o *CreateProjectSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this create project search not found response a status code equal to that given
+func (o *CreateProjectSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the create project search not found response
+func (o *CreateProjectSearchNotFound) Code() int {
+	return 404
+}
+
 func (o *CreateProjectSearchNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchNotFound  %+v", 404, o.Payload)
 }
+
+func (o *CreateProjectSearchNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] createProjectSearchNotFound  %+v", 404, o.Payload)
+}
+
 func (o *CreateProjectSearchNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type CreateProjectSearchDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this create project search default response has a 2xx status code
+func (o *CreateProjectSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this create project search default response has a 3xx status code
+func (o *CreateProjectSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this create project search default response has a 4xx status code
+func (o *CreateProjectSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this create project search default response has a 5xx status code
+func (o *CreateProjectSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this create project search default response a status code equal to that given
+func (o *CreateProjectSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the create project search default response
 func (o *CreateProjectSearchDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *CreateProjectSearchDefault) Code() int {
 func (o *CreateProjectSearchDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] CreateProjectSearch default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *CreateProjectSearchDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/searches][%d] CreateProjectSearch default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *CreateProjectSearchDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

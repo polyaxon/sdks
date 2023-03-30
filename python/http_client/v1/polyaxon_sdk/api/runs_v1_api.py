@@ -31,8 +31,35 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
+from pydantic import validate_arguments, ValidationError
+from typing_extensions import Annotated
+
+from datetime import datetime
+
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+
+from typing import Any, Dict, Optional
+
+from polyaxon_sdk.models.v1_artifact_tree import V1ArtifactTree
+from polyaxon_sdk.models.v1_auth import V1Auth
+from polyaxon_sdk.models.v1_entities_tags import V1EntitiesTags
+from polyaxon_sdk.models.v1_entities_transfer import V1EntitiesTransfer
+from polyaxon_sdk.models.v1_entity_notification_body import V1EntityNotificationBody
+from polyaxon_sdk.models.v1_entity_status_body_request import V1EntityStatusBodyRequest
+from polyaxon_sdk.models.v1_events_response import V1EventsResponse
+from polyaxon_sdk.models.v1_list_bookmarks_response import V1ListBookmarksResponse
+from polyaxon_sdk.models.v1_list_run_artifacts_response import V1ListRunArtifactsResponse
+from polyaxon_sdk.models.v1_list_run_connections_response import V1ListRunConnectionsResponse
+from polyaxon_sdk.models.v1_list_run_edges_response import V1ListRunEdgesResponse
+from polyaxon_sdk.models.v1_list_runs_response import V1ListRunsResponse
+from polyaxon_sdk.models.v1_logs import V1Logs
+from polyaxon_sdk.models.v1_operation_body import V1OperationBody
+from polyaxon_sdk.models.v1_run import V1Run
+from polyaxon_sdk.models.v1_run_artifact import V1RunArtifact
+from polyaxon_sdk.models.v1_run_artifacts import V1RunArtifacts
+from polyaxon_sdk.models.v1_run_settings import V1RunSettings
+from polyaxon_sdk.models.v1_status import V1Status
+from polyaxon_sdk.models.v1_uuids import V1Uuids
 
 from polyaxon_sdk.api_client import ApiClient
 from polyaxon_sdk.exceptions import (  # noqa: F401
@@ -50,10 +77,11 @@ class RunsV1Api(object):
 
     def __init__(self, api_client=None):
         if api_client is None:
-            api_client = ApiClient()
+            api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    def approve_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def approve_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Approve run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -86,7 +114,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.approve_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def approve_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def approve_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Approve run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -118,95 +147,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method approve_run" % key
+                    " to method approve_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `approve_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `approve_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `approve_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/approve', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def approve_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def approve_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Approve runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -239,7 +267,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.approve_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def approve_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def approve_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Approve runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -271,99 +300,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method approve_runs" % key
+                    " to method approve_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `approve_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `approve_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `approve_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/approve', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def archive_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def archive_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Archive run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -396,7 +427,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.archive_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def archive_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def archive_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Archive run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -428,95 +460,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method archive_run" % key
+                    " to method archive_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `archive_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `archive_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `archive_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/archive', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def archive_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def archive_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Archive runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -549,7 +580,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.archive_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def archive_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def archive_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Archive runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -581,99 +613,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method archive_runs" % key
+                    " to method archive_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `archive_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `archive_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `archive_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/archive', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def bookmark_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def bookmark_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Bookmark run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -706,7 +740,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.bookmark_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def bookmark_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def bookmark_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Bookmark run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -738,95 +773,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method bookmark_run" % key
+                    " to method bookmark_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `bookmark_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `bookmark_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `bookmark_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/bookmark', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def bookmark_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def bookmark_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Bookmark runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -859,7 +893,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.bookmark_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def bookmark_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def bookmark_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Bookmark runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -891,99 +926,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method bookmark_runs" % key
+                    " to method bookmark_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `bookmark_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `bookmark_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `bookmark_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/bookmark', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def collect_run_logs(self, namespace, owner, project, uuid, kind, **kwargs):  # noqa: E501
+    @validate_arguments
+    def collect_run_logs(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="Kind of the entity")], **kwargs) -> None:  # noqa: E501
         """Internal API to collect run logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1020,7 +1057,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.collect_run_logs_with_http_info(namespace, owner, project, uuid, kind, **kwargs)  # noqa: E501
 
-    def collect_run_logs_with_http_info(self, namespace, owner, project, uuid, kind, **kwargs):  # noqa: E501
+    @validate_arguments
+    def collect_run_logs_with_http_info(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="Kind of the entity")], **kwargs):  # noqa: E501
         """Internal API to collect run logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1056,109 +1094,100 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
             'uuid',
             'kind'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method collect_run_logs" % key
+                    " to method collect_run_logs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `collect_run_logs`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `collect_run_logs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `collect_run_logs`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `collect_run_logs`")  # noqa: E501
-        # verify the required parameter 'kind' is set
-        if self.api_client.client_side_validation and ('kind' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kind'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kind` when calling `collect_run_logs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
-        if 'kind' in local_var_params:
-            path_params['kind'] = local_var_params['kind']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
+        if _params['kind']:
+            _path_params['kind'] = _params['kind']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def copy_run(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def copy_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> V1Run:  # noqa: E501
         """Restart run with copy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1193,7 +1222,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.copy_run_with_http_info(owner, project, run_uuid, body, **kwargs)  # noqa: E501
 
-    def copy_run_with_http_info(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def copy_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Restart run with copy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1227,111 +1257,109 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'run_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method copy_run" % key
+                    " to method copy_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `copy_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `copy_run`")  # noqa: E501
-        # verify the required parameter 'run_uuid' is set
-        if self.api_client.client_side_validation and ('run_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['run_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_uuid` when calling `copy_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `copy_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'run_uuid' in local_var_params:
-            path_params['run.uuid'] = local_var_params['run_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['run_uuid']:
+            _path_params['run.uuid'] = _params['run_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{run.uuid}/copy', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def create_run(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], body : Annotated[V1OperationBody, Field(..., description="operation object")], **kwargs) -> V1Run:  # noqa: E501
         """Create new run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1364,7 +1392,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.create_run_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def create_run_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], body : Annotated[V1OperationBody, Field(..., description="operation object")], **kwargs):  # noqa: E501
         """Create new run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1396,104 +1425,106 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_run" % key
+                    " to method create_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `create_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `create_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `create_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def create_run_artifacts_lineage(self, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_run_artifacts_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : Annotated[V1RunArtifacts, Field(..., description="Run Artifacts")], **kwargs) -> None:  # noqa: E501
         """Create bulk run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1528,7 +1559,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.create_run_artifacts_lineage_with_http_info(owner, project, uuid, body, **kwargs)  # noqa: E501
 
-    def create_run_artifacts_lineage_with_http_info(self, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_run_artifacts_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : Annotated[V1RunArtifacts, Field(..., description="Run Artifacts")], **kwargs):  # noqa: E501
         """Create bulk run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1562,106 +1594,104 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_run_artifacts_lineage" % key
+                    " to method create_run_artifacts_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `create_run_artifacts_lineage`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `create_run_artifacts_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `create_run_artifacts_lineage`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `create_run_artifacts_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def create_run_status(self, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_run_status(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : V1EntityStatusBodyRequest, **kwargs) -> V1Status:  # noqa: E501
         """Create new run status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1696,7 +1726,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.create_run_status_with_http_info(owner, project, uuid, body, **kwargs)  # noqa: E501
 
-    def create_run_status_with_http_info(self, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_run_status_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : V1EntityStatusBodyRequest, **kwargs):  # noqa: E501
         """Create new run status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1730,111 +1761,109 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Status, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_run_status" % key
+                    " to method create_run_status" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `create_run_status`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `create_run_status`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `create_run_status`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `create_run_status`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Status",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Status",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{uuid}/statuses', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def delete_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Delete run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1867,7 +1896,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.delete_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def delete_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Delete run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1899,101 +1929,100 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_run" % key
+                    " to method delete_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `delete_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `delete_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `delete_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def delete_run_artifact(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_artifact(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, **kwargs) -> None:  # noqa: E501
         """Delete run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_run_artifact(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.delete_run_artifact(namespace, owner, project, uuid, path, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -2022,15 +2051,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_run_artifact_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.delete_run_artifact_with_http_info(namespace, owner, project, uuid, path, **kwargs)  # noqa: E501
 
-    def delete_run_artifact_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_artifact_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, **kwargs):  # noqa: E501
         """Delete run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_run_artifact_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.delete_run_artifact_with_http_info(namespace, owner, project, uuid, path, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -2060,111 +2090,106 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
             'uuid',
             'path'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_run_artifact" % key
+                    " to method delete_run_artifact" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `delete_run_artifact`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `delete_run_artifact`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `delete_run_artifact`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `delete_run_artifact`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def delete_run_artifact_lineage(self, owner, project, uuid, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_artifact_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], name : Annotated[StrictStr, Field(..., description="Artifact name")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, **kwargs) -> None:  # noqa: E501
         """Delete run artifact lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_run_artifact_lineage(owner, project, uuid, name, async_req=True)
+        >>> thread = api.delete_run_artifact_lineage(owner, project, uuid, name, namespace, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -2193,15 +2218,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_run_artifact_lineage_with_http_info(owner, project, uuid, name, **kwargs)  # noqa: E501
+        return self.delete_run_artifact_lineage_with_http_info(owner, project, uuid, name, namespace, **kwargs)  # noqa: E501
 
-    def delete_run_artifact_lineage_with_http_info(self, owner, project, uuid, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_artifact_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], name : Annotated[StrictStr, Field(..., description="Artifact name")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, **kwargs):  # noqa: E501
         """Delete run artifact lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_run_artifact_lineage_with_http_info(owner, project, uuid, name, async_req=True)
+        >>> thread = api.delete_run_artifact_lineage_with_http_info(owner, project, uuid, name, namespace, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -2231,111 +2257,106 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'uuid',
             'name',
             'namespace'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_run_artifact_lineage" % key
+                    " to method delete_run_artifact_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `delete_run_artifact_lineage`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `delete_run_artifact_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `delete_run_artifact_lineage`")  # noqa: E501
-        # verify the required parameter 'name' is set
-        if self.api_client.client_side_validation and ('name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `name` when calling `delete_run_artifact_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
-        if 'name' in local_var_params:
-            path_params['name'] = local_var_params['name']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
-        query_params = []
-        if 'namespace' in local_var_params and local_var_params['namespace'] is not None:  # noqa: E501
-            query_params.append(('namespace', local_var_params['namespace']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('namespace') is not None:  # noqa: E501
+            _query_params.append(('namespace', _params['namespace']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def delete_run_artifacts(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_artifacts(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, **kwargs) -> None:  # noqa: E501
         """Delete run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_run_artifacts(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.delete_run_artifacts(namespace, owner, project, uuid, path, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -2364,15 +2385,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_run_artifacts_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.delete_run_artifacts_with_http_info(namespace, owner, project, uuid, path, **kwargs)  # noqa: E501
 
-    def delete_run_artifacts_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_run_artifacts_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, **kwargs):  # noqa: E501
         """Delete run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_run_artifacts_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.delete_run_artifacts_with_http_info(namespace, owner, project, uuid, path, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -2402,105 +2424,100 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
             'uuid',
             'path'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_run_artifacts" % key
+                    " to method delete_run_artifacts" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `delete_run_artifacts`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `delete_run_artifacts`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `delete_run_artifacts`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `delete_run_artifacts`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def delete_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Delete runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2533,7 +2550,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.delete_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def delete_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Delete runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2565,105 +2583,274 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_runs" % key
+                    " to method delete_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `delete_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `delete_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `delete_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/delete', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_multi_run_events(self, namespace, owner, project, kind, **kwargs):  # noqa: E501
+    @validate_arguments
+    def deprecated_collect_run_logs(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="Kind of the entity")], **kwargs) -> None:  # noqa: E501
+        """Deprecated Collect run logs (# TODO: Remove in v2)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.deprecated_collect_run_logs(namespace, owner, project, uuid, kind, async_req=True)
+        >>> result = thread.get()
+
+        :param namespace: (required)
+        :type namespace: str
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param project: Project where the run will be assigned (required)
+        :type project: str
+        :param uuid: Uuid identifier of the entity (required)
+        :type uuid: str
+        :param kind: Kind of the entity (required)
+        :type kind: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.deprecated_collect_run_logs_with_http_info(namespace, owner, project, uuid, kind, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def deprecated_collect_run_logs_with_http_info(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="Kind of the entity")], **kwargs):  # noqa: E501
+        """Deprecated Collect run logs (# TODO: Remove in v2)  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.deprecated_collect_run_logs_with_http_info(namespace, owner, project, uuid, kind, async_req=True)
+        >>> result = thread.get()
+
+        :param namespace: (required)
+        :type namespace: str
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param project: Project where the run will be assigned (required)
+        :type project: str
+        :param uuid: Uuid identifier of the entity (required)
+        :type uuid: str
+        :param kind: Kind of the entity (required)
+        :type kind: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'namespace',
+            'owner',
+            'project',
+            'uuid',
+            'kind'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method deprecated_collect_run_logs" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
+        if _params['kind']:
+            _path_params['kind'] = _params['kind']
+
+        # process the query parameters
+        _query_params = []
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+
+        # process the form parameters
+        _form_params = []
+        _files = {}
+
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
+
+        _response_types_map = {}
+
+        return self.api_client.call_api(
+            '/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_multi_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get multi runs events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_multi_run_events(namespace, owner, project, kind, async_req=True)
+        >>> thread = api.get_multi_run_events(namespace, owner, project, kind, names, runs, orient, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -2700,15 +2887,16 @@ class RunsV1Api(object):
         :rtype: V1EventsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_multi_run_events_with_http_info(namespace, owner, project, kind, **kwargs)  # noqa: E501
+        return self.get_multi_run_events_with_http_info(namespace, owner, project, kind, names, runs, orient, force, sample, **kwargs)  # noqa: E501
 
-    def get_multi_run_events_with_http_info(self, namespace, owner, project, kind, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_multi_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs):  # noqa: E501
         """Get multi runs events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_multi_run_events_with_http_info(namespace, owner, project, kind, async_req=True)
+        >>> thread = api.get_multi_run_events_with_http_info(namespace, owner, project, kind, names, runs, orient, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -2746,15 +2934,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1EventsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -2765,103 +2954,97 @@ class RunsV1Api(object):
             'force',
             'sample'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_multi_run_events" % key
+                    " to method get_multi_run_events" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_multi_run_events`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_multi_run_events`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_multi_run_events`")  # noqa: E501
-        # verify the required parameter 'kind' is set
-        if self.api_client.client_side_validation and ('kind' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kind'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kind` when calling `get_multi_run_events`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'kind' in local_var_params:
-            path_params['kind'] = local_var_params['kind']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['kind']:
+            _path_params['kind'] = _params['kind']
 
-        query_params = []
-        if 'names' in local_var_params and local_var_params['names'] is not None:  # noqa: E501
-            query_params.append(('names', local_var_params['names']))  # noqa: E501
-        if 'runs' in local_var_params and local_var_params['runs'] is not None:  # noqa: E501
-            query_params.append(('runs', local_var_params['runs']))  # noqa: E501
-        if 'orient' in local_var_params and local_var_params['orient'] is not None:  # noqa: E501
-            query_params.append(('orient', local_var_params['orient']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
-        if 'sample' in local_var_params and local_var_params['sample'] is not None:  # noqa: E501
-            query_params.append(('sample', local_var_params['sample']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('names') is not None:  # noqa: E501
+            _query_params.append(('names', _params['names']))
+        if _params.get('runs') is not None:  # noqa: E501
+            _query_params.append(('runs', _params['runs']))
+        if _params.get('orient') is not None:  # noqa: E501
+            _query_params.append(('orient', _params['orient']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
+        if _params.get('sample') is not None:  # noqa: E501
+            _query_params.append(('sample', _params['sample']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1EventsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1EventsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> V1Run:  # noqa: E501
         """Get run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2894,7 +3077,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def get_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Get run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2926,106 +3110,105 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run" % key
+                    " to method get_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_artifact(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifact(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, stream : Annotated[Optional[StrictBool], Field(description="Whether to stream the file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs) -> str:  # noqa: E501
         """Get run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifact(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_artifact(namespace, owner, project, uuid, path, stream, force, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -3058,15 +3241,16 @@ class RunsV1Api(object):
         :rtype: str
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifact_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.get_run_artifact_with_http_info(namespace, owner, project, uuid, path, stream, force, **kwargs)  # noqa: E501
 
-    def get_run_artifact_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifact_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, stream : Annotated[Optional[StrictBool], Field(description="Whether to stream the file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs):  # noqa: E501
         """Get run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifact_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_artifact_with_http_info(namespace, owner, project, uuid, path, stream, force, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -3100,15 +3284,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -3117,105 +3302,99 @@ class RunsV1Api(object):
             'stream',
             'force'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_artifact" % key
+                    " to method get_run_artifact" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_artifact`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_artifact`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_artifact`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_artifact`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
-        if 'stream' in local_var_params and local_var_params['stream'] is not None:  # noqa: E501
-            query_params.append(('stream', local_var_params['stream']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
+        if _params.get('stream') is not None:  # noqa: E501
+            _query_params.append(('stream', _params['stream']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "str",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "str",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_artifact_lineage(self, owner, project, uuid, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifact_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], name : Annotated[StrictStr, Field(..., description="Artifact name")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, **kwargs) -> V1RunArtifact:  # noqa: E501
         """Get run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifact_lineage(owner, project, uuid, name, async_req=True)
+        >>> thread = api.get_run_artifact_lineage(owner, project, uuid, name, namespace, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3244,15 +3423,16 @@ class RunsV1Api(object):
         :rtype: V1RunArtifact
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifact_lineage_with_http_info(owner, project, uuid, name, **kwargs)  # noqa: E501
+        return self.get_run_artifact_lineage_with_http_info(owner, project, uuid, name, namespace, **kwargs)  # noqa: E501
 
-    def get_run_artifact_lineage_with_http_info(self, owner, project, uuid, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifact_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], name : Annotated[StrictStr, Field(..., description="Artifact name")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifact_lineage_with_http_info(owner, project, uuid, name, async_req=True)
+        >>> thread = api.get_run_artifact_lineage_with_http_info(owner, project, uuid, name, namespace, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3282,116 +3462,111 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1RunArtifact, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'uuid',
             'name',
             'namespace'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_artifact_lineage" % key
+                    " to method get_run_artifact_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_artifact_lineage`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_artifact_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_artifact_lineage`")  # noqa: E501
-        # verify the required parameter 'name' is set
-        if self.api_client.client_side_validation and ('name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `name` when calling `get_run_artifact_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
-        if 'name' in local_var_params:
-            path_params['name'] = local_var_params['name']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
-        query_params = []
-        if 'namespace' in local_var_params and local_var_params['namespace'] is not None:  # noqa: E501
-            query_params.append(('namespace', local_var_params['namespace']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('namespace') is not None:  # noqa: E501
+            _query_params.append(('namespace', _params['namespace']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1RunArtifact",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1RunArtifact",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_artifacts(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs) -> str:  # noqa: E501
         """Get run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts(namespace, owner, project, uuid, path, force, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -3422,15 +3597,16 @@ class RunsV1Api(object):
         :rtype: str
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifacts_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.get_run_artifacts_with_http_info(namespace, owner, project, uuid, path, force, **kwargs)  # noqa: E501
 
-    def get_run_artifacts_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_with_http_info(namespace, owner, project, uuid, path, force, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -3462,15 +3638,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -3478,103 +3655,97 @@ class RunsV1Api(object):
             'path',
             'force'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_artifacts" % key
+                    " to method get_run_artifacts" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_artifacts`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_artifacts`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_artifacts`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_artifacts`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "str",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "str",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_artifacts_lineage(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
         """Get run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_lineage(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_lineage(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3609,15 +3780,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunArtifactsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifacts_lineage_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_artifacts_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def get_run_artifacts_lineage_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_lineage_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3653,15 +3825,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunArtifactsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -3671,103 +3844,101 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_artifacts_lineage" % key
+                    " to method get_run_artifacts_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_artifacts_lineage`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_artifacts_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_artifacts_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunArtifactsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunArtifactsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/lineage/artifacts', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_artifacts_lineage_names(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_lineage_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
         """Get run artifacts lineage names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_lineage_names(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_lineage_names(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3802,15 +3973,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunArtifactsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifacts_lineage_names_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_artifacts_lineage_names_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def get_run_artifacts_lineage_names_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_lineage_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts lineage names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_lineage_names_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_lineage_names_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3846,15 +4018,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunArtifactsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -3864,103 +4037,101 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_artifacts_lineage_names" % key
+                    " to method get_run_artifacts_lineage_names" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_artifacts_lineage_names`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_artifacts_lineage_names`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_artifacts_lineage_names`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunArtifactsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunArtifactsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/lineage/artifacts/names', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_artifacts_tree(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_tree(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, **kwargs) -> V1ArtifactTree:  # noqa: E501
         """Get run artifacts tree  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_tree(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_tree(namespace, owner, project, uuid, path, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -3989,15 +4160,16 @@ class RunsV1Api(object):
         :rtype: V1ArtifactTree
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifacts_tree_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.get_run_artifacts_tree_with_http_info(namespace, owner, project, uuid, path, **kwargs)  # noqa: E501
 
-    def get_run_artifacts_tree_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_artifacts_tree_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts tree  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_tree_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_artifacts_tree_with_http_info(namespace, owner, project, uuid, path, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -4027,116 +4199,111 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ArtifactTree, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
             'uuid',
             'path'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_artifacts_tree" % key
+                    " to method get_run_artifacts_tree" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_artifacts_tree`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_artifacts_tree`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_artifacts_tree`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_artifacts_tree`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ArtifactTree",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ArtifactTree",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_clones_lineage(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_clones_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunsResponse:  # noqa: E501
         """Get run clones lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_clones_lineage(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_clones_lineage(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -4171,15 +4338,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_clones_lineage_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_clones_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def get_run_clones_lineage_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_clones_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run clones lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_clones_lineage_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_clones_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -4215,15 +4383,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -4233,103 +4402,101 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_clones_lineage" % key
+                    " to method get_run_clones_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_clones_lineage`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_clones_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_clones_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_connections_lineage(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_connections_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunConnectionsResponse:  # noqa: E501
         """Get run connections lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_connections_lineage(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_connections_lineage(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -4364,15 +4531,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunConnectionsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_connections_lineage_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_connections_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def get_run_connections_lineage_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_connections_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run connections lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_connections_lineage_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_connections_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -4408,15 +4576,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunConnectionsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -4426,103 +4595,101 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_connections_lineage" % key
+                    " to method get_run_connections_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_connections_lineage`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_connections_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_connections_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunConnectionsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunConnectionsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_downstream_lineage(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_downstream_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunEdgesResponse:  # noqa: E501
         """Get run downstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_downstream_lineage(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_downstream_lineage(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -4557,15 +4724,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunEdgesResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_downstream_lineage_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_downstream_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def get_run_downstream_lineage_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_downstream_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run downstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_downstream_lineage_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_downstream_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -4601,15 +4769,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunEdgesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -4619,103 +4788,101 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_downstream_lineage" % key
+                    " to method get_run_downstream_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_downstream_lineage`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_downstream_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_downstream_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunEdgesResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunEdgesResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_events(self, namespace, owner, project, uuid, kind, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get run events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_events(namespace, owner, project, uuid, kind, async_req=True)
+        >>> thread = api.get_run_events(namespace, owner, project, uuid, kind, names, orient, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -4752,15 +4919,16 @@ class RunsV1Api(object):
         :rtype: V1EventsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_events_with_http_info(namespace, owner, project, uuid, kind, **kwargs)  # noqa: E501
+        return self.get_run_events_with_http_info(namespace, owner, project, uuid, kind, names, orient, force, sample, **kwargs)  # noqa: E501
 
-    def get_run_events_with_http_info(self, namespace, owner, project, uuid, kind, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs):  # noqa: E501
         """Get run events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_events_with_http_info(namespace, owner, project, uuid, kind, async_req=True)
+        >>> thread = api.get_run_events_with_http_info(namespace, owner, project, uuid, kind, names, orient, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -4798,15 +4966,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1EventsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -4817,107 +4986,97 @@ class RunsV1Api(object):
             'force',
             'sample'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_events" % key
+                    " to method get_run_events" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_events`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_events`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_events`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_events`")  # noqa: E501
-        # verify the required parameter 'kind' is set
-        if self.api_client.client_side_validation and ('kind' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kind'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kind` when calling `get_run_events`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
-        if 'kind' in local_var_params:
-            path_params['kind'] = local_var_params['kind']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
+        if _params['kind']:
+            _path_params['kind'] = _params['kind']
 
-        query_params = []
-        if 'names' in local_var_params and local_var_params['names'] is not None:  # noqa: E501
-            query_params.append(('names', local_var_params['names']))  # noqa: E501
-        if 'orient' in local_var_params and local_var_params['orient'] is not None:  # noqa: E501
-            query_params.append(('orient', local_var_params['orient']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
-        if 'sample' in local_var_params and local_var_params['sample'] is not None:  # noqa: E501
-            query_params.append(('sample', local_var_params['sample']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('names') is not None:  # noqa: E501
+            _query_params.append(('names', _params['names']))
+        if _params.get('orient') is not None:  # noqa: E501
+            _query_params.append(('orient', _params['orient']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
+        if _params.get('sample') is not None:  # noqa: E501
+            _query_params.append(('sample', _params['sample']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1EventsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1EventsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_importance(self, namespace, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_importance(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : Annotated[Dict[str, StrictStr], Field(..., description="Params/Metrics data")], **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get run importance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4954,7 +5113,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_run_importance_with_http_info(namespace, owner, project, uuid, body, **kwargs)  # noqa: E501
 
-    def get_run_importance_with_http_info(self, namespace, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_importance_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : Annotated[Dict[str, StrictStr], Field(..., description="Params/Metrics data")], **kwargs):  # noqa: E501
         """Get run importance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4990,124 +5150,118 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1EventsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
             'uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_importance" % key
+                    " to method get_run_importance" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_importance`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_importance`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_importance`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_importance`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `get_run_importance`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1EventsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1EventsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_logs(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_logs(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], last_time : Annotated[Optional[datetime], Field(description="last time.")] = None, last_file : Annotated[Optional[StrictStr], Field(description="last file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, **kwargs) -> V1Logs:  # noqa: E501
         """Get run logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_logs(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_logs(namespace, owner, project, uuid, last_time, last_file, force, async_req=True)
         >>> result = thread.get()
 
         :param namespace: (required)
@@ -5140,15 +5294,16 @@ class RunsV1Api(object):
         :rtype: V1Logs
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_logs_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.get_run_logs_with_http_info(namespace, owner, project, uuid, last_time, last_file, force, **kwargs)  # noqa: E501
 
-    def get_run_logs_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_logs_with_http_info(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], last_time : Annotated[Optional[datetime], Field(description="last time.")] = None, last_file : Annotated[Optional[StrictStr], Field(description="last file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, **kwargs):  # noqa: E501
         """Get run logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_logs_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_logs_with_http_info(namespace, owner, project, uuid, last_time, last_file, force, async_req=True)
         >>> result = thread.get()
 
         :param namespace: (required)
@@ -5182,15 +5337,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Logs, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -5199,99 +5355,93 @@ class RunsV1Api(object):
             'last_file',
             'force'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_logs" % key
+                    " to method get_run_logs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_logs`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_logs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_logs`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_logs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'last_time' in local_var_params and local_var_params['last_time'] is not None:  # noqa: E501
-            query_params.append(('last_time', local_var_params['last_time']))  # noqa: E501
-        if 'last_file' in local_var_params and local_var_params['last_file'] is not None:  # noqa: E501
-            query_params.append(('last_file', local_var_params['last_file']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('last_time') is not None:  # noqa: E501
+            _query_params.append(('last_time', _params['last_time']))
+        if _params.get('last_file') is not None:  # noqa: E501
+            _query_params.append(('last_file', _params['last_file']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Logs",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Logs",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_namespace(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_namespace(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> V1RunSettings:  # noqa: E501
         """Get Run namespace  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5324,7 +5474,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_run_namespace_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def get_run_namespace_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_namespace_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Get Run namespace  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5356,106 +5507,105 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1RunSettings, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_namespace" % key
+                    " to method get_run_namespace" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_namespace`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_namespace`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_namespace`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1RunSettings",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1RunSettings",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/namespace', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_resources(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_resources(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get run resources events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_resources(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_resources(namespace, owner, project, uuid, names, tail, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -5490,15 +5640,16 @@ class RunsV1Api(object):
         :rtype: V1EventsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_resources_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.get_run_resources_with_http_info(namespace, owner, project, uuid, names, tail, force, sample, **kwargs)  # noqa: E501
 
-    def get_run_resources_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_resources_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs):  # noqa: E501
         """Get run resources events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_resources_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.get_run_resources_with_http_info(namespace, owner, project, uuid, names, tail, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -5534,15 +5685,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1EventsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -5552,101 +5704,95 @@ class RunsV1Api(object):
             'force',
             'sample'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_resources" % key
+                    " to method get_run_resources" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `get_run_resources`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_resources`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `get_run_resources`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_resources`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'names' in local_var_params and local_var_params['names'] is not None:  # noqa: E501
-            query_params.append(('names', local_var_params['names']))  # noqa: E501
-        if 'tail' in local_var_params and local_var_params['tail'] is not None:  # noqa: E501
-            query_params.append(('tail', local_var_params['tail']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
-        if 'sample' in local_var_params and local_var_params['sample'] is not None:  # noqa: E501
-            query_params.append(('sample', local_var_params['sample']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('names') is not None:  # noqa: E501
+            _query_params.append(('names', _params['names']))
+        if _params.get('tail') is not None:  # noqa: E501
+            _query_params.append(('tail', _params['tail']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
+        if _params.get('sample') is not None:  # noqa: E501
+            _query_params.append(('sample', _params['sample']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1EventsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1EventsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_settings(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_settings(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> V1RunSettings:  # noqa: E501
         """Get Run settings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5679,7 +5825,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_run_settings_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def get_run_settings_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_settings_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Get Run settings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5711,106 +5858,105 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1RunSettings, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_settings" % key
+                    " to method get_run_settings" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_settings`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_settings`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_settings`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1RunSettings",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1RunSettings",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/settings', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_stats(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs) -> object:  # noqa: E501
         """Get run stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_stats(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_stats(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -5853,15 +5999,16 @@ class RunsV1Api(object):
         :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_stats_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_stats_with_http_info(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, **kwargs)  # noqa: E501
 
-    def get_run_stats_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs):  # noqa: E501
         """Get run stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_stats_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_stats_with_http_info(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -5905,15 +6052,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -5927,105 +6075,103 @@ class RunsV1Api(object):
             'groupby',
             'trunc'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_stats" % key
+                    " to method get_run_stats" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_stats`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_stats`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_stats`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'kind' in local_var_params and local_var_params['kind'] is not None:  # noqa: E501
-            query_params.append(('kind', local_var_params['kind']))  # noqa: E501
-        if 'aggregate' in local_var_params and local_var_params['aggregate'] is not None:  # noqa: E501
-            query_params.append(('aggregate', local_var_params['aggregate']))  # noqa: E501
-        if 'groupby' in local_var_params and local_var_params['groupby'] is not None:  # noqa: E501
-            query_params.append(('groupby', local_var_params['groupby']))  # noqa: E501
-        if 'trunc' in local_var_params and local_var_params['trunc'] is not None:  # noqa: E501
-            query_params.append(('trunc', local_var_params['trunc']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('kind') is not None:  # noqa: E501
+            _query_params.append(('kind', _params['kind']))
+        if _params.get('aggregate') is not None:  # noqa: E501
+            _query_params.append(('aggregate', _params['aggregate']))
+        if _params.get('groupby') is not None:  # noqa: E501
+            _query_params.append(('groupby', _params['groupby']))
+        if _params.get('trunc') is not None:  # noqa: E501
+            _query_params.append(('trunc', _params['trunc']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "object",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "object",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/stats', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_statuses(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_statuses(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> V1Status:  # noqa: E501
         """Get run statuses  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6058,7 +6204,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_run_statuses_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def get_run_statuses_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_statuses_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Get run statuses  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6090,106 +6237,105 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Status, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_statuses" % key
+                    " to method get_run_statuses" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_statuses`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_statuses`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_statuses`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Status",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Status",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/statuses', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_run_upstream_lineage(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_upstream_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunEdgesResponse:  # noqa: E501
         """Get run upstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_upstream_lineage(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_upstream_lineage(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -6224,15 +6370,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunEdgesResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_upstream_lineage_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
+        return self.get_run_upstream_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def get_run_upstream_lineage_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_run_upstream_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run upstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_upstream_lineage_with_http_info(owner, entity, uuid, async_req=True)
+        >>> thread = api.get_run_upstream_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -6268,15 +6415,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunEdgesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid',
@@ -6286,103 +6434,101 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_run_upstream_lineage" % key
+                    " to method get_run_upstream_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_run_upstream_lineage`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_run_upstream_lineage`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_run_upstream_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunEdgesResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunEdgesResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_runs_artifacts_lineage(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_runs_artifacts_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
         """Get runs artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_runs_artifacts_lineage(owner, name, async_req=True)
+        >>> thread = api.get_runs_artifacts_lineage(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -6419,15 +6565,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunArtifactsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_runs_artifacts_lineage_with_http_info(owner, name, **kwargs)  # noqa: E501
+        return self.get_runs_artifacts_lineage_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
 
-    def get_runs_artifacts_lineage_with_http_info(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_runs_artifacts_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get runs artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_runs_artifacts_lineage_with_http_info(owner, name, async_req=True)
+        >>> thread = api.get_runs_artifacts_lineage_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -6465,15 +6612,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunArtifactsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'name',
             'offset',
@@ -6484,95 +6632,97 @@ class RunsV1Api(object):
             'mode',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_runs_artifacts_lineage" % key
+                    " to method get_runs_artifacts_lineage" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_runs_artifacts_lineage`")  # noqa: E501
-        # verify the required parameter 'name' is set
-        if self.api_client.client_side_validation and ('name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `name` when calling `get_runs_artifacts_lineage`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'name' in local_var_params:
-            path_params['name'] = local_var_params['name']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
-            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunArtifactsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunArtifactsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{name}/runs/lineage/artifacts', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def impersonate_token(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def impersonate_token(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> V1Auth:  # noqa: E501
         """Impersonate run token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6605,7 +6755,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.impersonate_token_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def impersonate_token_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def impersonate_token_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Impersonate run token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6637,106 +6788,105 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Auth, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method impersonate_token" % key
+                    " to method impersonate_token" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `impersonate_token`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `impersonate_token`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `impersonate_token`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Auth",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Auth",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/impersonate', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def inspect_run(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def inspect_run(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs) -> object:  # noqa: E501
         """Inspect an active run full conditions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.inspect_run(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.inspect_run(namespace, owner, project, uuid, names, tail, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -6771,15 +6921,16 @@ class RunsV1Api(object):
         :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.inspect_run_with_http_info(namespace, owner, project, uuid, **kwargs)  # noqa: E501
+        return self.inspect_run_with_http_info(namespace, owner, project, uuid, names, tail, force, sample, **kwargs)  # noqa: E501
 
-    def inspect_run_with_http_info(self, namespace, owner, project, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def inspect_run_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, **kwargs):  # noqa: E501
         """Inspect an active run full conditions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.inspect_run_with_http_info(namespace, owner, project, uuid, async_req=True)
+        >>> thread = api.inspect_run_with_http_info(namespace, owner, project, uuid, names, tail, force, sample, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -6815,15 +6966,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
@@ -6833,101 +6985,95 @@ class RunsV1Api(object):
             'force',
             'sample'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inspect_run" % key
+                    " to method inspect_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `inspect_run`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `inspect_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `inspect_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `inspect_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'names' in local_var_params and local_var_params['names'] is not None:  # noqa: E501
-            query_params.append(('names', local_var_params['names']))  # noqa: E501
-        if 'tail' in local_var_params and local_var_params['tail'] is not None:  # noqa: E501
-            query_params.append(('tail', local_var_params['tail']))  # noqa: E501
-        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
-            query_params.append(('force', local_var_params['force']))  # noqa: E501
-        if 'sample' in local_var_params and local_var_params['sample'] is not None:  # noqa: E501
-            query_params.append(('sample', local_var_params['sample']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('names') is not None:  # noqa: E501
+            _query_params.append(('names', _params['names']))
+        if _params.get('tail') is not None:  # noqa: E501
+            _query_params.append(('tail', _params['tail']))
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
+        if _params.get('sample') is not None:  # noqa: E501
+            _query_params.append(('sample', _params['sample']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "object",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "object",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def invalidate_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def invalidate_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Invalidate run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6960,7 +7106,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.invalidate_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def invalidate_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def invalidate_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Invalidate run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6992,95 +7139,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method invalidate_run" % key
+                    " to method invalidate_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `invalidate_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `invalidate_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `invalidate_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/invalidate', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def invalidate_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def invalidate_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Invalidate runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -7113,7 +7259,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.invalidate_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def invalidate_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def invalidate_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Invalidate runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -7145,105 +7292,107 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method invalidate_runs" % key
+                    " to method invalidate_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `invalidate_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `invalidate_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `invalidate_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/invalidate', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_archived_runs(self, user, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_archived_runs(self, user : Annotated[StrictStr, Field(..., description="User")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunsResponse:  # noqa: E501
         """List archived runs for user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_archived_runs(user, async_req=True)
+        >>> thread = api.list_archived_runs(user, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param user: User (required)
@@ -7274,15 +7423,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_archived_runs_with_http_info(user, **kwargs)  # noqa: E501
+        return self.list_archived_runs_with_http_info(user, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def list_archived_runs_with_http_info(self, user, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_archived_runs_with_http_info(self, user : Annotated[StrictStr, Field(..., description="User")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List archived runs for user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_archived_runs_with_http_info(user, async_req=True)
+        >>> thread = api.list_archived_runs_with_http_info(user, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param user: User (required)
@@ -7314,15 +7464,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'user',
             'offset',
             'limit',
@@ -7330,91 +7481,97 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_archived_runs" % key
+                    " to method list_archived_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'user' is set
-        if self.api_client.client_side_validation and ('user' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user` when calling `list_archived_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'user' in local_var_params:
-            path_params['user'] = local_var_params['user']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['user']:
+            _path_params['user'] = _params['user']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/archives/{user}/runs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_bookmarked_runs(self, user, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_bookmarked_runs(self, user : Annotated[StrictStr, Field(..., description="User")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListBookmarksResponse:  # noqa: E501
         """List bookmarked runs for user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_bookmarked_runs(user, async_req=True)
+        >>> thread = api.list_bookmarked_runs(user, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param user: User (required)
@@ -7445,15 +7602,16 @@ class RunsV1Api(object):
         :rtype: V1ListBookmarksResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_bookmarked_runs_with_http_info(user, **kwargs)  # noqa: E501
+        return self.list_bookmarked_runs_with_http_info(user, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
-    def list_bookmarked_runs_with_http_info(self, user, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_bookmarked_runs_with_http_info(self, user : Annotated[StrictStr, Field(..., description="User")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List bookmarked runs for user  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_bookmarked_runs_with_http_info(user, async_req=True)
+        >>> thread = api.list_bookmarked_runs_with_http_info(user, offset, limit, sort, query, no_page, async_req=True)
         >>> result = thread.get()
 
         :param user: User (required)
@@ -7485,15 +7643,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListBookmarksResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'user',
             'offset',
             'limit',
@@ -7501,91 +7660,97 @@ class RunsV1Api(object):
             'query',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_bookmarked_runs" % key
+                    " to method list_bookmarked_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'user' is set
-        if self.api_client.client_side_validation and ('user' not in local_var_params or  # noqa: E501
-                                                        local_var_params['user'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user` when calling `list_bookmarked_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'user' in local_var_params:
-            path_params['user'] = local_var_params['user']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['user']:
+            _path_params['user'] = _params['user']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListBookmarksResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListBookmarksResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/bookmarks/{user}/runs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_runs(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunsResponse:  # noqa: E501
         """List runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_runs(owner, name, async_req=True)
+        >>> thread = api.list_runs(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -7622,15 +7787,16 @@ class RunsV1Api(object):
         :rtype: V1ListRunsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_runs_with_http_info(owner, name, **kwargs)  # noqa: E501
+        return self.list_runs_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
 
-    def list_runs_with_http_info(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_runs_with_http_info(owner, name, async_req=True)
+        >>> thread = api.list_runs_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -7668,15 +7834,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListRunsResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'name',
             'offset',
@@ -7687,95 +7854,97 @@ class RunsV1Api(object):
             'mode',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_runs" % key
+                    " to method list_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `list_runs`")  # noqa: E501
-        # verify the required parameter 'name' is set
-        if self.api_client.client_side_validation and ('name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `name` when calling `list_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'name' in local_var_params:
-            path_params['name'] = local_var_params['name']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
-            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListRunsResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListRunsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{name}/runs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def notify_run_status(self, namespace, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def notify_run_status(self, namespace : Annotated[StrictStr, Field(..., description="Na,espace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : V1EntityNotificationBody, **kwargs) -> None:  # noqa: E501
         """Notify run status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -7812,7 +7981,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.notify_run_status_with_http_info(namespace, owner, project, uuid, body, **kwargs)  # noqa: E501
 
-    def notify_run_status_with_http_info(self, namespace, owner, project, uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def notify_run_status_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="Na,espace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : V1EntityNotificationBody, **kwargs):  # noqa: E501
         """Notify run status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -7848,113 +8018,107 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'namespace',
             'owner',
             'project',
             'uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method notify_run_status" % key
+                    " to method notify_run_status" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'namespace' is set
-        if self.api_client.client_side_validation and ('namespace' not in local_var_params or  # noqa: E501
-                                                        local_var_params['namespace'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `namespace` when calling `notify_run_status`")  # noqa: E501
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `notify_run_status`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `notify_run_status`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `notify_run_status`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `notify_run_status`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'namespace' in local_var_params:
-            path_params['namespace'] = local_var_params['namespace']  # noqa: E501
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def patch_run(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def patch_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> V1Run:  # noqa: E501
         """Patch run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -7989,7 +8153,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.patch_run_with_http_info(owner, project, run_uuid, body, **kwargs)  # noqa: E501
 
-    def patch_run_with_http_info(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def patch_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Patch run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8023,111 +8188,109 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'run_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method patch_run" % key
+                    " to method patch_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `patch_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `patch_run`")  # noqa: E501
-        # verify the required parameter 'run_uuid' is set
-        if self.api_client.client_side_validation and ('run_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['run_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_uuid` when calling `patch_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `patch_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'run_uuid' in local_var_params:
-            path_params['run.uuid'] = local_var_params['run_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['run_uuid']:
+            _path_params['run.uuid'] = _params['run_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{run.uuid}', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def restart_run(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def restart_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> V1Run:  # noqa: E501
         """Restart run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8162,7 +8325,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.restart_run_with_http_info(owner, project, run_uuid, body, **kwargs)  # noqa: E501
 
-    def restart_run_with_http_info(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def restart_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Restart run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8196,111 +8360,109 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'run_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method restart_run" % key
+                    " to method restart_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `restart_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `restart_run`")  # noqa: E501
-        # verify the required parameter 'run_uuid' is set
-        if self.api_client.client_side_validation and ('run_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['run_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_uuid` when calling `restart_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `restart_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'run_uuid' in local_var_params:
-            path_params['run.uuid'] = local_var_params['run_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['run_uuid']:
+            _path_params['run.uuid'] = _params['run_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{run.uuid}/restart', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def restore_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def restore_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Restore run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8333,7 +8495,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.restore_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def restore_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def restore_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Restore run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8365,95 +8528,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method restore_run" % key
+                    " to method restore_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `restore_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `restore_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `restore_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/restore', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def restore_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def restore_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Restore runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8486,7 +8648,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.restore_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def restore_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def restore_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Restore runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8518,99 +8681,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method restore_runs" % key
+                    " to method restore_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `restore_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `restore_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `restore_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/restore', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def resume_run(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def resume_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> V1Run:  # noqa: E501
         """Resume run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8645,7 +8810,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.resume_run_with_http_info(owner, project, run_uuid, body, **kwargs)  # noqa: E501
 
-    def resume_run_with_http_info(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def resume_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Resume run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8679,111 +8845,109 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'run_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method resume_run" % key
+                    " to method resume_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `resume_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `resume_run`")  # noqa: E501
-        # verify the required parameter 'run_uuid' is set
-        if self.api_client.client_side_validation and ('run_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['run_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_uuid` when calling `resume_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `resume_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'run_uuid' in local_var_params:
-            path_params['run.uuid'] = local_var_params['run_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['run_uuid']:
+            _path_params['run.uuid'] = _params['run_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{run.uuid}/resume', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def stop_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def stop_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Stop run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8816,7 +8980,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.stop_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def stop_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def stop_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Stop run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8848,95 +9013,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method stop_run" % key
+                    " to method stop_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `stop_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `stop_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `stop_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/stop', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def stop_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def stop_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Stop runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8969,7 +9133,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.stop_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def stop_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def stop_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Stop runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9001,99 +9166,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method stop_runs" % key
+                    " to method stop_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `stop_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `stop_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `stop_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/stop', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def sync_run(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def sync_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> None:  # noqa: E501
         """Sync offline run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9126,7 +9293,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.sync_run_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def sync_run_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def sync_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Sync offline run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9158,99 +9326,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method sync_run" % key
+                    " to method sync_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `sync_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `sync_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `sync_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/sync', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def tag_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def tag_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTags, Field(..., description="Data")], **kwargs) -> None:  # noqa: E501
         """Tag runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9283,7 +9453,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.tag_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def tag_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def tag_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTags, Field(..., description="Data")], **kwargs):  # noqa: E501
         """Tag runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9315,99 +9486,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method tag_runs" % key
+                    " to method tag_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `tag_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `tag_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `tag_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/tag', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def transfer_run(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def transfer_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> None:  # noqa: E501
         """Transfer run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9442,7 +9615,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.transfer_run_with_http_info(owner, project, run_uuid, body, **kwargs)  # noqa: E501
 
-    def transfer_run_with_http_info(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def transfer_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Transfer run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9476,106 +9650,104 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'run_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method transfer_run" % key
+                    " to method transfer_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `transfer_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `transfer_run`")  # noqa: E501
-        # verify the required parameter 'run_uuid' is set
-        if self.api_client.client_side_validation and ('run_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['run_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_uuid` when calling `transfer_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `transfer_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'run_uuid' in local_var_params:
-            path_params['run.uuid'] = local_var_params['run_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['run_uuid']:
+            _path_params['run.uuid'] = _params['run_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{run.uuid}/transfer', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def transfer_runs(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def transfer_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTransfer, Field(..., description="Data")], **kwargs) -> None:  # noqa: E501
         """Transfer runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9608,7 +9780,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.transfer_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
-    def transfer_runs_with_http_info(self, owner, project, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def transfer_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTransfer, Field(..., description="Data")], **kwargs):  # noqa: E501
         """Transfer runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9640,99 +9813,101 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method transfer_runs" % key
+                    " to method transfer_runs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `transfer_runs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `transfer_runs`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `transfer_runs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/transfer', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def unbookmark_run(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def unbookmark_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Unbookmark run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9765,7 +9940,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.unbookmark_run_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def unbookmark_run_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def unbookmark_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Unbookmark run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9797,95 +9973,94 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method unbookmark_run" % key
+                    " to method unbookmark_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `unbookmark_run`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `unbookmark_run`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `unbookmark_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{entity}/runs/{uuid}/unbookmark', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def update_run(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def update_run(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs) -> V1Run:  # noqa: E501
         """Update run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9920,7 +10095,8 @@ class RunsV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.update_run_with_http_info(owner, project, run_uuid, body, **kwargs)  # noqa: E501
 
-    def update_run_with_http_info(self, owner, project, run_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def update_run_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], run_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Run, Field(..., description="Run object")], **kwargs):  # noqa: E501
         """Update run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -9954,117 +10130,115 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Run, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'run_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_run" % key
+                    " to method update_run" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `update_run`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `update_run`")  # noqa: E501
-        # verify the required parameter 'run_uuid' is set
-        if self.api_client.client_side_validation and ('run_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['run_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_uuid` when calling `update_run`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `update_run`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'run_uuid' in local_var_params:
-            path_params['run.uuid'] = local_var_params['run_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['run_uuid']:
+            _path_params['run.uuid'] = _params['run_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Run",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Run",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{run.uuid}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def upload_run_artifact(self, owner, project, uuid, uploadfile, **kwargs):  # noqa: E501
+    @validate_arguments
+    def upload_run_artifact(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs) -> None:  # noqa: E501
         """Upload an artifact file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_artifact(owner, project, uuid, uploadfile, async_req=True)
+        >>> thread = api.upload_run_artifact(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10074,7 +10248,7 @@ class RunsV1Api(object):
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
         :param uploadfile: The file to upload. (required)
-        :type uploadfile: file
+        :type uploadfile: str
         :param path: File path query params.
         :type path: str
         :param overwrite: File path query params.
@@ -10095,15 +10269,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, **kwargs)  # noqa: E501
+        return self.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, path, overwrite, **kwargs)  # noqa: E501
 
-    def upload_run_artifact_with_http_info(self, owner, project, uuid, uploadfile, **kwargs):  # noqa: E501
+    @validate_arguments
+    def upload_run_artifact_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs):  # noqa: E501
         """Upload an artifact file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, async_req=True)
+        >>> thread = api.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10113,7 +10288,7 @@ class RunsV1Api(object):
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
         :param uploadfile: The file to upload. (required)
-        :type uploadfile: file
+        :type uploadfile: str
         :param path: File path query params.
         :type path: str
         :param overwrite: File path query params.
@@ -10135,15 +10310,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'uuid',
@@ -10151,102 +10327,99 @@ class RunsV1Api(object):
             'path',
             'overwrite'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method upload_run_artifact" % key
+                    " to method upload_run_artifact" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `upload_run_artifact`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `upload_run_artifact`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `upload_run_artifact`")  # noqa: E501
-        # verify the required parameter 'uploadfile' is set
-        if self.api_client.client_side_validation and ('uploadfile' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uploadfile'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uploadfile` when calling `upload_run_artifact`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
-        if 'overwrite' in local_var_params and local_var_params['overwrite'] is not None:  # noqa: E501
-            query_params.append(('overwrite', local_var_params['overwrite']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
+        if _params.get('overwrite') is not None:  # noqa: E501
+            _query_params.append(('overwrite', _params['overwrite']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
-        if 'uploadfile' in local_var_params:
-            local_var_files['uploadfile'] = local_var_params['uploadfile']  # noqa: E501
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        if _params['uploadfile']:
+            _files['uploadfile'] = _params['uploadfile']
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/form-data'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['multipart/form-data']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def upload_run_logs(self, owner, project, uuid, uploadfile, **kwargs):  # noqa: E501
+    @validate_arguments
+    def upload_run_logs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs) -> None:  # noqa: E501
         """Upload a logs file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_logs(owner, project, uuid, uploadfile, async_req=True)
+        >>> thread = api.upload_run_logs(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10256,7 +10429,7 @@ class RunsV1Api(object):
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
         :param uploadfile: The file to upload. (required)
-        :type uploadfile: file
+        :type uploadfile: str
         :param path: File path query params.
         :type path: str
         :param overwrite: File path query params.
@@ -10277,15 +10450,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, **kwargs)  # noqa: E501
+        return self.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, path, overwrite, **kwargs)  # noqa: E501
 
-    def upload_run_logs_with_http_info(self, owner, project, uuid, uploadfile, **kwargs):  # noqa: E501
+    @validate_arguments
+    def upload_run_logs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs):  # noqa: E501
         """Upload a logs file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, async_req=True)
+        >>> thread = api.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10295,7 +10469,7 @@ class RunsV1Api(object):
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
         :param uploadfile: The file to upload. (required)
-        :type uploadfile: file
+        :type uploadfile: str
         :param path: File path query params.
         :type path: str
         :param overwrite: File path query params.
@@ -10317,15 +10491,16 @@ class RunsV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'project',
             'uuid',
@@ -10333,91 +10508,87 @@ class RunsV1Api(object):
             'path',
             'overwrite'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method upload_run_logs" % key
+                    " to method upload_run_logs" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `upload_run_logs`")  # noqa: E501
-        # verify the required parameter 'project' is set
-        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
-                                                        local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `upload_run_logs`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `upload_run_logs`")  # noqa: E501
-        # verify the required parameter 'uploadfile' is set
-        if self.api_client.client_side_validation and ('uploadfile' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uploadfile'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uploadfile` when calling `upload_run_logs`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'project' in local_var_params:
-            path_params['project'] = local_var_params['project']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['project']:
+            _path_params['project'] = _params['project']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
-        if 'path' in local_var_params and local_var_params['path'] is not None:  # noqa: E501
-            query_params.append(('path', local_var_params['path']))  # noqa: E501
-        if 'overwrite' in local_var_params and local_var_params['overwrite'] is not None:  # noqa: E501
-            query_params.append(('overwrite', local_var_params['overwrite']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('path') is not None:  # noqa: E501
+            _query_params.append(('path', _params['path']))
+        if _params.get('overwrite') is not None:  # noqa: E501
+            _query_params.append(('overwrite', _params['overwrite']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
-        if 'uploadfile' in local_var_params:
-            local_var_files['uploadfile'] = local_var_params['uploadfile']  # noqa: E501
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        if _params['uploadfile']:
+            _files['uploadfile'] = _params['uploadfile']
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/form-data'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['multipart/form-data']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/{owner}/{project}/runs/{uuid}/logs/upload', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))

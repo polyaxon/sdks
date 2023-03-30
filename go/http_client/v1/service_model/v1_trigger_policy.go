@@ -34,8 +34,12 @@ import (
 type V1TriggerPolicy string
 
 func NewV1TriggerPolicy(value V1TriggerPolicy) *V1TriggerPolicy {
-	v := value
-	return &v
+	return &value
+}
+
+// Pointer returns a pointer to a freshly-allocated V1TriggerPolicy.
+func (m V1TriggerPolicy) Pointer() *V1TriggerPolicy {
+	return &m
 }
 
 const (

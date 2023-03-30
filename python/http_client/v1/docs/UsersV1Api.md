@@ -29,6 +29,7 @@ Create token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -44,7 +45,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -58,8 +59,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Create token
         api_response = api_instance.create_token(body)
+        print("The response of UsersV1Api->create_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->create_token: %s\n" % e)
 ```
 
@@ -104,6 +106,7 @@ Delete token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -119,7 +122,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -133,7 +136,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Delete token
         api_instance.delete_token(uuid)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->delete_token: %s\n" % e)
 ```
 
@@ -178,6 +181,7 @@ User History
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -193,7 +197,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -203,16 +207,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.UsersV1Api(api_client)
     offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # User History
         api_response = api_instance.get_history(offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of UsersV1Api->get_history:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->get_history: %s\n" % e)
 ```
 
@@ -261,6 +266,7 @@ User suggestions
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -276,7 +282,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -286,16 +292,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.UsersV1Api(api_client)
     offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # User suggestions
         api_response = api_instance.get_suggestions(offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of UsersV1Api->get_suggestions:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->get_suggestions: %s\n" % e)
 ```
 
@@ -344,6 +351,7 @@ Get token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -359,7 +367,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -373,8 +381,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Get token
         api_response = api_instance.get_token(uuid)
+        print("The response of UsersV1Api->get_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->get_token: %s\n" % e)
 ```
 
@@ -419,6 +428,7 @@ Get current user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -434,7 +444,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -443,12 +453,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.UsersV1Api(api_client)
-    
+
     try:
         # Get current user
         api_response = api_instance.get_user()
+        print("The response of UsersV1Api->get_user:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->get_user: %s\n" % e)
 ```
 
@@ -490,6 +501,7 @@ List tokens
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -505,7 +517,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -515,16 +527,17 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.UsersV1Api(api_client)
     offset = 56 # int | Pagination offset. (optional)
-limit = 56 # int | Limit size. (optional)
-sort = 'sort_example' # str | Sort to order the search. (optional)
-query = 'query_example' # str | Query filter the search. (optional)
-no_page = True # bool | No pagination. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    no_page = True # bool | No pagination. (optional)
 
     try:
         # List tokens
         api_response = api_instance.list_tokens(offset=offset, limit=limit, sort=sort, query=query, no_page=no_page)
+        print("The response of UsersV1Api->list_tokens:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->list_tokens: %s\n" % e)
 ```
 
@@ -573,6 +586,7 @@ Patch token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -588,7 +602,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -598,13 +612,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.UsersV1Api(api_client)
     token_uuid = 'token_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Token() # V1Token | Token body
+    body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
         # Patch token
         api_response = api_instance.patch_token(token_uuid, body)
+        print("The response of UsersV1Api->patch_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->patch_token: %s\n" % e)
 ```
 
@@ -650,6 +665,7 @@ Patch current user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -665,7 +681,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -679,8 +695,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Patch current user
         api_response = api_instance.patch_user(body)
+        print("The response of UsersV1Api->patch_user:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->patch_user: %s\n" % e)
 ```
 
@@ -725,6 +742,7 @@ Update token
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -740,7 +758,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -750,13 +768,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.UsersV1Api(api_client)
     token_uuid = 'token_uuid_example' # str | UUID
-body = polyaxon_sdk.V1Token() # V1Token | Token body
+    body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
         # Update token
         api_response = api_instance.update_token(token_uuid, body)
+        print("The response of UsersV1Api->update_token:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->update_token: %s\n" % e)
 ```
 
@@ -802,6 +821,7 @@ Update current user
 ```python
 from __future__ import print_function
 import time
+import os
 import polyaxon_sdk
 from polyaxon_sdk.rest import ApiException
 from pprint import pprint
@@ -817,7 +837,7 @@ configuration = polyaxon_sdk.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKey'] = 'Bearer'
@@ -831,8 +851,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     try:
         # Update current user
         api_response = api_instance.update_user(body)
+        print("The response of UsersV1Api->update_user:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling UsersV1Api->update_user: %s\n" % e)
 ```
 

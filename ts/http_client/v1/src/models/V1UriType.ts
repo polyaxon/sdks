@@ -53,6 +53,15 @@ export interface V1UriType {
     host?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1UriType interface.
+ */
+export function instanceOfV1UriType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UriTypeFromJSON(json: any): V1UriType {
     return V1UriTypeFromJSONTyped(json, false);
 }

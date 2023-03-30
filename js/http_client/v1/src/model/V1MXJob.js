@@ -99,8 +99,52 @@ class V1MXJob {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1MXJob</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1MXJob</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        // validate the optional field `schedulingPolicy`
+        if (data['schedulingPolicy']) { // data not null
+          V1SchedulingPolicy.validateJSON(data['schedulingPolicy']);
+        }
+        // validate the optional field `scheduler`
+        if (data['scheduler']) { // data not null
+          V1KFReplica.validateJSON(data['scheduler']);
+        }
+        // validate the optional field `server`
+        if (data['server']) { // data not null
+          V1KFReplica.validateJSON(data['server']);
+        }
+        // validate the optional field `worker`
+        if (data['worker']) { // data not null
+          V1KFReplica.validateJSON(data['worker']);
+        }
+        // validate the optional field `tuner_tracker`
+        if (data['tuner_tracker']) { // data not null
+          V1KFReplica.validateJSON(data['tuner_tracker']);
+        }
+        // validate the optional field `tuner_server`
+        if (data['tuner_server']) { // data not null
+          V1KFReplica.validateJSON(data['tuner_server']);
+        }
+        // validate the optional field `tuner`
+        if (data['tuner']) { // data not null
+          V1KFReplica.validateJSON(data['tuner']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} kind

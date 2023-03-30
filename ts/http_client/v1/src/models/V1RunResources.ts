@@ -65,6 +65,15 @@ export interface V1RunResources {
     cost?: number;
 }
 
+/**
+ * Check if a given object implements the V1RunResources interface.
+ */
+export function instanceOfV1RunResources(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RunResourcesFromJSON(json: any): V1RunResources {
     return V1RunResourcesFromJSONTyped(json, false);
 }

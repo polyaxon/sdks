@@ -87,9 +87,44 @@ type PatchUserOK struct {
 	Payload *service_model.V1User
 }
 
+// IsSuccess returns true when this patch user o k response has a 2xx status code
+func (o *PatchUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user o k response has a 3xx status code
+func (o *PatchUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user o k response has a 4xx status code
+func (o *PatchUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user o k response has a 5xx status code
+func (o *PatchUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user o k response a status code equal to that given
+func (o *PatchUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch user o k response
+func (o *PatchUserOK) Code() int {
+	return 200
+}
+
 func (o *PatchUserOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchUserOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchUserOK) GetPayload() *service_model.V1User {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchUserNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch user no content response has a 2xx status code
+func (o *PatchUserNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user no content response has a 3xx status code
+func (o *PatchUserNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user no content response has a 4xx status code
+func (o *PatchUserNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user no content response has a 5xx status code
+func (o *PatchUserNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user no content response a status code equal to that given
+func (o *PatchUserNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch user no content response
+func (o *PatchUserNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchUserNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchUserNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchUserNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchUserForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch user forbidden response has a 2xx status code
+func (o *PatchUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user forbidden response has a 3xx status code
+func (o *PatchUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user forbidden response has a 4xx status code
+func (o *PatchUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user forbidden response has a 5xx status code
+func (o *PatchUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user forbidden response a status code equal to that given
+func (o *PatchUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch user forbidden response
+func (o *PatchUserForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchUserForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchUserForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchUserForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchUserNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch user not found response has a 2xx status code
+func (o *PatchUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user not found response has a 3xx status code
+func (o *PatchUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user not found response has a 4xx status code
+func (o *PatchUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user not found response has a 5xx status code
+func (o *PatchUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user not found response a status code equal to that given
+func (o *PatchUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch user not found response
+func (o *PatchUserNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchUserNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchUserNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchUserNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchUserDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch user default response has a 2xx status code
+func (o *PatchUserDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch user default response has a 3xx status code
+func (o *PatchUserDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch user default response has a 4xx status code
+func (o *PatchUserDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch user default response has a 5xx status code
+func (o *PatchUserDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch user default response a status code equal to that given
+func (o *PatchUserDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch user default response
 func (o *PatchUserDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchUserDefault) Code() int {
 func (o *PatchUserDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/users][%d] PatchUser default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchUserDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] PatchUser default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchUserDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

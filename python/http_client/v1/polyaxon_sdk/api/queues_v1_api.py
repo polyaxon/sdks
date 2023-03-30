@@ -31,8 +31,15 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
+from pydantic import validate_arguments, ValidationError
+from typing_extensions import Annotated
+
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+
+from typing import Optional
+
+from polyaxon_sdk.models.v1_list_queues_response import V1ListQueuesResponse
+from polyaxon_sdk.models.v1_queue import V1Queue
 
 from polyaxon_sdk.api_client import ApiClient
 from polyaxon_sdk.exceptions import (  # noqa: F401
@@ -50,10 +57,11 @@ class QueuesV1Api(object):
 
     def __init__(self, api_client=None):
         if api_client is None:
-            api_client = ApiClient()
+            api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    def create_queue(self, owner, agent, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_queue(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], agent : Annotated[StrictStr, Field(..., description="Agent that consumes the queue")], body : Annotated[V1Queue, Field(..., description="Queue body")], **kwargs) -> V1Queue:  # noqa: E501
         """Create queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -86,7 +94,8 @@ class QueuesV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.create_queue_with_http_info(owner, agent, body, **kwargs)  # noqa: E501
 
-    def create_queue_with_http_info(self, owner, agent, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def create_queue_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], agent : Annotated[StrictStr, Field(..., description="Agent that consumes the queue")], body : Annotated[V1Queue, Field(..., description="Queue body")], **kwargs):  # noqa: E501
         """Create queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -118,104 +127,106 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Queue, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'agent',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_queue" % key
+                    " to method create_queue" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `create_queue`")  # noqa: E501
-        # verify the required parameter 'agent' is set
-        if self.api_client.client_side_validation and ('agent' not in local_var_params or  # noqa: E501
-                                                        local_var_params['agent'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `agent` when calling `create_queue`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `create_queue`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'agent' in local_var_params:
-            path_params['agent'] = local_var_params['agent']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['agent']:
+            _path_params['agent'] = _params['agent']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Queue",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Queue",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{agent}/queues', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def delete_queue(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_queue(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> None:  # noqa: E501
         """Delete queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -248,7 +259,8 @@ class QueuesV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.delete_queue_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def delete_queue_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def delete_queue_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Delete queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -280,95 +292,94 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: None
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_queue" % key
+                    " to method delete_queue" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `delete_queue`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `delete_queue`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `delete_queue`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {}
+        _response_types_map = {}
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def get_queue(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_queue(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs) -> V1Queue:  # noqa: E501
         """Get queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -401,7 +412,8 @@ class QueuesV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.get_queue_with_http_info(owner, entity, uuid, **kwargs)  # noqa: E501
 
-    def get_queue_with_http_info(self, owner, entity, uuid, **kwargs):  # noqa: E501
+    @validate_arguments
+    def get_queue_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity: project name, hub name, registry name, ...")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], **kwargs):  # noqa: E501
         """Get queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -433,106 +445,105 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Queue, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'entity',
             'uuid'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_queue" % key
+                    " to method get_queue" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `get_queue`")  # noqa: E501
-        # verify the required parameter 'entity' is set
-        if self.api_client.client_side_validation and ('entity' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity` when calling `get_queue`")  # noqa: E501
-        # verify the required parameter 'uuid' is set
-        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `uuid` when calling `get_queue`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'entity' in local_var_params:
-            path_params['entity'] = local_var_params['entity']  # noqa: E501
-        if 'uuid' in local_var_params:
-            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['entity']:
+            _path_params['entity'] = _params['entity']
+        if _params['uuid']:
+            _path_params['uuid'] = _params['uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Queue",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Queue",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_organization_queue_names(self, owner, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_organization_queue_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListQueuesResponse:  # noqa: E501
         """List organization level queues names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_organization_queue_names(owner, async_req=True)
+        >>> thread = api.list_organization_queue_names(owner, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -567,15 +578,16 @@ class QueuesV1Api(object):
         :rtype: V1ListQueuesResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_organization_queue_names_with_http_info(owner, **kwargs)  # noqa: E501
+        return self.list_organization_queue_names_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
 
-    def list_organization_queue_names_with_http_info(self, owner, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_organization_queue_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List organization level queues names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_organization_queue_names_with_http_info(owner, async_req=True)
+        >>> thread = api.list_organization_queue_names_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -611,15 +623,16 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListQueuesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'offset',
             'limit',
@@ -629,95 +642,101 @@ class QueuesV1Api(object):
             'mode',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_organization_queue_names" % key
+                    " to method list_organization_queue_names" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `list_organization_queue_names`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
-            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListQueuesResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListQueuesResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/queues/names', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_organization_queues(self, owner, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_organization_queues(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListQueuesResponse:  # noqa: E501
         """List organization level queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_organization_queues(owner, async_req=True)
+        >>> thread = api.list_organization_queues(owner, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -752,15 +771,16 @@ class QueuesV1Api(object):
         :rtype: V1ListQueuesResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_organization_queues_with_http_info(owner, **kwargs)  # noqa: E501
+        return self.list_organization_queues_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
 
-    def list_organization_queues_with_http_info(self, owner, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_organization_queues_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List organization level queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_organization_queues_with_http_info(owner, async_req=True)
+        >>> thread = api.list_organization_queues_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -796,15 +816,16 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListQueuesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'offset',
             'limit',
@@ -814,95 +835,101 @@ class QueuesV1Api(object):
             'mode',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_organization_queues" % key
+                    " to method list_organization_queues" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `list_organization_queues`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
-            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListQueuesResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListQueuesResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/queues', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_queue_names(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_queue_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListQueuesResponse:  # noqa: E501
         """List queues names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_queue_names(owner, name, async_req=True)
+        >>> thread = api.list_queue_names(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -939,15 +966,16 @@ class QueuesV1Api(object):
         :rtype: V1ListQueuesResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_queue_names_with_http_info(owner, name, **kwargs)  # noqa: E501
+        return self.list_queue_names_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
 
-    def list_queue_names_with_http_info(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_queue_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List queues names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_queue_names_with_http_info(owner, name, async_req=True)
+        >>> thread = api.list_queue_names_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -985,15 +1013,16 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListQueuesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'name',
             'offset',
@@ -1004,101 +1033,103 @@ class QueuesV1Api(object):
             'mode',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_queue_names" % key
+                    " to method list_queue_names" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `list_queue_names`")  # noqa: E501
-        # verify the required parameter 'name' is set
-        if self.api_client.client_side_validation and ('name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `name` when calling `list_queue_names`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'name' in local_var_params:
-            path_params['name'] = local_var_params['name']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
-            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListQueuesResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListQueuesResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{name}/queues/names', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def list_queues(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_queues(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListQueuesResponse:  # noqa: E501
         """List queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_queues(owner, name, async_req=True)
+        >>> thread = api.list_queues(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -1135,15 +1166,16 @@ class QueuesV1Api(object):
         :rtype: V1ListQueuesResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_queues_with_http_info(owner, name, **kwargs)  # noqa: E501
+        return self.list_queues_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
 
-    def list_queues_with_http_info(self, owner, name, **kwargs):  # noqa: E501
+    @validate_arguments
+    def list_queues_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_queues_with_http_info(owner, name, async_req=True)
+        >>> thread = api.list_queues_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -1181,15 +1213,16 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1ListQueuesResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'name',
             'offset',
@@ -1200,95 +1233,97 @@ class QueuesV1Api(object):
             'mode',
             'no_page'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_queues" % key
+                    " to method list_queues" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `list_queues`")  # noqa: E501
-        # verify the required parameter 'name' is set
-        if self.api_client.client_side_validation and ('name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `name` when calling `list_queues`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'name' in local_var_params:
-            path_params['name'] = local_var_params['name']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
-        query_params = []
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
-            query_params.append(('query', local_var_params['query']))  # noqa: E501
-        if 'bookmarks' in local_var_params and local_var_params['bookmarks'] is not None:  # noqa: E501
-            query_params.append(('bookmarks', local_var_params['bookmarks']))  # noqa: E501
-        if 'mode' in local_var_params and local_var_params['mode'] is not None:  # noqa: E501
-            query_params.append(('mode', local_var_params['mode']))  # noqa: E501
-        if 'no_page' in local_var_params and local_var_params['no_page'] is not None:  # noqa: E501
-            query_params.append(('no_page', local_var_params['no_page']))  # noqa: E501
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1ListQueuesResponse",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1ListQueuesResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{name}/queues', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def patch_queue(self, owner, agent, queue_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def patch_queue(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], agent : Annotated[StrictStr, Field(..., description="Agent that consumes the queue")], queue_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Queue, Field(..., description="Queue body")], **kwargs) -> V1Queue:  # noqa: E501
         """Patch queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1323,7 +1358,8 @@ class QueuesV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.patch_queue_with_http_info(owner, agent, queue_uuid, body, **kwargs)  # noqa: E501
 
-    def patch_queue_with_http_info(self, owner, agent, queue_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def patch_queue_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], agent : Annotated[StrictStr, Field(..., description="Agent that consumes the queue")], queue_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Queue, Field(..., description="Queue body")], **kwargs):  # noqa: E501
         """Patch queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1357,111 +1393,109 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Queue, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'agent',
             'queue_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method patch_queue" % key
+                    " to method patch_queue" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `patch_queue`")  # noqa: E501
-        # verify the required parameter 'agent' is set
-        if self.api_client.client_side_validation and ('agent' not in local_var_params or  # noqa: E501
-                                                        local_var_params['agent'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `agent` when calling `patch_queue`")  # noqa: E501
-        # verify the required parameter 'queue_uuid' is set
-        if self.api_client.client_side_validation and ('queue_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_uuid` when calling `patch_queue`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `patch_queue`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'agent' in local_var_params:
-            path_params['agent'] = local_var_params['agent']  # noqa: E501
-        if 'queue_uuid' in local_var_params:
-            path_params['queue.uuid'] = local_var_params['queue_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['agent']:
+            _path_params['agent'] = _params['agent']
+        if _params['queue_uuid']:
+            _path_params['queue.uuid'] = _params['queue_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Queue",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Queue",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
 
-    def update_queue(self, owner, agent, queue_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def update_queue(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], agent : Annotated[StrictStr, Field(..., description="Agent that consumes the queue")], queue_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Queue, Field(..., description="Queue body")], **kwargs) -> V1Queue:  # noqa: E501
         """Update queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1496,7 +1530,8 @@ class QueuesV1Api(object):
         kwargs['_return_http_data_only'] = True
         return self.update_queue_with_http_info(owner, agent, queue_uuid, body, **kwargs)  # noqa: E501
 
-    def update_queue_with_http_info(self, owner, agent, queue_uuid, body, **kwargs):  # noqa: E501
+    @validate_arguments
+    def update_queue_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], agent : Annotated[StrictStr, Field(..., description="Agent that consumes the queue")], queue_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Queue, Field(..., description="Queue body")], **kwargs):  # noqa: E501
         """Update queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1530,106 +1565,103 @@ class QueuesV1Api(object):
                               request; this effectively ignores the authentication
                               in the spec for a single request.
         :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
         :rtype: tuple(V1Queue, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        _params = locals()
 
-        all_params = [
+        _all_params = [
             'owner',
             'agent',
             'queue_uuid',
             'body'
         ]
-        all_params.extend(
+        _all_params.extend(
             [
                 'async_req',
                 '_return_http_data_only',
                 '_preload_content',
                 '_request_timeout',
-                '_request_auth'
+                '_request_auth',
+                '_content_type',
+                '_headers'
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_queue" % key
+                    " to method update_queue" % _key
                 )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in local_var_params or  # noqa: E501
-                                                        local_var_params['owner'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `owner` when calling `update_queue`")  # noqa: E501
-        # verify the required parameter 'agent' is set
-        if self.api_client.client_side_validation and ('agent' not in local_var_params or  # noqa: E501
-                                                        local_var_params['agent'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `agent` when calling `update_queue`")  # noqa: E501
-        # verify the required parameter 'queue_uuid' is set
-        if self.api_client.client_side_validation and ('queue_uuid' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_uuid'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_uuid` when calling `update_queue`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `update_queue`")  # noqa: E501
+            _params[_key] = _val
+        del _params['kwargs']
 
-        collection_formats = {}
+        _collection_formats = {}
 
-        path_params = {}
-        if 'owner' in local_var_params:
-            path_params['owner'] = local_var_params['owner']  # noqa: E501
-        if 'agent' in local_var_params:
-            path_params['agent'] = local_var_params['agent']  # noqa: E501
-        if 'queue_uuid' in local_var_params:
-            path_params['queue.uuid'] = local_var_params['queue_uuid']  # noqa: E501
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+        if _params['agent']:
+            _path_params['agent'] = _params['agent']
+        if _params['queue_uuid']:
+            _path_params['queue.uuid'] = _params['queue_uuid']
 
-        query_params = []
+        # process the query parameters
+        _query_params = []
 
-        header_params = {}
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
 
-        form_params = []
-        local_var_files = {}
+        # process the form parameters
+        _form_params = []
+        _files = {}
 
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
-        # Authentication setting
-        auth_settings = ['ApiKey']  # noqa: E501
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
 
-        response_types_map = {
-            200: "V1Queue",
-            204: "object",
-            403: "object",
-            404: "object",
+        _response_types_map = {
+            '200': "V1Queue",
+            '204': "object",
+            '403': "object",
+            '404': "object",
         }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_types_map=response_types_map,
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))

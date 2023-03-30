@@ -101,8 +101,40 @@ class V1Hyperband {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Hyperband</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Hyperband</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        // validate the optional field `resource`
+        if (data['resource']) { // data not null
+          V1OptimizationResource.validateJSON(data['resource']);
+        }
+        // validate the optional field `metric`
+        if (data['metric']) { // data not null
+          V1OptimizationMetric.validateJSON(data['metric']);
+        }
+        // validate the optional field `tuner`
+        if (data['tuner']) { // data not null
+          V1Tuner.validateJSON(data['tuner']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['earlyStopping'])) {
+            throw new Error("Expected the field `earlyStopping` to be an array in the JSON data but got " + data['earlyStopping']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} kind

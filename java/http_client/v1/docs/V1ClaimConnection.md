@@ -5,12 +5,12 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**volumeClaim** | **String** |  |  [optional]
-**mountPath** | **String** |  |  [optional]
-**readOnly** | **Boolean** |  |  [optional]
-**kind** | **Object** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**volumeClaim** | **String** |  |  [optional] |
+|**mountPath** | **String** |  |  [optional] |
+|**readOnly** | **Boolean** |  |  [optional] |
+|**kind** | **Object** |  |  [optional] |
 
 
 

@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1ProjectVersionKind {
-    Component = 'component',
-    Model = 'model',
-    Artifact = 'artifact'
-}
+export const V1ProjectVersionKind = {
+    Component: 'component',
+    Model: 'model',
+    Artifact: 'artifact'
+} as const;
+export type V1ProjectVersionKind = typeof V1ProjectVersionKind[keyof typeof V1ProjectVersionKind];
+
 
 export function V1ProjectVersionKindFromJSON(json: any): V1ProjectVersionKind {
     return V1ProjectVersionKindFromJSONTyped(json, false);

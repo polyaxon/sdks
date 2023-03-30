@@ -26,16 +26,18 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1ScheduleKind {
-    Cron = 'cron',
-    Interval = 'interval',
-    Datetime = 'datetime'
-}
+export const V1ScheduleKind = {
+    Cron: 'cron',
+    Interval: 'interval',
+    Datetime: 'datetime'
+} as const;
+export type V1ScheduleKind = typeof V1ScheduleKind[keyof typeof V1ScheduleKind];
+
 
 export function V1ScheduleKindFromJSON(json: any): V1ScheduleKind {
     return V1ScheduleKindFromJSONTyped(json, false);

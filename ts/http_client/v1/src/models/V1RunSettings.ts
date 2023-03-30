@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1RunReferenceCatalog } from './V1RunReferenceCatalog';
 import {
-    V1RunReferenceCatalog,
     V1RunReferenceCatalogFromJSON,
     V1RunReferenceCatalogFromJSONTyped,
     V1RunReferenceCatalogToJSON,
-    V1SettingsCatalog,
+} from './V1RunReferenceCatalog';
+import type { V1SettingsCatalog } from './V1SettingsCatalog';
+import {
     V1SettingsCatalogFromJSON,
     V1SettingsCatalogFromJSONTyped,
     V1SettingsCatalogToJSON,
-} from './';
+} from './V1SettingsCatalog';
 
 /**
  * 
@@ -98,6 +100,15 @@ export interface V1RunSettings {
      * @memberof V1RunSettings
      */
     artifacts?: Array<V1RunReferenceCatalog>;
+}
+
+/**
+ * Check if a given object implements the V1RunSettings interface.
+ */
+export function instanceOfV1RunSettings(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RunSettingsFromJSON(json: any): V1RunSettings {

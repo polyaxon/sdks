@@ -86,7 +86,41 @@ A successful response.
 type DeleteVersionOK struct {
 }
 
+// IsSuccess returns true when this delete version o k response has a 2xx status code
+func (o *DeleteVersionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete version o k response has a 3xx status code
+func (o *DeleteVersionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete version o k response has a 4xx status code
+func (o *DeleteVersionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete version o k response has a 5xx status code
+func (o *DeleteVersionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete version o k response a status code equal to that given
+func (o *DeleteVersionOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the delete version o k response
+func (o *DeleteVersionOK) Code() int {
+	return 200
+}
+
 func (o *DeleteVersionOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK ", 200)
+}
+
+func (o *DeleteVersionOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type DeleteVersionNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete version no content response has a 2xx status code
+func (o *DeleteVersionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete version no content response has a 3xx status code
+func (o *DeleteVersionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete version no content response has a 4xx status code
+func (o *DeleteVersionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete version no content response has a 5xx status code
+func (o *DeleteVersionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete version no content response a status code equal to that given
+func (o *DeleteVersionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the delete version no content response
+func (o *DeleteVersionNoContent) Code() int {
+	return 204
+}
+
 func (o *DeleteVersionNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteVersionNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteVersionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type DeleteVersionForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete version forbidden response has a 2xx status code
+func (o *DeleteVersionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete version forbidden response has a 3xx status code
+func (o *DeleteVersionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete version forbidden response has a 4xx status code
+func (o *DeleteVersionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete version forbidden response has a 5xx status code
+func (o *DeleteVersionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete version forbidden response a status code equal to that given
+func (o *DeleteVersionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the delete version forbidden response
+func (o *DeleteVersionForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteVersionForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteVersionForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteVersionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type DeleteVersionNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete version not found response has a 2xx status code
+func (o *DeleteVersionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete version not found response has a 3xx status code
+func (o *DeleteVersionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete version not found response has a 4xx status code
+func (o *DeleteVersionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete version not found response has a 5xx status code
+func (o *DeleteVersionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete version not found response a status code equal to that given
+func (o *DeleteVersionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the delete version not found response
+func (o *DeleteVersionNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteVersionNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteVersionNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteVersionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type DeleteVersionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this delete version default response has a 2xx status code
+func (o *DeleteVersionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete version default response has a 3xx status code
+func (o *DeleteVersionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete version default response has a 4xx status code
+func (o *DeleteVersionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete version default response has a 5xx status code
+func (o *DeleteVersionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete version default response a status code equal to that given
+func (o *DeleteVersionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the delete version default response
 func (o *DeleteVersionDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *DeleteVersionDefault) Code() int {
 func (o *DeleteVersionDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] DeleteVersion default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteVersionDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] DeleteVersion default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteVersionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

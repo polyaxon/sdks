@@ -74,8 +74,28 @@ class V1SchedulingPolicy {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1SchedulingPolicy</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1SchedulingPolicy</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['queue'] && !(typeof data['queue'] === 'string' || data['queue'] instanceof String)) {
+            throw new Error("Expected the field `queue` to be a primitive type in the JSON string but got " + data['queue']);
+        }
+        // ensure the json data is a string
+        if (data['priorityClass'] && !(typeof data['priorityClass'] === 'string' || data['priorityClass'] instanceof String)) {
+            throw new Error("Expected the field `priorityClass` to be a primitive type in the JSON string but got " + data['priorityClass']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} minAvailable

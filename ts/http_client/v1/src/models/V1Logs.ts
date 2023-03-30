@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Log } from './V1Log';
 import {
-    V1Log,
     V1LogFromJSON,
     V1LogFromJSONTyped,
     V1LogToJSON,
-} from './';
+} from './V1Log';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1Logs {
      * @memberof V1Logs
      */
     files?: Array<string>;
+}
+
+/**
+ * Check if a given object implements the V1Logs interface.
+ */
+export function instanceOfV1Logs(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1LogsFromJSON(json: any): V1Logs {

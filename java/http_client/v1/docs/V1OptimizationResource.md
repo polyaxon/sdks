@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
-**type** | **V1ResourceType** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** |  |  [optional] |
+|**type** | **V1ResourceType** |  |  [optional] |
 
 
 

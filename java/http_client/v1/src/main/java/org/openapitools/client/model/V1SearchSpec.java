@@ -34,11 +34,30 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1AnalyticsSpec;
 import org.openapitools.client.model.V1DashboardSpec;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1SearchSpec
@@ -101,6 +120,8 @@ public class V1SearchSpec {
   @SerializedName(SERIALIZED_NAME_ANALYTICS)
   private V1AnalyticsSpec analytics;
 
+  public V1SearchSpec() {
+  }
 
   public V1SearchSpec query(String query) {
     
@@ -113,7 +134,6 @@ public class V1SearchSpec {
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getQuery() {
     return query;
@@ -136,7 +156,6 @@ public class V1SearchSpec {
    * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getSort() {
     return sort;
@@ -159,7 +178,6 @@ public class V1SearchSpec {
    * @return limit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getLimit() {
     return limit;
@@ -182,7 +200,6 @@ public class V1SearchSpec {
    * @return offset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getOffset() {
     return offset;
@@ -205,7 +222,6 @@ public class V1SearchSpec {
    * @return groupby
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getGroupby() {
     return groupby;
@@ -228,7 +244,6 @@ public class V1SearchSpec {
    * @return columns
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getColumns() {
     return columns;
@@ -251,7 +266,6 @@ public class V1SearchSpec {
    * @return layout
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getLayout() {
     return layout;
@@ -274,7 +288,6 @@ public class V1SearchSpec {
    * @return sections
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getSections() {
     return sections;
@@ -297,7 +310,6 @@ public class V1SearchSpec {
    * @return compares
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getCompares() {
     return compares;
@@ -320,7 +332,6 @@ public class V1SearchSpec {
    * @return heat
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getHeat() {
     return heat;
@@ -343,7 +354,6 @@ public class V1SearchSpec {
    * @return events
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1DashboardSpec getEvents() {
     return events;
@@ -366,7 +376,6 @@ public class V1SearchSpec {
    * @return histograms
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getHistograms() {
     return histograms;
@@ -389,7 +398,6 @@ public class V1SearchSpec {
    * @return trends
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getTrends() {
     return trends;
@@ -412,7 +420,6 @@ public class V1SearchSpec {
    * @return analytics
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1AnalyticsSpec getAnalytics() {
     return analytics;
@@ -422,6 +429,7 @@ public class V1SearchSpec {
   public void setAnalytics(V1AnalyticsSpec analytics) {
     this.analytics = analytics;
   }
+
 
 
   @Override
@@ -487,5 +495,133 @@ public class V1SearchSpec {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("query");
+    openapiFields.add("sort");
+    openapiFields.add("limit");
+    openapiFields.add("offset");
+    openapiFields.add("groupby");
+    openapiFields.add("columns");
+    openapiFields.add("layout");
+    openapiFields.add("sections");
+    openapiFields.add("compares");
+    openapiFields.add("heat");
+    openapiFields.add("events");
+    openapiFields.add("histograms");
+    openapiFields.add("trends");
+    openapiFields.add("analytics");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1SearchSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1SearchSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1SearchSpec is not found in the empty JSON string", V1SearchSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1SearchSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SearchSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull()) && !jsonObj.get("query").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
+      }
+      if ((jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()) && !jsonObj.get("sort").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
+      }
+      if ((jsonObj.get("groupby") != null && !jsonObj.get("groupby").isJsonNull()) && !jsonObj.get("groupby").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groupby` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupby").toString()));
+      }
+      if ((jsonObj.get("columns") != null && !jsonObj.get("columns").isJsonNull()) && !jsonObj.get("columns").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `columns` to be a primitive type in the JSON string but got `%s`", jsonObj.get("columns").toString()));
+      }
+      if ((jsonObj.get("layout") != null && !jsonObj.get("layout").isJsonNull()) && !jsonObj.get("layout").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `layout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("layout").toString()));
+      }
+      if ((jsonObj.get("sections") != null && !jsonObj.get("sections").isJsonNull()) && !jsonObj.get("sections").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sections` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+      }
+      if ((jsonObj.get("compares") != null && !jsonObj.get("compares").isJsonNull()) && !jsonObj.get("compares").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `compares` to be a primitive type in the JSON string but got `%s`", jsonObj.get("compares").toString()));
+      }
+      if ((jsonObj.get("heat") != null && !jsonObj.get("heat").isJsonNull()) && !jsonObj.get("heat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `heat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("heat").toString()));
+      }
+      // validate the optional field `events`
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        V1DashboardSpec.validateJsonObject(jsonObj.getAsJsonObject("events"));
+      }
+      // validate the optional field `analytics`
+      if (jsonObj.get("analytics") != null && !jsonObj.get("analytics").isJsonNull()) {
+        V1AnalyticsSpec.validateJsonObject(jsonObj.getAsJsonObject("analytics"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1SearchSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1SearchSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1SearchSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1SearchSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1SearchSpec>() {
+           @Override
+           public void write(JsonWriter out, V1SearchSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1SearchSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1SearchSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1SearchSpec
+  * @throws IOException if the JSON string is invalid with respect to V1SearchSpec
+  */
+  public static V1SearchSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1SearchSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1SearchSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

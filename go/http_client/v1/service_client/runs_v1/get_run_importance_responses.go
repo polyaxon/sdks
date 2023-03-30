@@ -87,9 +87,44 @@ type GetRunImportanceOK struct {
 	Payload *service_model.V1EventsResponse
 }
 
+// IsSuccess returns true when this get run importance o k response has a 2xx status code
+func (o *GetRunImportanceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run importance o k response has a 3xx status code
+func (o *GetRunImportanceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run importance o k response has a 4xx status code
+func (o *GetRunImportanceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run importance o k response has a 5xx status code
+func (o *GetRunImportanceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run importance o k response a status code equal to that given
+func (o *GetRunImportanceOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the get run importance o k response
+func (o *GetRunImportanceOK) Code() int {
+	return 200
+}
+
 func (o *GetRunImportanceOK) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunImportanceOK) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunImportanceOK) GetPayload() *service_model.V1EventsResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type GetRunImportanceNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run importance no content response has a 2xx status code
+func (o *GetRunImportanceNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run importance no content response has a 3xx status code
+func (o *GetRunImportanceNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run importance no content response has a 4xx status code
+func (o *GetRunImportanceNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run importance no content response has a 5xx status code
+func (o *GetRunImportanceNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run importance no content response a status code equal to that given
+func (o *GetRunImportanceNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the get run importance no content response
+func (o *GetRunImportanceNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunImportanceNoContent) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunImportanceNoContent) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunImportanceNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type GetRunImportanceForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run importance forbidden response has a 2xx status code
+func (o *GetRunImportanceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run importance forbidden response has a 3xx status code
+func (o *GetRunImportanceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run importance forbidden response has a 4xx status code
+func (o *GetRunImportanceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run importance forbidden response has a 5xx status code
+func (o *GetRunImportanceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run importance forbidden response a status code equal to that given
+func (o *GetRunImportanceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the get run importance forbidden response
+func (o *GetRunImportanceForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRunImportanceForbidden) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunImportanceForbidden) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunImportanceForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type GetRunImportanceNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run importance not found response has a 2xx status code
+func (o *GetRunImportanceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run importance not found response has a 3xx status code
+func (o *GetRunImportanceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run importance not found response has a 4xx status code
+func (o *GetRunImportanceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run importance not found response has a 5xx status code
+func (o *GetRunImportanceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run importance not found response a status code equal to that given
+func (o *GetRunImportanceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get run importance not found response
+func (o *GetRunImportanceNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunImportanceNotFound) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunImportanceNotFound) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] getRunImportanceNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunImportanceNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type GetRunImportanceDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this get run importance default response has a 2xx status code
+func (o *GetRunImportanceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get run importance default response has a 3xx status code
+func (o *GetRunImportanceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get run importance default response has a 4xx status code
+func (o *GetRunImportanceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get run importance default response has a 5xx status code
+func (o *GetRunImportanceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get run importance default response a status code equal to that given
+func (o *GetRunImportanceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the get run importance default response
 func (o *GetRunImportanceDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *GetRunImportanceDefault) Code() int {
 func (o *GetRunImportanceDefault) Error() string {
 	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] GetRunImportance default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRunImportanceDefault) String() string {
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance][%d] GetRunImportance default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRunImportanceDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

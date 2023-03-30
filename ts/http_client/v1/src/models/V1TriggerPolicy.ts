@@ -26,19 +26,21 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1TriggerPolicy {
-    AllSucceeded = 'all_succeeded',
-    AllFailed = 'all_failed',
-    AllDone = 'all_done',
-    OneSucceeded = 'one_succeeded',
-    OneFailed = 'one_failed',
-    OneDone = 'one_done'
-}
+export const V1TriggerPolicy = {
+    AllSucceeded: 'all_succeeded',
+    AllFailed: 'all_failed',
+    AllDone: 'all_done',
+    OneSucceeded: 'one_succeeded',
+    OneFailed: 'one_failed',
+    OneDone: 'one_done'
+} as const;
+export type V1TriggerPolicy = typeof V1TriggerPolicy[keyof typeof V1TriggerPolicy];
+
 
 export function V1TriggerPolicyFromJSON(json: any): V1TriggerPolicy {
     return V1TriggerPolicyFromJSONTyped(json, false);

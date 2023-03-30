@@ -26,33 +26,35 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum V1RunKind {
-    Job = 'job',
-    Service = 'service',
-    Dag = 'dag',
-    Spark = 'spark',
-    Dask = 'dask',
-    Flink = 'flink',
-    Ray = 'ray',
-    Mpijob = 'mpijob',
-    Tfjob = 'tfjob',
-    Pytorchjob = 'pytorchjob',
-    Paddlejob = 'paddlejob',
-    Mxjob = 'mxjob',
-    Xgbjob = 'xgbjob',
-    Matrix = 'matrix',
-    Schedule = 'schedule',
-    Tuner = 'tuner',
-    Watchdog = 'watchdog',
-    Notifier = 'notifier',
-    Cleaner = 'cleaner',
-    Builder = 'builder'
-}
+export const V1RunKind = {
+    Job: 'job',
+    Service: 'service',
+    Dag: 'dag',
+    Spark: 'spark',
+    Dask: 'dask',
+    Flink: 'flink',
+    Ray: 'ray',
+    Mpijob: 'mpijob',
+    Tfjob: 'tfjob',
+    Pytorchjob: 'pytorchjob',
+    Paddlejob: 'paddlejob',
+    Mxjob: 'mxjob',
+    Xgbjob: 'xgbjob',
+    Matrix: 'matrix',
+    Schedule: 'schedule',
+    Tuner: 'tuner',
+    Watchdog: 'watchdog',
+    Notifier: 'notifier',
+    Cleaner: 'cleaner',
+    Builder: 'builder'
+} as const;
+export type V1RunKind = typeof V1RunKind[keyof typeof V1RunKind];
+
 
 export function V1RunKindFromJSON(json: any): V1RunKind {
     return V1RunKindFromJSONTyped(json, false);

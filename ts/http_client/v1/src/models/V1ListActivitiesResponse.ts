@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Activity } from './V1Activity';
 import {
-    V1Activity,
     V1ActivityFromJSON,
     V1ActivityFromJSONTyped,
     V1ActivityToJSON,
-} from './';
+} from './V1Activity';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListActivitiesResponse {
      * @memberof V1ListActivitiesResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListActivitiesResponse interface.
+ */
+export function instanceOfV1ListActivitiesResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListActivitiesResponseFromJSON(json: any): V1ListActivitiesResponse {

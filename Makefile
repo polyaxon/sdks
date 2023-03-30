@@ -20,7 +20,10 @@ PYTHON := $(DOCKER_RUN) python
 GO := $(DOCKER_RUN) go
 SWAGGER := $(DOCKER_RUN) swagger
 DOCKER_PATH_AUTOGEN := /usr/local/bin/autogen/autogen
-PATH_SWAGGER_CLI := ~/bin/openapi-generator-cli-5.3.0.jar
+# PATH_SWAGGER_CLI := ~/bin/openapi-generator-cli-5.3.0.jar
+# wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.3.0/openapi-generator-cli-6.3.0.jar -O openapi-generator-cli-6.3.0.jar
+PATH_SWAGGER_CLI := ~/bin/openapi-generator-cli-6.3.0.jar
+PATH_SWAGGER_CODEGEN := ~/bin/swagger-codegen-cli-3.0.41.jar
 LICENSE_OWNER := "Polyaxon, Inc."
 
 # Client
@@ -104,34 +107,34 @@ autogen-go:
 	$(DOCKER_RUN) find ./ -name "*.go" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-js-swagger:
-	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g javascript -o js/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-base.json
+	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g javascript -o js/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-base.json
 
 autogen-js:
 	$(DOCKER_RUN) find ./ -name "*.js" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-ts-swagger:
-	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g typescript-fetch -o ts/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-base.json
+	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g typescript-fetch -o ts/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-base.json
 
 autogen-ts:
 	$(DOCKER_RUN) find ./ -name "*.ts" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-java-swagger:
-	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g java -o java/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-java.json
+	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g java -o java/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-java.json
 
 autogen-java:
 	$(DOCKER_RUN) find ./ -name "*.java" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-py-swagger:
-	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g python-legacy -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json --library asyncio
+	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g python-nextgen -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json --library asyncio
 	./py-client.sh async
-	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -g python-legacy -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json
+	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g python-nextgen -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json
 	$(DOCKER_RUN) rm -rf python/$(HTTP_CLIENT)/$(VERSION)/test
 
 autogen-py:
 	$(DOCKER_RUN) find ./ -name "*.py" -exec $(DOCKER_PATH_AUTOGEN) -i --no-tlc --no-code -y 2018-2023 -c $(LICENSE_OWNER) -l apache {} \;
 
 generate-html-openapi:
-	$(DOCKER_RUN) bootprint openapi swagger/$(VERSION)/polyaxon_sdk.swagger.json openapi-html/$(VERSION)
+	$(DOCKER_RUN) bootprint openapi swagger/$(VERSION)/polyaxon_sdk.openapi.json openapi-html/$(VERSION)
 
 clean:
 	# Clean current generated code.
@@ -173,7 +176,15 @@ swagger-clean:
 	rm -rf ts/$(HTTP_CLIENT)/$(VERSION)/.openapi-generator
 	rm -rf java/$(HTTP_CLIENT)/$(VERSION)/.openapi-generator
 
-swagger-generate: generate-go-swagger \
+
+# Based on https://github.com/grpc-ecosystem/grpc-gateway/issues/441 & https://github.com/RedHatInsights/authz/blob/ae7ddb5b4b39f79af246ff7d3e652aa44f7ba912/Makefile#L70-L82
+swagger-to-openapi-v3:
+	java -jar $(PATH_SWAGGER_CODEGEN) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -l openapi -o swagger/temp
+	mv swagger/temp/openapi.json swagger/$(VERSION)/polyaxon_sdk.openapi.json
+	rm -rf swagger/temp
+
+swagger-generate: swagger-to-openapi-v3 \
+	generate-go-swagger \
 	autogen-go \
 	generate-js-swagger \
 	autogen-js \
@@ -183,7 +194,7 @@ swagger-generate: generate-go-swagger \
 	autogen-java \
 	generate-py-swagger \
 	autogen-py \
-  swagger-clean
+	swagger-clean
 	# generate-html-openapi
 
 swagger-concat:

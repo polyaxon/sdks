@@ -59,6 +59,15 @@ export interface V1EventImage {
     path?: string;
 }
 
+/**
+ * Check if a given object implements the V1EventImage interface.
+ */
+export function instanceOfV1EventImage(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventImageFromJSON(json: any): V1EventImage {
     return V1EventImageFromJSONTyped(json, false);
 }

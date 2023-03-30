@@ -53,6 +53,15 @@ export interface V1Template {
     fields?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1Template interface.
+ */
+export function instanceOfV1Template(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TemplateFromJSON(json: any): V1Template {
     return V1TemplateFromJSONTyped(json, false);
 }

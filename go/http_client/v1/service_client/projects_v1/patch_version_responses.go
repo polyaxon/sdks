@@ -87,9 +87,44 @@ type PatchVersionOK struct {
 	Payload *service_model.V1ProjectVersion
 }
 
+// IsSuccess returns true when this patch version o k response has a 2xx status code
+func (o *PatchVersionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch version o k response has a 3xx status code
+func (o *PatchVersionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch version o k response has a 4xx status code
+func (o *PatchVersionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch version o k response has a 5xx status code
+func (o *PatchVersionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch version o k response a status code equal to that given
+func (o *PatchVersionOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the patch version o k response
+func (o *PatchVersionOK) Code() int {
+	return 200
+}
+
 func (o *PatchVersionOK) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK  %+v", 200, o.Payload)
 }
+
+func (o *PatchVersionOK) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK  %+v", 200, o.Payload)
+}
+
 func (o *PatchVersionOK) GetPayload() *service_model.V1ProjectVersion {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type PatchVersionNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch version no content response has a 2xx status code
+func (o *PatchVersionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch version no content response has a 3xx status code
+func (o *PatchVersionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch version no content response has a 4xx status code
+func (o *PatchVersionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch version no content response has a 5xx status code
+func (o *PatchVersionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch version no content response a status code equal to that given
+func (o *PatchVersionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the patch version no content response
+func (o *PatchVersionNoContent) Code() int {
+	return 204
+}
+
 func (o *PatchVersionNoContent) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PatchVersionNoContent) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PatchVersionNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type PatchVersionForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch version forbidden response has a 2xx status code
+func (o *PatchVersionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch version forbidden response has a 3xx status code
+func (o *PatchVersionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch version forbidden response has a 4xx status code
+func (o *PatchVersionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch version forbidden response has a 5xx status code
+func (o *PatchVersionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch version forbidden response a status code equal to that given
+func (o *PatchVersionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the patch version forbidden response
+func (o *PatchVersionForbidden) Code() int {
+	return 403
+}
+
 func (o *PatchVersionForbidden) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PatchVersionForbidden) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PatchVersionForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type PatchVersionNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this patch version not found response has a 2xx status code
+func (o *PatchVersionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch version not found response has a 3xx status code
+func (o *PatchVersionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch version not found response has a 4xx status code
+func (o *PatchVersionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch version not found response has a 5xx status code
+func (o *PatchVersionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch version not found response a status code equal to that given
+func (o *PatchVersionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the patch version not found response
+func (o *PatchVersionNotFound) Code() int {
+	return 404
+}
+
 func (o *PatchVersionNotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PatchVersionNotFound) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PatchVersionNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type PatchVersionDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this patch version default response has a 2xx status code
+func (o *PatchVersionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch version default response has a 3xx status code
+func (o *PatchVersionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch version default response has a 4xx status code
+func (o *PatchVersionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch version default response has a 5xx status code
+func (o *PatchVersionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch version default response a status code equal to that given
+func (o *PatchVersionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the patch version default response
 func (o *PatchVersionDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *PatchVersionDefault) Code() int {
 func (o *PatchVersionDefault) Error() string {
 	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] PatchVersion default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PatchVersionDefault) String() string {
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] PatchVersion default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PatchVersionDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

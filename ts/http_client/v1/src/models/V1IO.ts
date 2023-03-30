@@ -113,6 +113,15 @@ export interface V1IO {
     toEnv?: string;
 }
 
+/**
+ * Check if a given object implements the V1IO interface.
+ */
+export function instanceOfV1IO(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1IOFromJSON(json: any): V1IO {
     return V1IOFromJSONTyped(json, false);
 }

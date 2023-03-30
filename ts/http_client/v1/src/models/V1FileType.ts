@@ -59,6 +59,15 @@ export interface V1FileType {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1FileType interface.
+ */
+export function instanceOfV1FileType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FileTypeFromJSON(json: any): V1FileType {
     return V1FileTypeFromJSONTyped(json, false);
 }

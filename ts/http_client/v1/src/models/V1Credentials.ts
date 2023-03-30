@@ -47,6 +47,15 @@ export interface V1Credentials {
     password?: string;
 }
 
+/**
+ * Check if a given object implements the V1Credentials interface.
+ */
+export function instanceOfV1Credentials(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CredentialsFromJSON(json: any): V1Credentials {
     return V1CredentialsFromJSONTyped(json, false);
 }

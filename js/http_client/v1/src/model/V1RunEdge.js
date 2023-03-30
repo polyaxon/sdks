@@ -83,8 +83,32 @@ class V1RunEdge {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1RunEdge</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RunEdge</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `upstream`
+        if (data['upstream']) { // data not null
+          V1Run.validateJSON(data['upstream']);
+        }
+        // validate the optional field `downstream`
+        if (data['downstream']) { // data not null
+          V1Run.validateJSON(data['downstream']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['statuses'])) {
+            throw new Error("Expected the field `statuses` to be an array in the JSON data but got " + data['statuses']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1Run} upstream

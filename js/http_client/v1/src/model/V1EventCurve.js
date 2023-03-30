@@ -78,8 +78,32 @@ class V1EventCurve {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EventCurve</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EventCurve</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['x'])) {
+            throw new Error("Expected the field `x` to be an array in the JSON data but got " + data['x']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['y'])) {
+            throw new Error("Expected the field `y` to be an array in the JSON data but got " + data['y']);
+        }
+        // ensure the json data is a string
+        if (data['annotation'] && !(typeof data['annotation'] === 'string' || data['annotation'] instanceof String)) {
+            throw new Error("Expected the field `annotation` to be a primitive type in the JSON string but got " + data['annotation']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1EventCurveKind} kind

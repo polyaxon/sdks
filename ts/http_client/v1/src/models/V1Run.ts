@@ -27,40 +27,54 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Cloning } from './V1Cloning';
 import {
-    V1Cloning,
     V1CloningFromJSON,
     V1CloningFromJSONTyped,
     V1CloningToJSON,
-    V1Pipeline,
+} from './V1Cloning';
+import type { V1Pipeline } from './V1Pipeline';
+import {
     V1PipelineFromJSON,
     V1PipelineFromJSONTyped,
     V1PipelineToJSON,
-    V1RunKind,
+} from './V1Pipeline';
+import type { V1RunKind } from './V1RunKind';
+import {
     V1RunKindFromJSON,
     V1RunKindFromJSONTyped,
     V1RunKindToJSON,
-    V1RunPending,
+} from './V1RunKind';
+import type { V1RunPending } from './V1RunPending';
+import {
     V1RunPendingFromJSON,
     V1RunPendingFromJSONTyped,
     V1RunPendingToJSON,
-    V1RunResources,
+} from './V1RunPending';
+import type { V1RunResources } from './V1RunResources';
+import {
     V1RunResourcesFromJSON,
     V1RunResourcesFromJSONTyped,
     V1RunResourcesToJSON,
-    V1RunSettings,
+} from './V1RunResources';
+import type { V1RunSettings } from './V1RunSettings';
+import {
     V1RunSettingsFromJSON,
     V1RunSettingsFromJSONTyped,
     V1RunSettingsToJSON,
-    V1StatusCondition,
+} from './V1RunSettings';
+import type { V1StatusCondition } from './V1StatusCondition';
+import {
     V1StatusConditionFromJSON,
     V1StatusConditionFromJSONTyped,
     V1StatusConditionToJSON,
-    V1Statuses,
+} from './V1StatusCondition';
+import type { V1Statuses } from './V1Statuses';
+import {
     V1StatusesFromJSON,
     V1StatusesFromJSONTyped,
     V1StatusesToJSON,
-} from './';
+} from './V1Statuses';
 
 /**
  * 
@@ -284,6 +298,15 @@ export interface V1Run {
      * @memberof V1Run
      */
     merge?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1Run interface.
+ */
+export function instanceOfV1Run(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RunFromJSON(json: any): V1Run {

@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1TeamMember } from './V1TeamMember';
 import {
-    V1TeamMember,
     V1TeamMemberFromJSON,
     V1TeamMemberFromJSONTyped,
     V1TeamMemberToJSON,
-} from './';
+} from './V1TeamMember';
 
 /**
  * 
@@ -64,6 +64,15 @@ export interface V1ListTeamMembersResponse {
      * @memberof V1ListTeamMembersResponse
      */
     next?: string;
+}
+
+/**
+ * Check if a given object implements the V1ListTeamMembersResponse interface.
+ */
+export function instanceOfV1ListTeamMembersResponse(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ListTeamMembersResponseFromJSON(json: any): V1ListTeamMembersResponse {

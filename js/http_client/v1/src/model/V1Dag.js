@@ -92,8 +92,60 @@ class V1Dag {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Dag</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Dag</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        if (data['operations']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['operations'])) {
+                throw new Error("Expected the field `operations` to be an array in the JSON data but got " + data['operations']);
+            }
+            // validate the optional field `operations` (array)
+            for (const item of data['operations']) {
+                V1Operation.validateJsonObject(item);
+            };
+        }
+        if (data['components']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['components'])) {
+                throw new Error("Expected the field `components` to be an array in the JSON data but got " + data['components']);
+            }
+            // validate the optional field `components` (array)
+            for (const item of data['components']) {
+                V1Component.validateJsonObject(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['earlyStopping'])) {
+            throw new Error("Expected the field `earlyStopping` to be an array in the JSON data but got " + data['earlyStopping']);
+        }
+        // validate the optional field `environment`
+        if (data['environment']) { // data not null
+          V1Environment.validateJSON(data['environment']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['connections'])) {
+            throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['volumes'])) {
+            throw new Error("Expected the field `volumes` to be an array in the JSON data but got " + data['volumes']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} kind

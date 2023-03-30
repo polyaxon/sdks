@@ -34,14 +34,33 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.V1Tuner;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Iterative
@@ -76,6 +95,8 @@ public class V1Iterative {
   @SerializedName(SERIALIZED_NAME_EARLY_STOPPING)
   private List<Object> earlyStopping = null;
 
+  public V1Iterative() {
+  }
 
   public V1Iterative kind(String kind) {
     
@@ -88,7 +109,6 @@ public class V1Iterative {
    * @return kind
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getKind() {
     return kind;
@@ -108,7 +128,7 @@ public class V1Iterative {
 
   public V1Iterative putParamsItem(String key, Object paramsItem) {
     if (this.params == null) {
-      this.params = new HashMap<String, Object>();
+      this.params = new HashMap<>();
     }
     this.params.put(key, paramsItem);
     return this;
@@ -119,7 +139,6 @@ public class V1Iterative {
    * @return params
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, Object> getParams() {
     return params;
@@ -142,7 +161,6 @@ public class V1Iterative {
    * @return maxIterations
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getMaxIterations() {
     return maxIterations;
@@ -165,7 +183,6 @@ public class V1Iterative {
    * @return seed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getSeed() {
     return seed;
@@ -188,7 +205,6 @@ public class V1Iterative {
    * @return concurrency
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getConcurrency() {
     return concurrency;
@@ -211,7 +227,6 @@ public class V1Iterative {
    * @return tuner
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public V1Tuner getTuner() {
     return tuner;
@@ -231,7 +246,7 @@ public class V1Iterative {
 
   public V1Iterative addEarlyStoppingItem(Object earlyStoppingItem) {
     if (this.earlyStopping == null) {
-      this.earlyStopping = new ArrayList<Object>();
+      this.earlyStopping = new ArrayList<>();
     }
     this.earlyStopping.add(earlyStoppingItem);
     return this;
@@ -242,7 +257,6 @@ public class V1Iterative {
    * @return earlyStopping
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getEarlyStopping() {
     return earlyStopping;
@@ -252,6 +266,7 @@ public class V1Iterative {
   public void setEarlyStopping(List<Object> earlyStopping) {
     this.earlyStopping = earlyStopping;
   }
+
 
 
   @Override
@@ -303,5 +318,105 @@ public class V1Iterative {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("kind");
+    openapiFields.add("params");
+    openapiFields.add("maxIterations");
+    openapiFields.add("seed");
+    openapiFields.add("concurrency");
+    openapiFields.add("tuner");
+    openapiFields.add("earlyStopping");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Iterative
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Iterative.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Iterative is not found in the empty JSON string", V1Iterative.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Iterative.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Iterative` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the optional field `tuner`
+      if (jsonObj.get("tuner") != null && !jsonObj.get("tuner").isJsonNull()) {
+        V1Tuner.validateJsonObject(jsonObj.getAsJsonObject("tuner"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("earlyStopping") != null && !jsonObj.get("earlyStopping").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `earlyStopping` to be an array in the JSON string but got `%s`", jsonObj.get("earlyStopping").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Iterative.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Iterative' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Iterative> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Iterative.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Iterative>() {
+           @Override
+           public void write(JsonWriter out, V1Iterative value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Iterative read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Iterative given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Iterative
+  * @throws IOException if the JSON string is invalid with respect to V1Iterative
+  */
+  public static V1Iterative fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Iterative.class);
+  }
+
+ /**
+  * Convert an instance of V1Iterative to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

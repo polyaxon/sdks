@@ -86,7 +86,41 @@ A successful response.
 type PromoteProjectDashboardOK struct {
 }
 
+// IsSuccess returns true when this promote project dashboard o k response has a 2xx status code
+func (o *PromoteProjectDashboardOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this promote project dashboard o k response has a 3xx status code
+func (o *PromoteProjectDashboardOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project dashboard o k response has a 4xx status code
+func (o *PromoteProjectDashboardOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this promote project dashboard o k response has a 5xx status code
+func (o *PromoteProjectDashboardOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project dashboard o k response a status code equal to that given
+func (o *PromoteProjectDashboardOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the promote project dashboard o k response
+func (o *PromoteProjectDashboardOK) Code() int {
+	return 200
+}
+
 func (o *PromoteProjectDashboardOK) Error() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK ", 200)
+}
+
+func (o *PromoteProjectDashboardOK) String() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type PromoteProjectDashboardNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this promote project dashboard no content response has a 2xx status code
+func (o *PromoteProjectDashboardNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this promote project dashboard no content response has a 3xx status code
+func (o *PromoteProjectDashboardNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project dashboard no content response has a 4xx status code
+func (o *PromoteProjectDashboardNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this promote project dashboard no content response has a 5xx status code
+func (o *PromoteProjectDashboardNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project dashboard no content response a status code equal to that given
+func (o *PromoteProjectDashboardNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the promote project dashboard no content response
+func (o *PromoteProjectDashboardNoContent) Code() int {
+	return 204
+}
+
 func (o *PromoteProjectDashboardNoContent) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNoContent  %+v", 204, o.Payload)
 }
+
+func (o *PromoteProjectDashboardNoContent) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNoContent  %+v", 204, o.Payload)
+}
+
 func (o *PromoteProjectDashboardNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type PromoteProjectDashboardForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this promote project dashboard forbidden response has a 2xx status code
+func (o *PromoteProjectDashboardForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this promote project dashboard forbidden response has a 3xx status code
+func (o *PromoteProjectDashboardForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project dashboard forbidden response has a 4xx status code
+func (o *PromoteProjectDashboardForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this promote project dashboard forbidden response has a 5xx status code
+func (o *PromoteProjectDashboardForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project dashboard forbidden response a status code equal to that given
+func (o *PromoteProjectDashboardForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the promote project dashboard forbidden response
+func (o *PromoteProjectDashboardForbidden) Code() int {
+	return 403
+}
+
 func (o *PromoteProjectDashboardForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden  %+v", 403, o.Payload)
 }
+
+func (o *PromoteProjectDashboardForbidden) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden  %+v", 403, o.Payload)
+}
+
 func (o *PromoteProjectDashboardForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type PromoteProjectDashboardNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this promote project dashboard not found response has a 2xx status code
+func (o *PromoteProjectDashboardNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this promote project dashboard not found response has a 3xx status code
+func (o *PromoteProjectDashboardNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this promote project dashboard not found response has a 4xx status code
+func (o *PromoteProjectDashboardNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this promote project dashboard not found response has a 5xx status code
+func (o *PromoteProjectDashboardNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this promote project dashboard not found response a status code equal to that given
+func (o *PromoteProjectDashboardNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the promote project dashboard not found response
+func (o *PromoteProjectDashboardNotFound) Code() int {
+	return 404
+}
+
 func (o *PromoteProjectDashboardNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound  %+v", 404, o.Payload)
 }
+
+func (o *PromoteProjectDashboardNotFound) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound  %+v", 404, o.Payload)
+}
+
 func (o *PromoteProjectDashboardNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type PromoteProjectDashboardDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this promote project dashboard default response has a 2xx status code
+func (o *PromoteProjectDashboardDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this promote project dashboard default response has a 3xx status code
+func (o *PromoteProjectDashboardDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this promote project dashboard default response has a 4xx status code
+func (o *PromoteProjectDashboardDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this promote project dashboard default response has a 5xx status code
+func (o *PromoteProjectDashboardDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this promote project dashboard default response a status code equal to that given
+func (o *PromoteProjectDashboardDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the promote project dashboard default response
 func (o *PromoteProjectDashboardDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *PromoteProjectDashboardDefault) Code() int {
 func (o *PromoteProjectDashboardDefault) Error() string {
 	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] PromoteProjectDashboard default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *PromoteProjectDashboardDefault) String() string {
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] PromoteProjectDashboard default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *PromoteProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

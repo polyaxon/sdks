@@ -80,8 +80,32 @@ class V1TensorboardType {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1TensorboardType</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1TensorboardType</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['uuids'])) {
+            throw new Error("Expected the field `uuids` to be an array in the JSON data but got " + data['uuids']);
+        }
+        // ensure the json data is a string
+        if (data['path_prefix'] && !(typeof data['path_prefix'] === 'string' || data['path_prefix'] instanceof String)) {
+            throw new Error("Expected the field `path_prefix` to be a primitive type in the JSON string but got " + data['path_prefix']);
+        }
+        // ensure the json data is a string
+        if (data['plugins'] && !(typeof data['plugins'] === 'string' || data['plugins'] instanceof String)) {
+            throw new Error("Expected the field `plugins` to be a primitive type in the JSON string but got " + data['plugins']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} port

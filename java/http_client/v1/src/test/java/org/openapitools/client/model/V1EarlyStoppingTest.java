@@ -32,17 +32,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1DiffStoppingPolicy;
 import org.openapitools.client.model.V1FailureEarlyStopping;
 import org.openapitools.client.model.V1MedianStoppingPolicy;
 import org.openapitools.client.model.V1MetricEarlyStopping;
 import org.openapitools.client.model.V1TruncationStoppingPolicy;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

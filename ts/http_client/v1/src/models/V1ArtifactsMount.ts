@@ -47,6 +47,15 @@ export interface V1ArtifactsMount {
     paths?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1ArtifactsMount interface.
+ */
+export function instanceOfV1ArtifactsMount(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ArtifactsMountFromJSON(json: any): V1ArtifactsMount {
     return V1ArtifactsMountFromJSONTyped(json, false);
 }

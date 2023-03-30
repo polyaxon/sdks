@@ -86,7 +86,41 @@ A successful response.
 type DeleteTagOK struct {
 }
 
+// IsSuccess returns true when this delete tag o k response has a 2xx status code
+func (o *DeleteTagOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete tag o k response has a 3xx status code
+func (o *DeleteTagOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete tag o k response has a 4xx status code
+func (o *DeleteTagOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete tag o k response has a 5xx status code
+func (o *DeleteTagOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete tag o k response a status code equal to that given
+func (o *DeleteTagOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the delete tag o k response
+func (o *DeleteTagOK) Code() int {
+	return 200
+}
+
 func (o *DeleteTagOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK ", 200)
+}
+
+func (o *DeleteTagOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type DeleteTagNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete tag no content response has a 2xx status code
+func (o *DeleteTagNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete tag no content response has a 3xx status code
+func (o *DeleteTagNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete tag no content response has a 4xx status code
+func (o *DeleteTagNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete tag no content response has a 5xx status code
+func (o *DeleteTagNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete tag no content response a status code equal to that given
+func (o *DeleteTagNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the delete tag no content response
+func (o *DeleteTagNoContent) Code() int {
+	return 204
+}
+
 func (o *DeleteTagNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteTagNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteTagNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type DeleteTagForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete tag forbidden response has a 2xx status code
+func (o *DeleteTagForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete tag forbidden response has a 3xx status code
+func (o *DeleteTagForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete tag forbidden response has a 4xx status code
+func (o *DeleteTagForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete tag forbidden response has a 5xx status code
+func (o *DeleteTagForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete tag forbidden response a status code equal to that given
+func (o *DeleteTagForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the delete tag forbidden response
+func (o *DeleteTagForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteTagForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteTagForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteTagForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type DeleteTagNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete tag not found response has a 2xx status code
+func (o *DeleteTagNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete tag not found response has a 3xx status code
+func (o *DeleteTagNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete tag not found response has a 4xx status code
+func (o *DeleteTagNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete tag not found response has a 5xx status code
+func (o *DeleteTagNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete tag not found response a status code equal to that given
+func (o *DeleteTagNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the delete tag not found response
+func (o *DeleteTagNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteTagNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteTagNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteTagNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type DeleteTagDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this delete tag default response has a 2xx status code
+func (o *DeleteTagDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete tag default response has a 3xx status code
+func (o *DeleteTagDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete tag default response has a 4xx status code
+func (o *DeleteTagDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete tag default response has a 5xx status code
+func (o *DeleteTagDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete tag default response a status code equal to that given
+func (o *DeleteTagDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the delete tag default response
 func (o *DeleteTagDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *DeleteTagDefault) Code() int {
 func (o *DeleteTagDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] DeleteTag default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteTagDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] DeleteTag default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteTagDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

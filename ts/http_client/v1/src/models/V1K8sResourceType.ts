@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1K8sResourceSchema } from './V1K8sResourceSchema';
 import {
-    V1K8sResourceSchema,
     V1K8sResourceSchemaFromJSON,
     V1K8sResourceSchemaFromJSONTyped,
     V1K8sResourceSchemaToJSON,
-} from './';
+} from './V1K8sResourceSchema';
 
 /**
  * 
@@ -58,6 +58,15 @@ export interface V1K8sResourceType {
      * @memberof V1K8sResourceType
      */
     isRequested?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1K8sResourceType interface.
+ */
+export function instanceOfV1K8sResourceType(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1K8sResourceTypeFromJSON(json: any): V1K8sResourceType {

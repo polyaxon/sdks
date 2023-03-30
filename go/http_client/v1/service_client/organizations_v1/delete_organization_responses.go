@@ -86,7 +86,41 @@ A successful response.
 type DeleteOrganizationOK struct {
 }
 
+// IsSuccess returns true when this delete organization o k response has a 2xx status code
+func (o *DeleteOrganizationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete organization o k response has a 3xx status code
+func (o *DeleteOrganizationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete organization o k response has a 4xx status code
+func (o *DeleteOrganizationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete organization o k response has a 5xx status code
+func (o *DeleteOrganizationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete organization o k response a status code equal to that given
+func (o *DeleteOrganizationOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the delete organization o k response
+func (o *DeleteOrganizationOK) Code() int {
+	return 200
+}
+
 func (o *DeleteOrganizationOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationOK ", 200)
+}
+
+func (o *DeleteOrganizationOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationOK ", 200)
 }
 
@@ -109,9 +143,44 @@ type DeleteOrganizationNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete organization no content response has a 2xx status code
+func (o *DeleteOrganizationNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete organization no content response has a 3xx status code
+func (o *DeleteOrganizationNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete organization no content response has a 4xx status code
+func (o *DeleteOrganizationNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete organization no content response has a 5xx status code
+func (o *DeleteOrganizationNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete organization no content response a status code equal to that given
+func (o *DeleteOrganizationNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the delete organization no content response
+func (o *DeleteOrganizationNoContent) Code() int {
+	return 204
+}
+
 func (o *DeleteOrganizationNoContent) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationNoContent  %+v", 204, o.Payload)
 }
+
+func (o *DeleteOrganizationNoContent) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationNoContent  %+v", 204, o.Payload)
+}
+
 func (o *DeleteOrganizationNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -140,9 +209,44 @@ type DeleteOrganizationForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete organization forbidden response has a 2xx status code
+func (o *DeleteOrganizationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete organization forbidden response has a 3xx status code
+func (o *DeleteOrganizationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete organization forbidden response has a 4xx status code
+func (o *DeleteOrganizationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete organization forbidden response has a 5xx status code
+func (o *DeleteOrganizationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete organization forbidden response a status code equal to that given
+func (o *DeleteOrganizationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the delete organization forbidden response
+func (o *DeleteOrganizationForbidden) Code() int {
+	return 403
+}
+
 func (o *DeleteOrganizationForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationForbidden  %+v", 403, o.Payload)
 }
+
+func (o *DeleteOrganizationForbidden) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationForbidden  %+v", 403, o.Payload)
+}
+
 func (o *DeleteOrganizationForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -171,9 +275,44 @@ type DeleteOrganizationNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this delete organization not found response has a 2xx status code
+func (o *DeleteOrganizationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete organization not found response has a 3xx status code
+func (o *DeleteOrganizationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete organization not found response has a 4xx status code
+func (o *DeleteOrganizationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete organization not found response has a 5xx status code
+func (o *DeleteOrganizationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete organization not found response a status code equal to that given
+func (o *DeleteOrganizationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the delete organization not found response
+func (o *DeleteOrganizationNotFound) Code() int {
+	return 404
+}
+
 func (o *DeleteOrganizationNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationNotFound  %+v", 404, o.Payload)
 }
+
+func (o *DeleteOrganizationNotFound) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] deleteOrganizationNotFound  %+v", 404, o.Payload)
+}
+
 func (o *DeleteOrganizationNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -206,6 +345,31 @@ type DeleteOrganizationDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this delete organization default response has a 2xx status code
+func (o *DeleteOrganizationDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete organization default response has a 3xx status code
+func (o *DeleteOrganizationDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete organization default response has a 4xx status code
+func (o *DeleteOrganizationDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete organization default response has a 5xx status code
+func (o *DeleteOrganizationDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete organization default response a status code equal to that given
+func (o *DeleteOrganizationDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the delete organization default response
 func (o *DeleteOrganizationDefault) Code() int {
 	return o._statusCode
@@ -214,6 +378,11 @@ func (o *DeleteOrganizationDefault) Code() int {
 func (o *DeleteOrganizationDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] DeleteOrganization default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *DeleteOrganizationDefault) String() string {
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}][%d] DeleteOrganization default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *DeleteOrganizationDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

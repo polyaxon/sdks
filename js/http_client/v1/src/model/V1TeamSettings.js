@@ -75,8 +75,50 @@ class V1TeamSettings {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1TeamSettings</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1TeamSettings</code>.
+     */
+    static validateJSON(data) {
+        if (data['projects']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['projects'])) {
+                throw new Error("Expected the field `projects` to be an array in the JSON data but got " + data['projects']);
+            }
+            // validate the optional field `projects` (array)
+            for (const item of data['projects']) {
+                V1SettingsCatalog.validateJsonObject(item);
+            };
+        }
+        if (data['hubs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['hubs'])) {
+                throw new Error("Expected the field `hubs` to be an array in the JSON data but got " + data['hubs']);
+            }
+            // validate the optional field `hubs` (array)
+            for (const item of data['hubs']) {
+                V1SettingsCatalog.validateJsonObject(item);
+            };
+        }
+        if (data['registries']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['registries'])) {
+                throw new Error("Expected the field `registries` to be an array in the JSON data but got " + data['registries']);
+            }
+            // validate the optional field `registries` (array)
+            for (const item of data['registries']) {
+                V1SettingsCatalog.validateJsonObject(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/V1SettingsCatalog>} projects

@@ -274,7 +274,7 @@ import VersionsV1Api from './api/VersionsV1Api';
 
 
 /**
-* Polyaxon_SDKs_and_REST_API_specification_.<br>
+* Polyaxon SDKs and REST API specification..<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:

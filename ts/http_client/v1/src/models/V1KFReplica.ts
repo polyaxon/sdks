@@ -27,16 +27,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Environment } from './V1Environment';
 import {
-    V1Environment,
     V1EnvironmentFromJSON,
     V1EnvironmentFromJSONTyped,
     V1EnvironmentToJSON,
-    V1Init,
+} from './V1Environment';
+import type { V1Init } from './V1Init';
+import {
     V1InitFromJSON,
     V1InitFromJSONTyped,
     V1InitToJSON,
-} from './';
+} from './V1Init';
 
 /**
  * 
@@ -86,6 +88,15 @@ export interface V1KFReplica {
      * @memberof V1KFReplica
      */
     container?: object;
+}
+
+/**
+ * Check if a given object implements the V1KFReplica interface.
+ */
+export function instanceOfV1KFReplica(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KFReplicaFromJSON(json: any): V1KFReplica {

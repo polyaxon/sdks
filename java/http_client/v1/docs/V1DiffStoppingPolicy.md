@@ -6,13 +6,13 @@ Early stopping with diff factor stopping, this policy computes checks runs again
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**kind** | **String** |  |  [optional]
-**percent** | **Float** |  |  [optional]
-**evaluationInterval** | **Integer** | Interval/Frequency for applying the policy. |  [optional]
-**minInterval** | **Integer** |  |  [optional]
-**minSamples** | **Integer** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**kind** | **String** |  |  [optional] |
+|**percent** | **Float** |  |  [optional] |
+|**evaluationInterval** | **Integer** | Interval/Frequency for applying the policy. |  [optional] |
+|**minInterval** | **Integer** |  |  [optional] |
+|**minSamples** | **Integer** |  |  [optional] |
 
 
 

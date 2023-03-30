@@ -47,6 +47,15 @@ export interface V1HpNormal {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpNormal interface.
+ */
+export function instanceOfV1HpNormal(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpNormalFromJSON(json: any): V1HpNormal {
     return V1HpNormalFromJSONTyped(json, false);
 }

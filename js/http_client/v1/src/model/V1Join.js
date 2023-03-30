@@ -84,8 +84,32 @@ class V1Join {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1Join</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Join</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ref'] && !(typeof data['ref'] === 'string' || data['ref'] instanceof String)) {
+            throw new Error("Expected the field `ref` to be a primitive type in the JSON string but got " + data['ref']);
+        }
+        // ensure the json data is a string
+        if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
+            throw new Error("Expected the field `query` to be a primitive type in the JSON string but got " + data['query']);
+        }
+        // ensure the json data is a string
+        if (data['sort'] && !(typeof data['sort'] === 'string' || data['sort'] instanceof String)) {
+            throw new Error("Expected the field `sort` to be a primitive type in the JSON string but got " + data['sort']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} ref

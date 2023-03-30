@@ -47,6 +47,15 @@ export interface V1Version {
     latest?: string;
 }
 
+/**
+ * Check if a given object implements the V1Version interface.
+ */
+export function instanceOfV1Version(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VersionFromJSON(json: any): V1Version {
     return V1VersionFromJSONTyped(json, false);
 }

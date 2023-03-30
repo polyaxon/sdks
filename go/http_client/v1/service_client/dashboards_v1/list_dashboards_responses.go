@@ -87,9 +87,44 @@ type ListDashboardsOK struct {
 	Payload *service_model.V1ListDashboardsResponse
 }
 
+// IsSuccess returns true when this list dashboards o k response has a 2xx status code
+func (o *ListDashboardsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list dashboards o k response has a 3xx status code
+func (o *ListDashboardsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list dashboards o k response has a 4xx status code
+func (o *ListDashboardsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list dashboards o k response has a 5xx status code
+func (o *ListDashboardsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list dashboards o k response a status code equal to that given
+func (o *ListDashboardsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the list dashboards o k response
+func (o *ListDashboardsOK) Code() int {
+	return 200
+}
+
 func (o *ListDashboardsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsOK  %+v", 200, o.Payload)
 }
+
+func (o *ListDashboardsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsOK  %+v", 200, o.Payload)
+}
+
 func (o *ListDashboardsOK) GetPayload() *service_model.V1ListDashboardsResponse {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type ListDashboardsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list dashboards no content response has a 2xx status code
+func (o *ListDashboardsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this list dashboards no content response has a 3xx status code
+func (o *ListDashboardsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list dashboards no content response has a 4xx status code
+func (o *ListDashboardsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this list dashboards no content response has a 5xx status code
+func (o *ListDashboardsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list dashboards no content response a status code equal to that given
+func (o *ListDashboardsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the list dashboards no content response
+func (o *ListDashboardsNoContent) Code() int {
+	return 204
+}
+
 func (o *ListDashboardsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *ListDashboardsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *ListDashboardsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type ListDashboardsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list dashboards forbidden response has a 2xx status code
+func (o *ListDashboardsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list dashboards forbidden response has a 3xx status code
+func (o *ListDashboardsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list dashboards forbidden response has a 4xx status code
+func (o *ListDashboardsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list dashboards forbidden response has a 5xx status code
+func (o *ListDashboardsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list dashboards forbidden response a status code equal to that given
+func (o *ListDashboardsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the list dashboards forbidden response
+func (o *ListDashboardsForbidden) Code() int {
+	return 403
+}
+
 func (o *ListDashboardsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *ListDashboardsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *ListDashboardsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type ListDashboardsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this list dashboards not found response has a 2xx status code
+func (o *ListDashboardsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this list dashboards not found response has a 3xx status code
+func (o *ListDashboardsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this list dashboards not found response has a 4xx status code
+func (o *ListDashboardsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this list dashboards not found response has a 5xx status code
+func (o *ListDashboardsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this list dashboards not found response a status code equal to that given
+func (o *ListDashboardsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the list dashboards not found response
+func (o *ListDashboardsNotFound) Code() int {
+	return 404
+}
+
 func (o *ListDashboardsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *ListDashboardsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] listDashboardsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *ListDashboardsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type ListDashboardsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this list dashboards default response has a 2xx status code
+func (o *ListDashboardsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list dashboards default response has a 3xx status code
+func (o *ListDashboardsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list dashboards default response has a 4xx status code
+func (o *ListDashboardsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list dashboards default response has a 5xx status code
+func (o *ListDashboardsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list dashboards default response a status code equal to that given
+func (o *ListDashboardsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the list dashboards default response
 func (o *ListDashboardsDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *ListDashboardsDefault) Code() int {
 func (o *ListDashboardsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] ListDashboards default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *ListDashboardsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/dashboards][%d] ListDashboards default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *ListDashboardsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

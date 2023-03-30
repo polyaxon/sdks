@@ -27,20 +27,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CronSchedule } from './V1CronSchedule';
 import {
-    V1CronSchedule,
     V1CronScheduleFromJSON,
     V1CronScheduleFromJSONTyped,
     V1CronScheduleToJSON,
-    V1DateTimeSchedule,
+} from './V1CronSchedule';
+import type { V1DateTimeSchedule } from './V1DateTimeSchedule';
+import {
     V1DateTimeScheduleFromJSON,
     V1DateTimeScheduleFromJSONTyped,
     V1DateTimeScheduleToJSON,
-    V1IntervalSchedule,
+} from './V1DateTimeSchedule';
+import type { V1IntervalSchedule } from './V1IntervalSchedule';
+import {
     V1IntervalScheduleFromJSON,
     V1IntervalScheduleFromJSONTyped,
     V1IntervalScheduleToJSON,
-} from './';
+} from './V1IntervalSchedule';
 
 /**
  * 
@@ -66,6 +70,15 @@ export interface V1Schedule {
      * @memberof V1Schedule
      */
     interval?: V1IntervalSchedule;
+}
+
+/**
+ * Check if a given object implements the V1Schedule interface.
+ */
+export function instanceOfV1Schedule(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ScheduleFromJSON(json: any): V1Schedule {

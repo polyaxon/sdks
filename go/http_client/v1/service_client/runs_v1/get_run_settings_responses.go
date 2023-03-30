@@ -87,9 +87,44 @@ type GetRunSettingsOK struct {
 	Payload *service_model.V1RunSettings
 }
 
+// IsSuccess returns true when this get run settings o k response has a 2xx status code
+func (o *GetRunSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run settings o k response has a 3xx status code
+func (o *GetRunSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run settings o k response has a 4xx status code
+func (o *GetRunSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run settings o k response has a 5xx status code
+func (o *GetRunSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run settings o k response a status code equal to that given
+func (o *GetRunSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
+// Code gets the status code for the get run settings o k response
+func (o *GetRunSettingsOK) Code() int {
+	return 200
+}
+
 func (o *GetRunSettingsOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetRunSettingsOK) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetRunSettingsOK) GetPayload() *service_model.V1RunSettings {
 	return o.Payload
 }
@@ -120,9 +155,44 @@ type GetRunSettingsNoContent struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run settings no content response has a 2xx status code
+func (o *GetRunSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get run settings no content response has a 3xx status code
+func (o *GetRunSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run settings no content response has a 4xx status code
+func (o *GetRunSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get run settings no content response has a 5xx status code
+func (o *GetRunSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run settings no content response a status code equal to that given
+func (o *GetRunSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
+// Code gets the status code for the get run settings no content response
+func (o *GetRunSettingsNoContent) Code() int {
+	return 204
+}
+
 func (o *GetRunSettingsNoContent) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsNoContent  %+v", 204, o.Payload)
 }
+
+func (o *GetRunSettingsNoContent) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsNoContent  %+v", 204, o.Payload)
+}
+
 func (o *GetRunSettingsNoContent) GetPayload() interface{} {
 	return o.Payload
 }
@@ -151,9 +221,44 @@ type GetRunSettingsForbidden struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run settings forbidden response has a 2xx status code
+func (o *GetRunSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run settings forbidden response has a 3xx status code
+func (o *GetRunSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run settings forbidden response has a 4xx status code
+func (o *GetRunSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run settings forbidden response has a 5xx status code
+func (o *GetRunSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run settings forbidden response a status code equal to that given
+func (o *GetRunSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
+// Code gets the status code for the get run settings forbidden response
+func (o *GetRunSettingsForbidden) Code() int {
+	return 403
+}
+
 func (o *GetRunSettingsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetRunSettingsForbidden) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetRunSettingsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -182,9 +287,44 @@ type GetRunSettingsNotFound struct {
 	Payload interface{}
 }
 
+// IsSuccess returns true when this get run settings not found response has a 2xx status code
+func (o *GetRunSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get run settings not found response has a 3xx status code
+func (o *GetRunSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get run settings not found response has a 4xx status code
+func (o *GetRunSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get run settings not found response has a 5xx status code
+func (o *GetRunSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get run settings not found response a status code equal to that given
+func (o *GetRunSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
+// Code gets the status code for the get run settings not found response
+func (o *GetRunSettingsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetRunSettingsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetRunSettingsNotFound) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] getRunSettingsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetRunSettingsNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -217,6 +357,31 @@ type GetRunSettingsDefault struct {
 	Payload *service_model.RuntimeError
 }
 
+// IsSuccess returns true when this get run settings default response has a 2xx status code
+func (o *GetRunSettingsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this get run settings default response has a 3xx status code
+func (o *GetRunSettingsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this get run settings default response has a 4xx status code
+func (o *GetRunSettingsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this get run settings default response has a 5xx status code
+func (o *GetRunSettingsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this get run settings default response a status code equal to that given
+func (o *GetRunSettingsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 // Code gets the status code for the get run settings default response
 func (o *GetRunSettingsDefault) Code() int {
 	return o._statusCode
@@ -225,6 +390,11 @@ func (o *GetRunSettingsDefault) Code() int {
 func (o *GetRunSettingsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] GetRunSettings default  %+v", o._statusCode, o.Payload)
 }
+
+func (o *GetRunSettingsDefault) String() string {
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/settings][%d] GetRunSettings default  %+v", o._statusCode, o.Payload)
+}
+
 func (o *GetRunSettingsDefault) GetPayload() *service_model.RuntimeError {
 	return o.Payload
 }

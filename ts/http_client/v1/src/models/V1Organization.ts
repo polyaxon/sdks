@@ -125,6 +125,15 @@ export interface V1Organization {
     usage?: object;
 }
 
+/**
+ * Check if a given object implements the V1Organization interface.
+ */
+export function instanceOfV1Organization(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1OrganizationFromJSON(json: any): V1Organization {
     return V1OrganizationFromJSONTyped(json, false);
 }

@@ -89,6 +89,15 @@ export interface V1Preset {
     content?: string;
 }
 
+/**
+ * Check if a given object implements the V1Preset interface.
+ */
+export function instanceOfV1Preset(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PresetFromJSON(json: any): V1Preset {
     return V1PresetFromJSONTyped(json, false);
 }

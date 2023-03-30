@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1PipelineKind } from './V1PipelineKind';
 import {
-    V1PipelineKind,
     V1PipelineKindFromJSON,
     V1PipelineKindFromJSONTyped,
     V1PipelineKindToJSON,
-} from './';
+} from './V1PipelineKind';
 
 /**
  * 
@@ -58,6 +58,15 @@ export interface V1Pipeline {
      * @memberof V1Pipeline
      */
     kind?: V1PipelineKind;
+}
+
+/**
+ * Check if a given object implements the V1Pipeline interface.
+ */
+export function instanceOfV1Pipeline(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1PipelineFromJSON(json: any): V1Pipeline {

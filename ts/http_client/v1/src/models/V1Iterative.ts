@@ -27,12 +27,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Tuner } from './V1Tuner';
 import {
-    V1Tuner,
     V1TunerFromJSON,
     V1TunerFromJSONTyped,
     V1TunerToJSON,
-} from './';
+} from './V1Tuner';
 
 /**
  * 
@@ -82,6 +82,15 @@ export interface V1Iterative {
      * @memberof V1Iterative
      */
     earlyStopping?: Array<object>;
+}
+
+/**
+ * Check if a given object implements the V1Iterative interface.
+ */
+export function instanceOfV1Iterative(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1IterativeFromJSON(json: any): V1Iterative {

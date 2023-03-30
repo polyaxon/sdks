@@ -27,48 +27,66 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1EventArtifact } from './V1EventArtifact';
 import {
-    V1EventArtifact,
     V1EventArtifactFromJSON,
     V1EventArtifactFromJSONTyped,
     V1EventArtifactToJSON,
-    V1EventAudio,
+} from './V1EventArtifact';
+import type { V1EventAudio } from './V1EventAudio';
+import {
     V1EventAudioFromJSON,
     V1EventAudioFromJSONTyped,
     V1EventAudioToJSON,
-    V1EventChart,
+} from './V1EventAudio';
+import type { V1EventChart } from './V1EventChart';
+import {
     V1EventChartFromJSON,
     V1EventChartFromJSONTyped,
     V1EventChartToJSON,
-    V1EventConfusionMatrix,
+} from './V1EventChart';
+import type { V1EventConfusionMatrix } from './V1EventConfusionMatrix';
+import {
     V1EventConfusionMatrixFromJSON,
     V1EventConfusionMatrixFromJSONTyped,
     V1EventConfusionMatrixToJSON,
-    V1EventCurve,
+} from './V1EventConfusionMatrix';
+import type { V1EventCurve } from './V1EventCurve';
+import {
     V1EventCurveFromJSON,
     V1EventCurveFromJSONTyped,
     V1EventCurveToJSON,
-    V1EventDataframe,
+} from './V1EventCurve';
+import type { V1EventDataframe } from './V1EventDataframe';
+import {
     V1EventDataframeFromJSON,
     V1EventDataframeFromJSONTyped,
     V1EventDataframeToJSON,
-    V1EventHistogram,
+} from './V1EventDataframe';
+import type { V1EventHistogram } from './V1EventHistogram';
+import {
     V1EventHistogramFromJSON,
     V1EventHistogramFromJSONTyped,
     V1EventHistogramToJSON,
-    V1EventImage,
+} from './V1EventHistogram';
+import type { V1EventImage } from './V1EventImage';
+import {
     V1EventImageFromJSON,
     V1EventImageFromJSONTyped,
     V1EventImageToJSON,
-    V1EventModel,
+} from './V1EventImage';
+import type { V1EventModel } from './V1EventModel';
+import {
     V1EventModelFromJSON,
     V1EventModelFromJSONTyped,
     V1EventModelToJSON,
-    V1EventVideo,
+} from './V1EventModel';
+import type { V1EventVideo } from './V1EventVideo';
+import {
     V1EventVideoFromJSON,
     V1EventVideoFromJSONTyped,
     V1EventVideoToJSON,
-} from './';
+} from './V1EventVideo';
 
 /**
  * 
@@ -166,6 +184,15 @@ export interface V1Event {
      * @memberof V1Event
      */
     confusion?: V1EventConfusionMatrix;
+}
+
+/**
+ * Check if a given object implements the V1Event interface.
+ */
+export function instanceOfV1Event(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EventFromJSON(json: any): V1Event {

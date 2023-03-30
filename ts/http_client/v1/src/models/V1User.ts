@@ -71,6 +71,15 @@ export interface V1User {
     organization?: string;
 }
 
+/**
+ * Check if a given object implements the V1User interface.
+ */
+export function instanceOfV1User(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UserFromJSON(json: any): V1User {
     return V1UserFromJSONTyped(json, false);
 }

@@ -34,11 +34,30 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1IO
@@ -97,6 +116,8 @@ public class V1IO {
   @SerializedName(SERIALIZED_NAME_TO_ENV)
   private String toEnv;
 
+  public V1IO() {
+  }
 
   public V1IO name(String name) {
     
@@ -109,7 +130,6 @@ public class V1IO {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -132,7 +152,6 @@ public class V1IO {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -155,7 +174,6 @@ public class V1IO {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -178,7 +196,6 @@ public class V1IO {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getValue() {
     return value;
@@ -201,7 +218,6 @@ public class V1IO {
    * @return isOptional
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsOptional() {
     return isOptional;
@@ -224,7 +240,6 @@ public class V1IO {
    * @return isList
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsList() {
     return isList;
@@ -247,7 +262,6 @@ public class V1IO {
    * @return isFlag
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsFlag() {
     return isFlag;
@@ -270,7 +284,6 @@ public class V1IO {
    * @return argFormat
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getArgFormat() {
     return argFormat;
@@ -293,7 +306,6 @@ public class V1IO {
    * @return delayValidation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getDelayValidation() {
     return delayValidation;
@@ -313,7 +325,7 @@ public class V1IO {
 
   public V1IO addOptionsItem(Object optionsItem) {
     if (this.options == null) {
-      this.options = new ArrayList<Object>();
+      this.options = new ArrayList<>();
     }
     this.options.add(optionsItem);
     return this;
@@ -324,7 +336,6 @@ public class V1IO {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<Object> getOptions() {
     return options;
@@ -347,7 +358,6 @@ public class V1IO {
    * @return connection
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getConnection() {
     return connection;
@@ -370,7 +380,6 @@ public class V1IO {
    * @return toInit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getToInit() {
     return toInit;
@@ -393,7 +402,6 @@ public class V1IO {
    * @return toEnv
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getToEnv() {
     return toEnv;
@@ -403,6 +411,7 @@ public class V1IO {
   public void setToEnv(String toEnv) {
     this.toEnv = toEnv;
   }
+
 
 
   @Override
@@ -466,5 +475,122 @@ public class V1IO {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("type");
+    openapiFields.add("value");
+    openapiFields.add("isOptional");
+    openapiFields.add("isList");
+    openapiFields.add("isFlag");
+    openapiFields.add("argFormat");
+    openapiFields.add("delayValidation");
+    openapiFields.add("options");
+    openapiFields.add("connection");
+    openapiFields.add("toInit");
+    openapiFields.add("toEnv");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1IO
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1IO.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1IO is not found in the empty JSON string", V1IO.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1IO.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1IO` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("argFormat") != null && !jsonObj.get("argFormat").isJsonNull()) && !jsonObj.get("argFormat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `argFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("argFormat").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
+      }
+      if ((jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()) && !jsonObj.get("connection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection").toString()));
+      }
+      if ((jsonObj.get("toEnv") != null && !jsonObj.get("toEnv").isJsonNull()) && !jsonObj.get("toEnv").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `toEnv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toEnv").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1IO.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1IO' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1IO> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1IO.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1IO>() {
+           @Override
+           public void write(JsonWriter out, V1IO value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1IO read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1IO given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1IO
+  * @throws IOException if the JSON string is invalid with respect to V1IO
+  */
+  public static V1IO fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1IO.class);
+  }
+
+ /**
+  * Convert an instance of V1IO to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

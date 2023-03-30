@@ -65,6 +65,15 @@ export interface V1EventAudio {
     path?: string;
 }
 
+/**
+ * Check if a given object implements the V1EventAudio interface.
+ */
+export function instanceOfV1EventAudio(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EventAudioFromJSON(json: any): V1EventAudio {
     return V1EventAudioFromJSONTyped(json, false);
 }

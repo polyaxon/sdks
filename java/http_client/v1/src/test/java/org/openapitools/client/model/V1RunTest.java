@@ -32,9 +32,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1Cloning;
@@ -45,10 +44,8 @@ import org.openapitools.client.model.V1RunResources;
 import org.openapitools.client.model.V1RunSettings;
 import org.openapitools.client.model.V1StatusCondition;
 import org.openapitools.client.model.V1Statuses;
-import org.threeten.bp.OffsetDateTime;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

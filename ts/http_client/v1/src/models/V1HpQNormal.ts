@@ -47,6 +47,15 @@ export interface V1HpQNormal {
     value?: object;
 }
 
+/**
+ * Check if a given object implements the V1HpQNormal interface.
+ */
+export function instanceOfV1HpQNormal(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HpQNormalFromJSON(json: any): V1HpQNormal {
     return V1HpQNormalFromJSONTyped(json, false);
 }

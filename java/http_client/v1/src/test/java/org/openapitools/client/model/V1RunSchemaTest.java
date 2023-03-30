@@ -32,8 +32,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.client.model.V1Dag;
 import org.openapitools.client.model.V1Dask;
@@ -48,9 +46,8 @@ import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1Spark;
 import org.openapitools.client.model.V1TFJob;
 import org.openapitools.client.model.V1XGBoostJob;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

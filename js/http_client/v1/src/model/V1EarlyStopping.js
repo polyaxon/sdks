@@ -85,8 +85,40 @@ class V1EarlyStopping {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1EarlyStopping</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1EarlyStopping</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `median`
+        if (data['median']) { // data not null
+          V1MedianStoppingPolicy.validateJSON(data['median']);
+        }
+        // validate the optional field `diff`
+        if (data['diff']) { // data not null
+          V1DiffStoppingPolicy.validateJSON(data['diff']);
+        }
+        // validate the optional field `truncation`
+        if (data['truncation']) { // data not null
+          V1TruncationStoppingPolicy.validateJSON(data['truncation']);
+        }
+        // validate the optional field `metric`
+        if (data['metric']) { // data not null
+          V1MetricEarlyStopping.validateJSON(data['metric']);
+        }
+        // validate the optional field `failure`
+        if (data['failure']) { // data not null
+          V1FailureEarlyStopping.validateJSON(data['failure']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/V1MedianStoppingPolicy} median

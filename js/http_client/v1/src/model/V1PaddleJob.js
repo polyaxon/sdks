@@ -83,8 +83,36 @@ class V1PaddleJob {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>V1PaddleJob</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1PaddleJob</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
+        // validate the optional field `schedulingPolicy`
+        if (data['schedulingPolicy']) { // data not null
+          V1SchedulingPolicy.validateJSON(data['schedulingPolicy']);
+        }
+        // validate the optional field `master`
+        if (data['master']) { // data not null
+          V1KFReplica.validateJSON(data['master']);
+        }
+        // validate the optional field `worker`
+        if (data['worker']) { // data not null
+          V1KFReplica.validateJSON(data['worker']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} kind

@@ -34,10 +34,29 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.openapitools.client.JSON;
 
 /**
  * V1Organization
@@ -104,6 +123,8 @@ public class V1Organization {
   @SerializedName(SERIALIZED_NAME_USAGE)
   private Object usage;
 
+  public V1Organization() {
+  }
 
   public V1Organization user(String user) {
     
@@ -116,7 +137,6 @@ public class V1Organization {
    * @return user
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUser() {
     return user;
@@ -139,7 +159,6 @@ public class V1Organization {
    * @return userEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getUserEmail() {
     return userEmail;
@@ -162,7 +181,6 @@ public class V1Organization {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -185,7 +203,6 @@ public class V1Organization {
    * @return isPublic
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsPublic() {
     return isPublic;
@@ -208,7 +225,6 @@ public class V1Organization {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -231,7 +247,6 @@ public class V1Organization {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -254,7 +269,6 @@ public class V1Organization {
    * @return supportRevokeAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getSupportRevokeAt() {
     return supportRevokeAt;
@@ -277,7 +291,6 @@ public class V1Organization {
    * @return expiration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getExpiration() {
     return expiration;
@@ -300,7 +313,6 @@ public class V1Organization {
    * @return role
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getRole() {
     return role;
@@ -323,7 +335,6 @@ public class V1Organization {
    * @return queue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getQueue() {
     return queue;
@@ -346,7 +357,6 @@ public class V1Organization {
    * @return preset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getPreset() {
     return preset;
@@ -369,7 +379,6 @@ public class V1Organization {
    * @return isCloudViewable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getIsCloudViewable() {
     return isCloudViewable;
@@ -392,7 +401,6 @@ public class V1Organization {
    * @return auth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getAuth() {
     return auth;
@@ -415,7 +423,6 @@ public class V1Organization {
    * @return plan
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getPlan() {
     return plan;
@@ -438,7 +445,6 @@ public class V1Organization {
    * @return usage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getUsage() {
     return usage;
@@ -448,6 +454,7 @@ public class V1Organization {
   public void setUsage(Object usage) {
     this.usage = usage;
   }
+
 
 
   @Override
@@ -515,5 +522,120 @@ public class V1Organization {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("user");
+    openapiFields.add("user_email");
+    openapiFields.add("name");
+    openapiFields.add("is_public");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
+    openapiFields.add("support_revoke_at");
+    openapiFields.add("expiration");
+    openapiFields.add("role");
+    openapiFields.add("queue");
+    openapiFields.add("preset");
+    openapiFields.add("is_cloud_viewable");
+    openapiFields.add("auth");
+    openapiFields.add("plan");
+    openapiFields.add("usage");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Organization
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Organization.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Organization is not found in the empty JSON string", V1Organization.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Organization.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Organization` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
+      }
+      if ((jsonObj.get("user_email") != null && !jsonObj.get("user_email").isJsonNull()) && !jsonObj.get("user_email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_email").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      if ((jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) && !jsonObj.get("queue").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `queue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue").toString()));
+      }
+      if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Organization.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Organization' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Organization> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Organization.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Organization>() {
+           @Override
+           public void write(JsonWriter out, V1Organization value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Organization read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Organization given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Organization
+  * @throws IOException if the JSON string is invalid with respect to V1Organization
+  */
+  public static V1Organization fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Organization.class);
+  }
+
+ /**
+  * Convert an instance of V1Organization to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
