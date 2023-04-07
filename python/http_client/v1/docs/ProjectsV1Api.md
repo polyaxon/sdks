@@ -2573,7 +2573,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | Owner of the namespace
     project = 'project_example' # str | Project having access to the store
     uuid = 'uuid_example' # str | Unique integer identifier of the entity
-    uploadfile = 'uploadfile_example' # str | The file to upload.
+    uploadfile = polyaxon_sdk.bytearray() # bytearray | The file to upload.
     path = 'path_example' # str | File path query params. (optional)
     overwrite = True # bool | File path query params. (optional)
 
@@ -2591,7 +2591,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project having access to the store | 
  **uuid** | **str**| Unique integer identifier of the entity | 
- **uploadfile** | **str**| The file to upload. | 
+ **uploadfile** | **bytearray**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
 

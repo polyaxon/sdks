@@ -46,7 +46,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.ArtifactsStoresV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
     uuid = 'uuid_example' # str | Unique integer identifier of the entity
-    uploadfile = 'uploadfile_example' # str | The file to upload.
+    uploadfile = polyaxon_sdk.bytearray() # bytearray | The file to upload.
     path = 'path_example' # str | File path query params. (optional)
     overwrite = True # bool | File path query params. (optional)
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
  **uuid** | **str**| Unique integer identifier of the entity | 
- **uploadfile** | **str**| The file to upload. | 
+ **uploadfile** | **bytearray**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
 

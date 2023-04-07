@@ -14,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import absolute_import
-
 # flake8: noqa
 
 # import apis into api package
@@ -38,3 +36,4 @@ from polyaxon_sdk.api.tags_v1_api import TagsV1Api
 from polyaxon_sdk.api.teams_v1_api import TeamsV1Api
 from polyaxon_sdk.api.users_v1_api import UsersV1Api
 from polyaxon_sdk.api.versions_v1_api import VersionsV1Api
+

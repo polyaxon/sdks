@@ -22,7 +22,7 @@ SWAGGER := $(DOCKER_RUN) swagger
 DOCKER_PATH_AUTOGEN := /usr/local/bin/autogen/autogen
 # PATH_SWAGGER_CLI := ~/bin/openapi-generator-cli-5.3.0.jar
 # wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/6.3.0/openapi-generator-cli-6.3.0.jar -O openapi-generator-cli-6.3.0.jar
-PATH_SWAGGER_CLI := ~/bin/openapi-generator-cli-6.3.0.jar
+PATH_SWAGGER_CLI := ~/bin/openapi-generator-cli-6.5.0.jar
 PATH_SWAGGER_CODEGEN := ~/bin/swagger-codegen-cli-3.0.41.jar
 LICENSE_OWNER := "Polyaxon, Inc."
 
