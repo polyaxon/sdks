@@ -40,7 +40,7 @@ import V1LogHandler from '../model/V1LogHandler';
 export default class VersionsV1Api {
 
     /**
-    * Constructs a new VersionsV1Api.
+    * Constructs a new VersionsV1Api. 
     * Polyaxon sdk
     * @alias module:api/VersionsV1Api
     * @class

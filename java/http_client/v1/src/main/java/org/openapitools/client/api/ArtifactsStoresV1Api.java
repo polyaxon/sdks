@@ -188,7 +188,7 @@ public class ArtifactsStoresV1Api {
 
     /**
      * Upload artifact to a store
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param uploadfile The file to upload. (required)
@@ -210,7 +210,7 @@ public class ArtifactsStoresV1Api {
 
     /**
      * Upload artifact to a store
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param uploadfile The file to upload. (required)
@@ -234,7 +234,7 @@ public class ArtifactsStoresV1Api {
 
     /**
      * Upload artifact to a store (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param uploadfile The file to upload. (required)

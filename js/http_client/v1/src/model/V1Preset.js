@@ -37,8 +37,8 @@ class V1Preset {
      * Constructs a new <code>V1Preset</code>.
      * @alias module:model/V1Preset
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Preset.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1Preset {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

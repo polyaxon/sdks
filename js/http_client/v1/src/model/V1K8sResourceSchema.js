@@ -37,8 +37,8 @@ class V1K8sResourceSchema {
      * Constructs a new <code>V1K8sResourceSchema</code>.
      * @alias module:model/V1K8sResourceSchema
      */
-    constructor() {
-
+    constructor() { 
+        
         V1K8sResourceSchema.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1K8sResourceSchema {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

@@ -89,7 +89,7 @@ public class V1XGBoostJob {
   }
 
   public V1XGBoostJob kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1XGBoostJob {
 
 
   public V1XGBoostJob cleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
-
+    
     this.cleanPodPolicy = cleanPodPolicy;
     return this;
   }
@@ -133,7 +133,7 @@ public class V1XGBoostJob {
 
 
   public V1XGBoostJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
-
+    
     this.schedulingPolicy = schedulingPolicy;
     return this;
   }
@@ -155,7 +155,7 @@ public class V1XGBoostJob {
 
 
   public V1XGBoostJob master(V1KFReplica master) {
-
+    
     this.master = master;
     return this;
   }
@@ -177,7 +177,7 @@ public class V1XGBoostJob {
 
 
   public V1XGBoostJob worker(V1KFReplica worker) {
-
+    
     this.worker = worker;
     return this;
   }

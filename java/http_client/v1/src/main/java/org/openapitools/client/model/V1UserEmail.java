@@ -70,7 +70,7 @@ public class V1UserEmail {
   }
 
   public V1UserEmail email(String email) {
-
+    
     this.email = email;
     return this;
   }

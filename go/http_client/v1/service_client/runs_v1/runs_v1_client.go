@@ -76,8 +76,6 @@ type ClientService interface {
 
 	DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunsOK, *DeleteRunsNoContent, error)
 
-	DeprecatedCollectRunLogs(params *DeprecatedCollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeprecatedCollectRunLogsOK, *DeprecatedCollectRunLogsNoContent, error)
-
 	GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetMultiRunEventsOK, *GetMultiRunEventsNoContent, error)
 
 	GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunOK, *GetRunNoContent, error)
@@ -806,46 +804,6 @@ func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAut
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*DeleteRunsDefault)
-	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
-}
-
-/*
-DeprecatedCollectRunLogs deprecateds collect run logs t o d o remove in v2
-*/
-func (a *Client) DeprecatedCollectRunLogs(params *DeprecatedCollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeprecatedCollectRunLogsOK, *DeprecatedCollectRunLogsNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeprecatedCollectRunLogsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "DeprecatedCollectRunLogs",
-		Method:             "POST",
-		PathPattern:        "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &DeprecatedCollectRunLogsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, nil, err
-	}
-	switch value := result.(type) {
-	case *DeprecatedCollectRunLogsOK:
-		return value, nil, nil
-	case *DeprecatedCollectRunLogsNoContent:
-		return nil, value, nil
-	}
-	// unexpected success response
-	unexpectedSuccess := result.(*DeprecatedCollectRunLogsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

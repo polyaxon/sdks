@@ -38,8 +38,8 @@ class V1MedianStoppingPolicy {
      * Early stopping with median stopping, this policy computes running medians across all runs and stops those whose best performance is worse than the median of the running runs.
      * @alias module:model/V1MedianStoppingPolicy
      */
-    constructor() {
-
+    constructor() { 
+        
         V1MedianStoppingPolicy.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1MedianStoppingPolicy {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

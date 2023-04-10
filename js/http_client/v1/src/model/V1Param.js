@@ -37,8 +37,8 @@ class V1Param {
      * Constructs a new <code>V1Param</code>.
      * @alias module:model/V1Param
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Param.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1Param {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

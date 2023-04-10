@@ -37,8 +37,8 @@ class V1Credentials {
      * Constructs a new <code>V1Credentials</code>.
      * @alias module:model/V1Credentials
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Credentials.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1Credentials {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

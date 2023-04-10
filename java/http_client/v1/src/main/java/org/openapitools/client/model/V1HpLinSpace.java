@@ -74,7 +74,7 @@ public class V1HpLinSpace {
   }
 
   public V1HpLinSpace kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HpLinSpace {
 
 
   public V1HpLinSpace value(Object value) {
-
+    
     this.value = value;
     return this;
   }

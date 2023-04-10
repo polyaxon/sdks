@@ -97,7 +97,7 @@ public class V1OperationBody {
   }
 
   public V1OperationBody content(String content) {
-
+    
     this.content = content;
     return this;
   }
@@ -119,7 +119,7 @@ public class V1OperationBody {
 
 
   public V1OperationBody isManaged(Boolean isManaged) {
-
+    
     this.isManaged = isManaged;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1OperationBody {
 
 
   public V1OperationBody pending(V1RunPending pending) {
-
+    
     this.pending = pending;
     return this;
   }
@@ -163,7 +163,7 @@ public class V1OperationBody {
 
 
   public V1OperationBody name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -185,7 +185,7 @@ public class V1OperationBody {
 
 
   public V1OperationBody description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -207,7 +207,7 @@ public class V1OperationBody {
 
 
   public V1OperationBody tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -237,7 +237,7 @@ public class V1OperationBody {
 
 
   public V1OperationBody metaInfo(Object metaInfo) {
-
+    
     this.metaInfo = metaInfo;
     return this;
   }

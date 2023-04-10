@@ -99,7 +99,7 @@ public class V1Iterative {
   }
 
   public V1Iterative kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1Iterative {
 
 
   public V1Iterative params(Map<String, Object> params) {
-
+    
     this.params = params;
     return this;
   }
@@ -151,7 +151,7 @@ public class V1Iterative {
 
 
   public V1Iterative maxIterations(Integer maxIterations) {
-
+    
     this.maxIterations = maxIterations;
     return this;
   }
@@ -173,7 +173,7 @@ public class V1Iterative {
 
 
   public V1Iterative seed(Integer seed) {
-
+    
     this.seed = seed;
     return this;
   }
@@ -195,7 +195,7 @@ public class V1Iterative {
 
 
   public V1Iterative concurrency(Integer concurrency) {
-
+    
     this.concurrency = concurrency;
     return this;
   }
@@ -217,7 +217,7 @@ public class V1Iterative {
 
 
   public V1Iterative tuner(V1Tuner tuner) {
-
+    
     this.tuner = tuner;
     return this;
   }
@@ -239,7 +239,7 @@ public class V1Iterative {
 
 
   public V1Iterative earlyStopping(List<Object> earlyStopping) {
-
+    
     this.earlyStopping = earlyStopping;
     return this;
   }

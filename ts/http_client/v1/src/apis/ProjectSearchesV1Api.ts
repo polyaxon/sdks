@@ -105,7 +105,7 @@ export interface UpdateProjectSearchRequest {
 }
 
 /**
- *
+ * 
  */
 export class ProjectSearchesV1Api extends runtime.BaseAPI {
 

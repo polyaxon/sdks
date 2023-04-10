@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1PasswordChange
  */
 export interface V1PasswordChange {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1PasswordChange
      */
     old_password?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1PasswordChange
      */
     new_password1?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1PasswordChange
      */
@@ -71,7 +71,7 @@ export function V1PasswordChangeFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'old_password': !exists(json, 'old_password') ? undefined : json['old_password'],
         'new_password1': !exists(json, 'new_password1') ? undefined : json['new_password1'],
         'new_password2': !exists(json, 'new_password2') ? undefined : json['new_password2'],
@@ -86,7 +86,7 @@ export function V1PasswordChangeToJSON(value?: V1PasswordChange | null): any {
         return null;
     }
     return {
-
+        
         'old_password': value.old_password,
         'new_password1': value.new_password1,
         'new_password2': value.new_password2,

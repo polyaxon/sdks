@@ -84,7 +84,7 @@ public class V1K8sResourceSchema {
   }
 
   public V1K8sResourceSchema name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -106,7 +106,7 @@ public class V1K8sResourceSchema {
 
 
   public V1K8sResourceSchema mountPath(String mountPath) {
-
+    
     this.mountPath = mountPath;
     return this;
   }
@@ -128,7 +128,7 @@ public class V1K8sResourceSchema {
 
 
   public V1K8sResourceSchema items(List<String> items) {
-
+    
     this.items = items;
     return this;
   }
@@ -158,7 +158,7 @@ public class V1K8sResourceSchema {
 
 
   public V1K8sResourceSchema defaultMode(Integer defaultMode) {
-
+    
     this.defaultMode = defaultMode;
     return this;
   }

@@ -39,7 +39,7 @@ import V1Preset from '../model/V1Preset';
 export default class PresetsV1Api {
 
     /**
-    * Constructs a new PresetsV1Api.
+    * Constructs a new PresetsV1Api. 
     * Polyaxon sdk
     * @alias module:api/PresetsV1Api
     * @class

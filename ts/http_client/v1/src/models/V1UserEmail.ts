@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1UserEmail
  */
 export interface V1UserEmail {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1UserEmail
      */
@@ -59,7 +59,7 @@ export function V1UserEmailFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-
+        
         'email': !exists(json, 'email') ? undefined : json['email'],
     };
 }
@@ -72,7 +72,7 @@ export function V1UserEmailToJSON(value?: V1UserEmail | null): any {
         return null;
     }
     return {
-
+        
         'email': value.email,
     };
 }

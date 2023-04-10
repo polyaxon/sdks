@@ -303,22 +303,6 @@ public class RunsV1ApiTest {
     }
 
     /**
-     * Deprecated Collect run logs (# TODO: Remove in v2)
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deprecatedCollectRunLogsTest() throws ApiException {
-        String namespace = null;
-        String owner = null;
-        String project = null;
-        String uuid = null;
-        String kind = null;
-        api.deprecatedCollectRunLogs(namespace, owner, project, uuid, kind);
-        // TODO: test validations
-    }
-
-    /**
      * Get multi runs events
      *
      * @throws ApiException if the Api call fails

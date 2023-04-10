@@ -295,7 +295,7 @@ export interface UploadProjectArtifactRequest {
 }
 
 /**
- *
+ * 
  */
 export class ProjectsV1Api extends runtime.BaseAPI {
 

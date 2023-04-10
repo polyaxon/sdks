@@ -450,13 +450,6 @@ service RunsV1 {
     };
   }
 
-  // Deprecated Collect run logs (# TODO: Remove in v2)
-  rpc DeprecatedCollectRunLogs(CollectRunLogsRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post: "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs"
-    };
-  }
-
   // Internal API to collect run logs
   rpc CollectRunLogs(CollectRunLogsRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {

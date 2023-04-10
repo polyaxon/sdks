@@ -222,16 +222,6 @@
         done();
       });
     });
-    describe('deprecatedCollectRunLogs', function() {
-      it('should call deprecatedCollectRunLogs successfully', function(done) {
-        //uncomment below and update the code to test deprecatedCollectRunLogs
-        //instance.deprecatedCollectRunLogs(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getMultiRunEvents', function() {
       it('should call getMultiRunEvents successfully', function(done) {
         //uncomment below and update the code to test getMultiRunEvents

@@ -28,7 +28,7 @@
 
 
 /**
- *
+ * 
  * @export
  */
 export const V1ProjectVersionKind = {

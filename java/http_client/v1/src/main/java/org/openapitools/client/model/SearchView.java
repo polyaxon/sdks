@@ -42,21 +42,21 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(SearchView.Adapter.class)
 public enum SearchView {
-
+  
   ANY("any"),
-
+  
   RUNS("runs"),
-
+  
   SELECTION("selection"),
-
+  
   ANALYTICS("analytics"),
-
+  
   COMPONENTS("components"),
-
+  
   MODELS("models"),
-
+  
   ARTIFACTS("artifacts"),
-
+  
   PROJECTS("projects");
 
   private String value;

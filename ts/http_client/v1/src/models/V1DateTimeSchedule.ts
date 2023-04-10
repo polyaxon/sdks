@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1DateTimeSchedule
  */
 export interface V1DateTimeSchedule {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1DateTimeSchedule
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1DateTimeSchedule
      */
@@ -65,7 +65,7 @@ export function V1DateTimeScheduleFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'startAt': !exists(json, 'startAt') ? undefined : (new Date(json['startAt'])),
     };
@@ -79,7 +79,7 @@ export function V1DateTimeScheduleToJSON(value?: V1DateTimeSchedule | null): any
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'startAt': value.startAt === undefined ? undefined : (value.startAt.toISOString()),
     };

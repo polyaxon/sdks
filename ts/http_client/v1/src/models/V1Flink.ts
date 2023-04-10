@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Flink
  */
 export interface V1Flink {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Flink
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Flink
      */
@@ -65,7 +65,7 @@ export function V1FlinkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'spec': !exists(json, 'spec') ? undefined : json['spec'],
     };
@@ -79,7 +79,7 @@ export function V1FlinkToJSON(value?: V1Flink | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'spec': value.spec,
     };

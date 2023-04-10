@@ -42,11 +42,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1ProjectVersionKind.Adapter.class)
 public enum V1ProjectVersionKind {
-
+  
   COMPONENT("component"),
-
+  
   MODEL("model"),
-
+  
   ARTIFACT("artifact");
 
   private String value;

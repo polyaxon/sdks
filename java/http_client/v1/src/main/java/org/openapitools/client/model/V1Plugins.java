@@ -122,7 +122,7 @@ public class V1Plugins {
   }
 
   public V1Plugins auth(Boolean auth) {
-
+    
     this.auth = auth;
     return this;
   }
@@ -144,7 +144,7 @@ public class V1Plugins {
 
 
   public V1Plugins docker(Boolean docker) {
-
+    
     this.docker = docker;
     return this;
   }
@@ -166,7 +166,7 @@ public class V1Plugins {
 
 
   public V1Plugins shm(Boolean shm) {
-
+    
     this.shm = shm;
     return this;
   }
@@ -188,7 +188,7 @@ public class V1Plugins {
 
 
   public V1Plugins mountArtifactsStore(Boolean mountArtifactsStore) {
-
+    
     this.mountArtifactsStore = mountArtifactsStore;
     return this;
   }
@@ -210,7 +210,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectArtifacts(Boolean collectArtifacts) {
-
+    
     this.collectArtifacts = collectArtifacts;
     return this;
   }
@@ -232,7 +232,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectLogs(Boolean collectLogs) {
-
+    
     this.collectLogs = collectLogs;
     return this;
   }
@@ -254,7 +254,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectResources(Boolean collectResources) {
-
+    
     this.collectResources = collectResources;
     return this;
   }
@@ -276,7 +276,7 @@ public class V1Plugins {
 
 
   public V1Plugins syncStatuses(Boolean syncStatuses) {
-
+    
     this.syncStatuses = syncStatuses;
     return this;
   }
@@ -298,7 +298,7 @@ public class V1Plugins {
 
 
   public V1Plugins autoResume(Boolean autoResume) {
-
+    
     this.autoResume = autoResume;
     return this;
   }
@@ -320,7 +320,7 @@ public class V1Plugins {
 
 
   public V1Plugins logLevel(String logLevel) {
-
+    
     this.logLevel = logLevel;
     return this;
   }
@@ -342,7 +342,7 @@ public class V1Plugins {
 
 
   public V1Plugins externalHost(Boolean externalHost) {
-
+    
     this.externalHost = externalHost;
     return this;
   }
@@ -364,7 +364,7 @@ public class V1Plugins {
 
 
   public V1Plugins sidecar(V1PolyaxonSidecarContainer sidecar) {
-
+    
     this.sidecar = sidecar;
     return this;
   }
@@ -386,7 +386,7 @@ public class V1Plugins {
 
 
   public V1Plugins notifications(List<V1Notification> notifications) {
-
+    
     this.notifications = notifications;
     return this;
   }

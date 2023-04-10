@@ -37,8 +37,8 @@ class V1HpDateTimeRange {
      * Constructs a new <code>V1HpDateTimeRange</code>.
      * @alias module:model/V1HpDateTimeRange
      */
-    constructor() {
-
+    constructor() { 
+        
         V1HpDateTimeRange.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1HpDateTimeRange {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

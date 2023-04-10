@@ -249,7 +249,6 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**delete_run_artifact_lineage**](docs/RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 *RunsV1Api* | [**delete_run_artifacts**](docs/RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 *RunsV1Api* | [**delete_runs**](docs/RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
-*RunsV1Api* | [**deprecated_collect_run_logs**](docs/RunsV1Api.md#deprecated_collect_run_logs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2)
 *RunsV1Api* | [**get_multi_run_events**](docs/RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 *RunsV1Api* | [**get_run**](docs/RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 *RunsV1Api* | [**get_run_artifact**](docs/RunsV1Api.md#get_run_artifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact

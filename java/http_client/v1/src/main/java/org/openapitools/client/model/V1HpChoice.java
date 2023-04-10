@@ -74,7 +74,7 @@ public class V1HpChoice {
   }
 
   public V1HpChoice kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HpChoice {
 
 
   public V1HpChoice value(Object value) {
-
+    
     this.value = value;
     return this;
   }

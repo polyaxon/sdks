@@ -74,7 +74,7 @@ public class V1HubRef {
   }
 
   public V1HubRef kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HubRef {
 
 
   public V1HubRef name(String name) {
-
+    
     this.name = name;
     return this;
   }

@@ -37,8 +37,8 @@ class V1SettingsCatalog {
      * Constructs a new <code>V1SettingsCatalog</code>.
      * @alias module:model/V1SettingsCatalog
      */
-    constructor() {
-
+    constructor() { 
+        
         V1SettingsCatalog.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1SettingsCatalog {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

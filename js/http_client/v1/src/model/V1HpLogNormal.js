@@ -37,8 +37,8 @@ class V1HpLogNormal {
      * Constructs a new <code>V1HpLogNormal</code>.
      * @alias module:model/V1HpLogNormal
      */
-    constructor() {
-
+    constructor() { 
+        
         V1HpLogNormal.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1HpLogNormal {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

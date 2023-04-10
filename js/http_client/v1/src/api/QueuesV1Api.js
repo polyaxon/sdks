@@ -39,7 +39,7 @@ import V1Queue from '../model/V1Queue';
 export default class QueuesV1Api {
 
     /**
-    * Constructs a new QueuesV1Api.
+    * Constructs a new QueuesV1Api. 
     * Polyaxon sdk
     * @alias module:api/QueuesV1Api
     * @class

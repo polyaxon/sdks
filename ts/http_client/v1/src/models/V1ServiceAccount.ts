@@ -28,61 +28,61 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ServiceAccount
  */
 export interface V1ServiceAccount {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ServiceAccount
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ServiceAccount
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ServiceAccount
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ServiceAccount
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1ServiceAccount
      */
     live_state?: number;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1ServiceAccount
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1ServiceAccount
      */
     updated_at?: Date;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ServiceAccount
      */
     scopes?: Array<string>;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ServiceAccount
      */
@@ -107,7 +107,7 @@ export function V1ServiceAccountFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -128,7 +128,7 @@ export function V1ServiceAccountToJSON(value?: V1ServiceAccount | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

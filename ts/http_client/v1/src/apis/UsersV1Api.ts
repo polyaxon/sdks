@@ -103,7 +103,7 @@ export interface UpdateUserRequest {
 }
 
 /**
- *
+ * 
  */
 export class UsersV1Api extends runtime.BaseAPI {
 

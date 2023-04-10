@@ -141,7 +141,7 @@ export interface UpdateServiceAccountTokenRequest {
 }
 
 /**
- *
+ * 
  */
 export class ServiceAccountsV1Api extends runtime.BaseAPI {
 

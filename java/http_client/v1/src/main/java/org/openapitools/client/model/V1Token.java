@@ -109,7 +109,7 @@ public class V1Token {
   }
 
   public V1Token uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -131,7 +131,7 @@ public class V1Token {
 
 
   public V1Token key(String key) {
-
+    
     this.key = key;
     return this;
   }
@@ -153,7 +153,7 @@ public class V1Token {
 
 
   public V1Token name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -175,7 +175,7 @@ public class V1Token {
 
 
   public V1Token scopes(List<String> scopes) {
-
+    
     this.scopes = scopes;
     return this;
   }
@@ -205,7 +205,7 @@ public class V1Token {
 
 
   public V1Token services(List<String> services) {
-
+    
     this.services = services;
     return this;
   }
@@ -235,7 +235,7 @@ public class V1Token {
 
 
   public V1Token startedAt(OffsetDateTime startedAt) {
-
+    
     this.startedAt = startedAt;
     return this;
   }
@@ -257,7 +257,7 @@ public class V1Token {
 
 
   public V1Token expiresAt(OffsetDateTime expiresAt) {
-
+    
     this.expiresAt = expiresAt;
     return this;
   }
@@ -279,7 +279,7 @@ public class V1Token {
 
 
   public V1Token createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -301,7 +301,7 @@ public class V1Token {
 
 
   public V1Token updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -323,7 +323,7 @@ public class V1Token {
 
 
   public V1Token expiration(Integer expiration) {
-
+    
     this.expiration = expiration;
     return this;
   }

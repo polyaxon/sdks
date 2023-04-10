@@ -28,43 +28,43 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Installation
  */
 export interface V1Installation {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Installation
      */
     key?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Installation
      */
     version?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Installation
      */
     dist?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Installation
      */
     host?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Installation
      */
     hmac?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Installation
      */
@@ -89,7 +89,7 @@ export function V1InstallationFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-
+        
         'key': !exists(json, 'key') ? undefined : json['key'],
         'version': !exists(json, 'version') ? undefined : json['version'],
         'dist': !exists(json, 'dist') ? undefined : json['dist'],
@@ -107,7 +107,7 @@ export function V1InstallationToJSON(value?: V1Installation | null): any {
         return null;
     }
     return {
-
+        
         'key': value.key,
         'version': value.version,
         'dist': value.dist,

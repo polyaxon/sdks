@@ -111,7 +111,7 @@ public class V1Search {
   }
 
   public V1Search uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -133,7 +133,7 @@ public class V1Search {
 
 
   public V1Search name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -155,7 +155,7 @@ public class V1Search {
 
 
   public V1Search description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -177,7 +177,7 @@ public class V1Search {
 
 
   public V1Search tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -207,7 +207,7 @@ public class V1Search {
 
 
   public V1Search liveState(Integer liveState) {
-
+    
     this.liveState = liveState;
     return this;
   }
@@ -229,7 +229,7 @@ public class V1Search {
 
 
   public V1Search view(SearchView view) {
-
+    
     this.view = view;
     return this;
   }
@@ -251,7 +251,7 @@ public class V1Search {
 
 
   public V1Search spec(V1SearchSpec spec) {
-
+    
     this.spec = spec;
     return this;
   }
@@ -273,7 +273,7 @@ public class V1Search {
 
 
   public V1Search orgLevel(Boolean orgLevel) {
-
+    
     this.orgLevel = orgLevel;
     return this;
   }
@@ -295,7 +295,7 @@ public class V1Search {
 
 
   public V1Search createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -317,7 +317,7 @@ public class V1Search {
 
 
   public V1Search updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }

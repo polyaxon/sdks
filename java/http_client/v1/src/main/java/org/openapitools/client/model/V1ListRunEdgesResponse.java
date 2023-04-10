@@ -85,7 +85,7 @@ public class V1ListRunEdgesResponse {
   }
 
   public V1ListRunEdgesResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListRunEdgesResponse {
 
 
   public V1ListRunEdgesResponse results(List<V1RunEdge> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListRunEdgesResponse {
 
 
   public V1ListRunEdgesResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListRunEdgesResponse {
 
 
   public V1ListRunEdgesResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

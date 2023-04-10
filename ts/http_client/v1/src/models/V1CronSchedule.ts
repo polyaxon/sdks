@@ -28,43 +28,43 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1CronSchedule
  */
 export interface V1CronSchedule {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CronSchedule
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1CronSchedule
      */
     startAt?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1CronSchedule
      */
     endAt?: Date;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1CronSchedule
      */
     maxRuns?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CronSchedule
      */
     cron?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1CronSchedule
      */
@@ -89,7 +89,7 @@ export function V1CronScheduleFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'startAt': !exists(json, 'startAt') ? undefined : (new Date(json['startAt'])),
         'endAt': !exists(json, 'endAt') ? undefined : (new Date(json['endAt'])),
@@ -107,7 +107,7 @@ export function V1CronScheduleToJSON(value?: V1CronSchedule | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'startAt': value.startAt === undefined ? undefined : (value.startAt.toISOString()),
         'endAt': value.endAt === undefined ? undefined : (value.endAt.toISOString()),

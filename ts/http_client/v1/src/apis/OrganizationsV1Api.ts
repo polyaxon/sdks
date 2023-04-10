@@ -299,7 +299,7 @@ export interface UpdateOrganizationSettingsRequest {
 }
 
 /**
- *
+ * 
  */
 export class OrganizationsV1Api extends runtime.BaseAPI {
 

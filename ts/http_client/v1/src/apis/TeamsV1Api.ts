@@ -142,7 +142,7 @@ export interface UpdateTeamMemberRequest {
 }
 
 /**
- *
+ * 
  */
 export class TeamsV1Api extends runtime.BaseAPI {
 

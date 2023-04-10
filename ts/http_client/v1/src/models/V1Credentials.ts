@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Credentials
  */
 export interface V1Credentials {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Credentials
      */
     username?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Credentials
      */
@@ -65,7 +65,7 @@ export function V1CredentialsFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'username': !exists(json, 'username') ? undefined : json['username'],
         'password': !exists(json, 'password') ? undefined : json['password'],
     };
@@ -79,7 +79,7 @@ export function V1CredentialsToJSON(value?: V1Credentials | null): any {
         return null;
     }
     return {
-
+        
         'username': value.username,
         'password': value.password,
     };

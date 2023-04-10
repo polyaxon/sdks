@@ -42,7 +42,7 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(ProtobufNullValue.Adapter.class)
 public enum ProtobufNullValue {
-
+  
   NULL_VALUE("NULL_VALUE");
 
   private String value;

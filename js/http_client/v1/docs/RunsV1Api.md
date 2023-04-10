@@ -22,7 +22,6 @@ Method | HTTP request | Description
 [**deleteRunArtifactLineage**](RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 [**deleteRunArtifacts**](RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 [**deleteRuns**](RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
-[**deprecatedCollectRunLogs**](RunsV1Api.md#deprecatedCollectRunLogs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2)
 [**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 [**getRun**](RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 [**getRunArtifact**](RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
@@ -943,63 +942,6 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## deprecatedCollectRunLogs
-
-> deprecatedCollectRunLogs(namespace, owner, project, uuid, kind)
-
-Deprecated Collect run logs (# TODO: Remove in v2)
-
-### Example
-
-```javascript
-import PolyaxonSdk from 'polyaxon-sdk';
-let defaultClient = PolyaxonSdk.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new PolyaxonSdk.RunsV1Api();
-let namespace = "namespace_example"; // String | 
-let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project where the run will be assigned
-let uuid = "uuid_example"; // String | Uuid identifier of the entity
-let kind = "kind_example"; // String | Kind of the entity
-apiInstance.deprecatedCollectRunLogs(namespace, owner, project, uuid, kind, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **namespace** | **String**|  | 
- **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project where the run will be assigned | 
- **uuid** | **String**| Uuid identifier of the entity | 
- **kind** | **String**| Kind of the entity | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

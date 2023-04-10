@@ -21,7 +21,6 @@ All URIs are relative to *http://localhost*
 | [**deleteRunArtifactLineage**](RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage |
 | [**deleteRunArtifacts**](RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts |
 | [**deleteRuns**](RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs |
-| [**deprecatedCollectRunLogs**](RunsV1Api.md#deprecatedCollectRunLogs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2) |
 | [**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events |
 | [**getRun**](RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run |
 | [**getRunArtifact**](RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact |
@@ -1266,84 +1265,6 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
-| **204** | No content. |  -  |
-| **403** | You don&#39;t have permission to access the resource. |  -  |
-| **404** | Resource does not exist. |  -  |
-| **0** | An unexpected error response. |  -  |
-
-<a name="deprecatedCollectRunLogs"></a>
-# **deprecatedCollectRunLogs**
-> deprecatedCollectRunLogs(namespace, owner, project, uuid, kind)
-
-Deprecated Collect run logs (# TODO: Remove in v2)
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.RunsV1Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: ApiKey
-    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-    ApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKey.setApiKeyPrefix("Token");
-
-    RunsV1Api apiInstance = new RunsV1Api(defaultClient);
-    String namespace = "namespace_example"; // String | 
-    String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project where the run will be assigned
-    String uuid = "uuid_example"; // String | Uuid identifier of the entity
-    String kind = "kind_example"; // String | Kind of the entity
-    try {
-      apiInstance.deprecatedCollectRunLogs(namespace, owner, project, uuid, kind);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RunsV1Api#deprecatedCollectRunLogs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**|  | |
-| **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project where the run will be assigned | |
-| **uuid** | **String**| Uuid identifier of the entity | |
-| **kind** | **String**| Kind of the entity | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

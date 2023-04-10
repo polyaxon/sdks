@@ -37,8 +37,8 @@ class V1EventAudio {
      * Constructs a new <code>V1EventAudio</code>.
      * @alias module:model/V1EventAudio
      */
-    constructor() {
-
+    constructor() { 
+        
         V1EventAudio.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1EventAudio {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

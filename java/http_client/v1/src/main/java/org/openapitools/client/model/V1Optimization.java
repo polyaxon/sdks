@@ -42,9 +42,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1Optimization.Adapter.class)
 public enum V1Optimization {
-
+  
   MAXIMIZE("maximize"),
-
+  
   MINIMIZE("minimize");
 
   private String value;

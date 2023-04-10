@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1AuthType
  */
 export interface V1AuthType {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AuthType
      */
     user?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AuthType
      */
@@ -65,7 +65,7 @@ export function V1AuthTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'user': !exists(json, 'user') ? undefined : json['user'],
         'password': !exists(json, 'password') ? undefined : json['password'],
     };
@@ -79,7 +79,7 @@ export function V1AuthTypeToJSON(value?: V1AuthType | null): any {
         return null;
     }
     return {
-
+        
         'user': value.user,
         'password': value.password,
     };

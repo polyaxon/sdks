@@ -35,25 +35,25 @@ import {
 } from './V1StatusCondition';
 
 /**
- *
+ * 
  * @export
  * @interface V1AgentStatusBodyRequest
  */
 export interface V1AgentStatusBodyRequest {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AgentStatusBodyRequest
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AgentStatusBodyRequest
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {V1StatusCondition}
      * @memberof V1AgentStatusBodyRequest
      */
@@ -78,7 +78,7 @@ export function V1AgentStatusBodyRequestFromJSONTyped(json: any, ignoreDiscrimin
         return json;
     }
     return {
-
+        
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'condition': !exists(json, 'condition') ? undefined : V1StatusConditionFromJSON(json['condition']),
@@ -93,7 +93,7 @@ export function V1AgentStatusBodyRequestToJSON(value?: V1AgentStatusBodyRequest 
         return null;
     }
     return {
-
+        
         'owner': value.owner,
         'uuid': value.uuid,
         'condition': V1StatusConditionToJSON(value.condition),

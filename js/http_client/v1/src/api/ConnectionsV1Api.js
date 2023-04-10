@@ -39,7 +39,7 @@ import V1ListConnectionsResponse from '../model/V1ListConnectionsResponse';
 export default class ConnectionsV1Api {
 
     /**
-    * Constructs a new ConnectionsV1Api.
+    * Constructs a new ConnectionsV1Api. 
     * Polyaxon sdk
     * @alias module:api/ConnectionsV1Api
     * @class

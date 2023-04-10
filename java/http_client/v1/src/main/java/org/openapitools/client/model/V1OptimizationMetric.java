@@ -75,7 +75,7 @@ public class V1OptimizationMetric {
   }
 
   public V1OptimizationMetric name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -97,7 +97,7 @@ public class V1OptimizationMetric {
 
 
   public V1OptimizationMetric optimization(V1Optimization optimization) {
-
+    
     this.optimization = optimization;
     return this;
   }

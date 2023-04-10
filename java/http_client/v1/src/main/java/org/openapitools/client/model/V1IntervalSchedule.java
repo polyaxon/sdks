@@ -91,7 +91,7 @@ public class V1IntervalSchedule {
   }
 
   public V1IntervalSchedule kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -113,7 +113,7 @@ public class V1IntervalSchedule {
 
 
   public V1IntervalSchedule startAt(OffsetDateTime startAt) {
-
+    
     this.startAt = startAt;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1IntervalSchedule {
 
 
   public V1IntervalSchedule endAt(OffsetDateTime endAt) {
-
+    
     this.endAt = endAt;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1IntervalSchedule {
 
 
   public V1IntervalSchedule maxRuns(Integer maxRuns) {
-
+    
     this.maxRuns = maxRuns;
     return this;
   }
@@ -179,7 +179,7 @@ public class V1IntervalSchedule {
 
 
   public V1IntervalSchedule frequency(Integer frequency) {
-
+    
     this.frequency = frequency;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1IntervalSchedule {
 
 
   public V1IntervalSchedule dependsOnPast(Boolean dependsOnPast) {
-
+    
     this.dependsOnPast = dependsOnPast;
     return this;
   }

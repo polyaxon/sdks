@@ -121,7 +121,7 @@ export interface UpdateQueueRequest {
 }
 
 /**
- *
+ * 
  */
 export class QueuesV1Api extends runtime.BaseAPI {
 

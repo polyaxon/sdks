@@ -75,7 +75,7 @@ public class V1DateTimeSchedule {
   }
 
   public V1DateTimeSchedule kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -97,7 +97,7 @@ public class V1DateTimeSchedule {
 
 
   public V1DateTimeSchedule startAt(OffsetDateTime startAt) {
-
+    
     this.startAt = startAt;
     return this;
   }

@@ -203,14 +203,6 @@ export interface DeleteRunsRequest {
     body: V1Uuids;
 }
 
-export interface DeprecatedCollectRunLogsRequest {
-    namespace: string;
-    owner: string;
-    project: string;
-    uuid: string;
-    kind: string;
-}
-
 export interface GetMultiRunEventsRequest {
     namespace: string;
     owner: string;
@@ -585,7 +577,7 @@ export interface UploadRunLogsRequest {
 }
 
 /**
- *
+ * 
  */
 export class RunsV1Api extends runtime.BaseAPI {
 
@@ -1314,55 +1306,6 @@ export class RunsV1Api extends runtime.BaseAPI {
      */
     async deleteRuns(requestParameters: DeleteRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteRunsRaw(requestParameters, initOverrides);
-    }
-
-    /**
-     * Deprecated Collect run logs (# TODO: Remove in v2)
-     */
-    async deprecatedCollectRunLogsRaw(requestParameters: DeprecatedCollectRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deprecatedCollectRunLogs.');
-        }
-
-        if (requestParameters.owner === null || requestParameters.owner === undefined) {
-            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deprecatedCollectRunLogs.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling deprecatedCollectRunLogs.');
-        }
-
-        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
-            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling deprecatedCollectRunLogs.');
-        }
-
-        if (requestParameters.kind === null || requestParameters.kind === undefined) {
-            throw new runtime.RequiredError('kind','Required parameter requestParameters.kind was null or undefined when calling deprecatedCollectRunLogs.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
-        }
-
-        const response = await this.request({
-            path: `/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Deprecated Collect run logs (# TODO: Remove in v2)
-     */
-    async deprecatedCollectRunLogs(requestParameters: DeprecatedCollectRunLogsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deprecatedCollectRunLogsRaw(requestParameters, initOverrides);
     }
 
     /**

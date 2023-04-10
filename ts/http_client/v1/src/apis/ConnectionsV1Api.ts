@@ -92,7 +92,7 @@ export interface UpdateConnectionRequest {
 }
 
 /**
- *
+ * 
  */
 export class ConnectionsV1Api extends runtime.BaseAPI {
 

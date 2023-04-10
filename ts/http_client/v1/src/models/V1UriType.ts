@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1UriType
  */
 export interface V1UriType {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1UriType
      */
     user?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1UriType
      */
     password?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1UriType
      */
@@ -71,7 +71,7 @@ export function V1UriTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'user': !exists(json, 'user') ? undefined : json['user'],
         'password': !exists(json, 'password') ? undefined : json['password'],
         'host': !exists(json, 'host') ? undefined : json['host'],
@@ -86,7 +86,7 @@ export function V1UriTypeToJSON(value?: V1UriType | null): any {
         return null;
     }
     return {
-
+        
         'user': value.user,
         'password': value.password,
         'host': value.host,

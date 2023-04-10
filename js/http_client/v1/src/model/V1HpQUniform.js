@@ -37,8 +37,8 @@ class V1HpQUniform {
      * Constructs a new <code>V1HpQUniform</code>.
      * @alias module:model/V1HpQUniform
      */
-    constructor() {
-
+    constructor() { 
+        
         V1HpQUniform.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1HpQUniform {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

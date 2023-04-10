@@ -47,67 +47,67 @@ import {
 } from './V1Tuner';
 
 /**
- *
+ * 
  * @export
  * @interface V1Hyperopt
  */
 export interface V1Hyperopt {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Hyperopt
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {V1HyperoptAlgorithms}
      * @memberof V1Hyperopt
      */
     algorithm?: V1HyperoptAlgorithms;
     /**
-     *
+     * 
      * @type {{ [key: string]: object; }}
      * @memberof V1Hyperopt
      */
     params?: { [key: string]: object; };
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     numRuns?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     maxIterations?: number;
     /**
-     *
+     * 
      * @type {V1OptimizationMetric}
      * @memberof V1Hyperopt
      */
     metric?: V1OptimizationMetric;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     seed?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     concurrency?: number;
     /**
-     *
+     * 
      * @type {V1Tuner}
      * @memberof V1Hyperopt
      */
     tuner?: V1Tuner;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Hyperopt
      */
@@ -132,7 +132,7 @@ export function V1HyperoptFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'algorithm': !exists(json, 'algorithm') ? undefined : V1HyperoptAlgorithmsFromJSON(json['algorithm']),
         'params': !exists(json, 'params') ? undefined : json['params'],
@@ -154,7 +154,7 @@ export function V1HyperoptToJSON(value?: V1Hyperopt | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'algorithm': V1HyperoptAlgorithmsToJSON(value.algorithm),
         'params': value.params,

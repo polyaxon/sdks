@@ -279,7 +279,6 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.RunsV1Api* | [**deleteRunArtifactLineage**](docs/RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 *PolyaxonSdk.RunsV1Api* | [**deleteRunArtifacts**](docs/RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 *PolyaxonSdk.RunsV1Api* | [**deleteRuns**](docs/RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
-*PolyaxonSdk.RunsV1Api* | [**deprecatedCollectRunLogs**](docs/RunsV1Api.md#deprecatedCollectRunLogs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2)
 *PolyaxonSdk.RunsV1Api* | [**getMultiRunEvents**](docs/RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 *PolyaxonSdk.RunsV1Api* | [**getRun**](docs/RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 *PolyaxonSdk.RunsV1Api* | [**getRunArtifact**](docs/RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact

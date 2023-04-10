@@ -87,7 +87,7 @@ public class V1EntityStageBodyRequest {
   }
 
   public V1EntityStageBodyRequest owner(String owner) {
-
+    
     this.owner = owner;
     return this;
   }
@@ -109,7 +109,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest entity(String entity) {
-
+    
     this.entity = entity;
     return this;
   }
@@ -131,7 +131,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -153,7 +153,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -175,7 +175,7 @@ public class V1EntityStageBodyRequest {
 
 
   public V1EntityStageBodyRequest condition(V1StageCondition condition) {
-
+    
     this.condition = condition;
     return this;
   }

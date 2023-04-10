@@ -74,7 +74,7 @@ public class V1AuthType {
   }
 
   public V1AuthType user(String user) {
-
+    
     this.user = user;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1AuthType {
 
 
   public V1AuthType password(String password) {
-
+    
     this.password = password;
     return this;
   }

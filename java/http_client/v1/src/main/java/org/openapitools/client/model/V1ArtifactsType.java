@@ -80,7 +80,7 @@ public class V1ArtifactsType {
   }
 
   public V1ArtifactsType files(List<Object> files) {
-
+    
     this.files = files;
     return this;
   }
@@ -110,7 +110,7 @@ public class V1ArtifactsType {
 
 
   public V1ArtifactsType dirs(List<Object> dirs) {
-
+    
     this.dirs = dirs;
     return this;
   }
@@ -140,7 +140,7 @@ public class V1ArtifactsType {
 
 
   public V1ArtifactsType workers(Integer workers) {
-
+    
     this.workers = workers;
     return this;
   }

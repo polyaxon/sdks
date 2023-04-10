@@ -35,31 +35,31 @@ import {
 } from './V1RunArtifact';
 
 /**
- *
+ * 
  * @export
  * @interface V1ListRunArtifactsResponse
  */
 export interface V1ListRunArtifactsResponse {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1ListRunArtifactsResponse
      */
     count?: number;
     /**
-     *
+     * 
      * @type {Array<V1RunArtifact>}
      * @memberof V1ListRunArtifactsResponse
      */
     results?: Array<V1RunArtifact>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListRunArtifactsResponse
      */
     previous?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListRunArtifactsResponse
      */
@@ -84,7 +84,7 @@ export function V1ListRunArtifactsResponseFromJSONTyped(json: any, ignoreDiscrim
         return json;
     }
     return {
-
+        
         'count': !exists(json, 'count') ? undefined : json['count'],
         'results': !exists(json, 'results') ? undefined : ((json['results'] as Array<any>).map(V1RunArtifactFromJSON)),
         'previous': !exists(json, 'previous') ? undefined : json['previous'],
@@ -100,7 +100,7 @@ export function V1ListRunArtifactsResponseToJSON(value?: V1ListRunArtifactsRespo
         return null;
     }
     return {
-
+        
         'count': value.count,
         'results': value.results === undefined ? undefined : ((value.results as Array<any>).map(V1RunArtifactToJSON)),
         'previous': value.previous,

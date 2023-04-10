@@ -38,8 +38,8 @@ class V1ConnectionResponse {
      * Constructs a new <code>V1ConnectionResponse</code>.
      * @alias module:model/V1ConnectionResponse
      */
-    constructor() {
-
+    constructor() { 
+        
         V1ConnectionResponse.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1ConnectionResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

@@ -37,8 +37,8 @@ class V1HpLinSpace {
      * Constructs a new <code>V1HpLinSpace</code>.
      * @alias module:model/V1HpLinSpace
      */
-    constructor() {
-
+    constructor() { 
+        
         V1HpLinSpace.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1HpLinSpace {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

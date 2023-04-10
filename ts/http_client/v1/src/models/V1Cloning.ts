@@ -35,25 +35,25 @@ import {
 } from './V1CloningKind';
 
 /**
- *
+ * 
  * @export
  * @interface V1Cloning
  */
 export interface V1Cloning {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Cloning
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Cloning
      */
     name?: string;
     /**
-     *
+     * 
      * @type {V1CloningKind}
      * @memberof V1Cloning
      */
@@ -78,7 +78,7 @@ export function V1CloningFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'kind': !exists(json, 'kind') ? undefined : V1CloningKindFromJSON(json['kind']),
@@ -93,7 +93,7 @@ export function V1CloningToJSON(value?: V1Cloning | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'kind': V1CloningKindToJSON(value.kind),

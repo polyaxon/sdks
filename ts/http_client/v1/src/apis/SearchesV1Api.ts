@@ -92,7 +92,7 @@ export interface UpdateSearchRequest {
 }
 
 /**
- *
+ * 
  */
 export class SearchesV1Api extends runtime.BaseAPI {
 

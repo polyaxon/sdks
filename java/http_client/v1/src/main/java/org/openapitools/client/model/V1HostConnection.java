@@ -74,7 +74,7 @@ public class V1HostConnection {
   }
 
   public V1HostConnection url(String url) {
-
+    
     this.url = url;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HostConnection {
 
 
   public V1HostConnection insecure(Boolean insecure) {
-
+    
     this.insecure = insecure;
     return this;
   }

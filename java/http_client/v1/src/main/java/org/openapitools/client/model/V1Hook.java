@@ -104,7 +104,7 @@ public class V1Hook {
   }
 
   public V1Hook hubRef(String hubRef) {
-
+    
     this.hubRef = hubRef;
     return this;
   }
@@ -126,7 +126,7 @@ public class V1Hook {
 
 
   public V1Hook connection(String connection) {
-
+    
     this.connection = connection;
     return this;
   }
@@ -148,7 +148,7 @@ public class V1Hook {
 
 
   public V1Hook trigger(V1Statuses trigger) {
-
+    
     this.trigger = trigger;
     return this;
   }
@@ -170,7 +170,7 @@ public class V1Hook {
 
 
   public V1Hook conditions(String conditions) {
-
+    
     this.conditions = conditions;
     return this;
   }
@@ -192,7 +192,7 @@ public class V1Hook {
 
 
   public V1Hook params(Map<String, V1Param> params) {
-
+    
     this.params = params;
     return this;
   }
@@ -222,7 +222,7 @@ public class V1Hook {
 
 
   public V1Hook queue(String queue) {
-
+    
     this.queue = queue;
     return this;
   }
@@ -244,7 +244,7 @@ public class V1Hook {
 
 
   public V1Hook presets(List<String> presets) {
-
+    
     this.presets = presets;
     return this;
   }
@@ -274,7 +274,7 @@ public class V1Hook {
 
 
   public V1Hook disableDefaults(Boolean disableDefaults) {
-
+    
     this.disableDefaults = disableDefaults;
     return this;
   }

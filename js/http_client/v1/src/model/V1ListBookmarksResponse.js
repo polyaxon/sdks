@@ -37,8 +37,8 @@ class V1ListBookmarksResponse {
      * Constructs a new <code>V1ListBookmarksResponse</code>.
      * @alias module:model/V1ListBookmarksResponse
      */
-    constructor() {
-
+    constructor() { 
+        
         V1ListBookmarksResponse.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1ListBookmarksResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

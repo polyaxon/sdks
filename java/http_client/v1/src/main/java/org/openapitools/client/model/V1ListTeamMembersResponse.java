@@ -85,7 +85,7 @@ public class V1ListTeamMembersResponse {
   }
 
   public V1ListTeamMembersResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListTeamMembersResponse {
 
 
   public V1ListTeamMembersResponse results(List<V1TeamMember> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListTeamMembersResponse {
 
 
   public V1ListTeamMembersResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListTeamMembersResponse {
 
 
   public V1ListTeamMembersResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

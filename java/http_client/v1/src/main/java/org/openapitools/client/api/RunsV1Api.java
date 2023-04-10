@@ -197,7 +197,7 @@ public class RunsV1Api {
 
     /**
      * Approve run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -218,7 +218,7 @@ public class RunsV1Api {
 
     /**
      * Approve run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -241,7 +241,7 @@ public class RunsV1Api {
 
     /**
      * Approve run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -352,7 +352,7 @@ public class RunsV1Api {
 
     /**
      * Approve runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -373,7 +373,7 @@ public class RunsV1Api {
 
     /**
      * Approve runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -396,7 +396,7 @@ public class RunsV1Api {
 
     /**
      * Approve runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -507,7 +507,7 @@ public class RunsV1Api {
 
     /**
      * Archive run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -528,7 +528,7 @@ public class RunsV1Api {
 
     /**
      * Archive run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -551,7 +551,7 @@ public class RunsV1Api {
 
     /**
      * Archive run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -662,7 +662,7 @@ public class RunsV1Api {
 
     /**
      * Archive runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -683,7 +683,7 @@ public class RunsV1Api {
 
     /**
      * Archive runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -706,7 +706,7 @@ public class RunsV1Api {
 
     /**
      * Archive runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -817,7 +817,7 @@ public class RunsV1Api {
 
     /**
      * Bookmark run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -838,7 +838,7 @@ public class RunsV1Api {
 
     /**
      * Bookmark run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -861,7 +861,7 @@ public class RunsV1Api {
 
     /**
      * Bookmark run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -972,7 +972,7 @@ public class RunsV1Api {
 
     /**
      * Bookmark runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -993,7 +993,7 @@ public class RunsV1Api {
 
     /**
      * Bookmark runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -1016,7 +1016,7 @@ public class RunsV1Api {
 
     /**
      * Bookmark runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -1141,7 +1141,7 @@ public class RunsV1Api {
 
     /**
      * Internal API to collect run logs
-     *
+     * 
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -1164,7 +1164,7 @@ public class RunsV1Api {
 
     /**
      * Internal API to collect run logs
-     *
+     * 
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -1189,7 +1189,7 @@ public class RunsV1Api {
 
     /**
      * Internal API to collect run logs (asynchronously)
-     *
+     * 
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -1309,7 +1309,7 @@ public class RunsV1Api {
 
     /**
      * Restart run with copy
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -1333,7 +1333,7 @@ public class RunsV1Api {
 
     /**
      * Restart run with copy
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -1358,7 +1358,7 @@ public class RunsV1Api {
 
     /**
      * Restart run with copy (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -1471,7 +1471,7 @@ public class RunsV1Api {
 
     /**
      * Create new run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param body operation object (required)
@@ -1494,7 +1494,7 @@ public class RunsV1Api {
 
     /**
      * Create new run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param body operation object (required)
@@ -1518,7 +1518,7 @@ public class RunsV1Api {
 
     /**
      * Create new run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param body operation object (required)
@@ -1637,7 +1637,7 @@ public class RunsV1Api {
 
     /**
      * Create bulk run artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -1659,7 +1659,7 @@ public class RunsV1Api {
 
     /**
      * Create bulk run artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -1683,7 +1683,7 @@ public class RunsV1Api {
 
     /**
      * Create bulk run artifacts lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -1802,7 +1802,7 @@ public class RunsV1Api {
 
     /**
      * Create new run status
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -1826,7 +1826,7 @@ public class RunsV1Api {
 
     /**
      * Create new run status
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -1851,7 +1851,7 @@ public class RunsV1Api {
 
     /**
      * Create new run status (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -1964,7 +1964,7 @@ public class RunsV1Api {
 
     /**
      * Delete run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1985,7 +1985,7 @@ public class RunsV1Api {
 
     /**
      * Delete run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -2008,7 +2008,7 @@ public class RunsV1Api {
 
     /**
      * Delete run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -2131,7 +2131,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifact
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -2154,7 +2154,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifact
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -2179,7 +2179,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifact (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -2304,7 +2304,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifact lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -2327,7 +2327,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifact lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -2352,7 +2352,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifact lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -2477,7 +2477,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifacts
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -2500,7 +2500,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifacts
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -2525,7 +2525,7 @@ public class RunsV1Api {
 
     /**
      * Delete run artifacts (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -2638,7 +2638,7 @@ public class RunsV1Api {
 
     /**
      * Delete runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -2659,7 +2659,7 @@ public class RunsV1Api {
 
     /**
      * Delete runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -2682,7 +2682,7 @@ public class RunsV1Api {
 
     /**
      * Delete runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -2702,181 +2702,6 @@ public class RunsV1Api {
     public okhttp3.Call deleteRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteRunsValidateBeforeCall(owner, project, body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deprecatedCollectRunLogs
-     * @param namespace  (required)
-     * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
-     * @param uuid Uuid identifier of the entity (required)
-     * @param kind Kind of the entity (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deprecatedCollectRunLogsCall(String namespace, String owner, String project, String uuid, String kind, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs"
-            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()))
-            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()))
-            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()))
-            .replace("{" + "kind" + "}", localVarApiClient.escapeString(kind.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deprecatedCollectRunLogsValidateBeforeCall(String namespace, String owner, String project, String uuid, String kind, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'namespace' is set
-        if (namespace == null) {
-            throw new ApiException("Missing the required parameter 'namespace' when calling deprecatedCollectRunLogs(Async)");
-        }
-
-        // verify the required parameter 'owner' is set
-        if (owner == null) {
-            throw new ApiException("Missing the required parameter 'owner' when calling deprecatedCollectRunLogs(Async)");
-        }
-
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling deprecatedCollectRunLogs(Async)");
-        }
-
-        // verify the required parameter 'uuid' is set
-        if (uuid == null) {
-            throw new ApiException("Missing the required parameter 'uuid' when calling deprecatedCollectRunLogs(Async)");
-        }
-
-        // verify the required parameter 'kind' is set
-        if (kind == null) {
-            throw new ApiException("Missing the required parameter 'kind' when calling deprecatedCollectRunLogs(Async)");
-        }
-
-        return deprecatedCollectRunLogsCall(namespace, owner, project, uuid, kind, _callback);
-
-    }
-
-    /**
-     * Deprecated Collect run logs (# TODO: Remove in v2)
-     *
-     * @param namespace  (required)
-     * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
-     * @param uuid Uuid identifier of the entity (required)
-     * @param kind Kind of the entity (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deprecatedCollectRunLogs(String namespace, String owner, String project, String uuid, String kind) throws ApiException {
-        deprecatedCollectRunLogsWithHttpInfo(namespace, owner, project, uuid, kind);
-    }
-
-    /**
-     * Deprecated Collect run logs (# TODO: Remove in v2)
-     *
-     * @param namespace  (required)
-     * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
-     * @param uuid Uuid identifier of the entity (required)
-     * @param kind Kind of the entity (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deprecatedCollectRunLogsWithHttpInfo(String namespace, String owner, String project, String uuid, String kind) throws ApiException {
-        okhttp3.Call localVarCall = deprecatedCollectRunLogsValidateBeforeCall(namespace, owner, project, uuid, kind, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Deprecated Collect run logs (# TODO: Remove in v2) (asynchronously)
-     *
-     * @param namespace  (required)
-     * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
-     * @param uuid Uuid identifier of the entity (required)
-     * @param kind Kind of the entity (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deprecatedCollectRunLogsAsync(String namespace, String owner, String project, String uuid, String kind, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deprecatedCollectRunLogsValidateBeforeCall(namespace, owner, project, uuid, kind, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -3000,7 +2825,7 @@ public class RunsV1Api {
 
     /**
      * Get multi runs events
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -3029,7 +2854,7 @@ public class RunsV1Api {
 
     /**
      * Get multi runs events
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -3059,7 +2884,7 @@ public class RunsV1Api {
 
     /**
      * Get multi runs events (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -3177,7 +3002,7 @@ public class RunsV1Api {
 
     /**
      * Get run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -3200,7 +3025,7 @@ public class RunsV1Api {
 
     /**
      * Get run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -3224,7 +3049,7 @@ public class RunsV1Api {
 
     /**
      * Get run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -3357,7 +3182,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifact
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the experiement will be assigned (required)
@@ -3383,7 +3208,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifact
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the experiement will be assigned (required)
@@ -3410,7 +3235,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifact (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the experiement will be assigned (required)
@@ -3537,7 +3362,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -3562,7 +3387,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -3588,7 +3413,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
@@ -3718,7 +3543,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the experiement will be assigned (required)
@@ -3743,7 +3568,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the experiement will be assigned (required)
@@ -3769,7 +3594,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the experiement will be assigned (required)
@@ -3908,7 +3733,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -3936,7 +3761,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -3965,7 +3790,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4107,7 +3932,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4135,7 +3960,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4164,7 +3989,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts lineage names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4293,7 +4118,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts tree
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -4318,7 +4143,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts tree
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -4344,7 +4169,7 @@ public class RunsV1Api {
 
     /**
      * Get run artifacts tree (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -4483,7 +4308,7 @@ public class RunsV1Api {
 
     /**
      * Get run clones lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4511,7 +4336,7 @@ public class RunsV1Api {
 
     /**
      * Get run clones lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4540,7 +4365,7 @@ public class RunsV1Api {
 
     /**
      * Get run clones lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4682,7 +4507,7 @@ public class RunsV1Api {
 
     /**
      * Get run connections lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4710,7 +4535,7 @@ public class RunsV1Api {
 
     /**
      * Get run connections lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4739,7 +4564,7 @@ public class RunsV1Api {
 
     /**
      * Get run connections lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4881,7 +4706,7 @@ public class RunsV1Api {
 
     /**
      * Get run downstream lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4909,7 +4734,7 @@ public class RunsV1Api {
 
     /**
      * Get run downstream lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -4938,7 +4763,7 @@ public class RunsV1Api {
 
     /**
      * Get run downstream lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -5089,7 +4914,7 @@ public class RunsV1Api {
 
     /**
      * Get run events
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5118,7 +4943,7 @@ public class RunsV1Api {
 
     /**
      * Get run events
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5148,7 +4973,7 @@ public class RunsV1Api {
 
     /**
      * Get run events (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5280,7 +5105,7 @@ public class RunsV1Api {
 
     /**
      * Get run importance
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5305,7 +5130,7 @@ public class RunsV1Api {
 
     /**
      * Get run importance
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5331,7 +5156,7 @@ public class RunsV1Api {
 
     /**
      * Get run importance (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5467,7 +5292,7 @@ public class RunsV1Api {
 
     /**
      * Get run logs
-     *
+     * 
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5494,7 +5319,7 @@ public class RunsV1Api {
 
     /**
      * Get run logs
-     *
+     * 
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5522,7 +5347,7 @@ public class RunsV1Api {
 
     /**
      * Get run logs (asynchronously)
-     *
+     * 
      * @param namespace  (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5638,7 +5463,7 @@ public class RunsV1Api {
 
     /**
      * Get Run namespace
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -5661,7 +5486,7 @@ public class RunsV1Api {
 
     /**
      * Get Run namespace
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -5685,7 +5510,7 @@ public class RunsV1Api {
 
     /**
      * Get Run namespace (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -5824,7 +5649,7 @@ public class RunsV1Api {
 
     /**
      * Get run resources events
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5852,7 +5677,7 @@ public class RunsV1Api {
 
     /**
      * Get run resources events
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5881,7 +5706,7 @@ public class RunsV1Api {
 
     /**
      * Get run resources events (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -5998,7 +5823,7 @@ public class RunsV1Api {
 
     /**
      * Get Run settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6021,7 +5846,7 @@ public class RunsV1Api {
 
     /**
      * Get Run settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6045,7 +5870,7 @@ public class RunsV1Api {
 
     /**
      * Get Run settings (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6202,7 +6027,7 @@ public class RunsV1Api {
 
     /**
      * Get run stats
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -6234,7 +6059,7 @@ public class RunsV1Api {
 
     /**
      * Get run stats
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -6267,7 +6092,7 @@ public class RunsV1Api {
 
     /**
      * Get run stats (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -6388,7 +6213,7 @@ public class RunsV1Api {
 
     /**
      * Get run statuses
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6411,7 +6236,7 @@ public class RunsV1Api {
 
     /**
      * Get run statuses
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6435,7 +6260,7 @@ public class RunsV1Api {
 
     /**
      * Get run statuses (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6572,7 +6397,7 @@ public class RunsV1Api {
 
     /**
      * Get run upstream lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -6600,7 +6425,7 @@ public class RunsV1Api {
 
     /**
      * Get run upstream lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -6629,7 +6454,7 @@ public class RunsV1Api {
 
     /**
      * Get run upstream lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity name under namesapce (required)
      * @param uuid SubEntity uuid (required)
@@ -6774,7 +6599,7 @@ public class RunsV1Api {
 
     /**
      * Get runs artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -6803,7 +6628,7 @@ public class RunsV1Api {
 
     /**
      * Get runs artifacts lineage
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -6833,7 +6658,7 @@ public class RunsV1Api {
 
     /**
      * Get runs artifacts lineage (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -6951,7 +6776,7 @@ public class RunsV1Api {
 
     /**
      * Impersonate run token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6974,7 +6799,7 @@ public class RunsV1Api {
 
     /**
      * Impersonate run token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -6998,7 +6823,7 @@ public class RunsV1Api {
 
     /**
      * Impersonate run token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -7137,7 +6962,7 @@ public class RunsV1Api {
 
     /**
      * Inspect an active run full conditions
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -7165,7 +6990,7 @@ public class RunsV1Api {
 
     /**
      * Inspect an active run full conditions
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -7194,7 +7019,7 @@ public class RunsV1Api {
 
     /**
      * Inspect an active run full conditions (asynchronously)
-     *
+     * 
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -7311,7 +7136,7 @@ public class RunsV1Api {
 
     /**
      * Invalidate run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -7332,7 +7157,7 @@ public class RunsV1Api {
 
     /**
      * Invalidate run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -7355,7 +7180,7 @@ public class RunsV1Api {
 
     /**
      * Invalidate run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -7466,7 +7291,7 @@ public class RunsV1Api {
 
     /**
      * Invalidate runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -7487,7 +7312,7 @@ public class RunsV1Api {
 
     /**
      * Invalidate runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -7510,7 +7335,7 @@ public class RunsV1Api {
 
     /**
      * Invalidate runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -7632,7 +7457,7 @@ public class RunsV1Api {
 
     /**
      * List archived runs for user
-     *
+     * 
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -7658,7 +7483,7 @@ public class RunsV1Api {
 
     /**
      * List archived runs for user
-     *
+     * 
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -7685,7 +7510,7 @@ public class RunsV1Api {
 
     /**
      * List archived runs for user (asynchronously)
-     *
+     * 
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -7811,7 +7636,7 @@ public class RunsV1Api {
 
     /**
      * List bookmarked runs for user
-     *
+     * 
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -7837,7 +7662,7 @@ public class RunsV1Api {
 
     /**
      * List bookmarked runs for user
-     *
+     * 
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -7864,7 +7689,7 @@ public class RunsV1Api {
 
     /**
      * List bookmarked runs for user (asynchronously)
-     *
+     * 
      * @param user User (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -8007,7 +7832,7 @@ public class RunsV1Api {
 
     /**
      * List runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -8036,7 +7861,7 @@ public class RunsV1Api {
 
     /**
      * List runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -8066,7 +7891,7 @@ public class RunsV1Api {
 
     /**
      * List runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -8198,7 +8023,7 @@ public class RunsV1Api {
 
     /**
      * Notify run status
-     *
+     * 
      * @param namespace Na,espace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -8221,7 +8046,7 @@ public class RunsV1Api {
 
     /**
      * Notify run status
-     *
+     * 
      * @param namespace Na,espace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -8246,7 +8071,7 @@ public class RunsV1Api {
 
     /**
      * Notify run status (asynchronously)
-     *
+     * 
      * @param namespace Na,espace (required)
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
@@ -8366,7 +8191,7 @@ public class RunsV1Api {
 
     /**
      * Patch run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -8390,7 +8215,7 @@ public class RunsV1Api {
 
     /**
      * Patch run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -8415,7 +8240,7 @@ public class RunsV1Api {
 
     /**
      * Patch run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -8535,7 +8360,7 @@ public class RunsV1Api {
 
     /**
      * Restart run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -8559,7 +8384,7 @@ public class RunsV1Api {
 
     /**
      * Restart run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -8584,7 +8409,7 @@ public class RunsV1Api {
 
     /**
      * Restart run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -8697,7 +8522,7 @@ public class RunsV1Api {
 
     /**
      * Restore run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -8718,7 +8543,7 @@ public class RunsV1Api {
 
     /**
      * Restore run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -8741,7 +8566,7 @@ public class RunsV1Api {
 
     /**
      * Restore run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -8852,7 +8677,7 @@ public class RunsV1Api {
 
     /**
      * Restore runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -8873,7 +8698,7 @@ public class RunsV1Api {
 
     /**
      * Restore runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -8896,7 +8721,7 @@ public class RunsV1Api {
 
     /**
      * Restore runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -9014,7 +8839,7 @@ public class RunsV1Api {
 
     /**
      * Resume run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -9038,7 +8863,7 @@ public class RunsV1Api {
 
     /**
      * Resume run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -9063,7 +8888,7 @@ public class RunsV1Api {
 
     /**
      * Resume run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -9176,7 +9001,7 @@ public class RunsV1Api {
 
     /**
      * Stop run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -9197,7 +9022,7 @@ public class RunsV1Api {
 
     /**
      * Stop run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -9220,7 +9045,7 @@ public class RunsV1Api {
 
     /**
      * Stop run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -9331,7 +9156,7 @@ public class RunsV1Api {
 
     /**
      * Stop runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -9352,7 +9177,7 @@ public class RunsV1Api {
 
     /**
      * Stop runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -9375,7 +9200,7 @@ public class RunsV1Api {
 
     /**
      * Stop runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Uuids of the entities (required)
@@ -9486,7 +9311,7 @@ public class RunsV1Api {
 
     /**
      * Sync offline run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param body Run object (required)
@@ -9507,7 +9332,7 @@ public class RunsV1Api {
 
     /**
      * Sync offline run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param body Run object (required)
@@ -9530,7 +9355,7 @@ public class RunsV1Api {
 
     /**
      * Sync offline run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param body Run object (required)
@@ -9641,7 +9466,7 @@ public class RunsV1Api {
 
     /**
      * Tag runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Data (required)
@@ -9662,7 +9487,7 @@ public class RunsV1Api {
 
     /**
      * Tag runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Data (required)
@@ -9685,7 +9510,7 @@ public class RunsV1Api {
 
     /**
      * Tag runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Data (required)
@@ -9803,7 +9628,7 @@ public class RunsV1Api {
 
     /**
      * Transfer run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -9825,7 +9650,7 @@ public class RunsV1Api {
 
     /**
      * Transfer run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -9849,7 +9674,7 @@ public class RunsV1Api {
 
     /**
      * Transfer run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -9961,7 +9786,7 @@ public class RunsV1Api {
 
     /**
      * Transfer runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Data (required)
@@ -9982,7 +9807,7 @@ public class RunsV1Api {
 
     /**
      * Transfer runs
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Data (required)
@@ -10005,7 +9830,7 @@ public class RunsV1Api {
 
     /**
      * Transfer runs (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Data (required)
@@ -10116,7 +9941,7 @@ public class RunsV1Api {
 
     /**
      * Unbookmark run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -10137,7 +9962,7 @@ public class RunsV1Api {
 
     /**
      * Unbookmark run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -10160,7 +9985,7 @@ public class RunsV1Api {
 
     /**
      * Unbookmark run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -10278,7 +10103,7 @@ public class RunsV1Api {
 
     /**
      * Update run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -10302,7 +10127,7 @@ public class RunsV1Api {
 
     /**
      * Update run
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -10327,7 +10152,7 @@ public class RunsV1Api {
 
     /**
      * Update run (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param runUuid UUID (required)
@@ -10460,7 +10285,7 @@ public class RunsV1Api {
 
     /**
      * Upload an artifact file to a store via run access
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -10483,7 +10308,7 @@ public class RunsV1Api {
 
     /**
      * Upload an artifact file to a store via run access
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -10508,7 +10333,7 @@ public class RunsV1Api {
 
     /**
      * Upload an artifact file to a store via run access (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -10641,7 +10466,7 @@ public class RunsV1Api {
 
     /**
      * Upload a logs file to a store via run access
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -10664,7 +10489,7 @@ public class RunsV1Api {
 
     /**
      * Upload a logs file to a store via run access
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)
@@ -10689,7 +10514,7 @@ public class RunsV1Api {
 
     /**
      * Upload a logs file to a store via run access (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project having access to the store (required)
      * @param uuid Unique integer identifier of the entity (required)

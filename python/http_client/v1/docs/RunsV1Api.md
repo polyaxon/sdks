@@ -21,7 +21,6 @@ Method | HTTP request | Description
 [**delete_run_artifact_lineage**](RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 [**delete_run_artifacts**](RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 [**delete_runs**](RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
-[**deprecated_collect_run_logs**](RunsV1Api.md#deprecated_collect_run_logs) | **POST** /streams/v1/{namespace}/_internal/{owner}/{project}/runs/{uuid}/{kind}/logs | Deprecated Collect run logs (# TODO: Remove in v2)
 [**get_multi_run_events**](RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 [**get_run**](RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 [**get_run_artifact**](RunsV1Api.md#get_run_artifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
@@ -1347,89 +1346,6 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | A successful response. |  -  |
-**204** | No content. |  -  |
-**403** | You don&#39;t have permission to access the resource. |  -  |
-**404** | Resource does not exist. |  -  |
-**0** | An unexpected error response. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deprecated_collect_run_logs**
-> deprecated_collect_run_logs(namespace, owner, project, uuid, kind)
-
-Deprecated Collect run logs (# TODO: Remove in v2)
-
-### Example
-
-* Api Key Authentication (ApiKey):
-```python
-from __future__ import print_function
-import time
-import os
-import polyaxon_sdk
-from polyaxon_sdk.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = polyaxon_sdk.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with polyaxon_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = polyaxon_sdk.RunsV1Api(api_client)
-    namespace = 'namespace_example' # str | 
-    owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project where the run will be assigned
-    uuid = 'uuid_example' # str | Uuid identifier of the entity
-    kind = 'kind_example' # str | Kind of the entity
-
-    try:
-        # Deprecated Collect run logs (# TODO: Remove in v2)
-        api_instance.deprecated_collect_run_logs(namespace, owner, project, uuid, kind)
-    except Exception as e:
-        print("Exception when calling RunsV1Api->deprecated_collect_run_logs: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **namespace** | **str**|  | 
- **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project where the run will be assigned | 
- **uuid** | **str**| Uuid identifier of the entity | 
- **kind** | **str**| Kind of the entity | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

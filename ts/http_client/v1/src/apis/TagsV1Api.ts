@@ -101,7 +101,7 @@ export interface UpdateTagRequest {
 }
 
 /**
- *
+ * 
  */
 export class TagsV1Api extends runtime.BaseAPI {
 

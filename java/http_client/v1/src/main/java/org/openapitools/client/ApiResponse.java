@@ -73,7 +73,7 @@ public class ApiResponse<T> {
     /**
      * <p>Get the <code>headers</code>.</p>
      *
-     * @return a {@link java.util.Map} of headers
+     * @return a {@link java.util.Map} of headers 
      */
     public Map<String, List<String>> getHeaders() {
         return headers;

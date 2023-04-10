@@ -78,7 +78,7 @@ public class V1PasswordChange {
   }
 
   public V1PasswordChange oldPassword(String oldPassword) {
-
+    
     this.oldPassword = oldPassword;
     return this;
   }
@@ -100,7 +100,7 @@ public class V1PasswordChange {
 
 
   public V1PasswordChange newPassword1(String newPassword1) {
-
+    
     this.newPassword1 = newPassword1;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1PasswordChange {
 
 
   public V1PasswordChange newPassword2(String newPassword2) {
-
+    
     this.newPassword2 = newPassword2;
     return this;
   }
