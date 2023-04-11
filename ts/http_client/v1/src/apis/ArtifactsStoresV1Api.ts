@@ -38,7 +38,7 @@ export interface UploadArtifactRequest {
 }
 
 /**
- *
+ * 
  */
 export class ArtifactsStoresV1Api extends runtime.BaseAPI {
 

@@ -79,7 +79,7 @@ public class V1AgentStatusBodyRequest {
   }
 
   public V1AgentStatusBodyRequest owner(String owner) {
-
+    
     this.owner = owner;
     return this;
   }
@@ -101,7 +101,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest condition(V1StatusCondition condition) {
-
+    
     this.condition = condition;
     return this;
   }

@@ -80,7 +80,7 @@ public class V1EventConfusionMatrix {
   }
 
   public V1EventConfusionMatrix x(List<Object> x) {
-
+    
     this.x = x;
     return this;
   }
@@ -110,7 +110,7 @@ public class V1EventConfusionMatrix {
 
 
   public V1EventConfusionMatrix y(List<Object> y) {
-
+    
     this.y = y;
     return this;
   }
@@ -140,7 +140,7 @@ public class V1EventConfusionMatrix {
 
 
   public V1EventConfusionMatrix z(List<Object> z) {
-
+    
     this.z = z;
     return this;
   }

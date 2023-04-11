@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ListBookmarksResponse
  */
 export interface V1ListBookmarksResponse {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1ListBookmarksResponse
      */
     count?: number;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1ListBookmarksResponse
      */
     results?: Array<object>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListBookmarksResponse
      */
     previous?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListBookmarksResponse
      */
@@ -77,7 +77,7 @@ export function V1ListBookmarksResponseFromJSONTyped(json: any, ignoreDiscrimina
         return json;
     }
     return {
-
+        
         'count': !exists(json, 'count') ? undefined : json['count'],
         'results': !exists(json, 'results') ? undefined : json['results'],
         'previous': !exists(json, 'previous') ? undefined : json['previous'],
@@ -93,7 +93,7 @@ export function V1ListBookmarksResponseToJSON(value?: V1ListBookmarksResponse | 
         return null;
     }
     return {
-
+        
         'count': value.count,
         'results': value.results,
         'previous': value.previous,

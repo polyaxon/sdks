@@ -42,21 +42,21 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1RunEdgeKind.Adapter.class)
 public enum V1RunEdgeKind {
-
+  
   ACTION("action"),
-
+  
   EVENT("event"),
-
+  
   HOOK("hook"),
-
+  
   DAG("dag"),
-
+  
   JOIN("join"),
-
+  
   RUN("run"),
-
+  
   TB("tb"),
-
+  
   BUILD("build");
 
   private String value;

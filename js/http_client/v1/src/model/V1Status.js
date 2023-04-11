@@ -39,8 +39,8 @@ class V1Status {
      * Constructs a new <code>V1Status</code>.
      * @alias module:model/V1Status
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Status.initialize(this);
     }
 
@@ -49,7 +49,7 @@ class V1Status {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

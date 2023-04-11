@@ -37,8 +37,8 @@ class V1Template {
      * Constructs a new <code>V1Template</code>.
      * @alias module:model/V1Template
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Template.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1Template {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

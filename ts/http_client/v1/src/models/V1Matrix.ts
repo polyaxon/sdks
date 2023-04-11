@@ -71,49 +71,49 @@ import {
 } from './V1RandomSearch';
 
 /**
- *
+ * 
  * @export
  * @interface V1Matrix
  */
 export interface V1Matrix {
     /**
-     *
+     * 
      * @type {V1RandomSearch}
      * @memberof V1Matrix
      */
     random?: V1RandomSearch;
     /**
-     *
+     * 
      * @type {V1GridSearch}
      * @memberof V1Matrix
      */
     grid?: V1GridSearch;
     /**
-     *
+     * 
      * @type {V1Hyperband}
      * @memberof V1Matrix
      */
     hyperband?: V1Hyperband;
     /**
-     *
+     * 
      * @type {V1Bayes}
      * @memberof V1Matrix
      */
     bayes?: V1Bayes;
     /**
-     *
+     * 
      * @type {V1Hyperopt}
      * @memberof V1Matrix
      */
     hyperopt?: V1Hyperopt;
     /**
-     *
+     * 
      * @type {V1Iterative}
      * @memberof V1Matrix
      */
     iterative?: V1Iterative;
     /**
-     *
+     * 
      * @type {V1Mapping}
      * @memberof V1Matrix
      */
@@ -138,7 +138,7 @@ export function V1MatrixFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-
+        
         'random': !exists(json, 'random') ? undefined : V1RandomSearchFromJSON(json['random']),
         'grid': !exists(json, 'grid') ? undefined : V1GridSearchFromJSON(json['grid']),
         'hyperband': !exists(json, 'hyperband') ? undefined : V1HyperbandFromJSON(json['hyperband']),
@@ -157,7 +157,7 @@ export function V1MatrixToJSON(value?: V1Matrix | null): any {
         return null;
     }
     return {
-
+        
         'random': V1RandomSearchToJSON(value.random),
         'grid': V1GridSearchToJSON(value.grid),
         'hyperband': V1HyperbandToJSON(value.hyperband),

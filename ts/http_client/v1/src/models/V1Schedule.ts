@@ -47,25 +47,25 @@ import {
 } from './V1IntervalSchedule';
 
 /**
- *
+ * 
  * @export
  * @interface V1Schedule
  */
 export interface V1Schedule {
     /**
-     *
+     * 
      * @type {V1CronSchedule}
      * @memberof V1Schedule
      */
     cron?: V1CronSchedule;
     /**
-     *
+     * 
      * @type {V1DateTimeSchedule}
      * @memberof V1Schedule
      */
     datetime?: V1DateTimeSchedule;
     /**
-     *
+     * 
      * @type {V1IntervalSchedule}
      * @memberof V1Schedule
      */
@@ -90,7 +90,7 @@ export function V1ScheduleFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'cron': !exists(json, 'cron') ? undefined : V1CronScheduleFromJSON(json['cron']),
         'datetime': !exists(json, 'datetime') ? undefined : V1DateTimeScheduleFromJSON(json['datetime']),
         'interval': !exists(json, 'interval') ? undefined : V1IntervalScheduleFromJSON(json['interval']),
@@ -105,7 +105,7 @@ export function V1ScheduleToJSON(value?: V1Schedule | null): any {
         return null;
     }
     return {
-
+        
         'cron': V1CronScheduleToJSON(value.cron),
         'datetime': V1DateTimeScheduleToJSON(value.datetime),
         'interval': V1IntervalScheduleToJSON(value.interval),

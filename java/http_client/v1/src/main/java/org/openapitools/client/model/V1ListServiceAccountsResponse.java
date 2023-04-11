@@ -85,7 +85,7 @@ public class V1ListServiceAccountsResponse {
   }
 
   public V1ListServiceAccountsResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListServiceAccountsResponse {
 
 
   public V1ListServiceAccountsResponse results(List<V1ServiceAccount> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListServiceAccountsResponse {
 
 
   public V1ListServiceAccountsResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListServiceAccountsResponse {
 
 
   public V1ListServiceAccountsResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

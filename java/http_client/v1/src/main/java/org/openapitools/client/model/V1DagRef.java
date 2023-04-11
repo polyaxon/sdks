@@ -74,7 +74,7 @@ public class V1DagRef {
   }
 
   public V1DagRef kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1DagRef {
 
 
   public V1DagRef name(String name) {
-
+    
     this.name = name;
     return this;
   }

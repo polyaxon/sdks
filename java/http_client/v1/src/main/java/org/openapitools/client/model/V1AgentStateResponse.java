@@ -84,7 +84,7 @@ public class V1AgentStateResponse {
   }
 
   public V1AgentStateResponse status(V1Statuses status) {
-
+    
     this.status = status;
     return this;
   }
@@ -106,7 +106,7 @@ public class V1AgentStateResponse {
 
 
   public V1AgentStateResponse state(AgentStateResponseAgentState state) {
-
+    
     this.state = state;
     return this;
   }
@@ -128,7 +128,7 @@ public class V1AgentStateResponse {
 
 
   public V1AgentStateResponse liveState(Integer liveState) {
-
+    
     this.liveState = liveState;
     return this;
   }
@@ -150,7 +150,7 @@ public class V1AgentStateResponse {
 
 
   public V1AgentStateResponse compatibleUpdates(Object compatibleUpdates) {
-
+    
     this.compatibleUpdates = compatibleUpdates;
     return this;
   }

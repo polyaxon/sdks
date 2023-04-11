@@ -32,21 +32,21 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1PipelineKind {
-
+    
         /**
          * value: "dag"
          * @const
          */
         "dag" = "dag";
 
-
+    
         /**
          * value: "matrix"
          * @const
          */
         "matrix" = "matrix";
 
-
+    
 
     /**
     * Returns a <code>V1PipelineKind</code> enum value from a Javascript object name.

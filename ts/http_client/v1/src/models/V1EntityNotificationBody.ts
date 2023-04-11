@@ -35,49 +35,49 @@ import {
 } from './V1StatusCondition';
 
 /**
- *
+ * 
  * @export
  * @interface V1EntityNotificationBody
  */
 export interface V1EntityNotificationBody {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityNotificationBody
      */
     namespace?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityNotificationBody
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityNotificationBody
      */
     project?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityNotificationBody
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityNotificationBody
      */
     name?: string;
     /**
-     *
+     * 
      * @type {V1StatusCondition}
      * @memberof V1EntityNotificationBody
      */
     condition?: V1StatusCondition;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1EntityNotificationBody
      */
@@ -102,7 +102,7 @@ export function V1EntityNotificationBodyFromJSONTyped(json: any, ignoreDiscrimin
         return json;
     }
     return {
-
+        
         'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'project': !exists(json, 'project') ? undefined : json['project'],
@@ -121,7 +121,7 @@ export function V1EntityNotificationBodyToJSON(value?: V1EntityNotificationBody 
         return null;
     }
     return {
-
+        
         'namespace': value.namespace,
         'owner': value.owner,
         'project': value.project,

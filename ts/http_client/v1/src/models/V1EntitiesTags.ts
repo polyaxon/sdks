@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1EntitiesTags
  */
 export interface V1EntitiesTags {
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1EntitiesTags
      */
     uuids?: Array<string>;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1EntitiesTags
      */
@@ -65,7 +65,7 @@ export function V1EntitiesTagsFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-
+        
         'uuids': !exists(json, 'uuids') ? undefined : json['uuids'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
     };
@@ -79,7 +79,7 @@ export function V1EntitiesTagsToJSON(value?: V1EntitiesTags | null): any {
         return null;
     }
     return {
-
+        
         'uuids': value.uuids,
         'tags': value.tags,
     };

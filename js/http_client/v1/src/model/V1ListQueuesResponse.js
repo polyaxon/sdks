@@ -38,8 +38,8 @@ class V1ListQueuesResponse {
      * Constructs a new <code>V1ListQueuesResponse</code>.
      * @alias module:model/V1ListQueuesResponse
      */
-    constructor() {
-
+    constructor() { 
+        
         V1ListQueuesResponse.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1ListQueuesResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

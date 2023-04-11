@@ -74,7 +74,7 @@ public class V1HpDateRange {
   }
 
   public V1HpDateRange kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HpDateRange {
 
 
   public V1HpDateRange value(Object value) {
-
+    
     this.value = value;
     return this;
   }

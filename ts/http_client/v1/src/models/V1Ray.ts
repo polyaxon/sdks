@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Ray
  */
 export interface V1Ray {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Ray
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Ray
      */
@@ -65,7 +65,7 @@ export function V1RayFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1R
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'spec': !exists(json, 'spec') ? undefined : json['spec'],
     };
@@ -79,7 +79,7 @@ export function V1RayToJSON(value?: V1Ray | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'spec': value.spec,
     };

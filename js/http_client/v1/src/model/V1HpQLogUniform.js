@@ -37,8 +37,8 @@ class V1HpQLogUniform {
      * Constructs a new <code>V1HpQLogUniform</code>.
      * @alias module:model/V1HpQLogUniform
      */
-    constructor() {
-
+    constructor() { 
+        
         V1HpQLogUniform.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1HpQLogUniform {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

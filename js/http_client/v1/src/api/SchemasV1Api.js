@@ -38,7 +38,7 @@ import V1Schemas from '../model/V1Schemas';
 export default class SchemasV1Api {
 
     /**
-    * Constructs a new SchemasV1Api.
+    * Constructs a new SchemasV1Api. 
     * Polyaxon sdk
     * @alias module:api/SchemasV1Api
     * @class

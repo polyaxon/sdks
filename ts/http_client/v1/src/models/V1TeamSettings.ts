@@ -35,25 +35,25 @@ import {
 } from './V1SettingsCatalog';
 
 /**
- *
+ * 
  * @export
  * @interface V1TeamSettings
  */
 export interface V1TeamSettings {
     /**
-     *
+     * 
      * @type {Array<V1SettingsCatalog>}
      * @memberof V1TeamSettings
      */
     projects?: Array<V1SettingsCatalog>;
     /**
-     *
+     * 
      * @type {Array<V1SettingsCatalog>}
      * @memberof V1TeamSettings
      */
     hubs?: Array<V1SettingsCatalog>;
     /**
-     *
+     * 
      * @type {Array<V1SettingsCatalog>}
      * @memberof V1TeamSettings
      */
@@ -78,7 +78,7 @@ export function V1TeamSettingsFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-
+        
         'projects': !exists(json, 'projects') ? undefined : ((json['projects'] as Array<any>).map(V1SettingsCatalogFromJSON)),
         'hubs': !exists(json, 'hubs') ? undefined : ((json['hubs'] as Array<any>).map(V1SettingsCatalogFromJSON)),
         'registries': !exists(json, 'registries') ? undefined : ((json['registries'] as Array<any>).map(V1SettingsCatalogFromJSON)),
@@ -93,7 +93,7 @@ export function V1TeamSettingsToJSON(value?: V1TeamSettings | null): any {
         return null;
     }
     return {
-
+        
         'projects': value.projects === undefined ? undefined : ((value.projects as Array<any>).map(V1SettingsCatalogToJSON)),
         'hubs': value.hubs === undefined ? undefined : ((value.hubs as Array<any>).map(V1SettingsCatalogToJSON)),
         'registries': value.registries === undefined ? undefined : ((value.registries as Array<any>).map(V1SettingsCatalogToJSON)),

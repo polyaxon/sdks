@@ -42,13 +42,13 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1RunPending.Adapter.class)
 public enum V1RunPending {
-
+  
   APPROVAL("approval"),
-
+  
   UPLOAD("upload"),
-
+  
   CACHE("cache"),
-
+  
   BUILD("build");
 
   private String value;

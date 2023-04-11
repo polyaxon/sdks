@@ -37,8 +37,8 @@ class V1RunConnection {
      * Constructs a new <code>V1RunConnection</code>.
      * @alias module:model/V1RunConnection
      */
-    constructor() {
-
+    constructor() { 
+        
         V1RunConnection.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1RunConnection {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

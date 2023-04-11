@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ArtifactsMount
  */
 export interface V1ArtifactsMount {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ArtifactsMount
      */
     name?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ArtifactsMount
      */
@@ -65,7 +65,7 @@ export function V1ArtifactsMountFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'paths': !exists(json, 'paths') ? undefined : json['paths'],
     };
@@ -79,7 +79,7 @@ export function V1ArtifactsMountToJSON(value?: V1ArtifactsMount | null): any {
         return null;
     }
     return {
-
+        
         'name': value.name,
         'paths': value.paths,
     };

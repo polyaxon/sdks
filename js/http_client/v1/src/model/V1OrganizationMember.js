@@ -37,8 +37,8 @@ class V1OrganizationMember {
      * Constructs a new <code>V1OrganizationMember</code>.
      * @alias module:model/V1OrganizationMember
      */
-    constructor() {
-
+    constructor() { 
+        
         V1OrganizationMember.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1OrganizationMember {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

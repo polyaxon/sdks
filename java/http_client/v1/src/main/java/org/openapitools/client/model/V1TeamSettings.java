@@ -81,7 +81,7 @@ public class V1TeamSettings {
   }
 
   public V1TeamSettings projects(List<V1SettingsCatalog> projects) {
-
+    
     this.projects = projects;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1TeamSettings {
 
 
   public V1TeamSettings hubs(List<V1SettingsCatalog> hubs) {
-
+    
     this.hubs = hubs;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1TeamSettings {
 
 
   public V1TeamSettings registries(List<V1SettingsCatalog> registries) {
-
+    
     this.registries = registries;
     return this;
   }

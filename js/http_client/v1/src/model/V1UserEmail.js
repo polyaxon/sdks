@@ -37,8 +37,8 @@ class V1UserEmail {
      * Constructs a new <code>V1UserEmail</code>.
      * @alias module:model/V1UserEmail
      */
-    constructor() {
-
+    constructor() { 
+        
         V1UserEmail.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1UserEmail {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

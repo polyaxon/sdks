@@ -37,8 +37,8 @@ class V1PolyaxonSidecarContainer {
      * Constructs a new <code>V1PolyaxonSidecarContainer</code>.
      * @alias module:model/V1PolyaxonSidecarContainer
      */
-    constructor() {
-
+    constructor() { 
+        
         V1PolyaxonSidecarContainer.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1PolyaxonSidecarContainer {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

@@ -35,31 +35,31 @@ import {
 } from './ProtobufAny';
 
 /**
- *
+ * 
  * @export
  * @interface RuntimeError
  */
 export interface RuntimeError {
     /**
-     *
+     * 
      * @type {string}
      * @memberof RuntimeError
      */
     error?: string;
     /**
-     *
+     * 
      * @type {number}
      * @memberof RuntimeError
      */
     code?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof RuntimeError
      */
     message?: string;
     /**
-     *
+     * 
      * @type {Array<ProtobufAny>}
      * @memberof RuntimeError
      */
@@ -84,7 +84,7 @@ export function RuntimeErrorFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-
+        
         'error': !exists(json, 'error') ? undefined : json['error'],
         'code': !exists(json, 'code') ? undefined : json['code'],
         'message': !exists(json, 'message') ? undefined : json['message'],
@@ -100,7 +100,7 @@ export function RuntimeErrorToJSON(value?: RuntimeError | null): any {
         return null;
     }
     return {
-
+        
         'error': value.error,
         'code': value.code,
         'message': value.message,

@@ -86,7 +86,7 @@ public class V1RunResources {
   }
 
   public V1RunResources cpu(Float cpu) {
-
+    
     this.cpu = cpu;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1RunResources {
 
 
   public V1RunResources memory(Float memory) {
-
+    
     this.memory = memory;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1RunResources {
 
 
   public V1RunResources gpu(Float gpu) {
-
+    
     this.gpu = gpu;
     return this;
   }
@@ -152,7 +152,7 @@ public class V1RunResources {
 
 
   public V1RunResources custom(Float custom) {
-
+    
     this.custom = custom;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1RunResources {
 
 
   public V1RunResources cost(Float cost) {
-
+    
     this.cost = cost;
     return this;
   }

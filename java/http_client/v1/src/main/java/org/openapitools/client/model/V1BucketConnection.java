@@ -70,7 +70,7 @@ public class V1BucketConnection {
   }
 
   public V1BucketConnection bucket(String bucket) {
-
+    
     this.bucket = bucket;
     return this;
   }

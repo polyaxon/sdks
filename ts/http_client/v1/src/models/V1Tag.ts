@@ -28,43 +28,43 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Tag
  */
 export interface V1Tag {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tag
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tag
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tag
      */
     color?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tag
      */
     description?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tag
      */
     icon?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Tag
      */
@@ -89,7 +89,7 @@ export function V1TagFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1T
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'color': !exists(json, 'color') ? undefined : json['color'],
@@ -107,7 +107,7 @@ export function V1TagToJSON(value?: V1Tag | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'color': value.color,

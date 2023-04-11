@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1S3Type
  */
 export interface V1S3Type {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1S3Type
      */
     bucket?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1S3Type
      */
@@ -65,7 +65,7 @@ export function V1S3TypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-
+        
         'bucket': !exists(json, 'bucket') ? undefined : json['bucket'],
         'key': !exists(json, 'key') ? undefined : json['key'],
     };
@@ -79,7 +79,7 @@ export function V1S3TypeToJSON(value?: V1S3Type | null): any {
         return null;
     }
     return {
-
+        
         'bucket': value.bucket,
         'key': value.key,
     };

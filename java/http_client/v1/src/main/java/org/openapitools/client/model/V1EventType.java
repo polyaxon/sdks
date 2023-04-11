@@ -75,7 +75,7 @@ public class V1EventType {
   }
 
   public V1EventType name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -97,7 +97,7 @@ public class V1EventType {
 
 
   public V1EventType kind(V1ArtifactKind kind) {
-
+    
     this.kind = kind;
     return this;
   }

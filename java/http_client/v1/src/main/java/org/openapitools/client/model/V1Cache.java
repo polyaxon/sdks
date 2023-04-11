@@ -84,7 +84,7 @@ public class V1Cache {
   }
 
   public V1Cache disable(Boolean disable) {
-
+    
     this.disable = disable;
     return this;
   }
@@ -106,7 +106,7 @@ public class V1Cache {
 
 
   public V1Cache ttl(Integer ttl) {
-
+    
     this.ttl = ttl;
     return this;
   }
@@ -128,7 +128,7 @@ public class V1Cache {
 
 
   public V1Cache io(List<String> io) {
-
+    
     this.io = io;
     return this;
   }
@@ -158,7 +158,7 @@ public class V1Cache {
 
 
   public V1Cache sections(List<String> sections) {
-
+    
     this.sections = sections;
     return this;
   }

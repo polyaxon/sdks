@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HpDateRange
  */
 export interface V1HpDateRange {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1HpDateRange
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1HpDateRange
      */
@@ -65,7 +65,7 @@ export function V1HpDateRangeFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
@@ -79,7 +79,7 @@ export function V1HpDateRangeToJSON(value?: V1HpDateRange | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'value': value.value,
     };

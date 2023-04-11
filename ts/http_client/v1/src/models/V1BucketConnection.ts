@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1BucketConnection
  */
 export interface V1BucketConnection {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1BucketConnection
      */
@@ -59,7 +59,7 @@ export function V1BucketConnectionFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-
+        
         'bucket': !exists(json, 'bucket') ? undefined : json['bucket'],
     };
 }
@@ -72,7 +72,7 @@ export function V1BucketConnectionToJSON(value?: V1BucketConnection | null): any
         return null;
     }
     return {
-
+        
         'bucket': value.bucket,
     };
 }

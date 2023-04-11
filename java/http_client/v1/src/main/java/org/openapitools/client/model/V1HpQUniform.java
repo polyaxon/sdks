@@ -74,7 +74,7 @@ public class V1HpQUniform {
   }
 
   public V1HpQUniform kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HpQUniform {
 
 
   public V1HpQUniform value(Object value) {
-
+    
     this.value = value;
     return this;
   }

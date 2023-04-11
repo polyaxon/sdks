@@ -37,8 +37,8 @@ class V1Cache {
      * Constructs a new <code>V1Cache</code>.
      * @alias module:model/V1Cache
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Cache.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1Cache {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

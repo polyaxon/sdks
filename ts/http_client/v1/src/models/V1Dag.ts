@@ -47,49 +47,49 @@ import {
 } from './V1Operation';
 
 /**
- *
+ * 
  * @export
  * @interface V1Dag
  */
 export interface V1Dag {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dag
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {Array<V1Operation>}
      * @memberof V1Dag
      */
     operations?: Array<V1Operation>;
     /**
-     *
+     * 
      * @type {Array<V1Component>}
      * @memberof V1Dag
      */
     components?: Array<V1Component>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Dag
      */
     concurrency?: number;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Dag
      */
     earlyStopping?: Array<object>;
     /**
-     *
+     * 
      * @type {V1Environment}
      * @memberof V1Dag
      */
     environment?: V1Environment;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Dag
      */
@@ -120,7 +120,7 @@ export function V1DagFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1D
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'operations': !exists(json, 'operations') ? undefined : ((json['operations'] as Array<any>).map(V1OperationFromJSON)),
         'components': !exists(json, 'components') ? undefined : ((json['components'] as Array<any>).map(V1ComponentFromJSON)),
@@ -140,7 +140,7 @@ export function V1DagToJSON(value?: V1Dag | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'operations': value.operations === undefined ? undefined : ((value.operations as Array<any>).map(V1OperationToJSON)),
         'components': value.components === undefined ? undefined : ((value.components as Array<any>).map(V1ComponentToJSON)),

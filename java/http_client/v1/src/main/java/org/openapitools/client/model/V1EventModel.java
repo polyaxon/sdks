@@ -78,7 +78,7 @@ public class V1EventModel {
   }
 
   public V1EventModel framework(String framework) {
-
+    
     this.framework = framework;
     return this;
   }
@@ -100,7 +100,7 @@ public class V1EventModel {
 
 
   public V1EventModel path(String path) {
-
+    
     this.path = path;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1EventModel {
 
 
   public V1EventModel spec(Object spec) {
-
+    
     this.spec = spec;
     return this;
   }

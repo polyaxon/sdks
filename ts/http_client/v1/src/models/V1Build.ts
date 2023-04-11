@@ -47,55 +47,55 @@ import {
 } from './V1PatchStrategy';
 
 /**
- *
+ * 
  * @export
  * @interface V1Build
  */
 export interface V1Build {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Build
      */
     hubRef?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Build
      */
     connection?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Build
      */
     queue?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Build
      */
     presets?: Array<string>;
     /**
-     *
+     * 
      * @type {V1Cache}
      * @memberof V1Build
      */
     cache?: V1Cache;
     /**
-     *
+     * 
      * @type {{ [key: string]: V1Param; }}
      * @memberof V1Build
      */
     params?: { [key: string]: V1Param; };
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Build
      */
     runPatch?: object;
     /**
-     *
+     * 
      * @type {V1PatchStrategy}
      * @memberof V1Build
      */
@@ -120,7 +120,7 @@ export function V1BuildFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'hubRef': !exists(json, 'hubRef') ? undefined : json['hubRef'],
         'connection': !exists(json, 'connection') ? undefined : json['connection'],
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
@@ -140,7 +140,7 @@ export function V1BuildToJSON(value?: V1Build | null): any {
         return null;
     }
     return {
-
+        
         'hubRef': value.hubRef,
         'connection': value.connection,
         'queue': value.queue,

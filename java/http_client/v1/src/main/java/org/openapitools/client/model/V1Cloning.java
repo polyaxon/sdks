@@ -79,7 +79,7 @@ public class V1Cloning {
   }
 
   public V1Cloning uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -101,7 +101,7 @@ public class V1Cloning {
 
 
   public V1Cloning name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1Cloning {
 
 
   public V1Cloning kind(V1CloningKind kind) {
-
+    
     this.kind = kind;
     return this;
   }

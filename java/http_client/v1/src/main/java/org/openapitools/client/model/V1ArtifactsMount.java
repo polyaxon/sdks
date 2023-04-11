@@ -76,7 +76,7 @@ public class V1ArtifactsMount {
   }
 
   public V1ArtifactsMount name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -98,7 +98,7 @@ public class V1ArtifactsMount {
 
 
   public V1ArtifactsMount paths(List<String> paths) {
-
+    
     this.paths = paths;
     return this;
   }

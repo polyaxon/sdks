@@ -147,7 +147,7 @@ public class V1Component {
   }
 
   public V1Component version(Float version) {
-
+    
     this.version = version;
     return this;
   }
@@ -169,7 +169,7 @@ public class V1Component {
 
 
   public V1Component kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -191,7 +191,7 @@ public class V1Component {
 
 
   public V1Component name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -213,7 +213,7 @@ public class V1Component {
 
 
   public V1Component description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -235,7 +235,7 @@ public class V1Component {
 
 
   public V1Component tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -265,7 +265,7 @@ public class V1Component {
 
 
   public V1Component presets(List<String> presets) {
-
+    
     this.presets = presets;
     return this;
   }
@@ -295,7 +295,7 @@ public class V1Component {
 
 
   public V1Component queue(String queue) {
-
+    
     this.queue = queue;
     return this;
   }
@@ -317,7 +317,7 @@ public class V1Component {
 
 
   public V1Component cache(V1Cache cache) {
-
+    
     this.cache = cache;
     return this;
   }
@@ -339,7 +339,7 @@ public class V1Component {
 
 
   public V1Component termination(V1Termination termination) {
-
+    
     this.termination = termination;
     return this;
   }
@@ -361,7 +361,7 @@ public class V1Component {
 
 
   public V1Component plugins(V1Plugins plugins) {
-
+    
     this.plugins = plugins;
     return this;
   }
@@ -383,7 +383,7 @@ public class V1Component {
 
 
   public V1Component hooks(List<V1Hook> hooks) {
-
+    
     this.hooks = hooks;
     return this;
   }
@@ -413,7 +413,7 @@ public class V1Component {
 
 
   public V1Component inputs(List<V1IO> inputs) {
-
+    
     this.inputs = inputs;
     return this;
   }
@@ -443,7 +443,7 @@ public class V1Component {
 
 
   public V1Component outputs(List<V1IO> outputs) {
-
+    
     this.outputs = outputs;
     return this;
   }
@@ -473,7 +473,7 @@ public class V1Component {
 
 
   public V1Component build(V1Build build) {
-
+    
     this.build = build;
     return this;
   }
@@ -495,7 +495,7 @@ public class V1Component {
 
 
   public V1Component run(Object run) {
-
+    
     this.run = run;
     return this;
   }
@@ -517,7 +517,7 @@ public class V1Component {
 
 
   public V1Component template(V1Template template) {
-
+    
     this.template = template;
     return this;
   }
@@ -539,7 +539,7 @@ public class V1Component {
 
 
   public V1Component isApproved(Boolean isApproved) {
-
+    
     this.isApproved = isApproved;
     return this;
   }
@@ -561,7 +561,7 @@ public class V1Component {
 
 
   public V1Component cost(Float cost) {
-
+    
     this.cost = cost;
     return this;
   }

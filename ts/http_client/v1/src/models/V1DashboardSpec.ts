@@ -35,13 +35,13 @@ import {
 } from './V1SectionSpec';
 
 /**
- *
+ * 
  * @export
  * @interface V1DashboardSpec
  */
 export interface V1DashboardSpec {
     /**
-     *
+     * 
      * @type {Array<V1SectionSpec>}
      * @memberof V1DashboardSpec
      */
@@ -66,7 +66,7 @@ export function V1DashboardSpecFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-
+        
         'sections': !exists(json, 'sections') ? undefined : ((json['sections'] as Array<any>).map(V1SectionSpecFromJSON)),
     };
 }
@@ -79,7 +79,7 @@ export function V1DashboardSpecToJSON(value?: V1DashboardSpec | null): any {
         return null;
     }
     return {
-
+        
         'sections': value.sections === undefined ? undefined : ((value.sections as Array<any>).map(V1SectionSpecToJSON)),
     };
 }

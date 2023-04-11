@@ -37,8 +37,8 @@ class V1JoinParam {
      * Constructs a new <code>V1JoinParam</code>.
      * @alias module:model/V1JoinParam
      */
-    constructor() {
-
+    constructor() { 
+        
         V1JoinParam.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1JoinParam {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

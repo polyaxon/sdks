@@ -35,25 +35,25 @@ import {
 } from './V1PipelineKind';
 
 /**
- *
+ * 
  * @export
  * @interface V1Pipeline
  */
 export interface V1Pipeline {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Pipeline
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Pipeline
      */
     name?: string;
     /**
-     *
+     * 
      * @type {V1PipelineKind}
      * @memberof V1Pipeline
      */
@@ -78,7 +78,7 @@ export function V1PipelineFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'kind': !exists(json, 'kind') ? undefined : V1PipelineKindFromJSON(json['kind']),
@@ -93,7 +93,7 @@ export function V1PipelineToJSON(value?: V1Pipeline | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'kind': V1PipelineKindToJSON(value.kind),

@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HpLinSpace
  */
 export interface V1HpLinSpace {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1HpLinSpace
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1HpLinSpace
      */
@@ -65,7 +65,7 @@ export function V1HpLinSpaceFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
@@ -79,7 +79,7 @@ export function V1HpLinSpaceToJSON(value?: V1HpLinSpace | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'value': value.value,
     };

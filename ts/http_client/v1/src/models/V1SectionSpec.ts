@@ -28,49 +28,49 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1SectionSpec
  */
 export interface V1SectionSpec {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SectionSpec
      */
     name?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1SectionSpec
      */
     is_minimized?: boolean;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
     columns?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
     height?: number;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1SectionSpec
      */
     widgets?: Array<object>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
     pageIndex?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
@@ -95,7 +95,7 @@ export function V1SectionSpecFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'is_minimized': !exists(json, 'is_minimized') ? undefined : json['is_minimized'],
         'columns': !exists(json, 'columns') ? undefined : json['columns'],
@@ -114,7 +114,7 @@ export function V1SectionSpecToJSON(value?: V1SectionSpec | null): any {
         return null;
     }
     return {
-
+        
         'name': value.name,
         'is_minimized': value.is_minimized,
         'columns': value.columns,

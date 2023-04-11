@@ -41,7 +41,7 @@ import V1Token from '../model/V1Token';
 export default class ServiceAccountsV1Api {
 
     /**
-    * Constructs a new ServiceAccountsV1Api.
+    * Constructs a new ServiceAccountsV1Api. 
     * Polyaxon sdk
     * @alias module:api/ServiceAccountsV1Api
     * @class

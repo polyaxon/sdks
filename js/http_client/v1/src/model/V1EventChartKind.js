@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1EventChartKind {
-
+    
         /**
          * value: "plotly"
          * @const
          */
         "plotly" = "plotly";
 
-
+    
         /**
          * value: "bokeh"
          * @const
          */
         "bokeh" = "bokeh";
 
-
+    
         /**
          * value: "vega"
          * @const
          */
         "vega" = "vega";
 
-
+    
 
     /**
     * Returns a <code>V1EventChartKind</code> enum value from a Javascript object name.

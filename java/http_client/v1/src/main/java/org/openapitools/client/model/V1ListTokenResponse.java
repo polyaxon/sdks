@@ -85,7 +85,7 @@ public class V1ListTokenResponse {
   }
 
   public V1ListTokenResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListTokenResponse {
 
 
   public V1ListTokenResponse results(List<V1Token> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListTokenResponse {
 
 
   public V1ListTokenResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListTokenResponse {
 
 
   public V1ListTokenResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

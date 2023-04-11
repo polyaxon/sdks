@@ -35,31 +35,31 @@ import {
 } from './V1RunConnection';
 
 /**
- *
+ * 
  * @export
  * @interface V1ListRunConnectionsResponse
  */
 export interface V1ListRunConnectionsResponse {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1ListRunConnectionsResponse
      */
     count?: number;
     /**
-     *
+     * 
      * @type {Array<V1RunConnection>}
      * @memberof V1ListRunConnectionsResponse
      */
     results?: Array<V1RunConnection>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListRunConnectionsResponse
      */
     previous?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListRunConnectionsResponse
      */
@@ -84,7 +84,7 @@ export function V1ListRunConnectionsResponseFromJSONTyped(json: any, ignoreDiscr
         return json;
     }
     return {
-
+        
         'count': !exists(json, 'count') ? undefined : json['count'],
         'results': !exists(json, 'results') ? undefined : ((json['results'] as Array<any>).map(V1RunConnectionFromJSON)),
         'previous': !exists(json, 'previous') ? undefined : json['previous'],
@@ -100,7 +100,7 @@ export function V1ListRunConnectionsResponseToJSON(value?: V1ListRunConnectionsR
         return null;
     }
     return {
-
+        
         'count': value.count,
         'results': value.results === undefined ? undefined : ((value.results as Array<any>).map(V1RunConnectionToJSON)),
         'previous': value.previous,

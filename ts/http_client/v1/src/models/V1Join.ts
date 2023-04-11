@@ -35,43 +35,43 @@ import {
 } from './V1JoinParam';
 
 /**
- *
+ * 
  * @export
  * @interface V1Join
  */
 export interface V1Join {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Join
      */
     ref?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Join
      */
     query?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Join
      */
     sort?: string;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Join
      */
     limit?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Join
      */
     offset?: number;
     /**
-     *
+     * 
      * @type {{ [key: string]: V1JoinParam; }}
      * @memberof V1Join
      */
@@ -96,7 +96,7 @@ export function V1JoinFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-
+        
         'ref': !exists(json, 'ref') ? undefined : json['ref'],
         'query': !exists(json, 'query') ? undefined : json['query'],
         'sort': !exists(json, 'sort') ? undefined : json['sort'],
@@ -114,7 +114,7 @@ export function V1JoinToJSON(value?: V1Join | null): any {
         return null;
     }
     return {
-
+        
         'ref': value.ref,
         'query': value.query,
         'sort': value.sort,

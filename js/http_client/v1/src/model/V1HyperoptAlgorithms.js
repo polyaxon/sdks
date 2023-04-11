@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1HyperoptAlgorithms {
-
+    
         /**
          * value: "tpe"
          * @const
          */
         "tpe" = "tpe";
 
-
+    
         /**
          * value: "rand"
          * @const
          */
         "rand" = "rand";
 
-
+    
         /**
          * value: "anneal"
          * @const
          */
         "anneal" = "anneal";
 
-
+    
 
     /**
     * Returns a <code>V1HyperoptAlgorithms</code> enum value from a Javascript object name.

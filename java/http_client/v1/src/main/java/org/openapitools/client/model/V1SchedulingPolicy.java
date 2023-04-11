@@ -78,7 +78,7 @@ public class V1SchedulingPolicy {
   }
 
   public V1SchedulingPolicy minAvailable(Integer minAvailable) {
-
+    
     this.minAvailable = minAvailable;
     return this;
   }
@@ -100,7 +100,7 @@ public class V1SchedulingPolicy {
 
 
   public V1SchedulingPolicy queue(String queue) {
-
+    
     this.queue = queue;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1SchedulingPolicy {
 
 
   public V1SchedulingPolicy priorityClass(String priorityClass) {
-
+    
     this.priorityClass = priorityClass;
     return this;
   }

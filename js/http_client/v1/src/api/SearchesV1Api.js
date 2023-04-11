@@ -39,7 +39,7 @@ import V1Search from '../model/V1Search';
 export default class SearchesV1Api {
 
     /**
-    * Constructs a new SearchesV1Api.
+    * Constructs a new SearchesV1Api. 
     * Polyaxon sdk
     * @alias module:api/SearchesV1Api
     * @class

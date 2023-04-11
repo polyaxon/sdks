@@ -28,43 +28,43 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1User
  */
 export interface V1User {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1User
      */
     username?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1User
      */
     email?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1User
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1User
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1User
      */
     theme?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1User
      */
@@ -89,7 +89,7 @@ export function V1UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-
+        
         'username': !exists(json, 'username') ? undefined : json['username'],
         'email': !exists(json, 'email') ? undefined : json['email'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -107,7 +107,7 @@ export function V1UserToJSON(value?: V1User | null): any {
         return null;
     }
     return {
-
+        
         'username': value.username,
         'email': value.email,
         'name': value.name,

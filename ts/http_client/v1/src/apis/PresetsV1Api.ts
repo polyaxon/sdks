@@ -94,7 +94,7 @@ export interface UpdatePresetRequest {
 }
 
 /**
- *
+ * 
  */
 export class PresetsV1Api extends runtime.BaseAPI {
 

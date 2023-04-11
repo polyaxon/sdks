@@ -37,8 +37,8 @@ class V1EventImage {
      * Constructs a new <code>V1EventImage</code>.
      * @alias module:model/V1EventImage
      */
-    constructor() {
-
+    constructor() { 
+        
         V1EventImage.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1EventImage {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

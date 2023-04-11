@@ -37,8 +37,8 @@ class V1IO {
      * Constructs a new <code>V1IO</code>.
      * @alias module:model/V1IO
      */
-    constructor() {
-
+    constructor() { 
+        
         V1IO.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1IO {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

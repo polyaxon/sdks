@@ -85,7 +85,7 @@ public class V1ListPresetsResponse {
   }
 
   public V1ListPresetsResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListPresetsResponse {
 
 
   public V1ListPresetsResponse results(List<V1Preset> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListPresetsResponse {
 
 
   public V1ListPresetsResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListPresetsResponse {
 
 
   public V1ListPresetsResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

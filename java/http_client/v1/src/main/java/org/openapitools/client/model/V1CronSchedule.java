@@ -91,7 +91,7 @@ public class V1CronSchedule {
   }
 
   public V1CronSchedule kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -113,7 +113,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule startAt(OffsetDateTime startAt) {
-
+    
     this.startAt = startAt;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule endAt(OffsetDateTime endAt) {
-
+    
     this.endAt = endAt;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule maxRuns(Integer maxRuns) {
-
+    
     this.maxRuns = maxRuns;
     return this;
   }
@@ -179,7 +179,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule cron(String cron) {
-
+    
     this.cron = cron;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1CronSchedule {
 
 
   public V1CronSchedule dependsOnPast(Boolean dependsOnPast) {
-
+    
     this.dependsOnPast = dependsOnPast;
     return this;
   }

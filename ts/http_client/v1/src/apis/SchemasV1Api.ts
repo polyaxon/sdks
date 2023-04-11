@@ -40,7 +40,7 @@ import {
 } from '../models';
 
 /**
- *
+ * 
  */
 export class SchemasV1Api extends runtime.BaseAPI {
 

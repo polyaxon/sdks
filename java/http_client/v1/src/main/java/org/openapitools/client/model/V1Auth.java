@@ -70,7 +70,7 @@ public class V1Auth {
   }
 
   public V1Auth token(String token) {
-
+    
     this.token = token;
     return this;
   }

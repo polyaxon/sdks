@@ -78,7 +78,7 @@ public class V1RunReferenceCatalog {
   }
 
   public V1RunReferenceCatalog owner(String owner) {
-
+    
     this.owner = owner;
     return this;
   }
@@ -100,7 +100,7 @@ public class V1RunReferenceCatalog {
 
 
   public V1RunReferenceCatalog project(String project) {
-
+    
     this.project = project;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1RunReferenceCatalog {
 
 
   public V1RunReferenceCatalog name(String name) {
-
+    
     this.name = name;
     return this;
   }

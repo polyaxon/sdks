@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1ScheduleKind {
-
+    
         /**
          * value: "cron"
          * @const
          */
         "cron" = "cron";
 
-
+    
         /**
          * value: "interval"
          * @const
          */
         "interval" = "interval";
 
-
+    
         /**
          * value: "datetime"
          * @const
          */
         "datetime" = "datetime";
 
-
+    
 
     /**
     * Returns a <code>V1ScheduleKind</code> enum value from a Javascript object name.

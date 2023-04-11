@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1ProjectVersionKind {
-
+    
         /**
          * value: "component"
          * @const
          */
         "component" = "component";
 
-
+    
         /**
          * value: "model"
          * @const
          */
         "model" = "model";
 
-
+    
         /**
          * value: "artifact"
          * @const
          */
         "artifact" = "artifact";
 
-
+    
 
     /**
     * Returns a <code>V1ProjectVersionKind</code> enum value from a Javascript object name.

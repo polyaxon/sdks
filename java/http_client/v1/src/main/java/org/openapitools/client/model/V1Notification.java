@@ -77,7 +77,7 @@ public class V1Notification {
   }
 
   public V1Notification connections(List<String> connections) {
-
+    
     this.connections = connections;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1Notification {
 
 
   public V1Notification trigger(V1Statuses trigger) {
-
+    
     this.trigger = trigger;
     return this;
   }

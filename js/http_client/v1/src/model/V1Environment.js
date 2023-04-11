@@ -37,8 +37,8 @@ class V1Environment {
      * Constructs a new <code>V1Environment</code>.
      * @alias module:model/V1Environment
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Environment.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1Environment {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1GcsType
  */
 export interface V1GcsType {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1GcsType
      */
     bucket?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1GcsType
      */
@@ -65,7 +65,7 @@ export function V1GcsTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'bucket': !exists(json, 'bucket') ? undefined : json['bucket'],
         'blob': !exists(json, 'blob') ? undefined : json['blob'],
     };
@@ -79,7 +79,7 @@ export function V1GcsTypeToJSON(value?: V1GcsType | null): any {
         return null;
     }
     return {
-
+        
         'bucket': value.bucket,
         'blob': value.blob,
     };

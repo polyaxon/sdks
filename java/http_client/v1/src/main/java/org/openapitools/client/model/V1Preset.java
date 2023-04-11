@@ -105,7 +105,7 @@ public class V1Preset {
   }
 
   public V1Preset uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1Preset {
 
 
   public V1Preset name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1Preset {
 
 
   public V1Preset description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -171,7 +171,7 @@ public class V1Preset {
 
 
   public V1Preset tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1Preset {
 
 
   public V1Preset createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1Preset {
 
 
   public V1Preset updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -245,7 +245,7 @@ public class V1Preset {
 
 
   public V1Preset frozen(Boolean frozen) {
-
+    
     this.frozen = frozen;
     return this;
   }
@@ -267,7 +267,7 @@ public class V1Preset {
 
 
   public V1Preset liveState(Integer liveState) {
-
+    
     this.liveState = liveState;
     return this;
   }
@@ -289,7 +289,7 @@ public class V1Preset {
 
 
   public V1Preset content(String content) {
-
+    
     this.content = content;
     return this;
   }

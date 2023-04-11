@@ -41,25 +41,25 @@ import {
 } from './V1Init';
 
 /**
- *
+ * 
  * @export
  * @interface V1Job
  */
 export interface V1Job {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Job
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {V1Environment}
      * @memberof V1Job
      */
     environment?: V1Environment;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Job
      */
@@ -71,19 +71,19 @@ export interface V1Job {
      */
     volumes?: Array<object>;
     /**
-     *
+     * 
      * @type {Array<V1Init>}
      * @memberof V1Job
      */
     init?: Array<V1Init>;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Job
      */
     sidecars?: Array<object>;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Job
      */
@@ -108,7 +108,7 @@ export function V1JobFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1J
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'environment': !exists(json, 'environment') ? undefined : V1EnvironmentFromJSON(json['environment']),
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
@@ -127,7 +127,7 @@ export function V1JobToJSON(value?: V1Job | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'environment': V1EnvironmentToJSON(value.environment),
         'connections': value.connections,

@@ -86,7 +86,7 @@ public class V1DiffStoppingPolicy {
   }
 
   public V1DiffStoppingPolicy kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy percent(Float percent) {
-
+    
     this.percent = percent;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy evaluationInterval(Integer evaluationInterval) {
-
+    
     this.evaluationInterval = evaluationInterval;
     return this;
   }
@@ -152,7 +152,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy minInterval(Integer minInterval) {
-
+    
     this.minInterval = minInterval;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1DiffStoppingPolicy {
 
 
   public V1DiffStoppingPolicy minSamples(Integer minSamples) {
-
+    
     this.minSamples = minSamples;
     return this;
   }

@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ClaimConnection
  */
 export interface V1ClaimConnection {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ClaimConnection
      */
     volumeClaim?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ClaimConnection
      */
     mountPath?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1ClaimConnection
      */
     readOnly?: boolean;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1ClaimConnection
      */
@@ -77,7 +77,7 @@ export function V1ClaimConnectionFromJSONTyped(json: any, ignoreDiscriminator: b
         return json;
     }
     return {
-
+        
         'volumeClaim': !exists(json, 'volumeClaim') ? undefined : json['volumeClaim'],
         'mountPath': !exists(json, 'mountPath') ? undefined : json['mountPath'],
         'readOnly': !exists(json, 'readOnly') ? undefined : json['readOnly'],
@@ -93,7 +93,7 @@ export function V1ClaimConnectionToJSON(value?: V1ClaimConnection | null): any {
         return null;
     }
     return {
-
+        
         'volumeClaim': value.volumeClaim,
         'mountPath': value.mountPath,
         'readOnly': value.readOnly,
