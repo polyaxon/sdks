@@ -43,7 +43,7 @@ import V1Token from '../model/V1Token';
 export default class AgentsV1Api {
 
     /**
-    * Constructs a new AgentsV1Api.
+    * Constructs a new AgentsV1Api. 
     * Polyaxon sdk
     * @alias module:api/AgentsV1Api
     * @class
@@ -114,7 +114,7 @@ export default class AgentsV1Api {
      * Create new agent status
      * @param {String} owner Owner of the namespace
      * @param {String} uuid Uuid identifier of the entity
-     * @param {module:model/V1AgentStatusBodyRequest} body
+     * @param {module:model/V1AgentStatusBodyRequest} body 
      * @param {module:api/AgentsV1Api~createAgentStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Status}
      */

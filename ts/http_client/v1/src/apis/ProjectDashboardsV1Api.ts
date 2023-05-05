@@ -105,7 +105,7 @@ export interface UpdateProjectDashboardRequest {
 }
 
 /**
- *
+ * 
  */
 export class ProjectDashboardsV1Api extends runtime.BaseAPI {
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **s3** | [**V1S3Type**](V1S3Type.md) |  | [optional] 
 **auth** | [**V1AuthType**](V1AuthType.md) |  | [optional] 
 **uri** | [**V1UriType**](V1UriType.md) |  | [optional] 
-**k8s_resource** | [**V1K8sResourceType**](V1K8sResourceType.md) |  | [optional] 
+**resource** | [**V1ConnectionResource**](V1ConnectionResource.md) |  | [optional] 
 **connection** | [**V1ConnectionType**](V1ConnectionType.md) |  | [optional] 
 **event_type** | [**V1EventType**](V1EventType.md) |  | [optional] 
 **matrix_kind** | [**V1MatrixKind**](V1MatrixKind.md) |  | [optional] 

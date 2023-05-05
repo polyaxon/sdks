@@ -37,8 +37,8 @@ class V1DockerfileType {
      * Constructs a new <code>V1DockerfileType</code>.
      * @alias module:model/V1DockerfileType
      */
-    constructor() {
-
+    constructor() { 
+        
         V1DockerfileType.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1DockerfileType {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

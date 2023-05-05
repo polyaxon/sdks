@@ -1,4 +1,4 @@
-# V1K8sResourceSchema
+# V1ConnectionResource
 
 
 ## Properties
@@ -12,19 +12,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from polyaxon_sdk.models.v1_k8s_resource_schema import V1K8sResourceSchema
+from polyaxon_sdk.models.v1_connection_resource import V1ConnectionResource
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of V1K8sResourceSchema from a JSON string
-v1_k8s_resource_schema_instance = V1K8sResourceSchema.from_json(json)
+# create an instance of V1ConnectionResource from a JSON string
+v1_connection_resource_instance = V1ConnectionResource.from_json(json)
 # print the JSON string representation of the object
-print V1K8sResourceSchema.to_json()
+print V1ConnectionResource.to_json()
 
 # convert the object into a dict
-v1_k8s_resource_schema_dict = v1_k8s_resource_schema_instance.to_dict()
-# create an instance of V1K8sResourceSchema from a dict
-v1_k8s_resource_schema_form_dict = v1_k8s_resource_schema.from_dict(v1_k8s_resource_schema_dict)
+v1_connection_resource_dict = v1_connection_resource_instance.to_dict()
+# create an instance of V1ConnectionResource from a dict
+v1_connection_resource_form_dict = v1_connection_resource.from_dict(v1_connection_resource_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

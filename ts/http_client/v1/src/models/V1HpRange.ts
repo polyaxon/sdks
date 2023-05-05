@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HpRange
  */
 export interface V1HpRange {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1HpRange
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1HpRange
      */
@@ -65,7 +65,7 @@ export function V1HpRangeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
@@ -79,7 +79,7 @@ export function V1HpRangeToJSON(value?: V1HpRange | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'value': value.value,
     };

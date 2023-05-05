@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.V1ConnectionKind;
-import org.openapitools.client.model.V1K8sResourceSchema;
+import org.openapitools.client.model.V1ConnectionResource;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -90,11 +90,11 @@ public class V1ConnectionType {
 
   public static final String SERIALIZED_NAME_SECRET = "secret";
   @SerializedName(SERIALIZED_NAME_SECRET)
-  private V1K8sResourceSchema secret;
+  private V1ConnectionResource secret;
 
   public static final String SERIALIZED_NAME_CONFIG_MAP = "configMap";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP)
-  private V1K8sResourceSchema configMap;
+  private V1ConnectionResource configMap;
 
   public static final String SERIALIZED_NAME_ENV = "env";
   @SerializedName(SERIALIZED_NAME_ENV)
@@ -108,7 +108,7 @@ public class V1ConnectionType {
   }
 
   public V1ConnectionType name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -152,7 +152,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType tags(String tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType kind(V1ConnectionKind kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -196,7 +196,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType schema(Object schema) {
-
+    
     this.schema = schema;
     return this;
   }
@@ -217,8 +217,8 @@ public class V1ConnectionType {
   }
 
 
-  public V1ConnectionType secret(V1K8sResourceSchema secret) {
-
+  public V1ConnectionType secret(V1ConnectionResource secret) {
+    
     this.secret = secret;
     return this;
   }
@@ -229,18 +229,18 @@ public class V1ConnectionType {
   **/
   @javax.annotation.Nullable
 
-  public V1K8sResourceSchema getSecret() {
+  public V1ConnectionResource getSecret() {
     return secret;
   }
 
 
-  public void setSecret(V1K8sResourceSchema secret) {
+  public void setSecret(V1ConnectionResource secret) {
     this.secret = secret;
   }
 
 
-  public V1ConnectionType configMap(V1K8sResourceSchema configMap) {
-
+  public V1ConnectionType configMap(V1ConnectionResource configMap) {
+    
     this.configMap = configMap;
     return this;
   }
@@ -251,18 +251,18 @@ public class V1ConnectionType {
   **/
   @javax.annotation.Nullable
 
-  public V1K8sResourceSchema getConfigMap() {
+  public V1ConnectionResource getConfigMap() {
     return configMap;
   }
 
 
-  public void setConfigMap(V1K8sResourceSchema configMap) {
+  public void setConfigMap(V1ConnectionResource configMap) {
     this.configMap = configMap;
   }
 
 
   public V1ConnectionType env(List<Object> env) {
-
+    
     this.env = env;
     return this;
   }
@@ -292,7 +292,7 @@ public class V1ConnectionType {
 
 
   public V1ConnectionType annotations(Map<String, String> annotations) {
-
+    
     this.annotations = annotations;
     return this;
   }
@@ -427,11 +427,11 @@ public class V1ConnectionType {
       }
       // validate the optional field `secret`
       if (jsonObj.get("secret") != null && !jsonObj.get("secret").isJsonNull()) {
-        V1K8sResourceSchema.validateJsonObject(jsonObj.getAsJsonObject("secret"));
+        V1ConnectionResource.validateJsonObject(jsonObj.getAsJsonObject("secret"));
       }
       // validate the optional field `configMap`
       if (jsonObj.get("configMap") != null && !jsonObj.get("configMap").isJsonNull()) {
-        V1K8sResourceSchema.validateJsonObject(jsonObj.getAsJsonObject("configMap"));
+        V1ConnectionResource.validateJsonObject(jsonObj.getAsJsonObject("configMap"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("env") != null && !jsonObj.get("env").isJsonArray()) {

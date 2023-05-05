@@ -92,7 +92,7 @@ export interface UpdateDashboardRequest {
 }
 
 /**
- *
+ * 
  */
 export class DashboardsV1Api extends runtime.BaseAPI {
 

@@ -28,43 +28,43 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1IntervalSchedule
  */
 export interface V1IntervalSchedule {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IntervalSchedule
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1IntervalSchedule
      */
     startAt?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1IntervalSchedule
      */
     endAt?: Date;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1IntervalSchedule
      */
     maxRuns?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1IntervalSchedule
      */
     frequency?: number;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1IntervalSchedule
      */
@@ -89,7 +89,7 @@ export function V1IntervalScheduleFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'startAt': !exists(json, 'startAt') ? undefined : (new Date(json['startAt'])),
         'endAt': !exists(json, 'endAt') ? undefined : (new Date(json['endAt'])),
@@ -107,7 +107,7 @@ export function V1IntervalScheduleToJSON(value?: V1IntervalSchedule | null): any
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'startAt': value.startAt === undefined ? undefined : (value.startAt.toISOString()),
         'endAt': value.endAt === undefined ? undefined : (value.endAt.toISOString()),

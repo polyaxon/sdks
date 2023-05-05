@@ -38,8 +38,8 @@ class V1StageCondition {
      * Constructs a new <code>V1StageCondition</code>.
      * @alias module:model/V1StageCondition
      */
-    constructor() {
-
+    constructor() { 
+        
         V1StageCondition.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1StageCondition {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

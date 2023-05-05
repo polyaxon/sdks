@@ -36,7 +36,7 @@ type V1ConnectionType struct {
 	Annotations map[string]string `json:"annotations,omitempty"`
 
 	// ConfigMap resource schema
-	ConfigMap *V1K8sResourceSchema `json:"configMap,omitempty"`
+	ConfigMap *V1ConnectionResource `json:"configMap,omitempty"`
 
 	// Optional connection description
 	Description string `json:"description,omitempty"`
@@ -54,7 +54,7 @@ type V1ConnectionType struct {
 	Schema interface{} `json:"schema,omitempty"`
 
 	// Secret resource schema
-	Secret *V1K8sResourceSchema `json:"secret,omitempty"`
+	Secret *V1ConnectionResource `json:"secret,omitempty"`
 
 	// Optional connection tags
 	Tags string `json:"tags,omitempty"`

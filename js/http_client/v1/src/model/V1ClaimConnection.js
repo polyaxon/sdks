@@ -37,8 +37,8 @@ class V1ClaimConnection {
      * Constructs a new <code>V1ClaimConnection</code>.
      * @alias module:model/V1ClaimConnection
      */
-    constructor() {
-
+    constructor() { 
+        
         V1ClaimConnection.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1ClaimConnection {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

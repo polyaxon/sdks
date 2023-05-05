@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HostConnection
  */
 export interface V1HostConnection {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1HostConnection
      */
     url?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1HostConnection
      */
@@ -65,7 +65,7 @@ export function V1HostConnectionFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'url': !exists(json, 'url') ? undefined : json['url'],
         'insecure': !exists(json, 'insecure') ? undefined : json['insecure'],
     };
@@ -79,7 +79,7 @@ export function V1HostConnectionToJSON(value?: V1HostConnection | null): any {
         return null;
     }
     return {
-
+        
         'url': value.url,
         'insecure': value.insecure,
     };

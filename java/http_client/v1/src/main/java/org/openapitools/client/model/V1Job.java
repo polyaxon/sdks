@@ -98,7 +98,7 @@ public class V1Job {
   }
 
   public V1Job kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -120,7 +120,7 @@ public class V1Job {
 
 
   public V1Job environment(V1Environment environment) {
-
+    
     this.environment = environment;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1Job {
 
 
   public V1Job connections(List<String> connections) {
-
+    
     this.connections = connections;
     return this;
   }
@@ -172,7 +172,7 @@ public class V1Job {
 
 
   public V1Job volumes(List<Object> volumes) {
-
+    
     this.volumes = volumes;
     return this;
   }
@@ -202,7 +202,7 @@ public class V1Job {
 
 
   public V1Job init(List<V1Init> init) {
-
+    
     this.init = init;
     return this;
   }
@@ -232,7 +232,7 @@ public class V1Job {
 
 
   public V1Job sidecars(List<Object> sidecars) {
-
+    
     this.sidecars = sidecars;
     return this;
   }
@@ -262,7 +262,7 @@ public class V1Job {
 
 
   public V1Job container(Object container) {
-
+    
     this.container = container;
     return this;
   }

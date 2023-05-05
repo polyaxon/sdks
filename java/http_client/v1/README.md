@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -408,6 +408,7 @@ Class | Method | HTTP request | Description
  - [V1CompiledOperation](docs/V1CompiledOperation.md)
  - [V1Component](docs/V1Component.md)
  - [V1ConnectionKind](docs/V1ConnectionKind.md)
+ - [V1ConnectionResource](docs/V1ConnectionResource.md)
  - [V1ConnectionResponse](docs/V1ConnectionResponse.md)
  - [V1ConnectionSchema](docs/V1ConnectionSchema.md)
  - [V1ConnectionType](docs/V1ConnectionType.md)
@@ -484,8 +485,6 @@ Class | Method | HTTP request | Description
  - [V1Job](docs/V1Job.md)
  - [V1Join](docs/V1Join.md)
  - [V1JoinParam](docs/V1JoinParam.md)
- - [V1K8sResourceSchema](docs/V1K8sResourceSchema.md)
- - [V1K8sResourceType](docs/V1K8sResourceType.md)
  - [V1KFReplica](docs/V1KFReplica.md)
  - [V1ListActivitiesResponse](docs/V1ListActivitiesResponse.md)
  - [V1ListAgentsResponse](docs/V1ListAgentsResponse.md)

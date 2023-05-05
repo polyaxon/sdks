@@ -86,7 +86,7 @@ public class V1UserSingup {
   }
 
   public V1UserSingup username(String username) {
-
+    
     this.username = username;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup email(String email) {
-
+    
     this.email = email;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup organization(String organization) {
-
+    
     this.organization = organization;
     return this;
   }
@@ -152,7 +152,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup password(String password) {
-
+    
     this.password = password;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1UserSingup {
 
 
   public V1UserSingup invitationKey(String invitationKey) {
-
+    
     this.invitationKey = invitationKey;
     return this;
   }

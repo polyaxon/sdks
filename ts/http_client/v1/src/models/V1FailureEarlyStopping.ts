@@ -37,7 +37,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1FailureEarlyStopping {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1FailureEarlyStopping
      */
@@ -69,7 +69,7 @@ export function V1FailureEarlyStoppingFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'percent': !exists(json, 'percent') ? undefined : json['percent'],
     };
@@ -83,7 +83,7 @@ export function V1FailureEarlyStoppingToJSON(value?: V1FailureEarlyStopping | nu
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'percent': value.percent,
     };

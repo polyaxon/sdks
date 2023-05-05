@@ -28,31 +28,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1AnalyticsSpec
  */
 export interface V1AnalyticsSpec {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AnalyticsSpec
      */
     view?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AnalyticsSpec
      */
     trunc?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AnalyticsSpec
      */
     groupby?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1AnalyticsSpec
      */
@@ -77,7 +77,7 @@ export function V1AnalyticsSpecFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-
+        
         'view': !exists(json, 'view') ? undefined : json['view'],
         'trunc': !exists(json, 'trunc') ? undefined : json['trunc'],
         'groupby': !exists(json, 'groupby') ? undefined : json['groupby'],
@@ -93,7 +93,7 @@ export function V1AnalyticsSpecToJSON(value?: V1AnalyticsSpec | null): any {
         return null;
     }
     return {
-
+        
         'view': value.view,
         'trunc': value.trunc,
         'groupby': value.groupby,

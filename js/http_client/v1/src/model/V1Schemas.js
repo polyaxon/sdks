@@ -30,6 +30,7 @@ import V1ArtifactsMount from './V1ArtifactsMount';
 import V1ArtifactsType from './V1ArtifactsType';
 import V1AuthType from './V1AuthType';
 import V1CompiledOperation from './V1CompiledOperation';
+import V1ConnectionResource from './V1ConnectionResource';
 import V1ConnectionSchema from './V1ConnectionSchema';
 import V1ConnectionType from './V1ConnectionType';
 import V1EarlyStopping from './V1EarlyStopping';
@@ -37,7 +38,6 @@ import V1Event from './V1Event';
 import V1EventType from './V1EventType';
 import V1GcsType from './V1GcsType';
 import V1HpParams from './V1HpParams';
-import V1K8sResourceType from './V1K8sResourceType';
 import V1Matrix from './V1Matrix';
 import V1MatrixKind from './V1MatrixKind';
 import V1Operation from './V1Operation';
@@ -61,8 +61,8 @@ class V1Schemas {
      * Constructs a new <code>V1Schemas</code>.
      * @alias module:model/V1Schemas
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Schemas.initialize(this);
     }
 
@@ -71,7 +71,7 @@ class V1Schemas {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -139,8 +139,8 @@ class V1Schemas {
             if (data.hasOwnProperty('uri')) {
                 obj['uri'] = V1UriType.constructFromObject(data['uri']);
             }
-            if (data.hasOwnProperty('k8sResource')) {
-                obj['k8sResource'] = V1K8sResourceType.constructFromObject(data['k8sResource']);
+            if (data.hasOwnProperty('resource')) {
+                obj['resource'] = V1ConnectionResource.constructFromObject(data['resource']);
             }
             if (data.hasOwnProperty('connection')) {
                 obj['connection'] = V1ConnectionType.constructFromObject(data['connection']);
@@ -239,9 +239,9 @@ class V1Schemas {
         if (data['uri']) { // data not null
           V1UriType.validateJSON(data['uri']);
         }
-        // validate the optional field `k8sResource`
-        if (data['k8sResource']) { // data not null
-          V1K8sResourceType.validateJSON(data['k8sResource']);
+        // validate the optional field `resource`
+        if (data['resource']) { // data not null
+          V1ConnectionResource.validateJSON(data['resource']);
         }
         // validate the optional field `connection`
         if (data['connection']) { // data not null
@@ -355,9 +355,9 @@ V1Schemas.prototype['auth'] = undefined;
 V1Schemas.prototype['uri'] = undefined;
 
 /**
- * @member {module:model/V1K8sResourceType} k8sResource
+ * @member {module:model/V1ConnectionResource} resource
  */
-V1Schemas.prototype['k8sResource'] = undefined;
+V1Schemas.prototype['resource'] = undefined;
 
 /**
  * @member {module:model/V1ConnectionType} connection

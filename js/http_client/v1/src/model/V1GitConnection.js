@@ -37,8 +37,8 @@ class V1GitConnection {
      * Constructs a new <code>V1GitConnection</code>.
      * @alias module:model/V1GitConnection
      */
-    constructor() {
-
+    constructor() { 
+        
         V1GitConnection.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1GitConnection {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

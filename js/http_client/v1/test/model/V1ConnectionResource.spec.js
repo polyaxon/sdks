@@ -42,7 +42,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new PolyaxonSdk.V1K8sResourceSchema();
+    instance = new PolyaxonSdk.V1ConnectionResource();
   });
 
   var getProperty = function(object, getter, property) {
@@ -61,34 +61,34 @@
       object[property] = value;
   }
 
-  describe('V1K8sResourceSchema', function() {
-    it('should create an instance of V1K8sResourceSchema', function() {
-      // uncomment below and update the code to test V1K8sResourceSchema
-      //var instance = new PolyaxonSdk.V1K8sResourceSchema();
-      //expect(instance).to.be.a(PolyaxonSdk.V1K8sResourceSchema);
+  describe('V1ConnectionResource', function() {
+    it('should create an instance of V1ConnectionResource', function() {
+      // uncomment below and update the code to test V1ConnectionResource
+      //var instance = new PolyaxonSdk.V1ConnectionResource();
+      //expect(instance).to.be.a(PolyaxonSdk.V1ConnectionResource);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new PolyaxonSdk.V1K8sResourceSchema();
+      //var instance = new PolyaxonSdk.V1ConnectionResource();
       //expect(instance).to.be();
     });
 
     it('should have the property mountPath (base name: "mountPath")', function() {
       // uncomment below and update the code to test the property mountPath
-      //var instance = new PolyaxonSdk.V1K8sResourceSchema();
+      //var instance = new PolyaxonSdk.V1ConnectionResource();
       //expect(instance).to.be();
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instance = new PolyaxonSdk.V1K8sResourceSchema();
+      //var instance = new PolyaxonSdk.V1ConnectionResource();
       //expect(instance).to.be();
     });
 
     it('should have the property defaultMode (base name: "defaultMode")', function() {
       // uncomment below and update the code to test the property defaultMode
-      //var instance = new PolyaxonSdk.V1K8sResourceSchema();
+      //var instance = new PolyaxonSdk.V1ConnectionResource();
       //expect(instance).to.be();
     });
 

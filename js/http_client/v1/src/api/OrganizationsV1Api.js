@@ -47,7 +47,7 @@ import V1Uuids from '../model/V1Uuids';
 export default class OrganizationsV1Api {
 
     /**
-    * Constructs a new OrganizationsV1Api.
+    * Constructs a new OrganizationsV1Api. 
     * Polyaxon sdk
     * @alias module:api/OrganizationsV1Api
     * @class
@@ -207,7 +207,7 @@ export default class OrganizationsV1Api {
 
     /**
      * Create organization
-     * @param {module:model/V1Organization} body
+     * @param {module:model/V1Organization} body 
      * @param {module:api/OrganizationsV1Api~createOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Organization}
      */

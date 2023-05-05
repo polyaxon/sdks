@@ -60,10 +60,10 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * V1K8sResourceSchema
+ * V1ConnectionResource
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class V1K8sResourceSchema {
+public class V1ConnectionResource {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -80,11 +80,11 @@ public class V1K8sResourceSchema {
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)
   private Integer defaultMode;
 
-  public V1K8sResourceSchema() {
+  public V1ConnectionResource() {
   }
 
-  public V1K8sResourceSchema name(String name) {
-
+  public V1ConnectionResource name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -105,8 +105,8 @@ public class V1K8sResourceSchema {
   }
 
 
-  public V1K8sResourceSchema mountPath(String mountPath) {
-
+  public V1ConnectionResource mountPath(String mountPath) {
+    
     this.mountPath = mountPath;
     return this;
   }
@@ -127,13 +127,13 @@ public class V1K8sResourceSchema {
   }
 
 
-  public V1K8sResourceSchema items(List<String> items) {
-
+  public V1ConnectionResource items(List<String> items) {
+    
     this.items = items;
     return this;
   }
 
-  public V1K8sResourceSchema addItemsItem(String itemsItem) {
+  public V1ConnectionResource addItemsItem(String itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -157,8 +157,8 @@ public class V1K8sResourceSchema {
   }
 
 
-  public V1K8sResourceSchema defaultMode(Integer defaultMode) {
-
+  public V1ConnectionResource defaultMode(Integer defaultMode) {
+    
     this.defaultMode = defaultMode;
     return this;
   }
@@ -188,11 +188,11 @@ public class V1K8sResourceSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1K8sResourceSchema v1K8sResourceSchema = (V1K8sResourceSchema) o;
-    return Objects.equals(this.name, v1K8sResourceSchema.name) &&
-        Objects.equals(this.mountPath, v1K8sResourceSchema.mountPath) &&
-        Objects.equals(this.items, v1K8sResourceSchema.items) &&
-        Objects.equals(this.defaultMode, v1K8sResourceSchema.defaultMode);
+    V1ConnectionResource v1ConnectionResource = (V1ConnectionResource) o;
+    return Objects.equals(this.name, v1ConnectionResource.name) &&
+        Objects.equals(this.mountPath, v1ConnectionResource.mountPath) &&
+        Objects.equals(this.items, v1ConnectionResource.items) &&
+        Objects.equals(this.defaultMode, v1ConnectionResource.defaultMode);
   }
 
   @Override
@@ -203,7 +203,7 @@ public class V1K8sResourceSchema {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1K8sResourceSchema {\n");
+    sb.append("class V1ConnectionResource {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    mountPath: ").append(toIndentedString(mountPath)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
@@ -243,20 +243,20 @@ public class V1K8sResourceSchema {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1K8sResourceSchema
+  * @throws IOException if the JSON Object is invalid with respect to V1ConnectionResource
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!V1K8sResourceSchema.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1K8sResourceSchema is not found in the empty JSON string", V1K8sResourceSchema.openapiRequiredFields.toString()));
+        if (!V1ConnectionResource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ConnectionResource is not found in the empty JSON string", V1ConnectionResource.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!V1K8sResourceSchema.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1K8sResourceSchema` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!V1ConnectionResource.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ConnectionResource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
@@ -275,22 +275,22 @@ public class V1K8sResourceSchema {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!V1K8sResourceSchema.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'V1K8sResourceSchema' and its subtypes
+       if (!V1ConnectionResource.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ConnectionResource' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<V1K8sResourceSchema> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(V1K8sResourceSchema.class));
+       final TypeAdapter<V1ConnectionResource> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ConnectionResource.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<V1K8sResourceSchema>() {
+       return (TypeAdapter<T>) new TypeAdapter<V1ConnectionResource>() {
            @Override
-           public void write(JsonWriter out, V1K8sResourceSchema value) throws IOException {
+           public void write(JsonWriter out, V1ConnectionResource value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public V1K8sResourceSchema read(JsonReader in) throws IOException {
+           public V1ConnectionResource read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -301,18 +301,18 @@ public class V1K8sResourceSchema {
   }
 
  /**
-  * Create an instance of V1K8sResourceSchema given an JSON string
+  * Create an instance of V1ConnectionResource given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of V1K8sResourceSchema
-  * @throws IOException if the JSON string is invalid with respect to V1K8sResourceSchema
+  * @return An instance of V1ConnectionResource
+  * @throws IOException if the JSON string is invalid with respect to V1ConnectionResource
   */
-  public static V1K8sResourceSchema fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, V1K8sResourceSchema.class);
+  public static V1ConnectionResource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ConnectionResource.class);
   }
 
  /**
-  * Convert an instance of V1K8sResourceSchema to an JSON string
+  * Convert an instance of V1ConnectionResource to an JSON string
   *
   * @return JSON string
   */

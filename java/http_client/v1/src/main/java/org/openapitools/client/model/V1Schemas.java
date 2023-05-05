@@ -39,6 +39,7 @@ import org.openapitools.client.model.V1ArtifactsMount;
 import org.openapitools.client.model.V1ArtifactsType;
 import org.openapitools.client.model.V1AuthType;
 import org.openapitools.client.model.V1CompiledOperation;
+import org.openapitools.client.model.V1ConnectionResource;
 import org.openapitools.client.model.V1ConnectionSchema;
 import org.openapitools.client.model.V1ConnectionType;
 import org.openapitools.client.model.V1EarlyStopping;
@@ -46,7 +47,6 @@ import org.openapitools.client.model.V1Event;
 import org.openapitools.client.model.V1EventType;
 import org.openapitools.client.model.V1GcsType;
 import org.openapitools.client.model.V1HpParams;
-import org.openapitools.client.model.V1K8sResourceType;
 import org.openapitools.client.model.V1Matrix;
 import org.openapitools.client.model.V1MatrixKind;
 import org.openapitools.client.model.V1Operation;
@@ -158,9 +158,9 @@ public class V1Schemas {
   @SerializedName(SERIALIZED_NAME_URI)
   private V1UriType uri;
 
-  public static final String SERIALIZED_NAME_K8S_RESOURCE = "k8sResource";
-  @SerializedName(SERIALIZED_NAME_K8S_RESOURCE)
-  private V1K8sResourceType k8sResource;
+  public static final String SERIALIZED_NAME_RESOURCE = "resource";
+  @SerializedName(SERIALIZED_NAME_RESOURCE)
+  private V1ConnectionResource resource;
 
   public static final String SERIALIZED_NAME_CONNECTION = "connection";
   @SerializedName(SERIALIZED_NAME_CONNECTION)
@@ -186,7 +186,7 @@ public class V1Schemas {
   }
 
   public V1Schemas earlyStopping(V1EarlyStopping earlyStopping) {
-
+    
     this.earlyStopping = earlyStopping;
     return this;
   }
@@ -208,7 +208,7 @@ public class V1Schemas {
 
 
   public V1Schemas matrix(V1Matrix matrix) {
-
+    
     this.matrix = matrix;
     return this;
   }
@@ -230,7 +230,7 @@ public class V1Schemas {
 
 
   public V1Schemas run(V1RunSchema run) {
-
+    
     this.run = run;
     return this;
   }
@@ -252,7 +252,7 @@ public class V1Schemas {
 
 
   public V1Schemas operation(V1Operation operation) {
-
+    
     this.operation = operation;
     return this;
   }
@@ -274,7 +274,7 @@ public class V1Schemas {
 
 
   public V1Schemas compiledOperation(V1CompiledOperation compiledOperation) {
-
+    
     this.compiledOperation = compiledOperation;
     return this;
   }
@@ -296,7 +296,7 @@ public class V1Schemas {
 
 
   public V1Schemas schedule(V1Schedule schedule) {
-
+    
     this.schedule = schedule;
     return this;
   }
@@ -318,7 +318,7 @@ public class V1Schemas {
 
 
   public V1Schemas connectionSchema(V1ConnectionSchema connectionSchema) {
-
+    
     this.connectionSchema = connectionSchema;
     return this;
   }
@@ -340,7 +340,7 @@ public class V1Schemas {
 
 
   public V1Schemas hpParams(V1HpParams hpParams) {
-
+    
     this.hpParams = hpParams;
     return this;
   }
@@ -362,7 +362,7 @@ public class V1Schemas {
 
 
   public V1Schemas reference(V1Reference reference) {
-
+    
     this.reference = reference;
     return this;
   }
@@ -384,7 +384,7 @@ public class V1Schemas {
 
 
   public V1Schemas artifactsMount(V1ArtifactsMount artifactsMount) {
-
+    
     this.artifactsMount = artifactsMount;
     return this;
   }
@@ -406,7 +406,7 @@ public class V1Schemas {
 
 
   public V1Schemas polyaxonSidecarContainer(V1PolyaxonSidecarContainer polyaxonSidecarContainer) {
-
+    
     this.polyaxonSidecarContainer = polyaxonSidecarContainer;
     return this;
   }
@@ -428,7 +428,7 @@ public class V1Schemas {
 
 
   public V1Schemas polyaxonInitContainer(V1PolyaxonInitContainer polyaxonInitContainer) {
-
+    
     this.polyaxonInitContainer = polyaxonInitContainer;
     return this;
   }
@@ -450,7 +450,7 @@ public class V1Schemas {
 
 
   public V1Schemas artifacs(V1ArtifactsType artifacs) {
-
+    
     this.artifacs = artifacs;
     return this;
   }
@@ -472,7 +472,7 @@ public class V1Schemas {
 
 
   public V1Schemas wasb(V1WasbType wasb) {
-
+    
     this.wasb = wasb;
     return this;
   }
@@ -494,7 +494,7 @@ public class V1Schemas {
 
 
   public V1Schemas gcs(V1GcsType gcs) {
-
+    
     this.gcs = gcs;
     return this;
   }
@@ -516,7 +516,7 @@ public class V1Schemas {
 
 
   public V1Schemas s3(V1S3Type s3) {
-
+    
     this.s3 = s3;
     return this;
   }
@@ -538,7 +538,7 @@ public class V1Schemas {
 
 
   public V1Schemas auth(V1AuthType auth) {
-
+    
     this.auth = auth;
     return this;
   }
@@ -560,7 +560,7 @@ public class V1Schemas {
 
 
   public V1Schemas uri(V1UriType uri) {
-
+    
     this.uri = uri;
     return this;
   }
@@ -581,30 +581,30 @@ public class V1Schemas {
   }
 
 
-  public V1Schemas k8sResource(V1K8sResourceType k8sResource) {
-
-    this.k8sResource = k8sResource;
+  public V1Schemas resource(V1ConnectionResource resource) {
+    
+    this.resource = resource;
     return this;
   }
 
    /**
-   * Get k8sResource
-   * @return k8sResource
+   * Get resource
+   * @return resource
   **/
   @javax.annotation.Nullable
 
-  public V1K8sResourceType getK8sResource() {
-    return k8sResource;
+  public V1ConnectionResource getResource() {
+    return resource;
   }
 
 
-  public void setK8sResource(V1K8sResourceType k8sResource) {
-    this.k8sResource = k8sResource;
+  public void setResource(V1ConnectionResource resource) {
+    this.resource = resource;
   }
 
 
   public V1Schemas connection(V1ConnectionType connection) {
-
+    
     this.connection = connection;
     return this;
   }
@@ -626,7 +626,7 @@ public class V1Schemas {
 
 
   public V1Schemas eventType(V1EventType eventType) {
-
+    
     this.eventType = eventType;
     return this;
   }
@@ -648,7 +648,7 @@ public class V1Schemas {
 
 
   public V1Schemas matrixKind(V1MatrixKind matrixKind) {
-
+    
     this.matrixKind = matrixKind;
     return this;
   }
@@ -670,7 +670,7 @@ public class V1Schemas {
 
 
   public V1Schemas scheduleKind(V1ScheduleKind scheduleKind) {
-
+    
     this.scheduleKind = scheduleKind;
     return this;
   }
@@ -692,7 +692,7 @@ public class V1Schemas {
 
 
   public V1Schemas event(V1Event event) {
-
+    
     this.event = event;
     return this;
   }
@@ -741,7 +741,7 @@ public class V1Schemas {
         Objects.equals(this.s3, v1Schemas.s3) &&
         Objects.equals(this.auth, v1Schemas.auth) &&
         Objects.equals(this.uri, v1Schemas.uri) &&
-        Objects.equals(this.k8sResource, v1Schemas.k8sResource) &&
+        Objects.equals(this.resource, v1Schemas.resource) &&
         Objects.equals(this.connection, v1Schemas.connection) &&
         Objects.equals(this.eventType, v1Schemas.eventType) &&
         Objects.equals(this.matrixKind, v1Schemas.matrixKind) &&
@@ -751,7 +751,7 @@ public class V1Schemas {
 
   @Override
   public int hashCode() {
-    return Objects.hash(earlyStopping, matrix, run, operation, compiledOperation, schedule, connectionSchema, hpParams, reference, artifactsMount, polyaxonSidecarContainer, polyaxonInitContainer, artifacs, wasb, gcs, s3, auth, uri, k8sResource, connection, eventType, matrixKind, scheduleKind, event);
+    return Objects.hash(earlyStopping, matrix, run, operation, compiledOperation, schedule, connectionSchema, hpParams, reference, artifactsMount, polyaxonSidecarContainer, polyaxonInitContainer, artifacs, wasb, gcs, s3, auth, uri, resource, connection, eventType, matrixKind, scheduleKind, event);
   }
 
   @Override
@@ -776,7 +776,7 @@ public class V1Schemas {
     sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
-    sb.append("    k8sResource: ").append(toIndentedString(k8sResource)).append("\n");
+    sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    matrixKind: ").append(toIndentedString(matrixKind)).append("\n");
@@ -822,7 +822,7 @@ public class V1Schemas {
     openapiFields.add("s3");
     openapiFields.add("auth");
     openapiFields.add("uri");
-    openapiFields.add("k8sResource");
+    openapiFields.add("resource");
     openapiFields.add("connection");
     openapiFields.add("eventType");
     openapiFields.add("matrixKind");
@@ -925,9 +925,9 @@ public class V1Schemas {
       if (jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) {
         V1UriType.validateJsonObject(jsonObj.getAsJsonObject("uri"));
       }
-      // validate the optional field `k8sResource`
-      if (jsonObj.get("k8sResource") != null && !jsonObj.get("k8sResource").isJsonNull()) {
-        V1K8sResourceType.validateJsonObject(jsonObj.getAsJsonObject("k8sResource"));
+      // validate the optional field `resource`
+      if (jsonObj.get("resource") != null && !jsonObj.get("resource").isJsonNull()) {
+        V1ConnectionResource.validateJsonObject(jsonObj.getAsJsonObject("resource"));
       }
       // validate the optional field `connection`
       if (jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()) {

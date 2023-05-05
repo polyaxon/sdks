@@ -39,7 +39,7 @@ import json
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from polyaxon_sdk.models.v1_connection_kind import V1ConnectionKind
-from polyaxon_sdk.models.v1_k8s_resource_schema import V1K8sResourceSchema
+from polyaxon_sdk.models.v1_connection_resource import V1ConnectionResource
 
 class V1ConnectionType(BaseModel):
     """
@@ -50,8 +50,8 @@ class V1ConnectionType(BaseModel):
     tags: Optional[StrictStr] = None
     kind: Optional[V1ConnectionKind] = None
     var_schema: Optional[Dict[str, Any]] = Field(None, alias="schema")
-    secret: Optional[V1K8sResourceSchema] = None
-    config_map: Optional[V1K8sResourceSchema] = Field(None, alias="configMap")
+    secret: Optional[V1ConnectionResource] = None
+    config_map: Optional[V1ConnectionResource] = Field(None, alias="configMap")
     env: Optional[conlist(Dict[str, Any])] = None
     annotations: Optional[Dict[str, StrictStr]] = None
     __properties = ["name", "description", "tags", "kind", "schema", "secret", "configMap", "env", "annotations"]
@@ -102,8 +102,8 @@ class V1ConnectionType(BaseModel):
             "tags": obj.get("tags"),
             "kind": obj.get("kind"),
             "var_schema": obj.get("schema"),
-            "secret": V1K8sResourceSchema.from_dict(obj.get("secret")) if obj.get("secret") is not None else None,
-            "config_map": V1K8sResourceSchema.from_dict(obj.get("configMap")) if obj.get("configMap") is not None else None,
+            "secret": V1ConnectionResource.from_dict(obj.get("secret")) if obj.get("secret") is not None else None,
+            "config_map": V1ConnectionResource.from_dict(obj.get("configMap")) if obj.get("configMap") is not None else None,
             "env": obj.get("env"),
             "annotations": obj.get("annotations")
         })

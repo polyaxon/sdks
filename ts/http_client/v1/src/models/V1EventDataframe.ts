@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1EventDataframe
  */
 export interface V1EventDataframe {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EventDataframe
      */
     path?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EventDataframe
      */
@@ -65,7 +65,7 @@ export function V1EventDataframeFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'path': !exists(json, 'path') ? undefined : json['path'],
         'content_type': !exists(json, 'content_type') ? undefined : json['content_type'],
     };
@@ -79,7 +79,7 @@ export function V1EventDataframeToJSON(value?: V1EventDataframe | null): any {
         return null;
     }
     return {
-
+        
         'path': value.path,
         'content_type': value.content_type,
     };

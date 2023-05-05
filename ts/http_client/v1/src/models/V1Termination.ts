@@ -34,19 +34,19 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1Termination {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Termination
      */
     maxRetries?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Termination
      */
     ttl?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Termination
      */
@@ -71,7 +71,7 @@ export function V1TerminationFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'maxRetries': !exists(json, 'maxRetries') ? undefined : json['maxRetries'],
         'ttl': !exists(json, 'ttl') ? undefined : json['ttl'],
         'timeout': !exists(json, 'timeout') ? undefined : json['timeout'],
@@ -86,7 +86,7 @@ export function V1TerminationToJSON(value?: V1Termination | null): any {
         return null;
     }
     return {
-
+        
         'maxRetries': value.maxRetries,
         'ttl': value.ttl,
         'timeout': value.timeout,

@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.V1ConnectionKind;
-import org.openapitools.client.model.V1K8sResourceSchema;
+import org.openapitools.client.model.V1ConnectionResource;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

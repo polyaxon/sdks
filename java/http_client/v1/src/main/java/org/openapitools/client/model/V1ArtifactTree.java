@@ -82,7 +82,7 @@ public class V1ArtifactTree {
   }
 
   public V1ArtifactTree files(Map<String, String> files) {
-
+    
     this.files = files;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1ArtifactTree {
 
 
   public V1ArtifactTree dirs(List<String> dirs) {
-
+    
     this.dirs = dirs;
     return this;
   }
@@ -142,7 +142,7 @@ public class V1ArtifactTree {
 
 
   public V1ArtifactTree isDone(Boolean isDone) {
-
+    
     this.isDone = isDone;
     return this;
   }

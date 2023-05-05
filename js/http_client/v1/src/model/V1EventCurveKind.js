@@ -32,28 +32,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1EventCurveKind {
-
+    
         /**
          * value: "roc"
          * @const
          */
         "roc" = "roc";
 
-
+    
         /**
          * value: "pr"
          * @const
          */
         "pr" = "pr";
 
-
+    
         /**
          * value: "custom"
          * @const
          */
         "custom" = "custom";
 
-
+    
 
     /**
     * Returns a <code>V1EventCurveKind</code> enum value from a Javascript object name.

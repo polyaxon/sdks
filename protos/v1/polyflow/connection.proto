@@ -20,9 +20,15 @@ package v1;
 
 import "google/protobuf/struct.proto";
 
-import "v1/polyflow/k8s_resource.proto";
-
 option go_package = "v1/polyflow";
+
+// K8S resource schema validation
+message ConnectionResource {
+    string name = 1;
+    string mountPath = 2;
+    repeated string items = 3;
+    int32 defaultMode = 4;
+}
 
 // Bucket connection schema validation specification
 message BucketConnection {
@@ -92,10 +98,10 @@ message ConnectionType {
     google.protobuf.Struct schema = 5;
 
     // Secret resource schema
-    K8sResourceSchema secret = 6;
+    ConnectionResource secret = 6;
 
     // ConfigMap resource schema
-    K8sResourceSchema configMap = 7;
+    ConnectionResource configMap = 7;
 
     // Environment variables
     repeated google.protobuf.Struct env = 8;

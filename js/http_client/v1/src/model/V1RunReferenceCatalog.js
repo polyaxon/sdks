@@ -37,8 +37,8 @@ class V1RunReferenceCatalog {
      * Constructs a new <code>V1RunReferenceCatalog</code>.
      * @alias module:model/V1RunReferenceCatalog
      */
-    constructor() {
-
+    constructor() { 
+        
         V1RunReferenceCatalog.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1RunReferenceCatalog {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

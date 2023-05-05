@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Uuids
  */
 export interface V1Uuids {
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Uuids
      */
@@ -59,7 +59,7 @@ export function V1UuidsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'uuids': !exists(json, 'uuids') ? undefined : json['uuids'],
     };
 }
@@ -72,7 +72,7 @@ export function V1UuidsToJSON(value?: V1Uuids | null): any {
         return null;
     }
     return {
-
+        
         'uuids': value.uuids,
     };
 }

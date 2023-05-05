@@ -42,8 +42,8 @@ class V1Init {
      * Constructs a new <code>V1Init</code>.
      * @alias module:model/V1Init
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Init.initialize(this);
     }
 
@@ -52,7 +52,7 @@ class V1Init {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

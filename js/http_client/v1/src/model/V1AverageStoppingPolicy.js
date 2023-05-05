@@ -37,8 +37,8 @@ class V1AverageStoppingPolicy {
      * Constructs a new <code>V1AverageStoppingPolicy</code>.
      * @alias module:model/V1AverageStoppingPolicy
      */
-    constructor() {
-
+    constructor() { 
+        
         V1AverageStoppingPolicy.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1AverageStoppingPolicy {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

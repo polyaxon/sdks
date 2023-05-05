@@ -1,4 +1,4 @@
-# PolyaxonSdk.V1K8sResourceSchema
+# PolyaxonSdk.V1ConnectionResource
 
 ## Properties
 

@@ -35,19 +35,19 @@ import {
 } from './V1ArtifactKind';
 
 /**
- *
+ * 
  * @export
  * @interface V1EventArtifact
  */
 export interface V1EventArtifact {
     /**
-     *
+     * 
      * @type {V1ArtifactKind}
      * @memberof V1EventArtifact
      */
     kind?: V1ArtifactKind;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EventArtifact
      */
@@ -72,7 +72,7 @@ export function V1EventArtifactFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : V1ArtifactKindFromJSON(json['kind']),
         'path': !exists(json, 'path') ? undefined : json['path'],
     };
@@ -86,7 +86,7 @@ export function V1EventArtifactToJSON(value?: V1EventArtifact | null): any {
         return null;
     }
     return {
-
+        
         'kind': V1ArtifactKindToJSON(value.kind),
         'path': value.path,
     };

@@ -39,8 +39,8 @@ class V1RunSettings {
      * Constructs a new <code>V1RunSettings</code>.
      * @alias module:model/V1RunSettings
      */
-    constructor() {
-
+    constructor() { 
+        
         V1RunSettings.initialize(this);
     }
 
@@ -49,7 +49,7 @@ class V1RunSettings {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

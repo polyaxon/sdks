@@ -85,7 +85,7 @@ public class V1ListRunsResponse {
   }
 
   public V1ListRunsResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListRunsResponse {
 
 
   public V1ListRunsResponse results(List<V1Run> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListRunsResponse {
 
 
   public V1ListRunsResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListRunsResponse {
 
 
   public V1ListRunsResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

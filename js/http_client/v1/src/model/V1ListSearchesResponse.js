@@ -38,8 +38,8 @@ class V1ListSearchesResponse {
      * Constructs a new <code>V1ListSearchesResponse</code>.
      * @alias module:model/V1ListSearchesResponse
      */
-    constructor() {
-
+    constructor() { 
+        
         V1ListSearchesResponse.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1ListSearchesResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

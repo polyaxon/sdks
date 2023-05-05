@@ -86,7 +86,7 @@ public class V1EventAudio {
   }
 
   public V1EventAudio sampleRate(Float sampleRate) {
-
+    
     this.sampleRate = sampleRate;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio numChannels(Integer numChannels) {
-
+    
     this.numChannels = numChannels;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio lengthFrames(Integer lengthFrames) {
-
+    
     this.lengthFrames = lengthFrames;
     return this;
   }
@@ -152,7 +152,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio contentType(String contentType) {
-
+    
     this.contentType = contentType;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1EventAudio {
 
 
   public V1EventAudio path(String path) {
-
+    
     this.path = path;
     return this;
   }

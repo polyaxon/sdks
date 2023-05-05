@@ -74,7 +74,7 @@ public class V1HpLogNormal {
   }
 
   public V1HpLogNormal kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HpLogNormal {
 
 
   public V1HpLogNormal value(Object value) {
-
+    
     this.value = value;
     return this;
   }

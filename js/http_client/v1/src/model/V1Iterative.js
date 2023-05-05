@@ -38,8 +38,8 @@ class V1Iterative {
      * Constructs a new <code>V1Iterative</code>.
      * @alias module:model/V1Iterative
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Iterative.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1Iterative {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

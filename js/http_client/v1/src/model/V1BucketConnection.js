@@ -37,8 +37,8 @@ class V1BucketConnection {
      * Constructs a new <code>V1BucketConnection</code>.
      * @alias module:model/V1BucketConnection
      */
-    constructor() {
-
+    constructor() { 
+        
         V1BucketConnection.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1BucketConnection {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

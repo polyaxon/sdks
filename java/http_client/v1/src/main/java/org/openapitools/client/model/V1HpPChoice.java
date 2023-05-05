@@ -74,7 +74,7 @@ public class V1HpPChoice {
   }
 
   public V1HpPChoice kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1HpPChoice {
 
 
   public V1HpPChoice value(Object value) {
-
+    
     this.value = value;
     return this;
   }

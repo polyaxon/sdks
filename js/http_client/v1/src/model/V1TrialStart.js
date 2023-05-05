@@ -37,8 +37,8 @@ class V1TrialStart {
      * Constructs a new <code>V1TrialStart</code>.
      * @alias module:model/V1TrialStart
      */
-    constructor() {
-
+    constructor() { 
+        
         V1TrialStart.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1TrialStart {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

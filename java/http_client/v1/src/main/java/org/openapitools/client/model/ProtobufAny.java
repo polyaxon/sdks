@@ -74,7 +74,7 @@ public class ProtobufAny {
   }
 
   public ProtobufAny typeUrl(String typeUrl) {
-
+    
     this.typeUrl = typeUrl;
     return this;
   }
@@ -96,7 +96,7 @@ public class ProtobufAny {
 
 
   public ProtobufAny value(byte[] value) {
-
+    
     this.value = value;
     return this;
   }

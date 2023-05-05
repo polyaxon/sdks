@@ -38,8 +38,8 @@ class V1StatusCondition {
      * Constructs a new <code>V1StatusCondition</code>.
      * @alias module:model/V1StatusCondition
      */
-    constructor() {
-
+    constructor() { 
+        
         V1StatusCondition.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1StatusCondition {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

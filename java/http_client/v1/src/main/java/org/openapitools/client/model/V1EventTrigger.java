@@ -77,7 +77,7 @@ public class V1EventTrigger {
   }
 
   public V1EventTrigger kinds(List<V1EventKind> kinds) {
-
+    
     this.kinds = kinds;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1EventTrigger {
 
 
   public V1EventTrigger ref(String ref) {
-
+    
     this.ref = ref;
     return this;
   }

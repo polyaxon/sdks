@@ -42,11 +42,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1CleanPodPolicy.Adapter.class)
 public enum V1CleanPodPolicy {
-
+  
   ALL("All"),
-
+  
   RUNNING("Running"),
-
+  
   NONE("None");
 
   private String value;

@@ -32,49 +32,49 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1TriggerPolicy {
-
+    
         /**
          * value: "all_succeeded"
          * @const
          */
         "all_succeeded" = "all_succeeded";
 
-
+    
         /**
          * value: "all_failed"
          * @const
          */
         "all_failed" = "all_failed";
 
-
+    
         /**
          * value: "all_done"
          * @const
          */
         "all_done" = "all_done";
 
-
+    
         /**
          * value: "one_succeeded"
          * @const
          */
         "one_succeeded" = "one_succeeded";
 
-
+    
         /**
          * value: "one_failed"
          * @const
          */
         "one_failed" = "one_failed";
 
-
+    
         /**
          * value: "one_done"
          * @const
          */
         "one_done" = "one_done";
 
-
+    
 
     /**
     * Returns a <code>V1TriggerPolicy</code> enum value from a Javascript object name.

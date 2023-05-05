@@ -38,8 +38,8 @@ class V1Termination {
      * Termination specification, it defines how to handle failures, job runtime, and cleanup policy.
      * @alias module:model/V1Termination
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Termination.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1Termination {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

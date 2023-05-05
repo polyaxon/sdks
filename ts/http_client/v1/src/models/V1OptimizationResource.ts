@@ -35,19 +35,19 @@ import {
 } from './V1ResourceType';
 
 /**
- *
+ * 
  * @export
  * @interface V1OptimizationResource
  */
 export interface V1OptimizationResource {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OptimizationResource
      */
     name?: string;
     /**
-     *
+     * 
      * @type {V1ResourceType}
      * @memberof V1OptimizationResource
      */
@@ -72,7 +72,7 @@ export function V1OptimizationResourceFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'type': !exists(json, 'type') ? undefined : V1ResourceTypeFromJSON(json['type']),
     };
@@ -86,7 +86,7 @@ export function V1OptimizationResourceToJSON(value?: V1OptimizationResource | nu
         return null;
     }
     return {
-
+        
         'name': value.name,
         'type': V1ResourceTypeToJSON(value.type),
     };

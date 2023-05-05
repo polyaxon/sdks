@@ -58,6 +58,7 @@ import V1Compatibility from './model/V1Compatibility';
 import V1CompiledOperation from './model/V1CompiledOperation';
 import V1Component from './model/V1Component';
 import V1ConnectionKind from './model/V1ConnectionKind';
+import V1ConnectionResource from './model/V1ConnectionResource';
 import V1ConnectionResponse from './model/V1ConnectionResponse';
 import V1ConnectionSchema from './model/V1ConnectionSchema';
 import V1ConnectionType from './model/V1ConnectionType';
@@ -134,8 +135,6 @@ import V1Iterative from './model/V1Iterative';
 import V1Job from './model/V1Job';
 import V1Join from './model/V1Join';
 import V1JoinParam from './model/V1JoinParam';
-import V1K8sResourceSchema from './model/V1K8sResourceSchema';
-import V1K8sResourceType from './model/V1K8sResourceType';
 import V1KFReplica from './model/V1KFReplica';
 import V1ListActivitiesResponse from './model/V1ListActivitiesResponse';
 import V1ListAgentsResponse from './model/V1ListAgentsResponse';
@@ -496,6 +495,12 @@ export {
      * @property {module:model/V1ConnectionKind}
      */
     V1ConnectionKind,
+
+    /**
+     * The V1ConnectionResource model constructor.
+     * @property {module:model/V1ConnectionResource}
+     */
+    V1ConnectionResource,
 
     /**
      * The V1ConnectionResponse model constructor.
@@ -952,18 +957,6 @@ export {
      * @property {module:model/V1JoinParam}
      */
     V1JoinParam,
-
-    /**
-     * The V1K8sResourceSchema model constructor.
-     * @property {module:model/V1K8sResourceSchema}
-     */
-    V1K8sResourceSchema,
-
-    /**
-     * The V1K8sResourceType model constructor.
-     * @property {module:model/V1K8sResourceType}
-     */
-    V1K8sResourceType,
 
     /**
      * The V1KFReplica model constructor.

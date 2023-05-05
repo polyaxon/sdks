@@ -105,7 +105,7 @@ public class V1ServiceAccount {
   }
 
   public V1ServiceAccount uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -171,7 +171,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount liveState(Integer liveState) {
-
+    
     this.liveState = liveState;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -245,7 +245,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -267,7 +267,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount scopes(List<String> scopes) {
-
+    
     this.scopes = scopes;
     return this;
   }
@@ -297,7 +297,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount services(List<String> services) {
-
+    
     this.services = services;
     return this;
   }

@@ -35,49 +35,49 @@ import {
 } from './V1RunPending';
 
 /**
- *
+ * 
  * @export
  * @interface V1OperationBody
  */
 export interface V1OperationBody {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OperationBody
      */
     content?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1OperationBody
      */
     is_managed?: boolean;
     /**
-     *
+     * 
      * @type {V1RunPending}
      * @memberof V1OperationBody
      */
     pending?: V1RunPending;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OperationBody
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OperationBody
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1OperationBody
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1OperationBody
      */
@@ -102,7 +102,7 @@ export function V1OperationBodyFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-
+        
         'content': !exists(json, 'content') ? undefined : json['content'],
         'is_managed': !exists(json, 'is_managed') ? undefined : json['is_managed'],
         'pending': !exists(json, 'pending') ? undefined : V1RunPendingFromJSON(json['pending']),
@@ -121,7 +121,7 @@ export function V1OperationBodyToJSON(value?: V1OperationBody | null): any {
         return null;
     }
     return {
-
+        
         'content': value.content,
         'is_managed': value.is_managed,
         'pending': V1RunPendingToJSON(value.pending),

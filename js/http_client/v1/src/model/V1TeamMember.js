@@ -37,8 +37,8 @@ class V1TeamMember {
      * Constructs a new <code>V1TeamMember</code>.
      * @alias module:model/V1TeamMember
      */
-    constructor() {
-
+    constructor() { 
+        
         V1TeamMember.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1TeamMember {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

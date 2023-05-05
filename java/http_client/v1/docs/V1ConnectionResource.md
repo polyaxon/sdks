@@ -1,6 +1,6 @@
 
 
-# V1K8sResourceSchema
+# V1ConnectionResource
 
 
 ## Properties

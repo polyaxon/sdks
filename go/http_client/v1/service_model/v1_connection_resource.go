@@ -26,10 +26,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1K8sResourceSchema K8S resource schema validation
+// V1ConnectionResource K8S resource schema validation
 //
-// swagger:model v1K8sResourceSchema
-type V1K8sResourceSchema struct {
+// swagger:model v1ConnectionResource
+type V1ConnectionResource struct {
 
 	// default mode
 	DefaultMode int32 `json:"defaultMode,omitempty"`
@@ -44,18 +44,18 @@ type V1K8sResourceSchema struct {
 	Name string `json:"name,omitempty"`
 }
 
-// Validate validates this v1 k8s resource schema
-func (m *V1K8sResourceSchema) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 connection resource
+func (m *V1ConnectionResource) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this v1 k8s resource schema based on context it is used
-func (m *V1K8sResourceSchema) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this v1 connection resource based on context it is used
+func (m *V1ConnectionResource) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *V1K8sResourceSchema) MarshalBinary() ([]byte, error) {
+func (m *V1ConnectionResource) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -63,8 +63,8 @@ func (m *V1K8sResourceSchema) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1K8sResourceSchema) UnmarshalBinary(b []byte) error {
-	var res V1K8sResourceSchema
+func (m *V1ConnectionResource) UnmarshalBinary(b []byte) error {
+	var res V1ConnectionResource
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

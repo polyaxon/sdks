@@ -86,7 +86,7 @@ public class V1Status {
   }
 
   public V1Status uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1Status {
 
 
   public V1Status status(V1Statuses status) {
-
+    
     this.status = status;
     return this;
   }
@@ -130,7 +130,7 @@ public class V1Status {
 
 
   public V1Status statusConditions(List<V1StatusCondition> statusConditions) {
-
+    
     this.statusConditions = statusConditions;
     return this;
   }
@@ -160,7 +160,7 @@ public class V1Status {
 
 
   public V1Status metaInfo(Object metaInfo) {
-
+    
     this.metaInfo = metaInfo;
     return this;
   }

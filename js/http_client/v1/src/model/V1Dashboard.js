@@ -38,8 +38,8 @@ class V1Dashboard {
      * Constructs a new <code>V1Dashboard</code>.
      * @alias module:model/V1Dashboard
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Dashboard.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1Dashboard {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

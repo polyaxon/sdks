@@ -80,7 +80,7 @@ public class V1GitConnection {
   }
 
   public V1GitConnection url(String url) {
-
+    
     this.url = url;
     return this;
   }
@@ -102,7 +102,7 @@ public class V1GitConnection {
 
 
   public V1GitConnection revision(Boolean revision) {
-
+    
     this.revision = revision;
     return this;
   }
@@ -124,7 +124,7 @@ public class V1GitConnection {
 
 
   public V1GitConnection flags(List<String> flags) {
-
+    
     this.flags = flags;
     return this;
   }

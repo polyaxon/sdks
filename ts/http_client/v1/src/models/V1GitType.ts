@@ -28,25 +28,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1GitType
  */
 export interface V1GitType {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1GitType
      */
     url?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1GitType
      */
     revision?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1GitType
      */
@@ -71,7 +71,7 @@ export function V1GitTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'url': !exists(json, 'url') ? undefined : json['url'],
         'revision': !exists(json, 'revision') ? undefined : json['revision'],
         'flags': !exists(json, 'flags') ? undefined : json['flags'],
@@ -86,7 +86,7 @@ export function V1GitTypeToJSON(value?: V1GitType | null): any {
         return null;
     }
     return {
-
+        
         'url': value.url,
         'revision': value.revision,
         'flags': value.flags,

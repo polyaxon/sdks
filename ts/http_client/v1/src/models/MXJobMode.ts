@@ -28,7 +28,7 @@
 
 
 /**
- *
+ * 
  * @export
  */
 export const MXJobMode = {

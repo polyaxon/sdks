@@ -39,7 +39,7 @@ import V1ListDashboardsResponse from '../model/V1ListDashboardsResponse';
 export default class DashboardsV1Api {
 
     /**
-    * Constructs a new DashboardsV1Api.
+    * Constructs a new DashboardsV1Api. 
     * Polyaxon sdk
     * @alias module:api/DashboardsV1Api
     * @class

@@ -42,6 +42,7 @@ from polyaxon_sdk.models.v1_artifacts_mount import V1ArtifactsMount
 from polyaxon_sdk.models.v1_artifacts_type import V1ArtifactsType
 from polyaxon_sdk.models.v1_auth_type import V1AuthType
 from polyaxon_sdk.models.v1_compiled_operation import V1CompiledOperation
+from polyaxon_sdk.models.v1_connection_resource import V1ConnectionResource
 from polyaxon_sdk.models.v1_connection_schema import V1ConnectionSchema
 from polyaxon_sdk.models.v1_connection_type import V1ConnectionType
 from polyaxon_sdk.models.v1_early_stopping import V1EarlyStopping
@@ -49,7 +50,6 @@ from polyaxon_sdk.models.v1_event import V1Event
 from polyaxon_sdk.models.v1_event_type import V1EventType
 from polyaxon_sdk.models.v1_gcs_type import V1GcsType
 from polyaxon_sdk.models.v1_hp_params import V1HpParams
-from polyaxon_sdk.models.v1_k8s_resource_type import V1K8sResourceType
 from polyaxon_sdk.models.v1_matrix import V1Matrix
 from polyaxon_sdk.models.v1_matrix_kind import V1MatrixKind
 from polyaxon_sdk.models.v1_operation import V1Operation
@@ -85,13 +85,13 @@ class V1Schemas(BaseModel):
     s3: Optional[V1S3Type] = None
     auth: Optional[V1AuthType] = None
     uri: Optional[V1UriType] = None
-    k8s_resource: Optional[V1K8sResourceType] = Field(None, alias="k8sResource")
+    resource: Optional[V1ConnectionResource] = None
     connection: Optional[V1ConnectionType] = None
     event_type: Optional[V1EventType] = Field(None, alias="eventType")
     matrix_kind: Optional[V1MatrixKind] = Field(None, alias="matrixKind")
     schedule_kind: Optional[V1ScheduleKind] = Field(None, alias="scheduleKind")
     event: Optional[V1Event] = None
-    __properties = ["earlyStopping", "matrix", "run", "operation", "compiledOperation", "schedule", "connectionSchema", "hpParams", "reference", "artifactsMount", "polyaxonSidecarContainer", "polyaxonInitContainer", "artifacs", "wasb", "gcs", "s3", "auth", "uri", "k8sResource", "connection", "eventType", "matrixKind", "scheduleKind", "event"]
+    __properties = ["earlyStopping", "matrix", "run", "operation", "compiledOperation", "schedule", "connectionSchema", "hpParams", "reference", "artifactsMount", "polyaxonSidecarContainer", "polyaxonInitContainer", "artifacs", "wasb", "gcs", "s3", "auth", "uri", "resource", "connection", "eventType", "matrixKind", "scheduleKind", "event"]
 
     class Config:
         allow_population_by_field_name = True
@@ -170,9 +170,9 @@ class V1Schemas(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of uri
         if self.uri:
             _dict['uri'] = self.uri.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of k8s_resource
-        if self.k8s_resource:
-            _dict['k8sResource'] = self.k8s_resource.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of resource
+        if self.resource:
+            _dict['resource'] = self.resource.to_dict()
         # override the default output from pydantic by calling `to_dict()` of connection
         if self.connection:
             _dict['connection'] = self.connection.to_dict()
@@ -212,7 +212,7 @@ class V1Schemas(BaseModel):
             "s3": V1S3Type.from_dict(obj.get("s3")) if obj.get("s3") is not None else None,
             "auth": V1AuthType.from_dict(obj.get("auth")) if obj.get("auth") is not None else None,
             "uri": V1UriType.from_dict(obj.get("uri")) if obj.get("uri") is not None else None,
-            "k8s_resource": V1K8sResourceType.from_dict(obj.get("k8sResource")) if obj.get("k8sResource") is not None else None,
+            "resource": V1ConnectionResource.from_dict(obj.get("resource")) if obj.get("resource") is not None else None,
             "connection": V1ConnectionType.from_dict(obj.get("connection")) if obj.get("connection") is not None else None,
             "event_type": V1EventType.from_dict(obj.get("eventType")) if obj.get("eventType") is not None else None,
             "matrix_kind": obj.get("matrixKind"),

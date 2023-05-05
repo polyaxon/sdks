@@ -40,8 +40,8 @@ class V1Hyperopt {
      * Constructs a new <code>V1Hyperopt</code>.
      * @alias module:model/V1Hyperopt
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Hyperopt.initialize(this);
     }
 
@@ -50,7 +50,7 @@ class V1Hyperopt {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

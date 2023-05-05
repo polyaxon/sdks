@@ -40,8 +40,8 @@ class V1TFJob {
      * Constructs a new <code>V1TFJob</code>.
      * @alias module:model/V1TFJob
      */
-    constructor() {
-
+    constructor() { 
+        
         V1TFJob.initialize(this);
     }
 
@@ -50,7 +50,7 @@ class V1TFJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

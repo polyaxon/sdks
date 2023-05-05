@@ -45,8 +45,8 @@ class V1Run {
      * Constructs a new <code>V1Run</code>.
      * @alias module:model/V1Run
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Run.initialize(this);
     }
 
@@ -55,7 +55,7 @@ class V1Run {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

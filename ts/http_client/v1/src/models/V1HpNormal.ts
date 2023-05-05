@@ -28,19 +28,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HpNormal
  */
 export interface V1HpNormal {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1HpNormal
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1HpNormal
      */
@@ -65,7 +65,7 @@ export function V1HpNormalFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
@@ -79,7 +79,7 @@ export function V1HpNormalToJSON(value?: V1HpNormal | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'value': value.value,
     };

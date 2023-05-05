@@ -74,7 +74,7 @@ public class V1LogHandler {
   }
 
   public V1LogHandler dsn(String dsn) {
-
+    
     this.dsn = dsn;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1LogHandler {
 
 
   public V1LogHandler environment(String environment) {
-
+    
     this.environment = environment;
     return this;
   }

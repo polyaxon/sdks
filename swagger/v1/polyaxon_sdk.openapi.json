@@ -25983,6 +25983,28 @@
         "enum" : [ "host_path", "volume_claim", "gcs", "s3", "wasb", "registry", "git", "aws", "gcp", "azure", "mysql", "postgres", "oracle", "vertica", "sqlite", "mssql", "redis", "presto", "mongo", "cassandra", "ftp", "grpc", "hdfs", "http", "pig_cli", "hive_cli", "hive_metastore", "hive_server2", "jdbc", "jenkins", "samba", "snowflake", "ssh", "cloudant", "databricks", "segment", "slack", "discord", "mattermost", "pagerduty", "hipchat", "webhook", "custom" ],
         "default" : "host_path"
       },
+      "v1ConnectionResource" : {
+        "title" : "K8S resource schema validation",
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "mountPath" : {
+            "type" : "string"
+          },
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "defaultMode" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
       "v1ConnectionResponse" : {
         "title" : "Connection specification",
         "type" : "object",
@@ -26074,10 +26096,10 @@
             "properties" : { }
           },
           "secret" : {
-            "$ref" : "#/components/schemas/v1K8sResourceSchema"
+            "$ref" : "#/components/schemas/v1ConnectionResource"
           },
           "configMap" : {
-            "$ref" : "#/components/schemas/v1K8sResourceSchema"
+            "$ref" : "#/components/schemas/v1ConnectionResource"
           },
           "env" : {
             "title" : "Environment variables",
@@ -28053,45 +28075,6 @@
           },
           "contextOnly" : {
             "title" : "A flag to signal to Polyaxon that this param should not be validated against io",
-            "type" : "boolean"
-          }
-        }
-      },
-      "v1K8sResourceSchema" : {
-        "title" : "K8S resource schema validation",
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "type" : "string"
-          },
-          "mountPath" : {
-            "type" : "string"
-          },
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "defaultMode" : {
-            "type" : "integer",
-            "format" : "int32"
-          }
-        }
-      },
-      "v1K8sResourceType" : {
-        "title" : "K8S resource specification",
-        "type" : "object",
-        "properties" : {
-          "name" : {
-            "title" : "Name of the resource",
-            "type" : "string"
-          },
-          "schema" : {
-            "$ref" : "#/components/schemas/v1K8sResourceSchema"
-          },
-          "isRequested" : {
-            "title" : "Option if the config resource is requested",
             "type" : "boolean"
           }
         }
@@ -30497,8 +30480,8 @@
           "uri" : {
             "$ref" : "#/components/schemas/v1UriType"
           },
-          "k8sResource" : {
-            "$ref" : "#/components/schemas/v1K8sResourceType"
+          "resource" : {
+            "$ref" : "#/components/schemas/v1ConnectionResource"
           },
           "connection" : {
             "$ref" : "#/components/schemas/v1ConnectionType"

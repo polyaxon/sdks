@@ -37,8 +37,8 @@ class V1EntitiesTags {
      * Constructs a new <code>V1EntitiesTags</code>.
      * @alias module:model/V1EntitiesTags
      */
-    constructor() {
-
+    constructor() { 
+        
         V1EntitiesTags.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1EntitiesTags {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

@@ -38,8 +38,8 @@ class V1DiffStoppingPolicy {
      * Early stopping with diff factor stopping, this policy computes checks runs against the best run and stops those whose performance is worse than the best by the factor defined by the user.
      * @alias module:model/V1DiffStoppingPolicy
      */
-    constructor() {
-
+    constructor() { 
+        
         V1DiffStoppingPolicy.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1DiffStoppingPolicy {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

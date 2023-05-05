@@ -56,7 +56,7 @@ export interface GetInstallationRequest {
 }
 
 /**
- *
+ * 
  */
 export class VersionsV1Api extends runtime.BaseAPI {
 

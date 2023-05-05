@@ -38,8 +38,8 @@ class V1TeamSettings {
      * Constructs a new <code>V1TeamSettings</code>.
      * @alias module:model/V1TeamSettings
      */
-    constructor() {
-
+    constructor() { 
+        
         V1TeamSettings.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1TeamSettings {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

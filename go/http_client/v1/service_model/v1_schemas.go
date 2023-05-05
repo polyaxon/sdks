@@ -65,9 +65,6 @@ type V1Schemas struct {
 	// hp params
 	HpParams *V1HpParams `json:"hpParams,omitempty"`
 
-	// k8s resource
-	K8sResource *V1K8sResourceType `json:"k8sResource,omitempty"`
-
 	// matrix
 	Matrix *V1Matrix `json:"matrix,omitempty"`
 
@@ -85,6 +82,9 @@ type V1Schemas struct {
 
 	// reference
 	Reference *V1Reference `json:"reference,omitempty"`
+
+	// resource
+	Resource *V1ConnectionResource `json:"resource,omitempty"`
 
 	// run
 	Run *V1RunSchema `json:"run,omitempty"`
@@ -153,10 +153,6 @@ func (m *V1Schemas) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateK8sResource(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateMatrix(formats); err != nil {
 		res = append(res, err)
 	}
@@ -178,6 +174,10 @@ func (m *V1Schemas) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateReference(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResource(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -420,25 +420,6 @@ func (m *V1Schemas) validateHpParams(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Schemas) validateK8sResource(formats strfmt.Registry) error {
-	if swag.IsZero(m.K8sResource) { // not required
-		return nil
-	}
-
-	if m.K8sResource != nil {
-		if err := m.K8sResource.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("k8sResource")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("k8sResource")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1Schemas) validateMatrix(formats strfmt.Registry) error {
 	if swag.IsZero(m.Matrix) { // not required
 		return nil
@@ -545,6 +526,25 @@ func (m *V1Schemas) validateReference(formats strfmt.Registry) error {
 				return ve.ValidateName("reference")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("reference")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Schemas) validateResource(formats strfmt.Registry) error {
+	if swag.IsZero(m.Resource) { // not required
+		return nil
+	}
+
+	if m.Resource != nil {
+		if err := m.Resource.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
 			return err
 		}
@@ -715,10 +715,6 @@ func (m *V1Schemas) ContextValidate(ctx context.Context, formats strfmt.Registry
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateK8sResource(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateMatrix(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -740,6 +736,10 @@ func (m *V1Schemas) ContextValidate(ctx context.Context, formats strfmt.Registry
 	}
 
 	if err := m.contextValidateReference(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResource(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -949,22 +949,6 @@ func (m *V1Schemas) contextValidateHpParams(ctx context.Context, formats strfmt.
 	return nil
 }
 
-func (m *V1Schemas) contextValidateK8sResource(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.K8sResource != nil {
-		if err := m.K8sResource.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("k8sResource")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("k8sResource")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1Schemas) contextValidateMatrix(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Matrix != nil {
@@ -1053,6 +1037,22 @@ func (m *V1Schemas) contextValidateReference(ctx context.Context, formats strfmt
 				return ve.ValidateName("reference")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("reference")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Schemas) contextValidateResource(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Resource != nil {
+		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resource")
 			}
 			return err
 		}

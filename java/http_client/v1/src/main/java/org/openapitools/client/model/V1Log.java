@@ -87,7 +87,7 @@ public class V1Log {
   }
 
   public V1Log timestamp(OffsetDateTime timestamp) {
-
+    
     this.timestamp = timestamp;
     return this;
   }
@@ -109,7 +109,7 @@ public class V1Log {
 
 
   public V1Log node(String node) {
-
+    
     this.node = node;
     return this;
   }
@@ -131,7 +131,7 @@ public class V1Log {
 
 
   public V1Log pod(String pod) {
-
+    
     this.pod = pod;
     return this;
   }
@@ -153,7 +153,7 @@ public class V1Log {
 
 
   public V1Log container(String container) {
-
+    
     this.container = container;
     return this;
   }
@@ -175,7 +175,7 @@ public class V1Log {
 
 
   public V1Log value(String value) {
-
+    
     this.value = value;
     return this;
   }

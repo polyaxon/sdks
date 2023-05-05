@@ -74,7 +74,7 @@ public class V1GcsType {
   }
 
   public V1GcsType bucket(String bucket) {
-
+    
     this.bucket = bucket;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1GcsType {
 
 
   public V1GcsType blob(String blob) {
-
+    
     this.blob = blob;
     return this;
   }

@@ -74,7 +74,7 @@ public class V1Ray {
   }
 
   public V1Ray kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1Ray {
 
 
   public V1Ray spec(Object spec) {
-
+    
     this.spec = spec;
     return this;
   }

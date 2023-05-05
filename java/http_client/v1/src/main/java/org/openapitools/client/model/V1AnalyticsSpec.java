@@ -82,7 +82,7 @@ public class V1AnalyticsSpec {
   }
 
   public V1AnalyticsSpec view(String view) {
-
+    
     this.view = view;
     return this;
   }
@@ -104,7 +104,7 @@ public class V1AnalyticsSpec {
 
 
   public V1AnalyticsSpec trunc(String trunc) {
-
+    
     this.trunc = trunc;
     return this;
   }
@@ -126,7 +126,7 @@ public class V1AnalyticsSpec {
 
 
   public V1AnalyticsSpec groupby(String groupby) {
-
+    
     this.groupby = groupby;
     return this;
   }
@@ -148,7 +148,7 @@ public class V1AnalyticsSpec {
 
 
   public V1AnalyticsSpec frequency(String frequency) {
-
+    
     this.frequency = frequency;
     return this;
   }

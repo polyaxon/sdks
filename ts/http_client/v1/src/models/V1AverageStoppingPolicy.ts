@@ -28,13 +28,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1AverageStoppingPolicy
  */
 export interface V1AverageStoppingPolicy {
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1AverageStoppingPolicy
      */
@@ -59,7 +59,7 @@ export function V1AverageStoppingPolicyFromJSONTyped(json: any, ignoreDiscrimina
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
     };
 }
@@ -72,7 +72,7 @@ export function V1AverageStoppingPolicyToJSON(value?: V1AverageStoppingPolicy | 
         return null;
     }
     return {
-
+        
         'kind': value.kind,
     };
 }

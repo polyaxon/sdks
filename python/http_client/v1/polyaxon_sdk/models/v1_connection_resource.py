@@ -39,9 +39,9 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 
-class V1K8sResourceSchema(BaseModel):
+class V1ConnectionResource(BaseModel):
     """
-    V1K8sResourceSchema
+    V1ConnectionResource
     """
     name: Optional[StrictStr] = None
     mount_path: Optional[StrictStr] = Field(None, alias="mountPath")
@@ -62,8 +62,8 @@ class V1K8sResourceSchema(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> V1K8sResourceSchema:
-        """Create an instance of V1K8sResourceSchema from a JSON string"""
+    def from_json(cls, json_str: str) -> V1ConnectionResource:
+        """Create an instance of V1ConnectionResource from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -75,15 +75,15 @@ class V1K8sResourceSchema(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> V1K8sResourceSchema:
-        """Create an instance of V1K8sResourceSchema from a dict"""
+    def from_dict(cls, obj: dict) -> V1ConnectionResource:
+        """Create an instance of V1ConnectionResource from a dict"""
         if obj is None:
             return None
 
         if type(obj) is not dict:
-            return V1K8sResourceSchema.parse_obj(obj)
+            return V1ConnectionResource.parse_obj(obj)
 
-        _obj = V1K8sResourceSchema.parse_obj({
+        _obj = V1ConnectionResource.parse_obj({
             "name": obj.get("name"),
             "mount_path": obj.get("mountPath"),
             "items": obj.get("items"),

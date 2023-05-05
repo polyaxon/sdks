@@ -37,8 +37,8 @@ class V1AuthType {
      * Constructs a new <code>V1AuthType</code>.
      * @alias module:model/V1AuthType
      */
-    constructor() {
-
+    constructor() { 
+        
         V1AuthType.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1AuthType {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

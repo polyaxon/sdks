@@ -25,7 +25,7 @@
 |**s3** | [**V1S3Type**](V1S3Type.md) |  |  [optional] |
 |**auth** | [**V1AuthType**](V1AuthType.md) |  |  [optional] |
 |**uri** | [**V1UriType**](V1UriType.md) |  |  [optional] |
-|**k8sResource** | [**V1K8sResourceType**](V1K8sResourceType.md) |  |  [optional] |
+|**resource** | [**V1ConnectionResource**](V1ConnectionResource.md) |  |  [optional] |
 |**connection** | [**V1ConnectionType**](V1ConnectionType.md) |  |  [optional] |
 |**eventType** | [**V1EventType**](V1EventType.md) |  |  [optional] |
 |**matrixKind** | **V1MatrixKind** |  |  [optional] |

@@ -27,65 +27,65 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { V1K8sResourceSchema } from './V1K8sResourceSchema';
-import {
-    V1K8sResourceSchemaFromJSON,
-    V1K8sResourceSchemaFromJSONTyped,
-    V1K8sResourceSchemaToJSON,
-} from './V1K8sResourceSchema';
-
 /**
- *
+ * 
  * @export
- * @interface V1K8sResourceType
+ * @interface V1ConnectionResource
  */
-export interface V1K8sResourceType {
+export interface V1ConnectionResource {
     /**
-     *
+     * 
      * @type {string}
-     * @memberof V1K8sResourceType
+     * @memberof V1ConnectionResource
      */
     name?: string;
     /**
-     *
-     * @type {V1K8sResourceSchema}
-     * @memberof V1K8sResourceType
+     * 
+     * @type {string}
+     * @memberof V1ConnectionResource
      */
-    schema?: V1K8sResourceSchema;
+    mountPath?: string;
     /**
-     *
-     * @type {boolean}
-     * @memberof V1K8sResourceType
+     * 
+     * @type {Array<string>}
+     * @memberof V1ConnectionResource
      */
-    isRequested?: boolean;
+    items?: Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1ConnectionResource
+     */
+    defaultMode?: number;
 }
 
 /**
- * Check if a given object implements the V1K8sResourceType interface.
+ * Check if a given object implements the V1ConnectionResource interface.
  */
-export function instanceOfV1K8sResourceType(value: object): boolean {
+export function instanceOfV1ConnectionResource(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function V1K8sResourceTypeFromJSON(json: any): V1K8sResourceType {
-    return V1K8sResourceTypeFromJSONTyped(json, false);
+export function V1ConnectionResourceFromJSON(json: any): V1ConnectionResource {
+    return V1ConnectionResourceFromJSONTyped(json, false);
 }
 
-export function V1K8sResourceTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1K8sResourceType {
+export function V1ConnectionResourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ConnectionResource {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
-        'schema': !exists(json, 'schema') ? undefined : V1K8sResourceSchemaFromJSON(json['schema']),
-        'isRequested': !exists(json, 'isRequested') ? undefined : json['isRequested'],
+        'mountPath': !exists(json, 'mountPath') ? undefined : json['mountPath'],
+        'items': !exists(json, 'items') ? undefined : json['items'],
+        'defaultMode': !exists(json, 'defaultMode') ? undefined : json['defaultMode'],
     };
 }
 
-export function V1K8sResourceTypeToJSON(value?: V1K8sResourceType | null): any {
+export function V1ConnectionResourceToJSON(value?: V1ConnectionResource | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -93,10 +93,11 @@ export function V1K8sResourceTypeToJSON(value?: V1K8sResourceType | null): any {
         return null;
     }
     return {
-
+        
         'name': value.name,
-        'schema': V1K8sResourceSchemaToJSON(value.schema),
-        'isRequested': value.isRequested,
+        'mountPath': value.mountPath,
+        'items': value.items,
+        'defaultMode': value.defaultMode,
     };
 }
 

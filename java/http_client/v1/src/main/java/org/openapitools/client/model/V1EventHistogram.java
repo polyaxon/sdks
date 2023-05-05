@@ -76,7 +76,7 @@ public class V1EventHistogram {
   }
 
   public V1EventHistogram values(List<Double> values) {
-
+    
     this.values = values;
     return this;
   }
@@ -106,7 +106,7 @@ public class V1EventHistogram {
 
 
   public V1EventHistogram counts(List<Double> counts) {
-
+    
     this.counts = counts;
     return this;
   }

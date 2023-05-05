@@ -90,7 +90,7 @@ public class V1TruncationStoppingPolicy {
   }
 
   public V1TruncationStoppingPolicy kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy percent(Integer percent) {
-
+    
     this.percent = percent;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy evaluationInterval(Integer evaluationInterval) {
-
+    
     this.evaluationInterval = evaluationInterval;
     return this;
   }
@@ -156,7 +156,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy minInterval(Integer minInterval) {
-
+    
     this.minInterval = minInterval;
     return this;
   }
@@ -178,7 +178,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy minSamples(Integer minSamples) {
-
+    
     this.minSamples = minSamples;
     return this;
   }
@@ -200,7 +200,7 @@ public class V1TruncationStoppingPolicy {
 
 
   public V1TruncationStoppingPolicy includeSucceeded(Boolean includeSucceeded) {
-
+    
     this.includeSucceeded = includeSucceeded;
     return this;
   }

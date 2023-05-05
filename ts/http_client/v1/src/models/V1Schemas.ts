@@ -51,6 +51,12 @@ import {
     V1CompiledOperationFromJSONTyped,
     V1CompiledOperationToJSON,
 } from './V1CompiledOperation';
+import type { V1ConnectionResource } from './V1ConnectionResource';
+import {
+    V1ConnectionResourceFromJSON,
+    V1ConnectionResourceFromJSONTyped,
+    V1ConnectionResourceToJSON,
+} from './V1ConnectionResource';
 import type { V1ConnectionSchema } from './V1ConnectionSchema';
 import {
     V1ConnectionSchemaFromJSON,
@@ -93,12 +99,6 @@ import {
     V1HpParamsFromJSONTyped,
     V1HpParamsToJSON,
 } from './V1HpParams';
-import type { V1K8sResourceType } from './V1K8sResourceType';
-import {
-    V1K8sResourceTypeFromJSON,
-    V1K8sResourceTypeFromJSONTyped,
-    V1K8sResourceTypeToJSON,
-} from './V1K8sResourceType';
 import type { V1Matrix } from './V1Matrix';
 import {
     V1MatrixFromJSON,
@@ -173,151 +173,151 @@ import {
 } from './V1WasbType';
 
 /**
- *
+ * 
  * @export
  * @interface V1Schemas
  */
 export interface V1Schemas {
     /**
-     *
+     * 
      * @type {V1EarlyStopping}
      * @memberof V1Schemas
      */
     earlyStopping?: V1EarlyStopping;
     /**
-     *
+     * 
      * @type {V1Matrix}
      * @memberof V1Schemas
      */
     matrix?: V1Matrix;
     /**
-     *
+     * 
      * @type {V1RunSchema}
      * @memberof V1Schemas
      */
     run?: V1RunSchema;
     /**
-     *
+     * 
      * @type {V1Operation}
      * @memberof V1Schemas
      */
     operation?: V1Operation;
     /**
-     *
+     * 
      * @type {V1CompiledOperation}
      * @memberof V1Schemas
      */
     compiledOperation?: V1CompiledOperation;
     /**
-     *
+     * 
      * @type {V1Schedule}
      * @memberof V1Schemas
      */
     schedule?: V1Schedule;
     /**
-     *
+     * 
      * @type {V1ConnectionSchema}
      * @memberof V1Schemas
      */
     connectionSchema?: V1ConnectionSchema;
     /**
-     *
+     * 
      * @type {V1HpParams}
      * @memberof V1Schemas
      */
     hpParams?: V1HpParams;
     /**
-     *
+     * 
      * @type {V1Reference}
      * @memberof V1Schemas
      */
     reference?: V1Reference;
     /**
-     *
+     * 
      * @type {V1ArtifactsMount}
      * @memberof V1Schemas
      */
     artifactsMount?: V1ArtifactsMount;
     /**
-     *
+     * 
      * @type {V1PolyaxonSidecarContainer}
      * @memberof V1Schemas
      */
     polyaxonSidecarContainer?: V1PolyaxonSidecarContainer;
     /**
-     *
+     * 
      * @type {V1PolyaxonInitContainer}
      * @memberof V1Schemas
      */
     polyaxonInitContainer?: V1PolyaxonInitContainer;
     /**
-     *
+     * 
      * @type {V1ArtifactsType}
      * @memberof V1Schemas
      */
     artifacs?: V1ArtifactsType;
     /**
-     *
+     * 
      * @type {V1WasbType}
      * @memberof V1Schemas
      */
     wasb?: V1WasbType;
     /**
-     *
+     * 
      * @type {V1GcsType}
      * @memberof V1Schemas
      */
     gcs?: V1GcsType;
     /**
-     *
+     * 
      * @type {V1S3Type}
      * @memberof V1Schemas
      */
     s3?: V1S3Type;
     /**
-     *
+     * 
      * @type {V1AuthType}
      * @memberof V1Schemas
      */
     auth?: V1AuthType;
     /**
-     *
+     * 
      * @type {V1UriType}
      * @memberof V1Schemas
      */
     uri?: V1UriType;
     /**
-     *
-     * @type {V1K8sResourceType}
+     * 
+     * @type {V1ConnectionResource}
      * @memberof V1Schemas
      */
-    k8sResource?: V1K8sResourceType;
+    resource?: V1ConnectionResource;
     /**
-     *
+     * 
      * @type {V1ConnectionType}
      * @memberof V1Schemas
      */
     connection?: V1ConnectionType;
     /**
-     *
+     * 
      * @type {V1EventType}
      * @memberof V1Schemas
      */
     eventType?: V1EventType;
     /**
-     *
+     * 
      * @type {V1MatrixKind}
      * @memberof V1Schemas
      */
     matrixKind?: V1MatrixKind;
     /**
-     *
+     * 
      * @type {V1ScheduleKind}
      * @memberof V1Schemas
      */
     scheduleKind?: V1ScheduleKind;
     /**
-     *
+     * 
      * @type {V1Event}
      * @memberof V1Schemas
      */
@@ -342,7 +342,7 @@ export function V1SchemasFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'earlyStopping': !exists(json, 'earlyStopping') ? undefined : V1EarlyStoppingFromJSON(json['earlyStopping']),
         'matrix': !exists(json, 'matrix') ? undefined : V1MatrixFromJSON(json['matrix']),
         'run': !exists(json, 'run') ? undefined : V1RunSchemaFromJSON(json['run']),
@@ -361,7 +361,7 @@ export function V1SchemasFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         's3': !exists(json, 's3') ? undefined : V1S3TypeFromJSON(json['s3']),
         'auth': !exists(json, 'auth') ? undefined : V1AuthTypeFromJSON(json['auth']),
         'uri': !exists(json, 'uri') ? undefined : V1UriTypeFromJSON(json['uri']),
-        'k8sResource': !exists(json, 'k8sResource') ? undefined : V1K8sResourceTypeFromJSON(json['k8sResource']),
+        'resource': !exists(json, 'resource') ? undefined : V1ConnectionResourceFromJSON(json['resource']),
         'connection': !exists(json, 'connection') ? undefined : V1ConnectionTypeFromJSON(json['connection']),
         'eventType': !exists(json, 'eventType') ? undefined : V1EventTypeFromJSON(json['eventType']),
         'matrixKind': !exists(json, 'matrixKind') ? undefined : V1MatrixKindFromJSON(json['matrixKind']),
@@ -378,7 +378,7 @@ export function V1SchemasToJSON(value?: V1Schemas | null): any {
         return null;
     }
     return {
-
+        
         'earlyStopping': V1EarlyStoppingToJSON(value.earlyStopping),
         'matrix': V1MatrixToJSON(value.matrix),
         'run': V1RunSchemaToJSON(value.run),
@@ -397,7 +397,7 @@ export function V1SchemasToJSON(value?: V1Schemas | null): any {
         's3': V1S3TypeToJSON(value.s3),
         'auth': V1AuthTypeToJSON(value.auth),
         'uri': V1UriTypeToJSON(value.uri),
-        'k8sResource': V1K8sResourceTypeToJSON(value.k8sResource),
+        'resource': V1ConnectionResourceToJSON(value.resource),
         'connection': V1ConnectionTypeToJSON(value.connection),
         'eventType': V1EventTypeToJSON(value.eventType),
         'matrixKind': V1MatrixKindToJSON(value.matrixKind),

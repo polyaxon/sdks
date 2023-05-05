@@ -85,7 +85,7 @@ public class V1ListProjectVersionsResponse {
   }
 
   public V1ListProjectVersionsResponse count(Integer count) {
-
+    
     this.count = count;
     return this;
   }
@@ -107,7 +107,7 @@ public class V1ListProjectVersionsResponse {
 
 
   public V1ListProjectVersionsResponse results(List<V1ProjectVersion> results) {
-
+    
     this.results = results;
     return this;
   }
@@ -137,7 +137,7 @@ public class V1ListProjectVersionsResponse {
 
 
   public V1ListProjectVersionsResponse previous(String previous) {
-
+    
     this.previous = previous;
     return this;
   }
@@ -159,7 +159,7 @@ public class V1ListProjectVersionsResponse {
 
 
   public V1ListProjectVersionsResponse next(String next) {
-
+    
     this.next = next;
     return this;
   }

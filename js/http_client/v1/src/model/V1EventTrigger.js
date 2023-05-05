@@ -38,8 +38,8 @@ class V1EventTrigger {
      * Constructs a new <code>V1EventTrigger</code>.
      * @alias module:model/V1EventTrigger
      */
-    constructor() {
-
+    constructor() { 
+        
         V1EventTrigger.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1EventTrigger {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

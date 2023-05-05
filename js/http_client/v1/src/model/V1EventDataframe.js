@@ -37,8 +37,8 @@ class V1EventDataframe {
      * Constructs a new <code>V1EventDataframe</code>.
      * @alias module:model/V1EventDataframe
      */
-    constructor() {
-
+    constructor() { 
+        
         V1EventDataframe.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1EventDataframe {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

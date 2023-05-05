@@ -33,69 +33,69 @@ import {
     V1ConnectionKindFromJSONTyped,
     V1ConnectionKindToJSON,
 } from './V1ConnectionKind';
-import type { V1K8sResourceSchema } from './V1K8sResourceSchema';
+import type { V1ConnectionResource } from './V1ConnectionResource';
 import {
-    V1K8sResourceSchemaFromJSON,
-    V1K8sResourceSchemaFromJSONTyped,
-    V1K8sResourceSchemaToJSON,
-} from './V1K8sResourceSchema';
+    V1ConnectionResourceFromJSON,
+    V1ConnectionResourceFromJSONTyped,
+    V1ConnectionResourceToJSON,
+} from './V1ConnectionResource';
 
 /**
- *
+ * 
  * @export
  * @interface V1ConnectionType
  */
 export interface V1ConnectionType {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionType
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionType
      */
     description?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionType
      */
     tags?: string;
     /**
-     *
+     * 
      * @type {V1ConnectionKind}
      * @memberof V1ConnectionType
      */
     kind?: V1ConnectionKind;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1ConnectionType
      */
     schema?: object;
     /**
-     *
-     * @type {V1K8sResourceSchema}
+     * 
+     * @type {V1ConnectionResource}
      * @memberof V1ConnectionType
      */
-    secret?: V1K8sResourceSchema;
+    secret?: V1ConnectionResource;
     /**
-     *
-     * @type {V1K8sResourceSchema}
+     * 
+     * @type {V1ConnectionResource}
      * @memberof V1ConnectionType
      */
-    configMap?: V1K8sResourceSchema;
+    configMap?: V1ConnectionResource;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1ConnectionType
      */
     env?: Array<object>;
     /**
-     *
+     * 
      * @type {{ [key: string]: string; }}
      * @memberof V1ConnectionType
      */
@@ -120,14 +120,14 @@ export function V1ConnectionTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'kind': !exists(json, 'kind') ? undefined : V1ConnectionKindFromJSON(json['kind']),
         'schema': !exists(json, 'schema') ? undefined : json['schema'],
-        'secret': !exists(json, 'secret') ? undefined : V1K8sResourceSchemaFromJSON(json['secret']),
-        'configMap': !exists(json, 'configMap') ? undefined : V1K8sResourceSchemaFromJSON(json['configMap']),
+        'secret': !exists(json, 'secret') ? undefined : V1ConnectionResourceFromJSON(json['secret']),
+        'configMap': !exists(json, 'configMap') ? undefined : V1ConnectionResourceFromJSON(json['configMap']),
         'env': !exists(json, 'env') ? undefined : json['env'],
         'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
     };
@@ -141,14 +141,14 @@ export function V1ConnectionTypeToJSON(value?: V1ConnectionType | null): any {
         return null;
     }
     return {
-
+        
         'name': value.name,
         'description': value.description,
         'tags': value.tags,
         'kind': V1ConnectionKindToJSON(value.kind),
         'schema': value.schema,
-        'secret': V1K8sResourceSchemaToJSON(value.secret),
-        'configMap': V1K8sResourceSchemaToJSON(value.configMap),
+        'secret': V1ConnectionResourceToJSON(value.secret),
+        'configMap': V1ConnectionResourceToJSON(value.configMap),
         'env': value.env,
         'annotations': value.annotations,
     };

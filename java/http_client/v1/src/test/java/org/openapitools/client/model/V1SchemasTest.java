@@ -37,6 +37,7 @@ import org.openapitools.client.model.V1ArtifactsMount;
 import org.openapitools.client.model.V1ArtifactsType;
 import org.openapitools.client.model.V1AuthType;
 import org.openapitools.client.model.V1CompiledOperation;
+import org.openapitools.client.model.V1ConnectionResource;
 import org.openapitools.client.model.V1ConnectionSchema;
 import org.openapitools.client.model.V1ConnectionType;
 import org.openapitools.client.model.V1EarlyStopping;
@@ -44,7 +45,6 @@ import org.openapitools.client.model.V1Event;
 import org.openapitools.client.model.V1EventType;
 import org.openapitools.client.model.V1GcsType;
 import org.openapitools.client.model.V1HpParams;
-import org.openapitools.client.model.V1K8sResourceType;
 import org.openapitools.client.model.V1Matrix;
 import org.openapitools.client.model.V1MatrixKind;
 import org.openapitools.client.model.V1Operation;
@@ -220,11 +220,11 @@ public class V1SchemasTest {
     }
 
     /**
-     * Test the property 'k8sResource'
+     * Test the property 'resource'
      */
     @Test
-    public void k8sResourceTest() {
-        // TODO: test k8sResource
+    public void resourceTest() {
+        // TODO: test resource
     }
 
     /**

@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **tags** | **str** |  | [optional] 
 **kind** | [**V1ConnectionKind**](V1ConnectionKind.md) |  | [optional] 
 **var_schema** | **object** |  | [optional] 
-**secret** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  | [optional] 
-**config_map** | [**V1K8sResourceSchema**](V1K8sResourceSchema.md) |  | [optional] 
+**secret** | [**V1ConnectionResource**](V1ConnectionResource.md) |  | [optional] 
+**config_map** | [**V1ConnectionResource**](V1ConnectionResource.md) |  | [optional] 
 **env** | **List[object]** |  | [optional] 
 **annotations** | **Dict[str, str]** |  | [optional] 
 

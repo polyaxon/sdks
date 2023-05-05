@@ -37,8 +37,8 @@ class V1FileType {
      * Constructs a new <code>V1FileType</code>.
      * @alias module:model/V1FileType
      */
-    constructor() {
-
+    constructor() { 
+        
         V1FileType.initialize(this);
     }
 
@@ -47,7 +47,7 @@ class V1FileType {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

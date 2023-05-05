@@ -17541,6 +17541,28 @@
       "default": "host_path",
       "title": "Connection kinds"
     },
+    "v1ConnectionResource": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "mountPath": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaultMode": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "K8S resource schema validation"
+    },
     "v1ConnectionResponse": {
       "type": "object",
       "properties": {
@@ -17633,11 +17655,11 @@
           "title": "The connection schema should be a valid ConnectionSchema"
         },
         "secret": {
-          "$ref": "#/definitions/v1K8sResourceSchema",
+          "$ref": "#/definitions/v1ConnectionResource",
           "title": "Secret resource schema"
         },
         "configMap": {
-          "$ref": "#/definitions/v1K8sResourceSchema",
+          "$ref": "#/definitions/v1ConnectionResource",
           "title": "ConfigMap resource schema"
         },
         "env": {
@@ -19654,46 +19676,6 @@
         }
       },
       "title": "JoinParam specification"
-    },
-    "v1K8sResourceSchema": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "mountPath": {
-          "type": "string"
-        },
-        "items": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "defaultMode": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "title": "K8S resource schema validation"
-    },
-    "v1K8sResourceType": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Name of the resource"
-        },
-        "schema": {
-          "$ref": "#/definitions/v1K8sResourceSchema",
-          "title": "The connection schema should be a valid ConnectionSchema"
-        },
-        "isRequested": {
-          "type": "boolean",
-          "title": "Option if the config resource is requested"
-        }
-      },
-      "title": "K8S resource specification"
     },
     "v1KFReplica": {
       "type": "object",
@@ -22189,8 +22171,8 @@
         "uri": {
           "$ref": "#/definitions/v1UriType"
         },
-        "k8sResource": {
-          "$ref": "#/definitions/v1K8sResourceType"
+        "resource": {
+          "$ref": "#/definitions/v1ConnectionResource"
         },
         "connection": {
           "$ref": "#/definitions/v1ConnectionType"

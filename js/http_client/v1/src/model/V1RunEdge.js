@@ -40,8 +40,8 @@ class V1RunEdge {
      * Constructs a new <code>V1RunEdge</code>.
      * @alias module:model/V1RunEdge
      */
-    constructor() {
-
+    constructor() { 
+        
         V1RunEdge.initialize(this);
     }
 
@@ -50,7 +50,7 @@ class V1RunEdge {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

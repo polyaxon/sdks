@@ -19543,6 +19543,28 @@ components:
       - custom
       title: Connection kinds
       type: string
+    v1ConnectionResource:
+      example:
+        mountPath: mountPath
+        defaultMode: 2
+        name: name
+        items:
+        - items
+        - items
+      properties:
+        name:
+          type: string
+        mountPath:
+          type: string
+        items:
+          items:
+            type: string
+          type: array
+        defaultMode:
+          format: int32
+          type: integer
+      title: K8S resource schema validation
+      type: object
     v1ConnectionResponse:
       example:
         agent: agent
@@ -19668,9 +19690,9 @@ components:
           title: The connection schema should be a valid ConnectionSchema
           type: object
         secret:
-          $ref: '#/components/schemas/v1K8sResourceSchema'
+          $ref: '#/components/schemas/v1ConnectionResource'
         configMap:
-          $ref: '#/components/schemas/v1K8sResourceSchema'
+          $ref: '#/components/schemas/v1ConnectionResource'
         env:
           items:
             properties: {}
@@ -23339,50 +23361,6 @@ components:
             against io
           type: boolean
       title: JoinParam specification
-      type: object
-    v1K8sResourceSchema:
-      example:
-        mountPath: mountPath
-        defaultMode: 2
-        name: name
-        items:
-        - items
-        - items
-      properties:
-        name:
-          type: string
-        mountPath:
-          type: string
-        items:
-          items:
-            type: string
-          type: array
-        defaultMode:
-          format: int32
-          type: integer
-      title: K8S resource schema validation
-      type: object
-    v1K8sResourceType:
-      example:
-        schema:
-          mountPath: mountPath
-          defaultMode: 2
-          name: name
-          items:
-          - items
-          - items
-        name: name
-        isRequested: true
-      properties:
-        name:
-          title: Name of the resource
-          type: string
-        schema:
-          $ref: '#/components/schemas/v1K8sResourceSchema'
-        isRequested:
-          title: Option if the config resource is requested
-          type: boolean
-      title: K8S resource specification
       type: object
     v1KFReplica:
       example:
@@ -34699,6 +34677,13 @@ components:
         auth:
           password: password
           user: user
+        resource:
+          mountPath: mountPath
+          defaultMode: 2
+          name: name
+          items:
+          - items
+          - items
         run:
           paddleJob:
             cleanPodPolicy: null
@@ -40574,16 +40559,6 @@ components:
           name: name
           conditions: conditions
           queue: queue
-        k8sResource:
-          schema:
-            mountPath: mountPath
-            defaultMode: 2
-            name: name
-            items:
-            - items
-            - items
-          name: name
-          isRequested: true
       properties:
         earlyStopping:
           $ref: '#/components/schemas/v1EarlyStopping'
@@ -40621,8 +40596,8 @@ components:
           $ref: '#/components/schemas/v1AuthType'
         uri:
           $ref: '#/components/schemas/v1UriType'
-        k8sResource:
-          $ref: '#/components/schemas/v1K8sResourceType'
+        resource:
+          $ref: '#/components/schemas/v1ConnectionResource'
         connection:
           $ref: '#/components/schemas/v1ConnectionType'
         eventType:

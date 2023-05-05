@@ -40,7 +40,7 @@ import V1Tag from '../model/V1Tag';
 export default class TagsV1Api {
 
     /**
-    * Constructs a new TagsV1Api.
+    * Constructs a new TagsV1Api. 
     * Polyaxon sdk
     * @alias module:api/TagsV1Api
     * @class

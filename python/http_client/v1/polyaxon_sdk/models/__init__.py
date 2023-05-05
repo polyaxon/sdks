@@ -62,6 +62,7 @@ from polyaxon_sdk.models.v1_compatibility import V1Compatibility
 from polyaxon_sdk.models.v1_compiled_operation import V1CompiledOperation
 from polyaxon_sdk.models.v1_component import V1Component
 from polyaxon_sdk.models.v1_connection_kind import V1ConnectionKind
+from polyaxon_sdk.models.v1_connection_resource import V1ConnectionResource
 from polyaxon_sdk.models.v1_connection_response import V1ConnectionResponse
 from polyaxon_sdk.models.v1_connection_schema import V1ConnectionSchema
 from polyaxon_sdk.models.v1_connection_type import V1ConnectionType
@@ -138,8 +139,6 @@ from polyaxon_sdk.models.v1_iterative import V1Iterative
 from polyaxon_sdk.models.v1_job import V1Job
 from polyaxon_sdk.models.v1_join import V1Join
 from polyaxon_sdk.models.v1_join_param import V1JoinParam
-from polyaxon_sdk.models.v1_k8s_resource_schema import V1K8sResourceSchema
-from polyaxon_sdk.models.v1_k8s_resource_type import V1K8sResourceType
 from polyaxon_sdk.models.v1_kf_replica import V1KFReplica
 from polyaxon_sdk.models.v1_list_activities_response import V1ListActivitiesResponse
 from polyaxon_sdk.models.v1_list_agents_response import V1ListAgentsResponse

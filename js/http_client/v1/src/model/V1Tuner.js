@@ -38,8 +38,8 @@ class V1Tuner {
      * Constructs a new <code>V1Tuner</code>.
      * @alias module:model/V1Tuner
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Tuner.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class V1Tuner {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

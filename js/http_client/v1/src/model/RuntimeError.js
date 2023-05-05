@@ -38,8 +38,8 @@ class RuntimeError {
      * Constructs a new <code>RuntimeError</code>.
      * @alias module:model/RuntimeError
      */
-    constructor() {
-
+    constructor() { 
+        
         RuntimeError.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class RuntimeError {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

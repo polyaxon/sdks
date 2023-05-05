@@ -83,7 +83,7 @@ public class V1Compatibility {
   }
 
   public V1Compatibility cli(V1Version cli) {
-
+    
     this.cli = cli;
     return this;
   }
@@ -105,7 +105,7 @@ public class V1Compatibility {
 
 
   public V1Compatibility platform(V1Version platform) {
-
+    
     this.platform = platform;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1Compatibility {
 
 
   public V1Compatibility agent(V1Version agent) {
-
+    
     this.agent = agent;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1Compatibility {
 
 
   public V1Compatibility ui(V1Version ui) {
-
+    
     this.ui = ui;
     return this;
   }

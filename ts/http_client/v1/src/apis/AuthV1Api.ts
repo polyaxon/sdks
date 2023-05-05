@@ -79,7 +79,7 @@ export interface TrialRequest {
 }
 
 /**
- *
+ * 
  */
 export class AuthV1Api extends runtime.BaseAPI {
 

@@ -33,23 +33,24 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import org.openapitools.client.model.V1K8sResourceSchema;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for V1K8sResourceType
+ * Model tests for V1ConnectionResource
  */
-public class V1K8sResourceTypeTest {
-    private final V1K8sResourceType model = new V1K8sResourceType();
+public class V1ConnectionResourceTest {
+    private final V1ConnectionResource model = new V1ConnectionResource();
 
     /**
-     * Model tests for V1K8sResourceType
+     * Model tests for V1ConnectionResource
      */
     @Test
-    public void testV1K8sResourceType() {
-        // TODO: test V1K8sResourceType
+    public void testV1ConnectionResource() {
+        // TODO: test V1ConnectionResource
     }
 
     /**
@@ -61,19 +62,27 @@ public class V1K8sResourceTypeTest {
     }
 
     /**
-     * Test the property 'schema'
+     * Test the property 'mountPath'
      */
     @Test
-    public void schemaTest() {
-        // TODO: test schema
+    public void mountPathTest() {
+        // TODO: test mountPath
     }
 
     /**
-     * Test the property 'isRequested'
+     * Test the property 'items'
      */
     @Test
-    public void isRequestedTest() {
-        // TODO: test isRequested
+    public void itemsTest() {
+        // TODO: test items
+    }
+
+    /**
+     * Test the property 'defaultMode'
+     */
+    @Test
+    public void defaultModeTest() {
+        // TODO: test defaultMode
     }
 
 }

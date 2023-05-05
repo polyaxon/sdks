@@ -176,8 +176,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property k8sResource (base name: "k8sResource")', function() {
-      // uncomment below and update the code to test the property k8sResource
+    it('should have the property resource (base name: "resource")', function() {
+      // uncomment below and update the code to test the property resource
       //var instance = new PolyaxonSdk.V1Schemas();
       //expect(instance).to.be();
     });
