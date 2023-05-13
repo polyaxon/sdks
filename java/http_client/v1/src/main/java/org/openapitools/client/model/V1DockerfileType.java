@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -126,7 +112,7 @@ public class V1DockerfileType {
   }
 
   public V1DockerfileType image(String image) {
-
+    
     this.image = image;
     return this;
   }
@@ -148,7 +134,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType env(Map<String, String> env) {
-
+    
     this.env = env;
     return this;
   }
@@ -178,7 +164,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType path(List<String> path) {
-
+    
     this.path = path;
     return this;
   }
@@ -208,7 +194,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType copy(List<Object> copy) {
-
+    
     this.copy = copy;
     return this;
   }
@@ -238,7 +224,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType postRunCopy(List<Object> postRunCopy) {
-
+    
     this.postRunCopy = postRunCopy;
     return this;
   }
@@ -268,7 +254,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType run(List<String> run) {
-
+    
     this.run = run;
     return this;
   }
@@ -298,7 +284,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType langEnv(String langEnv) {
-
+    
     this.langEnv = langEnv;
     return this;
   }
@@ -320,7 +306,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType uid(Integer uid) {
-
+    
     this.uid = uid;
     return this;
   }
@@ -342,7 +328,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType gid(Integer gid) {
-
+    
     this.gid = gid;
     return this;
   }
@@ -364,7 +350,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType username(Integer username) {
-
+    
     this.username = username;
     return this;
   }
@@ -386,7 +372,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType filename(String filename) {
-
+    
     this.filename = filename;
     return this;
   }
@@ -408,7 +394,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType workdir(String workdir) {
-
+    
     this.workdir = workdir;
     return this;
   }
@@ -430,7 +416,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType workdirPath(String workdirPath) {
-
+    
     this.workdirPath = workdirPath;
     return this;
   }
@@ -452,7 +438,7 @@ public class V1DockerfileType {
 
 
   public V1DockerfileType shell(String shell) {
-
+    
     this.shell = shell;
     return this;
   }

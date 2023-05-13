@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -47,43 +33,43 @@ import {
 } from './V1SchedulingPolicy';
 
 /**
- *
+ * 
  * @export
  * @interface V1MPIJob
  */
 export interface V1MPIJob {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1MPIJob
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {V1CleanPodPolicy}
      * @memberof V1MPIJob
      */
     cleanPodPolicy?: V1CleanPodPolicy;
     /**
-     *
+     * 
      * @type {V1SchedulingPolicy}
      * @memberof V1MPIJob
      */
     schedulingPolicy?: V1SchedulingPolicy;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1MPIJob
      */
     slotsPerWorker?: number;
     /**
-     *
+     * 
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
     worker?: V1KFReplica;
     /**
-     *
+     * 
      * @type {V1KFReplica}
      * @memberof V1MPIJob
      */
@@ -108,7 +94,7 @@ export function V1MPIJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'cleanPodPolicy': !exists(json, 'cleanPodPolicy') ? undefined : V1CleanPodPolicyFromJSON(json['cleanPodPolicy']),
         'schedulingPolicy': !exists(json, 'schedulingPolicy') ? undefined : V1SchedulingPolicyFromJSON(json['schedulingPolicy']),
@@ -126,7 +112,7 @@ export function V1MPIJobToJSON(value?: V1MPIJob | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'cleanPodPolicy': V1CleanPodPolicyToJSON(value.cleanPodPolicy),
         'schedulingPolicy': V1SchedulingPolicyToJSON(value.schedulingPolicy),

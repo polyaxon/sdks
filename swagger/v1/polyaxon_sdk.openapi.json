@@ -2,7 +2,7 @@
   "openapi" : "3.0.1",
   "info" : {
     "title" : "Polyaxon SDKs and REST API specification.",
-    "description" : "Polyaxon SDKs and REST API specification.",
+    "description" : "   ",
     "contact" : {
       "name" : "Polyaxon sdk",
       "url" : "https://github.com/polyaxon/polyaxon",

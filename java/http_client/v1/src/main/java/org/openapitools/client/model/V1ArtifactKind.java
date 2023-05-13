@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -42,67 +28,67 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1ArtifactKind.Adapter.class)
 public enum V1ArtifactKind {
-
+  
   MODEL("model"),
-
+  
   AUDIO("audio"),
-
+  
   VIDEO("video"),
-
+  
   HISTOGRAM("histogram"),
-
+  
   IMAGE("image"),
-
+  
   TENSOR("tensor"),
-
+  
   DATAFRAME("dataframe"),
-
+  
   CHART("chart"),
-
+  
   CSV("csv"),
-
+  
   TSV("tsv"),
-
+  
   PSV("psv"),
-
+  
   SSV("ssv"),
-
+  
   METRIC("metric"),
-
+  
   ENV("env"),
-
+  
   HTML("html"),
-
+  
   TEXT("text"),
-
+  
   FILE("file"),
-
+  
   DIR("dir"),
-
+  
   DOCKERFILE("dockerfile"),
-
+  
   DOCKER_IMAGE("docker_image"),
-
+  
   DATA("data"),
-
+  
   CODEREF("coderef"),
-
+  
   TABLE("table"),
-
+  
   TENSORBOARD("tensorboard"),
-
+  
   CURVE("curve"),
-
+  
   CONFUSION("confusion"),
-
+  
   ANALYSIS("analysis"),
-
+  
   ITERATION("iteration"),
-
+  
   MARKDOWN("markdown"),
-
+  
   SYSTEM("system"),
-
+  
   ARTIFACT("artifact");
 
   private String value;

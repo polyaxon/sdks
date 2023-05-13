@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -94,7 +80,7 @@ public class V1PolyaxonSidecarContainer {
   }
 
   public V1PolyaxonSidecarContainer image(String image) {
-
+    
     this.image = image;
     return this;
   }
@@ -116,7 +102,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer imageTag(String imageTag) {
-
+    
     this.imageTag = imageTag;
     return this;
   }
@@ -138,7 +124,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer imagePullPolicy(String imagePullPolicy) {
-
+    
     this.imagePullPolicy = imagePullPolicy;
     return this;
   }
@@ -160,7 +146,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer sleepInterval(Integer sleepInterval) {
-
+    
     this.sleepInterval = sleepInterval;
     return this;
   }
@@ -182,7 +168,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer syncInterval(Integer syncInterval) {
-
+    
     this.syncInterval = syncInterval;
     return this;
   }
@@ -204,7 +190,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer monitorLogs(Boolean monitorLogs) {
-
+    
     this.monitorLogs = monitorLogs;
     return this;
   }
@@ -226,7 +212,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer resources(Object resources) {
-
+    
     this.resources = resources;
     return this;
   }

@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -35,61 +21,61 @@ import {
 } from './V1ConnectionKind';
 
 /**
- *
+ * 
  * @export
  * @interface V1ConnectionResponse
  */
 export interface V1ConnectionResponse {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     agent?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ConnectionResponse
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1ConnectionResponse
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1ConnectionResponse
      */
     updated_at?: Date;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1ConnectionResponse
      */
     live_state?: number;
     /**
-     *
+     * 
      * @type {V1ConnectionKind}
      * @memberof V1ConnectionResponse
      */
@@ -114,7 +100,7 @@ export function V1ConnectionResponseFromJSONTyped(json: any, ignoreDiscriminator
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'agent': !exists(json, 'agent') ? undefined : json['agent'],
@@ -135,7 +121,7 @@ export function V1ConnectionResponseToJSON(value?: V1ConnectionResponse | null):
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'agent': value.agent,

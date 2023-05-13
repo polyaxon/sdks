@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -172,7 +158,7 @@ public class TeamsV1Api {
 
     /**
      * Create team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Team body (required)
      * @return V1Team
@@ -194,7 +180,7 @@ public class TeamsV1Api {
 
     /**
      * Create team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Team body (required)
      * @return ApiResponse&lt;V1Team&gt;
@@ -217,7 +203,7 @@ public class TeamsV1Api {
 
     /**
      * Create team (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Team body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -328,7 +314,7 @@ public class TeamsV1Api {
 
     /**
      * Create team member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param body Team body (required)
@@ -351,7 +337,7 @@ public class TeamsV1Api {
 
     /**
      * Create team member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param body Team body (required)
@@ -375,7 +361,7 @@ public class TeamsV1Api {
 
     /**
      * Create team member (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param body Team body (required)
@@ -480,7 +466,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -500,7 +486,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -522,7 +508,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -632,7 +618,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -653,7 +639,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -676,7 +662,7 @@ public class TeamsV1Api {
 
     /**
      * Delete team member details (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -780,7 +766,7 @@ public class TeamsV1Api {
 
     /**
      * Get team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1Team
@@ -802,7 +788,7 @@ public class TeamsV1Api {
 
     /**
      * Get team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1Team&gt;
@@ -825,7 +811,7 @@ public class TeamsV1Api {
 
     /**
      * Get team (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -936,7 +922,7 @@ public class TeamsV1Api {
 
     /**
      * Get team member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -959,7 +945,7 @@ public class TeamsV1Api {
 
     /**
      * Get team member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -983,7 +969,7 @@ public class TeamsV1Api {
 
     /**
      * Get team member details (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team under namesapce (required)
      * @param user Member under team (required)
@@ -1123,7 +1109,7 @@ public class TeamsV1Api {
 
     /**
      * Get team members
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1152,7 +1138,7 @@ public class TeamsV1Api {
 
     /**
      * Get team members
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1182,7 +1168,7 @@ public class TeamsV1Api {
 
     /**
      * Get team members (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1321,7 +1307,7 @@ public class TeamsV1Api {
 
     /**
      * List teams names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1349,7 +1335,7 @@ public class TeamsV1Api {
 
     /**
      * List teams names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1378,7 +1364,7 @@ public class TeamsV1Api {
 
     /**
      * List teams names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1516,7 +1502,7 @@ public class TeamsV1Api {
 
     /**
      * List teams
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1544,7 +1530,7 @@ public class TeamsV1Api {
 
     /**
      * List teams
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1573,7 +1559,7 @@ public class TeamsV1Api {
 
     /**
      * List teams (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1690,7 +1676,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1713,7 +1699,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1737,7 +1723,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -1856,7 +1842,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -1880,7 +1866,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -1905,7 +1891,7 @@ public class TeamsV1Api {
 
     /**
      * Patch team member (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -2018,7 +2004,7 @@ public class TeamsV1Api {
 
     /**
      * Update team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -2041,7 +2027,7 @@ public class TeamsV1Api {
 
     /**
      * Update team
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -2065,7 +2051,7 @@ public class TeamsV1Api {
 
     /**
      * Update team (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param teamName Name (required)
      * @param body Team body (required)
@@ -2184,7 +2170,7 @@ public class TeamsV1Api {
 
     /**
      * Update team member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -2208,7 +2194,7 @@ public class TeamsV1Api {
 
     /**
      * Update team member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)
@@ -2233,7 +2219,7 @@ public class TeamsV1Api {
 
     /**
      * Update team member (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param team Team (required)
      * @param memberUser User (required)

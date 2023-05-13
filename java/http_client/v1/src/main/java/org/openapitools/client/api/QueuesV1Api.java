@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -177,7 +163,7 @@ public class QueuesV1Api {
 
     /**
      * Create queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param body Queue body (required)
@@ -200,7 +186,7 @@ public class QueuesV1Api {
 
     /**
      * Create queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param body Queue body (required)
@@ -224,7 +210,7 @@ public class QueuesV1Api {
 
     /**
      * Create queue (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param body Queue body (required)
@@ -336,7 +322,7 @@ public class QueuesV1Api {
 
     /**
      * Delete queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -357,7 +343,7 @@ public class QueuesV1Api {
 
     /**
      * Delete queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -380,7 +366,7 @@ public class QueuesV1Api {
 
     /**
      * Delete queue (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -491,7 +477,7 @@ public class QueuesV1Api {
 
     /**
      * Get queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -514,7 +500,7 @@ public class QueuesV1Api {
 
     /**
      * Get queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -538,7 +524,7 @@ public class QueuesV1Api {
 
     /**
      * Get queue (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -671,7 +657,7 @@ public class QueuesV1Api {
 
     /**
      * List organization level queues names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -699,7 +685,7 @@ public class QueuesV1Api {
 
     /**
      * List organization level queues names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -728,7 +714,7 @@ public class QueuesV1Api {
 
     /**
      * List organization level queues names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -866,7 +852,7 @@ public class QueuesV1Api {
 
     /**
      * List organization level queues
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -894,7 +880,7 @@ public class QueuesV1Api {
 
     /**
      * List organization level queues
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -923,7 +909,7 @@ public class QueuesV1Api {
 
     /**
      * List organization level queues (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1068,7 +1054,7 @@ public class QueuesV1Api {
 
     /**
      * List queues names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1097,7 +1083,7 @@ public class QueuesV1Api {
 
     /**
      * List queues names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1127,7 +1113,7 @@ public class QueuesV1Api {
 
     /**
      * List queues names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1273,7 +1259,7 @@ public class QueuesV1Api {
 
     /**
      * List queues
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1302,7 +1288,7 @@ public class QueuesV1Api {
 
     /**
      * List queues
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1332,7 +1318,7 @@ public class QueuesV1Api {
 
     /**
      * List queues (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1457,7 +1443,7 @@ public class QueuesV1Api {
 
     /**
      * Patch queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param queueUuid UUID (required)
@@ -1481,7 +1467,7 @@ public class QueuesV1Api {
 
     /**
      * Patch queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param queueUuid UUID (required)
@@ -1506,7 +1492,7 @@ public class QueuesV1Api {
 
     /**
      * Patch queue (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param queueUuid UUID (required)
@@ -1626,7 +1612,7 @@ public class QueuesV1Api {
 
     /**
      * Update queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param queueUuid UUID (required)
@@ -1650,7 +1636,7 @@ public class QueuesV1Api {
 
     /**
      * Update queue
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param queueUuid UUID (required)
@@ -1675,7 +1661,7 @@ public class QueuesV1Api {
 
     /**
      * Update queue (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agent Agent that consumes the queue (required)
      * @param queueUuid UUID (required)

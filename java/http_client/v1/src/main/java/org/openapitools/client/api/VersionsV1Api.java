@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -178,7 +164,7 @@ public class VersionsV1Api {
 
     /**
      * Get compatibility versions
-     *
+     * 
      * @param uuid UUid (required)
      * @param version Version (required)
      * @param service Service (required)
@@ -201,7 +187,7 @@ public class VersionsV1Api {
 
     /**
      * Get compatibility versions
-     *
+     * 
      * @param uuid UUid (required)
      * @param version Version (required)
      * @param service Service (required)
@@ -225,7 +211,7 @@ public class VersionsV1Api {
 
     /**
      * Get compatibility versions (asynchronously)
-     *
+     * 
      * @param uuid UUid (required)
      * @param version Version (required)
      * @param service Service (required)
@@ -321,7 +307,7 @@ public class VersionsV1Api {
 
     /**
      * Get installation versions
-     *
+     * 
      * @param auth auth. (optional)
      * @return V1Installation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -342,7 +328,7 @@ public class VersionsV1Api {
 
     /**
      * Get installation versions
-     *
+     * 
      * @param auth auth. (optional)
      * @return ApiResponse&lt;V1Installation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -364,7 +350,7 @@ public class VersionsV1Api {
 
     /**
      * Get installation versions (asynchronously)
-     *
+     * 
      * @param auth auth. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -453,7 +439,7 @@ public class VersionsV1Api {
 
     /**
      * Get log handler versions
-     *
+     * 
      * @return V1LogHandler
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -473,7 +459,7 @@ public class VersionsV1Api {
 
     /**
      * Get log handler versions
-     *
+     * 
      * @return ApiResponse&lt;V1LogHandler&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -494,7 +480,7 @@ public class VersionsV1Api {
 
     /**
      * Get log handler versions (asynchronously)
-     *
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

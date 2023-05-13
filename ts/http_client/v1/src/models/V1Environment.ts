@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -28,31 +14,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Environment
  */
 export interface V1Environment {
     /**
-     *
+     * 
      * @type {{ [key: string]: string; }}
      * @memberof V1Environment
      */
     labels?: { [key: string]: string; };
     /**
-     *
+     * 
      * @type {{ [key: string]: string; }}
      * @memberof V1Environment
      */
     annotations?: { [key: string]: string; };
     /**
-     *
+     * 
      * @type {{ [key: string]: string; }}
      * @memberof V1Environment
      */
     nodeSelector?: { [key: string]: string; };
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Environment
      */
@@ -72,7 +58,7 @@ export interface V1Environment {
      */
     nodeName?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Environment
      */
@@ -84,13 +70,13 @@ export interface V1Environment {
      */
     hostAliases?: Array<object>;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Environment
      */
     securityContext?: object;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Environment
      */
@@ -119,13 +105,13 @@ export interface V1Environment {
      */
     dnsPolicy?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Environment
      */
     dnsConfig?: object;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Environment
      */
@@ -152,7 +138,7 @@ export interface V1Environment {
      */
     priority?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Environment
      */
@@ -177,7 +163,7 @@ export function V1EnvironmentFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'labels': !exists(json, 'labels') ? undefined : json['labels'],
         'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
         'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
@@ -207,7 +193,7 @@ export function V1EnvironmentToJSON(value?: V1Environment | null): any {
         return null;
     }
     return {
-
+        
         'labels': value.labels,
         'annotations': value.annotations,
         'nodeSelector': value.nodeSelector,

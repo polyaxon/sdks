@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -125,103 +111,103 @@ import {
 } from './V1HpUniform';
 
 /**
- *
+ * 
  * @export
  * @interface V1HpParams
  */
 export interface V1HpParams {
     /**
-     *
+     * 
      * @type {V1HpChoice}
      * @memberof V1HpParams
      */
     choice?: V1HpChoice;
     /**
-     *
+     * 
      * @type {V1HpPChoice}
      * @memberof V1HpParams
      */
     pchoice?: V1HpPChoice;
     /**
-     *
+     * 
      * @type {V1HpRange}
      * @memberof V1HpParams
      */
     range?: V1HpRange;
     /**
-     *
+     * 
      * @type {V1HpLinSpace}
      * @memberof V1HpParams
      */
     linspace?: V1HpLinSpace;
     /**
-     *
+     * 
      * @type {V1HpLogSpace}
      * @memberof V1HpParams
      */
     logspace?: V1HpLogSpace;
     /**
-     *
+     * 
      * @type {V1HpGeomSpace}
      * @memberof V1HpParams
      */
     geomspace?: V1HpGeomSpace;
     /**
-     *
+     * 
      * @type {V1HpUniform}
      * @memberof V1HpParams
      */
     uniform?: V1HpUniform;
     /**
-     *
+     * 
      * @type {V1HpQUniform}
      * @memberof V1HpParams
      */
     quniform?: V1HpQUniform;
     /**
-     *
+     * 
      * @type {V1HpLogUniform}
      * @memberof V1HpParams
      */
     loguniform?: V1HpLogUniform;
     /**
-     *
+     * 
      * @type {V1HpQLogUniform}
      * @memberof V1HpParams
      */
     qloguniform?: V1HpQLogUniform;
     /**
-     *
+     * 
      * @type {V1HpNormal}
      * @memberof V1HpParams
      */
     normal?: V1HpNormal;
     /**
-     *
+     * 
      * @type {V1HpQNormal}
      * @memberof V1HpParams
      */
     qnormal?: V1HpQNormal;
     /**
-     *
+     * 
      * @type {V1HpLogNormal}
      * @memberof V1HpParams
      */
     lognormal?: V1HpLogNormal;
     /**
-     *
+     * 
      * @type {V1HpQLogNormal}
      * @memberof V1HpParams
      */
     qlognormal?: V1HpQLogNormal;
     /**
-     *
+     * 
      * @type {V1HpDateRange}
      * @memberof V1HpParams
      */
     daterange?: V1HpDateRange;
     /**
-     *
+     * 
      * @type {V1HpDateTimeRange}
      * @memberof V1HpParams
      */
@@ -246,7 +232,7 @@ export function V1HpParamsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'choice': !exists(json, 'choice') ? undefined : V1HpChoiceFromJSON(json['choice']),
         'pchoice': !exists(json, 'pchoice') ? undefined : V1HpPChoiceFromJSON(json['pchoice']),
         'range': !exists(json, 'range') ? undefined : V1HpRangeFromJSON(json['range']),
@@ -274,7 +260,7 @@ export function V1HpParamsToJSON(value?: V1HpParams | null): any {
         return null;
     }
     return {
-
+        
         'choice': V1HpChoiceToJSON(value.choice),
         'pchoice': V1HpPChoiceToJSON(value.pchoice),
         'range': V1HpRangeToJSON(value.range),

@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -167,7 +153,7 @@ public class AuthV1Api {
 
     /**
      * Change password
-     *
+     * 
      * @param body  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -186,7 +172,7 @@ public class AuthV1Api {
 
     /**
      * Change password
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -207,7 +193,7 @@ public class AuthV1Api {
 
     /**
      * Change password (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -302,7 +288,7 @@ public class AuthV1Api {
 
     /**
      * Login
-     *
+     * 
      * @param body  (required)
      * @return V1Auth
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -323,7 +309,7 @@ public class AuthV1Api {
 
     /**
      * Login
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;V1Auth&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -345,7 +331,7 @@ public class AuthV1Api {
 
     /**
      * Login (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -441,7 +427,7 @@ public class AuthV1Api {
 
     /**
      * Reset password
-     *
+     * 
      * @param body  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -460,7 +446,7 @@ public class AuthV1Api {
 
     /**
      * Reset password
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -481,7 +467,7 @@ public class AuthV1Api {
 
     /**
      * Reset password (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -576,7 +562,7 @@ public class AuthV1Api {
 
     /**
      * Reset password confirm
-     *
+     * 
      * @param body  (required)
      * @return V1Auth
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -597,7 +583,7 @@ public class AuthV1Api {
 
     /**
      * Reset password confirm
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;V1Auth&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -619,7 +605,7 @@ public class AuthV1Api {
 
     /**
      * Reset password confirm (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -715,7 +701,7 @@ public class AuthV1Api {
 
     /**
      * Signup
-     *
+     * 
      * @param body  (required)
      * @return V1Auth
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -736,7 +722,7 @@ public class AuthV1Api {
 
     /**
      * Signup
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;V1Auth&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -758,7 +744,7 @@ public class AuthV1Api {
 
     /**
      * Signup (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -854,7 +840,7 @@ public class AuthV1Api {
 
     /**
      * Trial Start
-     *
+     * 
      * @param body  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -873,7 +859,7 @@ public class AuthV1Api {
 
     /**
      * Trial Start
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -894,7 +880,7 @@ public class AuthV1Api {
 
     /**
      * Trial Start (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

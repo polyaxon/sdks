@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -174,7 +160,7 @@ public class AgentsV1Api {
 
     /**
      * Create agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Agent body (required)
      * @return V1Agent
@@ -196,7 +182,7 @@ public class AgentsV1Api {
 
     /**
      * Create agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Agent body (required)
      * @return ApiResponse&lt;V1Agent&gt;
@@ -219,7 +205,7 @@ public class AgentsV1Api {
 
     /**
      * Create agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Agent body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -330,7 +316,7 @@ public class AgentsV1Api {
 
     /**
      * Create new agent status
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param body  (required)
@@ -353,7 +339,7 @@ public class AgentsV1Api {
 
     /**
      * Create new agent status
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param body  (required)
@@ -377,7 +363,7 @@ public class AgentsV1Api {
 
     /**
      * Create new agent status (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param body  (required)
@@ -487,7 +473,7 @@ public class AgentsV1Api {
 
     /**
      * Delete agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -508,7 +494,7 @@ public class AgentsV1Api {
 
     /**
      * Delete agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -531,7 +517,7 @@ public class AgentsV1Api {
 
     /**
      * Delete agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -640,7 +626,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -663,7 +649,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -687,7 +673,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -797,7 +783,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -820,7 +806,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -844,7 +830,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent config (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -949,7 +935,7 @@ public class AgentsV1Api {
 
     /**
      * Get State (queues/runs)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1AgentStateResponse
@@ -971,7 +957,7 @@ public class AgentsV1Api {
 
     /**
      * Get State (queues/runs)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1AgentStateResponse&gt;
@@ -994,7 +980,7 @@ public class AgentsV1Api {
 
     /**
      * Get State (queues/runs) (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1098,7 +1084,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Token
@@ -1120,7 +1106,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Token&gt;
@@ -1143,7 +1129,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1275,7 +1261,7 @@ public class AgentsV1Api {
 
     /**
      * List agents names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1303,7 +1289,7 @@ public class AgentsV1Api {
 
     /**
      * List agents names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1332,7 +1318,7 @@ public class AgentsV1Api {
 
     /**
      * List agents names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1470,7 +1456,7 @@ public class AgentsV1Api {
 
     /**
      * List agents
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1498,7 +1484,7 @@ public class AgentsV1Api {
 
     /**
      * List agents
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1527,7 +1513,7 @@ public class AgentsV1Api {
 
     /**
      * List agents (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1644,7 +1630,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1667,7 +1653,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1691,7 +1677,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1803,7 +1789,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -1826,7 +1812,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -1850,7 +1836,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -1962,7 +1948,7 @@ public class AgentsV1Api {
 
     /**
      * Sync agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1983,7 +1969,7 @@ public class AgentsV1Api {
 
     /**
      * Sync agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2006,7 +1992,7 @@ public class AgentsV1Api {
 
     /**
      * Sync agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2117,7 +2103,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2140,7 +2126,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2164,7 +2150,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2276,7 +2262,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2299,7 +2285,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2323,7 +2309,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent config (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2435,7 +2421,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -2458,7 +2444,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -2482,7 +2468,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)

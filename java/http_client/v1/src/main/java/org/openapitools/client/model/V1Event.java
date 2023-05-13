@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -137,7 +123,7 @@ public class V1Event {
   }
 
   public V1Event timestamp(OffsetDateTime timestamp) {
-
+    
     this.timestamp = timestamp;
     return this;
   }
@@ -159,7 +145,7 @@ public class V1Event {
 
 
   public V1Event step(Integer step) {
-
+    
     this.step = step;
     return this;
   }
@@ -181,7 +167,7 @@ public class V1Event {
 
 
   public V1Event metric(Float metric) {
-
+    
     this.metric = metric;
     return this;
   }
@@ -203,7 +189,7 @@ public class V1Event {
 
 
   public V1Event image(V1EventImage image) {
-
+    
     this.image = image;
     return this;
   }
@@ -225,7 +211,7 @@ public class V1Event {
 
 
   public V1Event histogram(V1EventHistogram histogram) {
-
+    
     this.histogram = histogram;
     return this;
   }
@@ -247,7 +233,7 @@ public class V1Event {
 
 
   public V1Event audio(V1EventAudio audio) {
-
+    
     this.audio = audio;
     return this;
   }
@@ -269,7 +255,7 @@ public class V1Event {
 
 
   public V1Event video(V1EventVideo video) {
-
+    
     this.video = video;
     return this;
   }
@@ -291,7 +277,7 @@ public class V1Event {
 
 
   public V1Event html(String html) {
-
+    
     this.html = html;
     return this;
   }
@@ -313,7 +299,7 @@ public class V1Event {
 
 
   public V1Event text(String text) {
-
+    
     this.text = text;
     return this;
   }
@@ -335,7 +321,7 @@ public class V1Event {
 
 
   public V1Event chart(V1EventChart chart) {
-
+    
     this.chart = chart;
     return this;
   }
@@ -357,7 +343,7 @@ public class V1Event {
 
 
   public V1Event model(V1EventModel model) {
-
+    
     this.model = model;
     return this;
   }
@@ -379,7 +365,7 @@ public class V1Event {
 
 
   public V1Event artifact(V1EventArtifact artifact) {
-
+    
     this.artifact = artifact;
     return this;
   }
@@ -401,7 +387,7 @@ public class V1Event {
 
 
   public V1Event dataframe(V1EventDataframe dataframe) {
-
+    
     this.dataframe = dataframe;
     return this;
   }
@@ -423,7 +409,7 @@ public class V1Event {
 
 
   public V1Event curve(V1EventCurve curve) {
-
+    
     this.curve = curve;
     return this;
   }
@@ -445,7 +431,7 @@ public class V1Event {
 
 
   public V1Event confusion(V1EventConfusionMatrix confusion) {
-
+    
     this.confusion = confusion;
     return this;
   }

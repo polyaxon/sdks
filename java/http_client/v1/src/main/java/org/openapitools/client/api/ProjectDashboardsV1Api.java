@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -177,7 +163,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Create project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Dashboard body (required)
@@ -200,7 +186,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Create project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Dashboard body (required)
@@ -224,7 +210,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Create project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param body Dashboard body (required)
@@ -336,7 +322,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Delete project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -357,7 +343,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Delete project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -380,7 +366,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Delete project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -491,7 +477,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Get project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -514,7 +500,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Get project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -538,7 +524,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Get project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -678,7 +664,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -707,7 +693,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -737,7 +723,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -883,7 +869,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboards
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -912,7 +898,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboards
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -942,7 +928,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboards (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param offset Pagination offset. (optional)
@@ -1067,7 +1053,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Patch project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param dashboardUuid UUID (required)
@@ -1091,7 +1077,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Patch project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param dashboardUuid UUID (required)
@@ -1116,7 +1102,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Patch project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param dashboardUuid UUID (required)
@@ -1229,7 +1215,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Promote project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1250,7 +1236,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Promote project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1273,7 +1259,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Promote project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1391,7 +1377,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Update project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param dashboardUuid UUID (required)
@@ -1415,7 +1401,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Update project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param dashboardUuid UUID (required)
@@ -1440,7 +1426,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Update project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namesapce (required)
      * @param dashboardUuid UUID (required)

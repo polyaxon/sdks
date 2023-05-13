@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -171,7 +157,7 @@ public class TagsV1Api {
 
     /**
      * Create tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Tag body (required)
      * @return V1Tag
@@ -193,7 +179,7 @@ public class TagsV1Api {
 
     /**
      * Create tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Tag body (required)
      * @return ApiResponse&lt;V1Tag&gt;
@@ -216,7 +202,7 @@ public class TagsV1Api {
 
     /**
      * Create tag (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Tag body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -325,7 +311,7 @@ public class TagsV1Api {
 
     /**
      * Delete tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param cascade Flag to handle sub-entities. (optional)
@@ -346,7 +332,7 @@ public class TagsV1Api {
 
     /**
      * Delete tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param cascade Flag to handle sub-entities. (optional)
@@ -369,7 +355,7 @@ public class TagsV1Api {
 
     /**
      * Delete tag (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param cascade Flag to handle sub-entities. (optional)
@@ -473,7 +459,7 @@ public class TagsV1Api {
 
     /**
      * Get tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Tag
@@ -495,7 +481,7 @@ public class TagsV1Api {
 
     /**
      * Get tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Tag&gt;
@@ -518,7 +504,7 @@ public class TagsV1Api {
 
     /**
      * Get tag (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -650,7 +636,7 @@ public class TagsV1Api {
 
     /**
      * List tags
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -678,7 +664,7 @@ public class TagsV1Api {
 
     /**
      * List tags
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -707,7 +693,7 @@ public class TagsV1Api {
 
     /**
      * List tags (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -845,7 +831,7 @@ public class TagsV1Api {
 
     /**
      * Load tags
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -873,7 +859,7 @@ public class TagsV1Api {
 
     /**
      * Load tags
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -902,7 +888,7 @@ public class TagsV1Api {
 
     /**
      * Load tags (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1019,7 +1005,7 @@ public class TagsV1Api {
 
     /**
      * Patch tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1042,7 +1028,7 @@ public class TagsV1Api {
 
     /**
      * Patch tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1066,7 +1052,7 @@ public class TagsV1Api {
 
     /**
      * Patch tag (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1171,7 +1157,7 @@ public class TagsV1Api {
 
     /**
      * Sync tags
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1191,7 +1177,7 @@ public class TagsV1Api {
 
     /**
      * Sync tags
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1213,7 +1199,7 @@ public class TagsV1Api {
 
     /**
      * Sync tags (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1323,7 +1309,7 @@ public class TagsV1Api {
 
     /**
      * Update tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1346,7 +1332,7 @@ public class TagsV1Api {
 
     /**
      * Update tag
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)
@@ -1370,7 +1356,7 @@ public class TagsV1Api {
 
     /**
      * Update tag (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param tagUuid UUID (required)
      * @param body Tag body (required)

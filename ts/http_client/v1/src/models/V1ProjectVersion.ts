@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -47,61 +33,61 @@ import {
 } from './V1Stages';
 
 /**
- *
+ * 
  * @export
  * @interface V1ProjectVersion
  */
 export interface V1ProjectVersion {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ProjectVersion
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     project?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     connection?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     run?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ProjectVersion
      */
@@ -113,55 +99,55 @@ export interface V1ProjectVersion {
      */
     meta_info?: object;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1ProjectVersion
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1ProjectVersion
      */
     updated_at?: Date;
     /**
-     *
+     * 
      * @type {V1Stages}
      * @memberof V1ProjectVersion
      */
     stage?: V1Stages;
     /**
-     *
+     * 
      * @type {V1ProjectVersionKind}
      * @memberof V1ProjectVersion
      */
     kind?: V1ProjectVersionKind;
     /**
-     *
+     * 
      * @type {Array<V1StageCondition>}
      * @memberof V1ProjectVersion
      */
     stage_conditions?: Array<V1StageCondition>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     content?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     readme?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
     state?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ProjectVersion
      */
@@ -186,7 +172,7 @@ export function V1ProjectVersionFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -217,7 +203,7 @@ export function V1ProjectVersionToJSON(value?: V1ProjectVersion | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

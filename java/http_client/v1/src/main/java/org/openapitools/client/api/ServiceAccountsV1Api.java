@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -172,7 +158,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body ServiceAccount body (required)
      * @return V1ServiceAccount
@@ -194,7 +180,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body ServiceAccount body (required)
      * @return ApiResponse&lt;V1ServiceAccount&gt;
@@ -217,7 +203,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body ServiceAccount body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -328,7 +314,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -351,7 +337,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -375,7 +361,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Create service account token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -480,7 +466,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -500,7 +486,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;Void&gt;
@@ -522,7 +508,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -632,7 +618,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -653,7 +639,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -676,7 +662,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Delete service account token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -780,7 +766,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1ServiceAccount
@@ -802,7 +788,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1ServiceAccount&gt;
@@ -825,7 +811,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -936,7 +922,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -959,7 +945,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -983,7 +969,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Get service account token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1116,7 +1102,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1144,7 +1130,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1173,7 +1159,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1313,7 +1299,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service account tokens
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param entity Entity name under namesapce. (optional)
@@ -1341,7 +1327,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service account tokens
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param entity Entity name under namesapce. (optional)
@@ -1370,7 +1356,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service account tokens (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param entity Entity name under namesapce. (optional)
@@ -1508,7 +1494,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1536,7 +1522,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1565,7 +1551,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * List service accounts (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1682,7 +1668,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1705,7 +1691,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1729,7 +1715,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -1848,7 +1834,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -1872,7 +1858,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -1897,7 +1883,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Patch service account token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -2010,7 +1996,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -2033,7 +2019,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -2057,7 +2043,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param saUuid UUID (required)
      * @param body ServiceAccount body (required)
@@ -2176,7 +2162,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -2200,7 +2186,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)
@@ -2225,7 +2211,7 @@ public class ServiceAccountsV1Api {
 
     /**
      * Update service account token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param tokenUuid UUID (required)

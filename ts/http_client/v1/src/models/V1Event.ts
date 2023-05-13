@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -89,13 +75,13 @@ import {
 } from './V1EventVideo';
 
 /**
- *
+ * 
  * @export
  * @interface V1Event
  */
 export interface V1Event {
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Event
      */
@@ -107,79 +93,79 @@ export interface V1Event {
      */
     step?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Event
      */
     metric?: number;
     /**
-     *
+     * 
      * @type {V1EventImage}
      * @memberof V1Event
      */
     image?: V1EventImage;
     /**
-     *
+     * 
      * @type {V1EventHistogram}
      * @memberof V1Event
      */
     histogram?: V1EventHistogram;
     /**
-     *
+     * 
      * @type {V1EventAudio}
      * @memberof V1Event
      */
     audio?: V1EventAudio;
     /**
-     *
+     * 
      * @type {V1EventVideo}
      * @memberof V1Event
      */
     video?: V1EventVideo;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Event
      */
     html?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Event
      */
     text?: string;
     /**
-     *
+     * 
      * @type {V1EventChart}
      * @memberof V1Event
      */
     chart?: V1EventChart;
     /**
-     *
+     * 
      * @type {V1EventModel}
      * @memberof V1Event
      */
     model?: V1EventModel;
     /**
-     *
+     * 
      * @type {V1EventArtifact}
      * @memberof V1Event
      */
     artifact?: V1EventArtifact;
     /**
-     *
+     * 
      * @type {V1EventDataframe}
      * @memberof V1Event
      */
     dataframe?: V1EventDataframe;
     /**
-     *
+     * 
      * @type {V1EventCurve}
      * @memberof V1Event
      */
     curve?: V1EventCurve;
     /**
-     *
+     * 
      * @type {V1EventConfusionMatrix}
      * @memberof V1Event
      */
@@ -204,7 +190,7 @@ export function V1EventFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'timestamp': !exists(json, 'timestamp') ? undefined : (new Date(json['timestamp'])),
         'step': !exists(json, 'step') ? undefined : json['step'],
         'metric': !exists(json, 'metric') ? undefined : json['metric'],
@@ -231,7 +217,7 @@ export function V1EventToJSON(value?: V1Event | null): any {
         return null;
     }
     return {
-
+        
         'timestamp': value.timestamp === undefined ? undefined : (value.timestamp.toISOString()),
         'step': value.step,
         'metric': value.metric,

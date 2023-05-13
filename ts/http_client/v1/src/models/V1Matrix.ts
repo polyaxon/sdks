@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -71,49 +57,49 @@ import {
 } from './V1RandomSearch';
 
 /**
- *
+ * 
  * @export
  * @interface V1Matrix
  */
 export interface V1Matrix {
     /**
-     *
+     * 
      * @type {V1RandomSearch}
      * @memberof V1Matrix
      */
     random?: V1RandomSearch;
     /**
-     *
+     * 
      * @type {V1GridSearch}
      * @memberof V1Matrix
      */
     grid?: V1GridSearch;
     /**
-     *
+     * 
      * @type {V1Hyperband}
      * @memberof V1Matrix
      */
     hyperband?: V1Hyperband;
     /**
-     *
+     * 
      * @type {V1Bayes}
      * @memberof V1Matrix
      */
     bayes?: V1Bayes;
     /**
-     *
+     * 
      * @type {V1Hyperopt}
      * @memberof V1Matrix
      */
     hyperopt?: V1Hyperopt;
     /**
-     *
+     * 
      * @type {V1Iterative}
      * @memberof V1Matrix
      */
     iterative?: V1Iterative;
     /**
-     *
+     * 
      * @type {V1Mapping}
      * @memberof V1Matrix
      */
@@ -138,7 +124,7 @@ export function V1MatrixFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-
+        
         'random': !exists(json, 'random') ? undefined : V1RandomSearchFromJSON(json['random']),
         'grid': !exists(json, 'grid') ? undefined : V1GridSearchFromJSON(json['grid']),
         'hyperband': !exists(json, 'hyperband') ? undefined : V1HyperbandFromJSON(json['hyperband']),
@@ -157,7 +143,7 @@ export function V1MatrixToJSON(value?: V1Matrix | null): any {
         return null;
     }
     return {
-
+        
         'random': V1RandomSearchToJSON(value.random),
         'grid': V1GridSearchToJSON(value.grid),
         'hyperband': V1HyperbandToJSON(value.hyperband),

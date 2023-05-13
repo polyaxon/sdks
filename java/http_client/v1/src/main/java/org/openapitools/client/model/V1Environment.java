@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -142,7 +128,7 @@ public class V1Environment {
   }
 
   public V1Environment labels(Map<String, String> labels) {
-
+    
     this.labels = labels;
     return this;
   }
@@ -172,7 +158,7 @@ public class V1Environment {
 
 
   public V1Environment annotations(Map<String, String> annotations) {
-
+    
     this.annotations = annotations;
     return this;
   }
@@ -202,7 +188,7 @@ public class V1Environment {
 
 
   public V1Environment nodeSelector(Map<String, String> nodeSelector) {
-
+    
     this.nodeSelector = nodeSelector;
     return this;
   }
@@ -232,7 +218,7 @@ public class V1Environment {
 
 
   public V1Environment affinity(Object affinity) {
-
+    
     this.affinity = affinity;
     return this;
   }
@@ -254,7 +240,7 @@ public class V1Environment {
 
 
   public V1Environment tolerations(List<Object> tolerations) {
-
+    
     this.tolerations = tolerations;
     return this;
   }
@@ -284,7 +270,7 @@ public class V1Environment {
 
 
   public V1Environment nodeName(String nodeName) {
-
+    
     this.nodeName = nodeName;
     return this;
   }
@@ -306,7 +292,7 @@ public class V1Environment {
 
 
   public V1Environment serviceAccountName(String serviceAccountName) {
-
+    
     this.serviceAccountName = serviceAccountName;
     return this;
   }
@@ -328,7 +314,7 @@ public class V1Environment {
 
 
   public V1Environment hostAliases(List<Object> hostAliases) {
-
+    
     this.hostAliases = hostAliases;
     return this;
   }
@@ -358,7 +344,7 @@ public class V1Environment {
 
 
   public V1Environment securityContext(Object securityContext) {
-
+    
     this.securityContext = securityContext;
     return this;
   }
@@ -380,7 +366,7 @@ public class V1Environment {
 
 
   public V1Environment imagePullSecrets(List<String> imagePullSecrets) {
-
+    
     this.imagePullSecrets = imagePullSecrets;
     return this;
   }
@@ -410,7 +396,7 @@ public class V1Environment {
 
 
   public V1Environment hostNetwork(Boolean hostNetwork) {
-
+    
     this.hostNetwork = hostNetwork;
     return this;
   }
@@ -432,7 +418,7 @@ public class V1Environment {
 
 
   public V1Environment hostPID(String hostPID) {
-
+    
     this.hostPID = hostPID;
     return this;
   }
@@ -454,7 +440,7 @@ public class V1Environment {
 
 
   public V1Environment dnsPolicy(String dnsPolicy) {
-
+    
     this.dnsPolicy = dnsPolicy;
     return this;
   }
@@ -476,7 +462,7 @@ public class V1Environment {
 
 
   public V1Environment dnsConfig(Object dnsConfig) {
-
+    
     this.dnsConfig = dnsConfig;
     return this;
   }
@@ -498,7 +484,7 @@ public class V1Environment {
 
 
   public V1Environment schedulerName(String schedulerName) {
-
+    
     this.schedulerName = schedulerName;
     return this;
   }
@@ -520,7 +506,7 @@ public class V1Environment {
 
 
   public V1Environment priorityClassName(String priorityClassName) {
-
+    
     this.priorityClassName = priorityClassName;
     return this;
   }
@@ -542,7 +528,7 @@ public class V1Environment {
 
 
   public V1Environment priority(Integer priority) {
-
+    
     this.priority = priority;
     return this;
   }
@@ -564,7 +550,7 @@ public class V1Environment {
 
 
   public V1Environment restartPolicy(String restartPolicy) {
-
+    
     this.restartPolicy = restartPolicy;
     return this;
   }

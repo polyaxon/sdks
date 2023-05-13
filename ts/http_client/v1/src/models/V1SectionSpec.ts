@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -28,49 +14,49 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1SectionSpec
  */
 export interface V1SectionSpec {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SectionSpec
      */
     name?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1SectionSpec
      */
     is_minimized?: boolean;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
     columns?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
     height?: number;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1SectionSpec
      */
     widgets?: Array<object>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
     pageIndex?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SectionSpec
      */
@@ -95,7 +81,7 @@ export function V1SectionSpecFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'is_minimized': !exists(json, 'is_minimized') ? undefined : json['is_minimized'],
         'columns': !exists(json, 'columns') ? undefined : json['columns'],
@@ -114,7 +100,7 @@ export function V1SectionSpecToJSON(value?: V1SectionSpec | null): any {
         return null;
     }
     return {
-
+        
         'name': value.name,
         'is_minimized': value.is_minimized,
         'columns': value.columns,

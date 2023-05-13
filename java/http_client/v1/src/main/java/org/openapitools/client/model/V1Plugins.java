@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -122,7 +108,7 @@ public class V1Plugins {
   }
 
   public V1Plugins auth(Boolean auth) {
-
+    
     this.auth = auth;
     return this;
   }
@@ -144,7 +130,7 @@ public class V1Plugins {
 
 
   public V1Plugins docker(Boolean docker) {
-
+    
     this.docker = docker;
     return this;
   }
@@ -166,7 +152,7 @@ public class V1Plugins {
 
 
   public V1Plugins shm(Boolean shm) {
-
+    
     this.shm = shm;
     return this;
   }
@@ -188,7 +174,7 @@ public class V1Plugins {
 
 
   public V1Plugins mountArtifactsStore(Boolean mountArtifactsStore) {
-
+    
     this.mountArtifactsStore = mountArtifactsStore;
     return this;
   }
@@ -210,7 +196,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectArtifacts(Boolean collectArtifacts) {
-
+    
     this.collectArtifacts = collectArtifacts;
     return this;
   }
@@ -232,7 +218,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectLogs(Boolean collectLogs) {
-
+    
     this.collectLogs = collectLogs;
     return this;
   }
@@ -254,7 +240,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectResources(Boolean collectResources) {
-
+    
     this.collectResources = collectResources;
     return this;
   }
@@ -276,7 +262,7 @@ public class V1Plugins {
 
 
   public V1Plugins syncStatuses(Boolean syncStatuses) {
-
+    
     this.syncStatuses = syncStatuses;
     return this;
   }
@@ -298,7 +284,7 @@ public class V1Plugins {
 
 
   public V1Plugins autoResume(Boolean autoResume) {
-
+    
     this.autoResume = autoResume;
     return this;
   }
@@ -320,7 +306,7 @@ public class V1Plugins {
 
 
   public V1Plugins logLevel(String logLevel) {
-
+    
     this.logLevel = logLevel;
     return this;
   }
@@ -342,7 +328,7 @@ public class V1Plugins {
 
 
   public V1Plugins externalHost(Boolean externalHost) {
-
+    
     this.externalHost = externalHost;
     return this;
   }
@@ -364,7 +350,7 @@ public class V1Plugins {
 
 
   public V1Plugins sidecar(V1PolyaxonSidecarContainer sidecar) {
-
+    
     this.sidecar = sidecar;
     return this;
   }
@@ -386,7 +372,7 @@ public class V1Plugins {
 
 
   public V1Plugins notifications(List<V1Notification> notifications) {
-
+    
     this.notifications = notifications;
     return this;
   }

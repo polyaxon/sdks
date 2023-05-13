@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -124,7 +110,7 @@ public class V1SearchSpec {
   }
 
   public V1SearchSpec query(String query) {
-
+    
     this.query = query;
     return this;
   }
@@ -146,7 +132,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec sort(String sort) {
-
+    
     this.sort = sort;
     return this;
   }
@@ -168,7 +154,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec limit(Integer limit) {
-
+    
     this.limit = limit;
     return this;
   }
@@ -190,7 +176,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec offset(Integer offset) {
-
+    
     this.offset = offset;
     return this;
   }
@@ -212,7 +198,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec groupby(String groupby) {
-
+    
     this.groupby = groupby;
     return this;
   }
@@ -234,7 +220,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec columns(String columns) {
-
+    
     this.columns = columns;
     return this;
   }
@@ -256,7 +242,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec layout(String layout) {
-
+    
     this.layout = layout;
     return this;
   }
@@ -278,7 +264,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec sections(String sections) {
-
+    
     this.sections = sections;
     return this;
   }
@@ -300,7 +286,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec compares(String compares) {
-
+    
     this.compares = compares;
     return this;
   }
@@ -322,7 +308,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec heat(String heat) {
-
+    
     this.heat = heat;
     return this;
   }
@@ -344,7 +330,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec events(V1DashboardSpec events) {
-
+    
     this.events = events;
     return this;
   }
@@ -366,7 +352,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec histograms(Object histograms) {
-
+    
     this.histograms = histograms;
     return this;
   }
@@ -388,7 +374,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec trends(Object trends) {
-
+    
     this.trends = trends;
     return this;
   }
@@ -410,7 +396,7 @@ public class V1SearchSpec {
 
 
   public V1SearchSpec analytics(V1AnalyticsSpec analytics) {
-
+    
     this.analytics = analytics;
     return this;
   }

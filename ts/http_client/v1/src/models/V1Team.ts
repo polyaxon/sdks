@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -35,55 +21,55 @@ import {
 } from './V1TeamSettings';
 
 /**
- *
+ * 
  * @export
  * @interface V1Team
  */
 export interface V1Team {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Team
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Team
      */
     name?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Team
      */
     projects?: Array<string>;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Team
      */
     component_hubs?: Array<string>;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Team
      */
     model_registries?: Array<string>;
     /**
-     *
+     * 
      * @type {V1TeamSettings}
      * @memberof V1Team
      */
     settings?: V1TeamSettings;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Team
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Team
      */
@@ -108,7 +94,7 @@ export function V1TeamFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'projects': !exists(json, 'projects') ? undefined : json['projects'],
@@ -128,7 +114,7 @@ export function V1TeamToJSON(value?: V1Team | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'projects': value.projects,

@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -28,55 +14,55 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Activity
  */
 export interface V1Activity {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
     actor?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Activity
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
     event_action?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
     event_subject?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
     object_name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
     object_uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Activity
      */
@@ -101,7 +87,7 @@ export function V1ActivityFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'actor': !exists(json, 'actor') ? undefined : json['actor'],
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
@@ -121,7 +107,7 @@ export function V1ActivityToJSON(value?: V1Activity | null): any {
         return null;
     }
     return {
-
+        
         'actor': value.actor,
         'owner': value.owner,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),

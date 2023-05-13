@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -41,91 +27,91 @@ import {
 } from './V1DashboardSpec';
 
 /**
- *
+ * 
  * @export
  * @interface V1SearchSpec
  */
 export interface V1SearchSpec {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     query?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     sort?: string;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SearchSpec
      */
     limit?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1SearchSpec
      */
     offset?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     groupby?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     columns?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     layout?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     sections?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     compares?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1SearchSpec
      */
     heat?: string;
     /**
-     *
+     * 
      * @type {V1DashboardSpec}
      * @memberof V1SearchSpec
      */
     events?: V1DashboardSpec;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1SearchSpec
      */
     histograms?: object;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1SearchSpec
      */
     trends?: object;
     /**
-     *
+     * 
      * @type {V1AnalyticsSpec}
      * @memberof V1SearchSpec
      */
@@ -150,7 +136,7 @@ export function V1SearchSpecFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-
+        
         'query': !exists(json, 'query') ? undefined : json['query'],
         'sort': !exists(json, 'sort') ? undefined : json['sort'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
@@ -176,7 +162,7 @@ export function V1SearchSpecToJSON(value?: V1SearchSpec | null): any {
         return null;
     }
     return {
-
+        
         'query': value.query,
         'sort': value.sort,
         'limit': value.limit,

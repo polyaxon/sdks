@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -121,7 +107,7 @@ public class V1Init {
   }
 
   public V1Init artifacts(V1ArtifactsType artifacts) {
-
+    
     this.artifacts = artifacts;
     return this;
   }
@@ -143,7 +129,7 @@ public class V1Init {
 
 
   public V1Init paths(List<Object> paths) {
-
+    
     this.paths = paths;
     return this;
   }
@@ -173,7 +159,7 @@ public class V1Init {
 
 
   public V1Init git(V1GitType git) {
-
+    
     this.git = git;
     return this;
   }
@@ -195,7 +181,7 @@ public class V1Init {
 
 
   public V1Init dockerfile(V1DockerfileType dockerfile) {
-
+    
     this.dockerfile = dockerfile;
     return this;
   }
@@ -217,7 +203,7 @@ public class V1Init {
 
 
   public V1Init _file(V1FileType _file) {
-
+    
     this._file = _file;
     return this;
   }
@@ -239,7 +225,7 @@ public class V1Init {
 
 
   public V1Init tensorboard(V1TensorboardType tensorboard) {
-
+    
     this.tensorboard = tensorboard;
     return this;
   }
@@ -261,7 +247,7 @@ public class V1Init {
 
 
   public V1Init lineageRef(String lineageRef) {
-
+    
     this.lineageRef = lineageRef;
     return this;
   }
@@ -283,7 +269,7 @@ public class V1Init {
 
 
   public V1Init artifactRef(String artifactRef) {
-
+    
     this.artifactRef = artifactRef;
     return this;
   }
@@ -305,7 +291,7 @@ public class V1Init {
 
 
   public V1Init modelRef(String modelRef) {
-
+    
     this.modelRef = modelRef;
     return this;
   }
@@ -327,7 +313,7 @@ public class V1Init {
 
 
   public V1Init connection(String connection) {
-
+    
     this.connection = connection;
     return this;
   }
@@ -349,7 +335,7 @@ public class V1Init {
 
 
   public V1Init path(String path) {
-
+    
     this.path = path;
     return this;
   }
@@ -371,7 +357,7 @@ public class V1Init {
 
 
   public V1Init container(Object container) {
-
+    
     this.container = container;
     return this;
   }

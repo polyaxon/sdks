@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -35,43 +21,43 @@ import {
 } from './V1Statuses';
 
 /**
- *
+ * 
  * @export
  * @interface V1StatusCondition
  */
 export interface V1StatusCondition {
     /**
-     *
+     * 
      * @type {V1Statuses}
      * @memberof V1StatusCondition
      */
     type?: V1Statuses;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1StatusCondition
      */
     status?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1StatusCondition
      */
     reason?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1StatusCondition
      */
     message?: string;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1StatusCondition
      */
     last_update_time?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1StatusCondition
      */
@@ -96,7 +82,7 @@ export function V1StatusConditionFromJSONTyped(json: any, ignoreDiscriminator: b
         return json;
     }
     return {
-
+        
         'type': !exists(json, 'type') ? undefined : V1StatusesFromJSON(json['type']),
         'status': !exists(json, 'status') ? undefined : json['status'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
@@ -114,7 +100,7 @@ export function V1StatusConditionToJSON(value?: V1StatusCondition | null): any {
         return null;
     }
     return {
-
+        
         'type': V1StatusesToJSON(value.type),
         'status': value.status,
         'reason': value.reason,

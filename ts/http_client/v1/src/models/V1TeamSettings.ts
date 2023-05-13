@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -35,25 +21,25 @@ import {
 } from './V1SettingsCatalog';
 
 /**
- *
+ * 
  * @export
  * @interface V1TeamSettings
  */
 export interface V1TeamSettings {
     /**
-     *
+     * 
      * @type {Array<V1SettingsCatalog>}
      * @memberof V1TeamSettings
      */
     projects?: Array<V1SettingsCatalog>;
     /**
-     *
+     * 
      * @type {Array<V1SettingsCatalog>}
      * @memberof V1TeamSettings
      */
     hubs?: Array<V1SettingsCatalog>;
     /**
-     *
+     * 
      * @type {Array<V1SettingsCatalog>}
      * @memberof V1TeamSettings
      */
@@ -78,7 +64,7 @@ export function V1TeamSettingsFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-
+        
         'projects': !exists(json, 'projects') ? undefined : ((json['projects'] as Array<any>).map(V1SettingsCatalogFromJSON)),
         'hubs': !exists(json, 'hubs') ? undefined : ((json['hubs'] as Array<any>).map(V1SettingsCatalogFromJSON)),
         'registries': !exists(json, 'registries') ? undefined : ((json['registries'] as Array<any>).map(V1SettingsCatalogFromJSON)),
@@ -93,7 +79,7 @@ export function V1TeamSettingsToJSON(value?: V1TeamSettings | null): any {
         return null;
     }
     return {
-
+        
         'projects': value.projects === undefined ? undefined : ((value.projects as Array<any>).map(V1SettingsCatalogToJSON)),
         'hubs': value.hubs === undefined ? undefined : ((value.hubs as Array<any>).map(V1SettingsCatalogToJSON)),
         'registries': value.registries === undefined ? undefined : ((value.registries as Array<any>).map(V1SettingsCatalogToJSON)),

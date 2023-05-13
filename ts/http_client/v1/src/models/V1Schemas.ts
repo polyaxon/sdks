@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -173,151 +159,151 @@ import {
 } from './V1WasbType';
 
 /**
- *
+ * 
  * @export
  * @interface V1Schemas
  */
 export interface V1Schemas {
     /**
-     *
+     * 
      * @type {V1EarlyStopping}
      * @memberof V1Schemas
      */
     earlyStopping?: V1EarlyStopping;
     /**
-     *
+     * 
      * @type {V1Matrix}
      * @memberof V1Schemas
      */
     matrix?: V1Matrix;
     /**
-     *
+     * 
      * @type {V1RunSchema}
      * @memberof V1Schemas
      */
     run?: V1RunSchema;
     /**
-     *
+     * 
      * @type {V1Operation}
      * @memberof V1Schemas
      */
     operation?: V1Operation;
     /**
-     *
+     * 
      * @type {V1CompiledOperation}
      * @memberof V1Schemas
      */
     compiledOperation?: V1CompiledOperation;
     /**
-     *
+     * 
      * @type {V1Schedule}
      * @memberof V1Schemas
      */
     schedule?: V1Schedule;
     /**
-     *
+     * 
      * @type {V1ConnectionSchema}
      * @memberof V1Schemas
      */
     connectionSchema?: V1ConnectionSchema;
     /**
-     *
+     * 
      * @type {V1HpParams}
      * @memberof V1Schemas
      */
     hpParams?: V1HpParams;
     /**
-     *
+     * 
      * @type {V1Reference}
      * @memberof V1Schemas
      */
     reference?: V1Reference;
     /**
-     *
+     * 
      * @type {V1ArtifactsMount}
      * @memberof V1Schemas
      */
     artifactsMount?: V1ArtifactsMount;
     /**
-     *
+     * 
      * @type {V1PolyaxonSidecarContainer}
      * @memberof V1Schemas
      */
     polyaxonSidecarContainer?: V1PolyaxonSidecarContainer;
     /**
-     *
+     * 
      * @type {V1PolyaxonInitContainer}
      * @memberof V1Schemas
      */
     polyaxonInitContainer?: V1PolyaxonInitContainer;
     /**
-     *
+     * 
      * @type {V1ArtifactsType}
      * @memberof V1Schemas
      */
     artifacs?: V1ArtifactsType;
     /**
-     *
+     * 
      * @type {V1WasbType}
      * @memberof V1Schemas
      */
     wasb?: V1WasbType;
     /**
-     *
+     * 
      * @type {V1GcsType}
      * @memberof V1Schemas
      */
     gcs?: V1GcsType;
     /**
-     *
+     * 
      * @type {V1S3Type}
      * @memberof V1Schemas
      */
     s3?: V1S3Type;
     /**
-     *
+     * 
      * @type {V1AuthType}
      * @memberof V1Schemas
      */
     auth?: V1AuthType;
     /**
-     *
+     * 
      * @type {V1UriType}
      * @memberof V1Schemas
      */
     uri?: V1UriType;
     /**
-     *
+     * 
      * @type {V1ConnectionResource}
      * @memberof V1Schemas
      */
     resource?: V1ConnectionResource;
     /**
-     *
+     * 
      * @type {V1ConnectionType}
      * @memberof V1Schemas
      */
     connection?: V1ConnectionType;
     /**
-     *
+     * 
      * @type {V1EventType}
      * @memberof V1Schemas
      */
     eventType?: V1EventType;
     /**
-     *
+     * 
      * @type {V1MatrixKind}
      * @memberof V1Schemas
      */
     matrixKind?: V1MatrixKind;
     /**
-     *
+     * 
      * @type {V1ScheduleKind}
      * @memberof V1Schemas
      */
     scheduleKind?: V1ScheduleKind;
     /**
-     *
+     * 
      * @type {V1Event}
      * @memberof V1Schemas
      */
@@ -342,7 +328,7 @@ export function V1SchemasFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'earlyStopping': !exists(json, 'earlyStopping') ? undefined : V1EarlyStoppingFromJSON(json['earlyStopping']),
         'matrix': !exists(json, 'matrix') ? undefined : V1MatrixFromJSON(json['matrix']),
         'run': !exists(json, 'run') ? undefined : V1RunSchemaFromJSON(json['run']),
@@ -378,7 +364,7 @@ export function V1SchemasToJSON(value?: V1Schemas | null): any {
         return null;
     }
     return {
-
+        
         'earlyStopping': V1EarlyStoppingToJSON(value.earlyStopping),
         'matrix': V1MatrixToJSON(value.matrix),
         'run': V1RunSchemaToJSON(value.run),

@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -35,31 +21,31 @@ import {
 } from './V1ServiceAccount';
 
 /**
- *
+ * 
  * @export
  * @interface V1ListServiceAccountsResponse
  */
 export interface V1ListServiceAccountsResponse {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1ListServiceAccountsResponse
      */
     count?: number;
     /**
-     *
+     * 
      * @type {Array<V1ServiceAccount>}
      * @memberof V1ListServiceAccountsResponse
      */
     results?: Array<V1ServiceAccount>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListServiceAccountsResponse
      */
     previous?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1ListServiceAccountsResponse
      */
@@ -84,7 +70,7 @@ export function V1ListServiceAccountsResponseFromJSONTyped(json: any, ignoreDisc
         return json;
     }
     return {
-
+        
         'count': !exists(json, 'count') ? undefined : json['count'],
         'results': !exists(json, 'results') ? undefined : ((json['results'] as Array<any>).map(V1ServiceAccountFromJSON)),
         'previous': !exists(json, 'previous') ? undefined : json['previous'],
@@ -100,7 +86,7 @@ export function V1ListServiceAccountsResponseToJSON(value?: V1ListServiceAccount
         return null;
     }
     return {
-
+        
         'count': value.count,
         'results': value.results === undefined ? undefined : ((value.results as Array<any>).map(V1ServiceAccountToJSON)),
         'previous': value.previous,

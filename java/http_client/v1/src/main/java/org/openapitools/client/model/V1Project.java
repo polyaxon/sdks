@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -130,7 +116,7 @@ public class V1Project {
   }
 
   public V1Project uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -152,7 +138,7 @@ public class V1Project {
 
 
   public V1Project owner(String owner) {
-
+    
     this.owner = owner;
     return this;
   }
@@ -174,7 +160,7 @@ public class V1Project {
 
 
   public V1Project name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -196,7 +182,7 @@ public class V1Project {
 
 
   public V1Project description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -218,7 +204,7 @@ public class V1Project {
 
 
   public V1Project tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -248,7 +234,7 @@ public class V1Project {
 
 
   public V1Project createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -270,7 +256,7 @@ public class V1Project {
 
 
   public V1Project updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -292,7 +278,7 @@ public class V1Project {
 
 
   public V1Project isPublic(Boolean isPublic) {
-
+    
     this.isPublic = isPublic;
     return this;
   }
@@ -314,7 +300,7 @@ public class V1Project {
 
 
   public V1Project bookmarked(Boolean bookmarked) {
-
+    
     this.bookmarked = bookmarked;
     return this;
   }
@@ -336,7 +322,7 @@ public class V1Project {
 
 
   public V1Project readme(String readme) {
-
+    
     this.readme = readme;
     return this;
   }
@@ -358,7 +344,7 @@ public class V1Project {
 
 
   public V1Project excludedFeatures(List<String> excludedFeatures) {
-
+    
     this.excludedFeatures = excludedFeatures;
     return this;
   }
@@ -388,7 +374,7 @@ public class V1Project {
 
 
   public V1Project excludedRuntimes(List<String> excludedRuntimes) {
-
+    
     this.excludedRuntimes = excludedRuntimes;
     return this;
   }
@@ -418,7 +404,7 @@ public class V1Project {
 
 
   public V1Project settings(V1ProjectSettings settings) {
-
+    
     this.settings = settings;
     return this;
   }
@@ -440,7 +426,7 @@ public class V1Project {
 
 
   public V1Project role(String role) {
-
+    
     this.role = role;
     return this;
   }
@@ -462,7 +448,7 @@ public class V1Project {
 
 
   public V1Project liveState(Integer liveState) {
-
+    
     this.liveState = liveState;
     return this;
   }

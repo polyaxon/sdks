@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -170,7 +156,7 @@ public class DashboardsV1Api {
 
     /**
      * Create dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Dashboard body (required)
      * @return V1Dashboard
@@ -192,7 +178,7 @@ public class DashboardsV1Api {
 
     /**
      * Create dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Dashboard body (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
@@ -215,7 +201,7 @@ public class DashboardsV1Api {
 
     /**
      * Create dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Dashboard body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -319,7 +305,7 @@ public class DashboardsV1Api {
 
     /**
      * Delete dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -339,7 +325,7 @@ public class DashboardsV1Api {
 
     /**
      * Delete dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;Void&gt;
@@ -361,7 +347,7 @@ public class DashboardsV1Api {
 
     /**
      * Delete dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -464,7 +450,7 @@ public class DashboardsV1Api {
 
     /**
      * Get dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Dashboard
@@ -486,7 +472,7 @@ public class DashboardsV1Api {
 
     /**
      * Get dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
@@ -509,7 +495,7 @@ public class DashboardsV1Api {
 
     /**
      * Get dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -641,7 +627,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboard names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -669,7 +655,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboard names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -698,7 +684,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboard names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -836,7 +822,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboards
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -864,7 +850,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboards
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -893,7 +879,7 @@ public class DashboardsV1Api {
 
     /**
      * List dashboards (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1010,7 +996,7 @@ public class DashboardsV1Api {
 
     /**
      * Patch dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1033,7 +1019,7 @@ public class DashboardsV1Api {
 
     /**
      * Patch dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1057,7 +1043,7 @@ public class DashboardsV1Api {
 
     /**
      * Patch dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1169,7 +1155,7 @@ public class DashboardsV1Api {
 
     /**
      * Update dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1192,7 +1178,7 @@ public class DashboardsV1Api {
 
     /**
      * Update dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
@@ -1216,7 +1202,7 @@ public class DashboardsV1Api {
 
     /**
      * Update dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)

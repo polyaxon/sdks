@@ -4,7 +4,7 @@ info:
     email: contact@polyaxon.com
     name: Polyaxon sdk
     url: https://github.com/polyaxon/polyaxon
-  description: Polyaxon SDKs and REST API specification.
+  description: '   '
   title: Polyaxon SDKs and REST API specification.
   version: 2.0.0-rc14
 servers:

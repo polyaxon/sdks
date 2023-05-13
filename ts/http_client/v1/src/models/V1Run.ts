@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -77,223 +63,223 @@ import {
 } from './V1Statuses';
 
 /**
- *
+ * 
  * @export
  * @interface V1Run
  */
 export interface V1Run {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Run
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     user?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     project?: string;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Run
      */
     schedule_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Run
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Run
      */
     updated_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Run
      */
     started_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Run
      */
     finished_at?: Date;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Run
      */
     wait_time?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Run
      */
     duration?: number;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Run
      */
     is_managed?: boolean;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Run
      */
     is_approved?: boolean;
     /**
-     *
+     * 
      * @type {V1RunPending}
      * @memberof V1Run
      */
     pending?: V1RunPending;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     content?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     raw_content?: string;
     /**
-     *
+     * 
      * @type {V1Statuses}
      * @memberof V1Run
      */
     status?: V1Statuses;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Run
      */
     bookmarked?: boolean;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Run
      */
     live_state?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     readme?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Run
      */
     meta_info?: object;
     /**
-     *
+     * 
      * @type {V1RunKind}
      * @memberof V1Run
      */
     kind?: V1RunKind;
     /**
-     *
+     * 
      * @type {V1RunKind}
      * @memberof V1Run
      */
     runtime?: V1RunKind;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Run
      */
     inputs?: object;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Run
      */
     outputs?: object;
     /**
-     *
+     * 
      * @type {V1Cloning}
      * @memberof V1Run
      */
     original?: V1Cloning;
     /**
-     *
+     * 
      * @type {V1Pipeline}
      * @memberof V1Run
      */
     pipeline?: V1Pipeline;
     /**
-     *
+     * 
      * @type {Array<V1StatusCondition>}
      * @memberof V1Run
      */
     status_conditions?: Array<V1StatusCondition>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Run
      */
     role?: string;
     /**
-     *
+     * 
      * @type {V1RunSettings}
      * @memberof V1Run
      */
     settings?: V1RunSettings;
     /**
-     *
+     * 
      * @type {V1RunResources}
      * @memberof V1Run
      */
     resources?: V1RunResources;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Run
      */
     graph?: object;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Run
      */
@@ -318,7 +304,7 @@ export function V1RunFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1R
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -366,7 +352,7 @@ export function V1RunToJSON(value?: V1Run | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

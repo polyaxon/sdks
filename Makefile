@@ -185,16 +185,16 @@ swagger-to-openapi-v3:
 
 swagger-generate: swagger-to-openapi-v3 \
 	generate-go-swagger \
-	autogen-go \
 	generate-js-swagger \
-	autogen-js \
 	generate-ts-swagger \
-	autogen-ts \
 	generate-java-swagger \
-	autogen-java \
 	generate-py-swagger \
-	autogen-py \
 	swagger-clean
+	# autogen-go \
+	# autogen-js \
+	# autogen-ts \
+	# autogen-java \
+	# autogen-py \
 	# generate-html-openapi
 
 swagger-concat:

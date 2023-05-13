@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -170,7 +156,7 @@ public class PresetsV1Api {
 
     /**
      * Create scheduling presets
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Preset body (required)
      * @return V1Preset
@@ -192,7 +178,7 @@ public class PresetsV1Api {
 
     /**
      * Create scheduling presets
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Preset body (required)
      * @return ApiResponse&lt;V1Preset&gt;
@@ -215,7 +201,7 @@ public class PresetsV1Api {
 
     /**
      * Create scheduling presets (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Preset body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -324,7 +310,7 @@ public class PresetsV1Api {
 
     /**
      * Delete scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -345,7 +331,7 @@ public class PresetsV1Api {
 
     /**
      * Delete scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -368,7 +354,7 @@ public class PresetsV1Api {
 
     /**
      * Delete scheduling preset (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -477,7 +463,7 @@ public class PresetsV1Api {
 
     /**
      * Get scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -500,7 +486,7 @@ public class PresetsV1Api {
 
     /**
      * Get scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -524,7 +510,7 @@ public class PresetsV1Api {
 
     /**
      * Get scheduling preset (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -657,7 +643,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -685,7 +671,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -714,7 +700,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -852,7 +838,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -880,7 +866,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -909,7 +895,7 @@ public class PresetsV1Api {
 
     /**
      * List scheduling presets (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1026,7 +1012,7 @@ public class PresetsV1Api {
 
     /**
      * Patch scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1049,7 +1035,7 @@ public class PresetsV1Api {
 
     /**
      * Patch scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1073,7 +1059,7 @@ public class PresetsV1Api {
 
     /**
      * Patch scheduling preset (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1185,7 +1171,7 @@ public class PresetsV1Api {
 
     /**
      * Update scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1208,7 +1194,7 @@ public class PresetsV1Api {
 
     /**
      * Update scheduling preset
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)
@@ -1232,7 +1218,7 @@ public class PresetsV1Api {
 
     /**
      * Update scheduling preset (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param presetUuid UUID (required)
      * @param body Preset body (required)

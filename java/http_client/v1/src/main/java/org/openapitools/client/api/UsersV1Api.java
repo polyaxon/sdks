@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -165,7 +151,7 @@ public class UsersV1Api {
 
     /**
      * Create token
-     *
+     * 
      * @param body Token body (required)
      * @return V1Token
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -186,7 +172,7 @@ public class UsersV1Api {
 
     /**
      * Create token
-     *
+     * 
      * @param body Token body (required)
      * @return ApiResponse&lt;V1Token&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -208,7 +194,7 @@ public class UsersV1Api {
 
     /**
      * Create token (asynchronously)
-     *
+     * 
      * @param body Token body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -304,7 +290,7 @@ public class UsersV1Api {
 
     /**
      * Delete token
-     *
+     * 
      * @param uuid UUid of the namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -323,7 +309,7 @@ public class UsersV1Api {
 
     /**
      * Delete token
-     *
+     * 
      * @param uuid UUid of the namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -344,7 +330,7 @@ public class UsersV1Api {
 
     /**
      * Delete token (asynchronously)
-     *
+     * 
      * @param uuid UUid of the namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -457,7 +443,7 @@ public class UsersV1Api {
 
     /**
      * User History
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -482,7 +468,7 @@ public class UsersV1Api {
 
     /**
      * User History
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -508,7 +494,7 @@ public class UsersV1Api {
 
     /**
      * User History (asynchronously)
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -626,7 +612,7 @@ public class UsersV1Api {
 
     /**
      * User suggestions
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -651,7 +637,7 @@ public class UsersV1Api {
 
     /**
      * User suggestions
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -677,7 +663,7 @@ public class UsersV1Api {
 
     /**
      * User suggestions (asynchronously)
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -777,7 +763,7 @@ public class UsersV1Api {
 
     /**
      * Get token
-     *
+     * 
      * @param uuid UUid of the namespace (required)
      * @return V1Token
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -798,7 +784,7 @@ public class UsersV1Api {
 
     /**
      * Get token
-     *
+     * 
      * @param uuid UUid of the namespace (required)
      * @return ApiResponse&lt;V1Token&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -820,7 +806,7 @@ public class UsersV1Api {
 
     /**
      * Get token (asynchronously)
-     *
+     * 
      * @param uuid UUid of the namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -909,7 +895,7 @@ public class UsersV1Api {
 
     /**
      * Get current user
-     *
+     * 
      * @return V1User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -929,7 +915,7 @@ public class UsersV1Api {
 
     /**
      * Get current user
-     *
+     * 
      * @return ApiResponse&lt;V1User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -950,7 +936,7 @@ public class UsersV1Api {
 
     /**
      * Get current user (asynchronously)
-     *
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1063,7 +1049,7 @@ public class UsersV1Api {
 
     /**
      * List tokens
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -1088,7 +1074,7 @@ public class UsersV1Api {
 
     /**
      * List tokens
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -1114,7 +1100,7 @@ public class UsersV1Api {
 
     /**
      * List tokens (asynchronously)
-     *
+     * 
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -1221,7 +1207,7 @@ public class UsersV1Api {
 
     /**
      * Patch token
-     *
+     * 
      * @param tokenUuid UUID (required)
      * @param body Token body (required)
      * @return V1Token
@@ -1243,7 +1229,7 @@ public class UsersV1Api {
 
     /**
      * Patch token
-     *
+     * 
      * @param tokenUuid UUID (required)
      * @param body Token body (required)
      * @return ApiResponse&lt;V1Token&gt;
@@ -1266,7 +1252,7 @@ public class UsersV1Api {
 
     /**
      * Patch token (asynchronously)
-     *
+     * 
      * @param tokenUuid UUID (required)
      * @param body Token body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1363,7 +1349,7 @@ public class UsersV1Api {
 
     /**
      * Patch current user
-     *
+     * 
      * @param body  (required)
      * @return V1User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1384,7 +1370,7 @@ public class UsersV1Api {
 
     /**
      * Patch current user
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;V1User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1406,7 +1392,7 @@ public class UsersV1Api {
 
     /**
      * Patch current user (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1509,7 +1495,7 @@ public class UsersV1Api {
 
     /**
      * Update token
-     *
+     * 
      * @param tokenUuid UUID (required)
      * @param body Token body (required)
      * @return V1Token
@@ -1531,7 +1517,7 @@ public class UsersV1Api {
 
     /**
      * Update token
-     *
+     * 
      * @param tokenUuid UUID (required)
      * @param body Token body (required)
      * @return ApiResponse&lt;V1Token&gt;
@@ -1554,7 +1540,7 @@ public class UsersV1Api {
 
     /**
      * Update token (asynchronously)
-     *
+     * 
      * @param tokenUuid UUID (required)
      * @param body Token body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1651,7 +1637,7 @@ public class UsersV1Api {
 
     /**
      * Update current user
-     *
+     * 
      * @param body  (required)
      * @return V1User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1672,7 +1658,7 @@ public class UsersV1Api {
 
     /**
      * Update current user
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;V1User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1694,7 +1680,7 @@ public class UsersV1Api {
 
     /**
      * Update current user (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

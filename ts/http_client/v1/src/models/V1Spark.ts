@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -47,19 +33,19 @@ import {
 } from './V1SparkType';
 
 /**
- *
+ * 
  * @export
  * @interface V1Spark
  */
 export interface V1Spark {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Spark
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Spark
      */
@@ -71,7 +57,7 @@ export interface V1Spark {
      */
     volumes?: Array<object>;
     /**
-     *
+     * 
      * @type {V1SparkType}
      * @memberof V1Spark
      */
@@ -89,7 +75,7 @@ export interface V1Spark {
      */
     pythonVersion?: string;
     /**
-     *
+     * 
      * @type {SparkDeployMode}
      * @memberof V1Spark
      */
@@ -144,13 +130,13 @@ export interface V1Spark {
      */
     hadoopConfigMap?: string;
     /**
-     *
+     * 
      * @type {V1SparkReplica}
      * @memberof V1Spark
      */
     executor?: V1SparkReplica;
     /**
-     *
+     * 
      * @type {V1SparkReplica}
      * @memberof V1Spark
      */
@@ -175,7 +161,7 @@ export function V1SparkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
         'volumes': !exists(json, 'volumes') ? undefined : json['volumes'],
@@ -203,7 +189,7 @@ export function V1SparkToJSON(value?: V1Spark | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'connections': value.connections,
         'volumes': value.volumes,

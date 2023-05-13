@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -28,85 +14,85 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1IO
  */
 export interface V1IO {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IO
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IO
      */
     description?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IO
      */
     type?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1IO
      */
     value?: object;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1IO
      */
     isOptional?: boolean;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1IO
      */
     isList?: boolean;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1IO
      */
     isFlag?: boolean;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IO
      */
     argFormat?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1IO
      */
     delayValidation?: boolean;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1IO
      */
     options?: Array<object>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IO
      */
     connection?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1IO
      */
     toInit?: boolean;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1IO
      */
@@ -131,7 +117,7 @@ export function V1IOFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1IO
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'type': !exists(json, 'type') ? undefined : json['type'],
@@ -156,7 +142,7 @@ export function V1IOToJSON(value?: V1IO | null): any {
         return null;
     }
     return {
-
+        
         'name': value.name,
         'description': value.description,
         'type': value.type,

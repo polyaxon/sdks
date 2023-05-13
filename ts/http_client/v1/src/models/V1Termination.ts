@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -34,19 +20,19 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1Termination {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Termination
      */
     maxRetries?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Termination
      */
     ttl?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Termination
      */
@@ -71,7 +57,7 @@ export function V1TerminationFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-
+        
         'maxRetries': !exists(json, 'maxRetries') ? undefined : json['maxRetries'],
         'ttl': !exists(json, 'ttl') ? undefined : json['ttl'],
         'timeout': !exists(json, 'timeout') ? undefined : json['timeout'],
@@ -86,7 +72,7 @@ export function V1TerminationToJSON(value?: V1Termination | null): any {
         return null;
     }
     return {
-
+        
         'maxRetries': value.maxRetries,
         'ttl': value.ttl,
         'timeout': value.timeout,

@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -91,7 +77,7 @@ public class V1RunEdge {
   }
 
   public V1RunEdge upstream(V1Run upstream) {
-
+    
     this.upstream = upstream;
     return this;
   }
@@ -113,7 +99,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge downstream(V1Run downstream) {
-
+    
     this.downstream = downstream;
     return this;
   }
@@ -135,7 +121,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge kind(V1RunEdgeKind kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -157,7 +143,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge values(Object values) {
-
+    
     this.values = values;
     return this;
   }
@@ -179,7 +165,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge statuses(List<V1Statuses> statuses) {
-
+    
     this.statuses = statuses;
     return this;
   }

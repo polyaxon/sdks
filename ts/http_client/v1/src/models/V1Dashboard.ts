@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -35,61 +21,61 @@ import {
 } from './V1DashboardSpec';
 
 /**
- *
+ * 
  * @export
  * @interface V1Dashboard
  */
 export interface V1Dashboard {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Dashboard
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Dashboard
      */
     live_state?: number;
     /**
-     *
+     * 
      * @type {V1DashboardSpec}
      * @memberof V1Dashboard
      */
     spec?: V1DashboardSpec;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Dashboard
      */
     org_level?: boolean;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Dashboard
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Dashboard
      */
@@ -114,7 +100,7 @@ export function V1DashboardFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -135,7 +121,7 @@ export function V1DashboardToJSON(value?: V1Dashboard | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

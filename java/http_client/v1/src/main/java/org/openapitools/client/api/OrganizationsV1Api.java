@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -179,7 +165,7 @@ public class OrganizationsV1Api {
 
     /**
      * Approve cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -199,7 +185,7 @@ public class OrganizationsV1Api {
 
     /**
      * Approve cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -221,7 +207,7 @@ public class OrganizationsV1Api {
 
     /**
      * Approve cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -324,7 +310,7 @@ public class OrganizationsV1Api {
 
     /**
      * Archive cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -344,7 +330,7 @@ public class OrganizationsV1Api {
 
     /**
      * Archive cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -366,7 +352,7 @@ public class OrganizationsV1Api {
 
     /**
      * Archive cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -469,7 +455,7 @@ public class OrganizationsV1Api {
 
     /**
      * Bookmark cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -489,7 +475,7 @@ public class OrganizationsV1Api {
 
     /**
      * Bookmark cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -511,7 +497,7 @@ public class OrganizationsV1Api {
 
     /**
      * Bookmark cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -607,7 +593,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization
-     *
+     * 
      * @param body  (required)
      * @return V1Organization
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -628,7 +614,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization
-     *
+     * 
      * @param body  (required)
      * @return ApiResponse&lt;V1Organization&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -650,7 +636,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization (asynchronously)
-     *
+     * 
      * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -758,7 +744,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -781,7 +767,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -805,7 +791,7 @@ public class OrganizationsV1Api {
 
     /**
      * Create organization member (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -908,7 +894,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -928,7 +914,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -950,7 +936,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1081,7 +1067,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization invitation details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1107,7 +1093,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization invitation details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1135,7 +1121,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization invitation details (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1244,7 +1230,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1264,7 +1250,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1286,7 +1272,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete organization member details (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1389,7 +1375,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1409,7 +1395,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1431,7 +1417,7 @@ public class OrganizationsV1Api {
 
     /**
      * Delete cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1532,7 +1518,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @return V1Organization
@@ -1554,7 +1540,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -1577,7 +1563,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param usage Owner usage query param. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1709,7 +1695,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization activities
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1737,7 +1723,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization activities
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1766,7 +1752,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization activities (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1904,7 +1890,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization invitation details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1932,7 +1918,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization invitation details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -1961,7 +1947,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization invitation details (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User. (optional)
      * @param memberUserEmail Read-only User email. (optional)
@@ -2071,7 +2057,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return V1OrganizationMember
@@ -2093,7 +2079,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member details
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @return ApiResponse&lt;V1OrganizationMember&gt;
@@ -2116,7 +2102,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member details (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Component under namesapce (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2220,7 +2206,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get a run in an organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Run
@@ -2242,7 +2228,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get a run in an organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Run&gt;
@@ -2265,7 +2251,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get a run in an organization (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2397,7 +2383,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get all runs in an organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2425,7 +2411,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get all runs in an organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2454,7 +2440,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get all runs in an organization (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2617,7 +2603,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param organizationUser User. (optional)
      * @param organizationUserEmail Read-only User email. (optional)
@@ -2650,7 +2636,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param organizationUser User. (optional)
      * @param organizationUserEmail Read-only User email. (optional)
@@ -2684,7 +2670,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization settings (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param organizationUser User. (optional)
      * @param organizationUserEmail Read-only User email. (optional)
@@ -2837,7 +2823,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization stats
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2867,7 +2853,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization stats
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -2898,7 +2884,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization stats (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3010,7 +2996,7 @@ public class OrganizationsV1Api {
 
     /**
      * Invalidate cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3030,7 +3016,7 @@ public class OrganizationsV1Api {
 
     /**
      * Invalidate cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -3052,7 +3038,7 @@ public class OrganizationsV1Api {
 
     /**
      * Invalidate cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3183,7 +3169,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3211,7 +3197,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3240,7 +3226,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization member names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3378,7 +3364,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization members
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3406,7 +3392,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization members
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3435,7 +3421,7 @@ public class OrganizationsV1Api {
 
     /**
      * Get organization members (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3531,7 +3517,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations names
-     *
+     * 
      * @return V1ListOrganizationsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3551,7 +3537,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations names
-     *
+     * 
      * @return ApiResponse&lt;V1ListOrganizationsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3572,7 +3558,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations names (asynchronously)
-     *
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3660,7 +3646,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations
-     *
+     * 
      * @return V1ListOrganizationsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3680,7 +3666,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations
-     *
+     * 
      * @return ApiResponse&lt;V1ListOrganizationsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3701,7 +3687,7 @@ public class OrganizationsV1Api {
 
     /**
      * List organizations (asynchronously)
-     *
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3803,7 +3789,7 @@ public class OrganizationsV1Api {
 
     /**
      * Organization plan
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -3825,7 +3811,7 @@ public class OrganizationsV1Api {
 
     /**
      * Organization plan
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -3848,7 +3834,7 @@ public class OrganizationsV1Api {
 
     /**
      * Organization plan (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3952,7 +3938,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -3974,7 +3960,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -3997,7 +3983,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4106,7 +4092,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization invitation
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4129,7 +4115,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization invitation
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4153,7 +4139,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization invitation (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4270,7 +4256,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -4294,7 +4280,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -4319,7 +4305,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch organization member (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -4425,7 +4411,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch oranization settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -4447,7 +4433,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch oranization settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -4470,7 +4456,7 @@ public class OrganizationsV1Api {
 
     /**
      * Patch oranization settings (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4579,7 +4565,7 @@ public class OrganizationsV1Api {
 
     /**
      * Resend organization invitation
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4602,7 +4588,7 @@ public class OrganizationsV1Api {
 
     /**
      * Resend organization invitation
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4626,7 +4612,7 @@ public class OrganizationsV1Api {
 
     /**
      * Resend organization invitation (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -4731,7 +4717,7 @@ public class OrganizationsV1Api {
 
     /**
      * Restore cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4751,7 +4737,7 @@ public class OrganizationsV1Api {
 
     /**
      * Restore cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4773,7 +4759,7 @@ public class OrganizationsV1Api {
 
     /**
      * Restore cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4876,7 +4862,7 @@ public class OrganizationsV1Api {
 
     /**
      * Stop cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4896,7 +4882,7 @@ public class OrganizationsV1Api {
 
     /**
      * Stop cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
@@ -4918,7 +4904,7 @@ public class OrganizationsV1Api {
 
     /**
      * Stop cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5021,7 +5007,7 @@ public class OrganizationsV1Api {
 
     /**
      * Tag cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5041,7 +5027,7 @@ public class OrganizationsV1Api {
 
     /**
      * Tag cross-project runs selection
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
@@ -5063,7 +5049,7 @@ public class OrganizationsV1Api {
 
     /**
      * Tag cross-project runs selection (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5166,7 +5152,7 @@ public class OrganizationsV1Api {
 
     /**
      * Transfer cross-project runs selection to a new project
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5186,7 +5172,7 @@ public class OrganizationsV1Api {
 
     /**
      * Transfer cross-project runs selection to a new project
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
@@ -5208,7 +5194,7 @@ public class OrganizationsV1Api {
 
     /**
      * Transfer cross-project runs selection to a new project (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5311,7 +5297,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -5333,7 +5319,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -5356,7 +5342,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5465,7 +5451,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization invitation
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -5488,7 +5474,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization invitation
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -5512,7 +5498,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization invitation (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param email Optional email. (optional)
@@ -5629,7 +5615,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -5653,7 +5639,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization member
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -5678,7 +5664,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization member (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param memberUser User (required)
      * @param body Organization body (required)
@@ -5784,7 +5770,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return V1Organization
@@ -5806,7 +5792,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization settings
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @return ApiResponse&lt;V1Organization&gt;
@@ -5829,7 +5815,7 @@ public class OrganizationsV1Api {
 
     /**
      * Update organization settings (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Organization body (required)
      * @param _callback The callback to be executed when the API call finishes

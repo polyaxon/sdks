@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -41,7 +27,7 @@ import V1User from '../model/V1User';
 export default class UsersV1Api {
 
     /**
-    * Constructs a new UsersV1Api.
+    * Constructs a new UsersV1Api. 
     * Polyaxon sdk
     * @alias module:api/UsersV1Api
     * @class
@@ -414,7 +400,7 @@ export default class UsersV1Api {
 
     /**
      * Patch current user
-     * @param {module:model/V1User} body
+     * @param {module:model/V1User} body 
      * @param {module:api/UsersV1Api~patchUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1User}
      */
@@ -502,7 +488,7 @@ export default class UsersV1Api {
 
     /**
      * Update current user
-     * @param {module:model/V1User} body
+     * @param {module:model/V1User} body 
      * @param {module:api/UsersV1Api~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1User}
      */

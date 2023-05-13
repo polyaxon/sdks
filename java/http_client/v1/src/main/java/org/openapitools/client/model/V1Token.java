@@ -1,20 +1,6 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /*
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -109,7 +95,7 @@ public class V1Token {
   }
 
   public V1Token uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -131,7 +117,7 @@ public class V1Token {
 
 
   public V1Token key(String key) {
-
+    
     this.key = key;
     return this;
   }
@@ -153,7 +139,7 @@ public class V1Token {
 
 
   public V1Token name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -175,7 +161,7 @@ public class V1Token {
 
 
   public V1Token scopes(List<String> scopes) {
-
+    
     this.scopes = scopes;
     return this;
   }
@@ -205,7 +191,7 @@ public class V1Token {
 
 
   public V1Token services(List<String> services) {
-
+    
     this.services = services;
     return this;
   }
@@ -235,7 +221,7 @@ public class V1Token {
 
 
   public V1Token startedAt(OffsetDateTime startedAt) {
-
+    
     this.startedAt = startedAt;
     return this;
   }
@@ -257,7 +243,7 @@ public class V1Token {
 
 
   public V1Token expiresAt(OffsetDateTime expiresAt) {
-
+    
     this.expiresAt = expiresAt;
     return this;
   }
@@ -279,7 +265,7 @@ public class V1Token {
 
 
   public V1Token createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -301,7 +287,7 @@ public class V1Token {
 
 
   public V1Token updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -323,7 +309,7 @@ public class V1Token {
 
 
   public V1Token expiration(Integer expiration) {
-
+    
     this.expiration = expiration;
     return this;
   }

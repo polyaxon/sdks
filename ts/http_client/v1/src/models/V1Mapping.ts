@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -28,31 +14,31 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Mapping
  */
 export interface V1Mapping {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Mapping
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Mapping
      */
     values?: Array<object>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Mapping
      */
     concurrency?: number;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Mapping
      */
@@ -77,7 +63,7 @@ export function V1MappingFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'values': !exists(json, 'values') ? undefined : json['values'],
         'concurrency': !exists(json, 'concurrency') ? undefined : json['concurrency'],
@@ -93,7 +79,7 @@ export function V1MappingToJSON(value?: V1Mapping | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'values': value.values,
         'concurrency': value.concurrency,

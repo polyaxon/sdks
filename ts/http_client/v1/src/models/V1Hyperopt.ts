@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -47,67 +33,67 @@ import {
 } from './V1Tuner';
 
 /**
- *
+ * 
  * @export
  * @interface V1Hyperopt
  */
 export interface V1Hyperopt {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Hyperopt
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {V1HyperoptAlgorithms}
      * @memberof V1Hyperopt
      */
     algorithm?: V1HyperoptAlgorithms;
     /**
-     *
+     * 
      * @type {{ [key: string]: object; }}
      * @memberof V1Hyperopt
      */
     params?: { [key: string]: object; };
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     numRuns?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     maxIterations?: number;
     /**
-     *
+     * 
      * @type {V1OptimizationMetric}
      * @memberof V1Hyperopt
      */
     metric?: V1OptimizationMetric;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     seed?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Hyperopt
      */
     concurrency?: number;
     /**
-     *
+     * 
      * @type {V1Tuner}
      * @memberof V1Hyperopt
      */
     tuner?: V1Tuner;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Hyperopt
      */
@@ -132,7 +118,7 @@ export function V1HyperoptFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'algorithm': !exists(json, 'algorithm') ? undefined : V1HyperoptAlgorithmsFromJSON(json['algorithm']),
         'params': !exists(json, 'params') ? undefined : json['params'],
@@ -154,7 +140,7 @@ export function V1HyperoptToJSON(value?: V1Hyperopt | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'algorithm': V1HyperoptAlgorithmsToJSON(value.algorithm),
         'params': value.params,

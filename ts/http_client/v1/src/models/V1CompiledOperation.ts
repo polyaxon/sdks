@@ -1,22 +1,8 @@
-// Copyright 2018-2023 Polyaxon, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 /* tslint:disable */
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- * Polyaxon SDKs and REST API specification.
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc14
  * Contact: contact@polyaxon.com
@@ -83,163 +69,163 @@ import {
 } from './V1TriggerPolicy';
 
 /**
- *
+ * 
  * @export
  * @interface V1CompiledOperation
  */
 export interface V1CompiledOperation {
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1CompiledOperation
      */
     version?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CompiledOperation
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CompiledOperation
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CompiledOperation
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1CompiledOperation
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1CompiledOperation
      */
     presets?: Array<string>;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CompiledOperation
      */
     queue?: string;
     /**
-     *
+     * 
      * @type {V1Cache}
      * @memberof V1CompiledOperation
      */
     cache?: V1Cache;
     /**
-     *
+     * 
      * @type {V1Termination}
      * @memberof V1CompiledOperation
      */
     termination?: V1Termination;
     /**
-     *
+     * 
      * @type {V1Plugins}
      * @memberof V1CompiledOperation
      */
     plugins?: V1Plugins;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1CompiledOperation
      */
     schedule?: object;
     /**
-     *
+     * 
      * @type {Array<V1EventTrigger>}
      * @memberof V1CompiledOperation
      */
     events?: Array<V1EventTrigger>;
     /**
-     *
+     * 
      * @type {V1Build}
      * @memberof V1CompiledOperation
      */
     build?: V1Build;
     /**
-     *
+     * 
      * @type {Array<V1Hook>}
      * @memberof V1CompiledOperation
      */
     hooks?: Array<V1Hook>;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1CompiledOperation
      */
     dependencies?: Array<string>;
     /**
-     *
+     * 
      * @type {V1TriggerPolicy}
      * @memberof V1CompiledOperation
      */
     trigger?: V1TriggerPolicy;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1CompiledOperation
      */
     conditions?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1CompiledOperation
      */
     skipOnUpstreamSkip?: boolean;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1CompiledOperation
      */
     matrix?: object;
     /**
-     *
+     * 
      * @type {{ [key: string]: V1Join; }}
      * @memberof V1CompiledOperation
      */
     joins?: { [key: string]: V1Join; };
     /**
-     *
+     * 
      * @type {Array<V1IO>}
      * @memberof V1CompiledOperation
      */
     inputs?: Array<V1IO>;
     /**
-     *
+     * 
      * @type {Array<V1IO>}
      * @memberof V1CompiledOperation
      */
     outputs?: Array<V1IO>;
     /**
-     *
+     * 
      * @type {Array<V1IO>}
      * @memberof V1CompiledOperation
      */
     contexts?: Array<V1IO>;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1CompiledOperation
      */
     isApproved?: boolean;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1CompiledOperation
      */
     cost?: number;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1CompiledOperation
      */
@@ -264,7 +250,7 @@ export function V1CompiledOperationFromJSONTyped(json: any, ignoreDiscriminator:
         return json;
     }
     return {
-
+        
         'version': !exists(json, 'version') ? undefined : json['version'],
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -302,7 +288,7 @@ export function V1CompiledOperationToJSON(value?: V1CompiledOperation | null): a
         return null;
     }
     return {
-
+        
         'version': value.version,
         'kind': value.kind,
         'name': value.name,
