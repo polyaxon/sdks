@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -23,8 +23,8 @@ class V1TensorboardType {
      * Constructs a new <code>V1TensorboardType</code>.
      * @alias module:model/V1TensorboardType
      */
-    constructor() {
-
+    constructor() { 
+        
         V1TensorboardType.initialize(this);
     }
 
@@ -33,7 +33,7 @@ class V1TensorboardType {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

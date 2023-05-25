@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -28,11 +28,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(SparkDeployMode.Adapter.class)
 public enum SparkDeployMode {
-
+  
   CLUSTER("cluster"),
-
+  
   CLIENT("client"),
-
+  
   IN_CLUSTER_CLIENT("in_cluster_client");
 
   private String value;

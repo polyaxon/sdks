@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -29,7 +29,7 @@ import V1Token from '../model/V1Token';
 export default class AgentsV1Api {
 
     /**
-    * Constructs a new AgentsV1Api.
+    * Constructs a new AgentsV1Api. 
     * Polyaxon sdk
     * @alias module:api/AgentsV1Api
     * @class
@@ -100,7 +100,7 @@ export default class AgentsV1Api {
      * Create new agent status
      * @param {String} owner Owner of the namespace
      * @param {String} uuid Uuid identifier of the entity
-     * @param {module:model/V1AgentStatusBodyRequest} body
+     * @param {module:model/V1AgentStatusBodyRequest} body 
      * @param {module:api/AgentsV1Api~createAgentStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Status}
      */
@@ -387,6 +387,48 @@ export default class AgentsV1Api {
       let returnType = V1Token;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/agents/{uuid}/token', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getGlobalState operation.
+     * @callback module:api/AgentsV1Api~getGlobalStateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1AgentStateResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get Global State (queues/runs)
+     * @param {String} owner Owner of the namespace
+     * @param {module:api/AgentsV1Api~getGlobalStateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1AgentStateResponse}
+     */
+    getGlobalState(owner, callback) {
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getGlobalState");
+      }
+
+      let pathParams = {
+        'owner': owner
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1AgentStateResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/agents/state', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

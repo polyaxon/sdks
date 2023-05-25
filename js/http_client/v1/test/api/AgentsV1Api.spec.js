@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -112,6 +112,16 @@
       it('should call getAgentToken successfully', function(done) {
         //uncomment below and update the code to test getAgentToken
         //instance.getAgentToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getGlobalState', function() {
+      it('should call getGlobalState successfully', function(done) {
+        //uncomment below and update the code to test getGlobalState
+        //instance.getGlobalState(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

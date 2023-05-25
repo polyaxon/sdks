@@ -1491,6 +1491,53 @@ paths:
       tags:
       - AgentsV1
       x-accepts: application/json
+  /api/v1/orgs/{owner}/agents/state:
+    get:
+      operationId: GetGlobalState
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AgentStateResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get Global State (queues/runs)
+      tags:
+      - AgentsV1
+      x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{agent.uuid}:
     patch:
       operationId: PatchAgent

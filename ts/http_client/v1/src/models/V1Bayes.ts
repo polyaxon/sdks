@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -27,67 +27,67 @@ import {
 } from './V1Tuner';
 
 /**
- *
+ * 
  * @export
  * @interface V1Bayes
  */
 export interface V1Bayes {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Bayes
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {{ [key: string]: object; }}
      * @memberof V1Bayes
      */
     params?: { [key: string]: object; };
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Bayes
      */
     numInitialRuns?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Bayes
      */
     maxIterations?: number;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Bayes
      */
     utilityFunction?: object;
     /**
-     *
+     * 
      * @type {V1OptimizationMetric}
      * @memberof V1Bayes
      */
     metric?: V1OptimizationMetric;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Bayes
      */
     seed?: number;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Bayes
      */
     concurrency?: number;
     /**
-     *
+     * 
      * @type {V1Tuner}
      * @memberof V1Bayes
      */
     tuner?: V1Tuner;
     /**
-     *
+     * 
      * @type {Array<object>}
      * @memberof V1Bayes
      */
@@ -112,7 +112,7 @@ export function V1BayesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'params': !exists(json, 'params') ? undefined : json['params'],
         'numInitialRuns': !exists(json, 'numInitialRuns') ? undefined : json['numInitialRuns'],
@@ -134,7 +134,7 @@ export function V1BayesToJSON(value?: V1Bayes | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'params': value.params,
         'numInitialRuns': value.numInitialRuns,

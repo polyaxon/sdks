@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -28,17 +28,17 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1TriggerPolicy.Adapter.class)
 public enum V1TriggerPolicy {
-
+  
   ALL_SUCCEEDED("all_succeeded"),
-
+  
   ALL_FAILED("all_failed"),
-
+  
   ALL_DONE("all_done"),
-
+  
   ONE_SUCCEEDED("one_succeeded"),
-
+  
   ONE_FAILED("one_failed"),
-
+  
   ONE_DONE("one_done");
 
   private String value;

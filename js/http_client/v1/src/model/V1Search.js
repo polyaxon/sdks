@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -25,8 +25,8 @@ class V1Search {
      * Constructs a new <code>V1Search</code>.
      * @alias module:model/V1Search
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Search.initialize(this);
     }
 
@@ -35,7 +35,7 @@ class V1Search {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -42,7 +42,7 @@ export interface GetInstallationRequest {
 }
 
 /**
- *
+ * 
  */
 export class VersionsV1Api extends runtime.BaseAPI {
 

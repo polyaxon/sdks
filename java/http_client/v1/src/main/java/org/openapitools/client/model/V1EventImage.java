@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -68,7 +68,7 @@ public class V1EventImage {
   }
 
   public V1EventImage height(Integer height) {
-
+    
     this.height = height;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1EventImage {
 
 
   public V1EventImage width(Integer width) {
-
+    
     this.width = width;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1EventImage {
 
 
   public V1EventImage colorspace(Integer colorspace) {
-
+    
     this.colorspace = colorspace;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1EventImage {
 
 
   public V1EventImage path(String path) {
-
+    
     this.path = path;
     return this;
   }

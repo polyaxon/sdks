@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -113,7 +113,7 @@ public class V1Organization {
   }
 
   public V1Organization user(String user) {
-
+    
     this.user = user;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1Organization {
 
 
   public V1Organization userEmail(String userEmail) {
-
+    
     this.userEmail = userEmail;
     return this;
   }
@@ -157,7 +157,7 @@ public class V1Organization {
 
 
   public V1Organization name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -179,7 +179,7 @@ public class V1Organization {
 
 
   public V1Organization isPublic(Boolean isPublic) {
-
+    
     this.isPublic = isPublic;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1Organization {
 
 
   public V1Organization createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1Organization {
 
 
   public V1Organization updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -245,7 +245,7 @@ public class V1Organization {
 
 
   public V1Organization supportRevokeAt(OffsetDateTime supportRevokeAt) {
-
+    
     this.supportRevokeAt = supportRevokeAt;
     return this;
   }
@@ -267,7 +267,7 @@ public class V1Organization {
 
 
   public V1Organization expiration(Integer expiration) {
-
+    
     this.expiration = expiration;
     return this;
   }
@@ -289,7 +289,7 @@ public class V1Organization {
 
 
   public V1Organization role(String role) {
-
+    
     this.role = role;
     return this;
   }
@@ -311,7 +311,7 @@ public class V1Organization {
 
 
   public V1Organization queue(String queue) {
-
+    
     this.queue = queue;
     return this;
   }
@@ -333,7 +333,7 @@ public class V1Organization {
 
 
   public V1Organization preset(String preset) {
-
+    
     this.preset = preset;
     return this;
   }
@@ -355,7 +355,7 @@ public class V1Organization {
 
 
   public V1Organization isCloudViewable(Boolean isCloudViewable) {
-
+    
     this.isCloudViewable = isCloudViewable;
     return this;
   }
@@ -377,7 +377,7 @@ public class V1Organization {
 
 
   public V1Organization auth(Object auth) {
-
+    
     this.auth = auth;
     return this;
   }
@@ -399,7 +399,7 @@ public class V1Organization {
 
 
   public V1Organization plan(Object plan) {
-
+    
     this.plan = plan;
     return this;
   }
@@ -421,7 +421,7 @@ public class V1Organization {
 
 
   public V1Organization usage(Object usage) {
-
+    
     this.usage = usage;
     return this;
   }

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -160,7 +160,7 @@ public class AgentsV1Api {
 
     /**
      * Create agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Agent body (required)
      * @return V1Agent
@@ -182,7 +182,7 @@ public class AgentsV1Api {
 
     /**
      * Create agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Agent body (required)
      * @return ApiResponse&lt;V1Agent&gt;
@@ -205,7 +205,7 @@ public class AgentsV1Api {
 
     /**
      * Create agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param body Agent body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -316,7 +316,7 @@ public class AgentsV1Api {
 
     /**
      * Create new agent status
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param body  (required)
@@ -339,7 +339,7 @@ public class AgentsV1Api {
 
     /**
      * Create new agent status
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param body  (required)
@@ -363,7 +363,7 @@ public class AgentsV1Api {
 
     /**
      * Create new agent status (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param body  (required)
@@ -473,7 +473,7 @@ public class AgentsV1Api {
 
     /**
      * Delete agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -494,7 +494,7 @@ public class AgentsV1Api {
 
     /**
      * Delete agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -517,7 +517,7 @@ public class AgentsV1Api {
 
     /**
      * Delete agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -626,7 +626,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -649,7 +649,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -673,7 +673,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -783,7 +783,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -806,7 +806,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -830,7 +830,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent config (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the sub-entity (required)
      * @param entity Entity: project name, hub name, registry name, ... (optional)
@@ -935,7 +935,7 @@ public class AgentsV1Api {
 
     /**
      * Get State (queues/runs)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1AgentStateResponse
@@ -957,7 +957,7 @@ public class AgentsV1Api {
 
     /**
      * Get State (queues/runs)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1AgentStateResponse&gt;
@@ -980,7 +980,7 @@ public class AgentsV1Api {
 
     /**
      * Get State (queues/runs) (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1084,7 +1084,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return V1Token
@@ -1106,7 +1106,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @return ApiResponse&lt;V1Token&gt;
@@ -1129,7 +1129,7 @@ public class AgentsV1Api {
 
     /**
      * Get agent token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1149,6 +1149,145 @@ public class AgentsV1Api {
 
         okhttp3.Call localVarCall = getAgentTokenValidateBeforeCall(owner, uuid, _callback);
         Type localVarReturnType = new TypeToken<V1Token>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getGlobalState
+     * @param owner Owner of the namespace (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getGlobalStateCall(String owner, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/orgs/{owner}/agents/state"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getGlobalStateValidateBeforeCall(String owner, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getGlobalState(Async)");
+        }
+
+        return getGlobalStateCall(owner, _callback);
+
+    }
+
+    /**
+     * Get Global State (queues/runs)
+     * 
+     * @param owner Owner of the namespace (required)
+     * @return V1AgentStateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public V1AgentStateResponse getGlobalState(String owner) throws ApiException {
+        ApiResponse<V1AgentStateResponse> localVarResp = getGlobalStateWithHttpInfo(owner);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Global State (queues/runs)
+     * 
+     * @param owner Owner of the namespace (required)
+     * @return ApiResponse&lt;V1AgentStateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<V1AgentStateResponse> getGlobalStateWithHttpInfo(String owner) throws ApiException {
+        okhttp3.Call localVarCall = getGlobalStateValidateBeforeCall(owner, null);
+        Type localVarReturnType = new TypeToken<V1AgentStateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Global State (queues/runs) (asynchronously)
+     * 
+     * @param owner Owner of the namespace (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getGlobalStateAsync(String owner, final ApiCallback<V1AgentStateResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getGlobalStateValidateBeforeCall(owner, _callback);
+        Type localVarReturnType = new TypeToken<V1AgentStateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1261,7 +1400,7 @@ public class AgentsV1Api {
 
     /**
      * List agents names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1289,7 +1428,7 @@ public class AgentsV1Api {
 
     /**
      * List agents names
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1318,7 +1457,7 @@ public class AgentsV1Api {
 
     /**
      * List agents names (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1456,7 +1595,7 @@ public class AgentsV1Api {
 
     /**
      * List agents
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1484,7 +1623,7 @@ public class AgentsV1Api {
 
     /**
      * List agents
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1513,7 +1652,7 @@ public class AgentsV1Api {
 
     /**
      * List agents (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -1630,7 +1769,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1653,7 +1792,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1677,7 +1816,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1789,7 +1928,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -1812,7 +1951,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -1836,7 +1975,7 @@ public class AgentsV1Api {
 
     /**
      * Patch agent token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -1948,7 +2087,7 @@ public class AgentsV1Api {
 
     /**
      * Sync agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1969,7 +2108,7 @@ public class AgentsV1Api {
 
     /**
      * Sync agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -1992,7 +2131,7 @@ public class AgentsV1Api {
 
     /**
      * Sync agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2103,7 +2242,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2126,7 +2265,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2150,7 +2289,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2262,7 +2401,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2285,7 +2424,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent config
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2309,7 +2448,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent config (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param agentUuid UUID (required)
      * @param body Agent body (required)
@@ -2421,7 +2560,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -2444,7 +2583,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent token
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)
@@ -2468,7 +2607,7 @@ public class AgentsV1Api {
 
     /**
      * Update agent token (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Rntity (required)
      * @param body Token body (required)

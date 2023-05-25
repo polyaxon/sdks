@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -28,9 +28,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(MXJobMode.Adapter.class)
 public enum MXJobMode {
-
+  
   MXTRAIN("MXTrain"),
-
+  
   MXTUNE("MXTune");
 
   private String value;

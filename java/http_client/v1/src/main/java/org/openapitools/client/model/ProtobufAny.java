@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class ProtobufAny {
   }
 
   public ProtobufAny typeUrl(String typeUrl) {
-
+    
     this.typeUrl = typeUrl;
     return this;
   }
@@ -82,7 +82,7 @@ public class ProtobufAny {
 
 
   public ProtobufAny value(byte[] value) {
-
+    
     this.value = value;
     return this;
   }

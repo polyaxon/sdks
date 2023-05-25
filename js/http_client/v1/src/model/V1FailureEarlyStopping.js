@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1FailureEarlyStopping {
      * FailureEarlyStoppingSchema specification Early stopping based on failure config. this policy stops based on a percentage of failed runs at every evaluation.
      * @alias module:model/V1FailureEarlyStopping
      */
-    constructor() {
-
+    constructor() { 
+        
         V1FailureEarlyStopping.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1FailureEarlyStopping {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

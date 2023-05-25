@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -16,9 +16,9 @@
 /**
  * `NullValue` is a singleton enumeration to represent the null value for the
  * `Value` type union.
- *
+ * 
  *  The JSON representation for `NullValue` is JSON `null`.
- *
+ * 
  *  - NULL_VALUE: Null value.
  * @export
  */

@@ -15,7 +15,7 @@
 """
 
 
-__version__ = "1.0.0"
+__version__ = "2.0.0-rc16"
 
 # import apis into sdk package
 from polyaxon_sdk.api.agents_v1_api import AgentsV1Api

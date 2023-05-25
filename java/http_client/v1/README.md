@@ -3,7 +3,7 @@
 Polyaxon SDKs and REST API specification.
 - API version: 2.0.0-rc16
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -129,6 +129,7 @@ Class | Method | HTTP request | Description
 *AgentsV1Api* | [**getAgentConfig**](docs/AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
 *AgentsV1Api* | [**getAgentState**](docs/AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
 *AgentsV1Api* | [**getAgentToken**](docs/AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
+*AgentsV1Api* | [**getGlobalState**](docs/AgentsV1Api.md#getGlobalState) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)
 *AgentsV1Api* | [**listAgentNames**](docs/AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 *AgentsV1Api* | [**listAgents**](docs/AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 *AgentsV1Api* | [**patchAgent**](docs/AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent

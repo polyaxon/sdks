@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -67,7 +67,7 @@ public class V1Schedule {
   }
 
   public V1Schedule cron(V1CronSchedule cron) {
-
+    
     this.cron = cron;
     return this;
   }
@@ -89,7 +89,7 @@ public class V1Schedule {
 
 
   public V1Schedule datetime(V1DateTimeSchedule datetime) {
-
+    
     this.datetime = datetime;
     return this;
   }
@@ -111,7 +111,7 @@ public class V1Schedule {
 
 
   public V1Schedule interval(V1IntervalSchedule interval) {
-
+    
     this.interval = interval;
     return this;
   }

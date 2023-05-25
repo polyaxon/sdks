@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -14,43 +14,43 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Param
  */
 export interface V1Param {
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1Param
      */
     value?: object;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Param
      */
     ref?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Param
      */
     connection?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Param
      */
     toInit?: boolean;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Param
      */
     toEnv?: string;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Param
      */
@@ -75,7 +75,7 @@ export function V1ParamFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'value': !exists(json, 'value') ? undefined : json['value'],
         'ref': !exists(json, 'ref') ? undefined : json['ref'],
         'connection': !exists(json, 'connection') ? undefined : json['connection'],
@@ -93,7 +93,7 @@ export function V1ParamToJSON(value?: V1Param | null): any {
         return null;
     }
     return {
-
+        
         'value': value.value,
         'ref': value.ref,
         'connection': value.connection,

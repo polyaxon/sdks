@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -59,7 +59,7 @@ public class ApiResponse<T> {
     /**
      * <p>Get the <code>headers</code>.</p>
      *
-     * @return a {@link java.util.Map} of headers
+     * @return a {@link java.util.Map} of headers 
      */
     public Map<String, List<String>> getHeaders() {
         return headers;

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -79,6 +79,10 @@ export interface GetAgentTokenRequest {
     uuid: string;
 }
 
+export interface GetGlobalStateRequest {
+    owner: string;
+}
+
 export interface ListAgentNamesRequest {
     owner: string;
     offset?: number;
@@ -138,7 +142,7 @@ export interface UpdateAgentTokenRequest {
 }
 
 /**
- *
+ * 
  */
 export class AgentsV1Api extends runtime.BaseAPI {
 
@@ -426,6 +430,40 @@ export class AgentsV1Api extends runtime.BaseAPI {
      */
     async getAgentToken(requestParameters: GetAgentTokenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Token> {
         const response = await this.getAgentTokenRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Global State (queues/runs)
+     */
+    async getGlobalStateRaw(requestParameters: GetGlobalStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1AgentStateResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getGlobalState.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/agents/state`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1AgentStateResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Global State (queues/runs)
+     */
+    async getGlobalState(requestParameters: GetGlobalStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1AgentStateResponse> {
+        const response = await this.getGlobalStateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

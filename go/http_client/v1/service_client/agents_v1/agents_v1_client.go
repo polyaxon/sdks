@@ -42,6 +42,8 @@ type ClientService interface {
 
 	GetAgentToken(params *GetAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentTokenOK, *GetAgentTokenNoContent, error)
 
+	GetGlobalState(params *GetGlobalStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetGlobalStateOK, *GetGlobalStateNoContent, error)
+
 	ListAgentNames(params *ListAgentNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentNamesOK, *ListAgentNamesNoContent, error)
 
 	ListAgents(params *ListAgentsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentsOK, *ListAgentsNoContent, error)
@@ -338,6 +340,46 @@ func (a *Client) GetAgentToken(params *GetAgentTokenParams, authInfo runtime.Cli
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetAgentTokenDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetGlobalState gets global state queues runs
+*/
+func (a *Client) GetGlobalState(params *GetGlobalStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetGlobalStateOK, *GetGlobalStateNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetGlobalStateParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetGlobalState",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/state",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetGlobalStateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetGlobalStateOK:
+		return value, nil, nil
+	case *GetGlobalStateNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetGlobalStateDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

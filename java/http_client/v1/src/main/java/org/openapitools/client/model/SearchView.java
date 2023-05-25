@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -28,21 +28,21 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(SearchView.Adapter.class)
 public enum SearchView {
-
+  
   ANY("any"),
-
+  
   RUNS("runs"),
-
+  
   SELECTION("selection"),
-
+  
   ANALYTICS("analytics"),
-
+  
   COMPONENTS("components"),
-
+  
   MODELS("models"),
-
+  
   ARTIFACTS("artifacts"),
-
+  
   PROJECTS("projects");
 
   private String value;

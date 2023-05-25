@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -22,7 +22,7 @@ import ApiClient from "../ApiClient";
 export default class ArtifactsStoresV1Api {
 
     /**
-    * Constructs a new ArtifactsStoresV1Api.
+    * Constructs a new ArtifactsStoresV1Api. 
     * Polyaxon sdk
     * @alias module:api/ArtifactsStoresV1Api
     * @class

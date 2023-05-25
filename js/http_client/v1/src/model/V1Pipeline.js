@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1Pipeline {
      * Constructs a new <code>V1Pipeline</code>.
      * @alias module:model/V1Pipeline
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Pipeline.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1Pipeline {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

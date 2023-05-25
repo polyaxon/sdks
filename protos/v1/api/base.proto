@@ -17,6 +17,11 @@ message UserResourceRequest {
   string user = 1;
 }
 
+message OwnerRequest {
+  // Owner of the namespace
+  string owner = 1;
+}
+
 // Request data with owner namespace
 message OwnerResourceRequest {
   // Owner of the namespace

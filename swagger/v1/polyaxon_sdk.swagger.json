@@ -1393,6 +1393,50 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/agents/state": {
+      "get": {
+        "summary": "Get Global State (queues/runs)",
+        "operationId": "GetGlobalState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AgentStateResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/agents/{agent.uuid}": {
       "put": {
         "summary": "Update agent",

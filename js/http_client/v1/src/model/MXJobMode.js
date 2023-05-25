@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -18,21 +18,21 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class MXJobMode {
-
+    
         /**
          * value: "MXTrain"
          * @const
          */
         "MXTrain" = "MXTrain";
 
-
+    
         /**
          * value: "MXTune"
          * @const
          */
         "MXTune" = "MXTune";
 
-
+    
 
     /**
     * Returns a <code>MXJobMode</code> enum value from a Javascript object name.

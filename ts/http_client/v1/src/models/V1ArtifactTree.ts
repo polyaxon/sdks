@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -14,25 +14,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ArtifactTree
  */
 export interface V1ArtifactTree {
     /**
-     *
+     * 
      * @type {{ [key: string]: string; }}
      * @memberof V1ArtifactTree
      */
     files?: { [key: string]: string; };
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1ArtifactTree
      */
     dirs?: Array<string>;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1ArtifactTree
      */
@@ -57,7 +57,7 @@ export function V1ArtifactTreeFromJSONTyped(json: any, ignoreDiscriminator: bool
         return json;
     }
     return {
-
+        
         'files': !exists(json, 'files') ? undefined : json['files'],
         'dirs': !exists(json, 'dirs') ? undefined : json['dirs'],
         'is_done': !exists(json, 'is_done') ? undefined : json['is_done'],
@@ -72,7 +72,7 @@ export function V1ArtifactTreeToJSON(value?: V1ArtifactTree | null): any {
         return null;
     }
     return {
-
+        
         'files': value.files,
         'dirs': value.dirs,
         'is_done': value.is_done,

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -14,25 +14,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1RunReferenceCatalog
  */
 export interface V1RunReferenceCatalog {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1RunReferenceCatalog
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1RunReferenceCatalog
      */
     project?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1RunReferenceCatalog
      */
@@ -57,7 +57,7 @@ export function V1RunReferenceCatalogFromJSONTyped(json: any, ignoreDiscriminato
         return json;
     }
     return {
-
+        
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'project': !exists(json, 'project') ? undefined : json['project'],
         'name': !exists(json, 'name') ? undefined : json['name'],
@@ -72,7 +72,7 @@ export function V1RunReferenceCatalogToJSON(value?: V1RunReferenceCatalog | null
         return null;
     }
     return {
-
+        
         'owner': value.owner,
         'project': value.project,
         'name': value.name,

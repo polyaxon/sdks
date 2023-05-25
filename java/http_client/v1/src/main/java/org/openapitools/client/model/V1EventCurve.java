@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -71,7 +71,7 @@ public class V1EventCurve {
   }
 
   public V1EventCurve kind(V1EventCurveKind kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve x(List<Float> x) {
-
+    
     this.x = x;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve y(List<Float> y) {
-
+    
     this.y = y;
     return this;
   }
@@ -153,7 +153,7 @@ public class V1EventCurve {
 
 
   public V1EventCurve annotation(String annotation) {
-
+    
     this.annotation = annotation;
     return this;
   }

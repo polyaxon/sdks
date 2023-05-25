@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -129,6 +129,18 @@ public class AgentsV1ApiTest {
         String owner = null;
         String uuid = null;
         V1Token response = api.getAgentToken(owner, uuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Get Global State (queues/runs)
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getGlobalStateTest() throws ApiException {
+        String owner = null;
+        V1AgentStateResponse response = api.getGlobalState(owner);
         // TODO: test validations
     }
 

@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc16
  * Contact: contact@polyaxon.com
@@ -18,56 +18,56 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1MatrixKind {
-
+    
         /**
          * value: "random"
          * @const
          */
         "random" = "random";
 
-
+    
         /**
          * value: "grid"
          * @const
          */
         "grid" = "grid";
 
-
+    
         /**
          * value: "hyperband"
          * @const
          */
         "hyperband" = "hyperband";
 
-
+    
         /**
          * value: "bayes"
          * @const
          */
         "bayes" = "bayes";
 
-
+    
         /**
          * value: "hyperopt"
          * @const
          */
         "hyperopt" = "hyperopt";
 
-
+    
         /**
          * value: "iterative"
          * @const
          */
         "iterative" = "iterative";
 
-
+    
         /**
          * value: "mapping"
          * @const
          */
         "mapping" = "mapping";
 
-
+    
 
     /**
     * Returns a <code>V1MatrixKind</code> enum value from a Javascript object name.
