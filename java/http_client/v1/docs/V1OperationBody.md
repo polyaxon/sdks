@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**content** | **String** |  |  [optional] |
 |**isManaged** | **Boolean** |  |  [optional] |
+|**managedBy** | **V1ManagedBy** |  |  [optional] |
 |**pending** | **V1RunPending** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |

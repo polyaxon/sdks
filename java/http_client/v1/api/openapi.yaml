@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.0.0-rc16
+  version: 2.0.0-rc17
 servers:
 - url: /
 security:
@@ -24342,6 +24342,7 @@ components:
             outputs: "{}"
             role: role
             finished_at: 2000-01-23T04:56:07.000+00:00
+            managed_by: null
             inputs: "{}"
             pending: null
             description: description
@@ -24359,9 +24360,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
               agent:
                 name: name
                 uuid: uuid
@@ -24379,9 +24382,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
             raw_content: raw_content
             original:
               kind: null
@@ -24433,6 +24438,7 @@ components:
             outputs: "{}"
             role: role
             finished_at: 2000-01-23T04:56:07.000+00:00
+            managed_by: null
             inputs: "{}"
             pending: null
             description: description
@@ -24450,9 +24456,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
               agent:
                 name: name
                 uuid: uuid
@@ -24470,9 +24478,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
             raw_content: raw_content
             original:
               kind: null
@@ -24525,6 +24535,7 @@ components:
             outputs: "{}"
             role: role
             finished_at: 2000-01-23T04:56:07.000+00:00
+            managed_by: null
             inputs: "{}"
             pending: null
             description: description
@@ -24542,9 +24553,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
               agent:
                 name: name
                 uuid: uuid
@@ -24562,9 +24575,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
             raw_content: raw_content
             original:
               kind: null
@@ -24616,6 +24631,7 @@ components:
             outputs: "{}"
             role: role
             finished_at: 2000-01-23T04:56:07.000+00:00
+            managed_by: null
             inputs: "{}"
             pending: null
             description: description
@@ -24633,9 +24649,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
               agent:
                 name: name
                 uuid: uuid
@@ -24653,9 +24671,11 @@ components:
               - owner: owner
                 name: name
                 project: project
+                state: state
               - owner: owner
                 name: name
                 project: project
+                state: state
             raw_content: raw_content
             original:
               kind: null
@@ -24731,6 +24751,7 @@ components:
         - outputs: "{}"
           role: role
           finished_at: 2000-01-23T04:56:07.000+00:00
+          managed_by: null
           inputs: "{}"
           pending: null
           description: description
@@ -24748,9 +24769,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
             agent:
               name: name
               uuid: uuid
@@ -24768,9 +24791,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
           raw_content: raw_content
           original:
             kind: null
@@ -24819,6 +24844,7 @@ components:
         - outputs: "{}"
           role: role
           finished_at: 2000-01-23T04:56:07.000+00:00
+          managed_by: null
           inputs: "{}"
           pending: null
           description: description
@@ -24836,9 +24862,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
             agent:
               name: name
               uuid: uuid
@@ -24856,9 +24884,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
           raw_content: raw_content
           original:
             kind: null
@@ -26728,6 +26758,13 @@ components:
           $ref: '#/components/schemas/v1KFReplica'
       title: MXNet Job specification
       type: object
+    v1ManagedBy:
+      default: client
+      enum:
+      - client
+      - cli
+      - agent
+      type: string
     v1Mapping:
       example:
         kind: mapping
@@ -27487,18 +27524,20 @@ components:
           title: "Optional, if the run is managed, true by default, this flag should\
             \ be false if starting a non-managed run"
           type: boolean
+        managed_by:
+          $ref: '#/components/schemas/v1ManagedBy'
         pending:
           $ref: '#/components/schemas/v1RunPending'
         name:
-          title: "Optional, only usefule if is_managed is false"
+          title: Optional
           type: string
         description:
-          title: "Optional, only useful if is_managed is false"
+          title: Optional
           type: string
         tags:
           items:
             type: string
-          title: "Optional, only useful if is_managed is false"
+          title: Optional
           type: array
         meta_info:
           properties: {}
@@ -29078,6 +29117,7 @@ components:
         outputs: "{}"
         role: role
         finished_at: 2000-01-23T04:56:07.000+00:00
+        managed_by: null
         inputs: "{}"
         pending: null
         description: description
@@ -29095,9 +29135,11 @@ components:
           - owner: owner
             name: name
             project: project
+            state: state
           - owner: owner
             name: name
             project: project
+            state: state
           agent:
             name: name
             uuid: uuid
@@ -29115,9 +29157,11 @@ components:
           - owner: owner
             name: name
             project: project
+            state: state
           - owner: owner
             name: name
             project: project
+            state: state
         raw_content: raw_content
         original:
           kind: null
@@ -29215,6 +29259,8 @@ components:
           format: int32
           title: Optional duration of the entity
           type: integer
+        managed_by:
+          $ref: '#/components/schemas/v1ManagedBy'
         is_managed:
           title: Optional flag to tell if this entity is managed by the platform
           type: boolean
@@ -29356,6 +29402,7 @@ components:
           outputs: "{}"
           role: role
           finished_at: 2000-01-23T04:56:07.000+00:00
+          managed_by: null
           inputs: "{}"
           pending: null
           description: description
@@ -29373,9 +29420,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
             agent:
               name: name
               uuid: uuid
@@ -29393,9 +29442,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
           raw_content: raw_content
           original:
             kind: null
@@ -29447,6 +29498,7 @@ components:
           outputs: "{}"
           role: role
           finished_at: 2000-01-23T04:56:07.000+00:00
+          managed_by: null
           inputs: "{}"
           pending: null
           description: description
@@ -29464,9 +29516,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
             agent:
               name: name
               uuid: uuid
@@ -29484,9 +29538,11 @@ components:
             - owner: owner
               name: name
               project: project
+              state: state
             - owner: owner
               name: name
               project: project
+              state: state
           raw_content: raw_content
           original:
             kind: null
@@ -29606,6 +29662,7 @@ components:
         owner: owner
         name: name
         project: project
+        state: state
       properties:
         owner:
           title: Owner
@@ -29615,6 +29672,9 @@ components:
           type: string
         name:
           title: Name
+          type: string
+        state:
+          title: State
           type: string
       title: Run Settings catalog specification
       type: object
@@ -34575,9 +34635,11 @@ components:
         - owner: owner
           name: name
           project: project
+          state: state
         - owner: owner
           name: name
           project: project
+          state: state
         agent:
           name: name
           uuid: uuid
@@ -34595,9 +34657,11 @@ components:
         - owner: owner
           name: name
           project: project
+          state: state
         - owner: owner
           name: name
           project: project
+          state: state
       properties:
         namespace:
           title: Namespace

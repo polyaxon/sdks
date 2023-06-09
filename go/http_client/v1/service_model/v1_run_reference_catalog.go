@@ -25,6 +25,9 @@ type V1RunReferenceCatalog struct {
 
 	// Project
 	Project string `json:"project,omitempty"`
+
+	// State
+	State string `json:"state,omitempty"`
 }
 
 // Validate validates this v1 run reference catalog

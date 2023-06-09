@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **finished_at** | **datetime** |  | [optional] 
 **wait_time** | **int** |  | [optional] 
 **duration** | **int** |  | [optional] 
+**managed_by** | [**V1ManagedBy**](V1ManagedBy.md) |  | [optional] 
 **is_managed** | **bool** |  | [optional] 
 **is_approved** | **bool** |  | [optional] 
 **pending** | [**V1RunPending**](V1RunPending.md) |  | [optional] 

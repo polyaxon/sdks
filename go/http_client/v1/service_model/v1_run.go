@@ -58,6 +58,9 @@ type V1Run struct {
 	// Current live state
 	LiveState int32 `json:"live_state,omitempty"`
 
+	// Optional flag of the managing service
+	ManagedBy *V1ManagedBy `json:"managed_by,omitempty"`
+
 	// Optional merge flag
 	Merge bool `json:"merge,omitempty"`
 
@@ -150,6 +153,10 @@ func (m *V1Run) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateManagedBy(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOriginal(formats); err != nil {
 		res = append(res, err)
 	}
@@ -235,6 +242,25 @@ func (m *V1Run) validateKind(formats strfmt.Registry) error {
 				return ve.ValidateName("kind")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kind")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Run) validateManagedBy(formats strfmt.Registry) error {
+	if swag.IsZero(m.ManagedBy) { // not required
+		return nil
+	}
+
+	if m.ManagedBy != nil {
+		if err := m.ManagedBy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managed_by")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managed_by")
 			}
 			return err
 		}
@@ -446,6 +472,10 @@ func (m *V1Run) ContextValidate(ctx context.Context, formats strfmt.Registry) er
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateManagedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateOriginal(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -492,6 +522,22 @@ func (m *V1Run) contextValidateKind(ctx context.Context, formats strfmt.Registry
 				return ve.ValidateName("kind")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("kind")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Run) contextValidateManagedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagedBy != nil {
+		if err := m.ManagedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managed_by")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managed_by")
 			}
 			return err
 		}

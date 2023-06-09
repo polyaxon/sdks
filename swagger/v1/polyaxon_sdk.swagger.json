@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.0.0-rc16",
+    "version": "2.0.0-rc17",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -20460,6 +20460,15 @@
       },
       "title": "MXNet Job specification"
     },
+    "v1ManagedBy": {
+      "type": "string",
+      "enum": [
+        "client",
+        "cli",
+        "agent"
+      ],
+      "default": "client"
+    },
     "v1Mapping": {
       "type": "object",
       "properties": {
@@ -20763,24 +20772,28 @@
           "type": "boolean",
           "title": "Optional, if the run is managed, true by default, this flag should be false if starting a non-managed run"
         },
+        "managed_by": {
+          "$ref": "#/definitions/v1ManagedBy",
+          "title": "Optional flag of the managing service"
+        },
         "pending": {
           "$ref": "#/definitions/v1RunPending",
           "title": "Optional, if the run is approved, true by default, this flag should be false if a run requires human validation"
         },
         "name": {
           "type": "string",
-          "title": "Optional, only usefule if is_managed is false"
+          "title": "Optional"
         },
         "description": {
           "type": "string",
-          "title": "Optional, only useful if is_managed is false"
+          "title": "Optional"
         },
         "tags": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "title": "Optional, only useful if is_managed is false"
+          "title": "Optional"
         },
         "meta_info": {
           "type": "object",
@@ -21723,6 +21736,10 @@
           "format": "int32",
           "title": "Optional duration of the entity"
         },
+        "managed_by": {
+          "$ref": "#/definitions/v1ManagedBy",
+          "title": "Optional flag of the managing service"
+        },
         "is_managed": {
           "type": "boolean",
           "title": "Optional flag to tell if this entity is managed by the platform"
@@ -21983,6 +22000,10 @@
         "name": {
           "type": "string",
           "title": "Name"
+        },
+        "state": {
+          "type": "string",
+          "title": "State"
         }
       },
       "title": "Run Settings catalog specification"

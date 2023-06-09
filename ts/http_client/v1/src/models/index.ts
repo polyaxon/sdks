@@ -135,6 +135,7 @@ export * from './V1LogHandler';
 export * from './V1Logs';
 export * from './V1MPIJob';
 export * from './V1MXJob';
+export * from './V1ManagedBy';
 export * from './V1Mapping';
 export * from './V1Matrix';
 export * from './V1MatrixKind';

@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.0.0-rc16"
+    "version" : "2.0.0-rc17"
   },
   "servers" : [ {
     "url" : "/"
@@ -28874,6 +28874,11 @@
           }
         }
       },
+      "v1ManagedBy" : {
+        "type" : "string",
+        "enum" : [ "client", "cli", "agent" ],
+        "default" : "client"
+      },
       "v1Mapping" : {
         "title" : "Matrix based on map/array either specified manually by the user or passed from another step",
         "type" : "object",
@@ -29167,19 +29172,22 @@
             "title" : "Optional, if the run is managed, true by default, this flag should be false if starting a non-managed run",
             "type" : "boolean"
           },
+          "managed_by" : {
+            "$ref" : "#/components/schemas/v1ManagedBy"
+          },
           "pending" : {
             "$ref" : "#/components/schemas/v1RunPending"
           },
           "name" : {
-            "title" : "Optional, only usefule if is_managed is false",
+            "title" : "Optional",
             "type" : "string"
           },
           "description" : {
-            "title" : "Optional, only useful if is_managed is false",
+            "title" : "Optional",
             "type" : "string"
           },
           "tags" : {
-            "title" : "Optional, only useful if is_managed is false",
+            "title" : "Optional",
             "type" : "array",
             "items" : {
               "type" : "string"
@@ -30103,6 +30111,9 @@
             "type" : "integer",
             "format" : "int32"
           },
+          "managed_by" : {
+            "$ref" : "#/components/schemas/v1ManagedBy"
+          },
           "is_managed" : {
             "title" : "Optional flag to tell if this entity is managed by the platform",
             "type" : "boolean"
@@ -30322,6 +30333,10 @@
           },
           "name" : {
             "title" : "Name",
+            "type" : "string"
+          },
+          "state" : {
+            "title" : "State",
             "type" : "string"
           }
         }

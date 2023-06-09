@@ -21,28 +21,35 @@ type V1OperationBody struct {
 	// The Operation body content as dump string
 	Content string `json:"content,omitempty"`
 
-	// Optional, only useful if is_managed is false
+	// Optional
 	Description string `json:"description,omitempty"`
 
 	// Optional, if the run is managed, true by default, this flag should be false if starting a non-managed run
 	IsManaged bool `json:"is_managed,omitempty"`
 
+	// Optional flag of the managing service
+	ManagedBy *V1ManagedBy `json:"managed_by,omitempty"`
+
 	// Meta
 	MetaInfo interface{} `json:"meta_info,omitempty"`
 
-	// Optional, only usefule if is_managed is false
+	// Optional
 	Name string `json:"name,omitempty"`
 
 	// Optional, if the run is approved, true by default, this flag should be false if a run requires human validation
 	Pending *V1RunPending `json:"pending,omitempty"`
 
-	// Optional, only useful if is_managed is false
+	// Optional
 	Tags []string `json:"tags"`
 }
 
 // Validate validates this v1 operation body
 func (m *V1OperationBody) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateManagedBy(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validatePending(formats); err != nil {
 		res = append(res, err)
@@ -51,6 +58,25 @@ func (m *V1OperationBody) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *V1OperationBody) validateManagedBy(formats strfmt.Registry) error {
+	if swag.IsZero(m.ManagedBy) { // not required
+		return nil
+	}
+
+	if m.ManagedBy != nil {
+		if err := m.ManagedBy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managed_by")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managed_by")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -77,6 +103,10 @@ func (m *V1OperationBody) validatePending(formats strfmt.Registry) error {
 func (m *V1OperationBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateManagedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePending(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -84,6 +114,22 @@ func (m *V1OperationBody) ContextValidate(ctx context.Context, formats strfmt.Re
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *V1OperationBody) contextValidateManagedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagedBy != nil {
+		if err := m.ManagedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managed_by")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managed_by")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

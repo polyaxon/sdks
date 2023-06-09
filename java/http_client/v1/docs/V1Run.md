@@ -21,6 +21,7 @@
 |**finishedAt** | **OffsetDateTime** |  |  [optional] |
 |**waitTime** | **Integer** |  |  [optional] |
 |**duration** | **Integer** |  |  [optional] |
+|**managedBy** | **V1ManagedBy** |  |  [optional] |
 |**isManaged** | **Boolean** |  |  [optional] |
 |**isApproved** | **Boolean** |  |  [optional] |
 |**pending** | **V1RunPending** |  |  [optional] |

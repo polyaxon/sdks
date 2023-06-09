@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | **str** |  | [optional] 
 **is_managed** | **bool** |  | [optional] 
+**managed_by** | [**V1ManagedBy**](V1ManagedBy.md) |  | [optional] 
 **pending** | [**V1RunPending**](V1RunPending.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 

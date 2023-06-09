@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **owner** | **str** |  | [optional] 
 **project** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
+**state** | **str** |  | [optional] 
 
 ## Example
 

@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.0.0-rc16
+- API version: 2.0.0-rc17
 
    
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.0.0-rc16</version>
+  <version>2.0.0-rc17</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.0.0-rc16"
+     implementation "org.openapitools:openapi-java-client:2.0.0-rc17"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.0.0-rc16.jar`
+* `target/openapi-java-client-2.0.0-rc17.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -513,6 +513,7 @@ Class | Method | HTTP request | Description
  - [V1Logs](docs/V1Logs.md)
  - [V1MPIJob](docs/V1MPIJob.md)
  - [V1MXJob](docs/V1MXJob.md)
+ - [V1ManagedBy](docs/V1ManagedBy.md)
  - [V1Mapping](docs/V1Mapping.md)
  - [V1Matrix](docs/V1Matrix.md)
  - [V1MatrixKind](docs/V1MatrixKind.md)

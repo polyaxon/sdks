@@ -8093,6 +8093,15 @@
       "title": "MXNet Job specification",
       "type": "object"
     },
+    "v1ManagedBy": {
+      "default": "client",
+      "enum": [
+        "client",
+        "cli",
+        "agent"
+      ],
+      "type": "string"
+    },
     "v1Mapping": {
       "properties": {
         "concurrency": {
@@ -8475,19 +8484,23 @@
           "type": "string"
         },
         "description": {
-          "title": "Optional, only useful if is_managed is false",
+          "title": "Optional",
           "type": "string"
         },
         "is_managed": {
           "title": "Optional, if the run is managed, true by default, this flag should be false if starting a non-managed run",
           "type": "boolean"
         },
+        "managed_by": {
+          "$ref": "#/definitions/v1ManagedBy",
+          "title": "Optional flag of the managing service"
+        },
         "meta_info": {
           "title": "Meta",
           "type": "object"
         },
         "name": {
-          "title": "Optional, only usefule if is_managed is false",
+          "title": "Optional",
           "type": "string"
         },
         "pending": {
@@ -8498,7 +8511,7 @@
           "items": {
             "type": "string"
           },
-          "title": "Optional, only useful if is_managed is false",
+          "title": "Optional",
           "type": "array"
         }
       },
@@ -9432,6 +9445,10 @@
           "title": "Current live state",
           "type": "integer"
         },
+        "managed_by": {
+          "$ref": "#/definitions/v1ManagedBy",
+          "title": "Optional flag of the managing service"
+        },
         "merge": {
           "title": "Optional merge flag",
           "type": "boolean"
@@ -9705,6 +9722,10 @@
         },
         "project": {
           "title": "Project",
+          "type": "string"
+        },
+        "state": {
+          "title": "State",
           "type": "string"
         }
       },
