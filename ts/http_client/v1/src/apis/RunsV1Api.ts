@@ -165,6 +165,7 @@ export interface DeleteRunArtifactRequest {
     project: string;
     uuid: string;
     path?: string;
+    connection?: string;
 }
 
 export interface DeleteRunArtifactLineageRequest {
@@ -181,6 +182,7 @@ export interface DeleteRunArtifactsRequest {
     project: string;
     uuid: string;
     path?: string;
+    connection?: string;
 }
 
 export interface DeleteRunsRequest {
@@ -199,6 +201,7 @@ export interface GetMultiRunEventsRequest {
     orient?: string;
     force?: boolean;
     sample?: number;
+    connection?: string;
 }
 
 export interface GetRunRequest {
@@ -262,6 +265,7 @@ export interface GetRunArtifactsTreeRequest {
     project: string;
     uuid: string;
     path?: string;
+    connection?: string;
 }
 
 export interface GetRunClonesLineageRequest {
@@ -307,6 +311,7 @@ export interface GetRunEventsRequest {
     orient?: string;
     force?: boolean;
     sample?: number;
+    connection?: string;
 }
 
 export interface GetRunImportanceRequest {
@@ -342,6 +347,7 @@ export interface GetRunResourcesRequest {
     tail?: boolean;
     force?: boolean;
     sample?: number;
+    connection?: string;
 }
 
 export interface GetRunSettingsRequest {
@@ -409,6 +415,7 @@ export interface InspectRunRequest {
     tail?: boolean;
     force?: boolean;
     sample?: number;
+    connection?: string;
 }
 
 export interface InvalidateRunRequest {
@@ -1129,6 +1136,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['path'] = requestParameters.path;
         }
 
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1225,6 +1236,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.path !== undefined) {
             queryParameters['path'] = requestParameters.path;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1334,6 +1349,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.sample !== undefined) {
             queryParameters['sample'] = requestParameters.sample;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1722,6 +1741,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['path'] = requestParameters.path;
         }
 
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1974,6 +1997,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['sample'] = requestParameters.sample;
         }
 
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2187,6 +2214,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.sample !== undefined) {
             queryParameters['sample'] = requestParameters.sample;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2581,6 +2612,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.sample !== undefined) {
             queryParameters['sample'] = requestParameters.sample;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

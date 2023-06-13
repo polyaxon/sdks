@@ -1032,7 +1032,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_run_artifact**
-> delete_run_artifact(namespace, owner, project, uuid, path=path)
+> delete_run_artifact(namespace, owner, project, uuid, path=path, connection=connection)
 
 Delete run artifact
 
@@ -1072,10 +1072,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
     path = 'path_example' # str | Path query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Delete run artifact
-        api_instance.delete_run_artifact(namespace, owner, project, uuid, path=path)
+        api_instance.delete_run_artifact(namespace, owner, project, uuid, path=path, connection=connection)
     except Exception as e:
         print("Exception when calling RunsV1Api->delete_run_artifact: %s\n" % e)
 ```
@@ -1089,6 +1090,7 @@ Name | Type | Description  | Notes
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
  **path** | **str**| Path query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 
@@ -1198,7 +1200,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_run_artifacts**
-> delete_run_artifacts(namespace, owner, project, uuid, path=path)
+> delete_run_artifacts(namespace, owner, project, uuid, path=path, connection=connection)
 
 Delete run artifacts
 
@@ -1238,10 +1240,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
     path = 'path_example' # str | Path query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Delete run artifacts
-        api_instance.delete_run_artifacts(namespace, owner, project, uuid, path=path)
+        api_instance.delete_run_artifacts(namespace, owner, project, uuid, path=path, connection=connection)
     except Exception as e:
         print("Exception when calling RunsV1Api->delete_run_artifacts: %s\n" % e)
 ```
@@ -1255,6 +1258,7 @@ Name | Type | Description  | Notes
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
  **path** | **str**| Path query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 
@@ -1360,7 +1364,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_multi_run_events**
-> V1EventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample)
+> V1EventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection)
 
 Get multi runs events
 
@@ -1404,10 +1408,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     orient = 'orient_example' # str | Orient query param. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Get multi runs events
-        api_response = api_instance.get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample)
+        api_response = api_instance.get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection)
         print("The response of RunsV1Api->get_multi_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -1427,6 +1432,7 @@ Name | Type | Description  | Notes
  **orient** | **str**| Orient query param. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 
@@ -1975,7 +1981,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_artifacts_tree**
-> V1ArtifactTree get_run_artifacts_tree(namespace, owner, project, uuid, path=path)
+> V1ArtifactTree get_run_artifacts_tree(namespace, owner, project, uuid, path=path, connection=connection)
 
 Get run artifacts tree
 
@@ -2015,10 +2021,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
     path = 'path_example' # str | Path query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Get run artifacts tree
-        api_response = api_instance.get_run_artifacts_tree(namespace, owner, project, uuid, path=path)
+        api_response = api_instance.get_run_artifacts_tree(namespace, owner, project, uuid, path=path, connection=connection)
         print("The response of RunsV1Api->get_run_artifacts_tree:\n")
         pprint(api_response)
     except Exception as e:
@@ -2034,6 +2041,7 @@ Name | Type | Description  | Notes
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
  **path** | **str**| Path query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 
@@ -2333,7 +2341,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_events**
-> V1EventsResponse get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample)
+> V1EventsResponse get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample, connection=connection)
 
 Get run events
 
@@ -2377,10 +2385,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     orient = 'orient_example' # str | Orient query param. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Get run events
-        api_response = api_instance.get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample)
+        api_response = api_instance.get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample, connection=connection)
         print("The response of RunsV1Api->get_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -2400,6 +2409,7 @@ Name | Type | Description  | Notes
  **orient** | **str**| Orient query param. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 
@@ -2681,7 +2691,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_resources**
-> V1EventsResponse get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample)
+> V1EventsResponse get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
 
 Get run resources events
 
@@ -2724,10 +2734,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     tail = True # bool | Query param flag to tail the values. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Get run resources events
-        api_response = api_instance.get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample)
+        api_response = api_instance.get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
         print("The response of RunsV1Api->get_run_resources:\n")
         pprint(api_response)
     except Exception as e:
@@ -2746,6 +2757,7 @@ Name | Type | Description  | Notes
  **tail** | **bool**| Query param flag to tail the values. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 
@@ -3298,7 +3310,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inspect_run**
-> object inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample)
+> object inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
 
 Inspect an active run full conditions
 
@@ -3341,10 +3353,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     tail = True # bool | Query param flag to tail the values. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
+    connection = 'connection_example' # str | Connection query param. (optional)
 
     try:
         # Inspect an active run full conditions
-        api_response = api_instance.inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample)
+        api_response = api_instance.inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
         print("The response of RunsV1Api->inspect_run:\n")
         pprint(api_response)
     except Exception as e:
@@ -3363,6 +3376,7 @@ Name | Type | Description  | Notes
  **tail** | **bool**| Query param flag to tail the values. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
+ **connection** | **str**| Connection query param. | [optional] 
 
 ### Return type
 

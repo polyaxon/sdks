@@ -238,7 +238,8 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String path = null;
-        api.deleteRunArtifact(namespace, owner, project, uuid, path);
+        String connection = null;
+        api.deleteRunArtifact(namespace, owner, project, uuid, path, connection);
         // TODO: test validations
     }
 
@@ -270,7 +271,8 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String path = null;
-        api.deleteRunArtifacts(namespace, owner, project, uuid, path);
+        String connection = null;
+        api.deleteRunArtifacts(namespace, owner, project, uuid, path, connection);
         // TODO: test validations
     }
 
@@ -304,7 +306,8 @@ public class RunsV1ApiTest {
         String orient = null;
         Boolean force = null;
         Integer sample = null;
-        V1EventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample);
+        String connection = null;
+        V1EventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection);
         // TODO: test validations
     }
 
@@ -423,7 +426,8 @@ public class RunsV1ApiTest {
         String project = null;
         String uuid = null;
         String path = null;
-        V1ArtifactTree response = api.getRunArtifactsTree(namespace, owner, project, uuid, path);
+        String connection = null;
+        V1ArtifactTree response = api.getRunArtifactsTree(namespace, owner, project, uuid, path, connection);
         // TODO: test validations
     }
 
@@ -500,7 +504,8 @@ public class RunsV1ApiTest {
         String orient = null;
         Boolean force = null;
         Integer sample = null;
-        V1EventsResponse response = api.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample);
+        String connection = null;
+        V1EventsResponse response = api.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection);
         // TODO: test validations
     }
 
@@ -567,7 +572,8 @@ public class RunsV1ApiTest {
         Boolean tail = null;
         Boolean force = null;
         Integer sample = null;
-        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample);
+        String connection = null;
+        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection);
         // TODO: test validations
     }
 
@@ -690,7 +696,8 @@ public class RunsV1ApiTest {
         Boolean tail = null;
         Boolean force = null;
         Integer sample = null;
-        Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample);
+        String connection = null;
+        Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection);
         // TODO: test validations
     }
 

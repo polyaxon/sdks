@@ -61,6 +61,12 @@ DeleteRunArtifactParams contains all the parameters to send to the API endpoint
 */
 type DeleteRunArtifactParams struct {
 
+	/* Connection.
+
+	   Connection query param.
+	*/
+	Connection *string
+
 	/* Namespace.
 
 	   namespace
@@ -144,6 +150,17 @@ func (o *DeleteRunArtifactParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the delete run artifact params
+func (o *DeleteRunArtifactParams) WithConnection(connection *string) *DeleteRunArtifactParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the delete run artifact params
+func (o *DeleteRunArtifactParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithNamespace adds the namespace to the delete run artifact params
 func (o *DeleteRunArtifactParams) WithNamespace(namespace string) *DeleteRunArtifactParams {
 	o.SetNamespace(namespace)
@@ -206,6 +223,23 @@ func (o *DeleteRunArtifactParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	// path param namespace
 	if err := r.SetPathParam("namespace", o.Namespace); err != nil {

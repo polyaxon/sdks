@@ -61,6 +61,12 @@ GetRunArtifactsTreeParams contains all the parameters to send to the API endpoin
 */
 type GetRunArtifactsTreeParams struct {
 
+	/* Connection.
+
+	   Connection query param.
+	*/
+	Connection *string
+
 	/* Namespace.
 
 	   namespace
@@ -144,6 +150,17 @@ func (o *GetRunArtifactsTreeParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the get run artifacts tree params
+func (o *GetRunArtifactsTreeParams) WithConnection(connection *string) *GetRunArtifactsTreeParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the get run artifacts tree params
+func (o *GetRunArtifactsTreeParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithNamespace adds the namespace to the get run artifacts tree params
 func (o *GetRunArtifactsTreeParams) WithNamespace(namespace string) *GetRunArtifactsTreeParams {
 	o.SetNamespace(namespace)
@@ -206,6 +223,23 @@ func (o *GetRunArtifactsTreeParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	// path param namespace
 	if err := r.SetPathParam("namespace", o.Namespace); err != nil {

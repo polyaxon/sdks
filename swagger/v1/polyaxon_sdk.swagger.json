@@ -15446,6 +15446,13 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -15512,6 +15519,13 @@
           {
             "name": "path",
             "description": "Path query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -15662,6 +15676,13 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -15805,6 +15826,13 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -15939,6 +15967,13 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -16107,6 +16142,13 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -16357,6 +16399,13 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "connection",
+            "description": "Connection query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [

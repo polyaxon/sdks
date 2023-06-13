@@ -62,6 +62,12 @@ GetRunResourcesParams contains all the parameters to send to the API endpoint
 */
 type GetRunResourcesParams struct {
 
+	/* Connection.
+
+	   Connection query param.
+	*/
+	Connection *string
+
 	/* Force.
 
 	   Force query param.
@@ -165,6 +171,17 @@ func (o *GetRunResourcesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the get run resources params
+func (o *GetRunResourcesParams) WithConnection(connection *string) *GetRunResourcesParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the get run resources params
+func (o *GetRunResourcesParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithForce adds the force to the get run resources params
 func (o *GetRunResourcesParams) WithForce(force *bool) *GetRunResourcesParams {
 	o.SetForce(force)
@@ -260,6 +277,23 @@ func (o *GetRunResourcesParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Force != nil {
 

@@ -970,7 +970,7 @@ null (empty response body)
 
 <a name="deleteRunArtifact"></a>
 # **deleteRunArtifact**
-> deleteRunArtifact(namespace, owner, project, uuid, path)
+> deleteRunArtifact(namespace, owner, project, uuid, path, connection)
 
 Delete run artifact
 
@@ -1001,8 +1001,9 @@ public class Example {
     String project = "project_example"; // String | Project where the run will be assigned
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
     String path = "path_example"; // String | Path query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      apiInstance.deleteRunArtifact(namespace, owner, project, uuid, path);
+      apiInstance.deleteRunArtifact(namespace, owner, project, uuid, path, connection);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#deleteRunArtifact");
       System.err.println("Status code: " + e.getCode());
@@ -1023,6 +1024,7 @@ public class Example {
 | **project** | **String**| Project where the run will be assigned | |
 | **uuid** | **String**| Uuid identifier of the entity | |
 | **path** | **String**| Path query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 
@@ -1126,7 +1128,7 @@ null (empty response body)
 
 <a name="deleteRunArtifacts"></a>
 # **deleteRunArtifacts**
-> deleteRunArtifacts(namespace, owner, project, uuid, path)
+> deleteRunArtifacts(namespace, owner, project, uuid, path, connection)
 
 Delete run artifacts
 
@@ -1157,8 +1159,9 @@ public class Example {
     String project = "project_example"; // String | Project where the run will be assigned
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
     String path = "path_example"; // String | Path query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      apiInstance.deleteRunArtifacts(namespace, owner, project, uuid, path);
+      apiInstance.deleteRunArtifacts(namespace, owner, project, uuid, path, connection);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#deleteRunArtifacts");
       System.err.println("Status code: " + e.getCode());
@@ -1179,6 +1182,7 @@ public class Example {
 | **project** | **String**| Project where the run will be assigned | |
 | **uuid** | **String**| Uuid identifier of the entity | |
 | **path** | **String**| Path query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 
@@ -1278,7 +1282,7 @@ null (empty response body)
 
 <a name="getMultiRunEvents"></a>
 # **getMultiRunEvents**
-> V1EventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample)
+> V1EventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection)
 
 Get multi runs events
 
@@ -1313,8 +1317,9 @@ public class Example {
     String orient = "orient_example"; // String | Orient query param.
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      V1EventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample);
+      V1EventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getMultiRunEvents");
@@ -1340,6 +1345,7 @@ public class Example {
 | **orient** | **String**| Orient query param. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 
@@ -1851,7 +1857,7 @@ public class Example {
 
 <a name="getRunArtifactsTree"></a>
 # **getRunArtifactsTree**
-> V1ArtifactTree getRunArtifactsTree(namespace, owner, project, uuid, path)
+> V1ArtifactTree getRunArtifactsTree(namespace, owner, project, uuid, path, connection)
 
 Get run artifacts tree
 
@@ -1882,8 +1888,9 @@ public class Example {
     String project = "project_example"; // String | Project where the run will be assigned
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
     String path = "path_example"; // String | Path query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      V1ArtifactTree result = apiInstance.getRunArtifactsTree(namespace, owner, project, uuid, path);
+      V1ArtifactTree result = apiInstance.getRunArtifactsTree(namespace, owner, project, uuid, path, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunArtifactsTree");
@@ -1905,6 +1912,7 @@ public class Example {
 | **project** | **String**| Project where the run will be assigned | |
 | **uuid** | **String**| Uuid identifier of the entity | |
 | **path** | **String**| Path query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 
@@ -2185,7 +2193,7 @@ public class Example {
 
 <a name="getRunEvents"></a>
 # **getRunEvents**
-> V1EventsResponse getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample)
+> V1EventsResponse getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection)
 
 Get run events
 
@@ -2220,8 +2228,9 @@ public class Example {
     String orient = "orient_example"; // String | Orient query param.
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      V1EventsResponse result = apiInstance.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample);
+      V1EventsResponse result = apiInstance.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunEvents");
@@ -2247,6 +2256,7 @@ public class Example {
 | **orient** | **String**| Orient query param. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 
@@ -2509,7 +2519,7 @@ public class Example {
 
 <a name="getRunResources"></a>
 # **getRunResources**
-> V1EventsResponse getRunResources(namespace, owner, project, uuid, names, tail, force, sample)
+> V1EventsResponse getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection)
 
 Get run resources events
 
@@ -2543,8 +2553,9 @@ public class Example {
     Boolean tail = true; // Boolean | Query param flag to tail the values.
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      V1EventsResponse result = apiInstance.getRunResources(namespace, owner, project, uuid, names, tail, force, sample);
+      V1EventsResponse result = apiInstance.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunResources");
@@ -2569,6 +2580,7 @@ public class Example {
 | **tail** | **Boolean**| Query param flag to tail the values. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 
@@ -3084,7 +3096,7 @@ public class Example {
 
 <a name="inspectRun"></a>
 # **inspectRun**
-> Object inspectRun(namespace, owner, project, uuid, names, tail, force, sample)
+> Object inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection)
 
 Inspect an active run full conditions
 
@@ -3118,8 +3130,9 @@ public class Example {
     Boolean tail = true; // Boolean | Query param flag to tail the values.
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
+    String connection = "connection_example"; // String | Connection query param.
     try {
-      Object result = apiInstance.inspectRun(namespace, owner, project, uuid, names, tail, force, sample);
+      Object result = apiInstance.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#inspectRun");
@@ -3144,6 +3157,7 @@ public class Example {
 | **tail** | **Boolean**| Query param flag to tail the values. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
+| **connection** | **String**| Connection query param. | [optional] |
 
 ### Return type
 

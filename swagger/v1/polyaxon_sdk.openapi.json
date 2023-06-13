@@ -23438,6 +23438,16 @@
             "type" : "integer",
             "format" : "int32"
           }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -23666,6 +23676,16 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -23878,6 +23898,16 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -23976,6 +24006,16 @@
           "name" : "path",
           "in" : "query",
           "description" : "Path query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -24133,6 +24173,16 @@
           "schema" : {
             "type" : "integer",
             "format" : "int32"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -24386,6 +24436,16 @@
           "schema" : {
             "type" : "integer",
             "format" : "int32"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -24762,6 +24822,16 @@
           "schema" : {
             "type" : "integer",
             "format" : "int32"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {

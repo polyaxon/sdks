@@ -62,6 +62,12 @@ GetRunEventsParams contains all the parameters to send to the API endpoint
 */
 type GetRunEventsParams struct {
 
+	/* Connection.
+
+	   Connection query param.
+	*/
+	Connection *string
+
 	/* Force.
 
 	   Force query param.
@@ -171,6 +177,17 @@ func (o *GetRunEventsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the get run events params
+func (o *GetRunEventsParams) WithConnection(connection *string) *GetRunEventsParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the get run events params
+func (o *GetRunEventsParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithForce adds the force to the get run events params
 func (o *GetRunEventsParams) WithForce(force *bool) *GetRunEventsParams {
 	o.SetForce(force)
@@ -277,6 +294,23 @@ func (o *GetRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Force != nil {
 

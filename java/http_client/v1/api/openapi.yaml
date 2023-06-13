@@ -16778,6 +16778,14 @@ paths:
           format: int32
           type: integer
         style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -16853,6 +16861,14 @@ paths:
         explode: true
         in: query
         name: path
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
         required: false
         schema:
           type: string
@@ -17021,6 +17037,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content: {}
@@ -17177,6 +17201,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17320,6 +17352,14 @@ paths:
         schema:
           format: int32
           type: integer
+        style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -17504,6 +17544,14 @@ paths:
         schema:
           format: int32
           type: integer
+        style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -17779,6 +17827,14 @@ paths:
         schema:
           format: int32
           type: integer
+        style: form
+      - description: Connection query param.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":

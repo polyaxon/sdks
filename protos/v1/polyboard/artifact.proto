@@ -220,6 +220,9 @@ message RunArtifactsPathRequest {
 
     // Path query param
     string path = 5;
+
+    // Connection query param
+    string connection = 6;
 }
 
 // Request data to get/delete run event
@@ -250,6 +253,9 @@ message RunEventRequest {
 
     // Sample query param
     int32 sample = 9;
+
+    // Connection query param
+    string connection = 10;
 }
 
 // Request data to get/delete runs' events
@@ -280,6 +286,9 @@ message RunEventsRequest {
 
     // Sample query param
     int32 sample = 9;
+
+    // Connection query param
+    string connection = 10;
 }
 
 // Request data to get/delete run resources
@@ -307,6 +316,9 @@ message RunResourcesRequest {
 
     // Sample query param
     int32 sample = 8;
+
+    // Connection query param
+    string connection = 9;
 }
 
 // Request data to get run importance correlation

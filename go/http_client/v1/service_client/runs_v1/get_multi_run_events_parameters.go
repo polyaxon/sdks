@@ -62,6 +62,12 @@ GetMultiRunEventsParams contains all the parameters to send to the API endpoint
 */
 type GetMultiRunEventsParams struct {
 
+	/* Connection.
+
+	   Connection query param.
+	*/
+	Connection *string
+
 	/* Force.
 
 	   Force query param.
@@ -171,6 +177,17 @@ func (o *GetMultiRunEventsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the get multi run events params
+func (o *GetMultiRunEventsParams) WithConnection(connection *string) *GetMultiRunEventsParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the get multi run events params
+func (o *GetMultiRunEventsParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithForce adds the force to the get multi run events params
 func (o *GetMultiRunEventsParams) WithForce(force *bool) *GetMultiRunEventsParams {
 	o.SetForce(force)
@@ -277,6 +294,23 @@ func (o *GetMultiRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Force != nil {
 

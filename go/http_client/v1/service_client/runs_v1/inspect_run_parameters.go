@@ -62,6 +62,12 @@ InspectRunParams contains all the parameters to send to the API endpoint
 */
 type InspectRunParams struct {
 
+	/* Connection.
+
+	   Connection query param.
+	*/
+	Connection *string
+
 	/* Force.
 
 	   Force query param.
@@ -165,6 +171,17 @@ func (o *InspectRunParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the inspect run params
+func (o *InspectRunParams) WithConnection(connection *string) *InspectRunParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the inspect run params
+func (o *InspectRunParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithForce adds the force to the inspect run params
 func (o *InspectRunParams) WithForce(force *bool) *InspectRunParams {
 	o.SetForce(force)
@@ -260,6 +277,23 @@ func (o *InspectRunParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Force != nil {
 
