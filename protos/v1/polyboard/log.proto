@@ -60,6 +60,9 @@ message RunLogsRequest {
 
     // Force query param
     bool force = 7;
+
+    // Connection to use
+    string connection = 8;
 }
 
 // Request collect logs for a run
@@ -77,4 +80,7 @@ message CollectRunLogsRequest {
 
     // Kind of the entity
     string kind = 5;
+
+    // Connection to use
+    string connection = 6;
 }

@@ -16778,7 +16778,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection
@@ -16865,7 +16865,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection
@@ -17037,7 +17037,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection
@@ -17201,7 +17201,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection
@@ -17353,7 +17353,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection
@@ -17545,7 +17545,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection
@@ -17647,6 +17647,14 @@ paths:
         required: false
         schema:
           type: boolean
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -17828,7 +17836,7 @@ paths:
           format: int32
           type: integer
         style: form
-      - description: Connection query param.
+      - description: Connection to use.
         explode: true
         in: query
         name: connection

@@ -64,7 +64,7 @@ type GetRunEventsParams struct {
 
 	/* Connection.
 
-	   Connection query param.
+	   Connection to use.
 	*/
 	Connection *string
 

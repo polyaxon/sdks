@@ -221,7 +221,7 @@ message RunArtifactsPathRequest {
     // Path query param
     string path = 5;
 
-    // Connection query param
+    // Connection to use
     string connection = 6;
 }
 
@@ -254,7 +254,7 @@ message RunEventRequest {
     // Sample query param
     int32 sample = 9;
 
-    // Connection query param
+    // Connection to use
     string connection = 10;
 }
 
@@ -287,7 +287,7 @@ message RunEventsRequest {
     // Sample query param
     int32 sample = 9;
 
-    // Connection query param
+    // Connection to use
     string connection = 10;
 }
 
@@ -317,7 +317,7 @@ message RunResourcesRequest {
     // Sample query param
     int32 sample = 8;
 
-    // Connection query param
+    // Connection to use
     string connection = 9;
 }
 

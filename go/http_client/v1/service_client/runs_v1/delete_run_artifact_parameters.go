@@ -63,7 +63,7 @@ type DeleteRunArtifactParams struct {
 
 	/* Connection.
 
-	   Connection query param.
+	   Connection to use.
 	*/
 	Connection *string
 

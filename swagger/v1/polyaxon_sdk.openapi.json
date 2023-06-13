@@ -23441,7 +23441,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -23679,7 +23679,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -23901,7 +23901,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -24015,7 +24015,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -24177,7 +24177,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -24440,7 +24440,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -24576,6 +24576,16 @@
           "explode" : true,
           "schema" : {
             "type" : "boolean"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -24826,7 +24836,7 @@
         }, {
           "name" : "connection",
           "in" : "query",
-          "description" : "Connection query param.",
+          "description" : "Connection to use.",
           "required" : false,
           "style" : "form",
           "explode" : true,

@@ -1072,7 +1072,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
     path = 'path_example' # str | Path query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Delete run artifact
@@ -1090,7 +1090,7 @@ Name | Type | Description  | Notes
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
  **path** | **str**| Path query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1240,7 +1240,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
     path = 'path_example' # str | Path query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Delete run artifacts
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Notes
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
  **path** | **str**| Path query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1408,7 +1408,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     orient = 'orient_example' # str | Orient query param. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get multi runs events
@@ -1432,7 +1432,7 @@ Name | Type | Description  | Notes
  **orient** | **str**| Orient query param. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -2021,7 +2021,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
     path = 'path_example' # str | Path query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get run artifacts tree
@@ -2041,7 +2041,7 @@ Name | Type | Description  | Notes
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
  **path** | **str**| Path query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -2385,7 +2385,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     orient = 'orient_example' # str | Orient query param. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get run events
@@ -2409,7 +2409,7 @@ Name | Type | Description  | Notes
  **orient** | **str**| Orient query param. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -2521,7 +2521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_logs**
-> V1Logs get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force)
+> V1Logs get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force, connection=connection)
 
 Get run logs
 
@@ -2563,10 +2563,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     last_time = '2013-10-20T19:20:30+01:00' # datetime | last time. (optional)
     last_file = 'last_file_example' # str | last file. (optional)
     force = True # bool | Force query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get run logs
-        api_response = api_instance.get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force)
+        api_response = api_instance.get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force, connection=connection)
         print("The response of RunsV1Api->get_run_logs:\n")
         pprint(api_response)
     except Exception as e:
@@ -2584,6 +2585,7 @@ Name | Type | Description  | Notes
  **last_time** | **datetime**| last time. | [optional] 
  **last_file** | **str**| last file. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -2734,7 +2736,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     tail = True # bool | Query param flag to tail the values. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get run resources events
@@ -2757,7 +2759,7 @@ Name | Type | Description  | Notes
  **tail** | **bool**| Query param flag to tail the values. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -3353,7 +3355,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     tail = True # bool | Query param flag to tail the values. (optional)
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
-    connection = 'connection_example' # str | Connection query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Inspect an active run full conditions
@@ -3376,7 +3378,7 @@ Name | Type | Description  | Notes
  **tail** | **bool**| Query param flag to tail the values. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
- **connection** | **str**| Connection query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 

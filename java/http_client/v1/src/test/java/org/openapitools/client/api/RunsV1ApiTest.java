@@ -539,7 +539,8 @@ public class RunsV1ApiTest {
         OffsetDateTime lastTime = null;
         String lastFile = null;
         Boolean force = null;
-        V1Logs response = api.getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force);
+        String connection = null;
+        V1Logs response = api.getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force, connection);
         // TODO: test validations
     }
 

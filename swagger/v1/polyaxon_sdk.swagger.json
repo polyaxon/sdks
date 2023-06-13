@@ -15449,7 +15449,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -15525,7 +15525,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -15679,7 +15679,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -15829,7 +15829,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -15970,7 +15970,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -16145,7 +16145,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -16235,6 +16235,13 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -16402,7 +16409,7 @@
           },
           {
             "name": "connection",
-            "description": "Connection query param.",
+            "description": "Connection to use.",
             "in": "query",
             "required": false,
             "type": "string"

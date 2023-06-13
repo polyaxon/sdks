@@ -739,7 +739,7 @@ let project = "project_example"; // String | Project where the run will be assig
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
   'path': "path_example", // String | Path query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.deleteRunArtifact(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
  **project** | **String**| Project where the run will be assigned | 
  **uuid** | **String**| Uuid identifier of the entity | 
  **path** | **String**| Path query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -859,7 +859,7 @@ let project = "project_example"; // String | Project where the run will be assig
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
   'path': "path_example", // String | Path query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.deleteRunArtifacts(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -880,7 +880,7 @@ Name | Type | Description  | Notes
  **project** | **String**| Project where the run will be assigned | 
  **uuid** | **String**| Uuid identifier of the entity | 
  **path** | **String**| Path query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -977,7 +977,7 @@ let opts = {
   'orient': "orient_example", // String | Orient query param.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getMultiRunEvents(namespace, owner, project, kind, opts, (error, data, response) => {
   if (error) {
@@ -1002,7 +1002,7 @@ Name | Type | Description  | Notes
  **orient** | **String**| Orient query param. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1408,7 +1408,7 @@ let project = "project_example"; // String | Project where the run will be assig
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
   'path': "path_example", // String | Path query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getRunArtifactsTree(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -1429,7 +1429,7 @@ Name | Type | Description  | Notes
  **project** | **String**| Project where the run will be assigned | 
  **uuid** | **String**| Uuid identifier of the entity | 
  **path** | **String**| Path query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1668,7 +1668,7 @@ let opts = {
   'orient': "orient_example", // String | Orient query param.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getRunEvents(namespace, owner, project, uuid, kind, opts, (error, data, response) => {
   if (error) {
@@ -1693,7 +1693,7 @@ Name | Type | Description  | Notes
  **orient** | **String**| Orient query param. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1791,7 +1791,8 @@ let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
   'last_time': new Date("2013-10-20T19:20:30+01:00"), // Date | last time.
   'last_file': "last_file_example", // String | last file.
-  'force': true // Boolean | Force query param.
+  'force': true, // Boolean | Force query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getRunLogs(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -1814,6 +1815,7 @@ Name | Type | Description  | Notes
  **last_time** | **Date**| last time. | [optional] 
  **last_file** | **String**| last file. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1909,7 +1911,7 @@ let opts = {
   'tail': true, // Boolean | Query param flag to tail the values.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getRunResources(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -1933,7 +1935,7 @@ Name | Type | Description  | Notes
  **tail** | **Boolean**| Query param flag to tail the values. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -2340,7 +2342,7 @@ let opts = {
   'tail': true, // Boolean | Query param flag to tail the values.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection query param.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.inspectRun(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -2364,7 +2366,7 @@ Name | Type | Description  | Notes
  **tail** | **Boolean**| Query param flag to tail the values. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
- **connection** | **String**| Connection query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 

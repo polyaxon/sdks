@@ -733,7 +733,7 @@ export default class RunsV1Api {
      * @param {String} uuid Uuid identifier of the entity
      * @param {Object} opts Optional parameters
      * @param {String} [path] Path query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~deleteRunArtifactCallback} callback The callback function, accepting three arguments: error, data, response
      */
     deleteRunArtifact(namespace, owner, project, uuid, opts, callback) {
@@ -861,7 +861,7 @@ export default class RunsV1Api {
      * @param {String} uuid Uuid identifier of the entity
      * @param {Object} opts Optional parameters
      * @param {String} [path] Path query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~deleteRunArtifactsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     deleteRunArtifacts(namespace, owner, project, uuid, opts, callback) {
@@ -982,7 +982,7 @@ export default class RunsV1Api {
      * @param {String} [orient] Orient query param.
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getMultiRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EventsResponse}
      */
@@ -1436,7 +1436,7 @@ export default class RunsV1Api {
      * @param {String} uuid Uuid identifier of the entity
      * @param {Object} opts Optional parameters
      * @param {String} [path] Path query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getRunArtifactsTreeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1ArtifactTree}
      */
@@ -1704,7 +1704,7 @@ export default class RunsV1Api {
      * @param {String} [orient] Orient query param.
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EventsResponse}
      */
@@ -1845,6 +1845,7 @@ export default class RunsV1Api {
      * @param {Date} [last_time] last time.
      * @param {String} [last_file] last file.
      * @param {Boolean} [force] Force query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Logs}
      */
@@ -1877,7 +1878,8 @@ export default class RunsV1Api {
       let queryParams = {
         'last_time': opts['last_time'],
         'last_file': opts['last_file'],
-        'force': opts['force']
+        'force': opts['force'],
+        'connection': opts['connection']
       };
       let headerParams = {
       };
@@ -1968,7 +1970,7 @@ export default class RunsV1Api {
      * @param {Boolean} [tail] Query param flag to tail the values.
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getRunResourcesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EventsResponse}
      */
@@ -2406,7 +2408,7 @@ export default class RunsV1Api {
      * @param {Boolean} [tail] Query param flag to tail the values.
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
-     * @param {String} [connection] Connection query param.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~inspectRunCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */

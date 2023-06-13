@@ -1993,7 +1993,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_run_artifact(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> None:  # noqa: E501
+    def delete_run_artifact(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> None:  # noqa: E501
         """Delete run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2012,7 +2012,7 @@ class RunsV1Api(object):
         :type uuid: str
         :param path: Path query param.
         :type path: str
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2033,7 +2033,7 @@ class RunsV1Api(object):
         return self.delete_run_artifact_with_http_info(namespace, owner, project, uuid, path, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_run_artifact_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def delete_run_artifact_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Delete run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2052,7 +2052,7 @@ class RunsV1Api(object):
         :type uuid: str
         :param path: Path query param.
         :type path: str
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2337,7 +2337,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_run_artifacts(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> None:  # noqa: E501
+    def delete_run_artifacts(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> None:  # noqa: E501
         """Delete run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2356,7 +2356,7 @@ class RunsV1Api(object):
         :type uuid: str
         :param path: Path query param.
         :type path: str
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2377,7 +2377,7 @@ class RunsV1Api(object):
         return self.delete_run_artifacts_with_http_info(namespace, owner, project, uuid, path, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_run_artifacts_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def delete_run_artifacts_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Delete run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2396,7 +2396,7 @@ class RunsV1Api(object):
         :type uuid: str
         :param path: Path query param.
         :type path: str
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2672,7 +2672,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_multi_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
+    def get_multi_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get multi runs events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2699,7 +2699,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2720,7 +2720,7 @@ class RunsV1Api(object):
         return self.get_multi_run_events_with_http_info(namespace, owner, project, kind, names, runs, orient, force, sample, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_multi_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def get_multi_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get multi runs events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2747,7 +2747,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -3979,7 +3979,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_artifacts_tree(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> V1ArtifactTree:  # noqa: E501
+    def get_run_artifacts_tree(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> V1ArtifactTree:  # noqa: E501
         """Get run artifacts tree  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3998,7 +3998,7 @@ class RunsV1Api(object):
         :type uuid: str
         :param path: Path query param.
         :type path: str
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4019,7 +4019,7 @@ class RunsV1Api(object):
         return self.get_run_artifacts_tree_with_http_info(namespace, owner, project, uuid, path, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_artifacts_tree_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def get_run_artifacts_tree_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Path query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts tree  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4038,7 +4038,7 @@ class RunsV1Api(object):
         :type uuid: str
         :param path: Path query param.
         :type path: str
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4751,7 +4751,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
+    def get_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get run events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4778,7 +4778,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4799,7 +4799,7 @@ class RunsV1Api(object):
         return self.get_run_events_with_http_info(namespace, owner, project, uuid, kind, names, orient, force, sample, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def get_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get run events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4826,7 +4826,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -5144,13 +5144,13 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_logs(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], last_time : Annotated[Optional[datetime], Field(description="last time.")] = None, last_file : Annotated[Optional[StrictStr], Field(description="last file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, **kwargs) -> V1Logs:  # noqa: E501
+    def get_run_logs(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], last_time : Annotated[Optional[datetime], Field(description="last time.")] = None, last_file : Annotated[Optional[StrictStr], Field(description="last file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> V1Logs:  # noqa: E501
         """Get run logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_logs(namespace, owner, project, uuid, last_time, last_file, force, async_req=True)
+        >>> thread = api.get_run_logs(namespace, owner, project, uuid, last_time, last_file, force, connection, async_req=True)
         >>> result = thread.get()
 
         :param namespace: (required)
@@ -5167,6 +5167,8 @@ class RunsV1Api(object):
         :type last_file: str
         :param force: Force query param.
         :type force: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5183,16 +5185,16 @@ class RunsV1Api(object):
         :rtype: V1Logs
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_logs_with_http_info(namespace, owner, project, uuid, last_time, last_file, force, **kwargs)  # noqa: E501
+        return self.get_run_logs_with_http_info(namespace, owner, project, uuid, last_time, last_file, force, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_logs_with_http_info(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], last_time : Annotated[Optional[datetime], Field(description="last time.")] = None, last_file : Annotated[Optional[StrictStr], Field(description="last file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, **kwargs):  # noqa: E501
+    def get_run_logs_with_http_info(self, namespace : StrictStr, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], last_time : Annotated[Optional[datetime], Field(description="last time.")] = None, last_file : Annotated[Optional[StrictStr], Field(description="last file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get run logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_logs_with_http_info(namespace, owner, project, uuid, last_time, last_file, force, async_req=True)
+        >>> thread = api.get_run_logs_with_http_info(namespace, owner, project, uuid, last_time, last_file, force, connection, async_req=True)
         >>> result = thread.get()
 
         :param namespace: (required)
@@ -5209,6 +5211,8 @@ class RunsV1Api(object):
         :type last_file: str
         :param force: Force query param.
         :type force: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -5242,7 +5246,8 @@ class RunsV1Api(object):
             'uuid',
             'last_time',
             'last_file',
-            'force'
+            'force',
+            'connection'
         ]
         _all_params.extend(
             [
@@ -5296,6 +5301,9 @@ class RunsV1Api(object):
 
         if _params.get('force') is not None:  # noqa: E501
             _query_params.append(('force', _params['force']))
+
+        if _params.get('connection') is not None:  # noqa: E501
+            _query_params.append(('connection', _params['connection']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -5493,7 +5501,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_resources(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
+    def get_run_resources(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> V1EventsResponse:  # noqa: E501
         """Get run resources events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5518,7 +5526,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -5539,7 +5547,7 @@ class RunsV1Api(object):
         return self.get_run_resources_with_http_info(namespace, owner, project, uuid, names, tail, force, sample, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_resources_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def get_run_resources_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get run resources events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5564,7 +5572,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -6800,7 +6808,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def inspect_run(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs) -> object:  # noqa: E501
+    def inspect_run(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> object:  # noqa: E501
         """Inspect an active run full conditions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6825,7 +6833,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -6846,7 +6854,7 @@ class RunsV1Api(object):
         return self.inspect_run_with_http_info(namespace, owner, project, uuid, names, tail, force, sample, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def inspect_run_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection query param.")] = None, **kwargs):  # noqa: E501
+    def inspect_run_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the run will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, tail : Annotated[Optional[StrictBool], Field(description="Query param flag to tail the values.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Inspect an active run full conditions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6871,7 +6879,7 @@ class RunsV1Api(object):
         :type force: bool
         :param sample: Sample query param.
         :type sample: int
-        :param connection: Connection query param.
+        :param connection: Connection to use.
         :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

@@ -330,6 +330,7 @@ export interface GetRunLogsRequest {
     lastTime?: Date;
     lastFile?: string;
     force?: boolean;
+    connection?: string;
 }
 
 export interface GetRunNamespaceRequest {
@@ -2110,6 +2111,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.force !== undefined) {
             queryParameters['force'] = requestParameters.force;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

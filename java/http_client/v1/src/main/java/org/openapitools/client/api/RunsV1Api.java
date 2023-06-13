@@ -2024,7 +2024,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2128,7 +2128,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2152,7 +2152,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2178,7 +2178,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2378,7 +2378,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2482,7 +2482,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2506,7 +2506,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2532,7 +2532,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2718,7 +2718,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2842,7 +2842,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return V1EventsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2872,7 +2872,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;V1EventsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2903,7 +2903,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4035,7 +4035,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4139,7 +4139,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return V1ArtifactTree
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4165,7 +4165,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;V1ArtifactTree&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4192,7 +4192,7 @@ public class RunsV1Api {
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
      * @param path Path query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4821,7 +4821,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4947,7 +4947,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return V1EventsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4977,7 +4977,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;V1EventsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5008,7 +5008,7 @@ public class RunsV1Api {
      * @param orient Orient query param. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5217,6 +5217,7 @@ public class RunsV1Api {
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5230,7 +5231,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunLogsCall(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRunLogsCall(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5271,6 +5272,10 @@ public class RunsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
+        if (connection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connection", connection));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -5291,7 +5296,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRunLogsValidateBeforeCall(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRunLogsValidateBeforeCall(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getRunLogs(Async)");
@@ -5312,7 +5317,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getRunLogs(Async)");
         }
 
-        return getRunLogsCall(namespace, owner, project, uuid, lastTime, lastFile, force, _callback);
+        return getRunLogsCall(namespace, owner, project, uuid, lastTime, lastFile, force, connection, _callback);
 
     }
 
@@ -5326,6 +5331,7 @@ public class RunsV1Api {
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return V1Logs
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5338,8 +5344,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1Logs getRunLogs(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force) throws ApiException {
-        ApiResponse<V1Logs> localVarResp = getRunLogsWithHttpInfo(namespace, owner, project, uuid, lastTime, lastFile, force);
+    public V1Logs getRunLogs(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection) throws ApiException {
+        ApiResponse<V1Logs> localVarResp = getRunLogsWithHttpInfo(namespace, owner, project, uuid, lastTime, lastFile, force, connection);
         return localVarResp.getData();
     }
 
@@ -5353,6 +5359,7 @@ public class RunsV1Api {
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;V1Logs&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5365,8 +5372,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1Logs> getRunLogsWithHttpInfo(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, lastTime, lastFile, force, null);
+    public ApiResponse<V1Logs> getRunLogsWithHttpInfo(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection) throws ApiException {
+        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, lastTime, lastFile, force, connection, null);
         Type localVarReturnType = new TypeToken<V1Logs>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5381,6 +5388,7 @@ public class RunsV1Api {
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5394,9 +5402,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunLogsAsync(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, final ApiCallback<V1Logs> _callback) throws ApiException {
+    public okhttp3.Call getRunLogsAsync(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback<V1Logs> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, lastTime, lastFile, force, _callback);
+        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, lastTime, lastFile, force, connection, _callback);
         Type localVarReturnType = new TypeToken<V1Logs>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5570,7 +5578,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5689,7 +5697,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return V1EventsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5718,7 +5726,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;V1EventsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5748,7 +5756,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6891,7 +6899,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7010,7 +7018,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7039,7 +7047,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7069,7 +7077,7 @@ public class RunsV1Api {
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
      * @param sample Sample query param. (optional)
-     * @param connection Connection query param. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

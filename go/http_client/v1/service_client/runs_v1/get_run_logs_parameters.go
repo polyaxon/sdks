@@ -62,6 +62,12 @@ GetRunLogsParams contains all the parameters to send to the API endpoint
 */
 type GetRunLogsParams struct {
 
+	/* Connection.
+
+	   Connection to use.
+	*/
+	Connection *string
+
 	/* Force.
 
 	   Force query param.
@@ -156,6 +162,17 @@ func (o *GetRunLogsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the get run logs params
+func (o *GetRunLogsParams) WithConnection(connection *string) *GetRunLogsParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the get run logs params
+func (o *GetRunLogsParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithForce adds the force to the get run logs params
 func (o *GetRunLogsParams) WithForce(force *bool) *GetRunLogsParams {
 	o.SetForce(force)
@@ -240,6 +257,23 @@ func (o *GetRunLogsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Force != nil {
 
