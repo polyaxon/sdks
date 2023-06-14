@@ -23531,7 +23531,7 @@
         }, {
           "name" : "project",
           "in" : "path",
-          "description" : "Project where the experiement will be assigned",
+          "description" : "Project where the entity will be assigned",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -23577,6 +23577,16 @@
           "explode" : true,
           "schema" : {
             "type" : "boolean"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -23763,7 +23773,7 @@
         }, {
           "name" : "project",
           "in" : "path",
-          "description" : "Project where the experiement will be assigned",
+          "description" : "Project where the entity will be assigned",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -23799,6 +23809,16 @@
           "explode" : true,
           "schema" : {
             "type" : "boolean"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -25151,6 +25171,16 @@
           "schema" : {
             "type" : "boolean"
           }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "requestBody" : {
           "content" : {
@@ -25254,6 +25284,16 @@
           "explode" : true,
           "schema" : {
             "type" : "boolean"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "requestBody" : {

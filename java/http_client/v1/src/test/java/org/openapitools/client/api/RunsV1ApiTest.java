@@ -339,7 +339,8 @@ public class RunsV1ApiTest {
         String path = null;
         Boolean stream = null;
         Boolean force = null;
-        String response = api.getRunArtifact(namespace, owner, project, uuid, path, stream, force);
+        String connection = null;
+        String response = api.getRunArtifact(namespace, owner, project, uuid, path, stream, force, connection);
         // TODO: test validations
     }
 
@@ -372,7 +373,8 @@ public class RunsV1ApiTest {
         String uuid = null;
         String path = null;
         Boolean force = null;
-        String response = api.getRunArtifacts(namespace, owner, project, uuid, path, force);
+        String connection = null;
+        String response = api.getRunArtifacts(namespace, owner, project, uuid, path, force, connection);
         // TODO: test validations
     }
 
@@ -1000,7 +1002,8 @@ public class RunsV1ApiTest {
         File uploadfile = null;
         String path = null;
         Boolean overwrite = null;
-        api.uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite);
+        String connection = null;
+        api.uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite, connection);
         // TODO: test validations
     }
 
@@ -1017,7 +1020,8 @@ public class RunsV1ApiTest {
         File uploadfile = null;
         String path = null;
         Boolean overwrite = null;
-        api.uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite);
+        String connection = null;
+        api.uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite, connection);
         // TODO: test validations
     }
 

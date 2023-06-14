@@ -77,6 +77,13 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -153,6 +160,13 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -201,7 +215,7 @@
           },
           {
             "name": "project",
-            "description": "Project where the experiement will be assigned",
+            "description": "Project where the entity will be assigned",
             "in": "path",
             "required": true,
             "type": "string"
@@ -226,6 +240,13 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -274,7 +295,7 @@
           },
           {
             "name": "project",
-            "description": "Project where the experiement will be assigned",
+            "description": "Project where the entity will be assigned",
             "in": "path",
             "required": true,
             "type": "string"
@@ -306,6 +327,13 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [

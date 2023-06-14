@@ -62,6 +62,12 @@ UploadRunArtifactParams contains all the parameters to send to the API endpoint
 */
 type UploadRunArtifactParams struct {
 
+	/* Connection.
+
+	   Connection to use.
+	*/
+	Connection *string
+
 	/* Overwrite.
 
 	   File path query params.
@@ -151,6 +157,17 @@ func (o *UploadRunArtifactParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithConnection adds the connection to the upload run artifact params
+func (o *UploadRunArtifactParams) WithConnection(connection *string) *UploadRunArtifactParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the upload run artifact params
+func (o *UploadRunArtifactParams) SetConnection(connection *string) {
+	o.Connection = connection
+}
+
 // WithOverwrite adds the overwrite to the upload run artifact params
 func (o *UploadRunArtifactParams) WithOverwrite(overwrite *bool) *UploadRunArtifactParams {
 	o.SetOverwrite(overwrite)
@@ -224,6 +241,23 @@ func (o *UploadRunArtifactParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Overwrite != nil {
 

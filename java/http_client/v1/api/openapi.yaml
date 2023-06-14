@@ -16924,7 +16924,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Project where the experiement will be assigned
+      - description: Project where the entity will be assigned
         explode: false
         in: path
         name: project
@@ -16963,6 +16963,14 @@ paths:
         required: false
         schema:
           type: boolean
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -17096,7 +17104,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Project where the experiement will be assigned
+      - description: Project where the entity will be assigned
         explode: false
         in: path
         name: project
@@ -17127,6 +17135,14 @@ paths:
         required: false
         schema:
           type: boolean
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":
@@ -18069,6 +18085,14 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           multipart/form-data:
@@ -18145,6 +18169,14 @@ paths:
         required: false
         schema:
           type: boolean
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
         style: form
       requestBody:
         content:

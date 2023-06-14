@@ -218,6 +218,7 @@ export interface GetRunArtifactRequest {
     path?: string;
     stream?: boolean;
     force?: boolean;
+    connection?: string;
 }
 
 export interface GetRunArtifactLineageRequest {
@@ -235,6 +236,7 @@ export interface GetRunArtifactsRequest {
     uuid: string;
     path?: string;
     force?: boolean;
+    connection?: string;
 }
 
 export interface GetRunArtifactsLineageRequest {
@@ -559,6 +561,7 @@ export interface UploadRunArtifactRequest {
     uploadfile: Blob;
     path?: string;
     overwrite?: boolean;
+    connection?: string;
 }
 
 export interface UploadRunLogsRequest {
@@ -568,6 +571,7 @@ export interface UploadRunLogsRequest {
     uploadfile: Blob;
     path?: string;
     overwrite?: boolean;
+    connection?: string;
 }
 
 /**
@@ -1456,6 +1460,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['force'] = requestParameters.force;
         }
 
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -1562,6 +1570,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.force !== undefined) {
             queryParameters['force'] = requestParameters.force;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3575,6 +3587,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['overwrite'] = requestParameters.overwrite;
         }
 
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -3647,6 +3663,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.overwrite !== undefined) {
             queryParameters['overwrite'] = requestParameters.overwrite;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

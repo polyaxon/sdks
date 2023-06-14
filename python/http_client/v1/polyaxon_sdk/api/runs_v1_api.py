@@ -3042,20 +3042,20 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_artifact(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, stream : Annotated[Optional[StrictBool], Field(description="Whether to stream the file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs) -> str:  # noqa: E501
+    def get_run_artifact(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the entity will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, stream : Annotated[Optional[StrictBool], Field(description="Whether to stream the file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> str:  # noqa: E501
         """Get run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifact(namespace, owner, project, uuid, path, stream, force, async_req=True)
+        >>> thread = api.get_run_artifact(namespace, owner, project, uuid, path, stream, force, connection, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
         :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project where the experiement will be assigned (required)
+        :param project: Project where the entity will be assigned (required)
         :type project: str
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
@@ -3065,6 +3065,8 @@ class RunsV1Api(object):
         :type stream: bool
         :param force: Whether to force reload.
         :type force: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3081,23 +3083,23 @@ class RunsV1Api(object):
         :rtype: str
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifact_with_http_info(namespace, owner, project, uuid, path, stream, force, **kwargs)  # noqa: E501
+        return self.get_run_artifact_with_http_info(namespace, owner, project, uuid, path, stream, force, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_artifact_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, stream : Annotated[Optional[StrictBool], Field(description="Whether to stream the file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs):  # noqa: E501
+    def get_run_artifact_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the entity will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, stream : Annotated[Optional[StrictBool], Field(description="Whether to stream the file.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get run artifact  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifact_with_http_info(namespace, owner, project, uuid, path, stream, force, async_req=True)
+        >>> thread = api.get_run_artifact_with_http_info(namespace, owner, project, uuid, path, stream, force, connection, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
         :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project where the experiement will be assigned (required)
+        :param project: Project where the entity will be assigned (required)
         :type project: str
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
@@ -3107,6 +3109,8 @@ class RunsV1Api(object):
         :type stream: bool
         :param force: Whether to force reload.
         :type force: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -3140,7 +3144,8 @@ class RunsV1Api(object):
             'uuid',
             'path',
             'stream',
-            'force'
+            'force',
+            'connection'
         ]
         _all_params.extend(
             [
@@ -3191,6 +3196,9 @@ class RunsV1Api(object):
 
         if _params.get('force') is not None:  # noqa: E501
             _query_params.append(('force', _params['force']))
+
+        if _params.get('connection') is not None:  # noqa: E501
+            _query_params.append(('connection', _params['connection']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -3404,20 +3412,20 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_artifacts(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs) -> str:  # noqa: E501
+    def get_run_artifacts(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the entity will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> str:  # noqa: E501
         """Get run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts(namespace, owner, project, uuid, path, force, async_req=True)
+        >>> thread = api.get_run_artifacts(namespace, owner, project, uuid, path, force, connection, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
         :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project where the experiement will be assigned (required)
+        :param project: Project where the entity will be assigned (required)
         :type project: str
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
@@ -3425,6 +3433,8 @@ class RunsV1Api(object):
         :type path: str
         :param force: Whether to force reload.
         :type force: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3441,23 +3451,23 @@ class RunsV1Api(object):
         :rtype: str
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_run_artifacts_with_http_info(namespace, owner, project, uuid, path, force, **kwargs)  # noqa: E501
+        return self.get_run_artifacts_with_http_info(namespace, owner, project, uuid, path, force, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_artifacts_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the experiement will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, **kwargs):  # noqa: E501
+    def get_run_artifacts_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project where the entity will be assigned")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], path : Annotated[Optional[StrictStr], Field(description="Artifact filepath.")] = None, force : Annotated[Optional[StrictBool], Field(description="Whether to force reload.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_run_artifacts_with_http_info(namespace, owner, project, uuid, path, force, async_req=True)
+        >>> thread = api.get_run_artifacts_with_http_info(namespace, owner, project, uuid, path, force, connection, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
         :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project where the experiement will be assigned (required)
+        :param project: Project where the entity will be assigned (required)
         :type project: str
         :param uuid: Unique integer identifier of the entity (required)
         :type uuid: str
@@ -3465,6 +3475,8 @@ class RunsV1Api(object):
         :type path: str
         :param force: Whether to force reload.
         :type force: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -3497,7 +3509,8 @@ class RunsV1Api(object):
             'project',
             'uuid',
             'path',
-            'force'
+            'force',
+            'connection'
         ]
         _all_params.extend(
             [
@@ -3545,6 +3558,9 @@ class RunsV1Api(object):
 
         if _params.get('force') is not None:  # noqa: E501
             _query_params.append(('force', _params['force']))
+
+        if _params.get('connection') is not None:  # noqa: E501
+            _query_params.append(('connection', _params['connection']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
@@ -10172,13 +10188,13 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def upload_run_artifact(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs) -> None:  # noqa: E501
+    def upload_run_artifact(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> None:  # noqa: E501
         """Upload an artifact file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_artifact(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
+        >>> thread = api.upload_run_artifact(owner, project, uuid, uploadfile, path, overwrite, connection, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10193,6 +10209,8 @@ class RunsV1Api(object):
         :type path: str
         :param overwrite: File path query params.
         :type overwrite: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10209,16 +10227,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, path, overwrite, **kwargs)  # noqa: E501
+        return self.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, path, overwrite, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def upload_run_artifact_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs):  # noqa: E501
+    def upload_run_artifact_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Upload an artifact file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
+        >>> thread = api.upload_run_artifact_with_http_info(owner, project, uuid, uploadfile, path, overwrite, connection, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10233,6 +10251,8 @@ class RunsV1Api(object):
         :type path: str
         :param overwrite: File path query params.
         :type overwrite: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -10265,7 +10285,8 @@ class RunsV1Api(object):
             'uuid',
             'uploadfile',
             'path',
-            'overwrite'
+            'overwrite',
+            'connection'
         ]
         _all_params.extend(
             [
@@ -10311,6 +10332,9 @@ class RunsV1Api(object):
         if _params.get('overwrite') is not None:  # noqa: E501
             _query_params.append(('overwrite', _params['overwrite']))
 
+        if _params.get('connection') is not None:  # noqa: E501
+            _query_params.append(('connection', _params['connection']))
+
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
@@ -10355,13 +10379,13 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def upload_run_logs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs) -> None:  # noqa: E501
+    def upload_run_logs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs) -> None:  # noqa: E501
         """Upload a logs file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_logs(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
+        >>> thread = api.upload_run_logs(owner, project, uuid, uploadfile, path, overwrite, connection, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10376,6 +10400,8 @@ class RunsV1Api(object):
         :type path: str
         :param overwrite: File path query params.
         :type overwrite: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10392,16 +10418,16 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, path, overwrite, **kwargs)  # noqa: E501
+        return self.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, path, overwrite, connection, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def upload_run_logs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, **kwargs):  # noqa: E501
+    def upload_run_logs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project having access to the store")], uuid : Annotated[StrictStr, Field(..., description="Unique integer identifier of the entity")], uploadfile : Annotated[StrictStr, Field(..., description="The file to upload.")], path : Annotated[Optional[StrictStr], Field(description="File path query params.")] = None, overwrite : Annotated[Optional[StrictBool], Field(description="File path query params.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, **kwargs):  # noqa: E501
         """Upload a logs file to a store via run access  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, path, overwrite, async_req=True)
+        >>> thread = api.upload_run_logs_with_http_info(owner, project, uuid, uploadfile, path, overwrite, connection, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -10416,6 +10442,8 @@ class RunsV1Api(object):
         :type path: str
         :param overwrite: File path query params.
         :type overwrite: bool
+        :param connection: Connection to use.
+        :type connection: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -10448,7 +10476,8 @@ class RunsV1Api(object):
             'uuid',
             'uploadfile',
             'path',
-            'overwrite'
+            'overwrite',
+            'connection'
         ]
         _all_params.extend(
             [
@@ -10493,6 +10522,9 @@ class RunsV1Api(object):
 
         if _params.get('overwrite') is not None:  # noqa: E501
             _query_params.append(('overwrite', _params['overwrite']))
+
+        if _params.get('connection') is not None:  # noqa: E501
+            _query_params.append(('connection', _params['connection']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))

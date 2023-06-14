@@ -1540,7 +1540,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_artifact**
-> str get_run_artifact(namespace, owner, project, uuid, path=path, stream=stream, force=force)
+> str get_run_artifact(namespace, owner, project, uuid, path=path, stream=stream, force=force, connection=connection)
 
 Get run artifact
 
@@ -1577,15 +1577,16 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project where the experiement will be assigned
+    project = 'project_example' # str | Project where the entity will be assigned
     uuid = 'uuid_example' # str | Unique integer identifier of the entity
     path = 'path_example' # str | Artifact filepath. (optional)
     stream = True # bool | Whether to stream the file. (optional)
     force = True # bool | Whether to force reload. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get run artifact
-        api_response = api_instance.get_run_artifact(namespace, owner, project, uuid, path=path, stream=stream, force=force)
+        api_response = api_instance.get_run_artifact(namespace, owner, project, uuid, path=path, stream=stream, force=force, connection=connection)
         print("The response of RunsV1Api->get_run_artifact:\n")
         pprint(api_response)
     except Exception as e:
@@ -1598,11 +1599,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project where the experiement will be assigned | 
+ **project** | **str**| Project where the entity will be assigned | 
  **uuid** | **str**| Unique integer identifier of the entity | 
  **path** | **str**| Artifact filepath. | [optional] 
  **stream** | **bool**| Whether to stream the file. | [optional] 
  **force** | **bool**| Whether to force reload. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1713,7 +1715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_artifacts**
-> str get_run_artifacts(namespace, owner, project, uuid, path=path, force=force)
+> str get_run_artifacts(namespace, owner, project, uuid, path=path, force=force, connection=connection)
 
 Get run artifacts
 
@@ -1750,14 +1752,15 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project where the experiement will be assigned
+    project = 'project_example' # str | Project where the entity will be assigned
     uuid = 'uuid_example' # str | Unique integer identifier of the entity
     path = 'path_example' # str | Artifact filepath. (optional)
     force = True # bool | Whether to force reload. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Get run artifacts
-        api_response = api_instance.get_run_artifacts(namespace, owner, project, uuid, path=path, force=force)
+        api_response = api_instance.get_run_artifacts(namespace, owner, project, uuid, path=path, force=force, connection=connection)
         print("The response of RunsV1Api->get_run_artifacts:\n")
         pprint(api_response)
     except Exception as e:
@@ -1770,10 +1773,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project where the experiement will be assigned | 
+ **project** | **str**| Project where the entity will be assigned | 
  **uuid** | **str**| Unique integer identifier of the entity | 
  **path** | **str**| Artifact filepath. | [optional] 
  **force** | **bool**| Whether to force reload. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -4958,7 +4962,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_run_artifact**
-> upload_run_artifact(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
+> upload_run_artifact(owner, project, uuid, uploadfile, path=path, overwrite=overwrite, connection=connection)
 
 Upload an artifact file to a store via run access
 
@@ -4999,10 +5003,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     uploadfile = polyaxon_sdk.bytearray() # bytearray | The file to upload.
     path = 'path_example' # str | File path query params. (optional)
     overwrite = True # bool | File path query params. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Upload an artifact file to a store via run access
-        api_instance.upload_run_artifact(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
+        api_instance.upload_run_artifact(owner, project, uuid, uploadfile, path=path, overwrite=overwrite, connection=connection)
     except Exception as e:
         print("Exception when calling RunsV1Api->upload_run_artifact: %s\n" % e)
 ```
@@ -5017,6 +5022,7 @@ Name | Type | Description  | Notes
  **uploadfile** | **bytearray**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -5042,7 +5048,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_run_logs**
-> upload_run_logs(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
+> upload_run_logs(owner, project, uuid, uploadfile, path=path, overwrite=overwrite, connection=connection)
 
 Upload a logs file to a store via run access
 
@@ -5083,10 +5089,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     uploadfile = polyaxon_sdk.bytearray() # bytearray | The file to upload.
     path = 'path_example' # str | File path query params. (optional)
     overwrite = True # bool | File path query params. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
 
     try:
         # Upload a logs file to a store via run access
-        api_instance.upload_run_logs(owner, project, uuid, uploadfile, path=path, overwrite=overwrite)
+        api_instance.upload_run_logs(owner, project, uuid, uploadfile, path=path, overwrite=overwrite, connection=connection)
     except Exception as e:
         print("Exception when calling RunsV1Api->upload_run_logs: %s\n" % e)
 ```
@@ -5101,6 +5108,7 @@ Name | Type | Description  | Notes
  **uploadfile** | **bytearray**| The file to upload. | 
  **path** | **str**| File path query params. | [optional] 
  **overwrite** | **bool**| File path query params. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
 
 ### Return type
 

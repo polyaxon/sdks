@@ -1446,7 +1446,7 @@ public class Example {
 
 <a name="getRunArtifact"></a>
 # **getRunArtifact**
-> String getRunArtifact(namespace, owner, project, uuid, path, stream, force)
+> String getRunArtifact(namespace, owner, project, uuid, path, stream, force, connection)
 
 Get run artifact
 
@@ -1474,13 +1474,14 @@ public class Example {
     RunsV1Api apiInstance = new RunsV1Api(defaultClient);
     String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project where the experiement will be assigned
+    String project = "project_example"; // String | Project where the entity will be assigned
     String uuid = "uuid_example"; // String | Unique integer identifier of the entity
     String path = "path_example"; // String | Artifact filepath.
     Boolean stream = true; // Boolean | Whether to stream the file.
     Boolean force = true; // Boolean | Whether to force reload.
+    String connection = "connection_example"; // String | Connection to use.
     try {
-      String result = apiInstance.getRunArtifact(namespace, owner, project, uuid, path, stream, force);
+      String result = apiInstance.getRunArtifact(namespace, owner, project, uuid, path, stream, force, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunArtifact");
@@ -1499,11 +1500,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project where the experiement will be assigned | |
+| **project** | **String**| Project where the entity will be assigned | |
 | **uuid** | **String**| Unique integer identifier of the entity | |
 | **path** | **String**| Artifact filepath. | [optional] |
 | **stream** | **Boolean**| Whether to stream the file. | [optional] |
 | **force** | **Boolean**| Whether to force reload. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
 
 ### Return type
 
@@ -1607,7 +1609,7 @@ public class Example {
 
 <a name="getRunArtifacts"></a>
 # **getRunArtifacts**
-> String getRunArtifacts(namespace, owner, project, uuid, path, force)
+> String getRunArtifacts(namespace, owner, project, uuid, path, force, connection)
 
 Get run artifacts
 
@@ -1635,12 +1637,13 @@ public class Example {
     RunsV1Api apiInstance = new RunsV1Api(defaultClient);
     String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project where the experiement will be assigned
+    String project = "project_example"; // String | Project where the entity will be assigned
     String uuid = "uuid_example"; // String | Unique integer identifier of the entity
     String path = "path_example"; // String | Artifact filepath.
     Boolean force = true; // Boolean | Whether to force reload.
+    String connection = "connection_example"; // String | Connection to use.
     try {
-      String result = apiInstance.getRunArtifacts(namespace, owner, project, uuid, path, force);
+      String result = apiInstance.getRunArtifacts(namespace, owner, project, uuid, path, force, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunArtifacts");
@@ -1659,10 +1662,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project where the experiement will be assigned | |
+| **project** | **String**| Project where the entity will be assigned | |
 | **uuid** | **String**| Unique integer identifier of the entity | |
 | **path** | **String**| Artifact filepath. | [optional] |
 | **force** | **Boolean**| Whether to force reload. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
 
 ### Return type
 
@@ -4636,7 +4640,7 @@ public class Example {
 
 <a name="uploadRunArtifact"></a>
 # **uploadRunArtifact**
-> uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite)
+> uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite, connection)
 
 Upload an artifact file to a store via run access
 
@@ -4668,8 +4672,9 @@ public class Example {
     File uploadfile = new File("/path/to/file"); // File | The file to upload.
     String path = "path_example"; // String | File path query params.
     Boolean overwrite = true; // Boolean | File path query params.
+    String connection = "connection_example"; // String | Connection to use.
     try {
-      apiInstance.uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite);
+      apiInstance.uploadRunArtifact(owner, project, uuid, uploadfile, path, overwrite, connection);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#uploadRunArtifact");
       System.err.println("Status code: " + e.getCode());
@@ -4691,6 +4696,7 @@ public class Example {
 | **uploadfile** | **File**| The file to upload. | |
 | **path** | **String**| File path query params. | [optional] |
 | **overwrite** | **Boolean**| File path query params. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
 
 ### Return type
 
@@ -4715,7 +4721,7 @@ null (empty response body)
 
 <a name="uploadRunLogs"></a>
 # **uploadRunLogs**
-> uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite)
+> uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite, connection)
 
 Upload a logs file to a store via run access
 
@@ -4747,8 +4753,9 @@ public class Example {
     File uploadfile = new File("/path/to/file"); // File | The file to upload.
     String path = "path_example"; // String | File path query params.
     Boolean overwrite = true; // Boolean | File path query params.
+    String connection = "connection_example"; // String | Connection to use.
     try {
-      apiInstance.uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite);
+      apiInstance.uploadRunLogs(owner, project, uuid, uploadfile, path, overwrite, connection);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#uploadRunLogs");
       System.err.println("Status code: " + e.getCode());
@@ -4770,6 +4777,7 @@ public class Example {
 | **uploadfile** | **File**| The file to upload. | |
 | **path** | **String**| File path query params. | [optional] |
 | **overwrite** | **Boolean**| File path query params. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
 
 ### Return type
 

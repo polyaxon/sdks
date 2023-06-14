@@ -1091,12 +1091,13 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new PolyaxonSdk.RunsV1Api();
 let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project where the experiement will be assigned
+let project = "project_example"; // String | Project where the entity will be assigned
 let uuid = "uuid_example"; // String | Unique integer identifier of the entity
 let opts = {
   'path': "path_example", // String | Artifact filepath.
   'stream': true, // Boolean | Whether to stream the file.
-  'force': true // Boolean | Whether to force reload.
+  'force': true, // Boolean | Whether to force reload.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getRunArtifact(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -1114,11 +1115,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project where the experiement will be assigned | 
+ **project** | **String**| Project where the entity will be assigned | 
  **uuid** | **String**| Unique integer identifier of the entity | 
  **path** | **String**| Artifact filepath. | [optional] 
  **stream** | **Boolean**| Whether to stream the file. | [optional] 
  **force** | **Boolean**| Whether to force reload. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -1213,11 +1215,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new PolyaxonSdk.RunsV1Api();
 let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project where the experiement will be assigned
+let project = "project_example"; // String | Project where the entity will be assigned
 let uuid = "uuid_example"; // String | Unique integer identifier of the entity
 let opts = {
   'path': "path_example", // String | Artifact filepath.
-  'force': true // Boolean | Whether to force reload.
+  'force': true, // Boolean | Whether to force reload.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.getRunArtifacts(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -1235,10 +1238,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project where the experiement will be assigned | 
+ **project** | **String**| Project where the entity will be assigned | 
  **uuid** | **String**| Unique integer identifier of the entity | 
  **path** | **String**| Artifact filepath. | [optional] 
  **force** | **Boolean**| Whether to force reload. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -3457,7 +3461,8 @@ let uuid = "uuid_example"; // String | Unique integer identifier of the entity
 let uploadfile = "/path/to/file"; // File | The file to upload.
 let opts = {
   'path': "path_example", // String | File path query params.
-  'overwrite': true // Boolean | File path query params.
+  'overwrite': true, // Boolean | File path query params.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.uploadRunArtifact(owner, project, uuid, uploadfile, opts, (error, data, response) => {
   if (error) {
@@ -3479,6 +3484,7 @@ Name | Type | Description  | Notes
  **uploadfile** | **File**| The file to upload. | 
  **path** | **String**| File path query params. | [optional] 
  **overwrite** | **Boolean**| File path query params. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 
@@ -3518,7 +3524,8 @@ let uuid = "uuid_example"; // String | Unique integer identifier of the entity
 let uploadfile = "/path/to/file"; // File | The file to upload.
 let opts = {
   'path': "path_example", // String | File path query params.
-  'overwrite': true // Boolean | File path query params.
+  'overwrite': true, // Boolean | File path query params.
+  'connection': "connection_example" // String | Connection to use.
 };
 apiInstance.uploadRunLogs(owner, project, uuid, uploadfile, opts, (error, data, response) => {
   if (error) {
@@ -3540,6 +3547,7 @@ Name | Type | Description  | Notes
  **uploadfile** | **File**| The file to upload. | 
  **path** | **String**| File path query params. | [optional] 
  **overwrite** | **Boolean**| File path query params. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
 
 ### Return type
 

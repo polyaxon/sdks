@@ -62,6 +62,12 @@ GetRunArtifactsParams contains all the parameters to send to the API endpoint
 */
 type GetRunArtifactsParams struct {
 
+	/* Connection.
+
+	   Connection to use.
+	*/
+	Connection *string
+
 	/* Force.
 
 	   Whether to force reload.
@@ -88,7 +94,7 @@ type GetRunArtifactsParams struct {
 
 	/* Project.
 
-	   Project where the experiement will be assigned
+	   Project where the entity will be assigned
 	*/
 	Project string
 
@@ -149,6 +155,17 @@ func (o *GetRunArtifactsParams) WithHTTPClient(client *http.Client) *GetRunArtif
 // SetHTTPClient adds the HTTPClient to the get run artifacts params
 func (o *GetRunArtifactsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithConnection adds the connection to the get run artifacts params
+func (o *GetRunArtifactsParams) WithConnection(connection *string) *GetRunArtifactsParams {
+	o.SetConnection(connection)
+	return o
+}
+
+// SetConnection adds the connection to the get run artifacts params
+func (o *GetRunArtifactsParams) SetConnection(connection *string) {
+	o.Connection = connection
 }
 
 // WithForce adds the force to the get run artifacts params
@@ -224,6 +241,23 @@ func (o *GetRunArtifactsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
+
+	if o.Connection != nil {
+
+		// query param connection
+		var qrConnection string
+
+		if o.Connection != nil {
+			qrConnection = *o.Connection
+		}
+		qConnection := qrConnection
+		if qConnection != "" {
+
+			if err := r.SetQueryParam("connection", qConnection); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Force != nil {
 

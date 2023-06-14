@@ -1102,12 +1102,13 @@ export default class RunsV1Api {
      * Get run artifact
      * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project where the experiement will be assigned
+     * @param {String} project Project where the entity will be assigned
      * @param {String} uuid Unique integer identifier of the entity
      * @param {Object} opts Optional parameters
      * @param {String} [path] Artifact filepath.
      * @param {Boolean} [stream] Whether to stream the file.
      * @param {Boolean} [force] Whether to force reload.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getRunArtifactCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
@@ -1140,7 +1141,8 @@ export default class RunsV1Api {
       let queryParams = {
         'path': opts['path'],
         'stream': opts['stream'],
-        'force': opts['force']
+        'force': opts['force'],
+        'connection': opts['connection']
       };
       let headerParams = {
       };
@@ -1234,11 +1236,12 @@ export default class RunsV1Api {
      * Get run artifacts
      * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project where the experiement will be assigned
+     * @param {String} project Project where the entity will be assigned
      * @param {String} uuid Unique integer identifier of the entity
      * @param {Object} opts Optional parameters
      * @param {String} [path] Artifact filepath.
      * @param {Boolean} [force] Whether to force reload.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~getRunArtifactsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
@@ -1270,7 +1273,8 @@ export default class RunsV1Api {
       };
       let queryParams = {
         'path': opts['path'],
-        'force': opts['force']
+        'force': opts['force'],
+        'connection': opts['connection']
       };
       let headerParams = {
       };
@@ -3532,6 +3536,7 @@ export default class RunsV1Api {
      * @param {Object} opts Optional parameters
      * @param {String} [path] File path query params.
      * @param {Boolean} [overwrite] File path query params.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~uploadRunArtifactCallback} callback The callback function, accepting three arguments: error, data, response
      */
     uploadRunArtifact(owner, project, uuid, uploadfile, opts, callback) {
@@ -3561,7 +3566,8 @@ export default class RunsV1Api {
       };
       let queryParams = {
         'path': opts['path'],
-        'overwrite': opts['overwrite']
+        'overwrite': opts['overwrite'],
+        'connection': opts['connection']
       };
       let headerParams = {
       };
@@ -3597,6 +3603,7 @@ export default class RunsV1Api {
      * @param {Object} opts Optional parameters
      * @param {String} [path] File path query params.
      * @param {Boolean} [overwrite] File path query params.
+     * @param {String} [connection] Connection to use.
      * @param {module:api/RunsV1Api~uploadRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
      */
     uploadRunLogs(owner, project, uuid, uploadfile, opts, callback) {
@@ -3626,7 +3633,8 @@ export default class RunsV1Api {
       };
       let queryParams = {
         'path': opts['path'],
-        'overwrite': opts['overwrite']
+        'overwrite': opts['overwrite'],
+        'connection': opts['connection']
       };
       let headerParams = {
       };

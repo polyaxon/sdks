@@ -3087,11 +3087,12 @@ public class RunsV1Api {
      * Build call for getRunArtifact
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param stream Whether to stream the file. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3104,7 +3105,7 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunArtifactCall(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRunArtifactCall(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3145,6 +3146,10 @@ public class RunsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
+        if (connection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connection", connection));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3165,7 +3170,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRunArtifactValidateBeforeCall(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRunArtifactValidateBeforeCall(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getRunArtifact(Async)");
@@ -3186,7 +3191,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getRunArtifact(Async)");
         }
 
-        return getRunArtifactCall(namespace, owner, project, uuid, path, stream, force, _callback);
+        return getRunArtifactCall(namespace, owner, project, uuid, path, stream, force, connection, _callback);
 
     }
 
@@ -3195,11 +3200,12 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param stream Whether to stream the file. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3211,8 +3217,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public String getRunArtifact(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force) throws ApiException {
-        ApiResponse<String> localVarResp = getRunArtifactWithHttpInfo(namespace, owner, project, uuid, path, stream, force);
+    public String getRunArtifact(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, String connection) throws ApiException {
+        ApiResponse<String> localVarResp = getRunArtifactWithHttpInfo(namespace, owner, project, uuid, path, stream, force, connection);
         return localVarResp.getData();
     }
 
@@ -3221,11 +3227,12 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param stream Whether to stream the file. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3237,8 +3244,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getRunArtifactWithHttpInfo(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = getRunArtifactValidateBeforeCall(namespace, owner, project, uuid, path, stream, force, null);
+    public ApiResponse<String> getRunArtifactWithHttpInfo(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, String connection) throws ApiException {
+        okhttp3.Call localVarCall = getRunArtifactValidateBeforeCall(namespace, owner, project, uuid, path, stream, force, connection, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3248,11 +3255,12 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param stream Whether to stream the file. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3265,9 +3273,9 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunArtifactAsync(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getRunArtifactAsync(String namespace, String owner, String project, String uuid, String path, Boolean stream, Boolean force, String connection, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRunArtifactValidateBeforeCall(namespace, owner, project, uuid, path, stream, force, _callback);
+        okhttp3.Call localVarCall = getRunArtifactValidateBeforeCall(namespace, owner, project, uuid, path, stream, force, connection, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3453,10 +3461,11 @@ public class RunsV1Api {
      * Build call for getRunArtifacts
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3469,7 +3478,7 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunArtifactsCall(String namespace, String owner, String project, String uuid, String path, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRunArtifactsCall(String namespace, String owner, String project, String uuid, String path, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3506,6 +3515,10 @@ public class RunsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
+        if (connection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connection", connection));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3526,7 +3539,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRunArtifactsValidateBeforeCall(String namespace, String owner, String project, String uuid, String path, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRunArtifactsValidateBeforeCall(String namespace, String owner, String project, String uuid, String path, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getRunArtifacts(Async)");
@@ -3547,7 +3560,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getRunArtifacts(Async)");
         }
 
-        return getRunArtifactsCall(namespace, owner, project, uuid, path, force, _callback);
+        return getRunArtifactsCall(namespace, owner, project, uuid, path, force, connection, _callback);
 
     }
 
@@ -3556,10 +3569,11 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3571,8 +3585,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public String getRunArtifacts(String namespace, String owner, String project, String uuid, String path, Boolean force) throws ApiException {
-        ApiResponse<String> localVarResp = getRunArtifactsWithHttpInfo(namespace, owner, project, uuid, path, force);
+    public String getRunArtifacts(String namespace, String owner, String project, String uuid, String path, Boolean force, String connection) throws ApiException {
+        ApiResponse<String> localVarResp = getRunArtifactsWithHttpInfo(namespace, owner, project, uuid, path, force, connection);
         return localVarResp.getData();
     }
 
@@ -3581,10 +3595,11 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3596,8 +3611,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getRunArtifactsWithHttpInfo(String namespace, String owner, String project, String uuid, String path, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = getRunArtifactsValidateBeforeCall(namespace, owner, project, uuid, path, force, null);
+    public ApiResponse<String> getRunArtifactsWithHttpInfo(String namespace, String owner, String project, String uuid, String path, Boolean force, String connection) throws ApiException {
+        okhttp3.Call localVarCall = getRunArtifactsValidateBeforeCall(namespace, owner, project, uuid, path, force, connection, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3607,10 +3622,11 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the experiement will be assigned (required)
+     * @param project Project where the entity will be assigned (required)
      * @param uuid Unique integer identifier of the entity (required)
      * @param path Artifact filepath. (optional)
      * @param force Whether to force reload. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3623,9 +3639,9 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunArtifactsAsync(String namespace, String owner, String project, String uuid, String path, Boolean force, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getRunArtifactsAsync(String namespace, String owner, String project, String uuid, String path, Boolean force, String connection, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRunArtifactsValidateBeforeCall(namespace, owner, project, uuid, path, force, _callback);
+        okhttp3.Call localVarCall = getRunArtifactsValidateBeforeCall(namespace, owner, project, uuid, path, force, connection, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -10235,6 +10251,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10247,7 +10264,7 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadRunArtifactCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadRunArtifactCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10287,6 +10304,10 @@ public class RunsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("overwrite", overwrite));
         }
 
+        if (connection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connection", connection));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -10308,7 +10329,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadRunArtifactValidateBeforeCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadRunArtifactValidateBeforeCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling uploadRunArtifact(Async)");
@@ -10329,7 +10350,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uploadfile' when calling uploadRunArtifact(Async)");
         }
 
-        return uploadRunArtifactCall(owner, project, uuid, uploadfile, path, overwrite, _callback);
+        return uploadRunArtifactCall(owner, project, uuid, uploadfile, path, overwrite, connection, _callback);
 
     }
 
@@ -10342,6 +10363,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -10352,8 +10374,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public void uploadRunArtifact(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite) throws ApiException {
-        uploadRunArtifactWithHttpInfo(owner, project, uuid, uploadfile, path, overwrite);
+    public void uploadRunArtifact(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection) throws ApiException {
+        uploadRunArtifactWithHttpInfo(owner, project, uuid, uploadfile, path, overwrite, connection);
     }
 
     /**
@@ -10365,6 +10387,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10376,8 +10399,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> uploadRunArtifactWithHttpInfo(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite) throws ApiException {
-        okhttp3.Call localVarCall = uploadRunArtifactValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, null);
+    public ApiResponse<Void> uploadRunArtifactWithHttpInfo(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection) throws ApiException {
+        okhttp3.Call localVarCall = uploadRunArtifactValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, connection, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -10390,6 +10413,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10402,9 +10426,9 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadRunArtifactAsync(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call uploadRunArtifactAsync(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadRunArtifactValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, _callback);
+        okhttp3.Call localVarCall = uploadRunArtifactValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, connection, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -10416,6 +10440,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10428,7 +10453,7 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadRunLogsCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadRunLogsCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10468,6 +10493,10 @@ public class RunsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("overwrite", overwrite));
         }
 
+        if (connection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connection", connection));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -10489,7 +10518,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadRunLogsValidateBeforeCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadRunLogsValidateBeforeCall(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling uploadRunLogs(Async)");
@@ -10510,7 +10539,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uploadfile' when calling uploadRunLogs(Async)");
         }
 
-        return uploadRunLogsCall(owner, project, uuid, uploadfile, path, overwrite, _callback);
+        return uploadRunLogsCall(owner, project, uuid, uploadfile, path, overwrite, connection, _callback);
 
     }
 
@@ -10523,6 +10552,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -10533,8 +10563,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public void uploadRunLogs(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite) throws ApiException {
-        uploadRunLogsWithHttpInfo(owner, project, uuid, uploadfile, path, overwrite);
+    public void uploadRunLogs(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection) throws ApiException {
+        uploadRunLogsWithHttpInfo(owner, project, uuid, uploadfile, path, overwrite, connection);
     }
 
     /**
@@ -10546,6 +10576,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10557,8 +10588,8 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> uploadRunLogsWithHttpInfo(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite) throws ApiException {
-        okhttp3.Call localVarCall = uploadRunLogsValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, null);
+    public ApiResponse<Void> uploadRunLogsWithHttpInfo(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection) throws ApiException {
+        okhttp3.Call localVarCall = uploadRunLogsValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, connection, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -10571,6 +10602,7 @@ public class RunsV1Api {
      * @param uploadfile The file to upload. (required)
      * @param path File path query params. (optional)
      * @param overwrite File path query params. (optional)
+     * @param connection Connection to use. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10583,9 +10615,9 @@ public class RunsV1Api {
         <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadRunLogsAsync(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call uploadRunLogsAsync(String owner, String project, String uuid, File uploadfile, String path, Boolean overwrite, String connection, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadRunLogsValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, _callback);
+        okhttp3.Call localVarCall = uploadRunLogsValidateBeforeCall(owner, project, uuid, uploadfile, path, overwrite, connection, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
