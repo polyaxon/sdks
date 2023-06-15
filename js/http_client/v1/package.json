@@ -1,6 +1,6 @@
 {
   "name": "polyaxon-sdk",
-  "version": "2.0.0-rc18",
+  "version": "2.0.0-rc19",
   "description": "   ",
   "license": "Unlicense",
   "main": "dist/index.js",
