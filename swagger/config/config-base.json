@@ -14,7 +14,7 @@
     "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
   },
   "npmName": "@polyaxon/sdk",
-  "npmVersion": "2.0.0-rc22",
+  "npmVersion": "2.0.0-rc23",
   "snapshot": false,
   "supportsES6": true
 }
