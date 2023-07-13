@@ -13,9 +13,8 @@ Name | Type | Description | Notes
 **mxJob** | [**V1MXJob**](V1MXJob.md) |  | [optional] 
 **xgboostJob** | [**V1XGBoostJob**](V1XGBoostJob.md) |  | [optional] 
 **paddleJob** | [**V1PaddleJob**](V1PaddleJob.md) |  | [optional] 
-**dask** | [**V1Dask**](V1Dask.md) |  | [optional] 
-**spark** | [**V1Spark**](V1Spark.md) |  | [optional] 
-**flink** | [**V1Flink**](V1Flink.md) |  | [optional] 
-**ruy** | [**V1Ray**](V1Ray.md) |  | [optional] 
+**daskJob** | [**V1DaskJob**](V1DaskJob.md) |  | [optional] 
+**sparkJob** | [**V1SparkJob**](V1SparkJob.md) |  | [optional] 
+**rayJob** | [**V1RayJob**](V1RayJob.md) |  | [optional] 
 
 

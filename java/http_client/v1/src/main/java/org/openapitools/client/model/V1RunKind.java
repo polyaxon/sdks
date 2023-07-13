@@ -35,13 +35,11 @@ public enum V1RunKind {
 
   DAG("dag"),
 
-  SPARK("spark"),
+  SPARKJOB("sparkjob"),
 
-  DASK("dask"),
+  DASKJOB("daskjob"),
 
-  FLINK("flink"),
-
-  RAY("ray"),
+  RAYJOB("rayjob"),
 
   MPIJOB("mpijob"),
 

@@ -13,16 +13,15 @@
 
 import ApiClient from '../ApiClient';
 import V1Dag from './V1Dag';
-import V1Dask from './V1Dask';
-import V1Flink from './V1Flink';
+import V1DaskJob from './V1DaskJob';
 import V1Job from './V1Job';
 import V1MPIJob from './V1MPIJob';
 import V1MXJob from './V1MXJob';
 import V1PaddleJob from './V1PaddleJob';
 import V1PytorchJob from './V1PytorchJob';
-import V1Ray from './V1Ray';
+import V1RayJob from './V1RayJob';
 import V1Service from './V1Service';
-import V1Spark from './V1Spark';
+import V1SparkJob from './V1SparkJob';
 import V1TFJob from './V1TFJob';
 import V1XGBoostJob from './V1XGBoostJob';
 
@@ -87,17 +86,14 @@ class V1RunSchema {
             if (data.hasOwnProperty('paddleJob')) {
                 obj['paddleJob'] = V1PaddleJob.constructFromObject(data['paddleJob']);
             }
-            if (data.hasOwnProperty('dask')) {
-                obj['dask'] = V1Dask.constructFromObject(data['dask']);
+            if (data.hasOwnProperty('daskJob')) {
+                obj['daskJob'] = V1DaskJob.constructFromObject(data['daskJob']);
             }
-            if (data.hasOwnProperty('spark')) {
-                obj['spark'] = V1Spark.constructFromObject(data['spark']);
+            if (data.hasOwnProperty('sparkJob')) {
+                obj['sparkJob'] = V1SparkJob.constructFromObject(data['sparkJob']);
             }
-            if (data.hasOwnProperty('flink')) {
-                obj['flink'] = V1Flink.constructFromObject(data['flink']);
-            }
-            if (data.hasOwnProperty('ruy')) {
-                obj['ruy'] = V1Ray.constructFromObject(data['ruy']);
+            if (data.hasOwnProperty('rayJob')) {
+                obj['rayJob'] = V1RayJob.constructFromObject(data['rayJob']);
             }
         }
         return obj;
@@ -145,21 +141,17 @@ class V1RunSchema {
         if (data['paddleJob']) { // data not null
           V1PaddleJob.validateJSON(data['paddleJob']);
         }
-        // validate the optional field `dask`
-        if (data['dask']) { // data not null
-          V1Dask.validateJSON(data['dask']);
+        // validate the optional field `daskJob`
+        if (data['daskJob']) { // data not null
+          V1DaskJob.validateJSON(data['daskJob']);
         }
-        // validate the optional field `spark`
-        if (data['spark']) { // data not null
-          V1Spark.validateJSON(data['spark']);
+        // validate the optional field `sparkJob`
+        if (data['sparkJob']) { // data not null
+          V1SparkJob.validateJSON(data['sparkJob']);
         }
-        // validate the optional field `flink`
-        if (data['flink']) { // data not null
-          V1Flink.validateJSON(data['flink']);
-        }
-        // validate the optional field `ruy`
-        if (data['ruy']) { // data not null
-          V1Ray.validateJSON(data['ruy']);
+        // validate the optional field `rayJob`
+        if (data['rayJob']) { // data not null
+          V1RayJob.validateJSON(data['rayJob']);
         }
 
         return true;
@@ -216,24 +208,19 @@ V1RunSchema.prototype['xgboostJob'] = undefined;
 V1RunSchema.prototype['paddleJob'] = undefined;
 
 /**
- * @member {module:model/V1Dask} dask
+ * @member {module:model/V1DaskJob} daskJob
  */
-V1RunSchema.prototype['dask'] = undefined;
+V1RunSchema.prototype['daskJob'] = undefined;
 
 /**
- * @member {module:model/V1Spark} spark
+ * @member {module:model/V1SparkJob} sparkJob
  */
-V1RunSchema.prototype['spark'] = undefined;
+V1RunSchema.prototype['sparkJob'] = undefined;
 
 /**
- * @member {module:model/V1Flink} flink
+ * @member {module:model/V1RayJob} rayJob
  */
-V1RunSchema.prototype['flink'] = undefined;
-
-/**
- * @member {module:model/V1Ray} ruy
- */
-V1RunSchema.prototype['ruy'] = undefined;
+V1RunSchema.prototype['rayJob'] = undefined;
 
 
 

@@ -58,7 +58,7 @@ type V1Component struct {
 	// Optional queue to use for running this component
 	Queue string `json:"queue,omitempty"`
 
-	// Run definition, should be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag
+	// Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag
 	Run interface{} `json:"run,omitempty"`
 
 	// Optional component tags

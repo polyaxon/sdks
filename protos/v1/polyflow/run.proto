@@ -7,7 +7,6 @@ import "v1/polyflow/dag.proto";
 import "v1/polyflow/job.proto";
 import "v1/polyflow/service.proto";
 import "v1/polyflow/spark.proto";
-import "v1/polyflow/flink.proto";
 import "v1/polyflow/kubeflow.proto";
 import "v1/polyflow/ray.proto";
 
@@ -24,9 +23,8 @@ message RunSchema {
         MXJob mxJob = 7;
         XGBoostJob xgboostJob = 8;
         PaddleJob paddleJob = 9;
-        Dask dask = 10;
-        Spark spark = 11;
-        Flink flink = 12;
-        Ray ruy = 13;
+        DaskJob daskJob = 10;
+        SparkJob sparkJob = 11;
+        RayJob rayJob = 12;
     }
 }

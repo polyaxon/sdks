@@ -58,7 +58,7 @@ message Component {
     // Optional build process
     Build build = 14;
 
-    // Run definition, should be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag
+    // Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag
     google.protobuf.Struct run = 15;
 
     // Optional flag to mark this specification as template

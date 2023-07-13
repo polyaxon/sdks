@@ -108,26 +108,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property dask (base name: "dask")', function() {
-      // uncomment below and update the code to test the property dask
+    it('should have the property daskJob (base name: "daskJob")', function() {
+      // uncomment below and update the code to test the property daskJob
       //var instance = new PolyaxonSdk.V1RunSchema();
       //expect(instance).to.be();
     });
 
-    it('should have the property spark (base name: "spark")', function() {
-      // uncomment below and update the code to test the property spark
+    it('should have the property sparkJob (base name: "sparkJob")', function() {
+      // uncomment below and update the code to test the property sparkJob
       //var instance = new PolyaxonSdk.V1RunSchema();
       //expect(instance).to.be();
     });
 
-    it('should have the property flink (base name: "flink")', function() {
-      // uncomment below and update the code to test the property flink
-      //var instance = new PolyaxonSdk.V1RunSchema();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property ruy (base name: "ruy")', function() {
-      // uncomment below and update the code to test the property ruy
+    it('should have the property rayJob (base name: "rayJob")', function() {
+      // uncomment below and update the code to test the property rayJob
       //var instance = new PolyaxonSdk.V1RunSchema();
       //expect(instance).to.be();
     });

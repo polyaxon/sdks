@@ -41,31 +41,24 @@ export default class V1RunKind {
 
 
         /**
-         * value: "spark"
+         * value: "sparkjob"
          * @const
          */
-        "spark" = "spark";
+        "sparkjob" = "sparkjob";
 
 
         /**
-         * value: "dask"
+         * value: "daskjob"
          * @const
          */
-        "dask" = "dask";
+        "daskjob" = "daskjob";
 
 
         /**
-         * value: "flink"
+         * value: "rayjob"
          * @const
          */
-        "flink" = "flink";
-
-
-        /**
-         * value: "ray"
-         * @const
-         */
-        "ray" = "ray";
+        "rayjob" = "rayjob";
 
 
         /**

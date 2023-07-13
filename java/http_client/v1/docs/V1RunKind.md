@@ -11,13 +11,11 @@
 
 * `DAG` (value: `"dag"`)
 
-* `SPARK` (value: `"spark"`)
+* `SPARKJOB` (value: `"sparkjob"`)
 
-* `DASK` (value: `"dask"`)
+* `DASKJOB` (value: `"daskjob"`)
 
-* `FLINK` (value: `"flink"`)
-
-* `RAY` (value: `"ray"`)
+* `RAYJOB` (value: `"rayjob"`)
 
 * `MPIJOB` (value: `"mpijob"`)
 

@@ -54,7 +54,7 @@ from polyaxon_sdk.models.protobuf_any import ProtobufAny
 from polyaxon_sdk.models.protobuf_null_value import ProtobufNullValue
 from polyaxon_sdk.models.runtime_error import RuntimeError
 from polyaxon_sdk.models.search_view import SearchView
-from polyaxon_sdk.models.spark_deploy_mode import SparkDeployMode
+from polyaxon_sdk.models.spark_job_deploy_mode import SparkJobDeployMode
 from polyaxon_sdk.models.v1_activity import V1Activity
 from polyaxon_sdk.models.v1_agent import V1Agent
 from polyaxon_sdk.models.v1_agent_state_response import V1AgentStateResponse
@@ -89,7 +89,8 @@ from polyaxon_sdk.models.v1_dag import V1Dag
 from polyaxon_sdk.models.v1_dag_ref import V1DagRef
 from polyaxon_sdk.models.v1_dashboard import V1Dashboard
 from polyaxon_sdk.models.v1_dashboard_spec import V1DashboardSpec
-from polyaxon_sdk.models.v1_dask import V1Dask
+from polyaxon_sdk.models.v1_dask_job import V1DaskJob
+from polyaxon_sdk.models.v1_dask_replica import V1DaskReplica
 from polyaxon_sdk.models.v1_date_time_schedule import V1DateTimeSchedule
 from polyaxon_sdk.models.v1_diff_stopping_policy import V1DiffStoppingPolicy
 from polyaxon_sdk.models.v1_dockerfile_type import V1DockerfileType
@@ -119,7 +120,6 @@ from polyaxon_sdk.models.v1_event_video import V1EventVideo
 from polyaxon_sdk.models.v1_events_response import V1EventsResponse
 from polyaxon_sdk.models.v1_failure_early_stopping import V1FailureEarlyStopping
 from polyaxon_sdk.models.v1_file_type import V1FileType
-from polyaxon_sdk.models.v1_flink import V1Flink
 from polyaxon_sdk.models.v1_gcs_type import V1GcsType
 from polyaxon_sdk.models.v1_git_connection import V1GitConnection
 from polyaxon_sdk.models.v1_git_type import V1GitType
@@ -216,7 +216,8 @@ from polyaxon_sdk.models.v1_project_version_kind import V1ProjectVersionKind
 from polyaxon_sdk.models.v1_pytorch_job import V1PytorchJob
 from polyaxon_sdk.models.v1_queue import V1Queue
 from polyaxon_sdk.models.v1_random_search import V1RandomSearch
-from polyaxon_sdk.models.v1_ray import V1Ray
+from polyaxon_sdk.models.v1_ray_job import V1RayJob
+from polyaxon_sdk.models.v1_ray_replica import V1RayReplica
 from polyaxon_sdk.models.v1_reference import V1Reference
 from polyaxon_sdk.models.v1_resource_type import V1ResourceType
 from polyaxon_sdk.models.v1_run import V1Run
@@ -242,9 +243,9 @@ from polyaxon_sdk.models.v1_section_spec import V1SectionSpec
 from polyaxon_sdk.models.v1_service import V1Service
 from polyaxon_sdk.models.v1_service_account import V1ServiceAccount
 from polyaxon_sdk.models.v1_settings_catalog import V1SettingsCatalog
-from polyaxon_sdk.models.v1_spark import V1Spark
+from polyaxon_sdk.models.v1_spark_job import V1SparkJob
+from polyaxon_sdk.models.v1_spark_job_type import V1SparkJobType
 from polyaxon_sdk.models.v1_spark_replica import V1SparkReplica
-from polyaxon_sdk.models.v1_spark_type import V1SparkType
 from polyaxon_sdk.models.v1_stage import V1Stage
 from polyaxon_sdk.models.v1_stage_condition import V1StageCondition
 from polyaxon_sdk.models.v1_stages import V1Stages

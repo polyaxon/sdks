@@ -25414,7 +25414,7 @@
         "enum" : [ "any", "runs", "selection", "analytics", "components", "models", "artifacts", "projects" ],
         "default" : "any"
       },
-      "SparkDeployMode" : {
+      "SparkJobDeployMode" : {
         "type" : "string",
         "enum" : [ "cluster", "client", "in_cluster_client" ],
         "default" : "cluster"
@@ -26070,7 +26070,7 @@
             "format" : "float"
           },
           "run" : {
-            "title" : "Run definition, should be one of run composition: Container/Spark/Flink/Kubeflow/Dask/Dag",
+            "title" : "Run definition, should be one of run composition: Container/Spark/Ray/Dask/Kubeflow/Dask/Dag",
             "type" : "object",
             "properties" : { }
           }
@@ -26149,7 +26149,7 @@
             "$ref" : "#/components/schemas/v1Build"
           },
           "run" : {
-            "title" : "Run definition, should be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag",
+            "title" : "Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag",
             "type" : "object",
             "properties" : { }
           },
@@ -26490,38 +26490,34 @@
           }
         }
       },
-      "v1Dask" : {
+      "v1DaskJob" : {
         "title" : "Dask specification",
         "type" : "object",
         "properties" : {
           "kind" : {
             "title" : "Optional component kind, should be equal to 'Dask'",
             "type" : "string",
-            "default" : "dask"
+            "default" : "dask_job"
           },
-          "threads" : {
-            "title" : "Number of threads",
+          "job" : {
+            "$ref" : "#/components/schemas/v1DaskReplica"
+          },
+          "worker" : {
+            "$ref" : "#/components/schemas/v1DaskReplica"
+          },
+          "scheduler" : {
+            "$ref" : "#/components/schemas/v1DaskReplica"
+          }
+        }
+      },
+      "v1DaskReplica" : {
+        "title" : "Dask replica definition",
+        "type" : "object",
+        "properties" : {
+          "replicas" : {
+            "title" : "Number of replicas",
             "type" : "integer",
             "format" : "int32"
-          },
-          "scale" : {
-            "title" : "Number of workers",
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "adaptMin" : {
-            "title" : "Adaptive config min workers",
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "adaptMax" : {
-            "title" : "Adaptive config max workers",
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "adaptInterval" : {
-            "title" : "Adaptive config interval",
-            "type" : "string"
           },
           "environment" : {
             "$ref" : "#/components/schemas/v1Environment"
@@ -26534,14 +26530,14 @@
             }
           },
           "volumes" : {
+            "title" : "Optional connections section",
             "type" : "array",
-            "description" : "Volumes is a list of volumes that can be mounted.",
             "items" : {
               "$ref" : "#/components/schemas/v1Volume"
             }
           },
           "init" : {
-            "title" : "Optional init connections/containers section",
+            "title" : "Optional init connections section",
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/v1Init"
@@ -27295,22 +27291,6 @@
           "kind" : {
             "title" : "An optional Artifact kind to log the lineage information",
             "type" : "string"
-          }
-        }
-      },
-      "v1Flink" : {
-        "title" : "Flink specification",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
-            "title" : "Kind of runtime, should be equal to \"flink\"",
-            "type" : "string",
-            "default" : "flink"
-          },
-          "spec" : {
-            "title" : "Flink specification",
-            "type" : "object",
-            "properties" : { }
           }
         }
       },
@@ -29237,7 +29217,7 @@
             }
           },
           "runPatch" : {
-            "title" : "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag",
+            "title" : "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag",
             "type" : "object",
             "properties" : { }
           },
@@ -30117,18 +30097,102 @@
           }
         }
       },
-      "v1Ray" : {
+      "v1RayJob" : {
         "title" : "Ray specification",
         "type" : "object",
         "properties" : {
           "kind" : {
             "title" : "Kind of runtime, should be equal to \"ray\"",
+            "type" : "string",
+            "default" : "ray_job"
+          },
+          "entrypoint" : {
+            "title" : "Entrypoint of the ray application, e.g. python path/to/run.py",
             "type" : "string"
           },
-          "spec" : {
-            "title" : "Spark specification",
+          "runtimeEnv" : {
+            "title" : "Optional run environment section to install pip packages or expose env vars",
             "type" : "object",
             "properties" : { }
+          },
+          "metadata" : {
+            "title" : "Optional metadata section",
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "version" : {
+            "title" : "Cluster ray version, must be equal to the ray image version",
+            "type" : "string"
+          },
+          "head" : {
+            "$ref" : "#/components/schemas/v1RayReplica"
+          },
+          "worker" : {
+            "$ref" : "#/components/schemas/v1RayReplica"
+          }
+        }
+      },
+      "v1RayReplica" : {
+        "title" : "Ray replica definition",
+        "type" : "object",
+        "properties" : {
+          "replicas" : {
+            "title" : "Number of replicas",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "minReplicas" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxReplicas" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "groupName" : {
+            "type" : "string"
+          },
+          "rayStartParams" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "environment" : {
+            "$ref" : "#/components/schemas/v1Environment"
+          },
+          "connections" : {
+            "title" : "Optional connections section",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "volumes" : {
+            "type" : "array",
+            "description" : "Volumes is a list of volumes that can be mounted.",
+            "items" : {
+              "$ref" : "#/components/schemas/v1Volume"
+            }
+          },
+          "init" : {
+            "title" : "Optional init connections section",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1Init"
+            }
+          },
+          "sidecars" : {
+            "title" : "Optional sidecars section",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1Container"
+            }
+          },
+          "container" : {
+            "$ref" : "#/components/schemas/v1Container"
           }
         }
       },
@@ -30429,9 +30493,9 @@
         "default" : "action"
       },
       "v1RunKind" : {
-        "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, spark, dask, flink, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
+        "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, spark, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type" : "string",
-        "enum" : [ "job", "service", "dag", "spark", "dask", "flink", "ray", "mpijob", "tfjob", "pytorchjob", "paddlejob", "mxjob", "xgbjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "cleaner", "builder" ],
+        "enum" : [ "job", "service", "dag", "sparkjob", "daskjob", "rayjob", "mpijob", "tfjob", "pytorchjob", "paddlejob", "mxjob", "xgbjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "cleaner", "builder" ],
         "default" : "job"
       },
       "v1RunPending" : {
@@ -30517,17 +30581,14 @@
           "paddleJob" : {
             "$ref" : "#/components/schemas/v1PaddleJob"
           },
-          "dask" : {
-            "$ref" : "#/components/schemas/v1Dask"
+          "daskJob" : {
+            "$ref" : "#/components/schemas/v1DaskJob"
           },
-          "spark" : {
-            "$ref" : "#/components/schemas/v1Spark"
+          "sparkJob" : {
+            "$ref" : "#/components/schemas/v1SparkJob"
           },
-          "flink" : {
-            "$ref" : "#/components/schemas/v1Flink"
-          },
-          "ruy" : {
-            "$ref" : "#/components/schemas/v1Ray"
+          "rayJob" : {
+            "$ref" : "#/components/schemas/v1RayJob"
           }
         }
       },
@@ -30995,14 +31056,14 @@
           }
         }
       },
-      "v1Spark" : {
+      "v1SparkJob" : {
         "title" : "Spark specification",
         "type" : "object",
         "properties" : {
           "kind" : {
             "title" : "Kind of runtime, should be equal to \"spark\"",
             "type" : "string",
-            "default" : "spark"
+            "default" : "spark_job"
           },
           "connections" : {
             "title" : "Optional connections section",
@@ -31019,7 +31080,7 @@
             }
           },
           "type" : {
-            "$ref" : "#/components/schemas/v1SparkType"
+            "$ref" : "#/components/schemas/v1SparkJobType"
           },
           "sparkVersion" : {
             "type" : "string",
@@ -31030,7 +31091,7 @@
             "description" : "Spark version is the version of Spark the application uses."
           },
           "deployMode" : {
-            "$ref" : "#/components/schemas/SparkDeployMode"
+            "$ref" : "#/components/schemas/SparkJobDeployMode"
           },
           "mainClass" : {
             "type" : "string",
@@ -31077,6 +31138,11 @@
           }
         }
       },
+      "v1SparkJobType" : {
+        "type" : "string",
+        "enum" : [ "java", "scala", "python", "r" ],
+        "default" : "java"
+      },
       "v1SparkReplica" : {
         "title" : "Spark replica definition",
         "type" : "object",
@@ -31107,11 +31173,6 @@
             "$ref" : "#/components/schemas/v1Container"
           }
         }
-      },
-      "v1SparkType" : {
-        "type" : "string",
-        "enum" : [ "java", "scala", "python", "r" ],
-        "default" : "java"
       },
       "v1Stage" : {
         "title" : "Stage specification",

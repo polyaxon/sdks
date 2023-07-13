@@ -77,7 +77,7 @@ type V1CompiledOperation struct {
 	// Optional queue to use for running this component
 	Queue string `json:"queue,omitempty"`
 
-	// Run definition, should be one of run composition: Container/Spark/Flink/Kubeflow/Dask/Dag
+	// Run definition, should be one of run composition: Container/Spark/Ray/Dask/Kubeflow/Dask/Dag
 	Run interface{} `json:"run,omitempty"`
 
 	// Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)

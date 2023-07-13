@@ -8,41 +8,43 @@ import "v1/polyflow/k8s.proto";
 
 option go_package = "v1/polyflow";
 
+
+// Dask replica definition
+message DaskReplica {
+  // Number of replicas
+  int32 replicas = 1;
+
+  // Optional environment section
+  Environment environment = 2;
+
+  // Optional connections section
+  repeated string connections = 3;
+
+  // Optional connections section
+  repeated Volume volumes = 4;
+
+  // Optional init connections section
+  repeated Init init = 5;
+
+  // Optional sidecars section
+  repeated Container sidecars = 6;
+
+  // Optional container to run
+  Container container = 7;
+}
+
+
 // Dask specification
-message Dask {
+message DaskJob {
     // Optional component kind, should be equal to 'Dask'
     string kind = 1;
 
-    // Number of threads
-    int32 threads = 2;
+    // Job pod specification to execute
+    DaskReplica job = 2;
 
-    // Number of workers
-    int32 scale = 3;
+    // Worker pod specification
+    DaskReplica worker = 3;
 
-    // Adaptive config min workers
-    int32 adaptMin = 4;
-
-    // Adaptive config max workers
-    int32 adaptMax = 5;
-
-    // Adaptive config interval
-    string adaptInterval = 6;
-
-    // Optional environment section
-    Environment environment = 7;
-
-    // Optional connections section
-    repeated string connections = 8;
-
-    // Volumes is a list of volumes that can be mounted.
-    repeated Volume volumes = 9;
-
-    // Optional init connections/containers section
-    repeated Init init = 10;
-
-    // Optional sidecars section
-    repeated Container sidecars = 11;
-
-    // Optional container to run
-    Container container = 12;
+    // Scheduler pod specification
+    DaskReplica scheduler = 4;
 }

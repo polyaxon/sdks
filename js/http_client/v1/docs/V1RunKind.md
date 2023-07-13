@@ -9,13 +9,11 @@
 
 * `dag` (value: `"dag"`)
 
-* `spark` (value: `"spark"`)
+* `sparkjob` (value: `"sparkjob"`)
 
-* `dask` (value: `"dask"`)
+* `daskjob` (value: `"daskjob"`)
 
-* `flink` (value: `"flink"`)
-
-* `ray` (value: `"ray"`)
+* `rayjob` (value: `"rayjob"`)
 
 * `mpijob` (value: `"mpijob"`)
 

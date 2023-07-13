@@ -22,16 +22,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.openapitools.client.model.V1Dag;
-import org.openapitools.client.model.V1Dask;
-import org.openapitools.client.model.V1Flink;
+import org.openapitools.client.model.V1DaskJob;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
 import org.openapitools.client.model.V1MXJob;
 import org.openapitools.client.model.V1PaddleJob;
 import org.openapitools.client.model.V1PytorchJob;
-import org.openapitools.client.model.V1Ray;
+import org.openapitools.client.model.V1RayJob;
 import org.openapitools.client.model.V1Service;
-import org.openapitools.client.model.V1Spark;
+import org.openapitools.client.model.V1SparkJob;
 import org.openapitools.client.model.V1TFJob;
 import org.openapitools.client.model.V1XGBoostJob;
 
@@ -97,21 +96,17 @@ public class V1RunSchema {
   @SerializedName(SERIALIZED_NAME_PADDLE_JOB)
   private V1PaddleJob paddleJob;
 
-  public static final String SERIALIZED_NAME_DASK = "dask";
-  @SerializedName(SERIALIZED_NAME_DASK)
-  private V1Dask dask;
+  public static final String SERIALIZED_NAME_DASK_JOB = "daskJob";
+  @SerializedName(SERIALIZED_NAME_DASK_JOB)
+  private V1DaskJob daskJob;
 
-  public static final String SERIALIZED_NAME_SPARK = "spark";
-  @SerializedName(SERIALIZED_NAME_SPARK)
-  private V1Spark spark;
+  public static final String SERIALIZED_NAME_SPARK_JOB = "sparkJob";
+  @SerializedName(SERIALIZED_NAME_SPARK_JOB)
+  private V1SparkJob sparkJob;
 
-  public static final String SERIALIZED_NAME_FLINK = "flink";
-  @SerializedName(SERIALIZED_NAME_FLINK)
-  private V1Flink flink;
-
-  public static final String SERIALIZED_NAME_RUY = "ruy";
-  @SerializedName(SERIALIZED_NAME_RUY)
-  private V1Ray ruy;
+  public static final String SERIALIZED_NAME_RAY_JOB = "rayJob";
+  @SerializedName(SERIALIZED_NAME_RAY_JOB)
+  private V1RayJob rayJob;
 
   public V1RunSchema() {
   }
@@ -314,91 +309,69 @@ public class V1RunSchema {
   }
 
 
-  public V1RunSchema dask(V1Dask dask) {
+  public V1RunSchema daskJob(V1DaskJob daskJob) {
 
-    this.dask = dask;
+    this.daskJob = daskJob;
     return this;
   }
 
    /**
-   * Get dask
-   * @return dask
+   * Get daskJob
+   * @return daskJob
   **/
   @javax.annotation.Nullable
 
-  public V1Dask getDask() {
-    return dask;
+  public V1DaskJob getDaskJob() {
+    return daskJob;
   }
 
 
-  public void setDask(V1Dask dask) {
-    this.dask = dask;
+  public void setDaskJob(V1DaskJob daskJob) {
+    this.daskJob = daskJob;
   }
 
 
-  public V1RunSchema spark(V1Spark spark) {
+  public V1RunSchema sparkJob(V1SparkJob sparkJob) {
 
-    this.spark = spark;
+    this.sparkJob = sparkJob;
     return this;
   }
 
    /**
-   * Get spark
-   * @return spark
+   * Get sparkJob
+   * @return sparkJob
   **/
   @javax.annotation.Nullable
 
-  public V1Spark getSpark() {
-    return spark;
+  public V1SparkJob getSparkJob() {
+    return sparkJob;
   }
 
 
-  public void setSpark(V1Spark spark) {
-    this.spark = spark;
+  public void setSparkJob(V1SparkJob sparkJob) {
+    this.sparkJob = sparkJob;
   }
 
 
-  public V1RunSchema flink(V1Flink flink) {
+  public V1RunSchema rayJob(V1RayJob rayJob) {
 
-    this.flink = flink;
+    this.rayJob = rayJob;
     return this;
   }
 
    /**
-   * Get flink
-   * @return flink
+   * Get rayJob
+   * @return rayJob
   **/
   @javax.annotation.Nullable
 
-  public V1Flink getFlink() {
-    return flink;
+  public V1RayJob getRayJob() {
+    return rayJob;
   }
 
 
-  public void setFlink(V1Flink flink) {
-    this.flink = flink;
-  }
-
-
-  public V1RunSchema ruy(V1Ray ruy) {
-
-    this.ruy = ruy;
-    return this;
-  }
-
-   /**
-   * Get ruy
-   * @return ruy
-  **/
-  @javax.annotation.Nullable
-
-  public V1Ray getRuy() {
-    return ruy;
-  }
-
-
-  public void setRuy(V1Ray ruy) {
-    this.ruy = ruy;
+  public void setRayJob(V1RayJob rayJob) {
+    this.rayJob = rayJob;
   }
 
 
@@ -421,15 +394,14 @@ public class V1RunSchema {
         Objects.equals(this.mxJob, v1RunSchema.mxJob) &&
         Objects.equals(this.xgboostJob, v1RunSchema.xgboostJob) &&
         Objects.equals(this.paddleJob, v1RunSchema.paddleJob) &&
-        Objects.equals(this.dask, v1RunSchema.dask) &&
-        Objects.equals(this.spark, v1RunSchema.spark) &&
-        Objects.equals(this.flink, v1RunSchema.flink) &&
-        Objects.equals(this.ruy, v1RunSchema.ruy);
+        Objects.equals(this.daskJob, v1RunSchema.daskJob) &&
+        Objects.equals(this.sparkJob, v1RunSchema.sparkJob) &&
+        Objects.equals(this.rayJob, v1RunSchema.rayJob);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, mxJob, xgboostJob, paddleJob, dask, spark, flink, ruy);
+    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, mxJob, xgboostJob, paddleJob, daskJob, sparkJob, rayJob);
   }
 
   @Override
@@ -445,10 +417,9 @@ public class V1RunSchema {
     sb.append("    mxJob: ").append(toIndentedString(mxJob)).append("\n");
     sb.append("    xgboostJob: ").append(toIndentedString(xgboostJob)).append("\n");
     sb.append("    paddleJob: ").append(toIndentedString(paddleJob)).append("\n");
-    sb.append("    dask: ").append(toIndentedString(dask)).append("\n");
-    sb.append("    spark: ").append(toIndentedString(spark)).append("\n");
-    sb.append("    flink: ").append(toIndentedString(flink)).append("\n");
-    sb.append("    ruy: ").append(toIndentedString(ruy)).append("\n");
+    sb.append("    daskJob: ").append(toIndentedString(daskJob)).append("\n");
+    sb.append("    sparkJob: ").append(toIndentedString(sparkJob)).append("\n");
+    sb.append("    rayJob: ").append(toIndentedString(rayJob)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -480,10 +451,9 @@ public class V1RunSchema {
     openapiFields.add("mxJob");
     openapiFields.add("xgboostJob");
     openapiFields.add("paddleJob");
-    openapiFields.add("dask");
-    openapiFields.add("spark");
-    openapiFields.add("flink");
-    openapiFields.add("ruy");
+    openapiFields.add("daskJob");
+    openapiFields.add("sparkJob");
+    openapiFields.add("rayJob");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -545,21 +515,17 @@ public class V1RunSchema {
       if (jsonObj.get("paddleJob") != null && !jsonObj.get("paddleJob").isJsonNull()) {
         V1PaddleJob.validateJsonObject(jsonObj.getAsJsonObject("paddleJob"));
       }
-      // validate the optional field `dask`
-      if (jsonObj.get("dask") != null && !jsonObj.get("dask").isJsonNull()) {
-        V1Dask.validateJsonObject(jsonObj.getAsJsonObject("dask"));
+      // validate the optional field `daskJob`
+      if (jsonObj.get("daskJob") != null && !jsonObj.get("daskJob").isJsonNull()) {
+        V1DaskJob.validateJsonObject(jsonObj.getAsJsonObject("daskJob"));
       }
-      // validate the optional field `spark`
-      if (jsonObj.get("spark") != null && !jsonObj.get("spark").isJsonNull()) {
-        V1Spark.validateJsonObject(jsonObj.getAsJsonObject("spark"));
+      // validate the optional field `sparkJob`
+      if (jsonObj.get("sparkJob") != null && !jsonObj.get("sparkJob").isJsonNull()) {
+        V1SparkJob.validateJsonObject(jsonObj.getAsJsonObject("sparkJob"));
       }
-      // validate the optional field `flink`
-      if (jsonObj.get("flink") != null && !jsonObj.get("flink").isJsonNull()) {
-        V1Flink.validateJsonObject(jsonObj.getAsJsonObject("flink"));
-      }
-      // validate the optional field `ruy`
-      if (jsonObj.get("ruy") != null && !jsonObj.get("ruy").isJsonNull()) {
-        V1Ray.validateJsonObject(jsonObj.getAsJsonObject("ruy"));
+      // validate the optional field `rayJob`
+      if (jsonObj.get("rayJob") != null && !jsonObj.get("rayJob").isJsonNull()) {
+        V1RayJob.validateJsonObject(jsonObj.getAsJsonObject("rayJob"));
       }
   }
 

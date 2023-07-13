@@ -3,7 +3,7 @@
 Polyaxon SDKs and REST API specification.
 - API version: 2.0.0-rc26
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -384,7 +384,7 @@ Class | Method | HTTP request | Description
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
  - [RuntimeError](docs/RuntimeError.md)
  - [SearchView](docs/SearchView.md)
- - [SparkDeployMode](docs/SparkDeployMode.md)
+ - [SparkJobDeployMode](docs/SparkJobDeployMode.md)
  - [V1Activity](docs/V1Activity.md)
  - [V1Agent](docs/V1Agent.md)
  - [V1AgentStateResponse](docs/V1AgentStateResponse.md)
@@ -419,7 +419,8 @@ Class | Method | HTTP request | Description
  - [V1DagRef](docs/V1DagRef.md)
  - [V1Dashboard](docs/V1Dashboard.md)
  - [V1DashboardSpec](docs/V1DashboardSpec.md)
- - [V1Dask](docs/V1Dask.md)
+ - [V1DaskJob](docs/V1DaskJob.md)
+ - [V1DaskReplica](docs/V1DaskReplica.md)
  - [V1DateTimeSchedule](docs/V1DateTimeSchedule.md)
  - [V1DiffStoppingPolicy](docs/V1DiffStoppingPolicy.md)
  - [V1DockerfileType](docs/V1DockerfileType.md)
@@ -449,7 +450,6 @@ Class | Method | HTTP request | Description
  - [V1EventsResponse](docs/V1EventsResponse.md)
  - [V1FailureEarlyStopping](docs/V1FailureEarlyStopping.md)
  - [V1FileType](docs/V1FileType.md)
- - [V1Flink](docs/V1Flink.md)
  - [V1GcsType](docs/V1GcsType.md)
  - [V1GitConnection](docs/V1GitConnection.md)
  - [V1GitType](docs/V1GitType.md)
@@ -546,7 +546,8 @@ Class | Method | HTTP request | Description
  - [V1PytorchJob](docs/V1PytorchJob.md)
  - [V1Queue](docs/V1Queue.md)
  - [V1RandomSearch](docs/V1RandomSearch.md)
- - [V1Ray](docs/V1Ray.md)
+ - [V1RayJob](docs/V1RayJob.md)
+ - [V1RayReplica](docs/V1RayReplica.md)
  - [V1Reference](docs/V1Reference.md)
  - [V1ResourceType](docs/V1ResourceType.md)
  - [V1Run](docs/V1Run.md)
@@ -572,9 +573,9 @@ Class | Method | HTTP request | Description
  - [V1Service](docs/V1Service.md)
  - [V1ServiceAccount](docs/V1ServiceAccount.md)
  - [V1SettingsCatalog](docs/V1SettingsCatalog.md)
- - [V1Spark](docs/V1Spark.md)
+ - [V1SparkJob](docs/V1SparkJob.md)
+ - [V1SparkJobType](docs/V1SparkJobType.md)
  - [V1SparkReplica](docs/V1SparkReplica.md)
- - [V1SparkType](docs/V1SparkType.md)
  - [V1Stage](docs/V1Stage.md)
  - [V1StageCondition](docs/V1StageCondition.md)
  - [V1Stages](docs/V1Stages.md)

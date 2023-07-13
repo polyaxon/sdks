@@ -27,7 +27,7 @@ message SparkReplica {
 }
 
 // Spark specification
-message Spark {
+message SparkJob {
     // Kind of runtime, should be equal to "spark"
     string kind = 1;
 

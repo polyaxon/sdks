@@ -72,7 +72,7 @@
       "title": "Search view",
       "type": "string"
     },
-    "SparkDeployMode": {
+    "SparkJobDeployMode": {
       "default": "cluster",
       "enum": [
         "cluster",
@@ -4909,10 +4909,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1Dask"
-            },
-            {
-              "$ref": "#/definitions/v1Flink"
+              "$ref": "#/definitions/v1DaskJob"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -4933,19 +4930,19 @@
               "$ref": "#/definitions/v1XGBoostJob"
             },
             {
-              "$ref": "#/definitions/v1Ray"
+              "$ref": "#/definitions/v1RayJob"
             },
             {
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1Spark"
+              "$ref": "#/definitions/v1SparkJob"
             },
             {
               "$ref": "#/definitions/v1TFJob"
             }
           ],
-          "title": "Run definition, should be one of run composition: Container/Spark/Flink/Kubeflow/Dask/Dag",
+          "title": "Run definition, should be one of run composition: Container/Spark/Ray/Dask/Kubeflow/Dask/Dag",
           "type": "object"
         },
         "schedule": {
@@ -5064,10 +5061,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1Dask"
-            },
-            {
-              "$ref": "#/definitions/v1Flink"
+              "$ref": "#/definitions/v1DaskJob"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -5088,19 +5082,19 @@
               "$ref": "#/definitions/v1XGBoostJob"
             },
             {
-              "$ref": "#/definitions/v1Ray"
+              "$ref": "#/definitions/v1RayJob"
             },
             {
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1Spark"
+              "$ref": "#/definitions/v1SparkJob"
             },
             {
               "$ref": "#/definitions/v1TFJob"
             }
           ],
-          "title": "Run definition, should be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag",
+          "title": "Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag",
           "type": "object"
         },
         "tags": {
@@ -5505,22 +5499,47 @@
       "title": "Dashboard spec definition",
       "type": "object"
     },
-    "v1Dask": {
+    "v1DaskJob": {
       "properties": {
-        "adaptInterval": {
-          "title": "Adaptive config interval",
+        "container": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+        },
+        "job": {
+          "$ref": "#/definitions/v1DaskReplica",
+          "title": "Job pod specification to execute"
+        },
+        "kind": {
+          "default": "dask_job",
+          "title": "Optional component kind, should be equal to 'Dask'",
           "type": "string"
         },
-        "adaptMax": {
-          "format": "int32",
-          "title": "Adaptive config max workers",
-          "type": "integer"
+        "scheduler": {
+          "$ref": "#/definitions/v1DaskReplica",
+          "title": "Scheduler pod specification"
         },
-        "adaptMin": {
-          "format": "int32",
-          "title": "Adaptive config min workers",
-          "type": "integer"
+        "sidecars": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+          },
+          "type": "array"
         },
+        "volumes": {
+          "description": "List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+          },
+          "type": "array"
+        },
+        "worker": {
+          "$ref": "#/definitions/v1DaskReplica",
+          "title": "Worker pod specification"
+        }
+      },
+      "title": "Dask specification",
+      "type": "object"
+    },
+    "v1DaskReplica": {
+      "properties": {
         "connections": {
           "items": {
             "type": "string"
@@ -5529,7 +5548,7 @@
           "type": "array"
         },
         "container": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.Container",
+          "$ref": "#/definitions/v1Container",
           "title": "Optional container to run"
         },
         "environment": {
@@ -5540,40 +5559,30 @@
           "items": {
             "$ref": "#/definitions/v1Init"
           },
-          "title": "Optional init connections/containers section",
+          "title": "Optional init connections section",
           "type": "array"
         },
-        "kind": {
-          "default": "dask",
-          "title": "Optional component kind, should be equal to 'Dask'",
-          "type": "string"
-        },
-        "scale": {
+        "replicas": {
           "format": "int32",
-          "title": "Number of workers",
+          "title": "Number of replicas",
           "type": "integer"
         },
         "sidecars": {
           "items": {
-            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+            "$ref": "#/definitions/v1Container"
           },
           "title": "Optional sidecars section",
           "type": "array"
         },
-        "threads": {
-          "format": "int32",
-          "title": "Number of threads",
-          "type": "integer"
-        },
         "volumes": {
-          "description": "List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes",
           "items": {
-            "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+            "$ref": "#/definitions/v1Volume"
           },
+          "title": "Optional connections section",
           "type": "array"
         }
       },
-      "title": "Dask specification",
+      "title": "Dask replica definition",
       "type": "object"
     },
     "v1DateTimeSchedule": {
@@ -6356,21 +6365,6 @@
         }
       },
       "title": "File type specification",
-      "type": "object"
-    },
-    "v1Flink": {
-      "properties": {
-        "kind": {
-          "default": "flink",
-          "title": "Kind of runtime, should be equal to \"flink\"",
-          "type": "string"
-        },
-        "spec": {
-          "title": "Flink specification",
-          "type": "object"
-        }
-      },
-      "title": "Flink specification",
       "type": "object"
     },
     "v1GcsType": {
@@ -8388,10 +8382,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1Dask"
-            },
-            {
-              "$ref": "#/definitions/v1Flink"
+              "$ref": "#/definitions/v1DaskJob"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -8412,19 +8403,19 @@
               "$ref": "#/definitions/v1XGBoostJob"
             },
             {
-              "$ref": "#/definitions/v1Ray"
+              "$ref": "#/definitions/v1RayJob"
             },
             {
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1Spark"
+              "$ref": "#/definitions/v1SparkJob"
             },
             {
               "$ref": "#/definitions/v1TFJob"
             }
           ],
-          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag",
+          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag",
           "type": "object"
         },
         "schedule": {
@@ -9345,18 +9336,106 @@
       "title": "Matrix based on randomly generated search space",
       "type": "object"
     },
-    "v1Ray": {
+    "v1RayJob": {
       "properties": {
+        "entrypoint": {
+          "title": "Entrypoint of the ray application, e.g. python path/to/run.py",
+          "type": "string"
+        },
+        "head": {
+          "$ref": "#/definitions/v1RayReplica",
+          "title": "Ray head goupr section"
+        },
         "kind": {
+          "default": "ray_job",
           "title": "Kind of runtime, should be equal to \"ray\"",
           "type": "string"
         },
-        "spec": {
-          "title": "Spark specification",
+        "metadata": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Optional metadata section",
           "type": "object"
+        },
+        "runtimeEnv": {
+          "title": "Optional run environment section to install pip packages or expose env vars",
+          "type": "object"
+        },
+        "version": {
+          "title": "Cluster ray version, must be equal to the ray image version",
+          "type": "string"
+        },
+        "worker": {
+          "$ref": "#/definitions/v1RayReplica",
+          "title": "Ray worker group section"
         }
       },
       "title": "Ray specification",
+      "type": "object"
+    },
+    "v1RayReplica": {
+      "properties": {
+        "connections": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional connections section",
+          "type": "array"
+        },
+        "container": {
+          "$ref": "#/definitions/v1Container",
+          "title": "Optional container to run"
+        },
+        "environment": {
+          "$ref": "#/definitions/v1Environment",
+          "title": "Optional environment section"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "init": {
+          "items": {
+            "$ref": "#/definitions/v1Init"
+          },
+          "title": "Optional init connections section",
+          "type": "array"
+        },
+        "maxReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "minReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rayStartParams": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "replicas": {
+          "format": "int32",
+          "title": "Number of replicas",
+          "type": "integer"
+        },
+        "sidecars": {
+          "items": {
+            "$ref": "#/definitions/v1Container"
+          },
+          "title": "Optional sidecars section",
+          "type": "array"
+        },
+        "volumes": {
+          "description": "Volumes is a list of volumes that can be mounted.",
+          "items": {
+            "$ref": "#/definitions/v1Volume"
+          },
+          "type": "array"
+        }
+      },
+      "title": "Ray replica definition",
       "type": "object"
     },
     "v1Reference": {
@@ -9679,10 +9758,9 @@
         "job",
         "service",
         "dag",
-        "spark",
-        "dask",
-        "flink",
-        "ray",
+        "sparkjob",
+        "daskjob",
+        "rayjob",
         "mpijob",
         "tfjob",
         "pytorchjob",
@@ -9697,7 +9775,7 @@
         "cleaner",
         "builder"
       ],
-      "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, spark, dask, flink, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
+      "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, spark, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
       "type": "string"
     },
     "v1RunPending": {
@@ -9763,11 +9841,8 @@
         "dag": {
           "$ref": "#/definitions/v1Dag"
         },
-        "dask": {
-          "$ref": "#/definitions/v1Dask"
-        },
-        "flink": {
-          "$ref": "#/definitions/v1Flink"
+        "daskJob": {
+          "$ref": "#/definitions/v1DaskJob"
         },
         "job": {
           "$ref": "#/definitions/v1Job"
@@ -9784,14 +9859,14 @@
         "pytorchJob": {
           "$ref": "#/definitions/v1PytorchJob"
         },
-        "ruy": {
-          "$ref": "#/definitions/v1Ray"
+        "rayJob": {
+          "$ref": "#/definitions/v1RayJob"
         },
         "service": {
           "$ref": "#/definitions/v1Service"
         },
-        "spark": {
-          "$ref": "#/definitions/v1Spark"
+        "sparkJob": {
+          "$ref": "#/definitions/v1SparkJob"
         },
         "tfJob": {
           "$ref": "#/definitions/v1TFJob"
@@ -10273,7 +10348,7 @@
       "title": "Settings catalog specification",
       "type": "object"
     },
-    "v1Spark": {
+    "v1SparkJob": {
       "properties": {
         "arguments": {
           "description": "Arguments is a list of arguments to be passed to the application.",
@@ -10290,7 +10365,7 @@
           "type": "array"
         },
         "deployMode": {
-          "$ref": "#/definitions/SparkDeployMode",
+          "$ref": "#/definitions/SparkJobDeployMode",
           "description": "Mode is the deployment mode of the Spark application."
         },
         "driver": {
@@ -10313,7 +10388,7 @@
           "type": "string"
         },
         "kind": {
-          "default": "spark",
+          "default": "spark_job",
           "title": "Kind of runtime, should be equal to \"spark\"",
           "type": "string"
         },
@@ -10345,7 +10420,7 @@
           "type": "string"
         },
         "type": {
-          "$ref": "#/definitions/v1SparkType",
+          "$ref": "#/definitions/v1SparkJobType",
           "description": "Type tells the type of the Spark application."
         },
         "volumes": {
@@ -10358,6 +10433,16 @@
       },
       "title": "Spark specification",
       "type": "object"
+    },
+    "v1SparkJobType": {
+      "default": "java",
+      "enum": [
+        "java",
+        "scala",
+        "python",
+        "r"
+      ],
+      "type": "string"
     },
     "v1SparkReplica": {
       "properties": {
@@ -10391,16 +10476,6 @@
       },
       "title": "Spark replica definition",
       "type": "object"
-    },
-    "v1SparkType": {
-      "default": "java",
-      "enum": [
-        "java",
-        "scala",
-        "python",
-        "r"
-      ],
-      "type": "string"
     },
     "v1Stage": {
       "properties": {

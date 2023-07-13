@@ -63,24 +63,24 @@
         }
       }
     },
-    "v1Spark": {
+    "v1SparkJob": {
       "properties": {
         "kind": {
-          "default": "spark"
+          "default": "spark_job"
         }
       }
     },
-    "v1Flink": {
+    "v1DaskJob": {
       "properties": {
         "kind": {
-          "default": "flink"
+          "default": "dask_job"
         }
       }
     },
-    "v1Dask": {
+    "v1RayJob": {
       "properties": {
         "kind": {
-          "default": "dask"
+          "default": "ray_job"
         }
       }
     }

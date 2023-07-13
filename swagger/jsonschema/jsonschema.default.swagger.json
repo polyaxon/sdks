@@ -204,10 +204,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1Dask"
-            },
-            {
-              "$ref": "#/definitions/v1Flink"
+              "$ref": "#/definitions/v1DaskJob"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -228,13 +225,13 @@
               "$ref": "#/definitions/v1XGBoostJob"
             },
             {
-              "$ref": "#/definitions/v1Ray"
+              "$ref": "#/definitions/v1RayJob"
             },
             {
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1Spark"
+              "$ref": "#/definitions/v1SparkJob"
             },
             {
               "$ref": "#/definitions/v1TFJob"
@@ -251,10 +248,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1Dask"
-            },
-            {
-              "$ref": "#/definitions/v1Flink"
+              "$ref": "#/definitions/v1DaskJob"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -275,13 +269,13 @@
               "$ref": "#/definitions/v1XGBoostJob"
             },
             {
-              "$ref": "#/definitions/v1Ray"
+              "$ref": "#/definitions/v1RayJob"
             },
             {
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1Spark"
+              "$ref": "#/definitions/v1SparkJob"
             },
             {
               "$ref": "#/definitions/v1TFJob"
@@ -336,10 +330,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1Dask"
-            },
-            {
-              "$ref": "#/definitions/v1Flink"
+              "$ref": "#/definitions/v1DaskJob"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -360,13 +351,13 @@
               "$ref": "#/definitions/v1XGBoostJob"
             },
             {
-              "$ref": "#/definitions/v1Ray"
+              "$ref": "#/definitions/v1RayJob"
             },
             {
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1Spark"
+              "$ref": "#/definitions/v1SparkJob"
             },
             {
               "$ref": "#/definitions/v1TFJob"
@@ -465,7 +456,7 @@
         }
       }
     },
-    "v1Dask": {
+    "v1DaskJob": {
       "properties": {
         "volumes": {
           "type": "array",

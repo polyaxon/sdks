@@ -20,16 +20,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.openapitools.client.model.V1Dag;
-import org.openapitools.client.model.V1Dask;
-import org.openapitools.client.model.V1Flink;
+import org.openapitools.client.model.V1DaskJob;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
 import org.openapitools.client.model.V1MXJob;
 import org.openapitools.client.model.V1PaddleJob;
 import org.openapitools.client.model.V1PytorchJob;
-import org.openapitools.client.model.V1Ray;
+import org.openapitools.client.model.V1RayJob;
 import org.openapitools.client.model.V1Service;
-import org.openapitools.client.model.V1Spark;
+import org.openapitools.client.model.V1SparkJob;
 import org.openapitools.client.model.V1TFJob;
 import org.openapitools.client.model.V1XGBoostJob;
 import org.junit.jupiter.api.Disabled;
@@ -123,35 +122,27 @@ public class V1RunSchemaTest {
     }
 
     /**
-     * Test the property 'dask'
+     * Test the property 'daskJob'
      */
     @Test
-    public void daskTest() {
-        // TODO: test dask
+    public void daskJobTest() {
+        // TODO: test daskJob
     }
 
     /**
-     * Test the property 'spark'
+     * Test the property 'sparkJob'
      */
     @Test
-    public void sparkTest() {
-        // TODO: test spark
+    public void sparkJobTest() {
+        // TODO: test sparkJob
     }
 
     /**
-     * Test the property 'flink'
+     * Test the property 'rayJob'
      */
     @Test
-    public void flinkTest() {
-        // TODO: test flink
-    }
-
-    /**
-     * Test the property 'ruy'
-     */
-    @Test
-    public void ruyTest() {
-        // TODO: test ruy
+    public void rayJobTest() {
+        // TODO: test rayJob
     }
 
 }

@@ -19,7 +19,7 @@ import ProtobufAny from './model/ProtobufAny';
 import ProtobufNullValue from './model/ProtobufNullValue';
 import RuntimeError from './model/RuntimeError';
 import SearchView from './model/SearchView';
-import SparkDeployMode from './model/SparkDeployMode';
+import SparkJobDeployMode from './model/SparkJobDeployMode';
 import V1Activity from './model/V1Activity';
 import V1Agent from './model/V1Agent';
 import V1AgentStateResponse from './model/V1AgentStateResponse';
@@ -54,7 +54,8 @@ import V1Dag from './model/V1Dag';
 import V1DagRef from './model/V1DagRef';
 import V1Dashboard from './model/V1Dashboard';
 import V1DashboardSpec from './model/V1DashboardSpec';
-import V1Dask from './model/V1Dask';
+import V1DaskJob from './model/V1DaskJob';
+import V1DaskReplica from './model/V1DaskReplica';
 import V1DateTimeSchedule from './model/V1DateTimeSchedule';
 import V1DiffStoppingPolicy from './model/V1DiffStoppingPolicy';
 import V1DockerfileType from './model/V1DockerfileType';
@@ -84,7 +85,6 @@ import V1EventVideo from './model/V1EventVideo';
 import V1EventsResponse from './model/V1EventsResponse';
 import V1FailureEarlyStopping from './model/V1FailureEarlyStopping';
 import V1FileType from './model/V1FileType';
-import V1Flink from './model/V1Flink';
 import V1GcsType from './model/V1GcsType';
 import V1GitConnection from './model/V1GitConnection';
 import V1GitType from './model/V1GitType';
@@ -181,7 +181,8 @@ import V1ProjectVersionKind from './model/V1ProjectVersionKind';
 import V1PytorchJob from './model/V1PytorchJob';
 import V1Queue from './model/V1Queue';
 import V1RandomSearch from './model/V1RandomSearch';
-import V1Ray from './model/V1Ray';
+import V1RayJob from './model/V1RayJob';
+import V1RayReplica from './model/V1RayReplica';
 import V1Reference from './model/V1Reference';
 import V1ResourceType from './model/V1ResourceType';
 import V1Run from './model/V1Run';
@@ -207,9 +208,9 @@ import V1SectionSpec from './model/V1SectionSpec';
 import V1Service from './model/V1Service';
 import V1ServiceAccount from './model/V1ServiceAccount';
 import V1SettingsCatalog from './model/V1SettingsCatalog';
-import V1Spark from './model/V1Spark';
+import V1SparkJob from './model/V1SparkJob';
+import V1SparkJobType from './model/V1SparkJobType';
 import V1SparkReplica from './model/V1SparkReplica';
-import V1SparkType from './model/V1SparkType';
 import V1Stage from './model/V1Stage';
 import V1StageCondition from './model/V1StageCondition';
 import V1Stages from './model/V1Stages';
@@ -334,10 +335,10 @@ export {
     SearchView,
 
     /**
-     * The SparkDeployMode model constructor.
-     * @property {module:model/SparkDeployMode}
+     * The SparkJobDeployMode model constructor.
+     * @property {module:model/SparkJobDeployMode}
      */
-    SparkDeployMode,
+    SparkJobDeployMode,
 
     /**
      * The V1Activity model constructor.
@@ -544,10 +545,16 @@ export {
     V1DashboardSpec,
 
     /**
-     * The V1Dask model constructor.
-     * @property {module:model/V1Dask}
+     * The V1DaskJob model constructor.
+     * @property {module:model/V1DaskJob}
      */
-    V1Dask,
+    V1DaskJob,
+
+    /**
+     * The V1DaskReplica model constructor.
+     * @property {module:model/V1DaskReplica}
+     */
+    V1DaskReplica,
 
     /**
      * The V1DateTimeSchedule model constructor.
@@ -722,12 +729,6 @@ export {
      * @property {module:model/V1FileType}
      */
     V1FileType,
-
-    /**
-     * The V1Flink model constructor.
-     * @property {module:model/V1Flink}
-     */
-    V1Flink,
 
     /**
      * The V1GcsType model constructor.
@@ -1306,10 +1307,16 @@ export {
     V1RandomSearch,
 
     /**
-     * The V1Ray model constructor.
-     * @property {module:model/V1Ray}
+     * The V1RayJob model constructor.
+     * @property {module:model/V1RayJob}
      */
-    V1Ray,
+    V1RayJob,
+
+    /**
+     * The V1RayReplica model constructor.
+     * @property {module:model/V1RayReplica}
+     */
+    V1RayReplica,
 
     /**
      * The V1Reference model constructor.
@@ -1462,22 +1469,22 @@ export {
     V1SettingsCatalog,
 
     /**
-     * The V1Spark model constructor.
-     * @property {module:model/V1Spark}
+     * The V1SparkJob model constructor.
+     * @property {module:model/V1SparkJob}
      */
-    V1Spark,
+    V1SparkJob,
+
+    /**
+     * The V1SparkJobType model constructor.
+     * @property {module:model/V1SparkJobType}
+     */
+    V1SparkJobType,
 
     /**
      * The V1SparkReplica model constructor.
      * @property {module:model/V1SparkReplica}
      */
     V1SparkReplica,
-
-    /**
-     * The V1SparkType model constructor.
-     * @property {module:model/V1SparkType}
-     */
-    V1SparkType,
 
     /**
      * The V1Stage model constructor.

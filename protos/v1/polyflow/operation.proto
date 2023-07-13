@@ -82,7 +82,7 @@ message Operation {
     map<string, Param> params = 20;
 
     // Optional a run section to override the content of the run in the template
-    // should be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag
+    // should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag
     google.protobuf.Struct runPatch = 21;
 
     // Optional patch strategy, default post_merge

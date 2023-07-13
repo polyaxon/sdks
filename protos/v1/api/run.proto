@@ -13,16 +13,15 @@ option go_package = "v1/api";
 
 // Run kind enum
 // Kinds: job, service, dag, matrix, schedule
-// Runtime kinds: job, service, dag, spark, dask, flink, ray, mpijob, tfjob
+// Runtime kinds: job, service, dag, spark, dask, ray, mpijob, tfjob
 // helper kinds: tuner, watchdog, notifier, cleaner, build
 enum RunKind {
     job = 0;
     service = 1;
     dag = 2;
-    spark = 3;
-    dask = 4;
-    flink = 5;
-    ray = 6;
+    sparkjob = 3;
+    daskjob = 4;
+    rayjob = 6;
     mpijob = 7;
     tfjob = 8;
     pytorchjob = 9;

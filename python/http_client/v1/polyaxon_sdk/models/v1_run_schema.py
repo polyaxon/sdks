@@ -23,16 +23,15 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field
 from polyaxon_sdk.models.v1_dag import V1Dag
-from polyaxon_sdk.models.v1_dask import V1Dask
-from polyaxon_sdk.models.v1_flink import V1Flink
+from polyaxon_sdk.models.v1_dask_job import V1DaskJob
 from polyaxon_sdk.models.v1_job import V1Job
 from polyaxon_sdk.models.v1_mpi_job import V1MPIJob
 from polyaxon_sdk.models.v1_mx_job import V1MXJob
 from polyaxon_sdk.models.v1_paddle_job import V1PaddleJob
 from polyaxon_sdk.models.v1_pytorch_job import V1PytorchJob
-from polyaxon_sdk.models.v1_ray import V1Ray
+from polyaxon_sdk.models.v1_ray_job import V1RayJob
 from polyaxon_sdk.models.v1_service import V1Service
-from polyaxon_sdk.models.v1_spark import V1Spark
+from polyaxon_sdk.models.v1_spark_job import V1SparkJob
 from polyaxon_sdk.models.v1_tf_job import V1TFJob
 from polyaxon_sdk.models.v1_xg_boost_job import V1XGBoostJob
 
@@ -49,11 +48,10 @@ class V1RunSchema(BaseModel):
     mx_job: Optional[V1MXJob] = Field(None, alias="mxJob")
     xgboost_job: Optional[V1XGBoostJob] = Field(None, alias="xgboostJob")
     paddle_job: Optional[V1PaddleJob] = Field(None, alias="paddleJob")
-    dask: Optional[V1Dask] = None
-    spark: Optional[V1Spark] = None
-    flink: Optional[V1Flink] = None
-    ruy: Optional[V1Ray] = None
-    __properties = ["job", "service", "dag", "tfJob", "pytorchJob", "mpiJob", "mxJob", "xgboostJob", "paddleJob", "dask", "spark", "flink", "ruy"]
+    dask_job: Optional[V1DaskJob] = Field(None, alias="daskJob")
+    spark_job: Optional[V1SparkJob] = Field(None, alias="sparkJob")
+    ray_job: Optional[V1RayJob] = Field(None, alias="rayJob")
+    __properties = ["job", "service", "dag", "tfJob", "pytorchJob", "mpiJob", "mxJob", "xgboostJob", "paddleJob", "daskJob", "sparkJob", "rayJob"]
 
     class Config:
         allow_population_by_field_name = True
@@ -105,18 +103,15 @@ class V1RunSchema(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of paddle_job
         if self.paddle_job:
             _dict['paddleJob'] = self.paddle_job.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of dask
-        if self.dask:
-            _dict['dask'] = self.dask.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of spark
-        if self.spark:
-            _dict['spark'] = self.spark.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of flink
-        if self.flink:
-            _dict['flink'] = self.flink.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of ruy
-        if self.ruy:
-            _dict['ruy'] = self.ruy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of dask_job
+        if self.dask_job:
+            _dict['daskJob'] = self.dask_job.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of spark_job
+        if self.spark_job:
+            _dict['sparkJob'] = self.spark_job.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ray_job
+        if self.ray_job:
+            _dict['rayJob'] = self.ray_job.to_dict()
         return _dict
 
     @classmethod
@@ -138,10 +133,9 @@ class V1RunSchema(BaseModel):
             "mx_job": V1MXJob.from_dict(obj.get("mxJob")) if obj.get("mxJob") is not None else None,
             "xgboost_job": V1XGBoostJob.from_dict(obj.get("xgboostJob")) if obj.get("xgboostJob") is not None else None,
             "paddle_job": V1PaddleJob.from_dict(obj.get("paddleJob")) if obj.get("paddleJob") is not None else None,
-            "dask": V1Dask.from_dict(obj.get("dask")) if obj.get("dask") is not None else None,
-            "spark": V1Spark.from_dict(obj.get("spark")) if obj.get("spark") is not None else None,
-            "flink": V1Flink.from_dict(obj.get("flink")) if obj.get("flink") is not None else None,
-            "ruy": V1Ray.from_dict(obj.get("ruy")) if obj.get("ruy") is not None else None
+            "dask_job": V1DaskJob.from_dict(obj.get("daskJob")) if obj.get("daskJob") is not None else None,
+            "spark_job": V1SparkJob.from_dict(obj.get("sparkJob")) if obj.get("sparkJob") is not None else None,
+            "ray_job": V1RayJob.from_dict(obj.get("rayJob")) if obj.get("rayJob") is not None else None
         })
         return _obj
 

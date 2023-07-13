@@ -90,7 +90,7 @@ type V1Operation struct {
 	Queue string `json:"queue,omitempty"`
 
 	// Optional a run section to override the content of the run in the template
-	// should be one of: Job/Service/Spark/Flink/Kubeflow/Dask/Dag
+	// should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag
 	RunPatch interface{} `json:"runPatch,omitempty"`
 
 	// Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)

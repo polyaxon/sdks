@@ -21,11 +21,8 @@ type V1RunSchema struct {
 	// dag
 	Dag *V1Dag `json:"dag,omitempty"`
 
-	// dask
-	Dask *V1Dask `json:"dask,omitempty"`
-
-	// flink
-	Flink *V1Flink `json:"flink,omitempty"`
+	// dask job
+	DaskJob *V1DaskJob `json:"daskJob,omitempty"`
 
 	// job
 	Job *V1Job `json:"job,omitempty"`
@@ -42,14 +39,14 @@ type V1RunSchema struct {
 	// pytorch job
 	PytorchJob *V1PytorchJob `json:"pytorchJob,omitempty"`
 
-	// ruy
-	Ruy *V1Ray `json:"ruy,omitempty"`
+	// ray job
+	RayJob *V1RayJob `json:"rayJob,omitempty"`
 
 	// service
 	Service *V1Service `json:"service,omitempty"`
 
-	// spark
-	Spark *V1Spark `json:"spark,omitempty"`
+	// spark job
+	SparkJob *V1SparkJob `json:"sparkJob,omitempty"`
 
 	// tf job
 	TfJob *V1TFJob `json:"tfJob,omitempty"`
@@ -66,11 +63,7 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateDask(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFlink(formats); err != nil {
+	if err := m.validateDaskJob(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,7 +87,7 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateRuy(formats); err != nil {
+	if err := m.validateRayJob(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -102,7 +95,7 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateSpark(formats); err != nil {
+	if err := m.validateSparkJob(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -139,36 +132,17 @@ func (m *V1RunSchema) validateDag(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSchema) validateDask(formats strfmt.Registry) error {
-	if swag.IsZero(m.Dask) { // not required
+func (m *V1RunSchema) validateDaskJob(formats strfmt.Registry) error {
+	if swag.IsZero(m.DaskJob) { // not required
 		return nil
 	}
 
-	if m.Dask != nil {
-		if err := m.Dask.Validate(formats); err != nil {
+	if m.DaskJob != nil {
+		if err := m.DaskJob.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("dask")
+				return ve.ValidateName("daskJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("dask")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1RunSchema) validateFlink(formats strfmt.Registry) error {
-	if swag.IsZero(m.Flink) { // not required
-		return nil
-	}
-
-	if m.Flink != nil {
-		if err := m.Flink.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("flink")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("flink")
+				return ce.ValidateName("daskJob")
 			}
 			return err
 		}
@@ -272,17 +246,17 @@ func (m *V1RunSchema) validatePytorchJob(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSchema) validateRuy(formats strfmt.Registry) error {
-	if swag.IsZero(m.Ruy) { // not required
+func (m *V1RunSchema) validateRayJob(formats strfmt.Registry) error {
+	if swag.IsZero(m.RayJob) { // not required
 		return nil
 	}
 
-	if m.Ruy != nil {
-		if err := m.Ruy.Validate(formats); err != nil {
+	if m.RayJob != nil {
+		if err := m.RayJob.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("ruy")
+				return ve.ValidateName("rayJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("ruy")
+				return ce.ValidateName("rayJob")
 			}
 			return err
 		}
@@ -310,17 +284,17 @@ func (m *V1RunSchema) validateService(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSchema) validateSpark(formats strfmt.Registry) error {
-	if swag.IsZero(m.Spark) { // not required
+func (m *V1RunSchema) validateSparkJob(formats strfmt.Registry) error {
+	if swag.IsZero(m.SparkJob) { // not required
 		return nil
 	}
 
-	if m.Spark != nil {
-		if err := m.Spark.Validate(formats); err != nil {
+	if m.SparkJob != nil {
+		if err := m.SparkJob.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("spark")
+				return ve.ValidateName("sparkJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("spark")
+				return ce.ValidateName("sparkJob")
 			}
 			return err
 		}
@@ -375,11 +349,7 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateDask(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateFlink(ctx, formats); err != nil {
+	if err := m.contextValidateDaskJob(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -403,7 +373,7 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateRuy(ctx, formats); err != nil {
+	if err := m.contextValidateRayJob(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -411,7 +381,7 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateSpark(ctx, formats); err != nil {
+	if err := m.contextValidateSparkJob(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -445,30 +415,14 @@ func (m *V1RunSchema) contextValidateDag(ctx context.Context, formats strfmt.Reg
 	return nil
 }
 
-func (m *V1RunSchema) contextValidateDask(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSchema) contextValidateDaskJob(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Dask != nil {
-		if err := m.Dask.ContextValidate(ctx, formats); err != nil {
+	if m.DaskJob != nil {
+		if err := m.DaskJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("dask")
+				return ve.ValidateName("daskJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("dask")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1RunSchema) contextValidateFlink(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Flink != nil {
-		if err := m.Flink.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("flink")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("flink")
+				return ce.ValidateName("daskJob")
 			}
 			return err
 		}
@@ -557,14 +511,14 @@ func (m *V1RunSchema) contextValidatePytorchJob(ctx context.Context, formats str
 	return nil
 }
 
-func (m *V1RunSchema) contextValidateRuy(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSchema) contextValidateRayJob(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Ruy != nil {
-		if err := m.Ruy.ContextValidate(ctx, formats); err != nil {
+	if m.RayJob != nil {
+		if err := m.RayJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("ruy")
+				return ve.ValidateName("rayJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("ruy")
+				return ce.ValidateName("rayJob")
 			}
 			return err
 		}
@@ -589,14 +543,14 @@ func (m *V1RunSchema) contextValidateService(ctx context.Context, formats strfmt
 	return nil
 }
 
-func (m *V1RunSchema) contextValidateSpark(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSchema) contextValidateSparkJob(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Spark != nil {
-		if err := m.Spark.ContextValidate(ctx, formats); err != nil {
+	if m.SparkJob != nil {
+		if err := m.SparkJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("spark")
+				return ve.ValidateName("sparkJob")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("spark")
+				return ce.ValidateName("sparkJob")
 			}
 			return err
 		}

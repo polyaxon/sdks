@@ -19,18 +19,12 @@ import {
     V1DagFromJSONTyped,
     V1DagToJSON,
 } from './V1Dag';
-import type { V1Dask } from './V1Dask';
+import type { V1DaskJob } from './V1DaskJob';
 import {
-    V1DaskFromJSON,
-    V1DaskFromJSONTyped,
-    V1DaskToJSON,
-} from './V1Dask';
-import type { V1Flink } from './V1Flink';
-import {
-    V1FlinkFromJSON,
-    V1FlinkFromJSONTyped,
-    V1FlinkToJSON,
-} from './V1Flink';
+    V1DaskJobFromJSON,
+    V1DaskJobFromJSONTyped,
+    V1DaskJobToJSON,
+} from './V1DaskJob';
 import type { V1Job } from './V1Job';
 import {
     V1JobFromJSON,
@@ -61,24 +55,24 @@ import {
     V1PytorchJobFromJSONTyped,
     V1PytorchJobToJSON,
 } from './V1PytorchJob';
-import type { V1Ray } from './V1Ray';
+import type { V1RayJob } from './V1RayJob';
 import {
-    V1RayFromJSON,
-    V1RayFromJSONTyped,
-    V1RayToJSON,
-} from './V1Ray';
+    V1RayJobFromJSON,
+    V1RayJobFromJSONTyped,
+    V1RayJobToJSON,
+} from './V1RayJob';
 import type { V1Service } from './V1Service';
 import {
     V1ServiceFromJSON,
     V1ServiceFromJSONTyped,
     V1ServiceToJSON,
 } from './V1Service';
-import type { V1Spark } from './V1Spark';
+import type { V1SparkJob } from './V1SparkJob';
 import {
-    V1SparkFromJSON,
-    V1SparkFromJSONTyped,
-    V1SparkToJSON,
-} from './V1Spark';
+    V1SparkJobFromJSON,
+    V1SparkJobFromJSONTyped,
+    V1SparkJobToJSON,
+} from './V1SparkJob';
 import type { V1TFJob } from './V1TFJob';
 import {
     V1TFJobFromJSON,
@@ -154,28 +148,22 @@ export interface V1RunSchema {
     paddleJob?: V1PaddleJob;
     /**
      *
-     * @type {V1Dask}
+     * @type {V1DaskJob}
      * @memberof V1RunSchema
      */
-    dask?: V1Dask;
+    daskJob?: V1DaskJob;
     /**
      *
-     * @type {V1Spark}
+     * @type {V1SparkJob}
      * @memberof V1RunSchema
      */
-    spark?: V1Spark;
+    sparkJob?: V1SparkJob;
     /**
      *
-     * @type {V1Flink}
+     * @type {V1RayJob}
      * @memberof V1RunSchema
      */
-    flink?: V1Flink;
-    /**
-     *
-     * @type {V1Ray}
-     * @memberof V1RunSchema
-     */
-    ruy?: V1Ray;
+    rayJob?: V1RayJob;
 }
 
 /**
@@ -206,10 +194,9 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'mxJob': !exists(json, 'mxJob') ? undefined : V1MXJobFromJSON(json['mxJob']),
         'xgboostJob': !exists(json, 'xgboostJob') ? undefined : V1XGBoostJobFromJSON(json['xgboostJob']),
         'paddleJob': !exists(json, 'paddleJob') ? undefined : V1PaddleJobFromJSON(json['paddleJob']),
-        'dask': !exists(json, 'dask') ? undefined : V1DaskFromJSON(json['dask']),
-        'spark': !exists(json, 'spark') ? undefined : V1SparkFromJSON(json['spark']),
-        'flink': !exists(json, 'flink') ? undefined : V1FlinkFromJSON(json['flink']),
-        'ruy': !exists(json, 'ruy') ? undefined : V1RayFromJSON(json['ruy']),
+        'daskJob': !exists(json, 'daskJob') ? undefined : V1DaskJobFromJSON(json['daskJob']),
+        'sparkJob': !exists(json, 'sparkJob') ? undefined : V1SparkJobFromJSON(json['sparkJob']),
+        'rayJob': !exists(json, 'rayJob') ? undefined : V1RayJobFromJSON(json['rayJob']),
     };
 }
 
@@ -231,10 +218,9 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         'mxJob': V1MXJobToJSON(value.mxJob),
         'xgboostJob': V1XGBoostJobToJSON(value.xgboostJob),
         'paddleJob': V1PaddleJobToJSON(value.paddleJob),
-        'dask': V1DaskToJSON(value.dask),
-        'spark': V1SparkToJSON(value.spark),
-        'flink': V1FlinkToJSON(value.flink),
-        'ruy': V1RayToJSON(value.ruy),
+        'daskJob': V1DaskJobToJSON(value.daskJob),
+        'sparkJob': V1SparkJobToJSON(value.sparkJob),
+        'rayJob': V1RayJobToJSON(value.rayJob),
     };
 }
 
