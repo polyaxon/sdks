@@ -30129,8 +30129,12 @@
           "head" : {
             "$ref" : "#/components/schemas/v1RayReplica"
           },
-          "worker" : {
-            "$ref" : "#/components/schemas/v1RayReplica"
+          "workers" : {
+            "title" : "Ray workers group section",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1RayReplica"
+            }
           }
         }
       },

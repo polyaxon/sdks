@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **metadata** | **Dict[str, str]** |  | [optional] 
 **ray_version** | **str** |  | [optional] 
 **head** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
-**worker** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
+**workers** | [**List[V1RayReplica]**](V1RayReplica.md) |  | [optional] 
 
 ## Example
 

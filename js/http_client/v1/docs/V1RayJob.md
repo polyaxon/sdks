@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **metadata** | **{String: String}** |  | [optional] 
 **rayVersion** | **String** |  | [optional] 
 **head** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
-**worker** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
+**workers** | [**[V1RayReplica]**](V1RayReplica.md) |  | [optional] 
 
 

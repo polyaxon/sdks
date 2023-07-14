@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -36,8 +37,8 @@ type V1RayJob struct {
 	// Optional run environment section to install pip packages or expose env vars
 	RuntimeEnv interface{} `json:"runtimeEnv,omitempty"`
 
-	// Ray worker group section
-	Worker *V1RayReplica `json:"worker,omitempty"`
+	// Ray workers group section
+	Workers []*V1RayReplica `json:"workers"`
 }
 
 // Validate validates this v1 ray job
@@ -48,7 +49,7 @@ func (m *V1RayJob) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateWorker(formats); err != nil {
+	if err := m.validateWorkers(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -77,20 +78,27 @@ func (m *V1RayJob) validateHead(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RayJob) validateWorker(formats strfmt.Registry) error {
-	if swag.IsZero(m.Worker) { // not required
+func (m *V1RayJob) validateWorkers(formats strfmt.Registry) error {
+	if swag.IsZero(m.Workers) { // not required
 		return nil
 	}
 
-	if m.Worker != nil {
-		if err := m.Worker.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("worker")
-			}
-			return err
+	for i := 0; i < len(m.Workers); i++ {
+		if swag.IsZero(m.Workers[i]) { // not required
+			continue
 		}
+
+		if m.Workers[i] != nil {
+			if err := m.Workers[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -104,7 +112,7 @@ func (m *V1RayJob) ContextValidate(ctx context.Context, formats strfmt.Registry)
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateWorker(ctx, formats); err != nil {
+	if err := m.contextValidateWorkers(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -130,17 +138,21 @@ func (m *V1RayJob) contextValidateHead(ctx context.Context, formats strfmt.Regis
 	return nil
 }
 
-func (m *V1RayJob) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RayJob) contextValidateWorkers(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.Worker != nil {
-		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("worker")
+	for i := 0; i < len(m.Workers); i++ {
+
+		if m.Workers[i] != nil {
+			if err := m.Workers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workers" + "." + strconv.Itoa(i))
+				}
+				return err
 			}
-			return err
 		}
+
 	}
 
 	return nil

@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.V1RayReplica;
 import org.junit.jupiter.api.Disabled;
@@ -89,11 +91,11 @@ public class V1RayJobTest {
     }
 
     /**
-     * Test the property 'worker'
+     * Test the property 'workers'
      */
     @Test
-    public void workerTest() {
-        // TODO: test worker
+    public void workersTest() {
+        // TODO: test workers
     }
 
 }

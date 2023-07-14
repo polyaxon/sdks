@@ -21,7 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.openapitools.client.model.V1RayReplica;
 
@@ -75,9 +77,9 @@ public class V1RayJob {
   @SerializedName(SERIALIZED_NAME_HEAD)
   private V1RayReplica head;
 
-  public static final String SERIALIZED_NAME_WORKER = "worker";
-  @SerializedName(SERIALIZED_NAME_WORKER)
-  private V1RayReplica worker;
+  public static final String SERIALIZED_NAME_WORKERS = "workers";
+  @SerializedName(SERIALIZED_NAME_WORKERS)
+  private List<V1RayReplica> workers;
 
   public V1RayJob() {
   }
@@ -222,25 +224,33 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob worker(V1RayReplica worker) {
+  public V1RayJob workers(List<V1RayReplica> workers) {
     
-    this.worker = worker;
+    this.workers = workers;
+    return this;
+  }
+
+  public V1RayJob addWorkersItem(V1RayReplica workersItem) {
+    if (this.workers == null) {
+      this.workers = new ArrayList<>();
+    }
+    this.workers.add(workersItem);
     return this;
   }
 
    /**
-   * Get worker
-   * @return worker
+   * Get workers
+   * @return workers
   **/
   @javax.annotation.Nullable
 
-  public V1RayReplica getWorker() {
-    return worker;
+  public List<V1RayReplica> getWorkers() {
+    return workers;
   }
 
 
-  public void setWorker(V1RayReplica worker) {
-    this.worker = worker;
+  public void setWorkers(List<V1RayReplica> workers) {
+    this.workers = workers;
   }
 
 
@@ -260,12 +270,12 @@ public class V1RayJob {
         Objects.equals(this.metadata, v1RayJob.metadata) &&
         Objects.equals(this.rayVersion, v1RayJob.rayVersion) &&
         Objects.equals(this.head, v1RayJob.head) &&
-        Objects.equals(this.worker, v1RayJob.worker);
+        Objects.equals(this.workers, v1RayJob.workers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, entrypoint, runtimeEnv, metadata, rayVersion, head, worker);
+    return Objects.hash(kind, entrypoint, runtimeEnv, metadata, rayVersion, head, workers);
   }
 
   @Override
@@ -278,7 +288,7 @@ public class V1RayJob {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    rayVersion: ").append(toIndentedString(rayVersion)).append("\n");
     sb.append("    head: ").append(toIndentedString(head)).append("\n");
-    sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
+    sb.append("    workers: ").append(toIndentedString(workers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -307,7 +317,7 @@ public class V1RayJob {
     openapiFields.add("metadata");
     openapiFields.add("rayVersion");
     openapiFields.add("head");
-    openapiFields.add("worker");
+    openapiFields.add("workers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -346,9 +356,19 @@ public class V1RayJob {
       if (jsonObj.get("head") != null && !jsonObj.get("head").isJsonNull()) {
         V1RayReplica.validateJsonObject(jsonObj.getAsJsonObject("head"));
       }
-      // validate the optional field `worker`
-      if (jsonObj.get("worker") != null && !jsonObj.get("worker").isJsonNull()) {
-        V1RayReplica.validateJsonObject(jsonObj.getAsJsonObject("worker"));
+      if (jsonObj.get("workers") != null && !jsonObj.get("workers").isJsonNull()) {
+        JsonArray jsonArrayworkers = jsonObj.getAsJsonArray("workers");
+        if (jsonArrayworkers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("workers").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `workers` to be an array in the JSON string but got `%s`", jsonObj.get("workers").toString()));
+          }
+
+          // validate the optional field `workers` (array)
+          for (int i = 0; i < jsonArrayworkers.size(); i++) {
+            V1RayReplica.validateJsonObject(jsonArrayworkers.get(i).getAsJsonObject());
+          };
+        }
       }
   }
 

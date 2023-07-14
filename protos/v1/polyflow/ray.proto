@@ -62,6 +62,6 @@ message RayJob {
     // Ray head goupr section
     RayReplica head = 6;
 
-    // Ray worker group section
-    RayReplica worker = 7;
+    // Ray workers group section
+    repeated RayReplica workers = 7;
 }

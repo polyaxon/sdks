@@ -90,8 +90,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property worker (base name: "worker")', function() {
-      // uncomment below and update the code to test the property worker
+    it('should have the property workers (base name: "workers")', function() {
+      // uncomment below and update the code to test the property workers
       //var instance = new PolyaxonSdk.V1RayJob();
       //expect(instance).to.be();
     });

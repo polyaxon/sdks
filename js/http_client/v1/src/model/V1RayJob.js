@@ -66,8 +66,8 @@ class V1RayJob {
             if (data.hasOwnProperty('head')) {
                 obj['head'] = V1RayReplica.constructFromObject(data['head']);
             }
-            if (data.hasOwnProperty('worker')) {
-                obj['worker'] = V1RayReplica.constructFromObject(data['worker']);
+            if (data.hasOwnProperty('workers')) {
+                obj['workers'] = ApiClient.convertToType(data['workers'], [V1RayReplica]);
             }
         }
         return obj;
@@ -95,9 +95,15 @@ class V1RayJob {
         if (data['head']) { // data not null
           V1RayReplica.validateJSON(data['head']);
         }
-        // validate the optional field `worker`
-        if (data['worker']) { // data not null
-          V1RayReplica.validateJSON(data['worker']);
+        if (data['workers']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['workers'])) {
+                throw new Error("Expected the field `workers` to be an array in the JSON data but got " + data['workers']);
+            }
+            // validate the optional field `workers` (array)
+            for (const item of data['workers']) {
+                V1RayReplica.validateJSON(item);
+            };
         }
 
         return true;
@@ -140,9 +146,9 @@ V1RayJob.prototype['rayVersion'] = undefined;
 V1RayJob.prototype['head'] = undefined;
 
 /**
- * @member {module:model/V1RayReplica} worker
+ * @member {Array.<module:model/V1RayReplica>} workers
  */
-V1RayJob.prototype['worker'] = undefined;
+V1RayJob.prototype['workers'] = undefined;
 
 
 

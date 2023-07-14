@@ -9366,9 +9366,12 @@
           "title": "Optional run environment section to install pip packages or expose env vars",
           "type": "object"
         },
-        "worker": {
-          "$ref": "#/definitions/v1RayReplica",
-          "title": "Ray worker group section"
+        "workers": {
+          "items": {
+            "$ref": "#/definitions/v1RayReplica"
+          },
+          "title": "Ray workers group section",
+          "type": "array"
         }
       },
       "title": "Ray specification",

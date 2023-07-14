@@ -21720,9 +21720,12 @@
           "$ref": "#/definitions/v1RayReplica",
           "title": "Ray head goupr section"
         },
-        "worker": {
-          "$ref": "#/definitions/v1RayReplica",
-          "title": "Ray worker group section"
+        "workers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1RayReplica"
+          },
+          "title": "Ray workers group section"
         }
       },
       "title": "Ray specification"

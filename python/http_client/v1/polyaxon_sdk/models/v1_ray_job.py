@@ -20,8 +20,8 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictStr
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, Field, StrictStr, conlist
 from polyaxon_sdk.models.v1_ray_replica import V1RayReplica
 
 class V1RayJob(BaseModel):
@@ -34,8 +34,8 @@ class V1RayJob(BaseModel):
     metadata: Optional[Dict[str, StrictStr]] = None
     ray_version: Optional[StrictStr] = Field(None, alias="rayVersion")
     head: Optional[V1RayReplica] = None
-    worker: Optional[V1RayReplica] = None
-    __properties = ["kind", "entrypoint", "runtimeEnv", "metadata", "rayVersion", "head", "worker"]
+    workers: Optional[conlist(V1RayReplica)] = None
+    __properties = ["kind", "entrypoint", "runtimeEnv", "metadata", "rayVersion", "head", "workers"]
 
     class Config:
         allow_population_by_field_name = True
@@ -63,9 +63,13 @@ class V1RayJob(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of head
         if self.head:
             _dict['head'] = self.head.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of worker
-        if self.worker:
-            _dict['worker'] = self.worker.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in workers (list)
+        _items = []
+        if self.workers:
+            for _item in self.workers:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['workers'] = _items
         return _dict
 
     @classmethod
@@ -84,7 +88,7 @@ class V1RayJob(BaseModel):
             "metadata": obj.get("metadata"),
             "ray_version": obj.get("rayVersion"),
             "head": V1RayReplica.from_dict(obj.get("head")) if obj.get("head") is not None else None,
-            "worker": V1RayReplica.from_dict(obj.get("worker")) if obj.get("worker") is not None else None
+            "workers": [V1RayReplica.from_dict(_item) for _item in obj.get("workers")] if obj.get("workers") is not None else None
         })
         return _obj
 

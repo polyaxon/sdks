@@ -64,10 +64,10 @@ export interface V1RayJob {
     head?: V1RayReplica;
     /**
      * 
-     * @type {V1RayReplica}
+     * @type {Array<V1RayReplica>}
      * @memberof V1RayJob
      */
-    worker?: V1RayReplica;
+    workers?: Array<V1RayReplica>;
 }
 
 /**
@@ -95,7 +95,7 @@ export function V1RayJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'metadata': !exists(json, 'metadata') ? undefined : json['metadata'],
         'rayVersion': !exists(json, 'rayVersion') ? undefined : json['rayVersion'],
         'head': !exists(json, 'head') ? undefined : V1RayReplicaFromJSON(json['head']),
-        'worker': !exists(json, 'worker') ? undefined : V1RayReplicaFromJSON(json['worker']),
+        'workers': !exists(json, 'workers') ? undefined : ((json['workers'] as Array<any>).map(V1RayReplicaFromJSON)),
     };
 }
 
@@ -114,7 +114,7 @@ export function V1RayJobToJSON(value?: V1RayJob | null): any {
         'metadata': value.metadata,
         'rayVersion': value.rayVersion,
         'head': V1RayReplicaToJSON(value.head),
-        'worker': V1RayReplicaToJSON(value.worker),
+        'workers': value.workers === undefined ? undefined : ((value.workers as Array<any>).map(V1RayReplicaToJSON)),
     };
 }
 
