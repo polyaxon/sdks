@@ -60,8 +60,8 @@ class V1RayJob {
             if (data.hasOwnProperty('metadata')) {
                 obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('version')) {
-                obj['version'] = ApiClient.convertToType(data['version'], 'String');
+            if (data.hasOwnProperty('rayVersion')) {
+                obj['rayVersion'] = ApiClient.convertToType(data['rayVersion'], 'String');
             }
             if (data.hasOwnProperty('head')) {
                 obj['head'] = V1RayReplica.constructFromObject(data['head']);
@@ -88,8 +88,8 @@ class V1RayJob {
             throw new Error("Expected the field `entrypoint` to be a primitive type in the JSON string but got " + data['entrypoint']);
         }
         // ensure the json data is a string
-        if (data['version'] && !(typeof data['version'] === 'string' || data['version'] instanceof String)) {
-            throw new Error("Expected the field `version` to be a primitive type in the JSON string but got " + data['version']);
+        if (data['rayVersion'] && !(typeof data['rayVersion'] === 'string' || data['rayVersion'] instanceof String)) {
+            throw new Error("Expected the field `rayVersion` to be a primitive type in the JSON string but got " + data['rayVersion']);
         }
         // validate the optional field `head`
         if (data['head']) { // data not null
@@ -130,9 +130,9 @@ V1RayJob.prototype['runtimeEnv'] = undefined;
 V1RayJob.prototype['metadata'] = undefined;
 
 /**
- * @member {String} version
+ * @member {String} rayVersion
  */
-V1RayJob.prototype['version'] = undefined;
+V1RayJob.prototype['rayVersion'] = undefined;
 
 /**
  * @member {module:model/V1RayReplica} head

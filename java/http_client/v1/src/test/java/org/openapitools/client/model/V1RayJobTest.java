@@ -73,11 +73,11 @@ public class V1RayJobTest {
     }
 
     /**
-     * Test the property 'version'
+     * Test the property 'rayVersion'
      */
     @Test
-    public void versionTest() {
-        // TODO: test version
+    public void rayVersionTest() {
+        // TODO: test rayVersion
     }
 
     /**

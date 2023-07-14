@@ -30,7 +30,7 @@ type V1TFJob struct {
 	// Evaluator replicas definition
 	Evaluator *V1KFReplica `json:"evaluator,omitempty"`
 
-	// Optional component kind, should be equal to 'tf_job'
+	// Optional component kind, should be equal to 'tfjob'
 	Kind *string `json:"kind,omitempty"`
 
 	// PS replicas definition

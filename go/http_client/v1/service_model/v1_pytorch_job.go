@@ -21,7 +21,7 @@ type V1PytorchJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
-	// Optional component kind, should be equal to 'pytorch_job'
+	// Optional component kind, should be equal to 'pytorchjob'
 	Kind *string `json:"kind,omitempty"`
 
 	// Master replicas definition

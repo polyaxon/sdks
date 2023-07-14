@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **entrypoint** | **String** |  | [optional] 
 **runtimeEnv** | **Object** |  | [optional] 
 **metadata** | **{String: String}** |  | [optional] 
-**version** | **String** |  | [optional] 
+**rayVersion** | **String** |  | [optional] 
 **head** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
 **worker** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
 

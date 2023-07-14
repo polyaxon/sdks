@@ -17994,7 +17994,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'Dask'",
+          "title": "Optional component kind, should be equal to 'daskjob'",
           "default": "daskjob"
         },
         "job": {
@@ -20454,7 +20454,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'mpi_job'",
+          "title": "Optional component kind, should be equal to 'mpijob'",
           "default": "mpijob"
         },
         "cleanPodPolicy": {
@@ -20486,7 +20486,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'mx_job'",
+          "title": "Optional component kind, should be equal to 'mxjob'",
           "default": "mxjob"
         },
         "cleanPodPolicy": {
@@ -21015,7 +21015,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'paddle_job'",
+          "title": "Optional component kind, should be equal to 'paddlejob'",
           "default": "paddlejob"
         },
         "cleanPodPolicy": {
@@ -21566,7 +21566,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'pytorch_job'",
+          "title": "Optional component kind, should be equal to 'pytorchjob'",
           "default": "pytorchjob"
         },
         "cleanPodPolicy": {
@@ -21694,7 +21694,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Kind of runtime, should be equal to \"ray\"",
+          "title": "Kind of runtime, should be equal to \"rayjob\"",
           "default": "rayjob"
         },
         "entrypoint": {
@@ -21712,7 +21712,7 @@
           },
           "title": "Optional metadata section"
         },
-        "version": {
+        "rayVersion": {
           "type": "string",
           "title": "Cluster ray version, must be equal to the ray image version"
         },
@@ -22706,7 +22706,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Kind of runtime, should be equal to \"spark\"",
+          "title": "Kind of runtime, should be equal to \"sparkjob\"",
           "default": "sparkjob"
         },
         "connections": {
@@ -22981,7 +22981,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'tf_job'",
+          "title": "Optional component kind, should be equal to 'tfjob'",
           "default": "tfjob"
         },
         "cleanPodPolicy": {
@@ -23544,7 +23544,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'xgboost_job'",
+          "title": "Optional component kind, should be equal to 'xgboostjob'",
           "default": "xgboostjob"
         },
         "cleanPodPolicy": {

@@ -21,7 +21,7 @@ type V1DaskJob struct {
 	// Job pod specification to execute
 	Job *V1DaskReplica `json:"job,omitempty"`
 
-	// Optional component kind, should be equal to 'Dask'
+	// Optional component kind, should be equal to 'daskjob'
 	Kind *string `json:"kind,omitempty"`
 
 	// Scheduler pod specification

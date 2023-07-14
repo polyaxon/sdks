@@ -42,7 +42,7 @@ type V1SparkJob struct {
 	// The controller will add environment variable HADOOP_CONF_DIR to the path where the ConfigMap is mounted to.
 	HadoopConfigMap string `json:"hadoopConfigMap,omitempty"`
 
-	// Kind of runtime, should be equal to "spark"
+	// Kind of runtime, should be equal to "sparkjob"
 	Kind *string `json:"kind,omitempty"`
 
 	// MainFile is the path to a bundled JAR, Python, or R file of the application.

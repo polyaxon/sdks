@@ -21652,7 +21652,7 @@ components:
       properties:
         kind:
           default: daskjob
-          title: "Optional component kind, should be equal to 'Dask'"
+          title: "Optional component kind, should be equal to 'daskjob'"
           type: string
         job:
           $ref: '#/components/schemas/v1DaskReplica'
@@ -26298,7 +26298,7 @@ components:
       properties:
         kind:
           default: mpijob
-          title: "Optional component kind, should be equal to 'mpi_job'"
+          title: "Optional component kind, should be equal to 'mpijob'"
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'
@@ -27292,7 +27292,7 @@ components:
       properties:
         kind:
           default: mxjob
-          title: "Optional component kind, should be equal to 'mx_job'"
+          title: "Optional component kind, should be equal to 'mxjob'"
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'
@@ -28571,7 +28571,7 @@ components:
       properties:
         kind:
           default: paddlejob
-          title: "Optional component kind, should be equal to 'paddle_job'"
+          title: "Optional component kind, should be equal to 'paddlejob'"
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'
@@ -29499,7 +29499,7 @@ components:
       properties:
         kind:
           default: pytorchjob
-          title: "Optional component kind, should be equal to 'pytorch_job'"
+          title: "Optional component kind, should be equal to 'pytorchjob'"
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'
@@ -29618,6 +29618,7 @@ components:
       type: object
     v1RayJob:
       example:
+        rayVersion: rayVersion
         head:
           maxReplicas: 4
           container: "{}"
@@ -29954,12 +29955,11 @@ components:
           connections:
           - connections
           - connections
-        version: version
         runtimeEnv: "{}"
       properties:
         kind:
           default: rayjob
-          title: "Kind of runtime, should be equal to \"ray\""
+          title: "Kind of runtime, should be equal to \"rayjob\""
           type: string
         entrypoint:
           title: "Entrypoint of the ray application, e.g. python path/to/run.py"
@@ -29974,7 +29974,7 @@ components:
             type: string
           title: Optional metadata section
           type: object
-        version:
+        rayVersion:
           title: "Cluster ray version, must be equal to the ray image version"
           type: string
         head:
@@ -31639,6 +31639,7 @@ components:
             - connections
             - connections
         rayJob:
+          rayVersion: rayVersion
           head:
             maxReplicas: 4
             container: "{}"
@@ -31975,7 +31976,6 @@ components:
             connections:
             - connections
             - connections
-          version: version
           runtimeEnv: "{}"
         mxJob:
           mode: null
@@ -37380,6 +37380,7 @@ components:
               - connections
               - connections
           rayJob:
+            rayVersion: rayVersion
             head:
               maxReplicas: 4
               container: "{}"
@@ -37716,7 +37717,6 @@ components:
               connections:
               - connections
               - connections
-            version: version
             runtimeEnv: "{}"
           mxJob:
             mode: null
@@ -43982,7 +43982,7 @@ components:
       properties:
         kind:
           default: sparkjob
-          title: "Kind of runtime, should be equal to \"spark\""
+          title: "Kind of runtime, should be equal to \"sparkjob\""
           type: string
         connections:
           items:
@@ -45049,7 +45049,7 @@ components:
       properties:
         kind:
           default: tfjob
-          title: "Optional component kind, should be equal to 'tf_job'"
+          title: "Optional component kind, should be equal to 'tfjob'"
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'
@@ -45930,7 +45930,7 @@ components:
       properties:
         kind:
           default: xgboostjob
-          title: "Optional component kind, should be equal to 'xgboost_job'"
+          title: "Optional component kind, should be equal to 'xgboostjob'"
           type: string
         cleanPodPolicy:
           $ref: '#/components/schemas/v1CleanPodPolicy'

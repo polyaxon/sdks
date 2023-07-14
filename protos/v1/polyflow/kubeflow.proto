@@ -47,7 +47,7 @@ enum CleanPodPolicy {
 
 // MPI Job specification
 message MPIJob {
-    // Optional component kind, should be equal to 'mpi_job'
+    // Optional component kind, should be equal to 'mpijob'
     string kind = 1;
 
     // optional clean pod policy section
@@ -68,7 +68,7 @@ message MPIJob {
 
 // Pytorch Job specification
 message PytorchJob {
-    // Optional component kind, should be equal to 'pytorch_job'
+    // Optional component kind, should be equal to 'pytorchjob'
     string kind = 1;
 
     // optional clean pod policy section
@@ -86,7 +86,7 @@ message PytorchJob {
 
 // TF Job specification
 message TFJob {
-    // Optional component kind, should be equal to 'tf_job'
+    // Optional component kind, should be equal to 'tfjob'
     string kind = 1;
 
     // optional clean pod policy section
@@ -121,7 +121,7 @@ message MXJob {
     MXTune = 1;
   }
 
-  // Optional component kind, should be equal to 'mx_job'
+  // Optional component kind, should be equal to 'mxjob'
   string kind = 1;
 
   // optional clean pod policy section
@@ -154,7 +154,7 @@ message MXJob {
 
 // XGBoost Job specification
 message XGBoostJob {
-  // Optional component kind, should be equal to 'xgboost_job'
+  // Optional component kind, should be equal to 'xgboostjob'
   string kind = 1;
 
   // optional clean pod policy section
@@ -172,7 +172,7 @@ message XGBoostJob {
 
 // Paddle Job specification
 message PaddleJob {
-  // Optional component kind, should be equal to 'paddle_job'
+  // Optional component kind, should be equal to 'paddlejob'
   string kind = 1;
 
   // optional clean pod policy section

@@ -55,7 +55,7 @@ export interface V1RayJob {
      * @type {string}
      * @memberof V1RayJob
      */
-    version?: string;
+    rayVersion?: string;
     /**
      * 
      * @type {V1RayReplica}
@@ -93,7 +93,7 @@ export function V1RayJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'entrypoint': !exists(json, 'entrypoint') ? undefined : json['entrypoint'],
         'runtimeEnv': !exists(json, 'runtimeEnv') ? undefined : json['runtimeEnv'],
         'metadata': !exists(json, 'metadata') ? undefined : json['metadata'],
-        'version': !exists(json, 'version') ? undefined : json['version'],
+        'rayVersion': !exists(json, 'rayVersion') ? undefined : json['rayVersion'],
         'head': !exists(json, 'head') ? undefined : V1RayReplicaFromJSON(json['head']),
         'worker': !exists(json, 'worker') ? undefined : V1RayReplicaFromJSON(json['worker']),
     };
@@ -112,7 +112,7 @@ export function V1RayJobToJSON(value?: V1RayJob | null): any {
         'entrypoint': value.entrypoint,
         'runtimeEnv': value.runtimeEnv,
         'metadata': value.metadata,
-        'version': value.version,
+        'rayVersion': value.rayVersion,
         'head': V1RayReplicaToJSON(value.head),
         'worker': V1RayReplicaToJSON(value.worker),
     };

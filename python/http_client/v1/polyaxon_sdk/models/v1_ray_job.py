@@ -32,10 +32,10 @@ class V1RayJob(BaseModel):
     entrypoint: Optional[StrictStr] = None
     runtime_env: Optional[Dict[str, Any]] = Field(None, alias="runtimeEnv")
     metadata: Optional[Dict[str, StrictStr]] = None
-    version: Optional[StrictStr] = None
+    ray_version: Optional[StrictStr] = Field(None, alias="rayVersion")
     head: Optional[V1RayReplica] = None
     worker: Optional[V1RayReplica] = None
-    __properties = ["kind", "entrypoint", "runtimeEnv", "metadata", "version", "head", "worker"]
+    __properties = ["kind", "entrypoint", "runtimeEnv", "metadata", "rayVersion", "head", "worker"]
 
     class Config:
         allow_population_by_field_name = True
@@ -82,7 +82,7 @@ class V1RayJob(BaseModel):
             "entrypoint": obj.get("entrypoint"),
             "runtime_env": obj.get("runtimeEnv"),
             "metadata": obj.get("metadata"),
-            "version": obj.get("version"),
+            "ray_version": obj.get("rayVersion"),
             "head": V1RayReplica.from_dict(obj.get("head")) if obj.get("head") is not None else None,
             "worker": V1RayReplica.from_dict(obj.get("worker")) if obj.get("worker") is not None else None
         })

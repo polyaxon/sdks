@@ -5510,7 +5510,7 @@
         },
         "kind": {
           "default": "daskjob",
-          "title": "Optional component kind, should be equal to 'Dask'",
+          "title": "Optional component kind, should be equal to 'daskjob'",
           "type": "string"
         },
         "scheduler": {
@@ -8016,7 +8016,7 @@
         },
         "kind": {
           "default": "mpijob",
-          "title": "Optional component kind, should be equal to 'mpi_job'",
+          "title": "Optional component kind, should be equal to 'mpijob'",
           "type": "string"
         },
         "launcher": {
@@ -8048,7 +8048,7 @@
         },
         "kind": {
           "default": "mxjob",
-          "title": "Optional component kind, should be equal to 'mx_job'",
+          "title": "Optional component kind, should be equal to 'mxjob'",
           "type": "string"
         },
         "mode": {
@@ -8657,7 +8657,7 @@
         },
         "kind": {
           "default": "paddlejob",
-          "title": "Optional component kind, should be equal to 'paddle_job'",
+          "title": "Optional component kind, should be equal to 'paddlejob'",
           "type": "string"
         },
         "master": {
@@ -9208,7 +9208,7 @@
         },
         "kind": {
           "default": "pytorchjob",
-          "title": "Optional component kind, should be equal to 'pytorch_job'",
+          "title": "Optional component kind, should be equal to 'pytorchjob'",
           "type": "string"
         },
         "master": {
@@ -9348,7 +9348,7 @@
         },
         "kind": {
           "default": "rayjob",
-          "title": "Kind of runtime, should be equal to \"ray\"",
+          "title": "Kind of runtime, should be equal to \"rayjob\"",
           "type": "string"
         },
         "metadata": {
@@ -9358,13 +9358,13 @@
           "title": "Optional metadata section",
           "type": "object"
         },
+        "rayVersion": {
+          "title": "Cluster ray version, must be equal to the ray image version",
+          "type": "string"
+        },
         "runtimeEnv": {
           "title": "Optional run environment section to install pip packages or expose env vars",
           "type": "object"
-        },
-        "version": {
-          "title": "Cluster ray version, must be equal to the ray image version",
-          "type": "string"
         },
         "worker": {
           "$ref": "#/definitions/v1RayReplica",
@@ -10389,7 +10389,7 @@
         },
         "kind": {
           "default": "sparkjob",
-          "title": "Kind of runtime, should be equal to \"spark\"",
+          "title": "Kind of runtime, should be equal to \"sparkjob\"",
           "type": "string"
         },
         "mainApplicationFile": {
@@ -10643,7 +10643,7 @@
         },
         "kind": {
           "default": "tfjob",
-          "title": "Optional component kind, should be equal to 'tf_job'",
+          "title": "Optional component kind, should be equal to 'tfjob'",
           "type": "string"
         },
         "ps": {
@@ -11194,7 +11194,7 @@
         },
         "kind": {
           "default": "xgboostjob",
-          "title": "Optional component kind, should be equal to 'xgboost_job'",
+          "title": "Optional component kind, should be equal to 'xgboostjob'",
           "type": "string"
         },
         "master": {

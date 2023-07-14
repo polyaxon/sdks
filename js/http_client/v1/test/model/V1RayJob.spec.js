@@ -78,8 +78,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property version (base name: "version")', function() {
-      // uncomment below and update the code to test the property version
+    it('should have the property rayVersion (base name: "rayVersion")', function() {
+      // uncomment below and update the code to test the property rayVersion
       //var instance = new PolyaxonSdk.V1RayJob();
       //expect(instance).to.be();
     });

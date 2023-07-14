@@ -24,17 +24,17 @@ type V1RayJob struct {
 	// Ray head goupr section
 	Head *V1RayReplica `json:"head,omitempty"`
 
-	// Kind of runtime, should be equal to "ray"
+	// Kind of runtime, should be equal to "rayjob"
 	Kind *string `json:"kind,omitempty"`
 
 	// Optional metadata section
 	Metadata map[string]string `json:"metadata,omitempty"`
 
+	// Cluster ray version, must be equal to the ray image version
+	RayVersion string `json:"rayVersion,omitempty"`
+
 	// Optional run environment section to install pip packages or expose env vars
 	RuntimeEnv interface{} `json:"runtimeEnv,omitempty"`
-
-	// Cluster ray version, must be equal to the ray image version
-	Version string `json:"version,omitempty"`
 
 	// Ray worker group section
 	Worker *V1RayReplica `json:"worker,omitempty"`

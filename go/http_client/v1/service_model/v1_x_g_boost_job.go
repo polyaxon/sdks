@@ -21,7 +21,7 @@ type V1XGBoostJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
-	// Optional component kind, should be equal to 'xgboost_job'
+	// Optional component kind, should be equal to 'xgboostjob'
 	Kind *string `json:"kind,omitempty"`
 
 	// Master replicas definition

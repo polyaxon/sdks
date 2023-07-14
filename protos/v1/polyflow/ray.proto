@@ -44,7 +44,7 @@ message RayReplica {
 
 // Ray specification
 message RayJob {
-    // Kind of runtime, should be equal to "ray"
+    // Kind of runtime, should be equal to "rayjob"
     string kind = 1;
 
     // Entrypoint of the ray application, e.g. python path/to/run.py
@@ -57,7 +57,7 @@ message RayJob {
     map<string, string> metadata = 4;
 
     // Cluster ray version, must be equal to the ray image version
-    string version = 5;
+    string rayVersion = 5;
 
     // Ray head goupr section
     RayReplica head = 6;

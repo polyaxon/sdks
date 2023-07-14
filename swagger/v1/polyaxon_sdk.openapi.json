@@ -26495,7 +26495,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'Dask'",
+            "title" : "Optional component kind, should be equal to 'daskjob'",
             "type" : "string",
             "default" : "daskjob"
           },
@@ -28913,7 +28913,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'mpi_job'",
+            "title" : "Optional component kind, should be equal to 'mpijob'",
             "type" : "string",
             "default" : "mpijob"
           },
@@ -28941,7 +28941,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'mx_job'",
+            "title" : "Optional component kind, should be equal to 'mxjob'",
             "type" : "string",
             "default" : "mxjob"
           },
@@ -29443,7 +29443,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'paddle_job'",
+            "title" : "Optional component kind, should be equal to 'paddlejob'",
             "type" : "string",
             "default" : "paddlejob"
           },
@@ -29975,7 +29975,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'pytorch_job'",
+            "title" : "Optional component kind, should be equal to 'pytorchjob'",
             "type" : "string",
             "default" : "pytorchjob"
           },
@@ -30102,7 +30102,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Kind of runtime, should be equal to \"ray\"",
+            "title" : "Kind of runtime, should be equal to \"rayjob\"",
             "type" : "string",
             "default" : "rayjob"
           },
@@ -30122,7 +30122,7 @@
               "type" : "string"
             }
           },
-          "version" : {
+          "rayVersion" : {
             "title" : "Cluster ray version, must be equal to the ray image version",
             "type" : "string"
           },
@@ -31061,7 +31061,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Kind of runtime, should be equal to \"spark\"",
+            "title" : "Kind of runtime, should be equal to \"sparkjob\"",
             "type" : "string",
             "default" : "sparkjob"
           },
@@ -31296,7 +31296,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'tf_job'",
+            "title" : "Optional component kind, should be equal to 'tfjob'",
             "type" : "string",
             "default" : "tfjob"
           },
@@ -31847,7 +31847,7 @@
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'xgboost_job'",
+            "title" : "Optional component kind, should be equal to 'xgboostjob'",
             "type" : "string",
             "default" : "xgboostjob"
           },

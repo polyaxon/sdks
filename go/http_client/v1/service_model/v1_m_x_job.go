@@ -21,7 +21,7 @@ type V1MXJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
-	// Optional component kind, should be equal to 'mx_job'
+	// Optional component kind, should be equal to 'mxjob'
 	Kind *string `json:"kind,omitempty"`
 
 	// MXJob mode "MXTrain" and "MXTune".

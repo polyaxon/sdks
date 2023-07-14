@@ -67,9 +67,9 @@ public class V1RayJob {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Map<String, String> metadata = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+  public static final String SERIALIZED_NAME_RAY_VERSION = "rayVersion";
+  @SerializedName(SERIALIZED_NAME_RAY_VERSION)
+  private String rayVersion;
 
   public static final String SERIALIZED_NAME_HEAD = "head";
   @SerializedName(SERIALIZED_NAME_HEAD)
@@ -178,25 +178,25 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob version(String version) {
+  public V1RayJob rayVersion(String rayVersion) {
     
-    this.version = version;
+    this.rayVersion = rayVersion;
     return this;
   }
 
    /**
-   * Get version
-   * @return version
+   * Get rayVersion
+   * @return rayVersion
   **/
   @javax.annotation.Nullable
 
-  public String getVersion() {
-    return version;
+  public String getRayVersion() {
+    return rayVersion;
   }
 
 
-  public void setVersion(String version) {
-    this.version = version;
+  public void setRayVersion(String rayVersion) {
+    this.rayVersion = rayVersion;
   }
 
 
@@ -258,14 +258,14 @@ public class V1RayJob {
         Objects.equals(this.entrypoint, v1RayJob.entrypoint) &&
         Objects.equals(this.runtimeEnv, v1RayJob.runtimeEnv) &&
         Objects.equals(this.metadata, v1RayJob.metadata) &&
-        Objects.equals(this.version, v1RayJob.version) &&
+        Objects.equals(this.rayVersion, v1RayJob.rayVersion) &&
         Objects.equals(this.head, v1RayJob.head) &&
         Objects.equals(this.worker, v1RayJob.worker);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, entrypoint, runtimeEnv, metadata, version, head, worker);
+    return Objects.hash(kind, entrypoint, runtimeEnv, metadata, rayVersion, head, worker);
   }
 
   @Override
@@ -276,7 +276,7 @@ public class V1RayJob {
     sb.append("    entrypoint: ").append(toIndentedString(entrypoint)).append("\n");
     sb.append("    runtimeEnv: ").append(toIndentedString(runtimeEnv)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    rayVersion: ").append(toIndentedString(rayVersion)).append("\n");
     sb.append("    head: ").append(toIndentedString(head)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("}");
@@ -305,7 +305,7 @@ public class V1RayJob {
     openapiFields.add("entrypoint");
     openapiFields.add("runtimeEnv");
     openapiFields.add("metadata");
-    openapiFields.add("version");
+    openapiFields.add("rayVersion");
     openapiFields.add("head");
     openapiFields.add("worker");
 
@@ -339,8 +339,8 @@ public class V1RayJob {
       if ((jsonObj.get("entrypoint") != null && !jsonObj.get("entrypoint").isJsonNull()) && !jsonObj.get("entrypoint").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entrypoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entrypoint").toString()));
       }
-      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+      if ((jsonObj.get("rayVersion") != null && !jsonObj.get("rayVersion").isJsonNull()) && !jsonObj.get("rayVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rayVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rayVersion").toString()));
       }
       // validate the optional field `head`
       if (jsonObj.get("head") != null && !jsonObj.get("head").isJsonNull()) {

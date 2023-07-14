@@ -28,7 +28,7 @@ message SparkReplica {
 
 // Spark specification
 message SparkJob {
-    // Kind of runtime, should be equal to "spark"
+    // Kind of runtime, should be equal to "sparkjob"
     string kind = 1;
 
     // Optional connections section

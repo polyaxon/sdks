@@ -21,7 +21,7 @@ type V1PaddleJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
-	// Optional component kind, should be equal to 'paddle_job'
+	// Optional component kind, should be equal to 'paddlejob'
 	Kind *string `json:"kind,omitempty"`
 
 	// Master replicas definition
