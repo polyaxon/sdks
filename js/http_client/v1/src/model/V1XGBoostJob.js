@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -26,8 +26,8 @@ class V1XGBoostJob {
      * Constructs a new <code>V1XGBoostJob</code>.
      * @alias module:model/V1XGBoostJob
      */
-    constructor() {
-
+    constructor() { 
+        
         V1XGBoostJob.initialize(this);
     }
 
@@ -36,7 +36,7 @@ class V1XGBoostJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -102,9 +102,9 @@ class V1XGBoostJob {
 
 /**
  * @member {String} kind
- * @default 'xgboost_job'
+ * @default 'xgboostjob'
  */
-V1XGBoostJob.prototype['kind'] = 'xgboost_job';
+V1XGBoostJob.prototype['kind'] = 'xgboostjob';
 
 /**
  * @member {module:model/V1CleanPodPolicy} cleanPodPolicy

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -57,7 +57,7 @@ import org.openapitools.client.JSON;
 public class V1SparkJob {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "spark_job";
+  private String kind = "sparkjob";
 
   public static final String SERIALIZED_NAME_CONNECTIONS = "connections";
   @SerializedName(SERIALIZED_NAME_CONNECTIONS)
@@ -123,7 +123,7 @@ public class V1SparkJob {
   }
 
   public V1SparkJob kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob connections(List<String> connections) {
-
+    
     this.connections = connections;
     return this;
   }
@@ -175,7 +175,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob volumes(List<Object> volumes) {
-
+    
     this.volumes = volumes;
     return this;
   }
@@ -205,7 +205,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob type(V1SparkJobType type) {
-
+    
     this.type = type;
     return this;
   }
@@ -227,7 +227,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob sparkVersion(String sparkVersion) {
-
+    
     this.sparkVersion = sparkVersion;
     return this;
   }
@@ -249,7 +249,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob pythonVersion(String pythonVersion) {
-
+    
     this.pythonVersion = pythonVersion;
     return this;
   }
@@ -271,7 +271,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob deployMode(SparkJobDeployMode deployMode) {
-
+    
     this.deployMode = deployMode;
     return this;
   }
@@ -293,7 +293,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob mainClass(String mainClass) {
-
+    
     this.mainClass = mainClass;
     return this;
   }
@@ -315,7 +315,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob mainApplicationFile(String mainApplicationFile) {
-
+    
     this.mainApplicationFile = mainApplicationFile;
     return this;
   }
@@ -337,7 +337,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob arguments(List<String> arguments) {
-
+    
     this.arguments = arguments;
     return this;
   }
@@ -367,7 +367,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob hadoopConf(Map<String, String> hadoopConf) {
-
+    
     this.hadoopConf = hadoopConf;
     return this;
   }
@@ -397,7 +397,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob sparkConf(Map<String, String> sparkConf) {
-
+    
     this.sparkConf = sparkConf;
     return this;
   }
@@ -427,7 +427,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob sparkConfigMap(String sparkConfigMap) {
-
+    
     this.sparkConfigMap = sparkConfigMap;
     return this;
   }
@@ -449,7 +449,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob hadoopConfigMap(String hadoopConfigMap) {
-
+    
     this.hadoopConfigMap = hadoopConfigMap;
     return this;
   }
@@ -471,7 +471,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob executor(V1SparkReplica executor) {
-
+    
     this.executor = executor;
     return this;
   }
@@ -493,7 +493,7 @@ public class V1SparkJob {
 
 
   public V1SparkJob driver(V1SparkReplica driver) {
-
+    
     this.driver = driver;
     return this;
   }

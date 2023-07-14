@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -1087,7 +1087,7 @@ public class ApiClient {
      * @param returnType Return type
      * @return Type
      * @throws org.openapitools.client.ApiException If the response has an unsuccessful status code or
-     *                  fail to deserialize the response body
+     *                      fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType) throws ApiException {
         if (response.isSuccessful()) {
@@ -1393,10 +1393,10 @@ public class ApiClient {
     /**
      * Add a Content-Disposition Header for the given key and file to the MultipartBody Builder.
      *
-     * @param mpBuilder MultipartBody.Builder
+     * @param mpBuilder MultipartBody.Builder 
      * @param key The key of the Header element
      * @param file The file to add to the Header
-     */
+     */ 
     private void addPartToMultiPartBuilder(MultipartBody.Builder mpBuilder, String key, File file) {
         Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + key + "\"; filename=\"" + file.getName() + "\"");
         MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));

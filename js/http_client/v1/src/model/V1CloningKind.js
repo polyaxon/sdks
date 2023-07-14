@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -18,28 +18,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1CloningKind {
-
+    
         /**
          * value: "copy"
          * @const
          */
         "copy" = "copy";
 
-
+    
         /**
          * value: "restart"
          * @const
          */
         "restart" = "restart";
 
-
+    
         /**
          * value: "cache"
          * @const
          */
         "cache" = "cache";
 
-
+    
 
     /**
     * Returns a <code>V1CloningKind</code> enum value from a Javascript object name.

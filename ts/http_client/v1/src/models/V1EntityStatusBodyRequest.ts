@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -21,37 +21,37 @@ import {
 } from './V1StatusCondition';
 
 /**
- *
+ * 
  * @export
  * @interface V1EntityStatusBodyRequest
  */
 export interface V1EntityStatusBodyRequest {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityStatusBodyRequest
      */
     owner?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityStatusBodyRequest
      */
     project?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1EntityStatusBodyRequest
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {V1StatusCondition}
      * @memberof V1EntityStatusBodyRequest
      */
     condition?: V1StatusCondition;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1EntityStatusBodyRequest
      */
@@ -76,7 +76,7 @@ export function V1EntityStatusBodyRequestFromJSONTyped(json: any, ignoreDiscrimi
         return json;
     }
     return {
-
+        
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'project': !exists(json, 'project') ? undefined : json['project'],
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
@@ -93,7 +93,7 @@ export function V1EntityStatusBodyRequestToJSON(value?: V1EntityStatusBodyReques
         return null;
     }
     return {
-
+        
         'owner': value.owner,
         'project': value.project,
         'uuid': value.uuid,

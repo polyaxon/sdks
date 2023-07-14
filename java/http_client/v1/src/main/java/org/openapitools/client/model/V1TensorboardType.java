@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -74,7 +74,7 @@ public class V1TensorboardType {
   }
 
   public V1TensorboardType port(Integer port) {
-
+    
     this.port = port;
     return this;
   }
@@ -96,7 +96,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType uuids(List<String> uuids) {
-
+    
     this.uuids = uuids;
     return this;
   }
@@ -126,7 +126,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType useNames(Boolean useNames) {
-
+    
     this.useNames = useNames;
     return this;
   }
@@ -148,7 +148,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType pathPrefix(String pathPrefix) {
-
+    
     this.pathPrefix = pathPrefix;
     return this;
   }
@@ -170,7 +170,7 @@ public class V1TensorboardType {
 
 
   public V1TensorboardType plugins(String plugins) {
-
+    
     this.plugins = plugins;
     return this;
   }

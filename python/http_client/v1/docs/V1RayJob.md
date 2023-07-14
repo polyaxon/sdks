@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] [default to 'ray_job']
+**kind** | **str** |  | [optional] [default to 'rayjob']
 **entrypoint** | **str** |  | [optional] 
 **runtime_env** | **object** |  | [optional] 
 **metadata** | **Dict[str, str]** |  | [optional] 

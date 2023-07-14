@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -61,7 +61,7 @@ public class V1EventChart {
   }
 
   public V1EventChart kind(V1EventChartKind kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -83,7 +83,7 @@ public class V1EventChart {
 
 
   public V1EventChart figure(Object figure) {
-
+    
     this.figure = figure;
     return this;
   }

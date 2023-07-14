@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1DaskJob {
      * Constructs a new <code>V1DaskJob</code>.
      * @alias module:model/V1DaskJob
      */
-    constructor() {
-
+    constructor() { 
+        
         V1DaskJob.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1DaskJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -97,9 +97,9 @@ class V1DaskJob {
 
 /**
  * @member {String} kind
- * @default 'dask_job'
+ * @default 'daskjob'
  */
-V1DaskJob.prototype['kind'] = 'dask_job';
+V1DaskJob.prototype['kind'] = 'daskjob';
 
 /**
  * @member {module:model/V1DaskReplica} job

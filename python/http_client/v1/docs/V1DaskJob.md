@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] [default to 'dask_job']
+**kind** | **str** |  | [optional] [default to 'daskjob']
 **job** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
 **worker** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
 **scheduler** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 

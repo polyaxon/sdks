@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 public class V1DaskJob {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "dask_job";
+  private String kind = "daskjob";
 
   public static final String SERIALIZED_NAME_JOB = "job";
   @SerializedName(SERIALIZED_NAME_JOB)
@@ -69,7 +69,7 @@ public class V1DaskJob {
   }
 
   public V1DaskJob kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -91,7 +91,7 @@ public class V1DaskJob {
 
 
   public V1DaskJob job(V1DaskReplica job) {
-
+    
     this.job = job;
     return this;
   }
@@ -113,7 +113,7 @@ public class V1DaskJob {
 
 
   public V1DaskJob worker(V1DaskReplica worker) {
-
+    
     this.worker = worker;
     return this;
   }
@@ -135,7 +135,7 @@ public class V1DaskJob {
 
 
   public V1DaskJob scheduler(V1DaskReplica scheduler) {
-
+    
     this.scheduler = scheduler;
     return this;
   }

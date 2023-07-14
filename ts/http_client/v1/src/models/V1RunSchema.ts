@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -87,79 +87,79 @@ import {
 } from './V1XGBoostJob';
 
 /**
- *
+ * 
  * @export
  * @interface V1RunSchema
  */
 export interface V1RunSchema {
     /**
-     *
+     * 
      * @type {V1Job}
      * @memberof V1RunSchema
      */
     job?: V1Job;
     /**
-     *
+     * 
      * @type {V1Service}
      * @memberof V1RunSchema
      */
     service?: V1Service;
     /**
-     *
+     * 
      * @type {V1Dag}
      * @memberof V1RunSchema
      */
     dag?: V1Dag;
     /**
-     *
+     * 
      * @type {V1TFJob}
      * @memberof V1RunSchema
      */
     tfJob?: V1TFJob;
     /**
-     *
+     * 
      * @type {V1PytorchJob}
      * @memberof V1RunSchema
      */
     pytorchJob?: V1PytorchJob;
     /**
-     *
+     * 
      * @type {V1MPIJob}
      * @memberof V1RunSchema
      */
     mpiJob?: V1MPIJob;
     /**
-     *
+     * 
      * @type {V1MXJob}
      * @memberof V1RunSchema
      */
     mxJob?: V1MXJob;
     /**
-     *
+     * 
      * @type {V1XGBoostJob}
      * @memberof V1RunSchema
      */
     xgboostJob?: V1XGBoostJob;
     /**
-     *
+     * 
      * @type {V1PaddleJob}
      * @memberof V1RunSchema
      */
     paddleJob?: V1PaddleJob;
     /**
-     *
+     * 
      * @type {V1DaskJob}
      * @memberof V1RunSchema
      */
     daskJob?: V1DaskJob;
     /**
-     *
+     * 
      * @type {V1SparkJob}
      * @memberof V1RunSchema
      */
     sparkJob?: V1SparkJob;
     /**
-     *
+     * 
      * @type {V1RayJob}
      * @memberof V1RunSchema
      */
@@ -184,7 +184,7 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-
+        
         'job': !exists(json, 'job') ? undefined : V1JobFromJSON(json['job']),
         'service': !exists(json, 'service') ? undefined : V1ServiceFromJSON(json['service']),
         'dag': !exists(json, 'dag') ? undefined : V1DagFromJSON(json['dag']),
@@ -208,7 +208,7 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         return null;
     }
     return {
-
+        
         'job': V1JobToJSON(value.job),
         'service': V1ServiceToJSON(value.service),
         'dag': V1DagToJSON(value.dag),

@@ -26497,7 +26497,7 @@
           "kind" : {
             "title" : "Optional component kind, should be equal to 'Dask'",
             "type" : "string",
-            "default" : "dask_job"
+            "default" : "daskjob"
           },
           "job" : {
             "$ref" : "#/components/schemas/v1DaskReplica"
@@ -28915,7 +28915,7 @@
           "kind" : {
             "title" : "Optional component kind, should be equal to 'mpi_job'",
             "type" : "string",
-            "default" : "mpi_job"
+            "default" : "mpijob"
           },
           "cleanPodPolicy" : {
             "$ref" : "#/components/schemas/v1CleanPodPolicy"
@@ -29445,7 +29445,7 @@
           "kind" : {
             "title" : "Optional component kind, should be equal to 'paddle_job'",
             "type" : "string",
-            "default" : "paddle_job"
+            "default" : "paddlejob"
           },
           "cleanPodPolicy" : {
             "$ref" : "#/components/schemas/v1CleanPodPolicy"
@@ -29977,7 +29977,7 @@
           "kind" : {
             "title" : "Optional component kind, should be equal to 'pytorch_job'",
             "type" : "string",
-            "default" : "pytorch_job"
+            "default" : "pytorchjob"
           },
           "cleanPodPolicy" : {
             "$ref" : "#/components/schemas/v1CleanPodPolicy"
@@ -30104,7 +30104,7 @@
           "kind" : {
             "title" : "Kind of runtime, should be equal to \"ray\"",
             "type" : "string",
-            "default" : "ray_job"
+            "default" : "rayjob"
           },
           "entrypoint" : {
             "title" : "Entrypoint of the ray application, e.g. python path/to/run.py",
@@ -31063,7 +31063,7 @@
           "kind" : {
             "title" : "Kind of runtime, should be equal to \"spark\"",
             "type" : "string",
-            "default" : "spark_job"
+            "default" : "sparkjob"
           },
           "connections" : {
             "title" : "Optional connections section",
@@ -31849,7 +31849,7 @@
           "kind" : {
             "title" : "Optional component kind, should be equal to 'xgboost_job'",
             "type" : "string",
-            "default" : "xgboost_job"
+            "default" : "xgboostjob"
           },
           "cleanPodPolicy" : {
             "$ref" : "#/components/schemas/v1CleanPodPolicy"

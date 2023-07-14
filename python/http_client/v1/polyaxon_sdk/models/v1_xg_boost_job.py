@@ -30,7 +30,7 @@ class V1XGBoostJob(BaseModel):
     """
     V1XGBoostJob
     """
-    kind: Optional[StrictStr] = 'xgboost_job'
+    kind: Optional[StrictStr] = 'xgboostjob'
     clean_pod_policy: Optional[V1CleanPodPolicy] = Field(None, alias="cleanPodPolicy")
     scheduling_policy: Optional[V1SchedulingPolicy] = Field(None, alias="schedulingPolicy")
     master: Optional[V1KFReplica] = None
@@ -81,7 +81,7 @@ class V1XGBoostJob(BaseModel):
             return V1XGBoostJob.parse_obj(obj)
 
         _obj = V1XGBoostJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'xgboost_job',
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'xgboostjob',
             "clean_pod_policy": obj.get("cleanPodPolicy"),
             "scheduling_policy": V1SchedulingPolicy.from_dict(obj.get("schedulingPolicy")) if obj.get("schedulingPolicy") is not None else None,
             "master": V1KFReplica.from_dict(obj.get("master")) if obj.get("master") is not None else None,

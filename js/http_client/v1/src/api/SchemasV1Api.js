@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -24,7 +24,7 @@ import V1Schemas from '../model/V1Schemas';
 export default class SchemasV1Api {
 
     /**
-    * Constructs a new SchemasV1Api.
+    * Constructs a new SchemasV1Api. 
     * Polyaxon sdk
     * @alias module:api/SchemasV1Api
     * @class

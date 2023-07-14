@@ -28,7 +28,7 @@ class V1RayJob(BaseModel):
     """
     V1RayJob
     """
-    kind: Optional[StrictStr] = 'ray_job'
+    kind: Optional[StrictStr] = 'rayjob'
     entrypoint: Optional[StrictStr] = None
     runtime_env: Optional[Dict[str, Any]] = Field(None, alias="runtimeEnv")
     metadata: Optional[Dict[str, StrictStr]] = None
@@ -78,7 +78,7 @@ class V1RayJob(BaseModel):
             return V1RayJob.parse_obj(obj)
 
         _obj = V1RayJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'ray_job',
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'rayjob',
             "entrypoint": obj.get("entrypoint"),
             "runtime_env": obj.get("runtimeEnv"),
             "metadata": obj.get("metadata"),

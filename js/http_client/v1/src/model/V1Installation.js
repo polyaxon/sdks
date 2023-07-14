@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -23,8 +23,8 @@ class V1Installation {
      * Constructs a new <code>V1Installation</code>.
      * @alias module:model/V1Installation
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Installation.initialize(this);
     }
 
@@ -33,7 +33,7 @@ class V1Installation {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

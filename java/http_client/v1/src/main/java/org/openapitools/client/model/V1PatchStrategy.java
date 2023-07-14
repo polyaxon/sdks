@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -28,13 +28,13 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1PatchStrategy.Adapter.class)
 public enum V1PatchStrategy {
-
+  
   REPLACE("replace"),
-
+  
   ISNULL("isnull"),
-
+  
   POST_MERGE("post_merge"),
-
+  
   PRE_MERGE("pre_merge");
 
   private String value;

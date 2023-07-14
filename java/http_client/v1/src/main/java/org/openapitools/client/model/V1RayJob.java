@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 public class V1RayJob {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "ray_job";
+  private String kind = "rayjob";
 
   public static final String SERIALIZED_NAME_ENTRYPOINT = "entrypoint";
   @SerializedName(SERIALIZED_NAME_ENTRYPOINT)
@@ -83,7 +83,7 @@ public class V1RayJob {
   }
 
   public V1RayJob kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -105,7 +105,7 @@ public class V1RayJob {
 
 
   public V1RayJob entrypoint(String entrypoint) {
-
+    
     this.entrypoint = entrypoint;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1RayJob {
 
 
   public V1RayJob runtimeEnv(Object runtimeEnv) {
-
+    
     this.runtimeEnv = runtimeEnv;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1RayJob {
 
 
   public V1RayJob metadata(Map<String, String> metadata) {
-
+    
     this.metadata = metadata;
     return this;
   }
@@ -179,7 +179,7 @@ public class V1RayJob {
 
 
   public V1RayJob version(String version) {
-
+    
     this.version = version;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1RayJob {
 
 
   public V1RayJob head(V1RayReplica head) {
-
+    
     this.head = head;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1RayJob {
 
 
   public V1RayJob worker(V1RayReplica worker) {
-
+    
     this.worker = worker;
     return this;
   }

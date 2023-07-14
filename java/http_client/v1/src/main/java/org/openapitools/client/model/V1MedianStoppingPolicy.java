@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -68,7 +68,7 @@ public class V1MedianStoppingPolicy {
   }
 
   public V1MedianStoppingPolicy kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy evaluationInterval(Integer evaluationInterval) {
-
+    
     this.evaluationInterval = evaluationInterval;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy minInterval(Integer minInterval) {
-
+    
     this.minInterval = minInterval;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1MedianStoppingPolicy {
 
 
   public V1MedianStoppingPolicy minSamples(Integer minSamples) {
-
+    
     this.minSamples = minSamples;
     return this;
   }

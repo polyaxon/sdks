@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class V1HpLogSpace {
   }
 
   public V1HpLogSpace kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1HpLogSpace {
 
 
   public V1HpLogSpace value(Object value) {
-
+    
     this.value = value;
     return this;
   }

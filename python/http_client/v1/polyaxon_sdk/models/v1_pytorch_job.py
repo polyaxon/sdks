@@ -30,7 +30,7 @@ class V1PytorchJob(BaseModel):
     """
     V1PytorchJob
     """
-    kind: Optional[StrictStr] = 'pytorch_job'
+    kind: Optional[StrictStr] = 'pytorchjob'
     clean_pod_policy: Optional[V1CleanPodPolicy] = Field(None, alias="cleanPodPolicy")
     scheduling_policy: Optional[V1SchedulingPolicy] = Field(None, alias="schedulingPolicy")
     master: Optional[V1KFReplica] = None
@@ -81,7 +81,7 @@ class V1PytorchJob(BaseModel):
             return V1PytorchJob.parse_obj(obj)
 
         _obj = V1PytorchJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'pytorch_job',
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'pytorchjob',
             "clean_pod_policy": obj.get("cleanPodPolicy"),
             "scheduling_policy": V1SchedulingPolicy.from_dict(obj.get("schedulingPolicy")) if obj.get("schedulingPolicy") is not None else None,
             "master": V1KFReplica.from_dict(obj.get("master")) if obj.get("master") is not None else None,

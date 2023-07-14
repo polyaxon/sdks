@@ -24,14 +24,14 @@
     "v1MPIJob": {
       "properties": {
         "kind": {
-          "default": "mpi_job"
+          "default": "mpijob"
         }
       }
     },
     "v1PytorchJob": {
       "properties": {
         "kind": {
-          "default": "pytorch_job"
+          "default": "pytorchjob"
         }
       }
     },
@@ -52,35 +52,35 @@
     "v1XGBoostJob": {
       "properties": {
         "kind": {
-          "default": "xgboost_job"
+          "default": "xgboostjob"
         }
       }
     },
     "v1PaddleJob": {
       "properties": {
         "kind": {
-          "default": "paddle_job"
+          "default": "paddlejob"
         }
       }
     },
     "v1SparkJob": {
       "properties": {
         "kind": {
-          "default": "spark_job"
+          "default": "sparkjob"
         }
       }
     },
     "v1DaskJob": {
       "properties": {
         "kind": {
-          "default": "dask_job"
+          "default": "daskjob"
         }
       }
     },
     "v1RayJob": {
       "properties": {
         "kind": {
-          "default": "ray_job"
+          "default": "rayjob"
         }
       }
     }

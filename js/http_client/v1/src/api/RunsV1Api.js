@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -43,7 +43,7 @@ import V1Uuids from '../model/V1Uuids';
 export default class RunsV1Api {
 
     /**
-    * Constructs a new RunsV1Api.
+    * Constructs a new RunsV1Api. 
     * Polyaxon sdk
     * @alias module:api/RunsV1Api
     * @class
@@ -380,7 +380,7 @@ export default class RunsV1Api {
 
     /**
      * Internal API to collect run logs
-     * @param {String} namespace
+     * @param {String} namespace 
      * @param {String} owner Owner of the namespace
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
@@ -618,7 +618,7 @@ export default class RunsV1Api {
      * @param {String} owner Owner of the namespace
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
-     * @param {module:model/V1EntityStatusBodyRequest} body
+     * @param {module:model/V1EntityStatusBodyRequest} body 
      * @param {module:api/RunsV1Api~createRunStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Status}
      */
@@ -1841,7 +1841,7 @@ export default class RunsV1Api {
 
     /**
      * Get run logs
-     * @param {String} namespace
+     * @param {String} namespace 
      * @param {String} owner Owner of the namespace
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
@@ -2756,7 +2756,7 @@ export default class RunsV1Api {
      * @param {String} owner Owner of the namespace
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
-     * @param {module:model/V1EntityNotificationBody} body
+     * @param {module:model/V1EntityNotificationBody} body 
      * @param {module:api/RunsV1Api~notifyRunStatusCallback} callback The callback function, accepting three arguments: error, data, response
      */
     notifyRunStatus(namespace, owner, project, uuid, body, callback) {

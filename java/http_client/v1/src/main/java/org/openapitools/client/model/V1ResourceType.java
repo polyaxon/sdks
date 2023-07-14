@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -28,9 +28,9 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1ResourceType.Adapter.class)
 public enum V1ResourceType {
-
+  
   INT("int"),
-
+  
   FLOAT("float");
 
   private String value;

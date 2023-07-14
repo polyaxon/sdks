@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -63,7 +63,7 @@ public class V1Notification {
   }
 
   public V1Notification connections(List<String> connections) {
-
+    
     this.connections = connections;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1Notification {
 
 
   public V1Notification trigger(V1Statuses trigger) {
-
+    
     this.trigger = trigger;
     return this;
   }

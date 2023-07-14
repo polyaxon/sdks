@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1ListPresetsResponse {
      * Constructs a new <code>V1ListPresetsResponse</code>.
      * @alias module:model/V1ListPresetsResponse
      */
-    constructor() {
-
+    constructor() { 
+        
         V1ListPresetsResponse.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1ListPresetsResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

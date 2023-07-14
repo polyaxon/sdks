@@ -5509,7 +5509,7 @@
           "title": "Job pod specification to execute"
         },
         "kind": {
-          "default": "dask_job",
+          "default": "daskjob",
           "title": "Optional component kind, should be equal to 'Dask'",
           "type": "string"
         },
@@ -8015,7 +8015,7 @@
           "title": "optional clean pod policy section"
         },
         "kind": {
-          "default": "mpi_job",
+          "default": "mpijob",
           "title": "Optional component kind, should be equal to 'mpi_job'",
           "type": "string"
         },
@@ -8656,7 +8656,7 @@
           "title": "optional clean pod policy section"
         },
         "kind": {
-          "default": "paddle_job",
+          "default": "paddlejob",
           "title": "Optional component kind, should be equal to 'paddle_job'",
           "type": "string"
         },
@@ -9207,7 +9207,7 @@
           "title": "optional clean pod policy section"
         },
         "kind": {
-          "default": "pytorch_job",
+          "default": "pytorchjob",
           "title": "Optional component kind, should be equal to 'pytorch_job'",
           "type": "string"
         },
@@ -9347,7 +9347,7 @@
           "title": "Ray head goupr section"
         },
         "kind": {
-          "default": "ray_job",
+          "default": "rayjob",
           "title": "Kind of runtime, should be equal to \"ray\"",
           "type": "string"
         },
@@ -10388,7 +10388,7 @@
           "type": "string"
         },
         "kind": {
-          "default": "spark_job",
+          "default": "sparkjob",
           "title": "Kind of runtime, should be equal to \"spark\"",
           "type": "string"
         },
@@ -11193,7 +11193,7 @@
           "title": "optional clean pod policy section"
         },
         "kind": {
-          "default": "xgboost_job",
+          "default": "xgboostjob",
           "title": "Optional component kind, should be equal to 'xgboost_job'",
           "type": "string"
         },

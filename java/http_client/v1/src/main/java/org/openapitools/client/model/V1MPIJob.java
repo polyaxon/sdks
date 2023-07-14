@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 public class V1MPIJob {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "mpi_job";
+  private String kind = "mpijob";
 
   public static final String SERIALIZED_NAME_CLEAN_POD_POLICY = "cleanPodPolicy";
   @SerializedName(SERIALIZED_NAME_CLEAN_POD_POLICY)
@@ -79,7 +79,7 @@ public class V1MPIJob {
   }
 
   public V1MPIJob kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -101,7 +101,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob cleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
-
+    
     this.cleanPodPolicy = cleanPodPolicy;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
-
+    
     this.schedulingPolicy = schedulingPolicy;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob slotsPerWorker(Integer slotsPerWorker) {
-
+    
     this.slotsPerWorker = slotsPerWorker;
     return this;
   }
@@ -167,7 +167,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob worker(V1KFReplica worker) {
-
+    
     this.worker = worker;
     return this;
   }
@@ -189,7 +189,7 @@ public class V1MPIJob {
 
 
   public V1MPIJob launcher(V1KFReplica launcher) {
-
+    
     this.launcher = launcher;
     return this;
   }

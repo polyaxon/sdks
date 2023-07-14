@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -18,35 +18,35 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1Stages {
-
+    
         /**
          * value: "testing"
          * @const
          */
         "testing" = "testing";
 
-
+    
         /**
          * value: "staging"
          * @const
          */
         "staging" = "staging";
 
-
+    
         /**
          * value: "production"
          * @const
          */
         "production" = "production";
 
-
+    
         /**
          * value: "disabled"
          * @const
          */
         "disabled" = "disabled";
 
-
+    
 
     /**
     * Returns a <code>V1Stages</code> enum value from a Javascript object name.

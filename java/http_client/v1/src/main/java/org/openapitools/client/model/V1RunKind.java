@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -28,43 +28,43 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1RunKind.Adapter.class)
 public enum V1RunKind {
-
+  
   JOB("job"),
-
+  
   SERVICE("service"),
-
+  
   DAG("dag"),
-
+  
   SPARKJOB("sparkjob"),
-
+  
   DASKJOB("daskjob"),
-
+  
   RAYJOB("rayjob"),
-
+  
   MPIJOB("mpijob"),
-
+  
   TFJOB("tfjob"),
-
+  
   PYTORCHJOB("pytorchjob"),
-
+  
   PADDLEJOB("paddlejob"),
-
+  
   MXJOB("mxjob"),
-
+  
   XGBJOB("xgbjob"),
-
+  
   MATRIX("matrix"),
-
+  
   SCHEDULE("schedule"),
-
+  
   TUNER("tuner"),
-
+  
   WATCHDOG("watchdog"),
-
+  
   NOTIFIER("notifier"),
-
+  
   CLEANER("cleaner"),
-
+  
   BUILDER("builder");
 
   private String value;

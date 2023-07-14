@@ -30,7 +30,7 @@ class V1SparkJob(BaseModel):
     """
     V1SparkJob
     """
-    kind: Optional[StrictStr] = 'spark_job'
+    kind: Optional[StrictStr] = 'sparkjob'
     connections: Optional[conlist(StrictStr)] = None
     volumes: Optional[conlist(Dict[str, Any])] = Field(None, description="Volumes is a list of volumes that can be mounted.")
     type: Optional[V1SparkJobType] = None
@@ -89,7 +89,7 @@ class V1SparkJob(BaseModel):
             return V1SparkJob.parse_obj(obj)
 
         _obj = V1SparkJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'spark_job',
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'sparkjob',
             "connections": obj.get("connections"),
             "volumes": obj.get("volumes"),
             "type": obj.get("type"),

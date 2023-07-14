@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class V1GcsType {
   }
 
   public V1GcsType bucket(String bucket) {
-
+    
     this.bucket = bucket;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1GcsType {
 
 
   public V1GcsType blob(String blob) {
-
+    
     this.blob = blob;
     return this;
   }

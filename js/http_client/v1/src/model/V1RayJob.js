@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1RayJob {
      * Constructs a new <code>V1RayJob</code>.
      * @alias module:model/V1RayJob
      */
-    constructor() {
-
+    constructor() { 
+        
         V1RayJob.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1RayJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -110,9 +110,9 @@ class V1RayJob {
 
 /**
  * @member {String} kind
- * @default 'ray_job'
+ * @default 'rayjob'
  */
-V1RayJob.prototype['kind'] = 'ray_job';
+V1RayJob.prototype['kind'] = 'rayjob';
 
 /**
  * @member {String} entrypoint

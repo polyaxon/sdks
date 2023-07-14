@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -18,28 +18,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1HyperoptAlgorithms {
-
+    
         /**
          * value: "tpe"
          * @const
          */
         "tpe" = "tpe";
 
-
+    
         /**
          * value: "rand"
          * @const
          */
         "rand" = "rand";
 
-
+    
         /**
          * value: "anneal"
          * @const
          */
         "anneal" = "anneal";
 
-
+    
 
     /**
     * Returns a <code>V1HyperoptAlgorithms</code> enum value from a Javascript object name.

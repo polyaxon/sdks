@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -21,31 +21,31 @@ import {
 } from './V1Param';
 
 /**
- *
+ * 
  * @export
  * @interface V1Tuner
  */
 export interface V1Tuner {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tuner
      */
     hubRef?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Tuner
      */
     queue?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Tuner
      */
     presets?: Array<string>;
     /**
-     *
+     * 
      * @type {{ [key: string]: V1Param; }}
      * @memberof V1Tuner
      */
@@ -70,7 +70,7 @@ export function V1TunerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-
+        
         'hubRef': !exists(json, 'hubRef') ? undefined : json['hubRef'],
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
         'presets': !exists(json, 'presets') ? undefined : json['presets'],
@@ -86,7 +86,7 @@ export function V1TunerToJSON(value?: V1Tuner | null): any {
         return null;
     }
     return {
-
+        
         'hubRef': value.hubRef,
         'queue': value.queue,
         'presets': value.presets,

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -44,7 +44,7 @@ import java.util.HashMap;
  * A JSON utility class
  *
  * NOTE: in the future, this class may be converted to static, which may break
- *   backward-compatibility
+ *       backward-compatibility
  */
 public class JSON {
     private static Gson gson;

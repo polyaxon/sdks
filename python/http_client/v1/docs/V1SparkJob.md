@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] [default to 'spark_job']
+**kind** | **str** |  | [optional] [default to 'sparkjob']
 **connections** | **List[str]** |  | [optional] 
 **volumes** | **List[object]** | Volumes is a list of volumes that can be mounted. | [optional] 
 **type** | [**V1SparkJobType**](V1SparkJobType.md) |  | [optional] 

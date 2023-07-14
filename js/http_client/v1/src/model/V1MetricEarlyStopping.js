@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -25,8 +25,8 @@ class V1MetricEarlyStopping {
      * MetricEarlyStoppingSchema specification Early stopping based on metric config.
      * @alias module:model/V1MetricEarlyStopping
      */
-    constructor() {
-
+    constructor() { 
+        
         V1MetricEarlyStopping.initialize(this);
     }
 
@@ -35,7 +35,7 @@ class V1MetricEarlyStopping {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

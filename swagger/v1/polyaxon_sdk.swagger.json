@@ -17995,7 +17995,7 @@
         "kind": {
           "type": "string",
           "title": "Optional component kind, should be equal to 'Dask'",
-          "default": "dask_job"
+          "default": "daskjob"
         },
         "job": {
           "$ref": "#/definitions/v1DaskReplica",
@@ -20455,7 +20455,7 @@
         "kind": {
           "type": "string",
           "title": "Optional component kind, should be equal to 'mpi_job'",
-          "default": "mpi_job"
+          "default": "mpijob"
         },
         "cleanPodPolicy": {
           "$ref": "#/definitions/v1CleanPodPolicy",
@@ -21016,7 +21016,7 @@
         "kind": {
           "type": "string",
           "title": "Optional component kind, should be equal to 'paddle_job'",
-          "default": "paddle_job"
+          "default": "paddlejob"
         },
         "cleanPodPolicy": {
           "$ref": "#/definitions/v1CleanPodPolicy",
@@ -21567,7 +21567,7 @@
         "kind": {
           "type": "string",
           "title": "Optional component kind, should be equal to 'pytorch_job'",
-          "default": "pytorch_job"
+          "default": "pytorchjob"
         },
         "cleanPodPolicy": {
           "$ref": "#/definitions/v1CleanPodPolicy",
@@ -21695,7 +21695,7 @@
         "kind": {
           "type": "string",
           "title": "Kind of runtime, should be equal to \"ray\"",
-          "default": "ray_job"
+          "default": "rayjob"
         },
         "entrypoint": {
           "type": "string",
@@ -22707,7 +22707,7 @@
         "kind": {
           "type": "string",
           "title": "Kind of runtime, should be equal to \"spark\"",
-          "default": "spark_job"
+          "default": "sparkjob"
         },
         "connections": {
           "type": "array",
@@ -23545,7 +23545,7 @@
         "kind": {
           "type": "string",
           "title": "Optional component kind, should be equal to 'xgboost_job'",
-          "default": "xgboost_job"
+          "default": "xgboostjob"
         },
         "cleanPodPolicy": {
           "$ref": "#/definitions/v1CleanPodPolicy",

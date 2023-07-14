@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **String** |  | [optional] [default to &#39;ray_job&#39;]
+**kind** | **String** |  | [optional] [default to &#39;rayjob&#39;]
 **entrypoint** | **String** |  | [optional] 
 **runtimeEnv** | **Object** |  | [optional] 
 **metadata** | **{String: String}** |  | [optional] 

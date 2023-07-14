@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 public class V1PytorchJob {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "pytorch_job";
+  private String kind = "pytorchjob";
 
   public static final String SERIALIZED_NAME_CLEAN_POD_POLICY = "cleanPodPolicy";
   @SerializedName(SERIALIZED_NAME_CLEAN_POD_POLICY)
@@ -75,7 +75,7 @@ public class V1PytorchJob {
   }
 
   public V1PytorchJob kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -97,7 +97,7 @@ public class V1PytorchJob {
 
 
   public V1PytorchJob cleanPodPolicy(V1CleanPodPolicy cleanPodPolicy) {
-
+    
     this.cleanPodPolicy = cleanPodPolicy;
     return this;
   }
@@ -119,7 +119,7 @@ public class V1PytorchJob {
 
 
   public V1PytorchJob schedulingPolicy(V1SchedulingPolicy schedulingPolicy) {
-
+    
     this.schedulingPolicy = schedulingPolicy;
     return this;
   }
@@ -141,7 +141,7 @@ public class V1PytorchJob {
 
 
   public V1PytorchJob master(V1KFReplica master) {
-
+    
     this.master = master;
     return this;
   }
@@ -163,7 +163,7 @@ public class V1PytorchJob {
 
 
   public V1PytorchJob worker(V1KFReplica worker) {
-
+    
     this.worker = worker;
     return this;
   }

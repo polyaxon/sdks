@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -14,19 +14,19 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HpDateTimeRange
  */
 export interface V1HpDateTimeRange {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1HpDateTimeRange
      */
     kind?: string;
     /**
-     *
+     * 
      * @type {object}
      * @memberof V1HpDateTimeRange
      */
@@ -51,7 +51,7 @@ export function V1HpDateTimeRangeFromJSONTyped(json: any, ignoreDiscriminator: b
         return json;
     }
     return {
-
+        
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
@@ -65,7 +65,7 @@ export function V1HpDateTimeRangeToJSON(value?: V1HpDateTimeRange | null): any {
         return null;
     }
     return {
-
+        
         'kind': value.kind,
         'value': value.value,
     };

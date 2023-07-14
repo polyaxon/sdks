@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -28,11 +28,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1ScheduleKind.Adapter.class)
 public enum V1ScheduleKind {
-
+  
   CRON("cron"),
-
+  
   INTERVAL("interval"),
-
+  
   DATETIME("datetime");
 
   private String value;

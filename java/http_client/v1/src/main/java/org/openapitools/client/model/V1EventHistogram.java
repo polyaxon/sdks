@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -62,7 +62,7 @@ public class V1EventHistogram {
   }
 
   public V1EventHistogram values(List<Double> values) {
-
+    
     this.values = values;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1EventHistogram {
 
 
   public V1EventHistogram counts(List<Double> counts) {
-
+    
     this.counts = counts;
     return this;
   }

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -100,7 +100,7 @@ public class V1Service {
   }
 
   public V1Service kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1Service {
 
 
   public V1Service environment(V1Environment environment) {
-
+    
     this.environment = environment;
     return this;
   }
@@ -144,7 +144,7 @@ public class V1Service {
 
 
   public V1Service connections(List<String> connections) {
-
+    
     this.connections = connections;
     return this;
   }
@@ -174,7 +174,7 @@ public class V1Service {
 
 
   public V1Service volumes(List<Object> volumes) {
-
+    
     this.volumes = volumes;
     return this;
   }
@@ -204,7 +204,7 @@ public class V1Service {
 
 
   public V1Service init(List<V1Init> init) {
-
+    
     this.init = init;
     return this;
   }
@@ -234,7 +234,7 @@ public class V1Service {
 
 
   public V1Service sidecars(List<Object> sidecars) {
-
+    
     this.sidecars = sidecars;
     return this;
   }
@@ -264,7 +264,7 @@ public class V1Service {
 
 
   public V1Service container(Object container) {
-
+    
     this.container = container;
     return this;
   }
@@ -286,7 +286,7 @@ public class V1Service {
 
 
   public V1Service ports(List<Integer> ports) {
-
+    
     this.ports = ports;
     return this;
   }
@@ -316,7 +316,7 @@ public class V1Service {
 
 
   public V1Service rewritePath(Boolean rewritePath) {
-
+    
     this.rewritePath = rewritePath;
     return this;
   }
@@ -338,7 +338,7 @@ public class V1Service {
 
 
   public V1Service isExternal(Boolean isExternal) {
-
+    
     this.isExternal = isExternal;
     return this;
   }
@@ -360,7 +360,7 @@ public class V1Service {
 
 
   public V1Service replicas(Integer replicas) {
-
+    
     this.replicas = replicas;
     return this;
   }

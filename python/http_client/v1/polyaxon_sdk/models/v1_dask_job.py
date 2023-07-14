@@ -28,7 +28,7 @@ class V1DaskJob(BaseModel):
     """
     V1DaskJob
     """
-    kind: Optional[StrictStr] = 'dask_job'
+    kind: Optional[StrictStr] = 'daskjob'
     job: Optional[V1DaskReplica] = None
     worker: Optional[V1DaskReplica] = None
     scheduler: Optional[V1DaskReplica] = None
@@ -78,7 +78,7 @@ class V1DaskJob(BaseModel):
             return V1DaskJob.parse_obj(obj)
 
         _obj = V1DaskJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'dask_job',
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'daskjob',
             "job": V1DaskReplica.from_dict(obj.get("job")) if obj.get("job") is not None else None,
             "worker": V1DaskReplica.from_dict(obj.get("worker")) if obj.get("worker") is not None else None,
             "scheduler": V1DaskReplica.from_dict(obj.get("scheduler")) if obj.get("scheduler") is not None else None

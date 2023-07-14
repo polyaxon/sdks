@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -28,11 +28,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1CloningKind.Adapter.class)
 public enum V1CloningKind {
-
+  
   COPY("copy"),
-
+  
   RESTART("restart"),
-
+  
   CACHE("cache");
 
   private String value;

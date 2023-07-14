@@ -21326,7 +21326,7 @@ components:
           connections:
           - connections
           - connections
-        kind: dask_job
+        kind: daskjob
         job:
           container: "{}"
           init:
@@ -21651,7 +21651,7 @@ components:
           - connections
       properties:
         kind:
-          default: dask_job
+          default: daskjob
           title: "Optional component kind, should be equal to 'Dask'"
           type: string
         job:
@@ -25968,7 +25968,7 @@ components:
       example:
         cleanPodPolicy: null
         slotsPerWorker: 0
-        kind: mpi_job
+        kind: mpijob
         worker:
           container: "{}"
           init:
@@ -26297,7 +26297,7 @@ components:
           - connections
       properties:
         kind:
-          default: mpi_job
+          default: mpijob
           title: "Optional component kind, should be equal to 'mpi_job'"
           type: string
         cleanPodPolicy:
@@ -28241,7 +28241,7 @@ components:
     v1PaddleJob:
       example:
         cleanPodPolicy: null
-        kind: paddle_job
+        kind: paddlejob
         worker:
           container: "{}"
           init:
@@ -28570,7 +28570,7 @@ components:
           - connections
       properties:
         kind:
-          default: paddle_job
+          default: paddlejob
           title: "Optional component kind, should be equal to 'paddle_job'"
           type: string
         cleanPodPolicy:
@@ -29169,7 +29169,7 @@ components:
     v1PytorchJob:
       example:
         cleanPodPolicy: null
-        kind: pytorch_job
+        kind: pytorchjob
         worker:
           container: "{}"
           init:
@@ -29498,7 +29498,7 @@ components:
           - connections
       properties:
         kind:
-          default: pytorch_job
+          default: pytorchjob
           title: "Optional component kind, should be equal to 'pytorch_job'"
           type: string
         cleanPodPolicy:
@@ -29786,7 +29786,7 @@ components:
           - connections
         metadata:
           key: metadata
-        kind: ray_job
+        kind: rayjob
         entrypoint: entrypoint
         worker:
           maxReplicas: 4
@@ -29958,7 +29958,7 @@ components:
         runtimeEnv: "{}"
       properties:
         kind:
-          default: ray_job
+          default: rayjob
           title: "Kind of runtime, should be equal to \"ray\""
           type: string
         entrypoint:
@@ -30986,7 +30986,7 @@ components:
             connections:
             - connections
             - connections
-          kind: dask_job
+          kind: daskjob
           job:
             container: "{}"
             init:
@@ -31311,7 +31311,7 @@ components:
             - connections
         paddleJob:
           cleanPodPolicy: null
-          kind: paddle_job
+          kind: paddlejob
           worker:
             container: "{}"
             init:
@@ -31807,7 +31807,7 @@ components:
             - connections
           metadata:
             key: metadata
-          kind: ray_job
+          kind: rayjob
           entrypoint: entrypoint
           worker:
             maxReplicas: 4
@@ -33772,7 +33772,7 @@ components:
             - connections
         xgboostJob:
           cleanPodPolicy: null
-          kind: xgboost_job
+          kind: xgboostjob
           worker:
             container: "{}"
             init:
@@ -35221,7 +35221,7 @@ components:
           concurrency: 4
         pytorchJob:
           cleanPodPolicy: null
-          kind: pytorch_job
+          kind: pytorchjob
           worker:
             container: "{}"
             init:
@@ -35712,7 +35712,7 @@ components:
         mpiJob:
           cleanPodPolicy: null
           slotsPerWorker: 0
-          kind: mpi_job
+          kind: mpijob
           worker:
             container: "{}"
             init:
@@ -36042,7 +36042,7 @@ components:
         sparkJob:
           pythonVersion: pythonVersion
           mainClass: mainClass
-          kind: spark_job
+          kind: sparkjob
           deployMode: null
           volumes:
           - null
@@ -36727,7 +36727,7 @@ components:
               connections:
               - connections
               - connections
-            kind: dask_job
+            kind: daskjob
             job:
               container: "{}"
               init:
@@ -37052,7 +37052,7 @@ components:
               - connections
           paddleJob:
             cleanPodPolicy: null
-            kind: paddle_job
+            kind: paddlejob
             worker:
               container: "{}"
               init:
@@ -37548,7 +37548,7 @@ components:
               - connections
             metadata:
               key: metadata
-            kind: ray_job
+            kind: rayjob
             entrypoint: entrypoint
             worker:
               maxReplicas: 4
@@ -39513,7 +39513,7 @@ components:
               - connections
           xgboostJob:
             cleanPodPolicy: null
-            kind: xgboost_job
+            kind: xgboostjob
             worker:
               container: "{}"
               init:
@@ -40962,7 +40962,7 @@ components:
             concurrency: 4
           pytorchJob:
             cleanPodPolicy: null
-            kind: pytorch_job
+            kind: pytorchjob
             worker:
               container: "{}"
               init:
@@ -41453,7 +41453,7 @@ components:
           mpiJob:
             cleanPodPolicy: null
             slotsPerWorker: 0
-            kind: mpi_job
+            kind: mpijob
             worker:
               container: "{}"
               init:
@@ -41783,7 +41783,7 @@ components:
           sparkJob:
             pythonVersion: pythonVersion
             mainClass: mainClass
-            kind: spark_job
+            kind: sparkjob
             deployMode: null
             volumes:
             - null
@@ -43649,7 +43649,7 @@ components:
       example:
         pythonVersion: pythonVersion
         mainClass: mainClass
-        kind: spark_job
+        kind: sparkjob
         deployMode: null
         volumes:
         - null
@@ -43981,7 +43981,7 @@ components:
         hadoopConfigMap: hadoopConfigMap
       properties:
         kind:
-          default: spark_job
+          default: sparkjob
           title: "Kind of runtime, should be equal to \"spark\""
           type: string
         connections:
@@ -45600,7 +45600,7 @@ components:
     v1XGBoostJob:
       example:
         cleanPodPolicy: null
-        kind: xgboost_job
+        kind: xgboostjob
         worker:
           container: "{}"
           init:
@@ -45929,7 +45929,7 @@ components:
           - connections
       properties:
         kind:
-          default: xgboost_job
+          default: xgboostjob
           title: "Optional component kind, should be equal to 'xgboost_job'"
           type: string
         cleanPodPolicy:

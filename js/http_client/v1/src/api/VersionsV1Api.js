@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -26,7 +26,7 @@ import V1LogHandler from '../model/V1LogHandler';
 export default class VersionsV1Api {
 
     /**
-    * Constructs a new VersionsV1Api.
+    * Constructs a new VersionsV1Api. 
     * Polyaxon sdk
     * @alias module:api/VersionsV1Api
     * @class

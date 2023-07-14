@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -14,61 +14,61 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Preset
  */
 export interface V1Preset {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Preset
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Preset
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Preset
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Preset
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Preset
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Preset
      */
     updated_at?: Date;
     /**
-     *
+     * 
      * @type {boolean}
      * @memberof V1Preset
      */
     frozen?: boolean;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Preset
      */
     live_state?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Preset
      */
@@ -93,7 +93,7 @@ export function V1PresetFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -114,7 +114,7 @@ export function V1PresetToJSON(value?: V1Preset | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

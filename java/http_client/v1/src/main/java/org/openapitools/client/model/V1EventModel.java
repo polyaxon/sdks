@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -64,7 +64,7 @@ public class V1EventModel {
   }
 
   public V1EventModel framework(String framework) {
-
+    
     this.framework = framework;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1EventModel {
 
 
   public V1EventModel path(String path) {
-
+    
     this.path = path;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1EventModel {
 
 
   public V1EventModel spec(Object spec) {
-
+    
     this.spec = spec;
     return this;
   }

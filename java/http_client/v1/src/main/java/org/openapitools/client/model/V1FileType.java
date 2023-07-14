@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -68,7 +68,7 @@ public class V1FileType {
   }
 
   public V1FileType content(String content) {
-
+    
     this.content = content;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1FileType {
 
 
   public V1FileType filename(String filename) {
-
+    
     this.filename = filename;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1FileType {
 
 
   public V1FileType chmod(String chmod) {
-
+    
     this.chmod = chmod;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1FileType {
 
 
   public V1FileType kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }

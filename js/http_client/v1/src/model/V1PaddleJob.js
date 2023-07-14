@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -26,8 +26,8 @@ class V1PaddleJob {
      * Constructs a new <code>V1PaddleJob</code>.
      * @alias module:model/V1PaddleJob
      */
-    constructor() {
-
+    constructor() { 
+        
         V1PaddleJob.initialize(this);
     }
 
@@ -36,7 +36,7 @@ class V1PaddleJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -102,9 +102,9 @@ class V1PaddleJob {
 
 /**
  * @member {String} kind
- * @default 'paddle_job'
+ * @default 'paddlejob'
  */
-V1PaddleJob.prototype['kind'] = 'paddle_job';
+V1PaddleJob.prototype['kind'] = 'paddlejob';
 
 /**
  * @member {module:model/V1CleanPodPolicy} cleanPodPolicy

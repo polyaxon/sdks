@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc26
  * Contact: contact@polyaxon.com
@@ -21,19 +21,19 @@ import {
 } from './V1Optimization';
 
 /**
- *
+ * 
  * @export
  * @interface V1OptimizationMetric
  */
 export interface V1OptimizationMetric {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OptimizationMetric
      */
     name?: string;
     /**
-     *
+     * 
      * @type {V1Optimization}
      * @memberof V1OptimizationMetric
      */
@@ -58,7 +58,7 @@ export function V1OptimizationMetricFromJSONTyped(json: any, ignoreDiscriminator
         return json;
     }
     return {
-
+        
         'name': !exists(json, 'name') ? undefined : json['name'],
         'optimization': !exists(json, 'optimization') ? undefined : V1OptimizationFromJSON(json['optimization']),
     };
@@ -72,7 +72,7 @@ export function V1OptimizationMetricToJSON(value?: V1OptimizationMetric | null):
         return null;
     }
     return {
-
+        
         'name': value.name,
         'optimization': V1OptimizationToJSON(value.optimization),
     };

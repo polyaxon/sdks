@@ -30,7 +30,7 @@ class V1MPIJob(BaseModel):
     """
     V1MPIJob
     """
-    kind: Optional[StrictStr] = 'mpi_job'
+    kind: Optional[StrictStr] = 'mpijob'
     clean_pod_policy: Optional[V1CleanPodPolicy] = Field(None, alias="cleanPodPolicy")
     scheduling_policy: Optional[V1SchedulingPolicy] = Field(None, alias="schedulingPolicy")
     slots_per_worker: Optional[StrictInt] = Field(None, alias="slotsPerWorker")
@@ -82,7 +82,7 @@ class V1MPIJob(BaseModel):
             return V1MPIJob.parse_obj(obj)
 
         _obj = V1MPIJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'mpi_job',
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'mpijob',
             "clean_pod_policy": obj.get("cleanPodPolicy"),
             "scheduling_policy": V1SchedulingPolicy.from_dict(obj.get("schedulingPolicy")) if obj.get("schedulingPolicy") is not None else None,
             "slots_per_worker": obj.get("slotsPerWorker"),
