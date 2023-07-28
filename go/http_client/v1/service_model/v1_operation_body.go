@@ -120,6 +120,11 @@ func (m *V1OperationBody) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *V1OperationBody) contextValidateManagedBy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ManagedBy != nil {
+
+		if swag.IsZero(m.ManagedBy) { // not required
+			return nil
+		}
+
 		if err := m.ManagedBy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managed_by")
@@ -136,6 +141,11 @@ func (m *V1OperationBody) contextValidateManagedBy(ctx context.Context, formats 
 func (m *V1OperationBody) contextValidatePending(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pending != nil {
+
+		if swag.IsZero(m.Pending) { // not required
+			return nil
+		}
+
 		if err := m.Pending.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pending")

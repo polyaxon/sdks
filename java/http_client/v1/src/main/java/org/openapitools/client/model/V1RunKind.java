@@ -35,8 +35,6 @@ public enum V1RunKind {
 
   DAG("dag"),
 
-  SPARKJOB("sparkjob"),
-
   DASKJOB("daskjob"),
 
   RAYJOB("rayjob"),
@@ -47,11 +45,11 @@ public enum V1RunKind {
 
   PYTORCHJOB("pytorchjob"),
 
-  PADDLEJOB("paddlejob"),
-
   MXJOB("mxjob"),
 
   XGBJOB("xgbjob"),
+
+  PADDLEJOB("paddlejob"),
 
   MATRIX("matrix"),
 
@@ -63,9 +61,9 @@ public enum V1RunKind {
 
   NOTIFIER("notifier"),
 
-  CLEANER("cleaner"),
+  BUILDER("builder"),
 
-  BUILDER("builder");
+  CLEANER("cleaner");
 
   private String value;
 

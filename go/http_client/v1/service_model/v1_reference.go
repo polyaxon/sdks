@@ -162,6 +162,11 @@ func (m *V1Reference) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *V1Reference) contextValidateDagRef(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DagRef != nil {
+
+		if swag.IsZero(m.DagRef) { // not required
+			return nil
+		}
+
 		if err := m.DagRef.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dagRef")
@@ -178,6 +183,11 @@ func (m *V1Reference) contextValidateDagRef(ctx context.Context, formats strfmt.
 func (m *V1Reference) contextValidateHubRef(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HubRef != nil {
+
+		if swag.IsZero(m.HubRef) { // not required
+			return nil
+		}
+
 		if err := m.HubRef.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hubRef")
@@ -194,6 +204,11 @@ func (m *V1Reference) contextValidateHubRef(ctx context.Context, formats strfmt.
 func (m *V1Reference) contextValidatePathRef(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PathRef != nil {
+
+		if swag.IsZero(m.PathRef) { // not required
+			return nil
+		}
+
 		if err := m.PathRef.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pathRef")
@@ -210,6 +225,11 @@ func (m *V1Reference) contextValidatePathRef(ctx context.Context, formats strfmt
 func (m *V1Reference) contextValidateURLRef(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.URLRef != nil {
+
+		if swag.IsZero(m.URLRef) { // not required
+			return nil
+		}
+
 		if err := m.URLRef.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("urlRef")

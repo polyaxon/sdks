@@ -114,12 +114,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sparkJob (base name: "sparkJob")', function() {
-      // uncomment below and update the code to test the property sparkJob
-      //var instance = new PolyaxonSdk.V1RunSchema();
-      //expect(instance).to.be();
-    });
-
     it('should have the property rayJob (base name: "rayJob")', function() {
       // uncomment below and update the code to test the property rayJob
       //var instance = new PolyaxonSdk.V1RunSchema();

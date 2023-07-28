@@ -67,12 +67,6 @@ import {
     V1ServiceFromJSONTyped,
     V1ServiceToJSON,
 } from './V1Service';
-import type { V1SparkJob } from './V1SparkJob';
-import {
-    V1SparkJobFromJSON,
-    V1SparkJobFromJSONTyped,
-    V1SparkJobToJSON,
-} from './V1SparkJob';
 import type { V1TFJob } from './V1TFJob';
 import {
     V1TFJobFromJSON,
@@ -154,12 +148,6 @@ export interface V1RunSchema {
     daskJob?: V1DaskJob;
     /**
      *
-     * @type {V1SparkJob}
-     * @memberof V1RunSchema
-     */
-    sparkJob?: V1SparkJob;
-    /**
-     *
      * @type {V1RayJob}
      * @memberof V1RunSchema
      */
@@ -195,7 +183,6 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'xgboostJob': !exists(json, 'xgboostJob') ? undefined : V1XGBoostJobFromJSON(json['xgboostJob']),
         'paddleJob': !exists(json, 'paddleJob') ? undefined : V1PaddleJobFromJSON(json['paddleJob']),
         'daskJob': !exists(json, 'daskJob') ? undefined : V1DaskJobFromJSON(json['daskJob']),
-        'sparkJob': !exists(json, 'sparkJob') ? undefined : V1SparkJobFromJSON(json['sparkJob']),
         'rayJob': !exists(json, 'rayJob') ? undefined : V1RayJobFromJSON(json['rayJob']),
     };
 }
@@ -219,7 +206,6 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         'xgboostJob': V1XGBoostJobToJSON(value.xgboostJob),
         'paddleJob': V1PaddleJobToJSON(value.paddleJob),
         'daskJob': V1DaskJobToJSON(value.daskJob),
-        'sparkJob': V1SparkJobToJSON(value.sparkJob),
         'rayJob': V1RayJobToJSON(value.rayJob),
     };
 }

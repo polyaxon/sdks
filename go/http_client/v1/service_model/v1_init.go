@@ -213,6 +213,11 @@ func (m *V1Init) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 func (m *V1Init) contextValidateArtifacts(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Artifacts != nil {
+
+		if swag.IsZero(m.Artifacts) { // not required
+			return nil
+		}
+
 		if err := m.Artifacts.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("artifacts")
@@ -229,6 +234,11 @@ func (m *V1Init) contextValidateArtifacts(ctx context.Context, formats strfmt.Re
 func (m *V1Init) contextValidateDockerfile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dockerfile != nil {
+
+		if swag.IsZero(m.Dockerfile) { // not required
+			return nil
+		}
+
 		if err := m.Dockerfile.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dockerfile")
@@ -245,6 +255,11 @@ func (m *V1Init) contextValidateDockerfile(ctx context.Context, formats strfmt.R
 func (m *V1Init) contextValidateFile(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.File != nil {
+
+		if swag.IsZero(m.File) { // not required
+			return nil
+		}
+
 		if err := m.File.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("file")
@@ -261,6 +276,11 @@ func (m *V1Init) contextValidateFile(ctx context.Context, formats strfmt.Registr
 func (m *V1Init) contextValidateGit(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Git != nil {
+
+		if swag.IsZero(m.Git) { // not required
+			return nil
+		}
+
 		if err := m.Git.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("git")
@@ -277,6 +297,11 @@ func (m *V1Init) contextValidateGit(ctx context.Context, formats strfmt.Registry
 func (m *V1Init) contextValidateTensorboard(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tensorboard != nil {
+
+		if swag.IsZero(m.Tensorboard) { // not required
+			return nil
+		}
+
 		if err := m.Tensorboard.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tensorboard")

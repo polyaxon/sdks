@@ -45,9 +45,6 @@ type V1RunSchema struct {
 	// service
 	Service *V1Service `json:"service,omitempty"`
 
-	// spark job
-	SparkJob *V1SparkJob `json:"sparkJob,omitempty"`
-
 	// tf job
 	TfJob *V1TFJob `json:"tfJob,omitempty"`
 
@@ -92,10 +89,6 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateService(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSparkJob(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -284,25 +277,6 @@ func (m *V1RunSchema) validateService(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSchema) validateSparkJob(formats strfmt.Registry) error {
-	if swag.IsZero(m.SparkJob) { // not required
-		return nil
-	}
-
-	if m.SparkJob != nil {
-		if err := m.SparkJob.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("sparkJob")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("sparkJob")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1RunSchema) validateTfJob(formats strfmt.Registry) error {
 	if swag.IsZero(m.TfJob) { // not required
 		return nil
@@ -381,10 +355,6 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateSparkJob(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateTfJob(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -402,6 +372,11 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *V1RunSchema) contextValidateDag(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dag != nil {
+
+		if swag.IsZero(m.Dag) { // not required
+			return nil
+		}
+
 		if err := m.Dag.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dag")
@@ -418,6 +393,11 @@ func (m *V1RunSchema) contextValidateDag(ctx context.Context, formats strfmt.Reg
 func (m *V1RunSchema) contextValidateDaskJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.DaskJob != nil {
+
+		if swag.IsZero(m.DaskJob) { // not required
+			return nil
+		}
+
 		if err := m.DaskJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("daskJob")
@@ -434,6 +414,11 @@ func (m *V1RunSchema) contextValidateDaskJob(ctx context.Context, formats strfmt
 func (m *V1RunSchema) contextValidateJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Job != nil {
+
+		if swag.IsZero(m.Job) { // not required
+			return nil
+		}
+
 		if err := m.Job.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("job")
@@ -450,6 +435,11 @@ func (m *V1RunSchema) contextValidateJob(ctx context.Context, formats strfmt.Reg
 func (m *V1RunSchema) contextValidateMpiJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MpiJob != nil {
+
+		if swag.IsZero(m.MpiJob) { // not required
+			return nil
+		}
+
 		if err := m.MpiJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mpiJob")
@@ -466,6 +456,11 @@ func (m *V1RunSchema) contextValidateMpiJob(ctx context.Context, formats strfmt.
 func (m *V1RunSchema) contextValidateMxJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MxJob != nil {
+
+		if swag.IsZero(m.MxJob) { // not required
+			return nil
+		}
+
 		if err := m.MxJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mxJob")
@@ -482,6 +477,11 @@ func (m *V1RunSchema) contextValidateMxJob(ctx context.Context, formats strfmt.R
 func (m *V1RunSchema) contextValidatePaddleJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PaddleJob != nil {
+
+		if swag.IsZero(m.PaddleJob) { // not required
+			return nil
+		}
+
 		if err := m.PaddleJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("paddleJob")
@@ -498,6 +498,11 @@ func (m *V1RunSchema) contextValidatePaddleJob(ctx context.Context, formats strf
 func (m *V1RunSchema) contextValidatePytorchJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PytorchJob != nil {
+
+		if swag.IsZero(m.PytorchJob) { // not required
+			return nil
+		}
+
 		if err := m.PytorchJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pytorchJob")
@@ -514,6 +519,11 @@ func (m *V1RunSchema) contextValidatePytorchJob(ctx context.Context, formats str
 func (m *V1RunSchema) contextValidateRayJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RayJob != nil {
+
+		if swag.IsZero(m.RayJob) { // not required
+			return nil
+		}
+
 		if err := m.RayJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("rayJob")
@@ -530,6 +540,11 @@ func (m *V1RunSchema) contextValidateRayJob(ctx context.Context, formats strfmt.
 func (m *V1RunSchema) contextValidateService(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Service != nil {
+
+		if swag.IsZero(m.Service) { // not required
+			return nil
+		}
+
 		if err := m.Service.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("service")
@@ -543,25 +558,14 @@ func (m *V1RunSchema) contextValidateService(ctx context.Context, formats strfmt
 	return nil
 }
 
-func (m *V1RunSchema) contextValidateSparkJob(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.SparkJob != nil {
-		if err := m.SparkJob.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("sparkJob")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("sparkJob")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1RunSchema) contextValidateTfJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TfJob != nil {
+
+		if swag.IsZero(m.TfJob) { // not required
+			return nil
+		}
+
 		if err := m.TfJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tfJob")
@@ -578,6 +582,11 @@ func (m *V1RunSchema) contextValidateTfJob(ctx context.Context, formats strfmt.R
 func (m *V1RunSchema) contextValidateXgboostJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.XgboostJob != nil {
+
+		if swag.IsZero(m.XgboostJob) { // not required
+			return nil
+		}
+
 		if err := m.XgboostJob.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("xgboostJob")

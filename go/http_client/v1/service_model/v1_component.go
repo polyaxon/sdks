@@ -58,7 +58,7 @@ type V1Component struct {
 	// Optional queue to use for running this component
 	Queue string `json:"queue,omitempty"`
 
-	// Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag
+	// Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
 	Run interface{} `json:"run,omitempty"`
 
 	// Optional component tags
@@ -334,6 +334,11 @@ func (m *V1Component) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *V1Component) contextValidateBuild(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Build != nil {
+
+		if swag.IsZero(m.Build) { // not required
+			return nil
+		}
+
 		if err := m.Build.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("build")
@@ -350,6 +355,11 @@ func (m *V1Component) contextValidateBuild(ctx context.Context, formats strfmt.R
 func (m *V1Component) contextValidateCache(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cache != nil {
+
+		if swag.IsZero(m.Cache) { // not required
+			return nil
+		}
+
 		if err := m.Cache.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cache")
@@ -368,6 +378,11 @@ func (m *V1Component) contextValidateHooks(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Hooks); i++ {
 
 		if m.Hooks[i] != nil {
+
+			if swag.IsZero(m.Hooks[i]) { // not required
+				return nil
+			}
+
 			if err := m.Hooks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("hooks" + "." + strconv.Itoa(i))
@@ -388,6 +403,11 @@ func (m *V1Component) contextValidateInputs(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.Inputs); i++ {
 
 		if m.Inputs[i] != nil {
+
+			if swag.IsZero(m.Inputs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Inputs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("inputs" + "." + strconv.Itoa(i))
@@ -408,6 +428,11 @@ func (m *V1Component) contextValidateOutputs(ctx context.Context, formats strfmt
 	for i := 0; i < len(m.Outputs); i++ {
 
 		if m.Outputs[i] != nil {
+
+			if swag.IsZero(m.Outputs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Outputs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("outputs" + "." + strconv.Itoa(i))
@@ -426,6 +451,11 @@ func (m *V1Component) contextValidateOutputs(ctx context.Context, formats strfmt
 func (m *V1Component) contextValidatePlugins(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Plugins != nil {
+
+		if swag.IsZero(m.Plugins) { // not required
+			return nil
+		}
+
 		if err := m.Plugins.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("plugins")
@@ -442,6 +472,11 @@ func (m *V1Component) contextValidatePlugins(ctx context.Context, formats strfmt
 func (m *V1Component) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Template != nil {
+
+		if swag.IsZero(m.Template) { // not required
+			return nil
+		}
+
 		if err := m.Template.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("template")
@@ -458,6 +493,11 @@ func (m *V1Component) contextValidateTemplate(ctx context.Context, formats strfm
 func (m *V1Component) contextValidateTermination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Termination != nil {
+
+		if swag.IsZero(m.Termination) { // not required
+			return nil
+		}
+
 		if err := m.Termination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("termination")

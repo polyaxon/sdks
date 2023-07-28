@@ -143,6 +143,11 @@ func (m *V1Hook) contextValidateParams(ctx context.Context, formats strfmt.Regis
 func (m *V1Hook) contextValidateTrigger(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Trigger != nil {
+
+		if swag.IsZero(m.Trigger) { // not required
+			return nil
+		}
+
 		if err := m.Trigger.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trigger")

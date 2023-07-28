@@ -63,13 +63,6 @@
         }
       }
     },
-    "v1SparkJob": {
-      "properties": {
-        "kind": {
-          "default": "sparkjob"
-        }
-      }
-    },
     "v1DaskJob": {
       "properties": {
         "kind": {

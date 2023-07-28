@@ -75,6 +75,11 @@ func (m *V1OptimizationMetric) ContextValidate(ctx context.Context, formats strf
 func (m *V1OptimizationMetric) contextValidateOptimization(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Optimization != nil {
+
+		if swag.IsZero(m.Optimization) { // not required
+			return nil
+		}
+
 		if err := m.Optimization.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("optimization")

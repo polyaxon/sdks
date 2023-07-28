@@ -173,6 +173,11 @@ func (m *V1RunEdge) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *V1RunEdge) contextValidateDownstream(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Downstream != nil {
+
+		if swag.IsZero(m.Downstream) { // not required
+			return nil
+		}
+
 		if err := m.Downstream.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("downstream")
@@ -189,6 +194,11 @@ func (m *V1RunEdge) contextValidateDownstream(ctx context.Context, formats strfm
 func (m *V1RunEdge) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -207,6 +217,11 @@ func (m *V1RunEdge) contextValidateStatuses(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.Statuses); i++ {
 
 		if m.Statuses[i] != nil {
+
+			if swag.IsZero(m.Statuses[i]) { // not required
+				return nil
+			}
+
 			if err := m.Statuses[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("statuses" + "." + strconv.Itoa(i))
@@ -225,6 +240,11 @@ func (m *V1RunEdge) contextValidateStatuses(ctx context.Context, formats strfmt.
 func (m *V1RunEdge) contextValidateUpstream(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Upstream != nil {
+
+		if swag.IsZero(m.Upstream) { // not required
+			return nil
+		}
+
 		if err := m.Upstream.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("upstream")

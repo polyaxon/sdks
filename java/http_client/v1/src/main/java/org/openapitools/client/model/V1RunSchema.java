@@ -30,7 +30,6 @@ import org.openapitools.client.model.V1PaddleJob;
 import org.openapitools.client.model.V1PytorchJob;
 import org.openapitools.client.model.V1RayJob;
 import org.openapitools.client.model.V1Service;
-import org.openapitools.client.model.V1SparkJob;
 import org.openapitools.client.model.V1TFJob;
 import org.openapitools.client.model.V1XGBoostJob;
 
@@ -99,10 +98,6 @@ public class V1RunSchema {
   public static final String SERIALIZED_NAME_DASK_JOB = "daskJob";
   @SerializedName(SERIALIZED_NAME_DASK_JOB)
   private V1DaskJob daskJob;
-
-  public static final String SERIALIZED_NAME_SPARK_JOB = "sparkJob";
-  @SerializedName(SERIALIZED_NAME_SPARK_JOB)
-  private V1SparkJob sparkJob;
 
   public static final String SERIALIZED_NAME_RAY_JOB = "rayJob";
   @SerializedName(SERIALIZED_NAME_RAY_JOB)
@@ -331,28 +326,6 @@ public class V1RunSchema {
   }
 
 
-  public V1RunSchema sparkJob(V1SparkJob sparkJob) {
-
-    this.sparkJob = sparkJob;
-    return this;
-  }
-
-   /**
-   * Get sparkJob
-   * @return sparkJob
-  **/
-  @javax.annotation.Nullable
-
-  public V1SparkJob getSparkJob() {
-    return sparkJob;
-  }
-
-
-  public void setSparkJob(V1SparkJob sparkJob) {
-    this.sparkJob = sparkJob;
-  }
-
-
   public V1RunSchema rayJob(V1RayJob rayJob) {
 
     this.rayJob = rayJob;
@@ -395,13 +368,12 @@ public class V1RunSchema {
         Objects.equals(this.xgboostJob, v1RunSchema.xgboostJob) &&
         Objects.equals(this.paddleJob, v1RunSchema.paddleJob) &&
         Objects.equals(this.daskJob, v1RunSchema.daskJob) &&
-        Objects.equals(this.sparkJob, v1RunSchema.sparkJob) &&
         Objects.equals(this.rayJob, v1RunSchema.rayJob);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, mxJob, xgboostJob, paddleJob, daskJob, sparkJob, rayJob);
+    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, mxJob, xgboostJob, paddleJob, daskJob, rayJob);
   }
 
   @Override
@@ -418,7 +390,6 @@ public class V1RunSchema {
     sb.append("    xgboostJob: ").append(toIndentedString(xgboostJob)).append("\n");
     sb.append("    paddleJob: ").append(toIndentedString(paddleJob)).append("\n");
     sb.append("    daskJob: ").append(toIndentedString(daskJob)).append("\n");
-    sb.append("    sparkJob: ").append(toIndentedString(sparkJob)).append("\n");
     sb.append("    rayJob: ").append(toIndentedString(rayJob)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -452,7 +423,6 @@ public class V1RunSchema {
     openapiFields.add("xgboostJob");
     openapiFields.add("paddleJob");
     openapiFields.add("daskJob");
-    openapiFields.add("sparkJob");
     openapiFields.add("rayJob");
 
     // a set of required properties/fields (JSON key names)
@@ -518,10 +488,6 @@ public class V1RunSchema {
       // validate the optional field `daskJob`
       if (jsonObj.get("daskJob") != null && !jsonObj.get("daskJob").isJsonNull()) {
         V1DaskJob.validateJsonObject(jsonObj.getAsJsonObject("daskJob"));
-      }
-      // validate the optional field `sparkJob`
-      if (jsonObj.get("sparkJob") != null && !jsonObj.get("sparkJob").isJsonNull()) {
-        V1SparkJob.validateJsonObject(jsonObj.getAsJsonObject("sparkJob"));
       }
       // validate the optional field `rayJob`
       if (jsonObj.get("rayJob") != null && !jsonObj.get("rayJob").isJsonNull()) {

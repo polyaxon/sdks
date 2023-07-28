@@ -155,6 +155,11 @@ func (m *V1Build) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *V1Build) contextValidateCache(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cache != nil {
+
+		if swag.IsZero(m.Cache) { // not required
+			return nil
+		}
+
 		if err := m.Cache.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cache")
@@ -186,6 +191,11 @@ func (m *V1Build) contextValidateParams(ctx context.Context, formats strfmt.Regi
 func (m *V1Build) contextValidatePatchStrategy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PatchStrategy != nil {
+
+		if swag.IsZero(m.PatchStrategy) { // not required
+			return nil
+		}
+
 		if err := m.PatchStrategy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("patchStrategy")

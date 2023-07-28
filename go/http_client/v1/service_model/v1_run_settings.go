@@ -219,6 +219,11 @@ func (m *V1RunSettings) ContextValidate(ctx context.Context, formats strfmt.Regi
 func (m *V1RunSettings) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Agent != nil {
+
+		if swag.IsZero(m.Agent) { // not required
+			return nil
+		}
+
 		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
@@ -237,6 +242,11 @@ func (m *V1RunSettings) contextValidateArtifacts(ctx context.Context, formats st
 	for i := 0; i < len(m.Artifacts); i++ {
 
 		if m.Artifacts[i] != nil {
+
+			if swag.IsZero(m.Artifacts[i]) { // not required
+				return nil
+			}
+
 			if err := m.Artifacts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("artifacts" + "." + strconv.Itoa(i))
@@ -255,6 +265,11 @@ func (m *V1RunSettings) contextValidateArtifacts(ctx context.Context, formats st
 func (m *V1RunSettings) contextValidateArtifactsStore(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ArtifactsStore != nil {
+
+		if swag.IsZero(m.ArtifactsStore) { // not required
+			return nil
+		}
+
 		if err := m.ArtifactsStore.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("artifacts_store")
@@ -273,6 +288,11 @@ func (m *V1RunSettings) contextValidateModels(ctx context.Context, formats strfm
 	for i := 0; i < len(m.Models); i++ {
 
 		if m.Models[i] != nil {
+
+			if swag.IsZero(m.Models[i]) { // not required
+				return nil
+			}
+
 			if err := m.Models[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("models" + "." + strconv.Itoa(i))
@@ -291,6 +311,11 @@ func (m *V1RunSettings) contextValidateModels(ctx context.Context, formats strfm
 func (m *V1RunSettings) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Queue != nil {
+
+		if swag.IsZero(m.Queue) { // not required
+			return nil
+		}
+
 		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")

@@ -82,6 +82,11 @@ func (m *V1RunArtifacts) contextValidateArtifacts(ctx context.Context, formats s
 	for i := 0; i < len(m.Artifacts); i++ {
 
 		if m.Artifacts[i] != nil {
+
+			if swag.IsZero(m.Artifacts[i]) { // not required
+				return nil
+			}
+
 			if err := m.Artifacts[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("artifacts" + "." + strconv.Itoa(i))

@@ -192,6 +192,11 @@ func (m *V1ConnectionSchema) ContextValidate(ctx context.Context, formats strfmt
 func (m *V1ConnectionSchema) contextValidateBucketConnection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.BucketConnection != nil {
+
+		if swag.IsZero(m.BucketConnection) { // not required
+			return nil
+		}
+
 		if err := m.BucketConnection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bucketConnection")
@@ -208,6 +213,11 @@ func (m *V1ConnectionSchema) contextValidateBucketConnection(ctx context.Context
 func (m *V1ConnectionSchema) contextValidateClaimConnection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ClaimConnection != nil {
+
+		if swag.IsZero(m.ClaimConnection) { // not required
+			return nil
+		}
+
 		if err := m.ClaimConnection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("claimConnection")
@@ -224,6 +234,11 @@ func (m *V1ConnectionSchema) contextValidateClaimConnection(ctx context.Context,
 func (m *V1ConnectionSchema) contextValidateGitConnection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.GitConnection != nil {
+
+		if swag.IsZero(m.GitConnection) { // not required
+			return nil
+		}
+
 		if err := m.GitConnection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("gitConnection")
@@ -240,6 +255,11 @@ func (m *V1ConnectionSchema) contextValidateGitConnection(ctx context.Context, f
 func (m *V1ConnectionSchema) contextValidateHostConnection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HostConnection != nil {
+
+		if swag.IsZero(m.HostConnection) { // not required
+			return nil
+		}
+
 		if err := m.HostConnection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hostConnection")
@@ -256,6 +276,11 @@ func (m *V1ConnectionSchema) contextValidateHostConnection(ctx context.Context, 
 func (m *V1ConnectionSchema) contextValidateHostPathConnection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HostPathConnection != nil {
+
+		if swag.IsZero(m.HostPathConnection) { // not required
+			return nil
+		}
+
 		if err := m.HostPathConnection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hostPathConnection")

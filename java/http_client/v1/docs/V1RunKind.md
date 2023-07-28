@@ -11,8 +11,6 @@
 
 * `DAG` (value: `"dag"`)
 
-* `SPARKJOB` (value: `"sparkjob"`)
-
 * `DASKJOB` (value: `"daskjob"`)
 
 * `RAYJOB` (value: `"rayjob"`)
@@ -23,11 +21,11 @@
 
 * `PYTORCHJOB` (value: `"pytorchjob"`)
 
-* `PADDLEJOB` (value: `"paddlejob"`)
-
 * `MXJOB` (value: `"mxjob"`)
 
 * `XGBJOB` (value: `"xgbjob"`)
+
+* `PADDLEJOB` (value: `"paddlejob"`)
 
 * `MATRIX` (value: `"matrix"`)
 
@@ -39,9 +37,9 @@
 
 * `NOTIFIER` (value: `"notifier"`)
 
-* `CLEANER` (value: `"cleaner"`)
-
 * `BUILDER` (value: `"builder"`)
+
+* `CLEANER` (value: `"cleaner"`)
 
 
 

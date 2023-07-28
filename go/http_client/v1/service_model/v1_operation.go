@@ -90,7 +90,7 @@ type V1Operation struct {
 	Queue string `json:"queue,omitempty"`
 
 	// Optional a run section to override the content of the run in the template
-	// should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag
+	// should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
 	RunPatch interface{} `json:"runPatch,omitempty"`
 
 	// Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)
@@ -493,6 +493,11 @@ func (m *V1Operation) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *V1Operation) contextValidateBuild(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Build != nil {
+
+		if swag.IsZero(m.Build) { // not required
+			return nil
+		}
+
 		if err := m.Build.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("build")
@@ -509,6 +514,11 @@ func (m *V1Operation) contextValidateBuild(ctx context.Context, formats strfmt.R
 func (m *V1Operation) contextValidateCache(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cache != nil {
+
+		if swag.IsZero(m.Cache) { // not required
+			return nil
+		}
+
 		if err := m.Cache.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cache")
@@ -525,6 +535,11 @@ func (m *V1Operation) contextValidateCache(ctx context.Context, formats strfmt.R
 func (m *V1Operation) contextValidateComponent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Component != nil {
+
+		if swag.IsZero(m.Component) { // not required
+			return nil
+		}
+
 		if err := m.Component.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("component")
@@ -543,6 +558,11 @@ func (m *V1Operation) contextValidateEvents(ctx context.Context, formats strfmt.
 	for i := 0; i < len(m.Events); i++ {
 
 		if m.Events[i] != nil {
+
+			if swag.IsZero(m.Events[i]) { // not required
+				return nil
+			}
+
 			if err := m.Events[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events" + "." + strconv.Itoa(i))
@@ -563,6 +583,11 @@ func (m *V1Operation) contextValidateHooks(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Hooks); i++ {
 
 		if m.Hooks[i] != nil {
+
+			if swag.IsZero(m.Hooks[i]) { // not required
+				return nil
+			}
+
 			if err := m.Hooks[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("hooks" + "." + strconv.Itoa(i))
@@ -611,6 +636,11 @@ func (m *V1Operation) contextValidateParams(ctx context.Context, formats strfmt.
 func (m *V1Operation) contextValidatePatchStrategy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PatchStrategy != nil {
+
+		if swag.IsZero(m.PatchStrategy) { // not required
+			return nil
+		}
+
 		if err := m.PatchStrategy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("patchStrategy")
@@ -627,6 +657,11 @@ func (m *V1Operation) contextValidatePatchStrategy(ctx context.Context, formats 
 func (m *V1Operation) contextValidatePlugins(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Plugins != nil {
+
+		if swag.IsZero(m.Plugins) { // not required
+			return nil
+		}
+
 		if err := m.Plugins.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("plugins")
@@ -643,6 +678,11 @@ func (m *V1Operation) contextValidatePlugins(ctx context.Context, formats strfmt
 func (m *V1Operation) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Template != nil {
+
+		if swag.IsZero(m.Template) { // not required
+			return nil
+		}
+
 		if err := m.Template.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("template")
@@ -659,6 +699,11 @@ func (m *V1Operation) contextValidateTemplate(ctx context.Context, formats strfm
 func (m *V1Operation) contextValidateTermination(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Termination != nil {
+
+		if swag.IsZero(m.Termination) { // not required
+			return nil
+		}
+
 		if err := m.Termination.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("termination")
@@ -675,6 +720,11 @@ func (m *V1Operation) contextValidateTermination(ctx context.Context, formats st
 func (m *V1Operation) contextValidateTrigger(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Trigger != nil {
+
+		if swag.IsZero(m.Trigger) { // not required
+			return nil
+		}
+
 		if err := m.Trigger.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trigger")

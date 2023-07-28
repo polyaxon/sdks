@@ -137,6 +137,11 @@ func (m *V1RayReplica) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *V1RayReplica) contextValidateEnvironment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Environment != nil {
+
+		if swag.IsZero(m.Environment) { // not required
+			return nil
+		}
+
 		if err := m.Environment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("environment")
@@ -155,6 +160,11 @@ func (m *V1RayReplica) contextValidateInit(ctx context.Context, formats strfmt.R
 	for i := 0; i < len(m.Init); i++ {
 
 		if m.Init[i] != nil {
+
+			if swag.IsZero(m.Init[i]) { // not required
+				return nil
+			}
+
 			if err := m.Init[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("init" + "." + strconv.Itoa(i))

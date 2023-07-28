@@ -522,6 +522,11 @@ func (m *V1HpParams) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *V1HpParams) contextValidateChoice(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Choice != nil {
+
+		if swag.IsZero(m.Choice) { // not required
+			return nil
+		}
+
 		if err := m.Choice.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("choice")
@@ -538,6 +543,11 @@ func (m *V1HpParams) contextValidateChoice(ctx context.Context, formats strfmt.R
 func (m *V1HpParams) contextValidateDaterange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Daterange != nil {
+
+		if swag.IsZero(m.Daterange) { // not required
+			return nil
+		}
+
 		if err := m.Daterange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("daterange")
@@ -554,6 +564,11 @@ func (m *V1HpParams) contextValidateDaterange(ctx context.Context, formats strfm
 func (m *V1HpParams) contextValidateDatetimerange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Datetimerange != nil {
+
+		if swag.IsZero(m.Datetimerange) { // not required
+			return nil
+		}
+
 		if err := m.Datetimerange.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("datetimerange")
@@ -570,6 +585,11 @@ func (m *V1HpParams) contextValidateDatetimerange(ctx context.Context, formats s
 func (m *V1HpParams) contextValidateGeomspace(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Geomspace != nil {
+
+		if swag.IsZero(m.Geomspace) { // not required
+			return nil
+		}
+
 		if err := m.Geomspace.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("geomspace")
@@ -586,6 +606,11 @@ func (m *V1HpParams) contextValidateGeomspace(ctx context.Context, formats strfm
 func (m *V1HpParams) contextValidateLinspace(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Linspace != nil {
+
+		if swag.IsZero(m.Linspace) { // not required
+			return nil
+		}
+
 		if err := m.Linspace.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("linspace")
@@ -602,6 +627,11 @@ func (m *V1HpParams) contextValidateLinspace(ctx context.Context, formats strfmt
 func (m *V1HpParams) contextValidateLognormal(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Lognormal != nil {
+
+		if swag.IsZero(m.Lognormal) { // not required
+			return nil
+		}
+
 		if err := m.Lognormal.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lognormal")
@@ -618,6 +648,11 @@ func (m *V1HpParams) contextValidateLognormal(ctx context.Context, formats strfm
 func (m *V1HpParams) contextValidateLogspace(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Logspace != nil {
+
+		if swag.IsZero(m.Logspace) { // not required
+			return nil
+		}
+
 		if err := m.Logspace.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logspace")
@@ -634,6 +669,11 @@ func (m *V1HpParams) contextValidateLogspace(ctx context.Context, formats strfmt
 func (m *V1HpParams) contextValidateLoguniform(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Loguniform != nil {
+
+		if swag.IsZero(m.Loguniform) { // not required
+			return nil
+		}
+
 		if err := m.Loguniform.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("loguniform")
@@ -650,6 +690,11 @@ func (m *V1HpParams) contextValidateLoguniform(ctx context.Context, formats strf
 func (m *V1HpParams) contextValidateNormal(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Normal != nil {
+
+		if swag.IsZero(m.Normal) { // not required
+			return nil
+		}
+
 		if err := m.Normal.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("normal")
@@ -666,6 +711,11 @@ func (m *V1HpParams) contextValidateNormal(ctx context.Context, formats strfmt.R
 func (m *V1HpParams) contextValidatePchoice(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pchoice != nil {
+
+		if swag.IsZero(m.Pchoice) { // not required
+			return nil
+		}
+
 		if err := m.Pchoice.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pchoice")
@@ -682,6 +732,11 @@ func (m *V1HpParams) contextValidatePchoice(ctx context.Context, formats strfmt.
 func (m *V1HpParams) contextValidateQlognormal(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Qlognormal != nil {
+
+		if swag.IsZero(m.Qlognormal) { // not required
+			return nil
+		}
+
 		if err := m.Qlognormal.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("qlognormal")
@@ -698,6 +753,11 @@ func (m *V1HpParams) contextValidateQlognormal(ctx context.Context, formats strf
 func (m *V1HpParams) contextValidateQloguniform(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Qloguniform != nil {
+
+		if swag.IsZero(m.Qloguniform) { // not required
+			return nil
+		}
+
 		if err := m.Qloguniform.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("qloguniform")
@@ -714,6 +774,11 @@ func (m *V1HpParams) contextValidateQloguniform(ctx context.Context, formats str
 func (m *V1HpParams) contextValidateQnormal(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Qnormal != nil {
+
+		if swag.IsZero(m.Qnormal) { // not required
+			return nil
+		}
+
 		if err := m.Qnormal.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("qnormal")
@@ -730,6 +795,11 @@ func (m *V1HpParams) contextValidateQnormal(ctx context.Context, formats strfmt.
 func (m *V1HpParams) contextValidateQuniform(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Quniform != nil {
+
+		if swag.IsZero(m.Quniform) { // not required
+			return nil
+		}
+
 		if err := m.Quniform.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quniform")
@@ -746,6 +816,11 @@ func (m *V1HpParams) contextValidateQuniform(ctx context.Context, formats strfmt
 func (m *V1HpParams) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Range != nil {
+
+		if swag.IsZero(m.Range) { // not required
+			return nil
+		}
+
 		if err := m.Range.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
@@ -762,6 +837,11 @@ func (m *V1HpParams) contextValidateRange(ctx context.Context, formats strfmt.Re
 func (m *V1HpParams) contextValidateUniform(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Uniform != nil {
+
+		if swag.IsZero(m.Uniform) { // not required
+			return nil
+		}
+
 		if err := m.Uniform.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uniform")

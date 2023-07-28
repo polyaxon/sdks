@@ -19,7 +19,6 @@ import ProtobufAny from './model/ProtobufAny';
 import ProtobufNullValue from './model/ProtobufNullValue';
 import RuntimeError from './model/RuntimeError';
 import SearchView from './model/SearchView';
-import SparkJobDeployMode from './model/SparkJobDeployMode';
 import V1Activity from './model/V1Activity';
 import V1Agent from './model/V1Agent';
 import V1AgentStateResponse from './model/V1AgentStateResponse';
@@ -208,9 +207,6 @@ import V1SectionSpec from './model/V1SectionSpec';
 import V1Service from './model/V1Service';
 import V1ServiceAccount from './model/V1ServiceAccount';
 import V1SettingsCatalog from './model/V1SettingsCatalog';
-import V1SparkJob from './model/V1SparkJob';
-import V1SparkJobType from './model/V1SparkJobType';
-import V1SparkReplica from './model/V1SparkReplica';
 import V1Stage from './model/V1Stage';
 import V1StageCondition from './model/V1StageCondition';
 import V1Stages from './model/V1Stages';
@@ -333,12 +329,6 @@ export {
      * @property {module:model/SearchView}
      */
     SearchView,
-
-    /**
-     * The SparkJobDeployMode model constructor.
-     * @property {module:model/SparkJobDeployMode}
-     */
-    SparkJobDeployMode,
 
     /**
      * The V1Activity model constructor.
@@ -1467,24 +1457,6 @@ export {
      * @property {module:model/V1SettingsCatalog}
      */
     V1SettingsCatalog,
-
-    /**
-     * The V1SparkJob model constructor.
-     * @property {module:model/V1SparkJob}
-     */
-    V1SparkJob,
-
-    /**
-     * The V1SparkJobType model constructor.
-     * @property {module:model/V1SparkJobType}
-     */
-    V1SparkJobType,
-
-    /**
-     * The V1SparkReplica model constructor.
-     * @property {module:model/V1SparkReplica}
-     */
-    V1SparkReplica,
 
     /**
      * The V1Stage model constructor.

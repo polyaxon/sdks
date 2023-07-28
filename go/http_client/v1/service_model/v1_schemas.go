@@ -762,6 +762,11 @@ func (m *V1Schemas) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *V1Schemas) contextValidateArtifacs(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Artifacs != nil {
+
+		if swag.IsZero(m.Artifacs) { // not required
+			return nil
+		}
+
 		if err := m.Artifacs.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("artifacs")
@@ -778,6 +783,11 @@ func (m *V1Schemas) contextValidateArtifacs(ctx context.Context, formats strfmt.
 func (m *V1Schemas) contextValidateArtifactsMount(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ArtifactsMount != nil {
+
+		if swag.IsZero(m.ArtifactsMount) { // not required
+			return nil
+		}
+
 		if err := m.ArtifactsMount.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("artifactsMount")
@@ -794,6 +804,11 @@ func (m *V1Schemas) contextValidateArtifactsMount(ctx context.Context, formats s
 func (m *V1Schemas) contextValidateAuth(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Auth != nil {
+
+		if swag.IsZero(m.Auth) { // not required
+			return nil
+		}
+
 		if err := m.Auth.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("auth")
@@ -810,6 +825,11 @@ func (m *V1Schemas) contextValidateAuth(ctx context.Context, formats strfmt.Regi
 func (m *V1Schemas) contextValidateCompiledOperation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CompiledOperation != nil {
+
+		if swag.IsZero(m.CompiledOperation) { // not required
+			return nil
+		}
+
 		if err := m.CompiledOperation.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("compiledOperation")
@@ -826,6 +846,11 @@ func (m *V1Schemas) contextValidateCompiledOperation(ctx context.Context, format
 func (m *V1Schemas) contextValidateConnection(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Connection != nil {
+
+		if swag.IsZero(m.Connection) { // not required
+			return nil
+		}
+
 		if err := m.Connection.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connection")
@@ -842,6 +867,11 @@ func (m *V1Schemas) contextValidateConnection(ctx context.Context, formats strfm
 func (m *V1Schemas) contextValidateConnectionSchema(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ConnectionSchema != nil {
+
+		if swag.IsZero(m.ConnectionSchema) { // not required
+			return nil
+		}
+
 		if err := m.ConnectionSchema.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connectionSchema")
@@ -858,6 +888,11 @@ func (m *V1Schemas) contextValidateConnectionSchema(ctx context.Context, formats
 func (m *V1Schemas) contextValidateEarlyStopping(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EarlyStopping != nil {
+
+		if swag.IsZero(m.EarlyStopping) { // not required
+			return nil
+		}
+
 		if err := m.EarlyStopping.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("earlyStopping")
@@ -874,6 +909,11 @@ func (m *V1Schemas) contextValidateEarlyStopping(ctx context.Context, formats st
 func (m *V1Schemas) contextValidateEvent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Event != nil {
+
+		if swag.IsZero(m.Event) { // not required
+			return nil
+		}
+
 		if err := m.Event.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("event")
@@ -890,6 +930,11 @@ func (m *V1Schemas) contextValidateEvent(ctx context.Context, formats strfmt.Reg
 func (m *V1Schemas) contextValidateEventType(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.EventType != nil {
+
+		if swag.IsZero(m.EventType) { // not required
+			return nil
+		}
+
 		if err := m.EventType.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("eventType")
@@ -906,6 +951,11 @@ func (m *V1Schemas) contextValidateEventType(ctx context.Context, formats strfmt
 func (m *V1Schemas) contextValidateGcs(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Gcs != nil {
+
+		if swag.IsZero(m.Gcs) { // not required
+			return nil
+		}
+
 		if err := m.Gcs.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("gcs")
@@ -922,6 +972,11 @@ func (m *V1Schemas) contextValidateGcs(ctx context.Context, formats strfmt.Regis
 func (m *V1Schemas) contextValidateHpParams(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.HpParams != nil {
+
+		if swag.IsZero(m.HpParams) { // not required
+			return nil
+		}
+
 		if err := m.HpParams.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("hpParams")
@@ -938,6 +993,11 @@ func (m *V1Schemas) contextValidateHpParams(ctx context.Context, formats strfmt.
 func (m *V1Schemas) contextValidateMatrix(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Matrix != nil {
+
+		if swag.IsZero(m.Matrix) { // not required
+			return nil
+		}
+
 		if err := m.Matrix.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("matrix")
@@ -954,6 +1014,11 @@ func (m *V1Schemas) contextValidateMatrix(ctx context.Context, formats strfmt.Re
 func (m *V1Schemas) contextValidateMatrixKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.MatrixKind != nil {
+
+		if swag.IsZero(m.MatrixKind) { // not required
+			return nil
+		}
+
 		if err := m.MatrixKind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("matrixKind")
@@ -970,6 +1035,11 @@ func (m *V1Schemas) contextValidateMatrixKind(ctx context.Context, formats strfm
 func (m *V1Schemas) contextValidateOperation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Operation != nil {
+
+		if swag.IsZero(m.Operation) { // not required
+			return nil
+		}
+
 		if err := m.Operation.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("operation")
@@ -986,6 +1056,11 @@ func (m *V1Schemas) contextValidateOperation(ctx context.Context, formats strfmt
 func (m *V1Schemas) contextValidatePolyaxonInitContainer(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PolyaxonInitContainer != nil {
+
+		if swag.IsZero(m.PolyaxonInitContainer) { // not required
+			return nil
+		}
+
 		if err := m.PolyaxonInitContainer.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("polyaxonInitContainer")
@@ -1002,6 +1077,11 @@ func (m *V1Schemas) contextValidatePolyaxonInitContainer(ctx context.Context, fo
 func (m *V1Schemas) contextValidatePolyaxonSidecarContainer(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PolyaxonSidecarContainer != nil {
+
+		if swag.IsZero(m.PolyaxonSidecarContainer) { // not required
+			return nil
+		}
+
 		if err := m.PolyaxonSidecarContainer.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("polyaxonSidecarContainer")
@@ -1018,6 +1098,11 @@ func (m *V1Schemas) contextValidatePolyaxonSidecarContainer(ctx context.Context,
 func (m *V1Schemas) contextValidateReference(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Reference != nil {
+
+		if swag.IsZero(m.Reference) { // not required
+			return nil
+		}
+
 		if err := m.Reference.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reference")
@@ -1034,6 +1119,11 @@ func (m *V1Schemas) contextValidateReference(ctx context.Context, formats strfmt
 func (m *V1Schemas) contextValidateResource(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Resource != nil {
+
+		if swag.IsZero(m.Resource) { // not required
+			return nil
+		}
+
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
@@ -1050,6 +1140,11 @@ func (m *V1Schemas) contextValidateResource(ctx context.Context, formats strfmt.
 func (m *V1Schemas) contextValidateRun(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Run != nil {
+
+		if swag.IsZero(m.Run) { // not required
+			return nil
+		}
+
 		if err := m.Run.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("run")
@@ -1066,6 +1161,11 @@ func (m *V1Schemas) contextValidateRun(ctx context.Context, formats strfmt.Regis
 func (m *V1Schemas) contextValidateS3(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.S3 != nil {
+
+		if swag.IsZero(m.S3) { // not required
+			return nil
+		}
+
 		if err := m.S3.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("s3")
@@ -1082,6 +1182,11 @@ func (m *V1Schemas) contextValidateS3(ctx context.Context, formats strfmt.Regist
 func (m *V1Schemas) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Schedule != nil {
+
+		if swag.IsZero(m.Schedule) { // not required
+			return nil
+		}
+
 		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
@@ -1098,6 +1203,11 @@ func (m *V1Schemas) contextValidateSchedule(ctx context.Context, formats strfmt.
 func (m *V1Schemas) contextValidateScheduleKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ScheduleKind != nil {
+
+		if swag.IsZero(m.ScheduleKind) { // not required
+			return nil
+		}
+
 		if err := m.ScheduleKind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduleKind")
@@ -1114,6 +1224,11 @@ func (m *V1Schemas) contextValidateScheduleKind(ctx context.Context, formats str
 func (m *V1Schemas) contextValidateURI(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.URI != nil {
+
+		if swag.IsZero(m.URI) { // not required
+			return nil
+		}
+
 		if err := m.URI.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uri")
@@ -1130,6 +1245,11 @@ func (m *V1Schemas) contextValidateURI(ctx context.Context, formats strfmt.Regis
 func (m *V1Schemas) contextValidateWasb(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Wasb != nil {
+
+		if swag.IsZero(m.Wasb) { // not required
+			return nil
+		}
+
 		if err := m.Wasb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wasb")

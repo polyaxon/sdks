@@ -517,6 +517,11 @@ func (m *V1Run) ContextValidate(ctx context.Context, formats strfmt.Registry) er
 func (m *V1Run) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -533,6 +538,11 @@ func (m *V1Run) contextValidateKind(ctx context.Context, formats strfmt.Registry
 func (m *V1Run) contextValidateManagedBy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ManagedBy != nil {
+
+		if swag.IsZero(m.ManagedBy) { // not required
+			return nil
+		}
+
 		if err := m.ManagedBy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managed_by")
@@ -549,6 +559,11 @@ func (m *V1Run) contextValidateManagedBy(ctx context.Context, formats strfmt.Reg
 func (m *V1Run) contextValidateOriginal(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Original != nil {
+
+		if swag.IsZero(m.Original) { // not required
+			return nil
+		}
+
 		if err := m.Original.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("original")
@@ -565,6 +580,11 @@ func (m *V1Run) contextValidateOriginal(ctx context.Context, formats strfmt.Regi
 func (m *V1Run) contextValidatePending(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pending != nil {
+
+		if swag.IsZero(m.Pending) { // not required
+			return nil
+		}
+
 		if err := m.Pending.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pending")
@@ -581,6 +601,11 @@ func (m *V1Run) contextValidatePending(ctx context.Context, formats strfmt.Regis
 func (m *V1Run) contextValidatePipeline(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Pipeline != nil {
+
+		if swag.IsZero(m.Pipeline) { // not required
+			return nil
+		}
+
 		if err := m.Pipeline.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pipeline")
@@ -597,6 +622,11 @@ func (m *V1Run) contextValidatePipeline(ctx context.Context, formats strfmt.Regi
 func (m *V1Run) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Resources != nil {
+
+		if swag.IsZero(m.Resources) { // not required
+			return nil
+		}
+
 		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resources")
@@ -613,6 +643,11 @@ func (m *V1Run) contextValidateResources(ctx context.Context, formats strfmt.Reg
 func (m *V1Run) contextValidateRuntime(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Runtime != nil {
+
+		if swag.IsZero(m.Runtime) { // not required
+			return nil
+		}
+
 		if err := m.Runtime.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("runtime")
@@ -629,6 +664,11 @@ func (m *V1Run) contextValidateRuntime(ctx context.Context, formats strfmt.Regis
 func (m *V1Run) contextValidateSettings(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Settings != nil {
+
+		if swag.IsZero(m.Settings) { // not required
+			return nil
+		}
+
 		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")
@@ -645,6 +685,11 @@ func (m *V1Run) contextValidateSettings(ctx context.Context, formats strfmt.Regi
 func (m *V1Run) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
@@ -663,6 +708,11 @@ func (m *V1Run) contextValidateStatusConditions(ctx context.Context, formats str
 	for i := 0; i < len(m.StatusConditions); i++ {
 
 		if m.StatusConditions[i] != nil {
+
+			if swag.IsZero(m.StatusConditions[i]) { // not required
+				return nil
+			}
+
 			if err := m.StatusConditions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))

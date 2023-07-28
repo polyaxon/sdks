@@ -168,6 +168,11 @@ func (m *V1MPIJob) ContextValidate(ctx context.Context, formats strfmt.Registry)
 func (m *V1MPIJob) contextValidateCleanPodPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CleanPodPolicy != nil {
+
+		if swag.IsZero(m.CleanPodPolicy) { // not required
+			return nil
+		}
+
 		if err := m.CleanPodPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cleanPodPolicy")
@@ -184,6 +189,11 @@ func (m *V1MPIJob) contextValidateCleanPodPolicy(ctx context.Context, formats st
 func (m *V1MPIJob) contextValidateLauncher(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Launcher != nil {
+
+		if swag.IsZero(m.Launcher) { // not required
+			return nil
+		}
+
 		if err := m.Launcher.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("launcher")
@@ -200,6 +210,11 @@ func (m *V1MPIJob) contextValidateLauncher(ctx context.Context, formats strfmt.R
 func (m *V1MPIJob) contextValidateSchedulingPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SchedulingPolicy != nil {
+
+		if swag.IsZero(m.SchedulingPolicy) { // not required
+			return nil
+		}
+
 		if err := m.SchedulingPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedulingPolicy")
@@ -216,6 +231,11 @@ func (m *V1MPIJob) contextValidateSchedulingPolicy(ctx context.Context, formats 
 func (m *V1MPIJob) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Worker != nil {
+
+		if swag.IsZero(m.Worker) { // not required
+			return nil
+		}
+
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("worker")

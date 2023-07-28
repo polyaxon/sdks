@@ -135,6 +135,11 @@ func (m *V1DaskJob) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *V1DaskJob) contextValidateJob(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Job != nil {
+
+		if swag.IsZero(m.Job) { // not required
+			return nil
+		}
+
 		if err := m.Job.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("job")
@@ -151,6 +156,11 @@ func (m *V1DaskJob) contextValidateJob(ctx context.Context, formats strfmt.Regis
 func (m *V1DaskJob) contextValidateScheduler(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Scheduler != nil {
+
+		if swag.IsZero(m.Scheduler) { // not required
+			return nil
+		}
+
 		if err := m.Scheduler.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduler")
@@ -167,6 +177,11 @@ func (m *V1DaskJob) contextValidateScheduler(ctx context.Context, formats strfmt
 func (m *V1DaskJob) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Worker != nil {
+
+		if swag.IsZero(m.Worker) { // not required
+			return nil
+		}
+
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("worker")

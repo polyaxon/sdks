@@ -16817,15 +16817,6 @@
       "description": "- any: Any view\n - runs: Runs view\n - selection: Selection view\n - analytics: Analytics view\n - components: Components view\n - models: Models view\n - artifacts: Artifacts view\n - projects: Projects view",
       "title": "Search view"
     },
-    "SparkJobDeployMode": {
-      "type": "string",
-      "enum": [
-        "cluster",
-        "client",
-        "in_cluster_client"
-      ],
-      "default": "cluster"
-    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -17519,7 +17510,7 @@
         },
         "run": {
           "type": "object",
-          "title": "Run definition, should be one of run composition: Container/Spark/Ray/Dask/Kubeflow/Dask/Dag"
+          "title": "Run definition, should be one of run composition: Container/Ray/Dask/Kubeflow/Dask/Dag"
         }
       },
       "title": "CompiledOperation specification"
@@ -17601,7 +17592,7 @@
         },
         "run": {
           "type": "object",
-          "title": "Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag"
+          "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag"
         },
         "template": {
           "$ref": "#/definitions/v1Template",
@@ -20784,7 +20775,7 @@
         },
         "runPatch": {
           "type": "object",
-          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag"
+          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Ray/Kubeflow/Dask/Dag"
         },
         "patchStrategy": {
           "$ref": "#/definitions/v1PatchStrategy",
@@ -22114,25 +22105,24 @@
         "job",
         "service",
         "dag",
-        "sparkjob",
         "daskjob",
         "rayjob",
         "mpijob",
         "tfjob",
         "pytorchjob",
-        "paddlejob",
         "mxjob",
         "xgbjob",
+        "paddlejob",
         "matrix",
         "schedule",
         "tuner",
         "watchdog",
         "notifier",
-        "cleaner",
-        "builder"
+        "builder",
+        "cleaner"
       ],
       "default": "job",
-      "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, spark, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build"
+      "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build"
     },
     "v1RunPending": {
       "type": "string",
@@ -22224,9 +22214,6 @@
         },
         "daskJob": {
           "$ref": "#/definitions/v1DaskJob"
-        },
-        "sparkJob": {
-          "$ref": "#/definitions/v1SparkJob"
         },
         "rayJob": {
           "$ref": "#/definitions/v1RayJob"
@@ -22703,135 +22690,6 @@
         }
       },
       "title": "Settings catalog specification"
-    },
-    "v1SparkJob": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "title": "Kind of runtime, should be equal to \"sparkjob\"",
-          "default": "sparkjob"
-        },
-        "connections": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional connections section"
-        },
-        "volumes": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1Volume"
-          },
-          "description": "Volumes is a list of volumes that can be mounted."
-        },
-        "type": {
-          "$ref": "#/definitions/v1SparkJobType",
-          "description": "Type tells the type of the Spark application."
-        },
-        "sparkVersion": {
-          "type": "string",
-          "description": "Spark version is the version of Spark the application uses."
-        },
-        "pythonVersion": {
-          "type": "string",
-          "description": "Spark version is the version of Spark the application uses."
-        },
-        "deployMode": {
-          "$ref": "#/definitions/SparkJobDeployMode",
-          "description": "Mode is the deployment mode of the Spark application."
-        },
-        "mainClass": {
-          "type": "string",
-          "description": "MainClass is the fully-qualified main class of the Spark application.\nThis only applies to Java/Scala Spark applications."
-        },
-        "mainApplicationFile": {
-          "type": "string",
-          "description": "MainFile is the path to a bundled JAR, Python, or R file of the application."
-        },
-        "arguments": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Arguments is a list of arguments to be passed to the application."
-        },
-        "hadoopConf": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "HadoopConf carries user-specified Hadoop configuration properties as they would use the  the \"--conf\" option\nin spark-submit.  The SparkApplication controller automatically adds prefix \"spark.hadoop.\" to Hadoop\nconfiguration properties."
-        },
-        "sparkConf": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "HadoopConf carries user-specified Hadoop configuration properties as they would use the  the \"--conf\" option\nin spark-submit.  The SparkApplication controller automatically adds prefix \"spark.hadoop.\" to Hadoop\nconfiguration properties."
-        },
-        "sparkConfigMap": {
-          "type": "string",
-          "description": "SparkConfigMap carries the name of the ConfigMap containing Spark configuration files such as log4j.properties.\nThe controller will add environment variable SPARK_CONF_DIR to the path where the ConfigMap is mounted to."
-        },
-        "hadoopConfigMap": {
-          "type": "string",
-          "description": "HadoopConfigMap carries the name of the ConfigMap containing Hadoop configuration files such as core-site.xml.\nThe controller will add environment variable HADOOP_CONF_DIR to the path where the ConfigMap is mounted to."
-        },
-        "executor": {
-          "$ref": "#/definitions/v1SparkReplica",
-          "title": "Optional spark executor definition"
-        },
-        "driver": {
-          "$ref": "#/definitions/v1SparkReplica",
-          "title": "Optional spark driver definition"
-        }
-      },
-      "title": "Spark specification"
-    },
-    "v1SparkJobType": {
-      "type": "string",
-      "enum": [
-        "java",
-        "scala",
-        "python",
-        "r"
-      ],
-      "default": "java"
-    },
-    "v1SparkReplica": {
-      "type": "object",
-      "properties": {
-        "replicas": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Number of replicas"
-        },
-        "environment": {
-          "$ref": "#/definitions/v1Environment",
-          "title": "Optional environment section"
-        },
-        "init": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1Init"
-          },
-          "title": "Optional init connections section"
-        },
-        "sidecars": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1Container"
-          },
-          "title": "Optional sidecars section"
-        },
-        "container": {
-          "$ref": "#/definitions/v1Container",
-          "title": "Optional container to run"
-        }
-      },
-      "title": "Spark replica definition"
     },
     "v1Stage": {
       "type": "object",

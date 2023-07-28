@@ -315,6 +315,11 @@ func (m *V1MXJob) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *V1MXJob) contextValidateCleanPodPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CleanPodPolicy != nil {
+
+		if swag.IsZero(m.CleanPodPolicy) { // not required
+			return nil
+		}
+
 		if err := m.CleanPodPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cleanPodPolicy")
@@ -331,6 +336,11 @@ func (m *V1MXJob) contextValidateCleanPodPolicy(ctx context.Context, formats str
 func (m *V1MXJob) contextValidateMode(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Mode != nil {
+
+		if swag.IsZero(m.Mode) { // not required
+			return nil
+		}
+
 		if err := m.Mode.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mode")
@@ -347,6 +357,11 @@ func (m *V1MXJob) contextValidateMode(ctx context.Context, formats strfmt.Regist
 func (m *V1MXJob) contextValidateScheduler(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Scheduler != nil {
+
+		if swag.IsZero(m.Scheduler) { // not required
+			return nil
+		}
+
 		if err := m.Scheduler.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduler")
@@ -363,6 +378,11 @@ func (m *V1MXJob) contextValidateScheduler(ctx context.Context, formats strfmt.R
 func (m *V1MXJob) contextValidateSchedulingPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SchedulingPolicy != nil {
+
+		if swag.IsZero(m.SchedulingPolicy) { // not required
+			return nil
+		}
+
 		if err := m.SchedulingPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedulingPolicy")
@@ -379,6 +399,11 @@ func (m *V1MXJob) contextValidateSchedulingPolicy(ctx context.Context, formats s
 func (m *V1MXJob) contextValidateServer(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Server != nil {
+
+		if swag.IsZero(m.Server) { // not required
+			return nil
+		}
+
 		if err := m.Server.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("server")
@@ -395,6 +420,11 @@ func (m *V1MXJob) contextValidateServer(ctx context.Context, formats strfmt.Regi
 func (m *V1MXJob) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
+
+		if swag.IsZero(m.Tuner) { // not required
+			return nil
+		}
+
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner")
@@ -411,6 +441,11 @@ func (m *V1MXJob) contextValidateTuner(ctx context.Context, formats strfmt.Regis
 func (m *V1MXJob) contextValidateTunerServer(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TunerServer != nil {
+
+		if swag.IsZero(m.TunerServer) { // not required
+			return nil
+		}
+
 		if err := m.TunerServer.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner_server")
@@ -427,6 +462,11 @@ func (m *V1MXJob) contextValidateTunerServer(ctx context.Context, formats strfmt
 func (m *V1MXJob) contextValidateTunerTracker(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.TunerTracker != nil {
+
+		if swag.IsZero(m.TunerTracker) { // not required
+			return nil
+		}
+
 		if err := m.TunerTracker.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner_tracker")
@@ -443,6 +483,11 @@ func (m *V1MXJob) contextValidateTunerTracker(ctx context.Context, formats strfm
 func (m *V1MXJob) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Worker != nil {
+
+		if swag.IsZero(m.Worker) { // not required
+			return nil
+		}
+
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("worker")

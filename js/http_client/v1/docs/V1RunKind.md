@@ -9,8 +9,6 @@
 
 * `dag` (value: `"dag"`)
 
-* `sparkjob` (value: `"sparkjob"`)
-
 * `daskjob` (value: `"daskjob"`)
 
 * `rayjob` (value: `"rayjob"`)
@@ -21,11 +19,11 @@
 
 * `pytorchjob` (value: `"pytorchjob"`)
 
-* `paddlejob` (value: `"paddlejob"`)
-
 * `mxjob` (value: `"mxjob"`)
 
 * `xgbjob` (value: `"xgbjob"`)
+
+* `paddlejob` (value: `"paddlejob"`)
 
 * `matrix` (value: `"matrix"`)
 
@@ -37,8 +35,8 @@
 
 * `notifier` (value: `"notifier"`)
 
-* `cleaner` (value: `"cleaner"`)
-
 * `builder` (value: `"builder"`)
+
+* `cleaner` (value: `"cleaner"`)
 
 

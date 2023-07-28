@@ -156,6 +156,11 @@ func (m *V1Hyperband) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *V1Hyperband) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metric != nil {
+
+		if swag.IsZero(m.Metric) { // not required
+			return nil
+		}
+
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
@@ -172,6 +177,11 @@ func (m *V1Hyperband) contextValidateMetric(ctx context.Context, formats strfmt.
 func (m *V1Hyperband) contextValidateResource(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Resource != nil {
+
+		if swag.IsZero(m.Resource) { // not required
+			return nil
+		}
+
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resource")
@@ -188,6 +198,11 @@ func (m *V1Hyperband) contextValidateResource(ctx context.Context, formats strfm
 func (m *V1Hyperband) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
+
+		if swag.IsZero(m.Tuner) { // not required
+			return nil
+		}
+
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner")

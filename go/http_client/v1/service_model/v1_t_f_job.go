@@ -228,6 +228,11 @@ func (m *V1TFJob) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *V1TFJob) contextValidateChief(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Chief != nil {
+
+		if swag.IsZero(m.Chief) { // not required
+			return nil
+		}
+
 		if err := m.Chief.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("chief")
@@ -244,6 +249,11 @@ func (m *V1TFJob) contextValidateChief(ctx context.Context, formats strfmt.Regis
 func (m *V1TFJob) contextValidateCleanPodPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CleanPodPolicy != nil {
+
+		if swag.IsZero(m.CleanPodPolicy) { // not required
+			return nil
+		}
+
 		if err := m.CleanPodPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cleanPodPolicy")
@@ -260,6 +270,11 @@ func (m *V1TFJob) contextValidateCleanPodPolicy(ctx context.Context, formats str
 func (m *V1TFJob) contextValidateEvaluator(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Evaluator != nil {
+
+		if swag.IsZero(m.Evaluator) { // not required
+			return nil
+		}
+
 		if err := m.Evaluator.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("evaluator")
@@ -276,6 +291,11 @@ func (m *V1TFJob) contextValidateEvaluator(ctx context.Context, formats strfmt.R
 func (m *V1TFJob) contextValidatePs(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Ps != nil {
+
+		if swag.IsZero(m.Ps) { // not required
+			return nil
+		}
+
 		if err := m.Ps.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ps")
@@ -292,6 +312,11 @@ func (m *V1TFJob) contextValidatePs(ctx context.Context, formats strfmt.Registry
 func (m *V1TFJob) contextValidateSchedulingPolicy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.SchedulingPolicy != nil {
+
+		if swag.IsZero(m.SchedulingPolicy) { // not required
+			return nil
+		}
+
 		if err := m.SchedulingPolicy.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedulingPolicy")
@@ -308,6 +333,11 @@ func (m *V1TFJob) contextValidateSchedulingPolicy(ctx context.Context, formats s
 func (m *V1TFJob) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Worker != nil {
+
+		if swag.IsZero(m.Worker) { // not required
+			return nil
+		}
+
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("worker")

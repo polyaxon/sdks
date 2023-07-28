@@ -192,6 +192,11 @@ func (m *V1EarlyStopping) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *V1EarlyStopping) contextValidateDiff(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Diff != nil {
+
+		if swag.IsZero(m.Diff) { // not required
+			return nil
+		}
+
 		if err := m.Diff.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("diff")
@@ -208,6 +213,11 @@ func (m *V1EarlyStopping) contextValidateDiff(ctx context.Context, formats strfm
 func (m *V1EarlyStopping) contextValidateFailure(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Failure != nil {
+
+		if swag.IsZero(m.Failure) { // not required
+			return nil
+		}
+
 		if err := m.Failure.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("failure")
@@ -224,6 +234,11 @@ func (m *V1EarlyStopping) contextValidateFailure(ctx context.Context, formats st
 func (m *V1EarlyStopping) contextValidateMedian(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Median != nil {
+
+		if swag.IsZero(m.Median) { // not required
+			return nil
+		}
+
 		if err := m.Median.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("median")
@@ -240,6 +255,11 @@ func (m *V1EarlyStopping) contextValidateMedian(ctx context.Context, formats str
 func (m *V1EarlyStopping) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metric != nil {
+
+		if swag.IsZero(m.Metric) { // not required
+			return nil
+		}
+
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
@@ -256,6 +276,11 @@ func (m *V1EarlyStopping) contextValidateMetric(ctx context.Context, formats str
 func (m *V1EarlyStopping) contextValidateTruncation(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Truncation != nil {
+
+		if swag.IsZero(m.Truncation) { // not required
+			return nil
+		}
+
 		if err := m.Truncation.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("truncation")

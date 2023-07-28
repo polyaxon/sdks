@@ -161,6 +161,11 @@ func (m *V1Search) ContextValidate(ctx context.Context, formats strfmt.Registry)
 func (m *V1Search) contextValidateSpec(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Spec != nil {
+
+		if swag.IsZero(m.Spec) { // not required
+			return nil
+		}
+
 		if err := m.Spec.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("spec")
@@ -177,6 +182,11 @@ func (m *V1Search) contextValidateSpec(ctx context.Context, formats strfmt.Regis
 func (m *V1Search) contextValidateView(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.View != nil {
+
+		if swag.IsZero(m.View) { // not required
+			return nil
+		}
+
 		if err := m.View.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("view")

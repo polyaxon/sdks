@@ -138,6 +138,11 @@ func (m *V1SearchSpec) ContextValidate(ctx context.Context, formats strfmt.Regis
 func (m *V1SearchSpec) contextValidateAnalytics(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Analytics != nil {
+
+		if swag.IsZero(m.Analytics) { // not required
+			return nil
+		}
+
 		if err := m.Analytics.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("analytics")
@@ -154,6 +159,11 @@ func (m *V1SearchSpec) contextValidateAnalytics(ctx context.Context, formats str
 func (m *V1SearchSpec) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Events != nil {
+
+		if swag.IsZero(m.Events) { // not required
+			return nil
+		}
+
 		if err := m.Events.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("events")

@@ -145,6 +145,11 @@ func (m *V1Plugins) contextValidateNotifications(ctx context.Context, formats st
 	for i := 0; i < len(m.Notifications); i++ {
 
 		if m.Notifications[i] != nil {
+
+			if swag.IsZero(m.Notifications[i]) { // not required
+				return nil
+			}
+
 			if err := m.Notifications[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("notifications" + "." + strconv.Itoa(i))
@@ -163,6 +168,11 @@ func (m *V1Plugins) contextValidateNotifications(ctx context.Context, formats st
 func (m *V1Plugins) contextValidateSidecar(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Sidecar != nil {
+
+		if swag.IsZero(m.Sidecar) { // not required
+			return nil
+		}
+
 		if err := m.Sidecar.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sidecar")

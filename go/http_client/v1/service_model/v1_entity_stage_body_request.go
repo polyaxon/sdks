@@ -84,6 +84,11 @@ func (m *V1EntityStageBodyRequest) ContextValidate(ctx context.Context, formats 
 func (m *V1EntityStageBodyRequest) contextValidateCondition(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Condition != nil {
+
+		if swag.IsZero(m.Condition) { // not required
+			return nil
+		}
+
 		if err := m.Condition.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("condition")

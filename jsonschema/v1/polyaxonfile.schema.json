@@ -72,15 +72,6 @@
       "title": "Search view",
       "type": "string"
     },
-    "SparkJobDeployMode": {
-      "default": "cluster",
-      "enum": [
-        "cluster",
-        "client",
-        "in_cluster_client"
-      ],
-      "type": "string"
-    },
     "io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource": {
       "description": "Represents a Persistent Disk resource in AWS.\n\nAn AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.",
       "properties": {
@@ -4936,13 +4927,10 @@
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1SparkJob"
-            },
-            {
               "$ref": "#/definitions/v1TFJob"
             }
           ],
-          "title": "Run definition, should be one of run composition: Container/Spark/Ray/Dask/Kubeflow/Dask/Dag",
+          "title": "Run definition, should be one of run composition: Container/Ray/Dask/Kubeflow/Dask/Dag",
           "type": "object"
         },
         "schedule": {
@@ -5088,13 +5076,10 @@
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1SparkJob"
-            },
-            {
               "$ref": "#/definitions/v1TFJob"
             }
           ],
-          "title": "Run definition, should be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag",
+          "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag",
           "type": "object"
         },
         "tags": {
@@ -8409,13 +8394,10 @@
               "$ref": "#/definitions/v1Service"
             },
             {
-              "$ref": "#/definitions/v1SparkJob"
-            },
-            {
               "$ref": "#/definitions/v1TFJob"
             }
           ],
-          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Spark/Ray/Kubeflow/Dask/Dag",
+          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Ray/Kubeflow/Dask/Dag",
           "type": "object"
         },
         "schedule": {
@@ -9761,24 +9743,23 @@
         "job",
         "service",
         "dag",
-        "sparkjob",
         "daskjob",
         "rayjob",
         "mpijob",
         "tfjob",
         "pytorchjob",
-        "paddlejob",
         "mxjob",
         "xgbjob",
+        "paddlejob",
         "matrix",
         "schedule",
         "tuner",
         "watchdog",
         "notifier",
-        "cleaner",
-        "builder"
+        "builder",
+        "cleaner"
       ],
-      "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, spark, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
+      "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
       "type": "string"
     },
     "v1RunPending": {
@@ -9867,9 +9848,6 @@
         },
         "service": {
           "$ref": "#/definitions/v1Service"
-        },
-        "sparkJob": {
-          "$ref": "#/definitions/v1SparkJob"
         },
         "tfJob": {
           "$ref": "#/definitions/v1TFJob"
@@ -10349,135 +10327,6 @@
         }
       },
       "title": "Settings catalog specification",
-      "type": "object"
-    },
-    "v1SparkJob": {
-      "properties": {
-        "arguments": {
-          "description": "Arguments is a list of arguments to be passed to the application.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "connections": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Optional connections section",
-          "type": "array"
-        },
-        "deployMode": {
-          "$ref": "#/definitions/SparkJobDeployMode",
-          "description": "Mode is the deployment mode of the Spark application."
-        },
-        "driver": {
-          "$ref": "#/definitions/v1SparkReplica",
-          "title": "Optional spark driver definition"
-        },
-        "executor": {
-          "$ref": "#/definitions/v1SparkReplica",
-          "title": "Optional spark executor definition"
-        },
-        "hadoopConf": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "HadoopConf carries user-specified Hadoop configuration properties as they would use the  the \"--conf\" option\nin spark-submit.  The SparkApplication controller automatically adds prefix \"spark.hadoop.\" to Hadoop\nconfiguration properties.",
-          "type": "object"
-        },
-        "hadoopConfigMap": {
-          "description": "HadoopConfigMap carries the name of the ConfigMap containing Hadoop configuration files such as core-site.xml.\nThe controller will add environment variable HADOOP_CONF_DIR to the path where the ConfigMap is mounted to.",
-          "type": "string"
-        },
-        "kind": {
-          "default": "sparkjob",
-          "title": "Kind of runtime, should be equal to \"sparkjob\"",
-          "type": "string"
-        },
-        "mainApplicationFile": {
-          "description": "MainFile is the path to a bundled JAR, Python, or R file of the application.",
-          "type": "string"
-        },
-        "mainClass": {
-          "description": "MainClass is the fully-qualified main class of the Spark application.\nThis only applies to Java/Scala Spark applications.",
-          "type": "string"
-        },
-        "pythonVersion": {
-          "description": "Spark version is the version of Spark the application uses.",
-          "type": "string"
-        },
-        "sparkConf": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "HadoopConf carries user-specified Hadoop configuration properties as they would use the  the \"--conf\" option\nin spark-submit.  The SparkApplication controller automatically adds prefix \"spark.hadoop.\" to Hadoop\nconfiguration properties.",
-          "type": "object"
-        },
-        "sparkConfigMap": {
-          "description": "SparkConfigMap carries the name of the ConfigMap containing Spark configuration files such as log4j.properties.\nThe controller will add environment variable SPARK_CONF_DIR to the path where the ConfigMap is mounted to.",
-          "type": "string"
-        },
-        "sparkVersion": {
-          "description": "Spark version is the version of Spark the application uses.",
-          "type": "string"
-        },
-        "type": {
-          "$ref": "#/definitions/v1SparkJobType",
-          "description": "Type tells the type of the Spark application."
-        },
-        "volumes": {
-          "description": "Volumes is a list of volumes that can be mounted.",
-          "items": {
-            "$ref": "#/definitions/v1Volume"
-          },
-          "type": "array"
-        }
-      },
-      "title": "Spark specification",
-      "type": "object"
-    },
-    "v1SparkJobType": {
-      "default": "java",
-      "enum": [
-        "java",
-        "scala",
-        "python",
-        "r"
-      ],
-      "type": "string"
-    },
-    "v1SparkReplica": {
-      "properties": {
-        "container": {
-          "$ref": "#/definitions/io.k8s.api.core.v1.Container",
-          "title": "Optional container to run"
-        },
-        "environment": {
-          "$ref": "#/definitions/v1Environment",
-          "title": "Optional environment section"
-        },
-        "init": {
-          "items": {
-            "$ref": "#/definitions/v1Init"
-          },
-          "title": "Optional init connections section",
-          "type": "array"
-        },
-        "replicas": {
-          "format": "int32",
-          "title": "Number of replicas",
-          "type": "integer"
-        },
-        "sidecars": {
-          "items": {
-            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
-          },
-          "title": "Optional sidecars section",
-          "type": "array"
-        }
-      },
-      "title": "Spark replica definition",
       "type": "object"
     },
     "v1Stage": {

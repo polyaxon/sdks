@@ -132,6 +132,11 @@ func (m *V1Schedule) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *V1Schedule) contextValidateCron(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cron != nil {
+
+		if swag.IsZero(m.Cron) { // not required
+			return nil
+		}
+
 		if err := m.Cron.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cron")
@@ -148,6 +153,11 @@ func (m *V1Schedule) contextValidateCron(ctx context.Context, formats strfmt.Reg
 func (m *V1Schedule) contextValidateDatetime(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Datetime != nil {
+
+		if swag.IsZero(m.Datetime) { // not required
+			return nil
+		}
+
 		if err := m.Datetime.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("datetime")
@@ -164,6 +174,11 @@ func (m *V1Schedule) contextValidateDatetime(ctx context.Context, formats strfmt
 func (m *V1Schedule) contextValidateInterval(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Interval != nil {
+
+		if swag.IsZero(m.Interval) { // not required
+			return nil
+		}
+
 		if err := m.Interval.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("interval")

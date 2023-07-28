@@ -139,6 +139,11 @@ func (m *V1Service) ContextValidate(ctx context.Context, formats strfmt.Registry
 func (m *V1Service) contextValidateEnvironment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Environment != nil {
+
+		if swag.IsZero(m.Environment) { // not required
+			return nil
+		}
+
 		if err := m.Environment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("environment")
@@ -157,6 +162,11 @@ func (m *V1Service) contextValidateInit(ctx context.Context, formats strfmt.Regi
 	for i := 0; i < len(m.Init); i++ {
 
 		if m.Init[i] != nil {
+
+			if swag.IsZero(m.Init[i]) { // not required
+				return nil
+			}
+
 			if err := m.Init[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("init" + "." + strconv.Itoa(i))

@@ -16,7 +16,7 @@ import (
 
 // V1RunKind Run kind enum
 // Kinds: job, service, dag, matrix, schedule
-// Runtime kinds: job, service, dag, spark, dask, ray, mpijob, tfjob
+// Runtime kinds: job, service, dag, dask, ray, mpijob, tfjob
 // helper kinds: tuner, watchdog, notifier, cleaner, build
 //
 // swagger:model v1RunKind
@@ -42,9 +42,6 @@ const (
 	// V1RunKindDag captures enum value "dag"
 	V1RunKindDag V1RunKind = "dag"
 
-	// V1RunKindSparkjob captures enum value "sparkjob"
-	V1RunKindSparkjob V1RunKind = "sparkjob"
-
 	// V1RunKindDaskjob captures enum value "daskjob"
 	V1RunKindDaskjob V1RunKind = "daskjob"
 
@@ -60,14 +57,14 @@ const (
 	// V1RunKindPytorchjob captures enum value "pytorchjob"
 	V1RunKindPytorchjob V1RunKind = "pytorchjob"
 
-	// V1RunKindPaddlejob captures enum value "paddlejob"
-	V1RunKindPaddlejob V1RunKind = "paddlejob"
-
 	// V1RunKindMxjob captures enum value "mxjob"
 	V1RunKindMxjob V1RunKind = "mxjob"
 
 	// V1RunKindXgbjob captures enum value "xgbjob"
 	V1RunKindXgbjob V1RunKind = "xgbjob"
+
+	// V1RunKindPaddlejob captures enum value "paddlejob"
+	V1RunKindPaddlejob V1RunKind = "paddlejob"
 
 	// V1RunKindMatrix captures enum value "matrix"
 	V1RunKindMatrix V1RunKind = "matrix"
@@ -84,11 +81,11 @@ const (
 	// V1RunKindNotifier captures enum value "notifier"
 	V1RunKindNotifier V1RunKind = "notifier"
 
-	// V1RunKindCleaner captures enum value "cleaner"
-	V1RunKindCleaner V1RunKind = "cleaner"
-
 	// V1RunKindBuilder captures enum value "builder"
 	V1RunKindBuilder V1RunKind = "builder"
+
+	// V1RunKindCleaner captures enum value "cleaner"
+	V1RunKindCleaner V1RunKind = "cleaner"
 )
 
 // for schema
@@ -96,7 +93,7 @@ var v1RunKindEnum []interface{}
 
 func init() {
 	var res []V1RunKind
-	if err := json.Unmarshal([]byte(`["job","service","dag","sparkjob","daskjob","rayjob","mpijob","tfjob","pytorchjob","paddlejob","mxjob","xgbjob","matrix","schedule","tuner","watchdog","notifier","cleaner","builder"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["job","service","dag","daskjob","rayjob","mpijob","tfjob","pytorchjob","mxjob","xgbjob","paddlejob","matrix","schedule","tuner","watchdog","notifier","builder","cleaner"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

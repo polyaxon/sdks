@@ -125,6 +125,11 @@ func (m *V1RayJob) ContextValidate(ctx context.Context, formats strfmt.Registry)
 func (m *V1RayJob) contextValidateHead(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Head != nil {
+
+		if swag.IsZero(m.Head) { // not required
+			return nil
+		}
+
 		if err := m.Head.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("head")
@@ -143,6 +148,11 @@ func (m *V1RayJob) contextValidateWorkers(ctx context.Context, formats strfmt.Re
 	for i := 0; i < len(m.Workers); i++ {
 
 		if m.Workers[i] != nil {
+
+			if swag.IsZero(m.Workers[i]) { // not required
+				return nil
+			}
+
 			if err := m.Workers[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("workers" + "." + strconv.Itoa(i))

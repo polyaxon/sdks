@@ -21,22 +21,21 @@ export const V1RunKind = {
     Job: 'job',
     Service: 'service',
     Dag: 'dag',
-    Sparkjob: 'sparkjob',
     Daskjob: 'daskjob',
     Rayjob: 'rayjob',
     Mpijob: 'mpijob',
     Tfjob: 'tfjob',
     Pytorchjob: 'pytorchjob',
-    Paddlejob: 'paddlejob',
     Mxjob: 'mxjob',
     Xgbjob: 'xgbjob',
+    Paddlejob: 'paddlejob',
     Matrix: 'matrix',
     Schedule: 'schedule',
     Tuner: 'tuner',
     Watchdog: 'watchdog',
     Notifier: 'notifier',
-    Cleaner: 'cleaner',
-    Builder: 'builder'
+    Builder: 'builder',
+    Cleaner: 'cleaner'
 } as const;
 export type V1RunKind = typeof V1RunKind[keyof typeof V1RunKind];
 

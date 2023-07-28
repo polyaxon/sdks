@@ -153,6 +153,11 @@ func (m *V1Hyperopt) ContextValidate(ctx context.Context, formats strfmt.Registr
 func (m *V1Hyperopt) contextValidateAlgorithm(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Algorithm != nil {
+
+		if swag.IsZero(m.Algorithm) { // not required
+			return nil
+		}
+
 		if err := m.Algorithm.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("algorithm")
@@ -169,6 +174,11 @@ func (m *V1Hyperopt) contextValidateAlgorithm(ctx context.Context, formats strfm
 func (m *V1Hyperopt) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metric != nil {
+
+		if swag.IsZero(m.Metric) { // not required
+			return nil
+		}
+
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
@@ -185,6 +195,11 @@ func (m *V1Hyperopt) contextValidateMetric(ctx context.Context, formats strfmt.R
 func (m *V1Hyperopt) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
+
+		if swag.IsZero(m.Tuner) { // not required
+			return nil
+		}
+
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner")

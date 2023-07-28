@@ -106,6 +106,11 @@ func (m *V1ProjectSettings) contextValidateUserAccesses(ctx context.Context, for
 	for i := 0; i < len(m.UserAccesses); i++ {
 
 		if m.UserAccesses[i] != nil {
+
+			if swag.IsZero(m.UserAccesses[i]) { // not required
+				return nil
+			}
+
 			if err := m.UserAccesses[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("user_accesses" + "." + strconv.Itoa(i))

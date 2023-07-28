@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **xgboost_job** | [**V1XGBoostJob**](V1XGBoostJob.md) |  | [optional] 
 **paddle_job** | [**V1PaddleJob**](V1PaddleJob.md) |  | [optional] 
 **dask_job** | [**V1DaskJob**](V1DaskJob.md) |  | [optional] 
-**spark_job** | [**V1SparkJob**](V1SparkJob.md) |  | [optional] 
 **ray_job** | [**V1RayJob**](V1RayJob.md) |  | [optional] 
 
 ## Example

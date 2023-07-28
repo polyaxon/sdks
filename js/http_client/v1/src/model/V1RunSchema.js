@@ -21,7 +21,6 @@ import V1PaddleJob from './V1PaddleJob';
 import V1PytorchJob from './V1PytorchJob';
 import V1RayJob from './V1RayJob';
 import V1Service from './V1Service';
-import V1SparkJob from './V1SparkJob';
 import V1TFJob from './V1TFJob';
 import V1XGBoostJob from './V1XGBoostJob';
 
@@ -89,9 +88,6 @@ class V1RunSchema {
             if (data.hasOwnProperty('daskJob')) {
                 obj['daskJob'] = V1DaskJob.constructFromObject(data['daskJob']);
             }
-            if (data.hasOwnProperty('sparkJob')) {
-                obj['sparkJob'] = V1SparkJob.constructFromObject(data['sparkJob']);
-            }
             if (data.hasOwnProperty('rayJob')) {
                 obj['rayJob'] = V1RayJob.constructFromObject(data['rayJob']);
             }
@@ -144,10 +140,6 @@ class V1RunSchema {
         // validate the optional field `daskJob`
         if (data['daskJob']) { // data not null
           V1DaskJob.validateJSON(data['daskJob']);
-        }
-        // validate the optional field `sparkJob`
-        if (data['sparkJob']) { // data not null
-          V1SparkJob.validateJSON(data['sparkJob']);
         }
         // validate the optional field `rayJob`
         if (data['rayJob']) { // data not null
@@ -211,11 +203,6 @@ V1RunSchema.prototype['paddleJob'] = undefined;
  * @member {module:model/V1DaskJob} daskJob
  */
 V1RunSchema.prototype['daskJob'] = undefined;
-
-/**
- * @member {module:model/V1SparkJob} sparkJob
- */
-V1RunSchema.prototype['sparkJob'] = undefined;
 
 /**
  * @member {module:model/V1RayJob} rayJob

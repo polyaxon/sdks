@@ -54,7 +54,6 @@ from polyaxon_sdk.models.protobuf_any import ProtobufAny
 from polyaxon_sdk.models.protobuf_null_value import ProtobufNullValue
 from polyaxon_sdk.models.runtime_error import RuntimeError
 from polyaxon_sdk.models.search_view import SearchView
-from polyaxon_sdk.models.spark_job_deploy_mode import SparkJobDeployMode
 from polyaxon_sdk.models.v1_activity import V1Activity
 from polyaxon_sdk.models.v1_agent import V1Agent
 from polyaxon_sdk.models.v1_agent_state_response import V1AgentStateResponse
@@ -243,9 +242,6 @@ from polyaxon_sdk.models.v1_section_spec import V1SectionSpec
 from polyaxon_sdk.models.v1_service import V1Service
 from polyaxon_sdk.models.v1_service_account import V1ServiceAccount
 from polyaxon_sdk.models.v1_settings_catalog import V1SettingsCatalog
-from polyaxon_sdk.models.v1_spark_job import V1SparkJob
-from polyaxon_sdk.models.v1_spark_job_type import V1SparkJobType
-from polyaxon_sdk.models.v1_spark_replica import V1SparkReplica
 from polyaxon_sdk.models.v1_stage import V1Stage
 from polyaxon_sdk.models.v1_stage_condition import V1StageCondition
 from polyaxon_sdk.models.v1_stages import V1Stages

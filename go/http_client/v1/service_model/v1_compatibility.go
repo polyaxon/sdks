@@ -162,6 +162,11 @@ func (m *V1Compatibility) ContextValidate(ctx context.Context, formats strfmt.Re
 func (m *V1Compatibility) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Agent != nil {
+
+		if swag.IsZero(m.Agent) { // not required
+			return nil
+		}
+
 		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
@@ -178,6 +183,11 @@ func (m *V1Compatibility) contextValidateAgent(ctx context.Context, formats strf
 func (m *V1Compatibility) contextValidateCli(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Cli != nil {
+
+		if swag.IsZero(m.Cli) { // not required
+			return nil
+		}
+
 		if err := m.Cli.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cli")
@@ -194,6 +204,11 @@ func (m *V1Compatibility) contextValidateCli(ctx context.Context, formats strfmt
 func (m *V1Compatibility) contextValidatePlatform(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Platform != nil {
+
+		if swag.IsZero(m.Platform) { // not required
+			return nil
+		}
+
 		if err := m.Platform.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("platform")
@@ -210,6 +225,11 @@ func (m *V1Compatibility) contextValidatePlatform(ctx context.Context, formats s
 func (m *V1Compatibility) contextValidateUI(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.UI != nil {
+
+		if swag.IsZero(m.UI) { // not required
+			return nil
+		}
+
 		if err := m.UI.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ui")

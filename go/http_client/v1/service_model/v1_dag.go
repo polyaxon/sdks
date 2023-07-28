@@ -164,6 +164,11 @@ func (m *V1Dag) contextValidateComponents(ctx context.Context, formats strfmt.Re
 	for i := 0; i < len(m.Components); i++ {
 
 		if m.Components[i] != nil {
+
+			if swag.IsZero(m.Components[i]) { // not required
+				return nil
+			}
+
 			if err := m.Components[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("components" + "." + strconv.Itoa(i))
@@ -182,6 +187,11 @@ func (m *V1Dag) contextValidateComponents(ctx context.Context, formats strfmt.Re
 func (m *V1Dag) contextValidateEnvironment(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Environment != nil {
+
+		if swag.IsZero(m.Environment) { // not required
+			return nil
+		}
+
 		if err := m.Environment.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("environment")
@@ -200,6 +210,11 @@ func (m *V1Dag) contextValidateOperations(ctx context.Context, formats strfmt.Re
 	for i := 0; i < len(m.Operations); i++ {
 
 		if m.Operations[i] != nil {
+
+			if swag.IsZero(m.Operations[i]) { // not required
+				return nil
+			}
+
 			if err := m.Operations[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("operations" + "." + strconv.Itoa(i))

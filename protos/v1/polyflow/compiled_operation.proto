@@ -93,6 +93,6 @@ message CompiledOperation {
     // Optional field to assign cost to this Component
     float cost = 25;
 
-    // Run definition, should be one of run composition: Container/Spark/Ray/Dask/Kubeflow/Dask/Dag
+    // Run definition, should be one of run composition: Container/Ray/Dask/Kubeflow/Dask/Dag
     google.protobuf.Struct run = 26;
 }

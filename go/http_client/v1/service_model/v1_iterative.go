@@ -90,6 +90,11 @@ func (m *V1Iterative) ContextValidate(ctx context.Context, formats strfmt.Regist
 func (m *V1Iterative) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
+
+		if swag.IsZero(m.Tuner) { // not required
+			return nil
+		}
+
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner")

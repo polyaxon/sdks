@@ -223,6 +223,11 @@ func (m *V1ProjectVersion) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *V1ProjectVersion) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -239,6 +244,11 @@ func (m *V1ProjectVersion) contextValidateKind(ctx context.Context, formats strf
 func (m *V1ProjectVersion) contextValidateStage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Stage != nil {
+
+		if swag.IsZero(m.Stage) { // not required
+			return nil
+		}
+
 		if err := m.Stage.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("stage")
@@ -257,6 +267,11 @@ func (m *V1ProjectVersion) contextValidateStageConditions(ctx context.Context, f
 	for i := 0; i < len(m.StageConditions); i++ {
 
 		if m.StageConditions[i] != nil {
+
+			if swag.IsZero(m.StageConditions[i]) { // not required
+				return nil
+			}
+
 			if err := m.StageConditions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("stage_conditions" + "." + strconv.Itoa(i))

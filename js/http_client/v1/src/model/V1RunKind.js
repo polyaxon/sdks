@@ -41,13 +41,6 @@ export default class V1RunKind {
 
 
         /**
-         * value: "sparkjob"
-         * @const
-         */
-        "sparkjob" = "sparkjob";
-
-
-        /**
          * value: "daskjob"
          * @const
          */
@@ -83,13 +76,6 @@ export default class V1RunKind {
 
 
         /**
-         * value: "paddlejob"
-         * @const
-         */
-        "paddlejob" = "paddlejob";
-
-
-        /**
          * value: "mxjob"
          * @const
          */
@@ -101,6 +87,13 @@ export default class V1RunKind {
          * @const
          */
         "xgbjob" = "xgbjob";
+
+
+        /**
+         * value: "paddlejob"
+         * @const
+         */
+        "paddlejob" = "paddlejob";
 
 
         /**
@@ -139,17 +132,17 @@ export default class V1RunKind {
 
 
         /**
-         * value: "cleaner"
-         * @const
-         */
-        "cleaner" = "cleaner";
-
-
-        /**
          * value: "builder"
          * @const
          */
         "builder" = "builder";
+
+
+        /**
+         * value: "cleaner"
+         * @const
+         */
+        "cleaner" = "cleaner";
 
 
 

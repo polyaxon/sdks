@@ -150,6 +150,11 @@ func (m *V1ConnectionType) ContextValidate(ctx context.Context, formats strfmt.R
 func (m *V1ConnectionType) contextValidateConfigMap(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.ConfigMap != nil {
+
+		if swag.IsZero(m.ConfigMap) { // not required
+			return nil
+		}
+
 		if err := m.ConfigMap.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("configMap")
@@ -166,6 +171,11 @@ func (m *V1ConnectionType) contextValidateConfigMap(ctx context.Context, formats
 func (m *V1ConnectionType) contextValidateKind(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Kind != nil {
+
+		if swag.IsZero(m.Kind) { // not required
+			return nil
+		}
+
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("kind")
@@ -182,6 +192,11 @@ func (m *V1ConnectionType) contextValidateKind(ctx context.Context, formats strf
 func (m *V1ConnectionType) contextValidateSecret(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Secret != nil {
+
+		if swag.IsZero(m.Secret) { // not required
+			return nil
+		}
+
 		if err := m.Secret.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secret")

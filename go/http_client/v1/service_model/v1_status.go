@@ -116,6 +116,11 @@ func (m *V1Status) ContextValidate(ctx context.Context, formats strfmt.Registry)
 func (m *V1Status) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
@@ -134,6 +139,11 @@ func (m *V1Status) contextValidateStatusConditions(ctx context.Context, formats 
 	for i := 0; i < len(m.StatusConditions); i++ {
 
 		if m.StatusConditions[i] != nil {
+
+			if swag.IsZero(m.StatusConditions[i]) { // not required
+				return nil
+			}
+
 			if err := m.StatusConditions[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))

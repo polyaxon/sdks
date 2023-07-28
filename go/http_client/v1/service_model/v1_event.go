@@ -375,6 +375,11 @@ func (m *V1Event) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *V1Event) contextValidateArtifact(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Artifact != nil {
+
+		if swag.IsZero(m.Artifact) { // not required
+			return nil
+		}
+
 		if err := m.Artifact.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("artifact")
@@ -391,6 +396,11 @@ func (m *V1Event) contextValidateArtifact(ctx context.Context, formats strfmt.Re
 func (m *V1Event) contextValidateAudio(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Audio != nil {
+
+		if swag.IsZero(m.Audio) { // not required
+			return nil
+		}
+
 		if err := m.Audio.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("audio")
@@ -407,6 +417,11 @@ func (m *V1Event) contextValidateAudio(ctx context.Context, formats strfmt.Regis
 func (m *V1Event) contextValidateChart(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Chart != nil {
+
+		if swag.IsZero(m.Chart) { // not required
+			return nil
+		}
+
 		if err := m.Chart.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("chart")
@@ -423,6 +438,11 @@ func (m *V1Event) contextValidateChart(ctx context.Context, formats strfmt.Regis
 func (m *V1Event) contextValidateConfusion(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Confusion != nil {
+
+		if swag.IsZero(m.Confusion) { // not required
+			return nil
+		}
+
 		if err := m.Confusion.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("confusion")
@@ -439,6 +459,11 @@ func (m *V1Event) contextValidateConfusion(ctx context.Context, formats strfmt.R
 func (m *V1Event) contextValidateCurve(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Curve != nil {
+
+		if swag.IsZero(m.Curve) { // not required
+			return nil
+		}
+
 		if err := m.Curve.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("curve")
@@ -455,6 +480,11 @@ func (m *V1Event) contextValidateCurve(ctx context.Context, formats strfmt.Regis
 func (m *V1Event) contextValidateDataframe(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Dataframe != nil {
+
+		if swag.IsZero(m.Dataframe) { // not required
+			return nil
+		}
+
 		if err := m.Dataframe.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dataframe")
@@ -471,6 +501,11 @@ func (m *V1Event) contextValidateDataframe(ctx context.Context, formats strfmt.R
 func (m *V1Event) contextValidateHistogram(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Histogram != nil {
+
+		if swag.IsZero(m.Histogram) { // not required
+			return nil
+		}
+
 		if err := m.Histogram.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("histogram")
@@ -487,6 +522,11 @@ func (m *V1Event) contextValidateHistogram(ctx context.Context, formats strfmt.R
 func (m *V1Event) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Image != nil {
+
+		if swag.IsZero(m.Image) { // not required
+			return nil
+		}
+
 		if err := m.Image.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
@@ -503,6 +543,11 @@ func (m *V1Event) contextValidateImage(ctx context.Context, formats strfmt.Regis
 func (m *V1Event) contextValidateModel(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Model != nil {
+
+		if swag.IsZero(m.Model) { // not required
+			return nil
+		}
+
 		if err := m.Model.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("model")
@@ -519,6 +564,11 @@ func (m *V1Event) contextValidateModel(ctx context.Context, formats strfmt.Regis
 func (m *V1Event) contextValidateVideo(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Video != nil {
+
+		if swag.IsZero(m.Video) { // not required
+			return nil
+		}
+
 		if err := m.Video.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("video")

@@ -28,7 +28,6 @@ import org.openapitools.client.model.V1PaddleJob;
 import org.openapitools.client.model.V1PytorchJob;
 import org.openapitools.client.model.V1RayJob;
 import org.openapitools.client.model.V1Service;
-import org.openapitools.client.model.V1SparkJob;
 import org.openapitools.client.model.V1TFJob;
 import org.openapitools.client.model.V1XGBoostJob;
 import org.junit.jupiter.api.Disabled;
@@ -127,14 +126,6 @@ public class V1RunSchemaTest {
     @Test
     public void daskJobTest() {
         // TODO: test daskJob
-    }
-
-    /**
-     * Test the property 'sparkJob'
-     */
-    @Test
-    public void sparkJobTest() {
-        // TODO: test sparkJob
     }
 
     /**

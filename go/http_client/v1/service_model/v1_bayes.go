@@ -126,6 +126,11 @@ func (m *V1Bayes) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 func (m *V1Bayes) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metric != nil {
+
+		if swag.IsZero(m.Metric) { // not required
+			return nil
+		}
+
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
@@ -142,6 +147,11 @@ func (m *V1Bayes) contextValidateMetric(ctx context.Context, formats strfmt.Regi
 func (m *V1Bayes) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
+
+		if swag.IsZero(m.Tuner) { // not required
+			return nil
+		}
+
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tuner")

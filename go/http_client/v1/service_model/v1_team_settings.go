@@ -156,6 +156,11 @@ func (m *V1TeamSettings) contextValidateHubs(ctx context.Context, formats strfmt
 	for i := 0; i < len(m.Hubs); i++ {
 
 		if m.Hubs[i] != nil {
+
+			if swag.IsZero(m.Hubs[i]) { // not required
+				return nil
+			}
+
 			if err := m.Hubs[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("hubs" + "." + strconv.Itoa(i))
@@ -176,6 +181,11 @@ func (m *V1TeamSettings) contextValidateProjects(ctx context.Context, formats st
 	for i := 0; i < len(m.Projects); i++ {
 
 		if m.Projects[i] != nil {
+
+			if swag.IsZero(m.Projects[i]) { // not required
+				return nil
+			}
+
 			if err := m.Projects[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("projects" + "." + strconv.Itoa(i))
@@ -196,6 +206,11 @@ func (m *V1TeamSettings) contextValidateRegistries(ctx context.Context, formats 
 	for i := 0; i < len(m.Registries); i++ {
 
 		if m.Registries[i] != nil {
+
+			if swag.IsZero(m.Registries[i]) { // not required
+				return nil
+			}
+
 			if err := m.Registries[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("registries" + "." + strconv.Itoa(i))

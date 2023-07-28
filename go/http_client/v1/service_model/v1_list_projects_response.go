@@ -91,6 +91,11 @@ func (m *V1ListProjectsResponse) contextValidateResults(ctx context.Context, for
 	for i := 0; i < len(m.Results); i++ {
 
 		if m.Results[i] != nil {
+
+			if swag.IsZero(m.Results[i]) { // not required
+				return nil
+			}
+
 			if err := m.Results[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("results" + "." + strconv.Itoa(i))

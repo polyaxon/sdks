@@ -3,7 +3,7 @@
 Polyaxon SDKs and REST API specification.
 - API version: 2.0.0-rc28
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -384,7 +384,6 @@ Class | Method | HTTP request | Description
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
  - [RuntimeError](docs/RuntimeError.md)
  - [SearchView](docs/SearchView.md)
- - [SparkJobDeployMode](docs/SparkJobDeployMode.md)
  - [V1Activity](docs/V1Activity.md)
  - [V1Agent](docs/V1Agent.md)
  - [V1AgentStateResponse](docs/V1AgentStateResponse.md)
@@ -573,9 +572,6 @@ Class | Method | HTTP request | Description
  - [V1Service](docs/V1Service.md)
  - [V1ServiceAccount](docs/V1ServiceAccount.md)
  - [V1SettingsCatalog](docs/V1SettingsCatalog.md)
- - [V1SparkJob](docs/V1SparkJob.md)
- - [V1SparkJobType](docs/V1SparkJobType.md)
- - [V1SparkReplica](docs/V1SparkReplica.md)
  - [V1Stage](docs/V1Stage.md)
  - [V1StageCondition](docs/V1StageCondition.md)
  - [V1Stages](docs/V1Stages.md)
