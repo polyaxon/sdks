@@ -22,6 +22,9 @@ type V1SettingsCatalog struct {
 
 	// Uuid
 	UUID string `json:"uuid,omitempty"`
+
+	// Version
+	Version string `json:"version,omitempty"`
 }
 
 // Validate validates this v1 settings catalog

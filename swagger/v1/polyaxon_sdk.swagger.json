@@ -22687,6 +22687,10 @@
         "name": {
           "type": "string",
           "title": "Name"
+        },
+        "version": {
+          "type": "string",
+          "title": "Version"
         }
       },
       "title": "Settings catalog specification"

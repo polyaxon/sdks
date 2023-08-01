@@ -24917,6 +24917,7 @@ components:
               agent:
                 name: name
                 uuid: uuid
+                version: version
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -24924,9 +24925,11 @@ components:
               artifacts_store:
                 name: name
                 uuid: uuid
+                version: version
               queue:
                 name: name
                 uuid: uuid
+                version: version
               artifacts:
               - owner: owner
                 name: name
@@ -25013,6 +25016,7 @@ components:
               agent:
                 name: name
                 uuid: uuid
+                version: version
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -25020,9 +25024,11 @@ components:
               artifacts_store:
                 name: name
                 uuid: uuid
+                version: version
               queue:
                 name: name
                 uuid: uuid
+                version: version
               artifacts:
               - owner: owner
                 name: name
@@ -25110,6 +25116,7 @@ components:
               agent:
                 name: name
                 uuid: uuid
+                version: version
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -25117,9 +25124,11 @@ components:
               artifacts_store:
                 name: name
                 uuid: uuid
+                version: version
               queue:
                 name: name
                 uuid: uuid
+                version: version
               artifacts:
               - owner: owner
                 name: name
@@ -25206,6 +25215,7 @@ components:
               agent:
                 name: name
                 uuid: uuid
+                version: version
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -25213,9 +25223,11 @@ components:
               artifacts_store:
                 name: name
                 uuid: uuid
+                version: version
               queue:
                 name: name
                 uuid: uuid
+                version: version
               artifacts:
               - owner: owner
                 name: name
@@ -25326,6 +25338,7 @@ components:
             agent:
               name: name
               uuid: uuid
+              version: version
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -25333,9 +25346,11 @@ components:
             artifacts_store:
               name: name
               uuid: uuid
+              version: version
             queue:
               name: name
               uuid: uuid
+              version: version
             artifacts:
             - owner: owner
               name: name
@@ -25419,6 +25434,7 @@ components:
             agent:
               name: name
               uuid: uuid
+              version: version
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -25426,9 +25442,11 @@ components:
             artifacts_store:
               name: name
               uuid: uuid
+              version: version
             queue:
               name: name
               uuid: uuid
+              version: version
             artifacts:
             - owner: owner
               name: name
@@ -25759,18 +25777,24 @@ components:
             projects:
             - name: name
               uuid: uuid
+              version: version
             - name: name
               uuid: uuid
+              version: version
             registries:
             - name: name
               uuid: uuid
+              version: version
             - name: name
               uuid: uuid
+              version: version
             hubs:
             - name: name
               uuid: uuid
+              version: version
             - name: name
               uuid: uuid
+              version: version
           model_registries:
           - model_registries
           - model_registries
@@ -25788,18 +25812,24 @@ components:
             projects:
             - name: name
               uuid: uuid
+              version: version
             - name: name
               uuid: uuid
+              version: version
             registries:
             - name: name
               uuid: uuid
+              version: version
             - name: name
               uuid: uuid
+              version: version
             hubs:
             - name: name
               uuid: uuid
+              version: version
             - name: name
               uuid: uuid
+              version: version
           model_registries:
           - model_registries
           - model_registries
@@ -30424,6 +30454,7 @@ components:
           agent:
             name: name
             uuid: uuid
+            version: version
           component: "{}"
           tensorboard: "{}"
           build: "{}"
@@ -30431,9 +30462,11 @@ components:
           artifacts_store:
             name: name
             uuid: uuid
+            version: version
           queue:
             name: name
             uuid: uuid
+            version: version
           artifacts:
           - owner: owner
             name: name
@@ -30709,6 +30742,7 @@ components:
             agent:
               name: name
               uuid: uuid
+              version: version
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -30716,9 +30750,11 @@ components:
             artifacts_store:
               name: name
               uuid: uuid
+              version: version
             queue:
               name: name
               uuid: uuid
+              version: version
             artifacts:
             - owner: owner
               name: name
@@ -30805,6 +30841,7 @@ components:
             agent:
               name: name
               uuid: uuid
+              version: version
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -30812,9 +30849,11 @@ components:
             artifacts_store:
               name: name
               uuid: uuid
+              version: version
             queue:
               name: name
               uuid: uuid
+              version: version
             artifacts:
             - owner: owner
               name: name
@@ -36402,6 +36441,7 @@ components:
         agent:
           name: name
           uuid: uuid
+          version: version
         component: "{}"
         tensorboard: "{}"
         build: "{}"
@@ -36409,9 +36449,11 @@ components:
         artifacts_store:
           name: name
           uuid: uuid
+          version: version
         queue:
           name: name
           uuid: uuid
+          version: version
         artifacts:
         - owner: owner
           name: name
@@ -43458,12 +43500,16 @@ components:
       example:
         name: name
         uuid: uuid
+        version: version
       properties:
         uuid:
           title: Uuid
           type: string
         name:
           title: Name
+          type: string
+        version:
+          title: Version
           type: string
       title: Settings catalog specification
       type: object
@@ -44335,18 +44381,24 @@ components:
           projects:
           - name: name
             uuid: uuid
+            version: version
           - name: name
             uuid: uuid
+            version: version
           registries:
           - name: name
             uuid: uuid
+            version: version
           - name: name
             uuid: uuid
+            version: version
           hubs:
           - name: name
             uuid: uuid
+            version: version
           - name: name
             uuid: uuid
+            version: version
         model_registries:
         - model_registries
         - model_registries
@@ -44430,18 +44482,24 @@ components:
         projects:
         - name: name
           uuid: uuid
+          version: version
         - name: name
           uuid: uuid
+          version: version
         registries:
         - name: name
           uuid: uuid
+          version: version
         - name: name
           uuid: uuid
+          version: version
         hubs:
         - name: name
           uuid: uuid
+          version: version
         - name: name
           uuid: uuid
+          version: version
       properties:
         projects:
           items:

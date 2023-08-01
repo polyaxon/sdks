@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**uuid** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
+|**version** | **String** |  |  [optional] |
 
 
 

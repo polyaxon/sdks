@@ -53,6 +53,9 @@ class V1SettingsCatalog {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('version')) {
+                obj['version'] = ApiClient.convertToType(data['version'], 'String');
+            }
         }
         return obj;
     }
@@ -70,6 +73,10 @@ class V1SettingsCatalog {
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['version'] && !(typeof data['version'] === 'string' || data['version'] instanceof String)) {
+            throw new Error("Expected the field `version` to be a primitive type in the JSON string but got " + data['version']);
         }
 
         return true;
@@ -89,6 +96,11 @@ V1SettingsCatalog.prototype['uuid'] = undefined;
  * @member {String} name
  */
 V1SettingsCatalog.prototype['name'] = undefined;
+
+/**
+ * @member {String} version
+ */
+V1SettingsCatalog.prototype['version'] = undefined;
 
 
 

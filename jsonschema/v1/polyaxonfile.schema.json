@@ -10324,6 +10324,10 @@
         "uuid": {
           "title": "Uuid",
           "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
         }
       },
       "title": "Settings catalog specification",

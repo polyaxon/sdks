@@ -6,5 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
+**version** | **String** |  | [optional] 
 
 

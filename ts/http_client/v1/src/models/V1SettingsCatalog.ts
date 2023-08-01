@@ -31,6 +31,12 @@ export interface V1SettingsCatalog {
      * @memberof V1SettingsCatalog
      */
     name?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof V1SettingsCatalog
+     */
+    version?: string;
 }
 
 /**
@@ -54,6 +60,7 @@ export function V1SettingsCatalogFromJSONTyped(json: any, ignoreDiscriminator: b
 
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
+        'version': !exists(json, 'version') ? undefined : json['version'],
     };
 }
 
@@ -68,6 +75,7 @@ export function V1SettingsCatalogToJSON(value?: V1SettingsCatalog | null): any {
 
         'uuid': value.uuid,
         'name': value.name,
+        'version': value.version,
     };
 }
 

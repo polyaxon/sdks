@@ -496,4 +496,7 @@ message SettingsCatalog {
 
   // Name
   string name = 2;
+
+  // Version
+  string version = 3;
 }

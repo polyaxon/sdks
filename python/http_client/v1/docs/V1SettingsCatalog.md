@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
 
 ## Example
 

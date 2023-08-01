@@ -56,6 +56,10 @@ public class V1SettingsCatalog {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private String version;
+
   public V1SettingsCatalog() {
   }
 
@@ -103,6 +107,28 @@ public class V1SettingsCatalog {
   }
 
 
+  public V1SettingsCatalog version(String version) {
+
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -114,12 +140,13 @@ public class V1SettingsCatalog {
     }
     V1SettingsCatalog v1SettingsCatalog = (V1SettingsCatalog) o;
     return Objects.equals(this.uuid, v1SettingsCatalog.uuid) &&
-        Objects.equals(this.name, v1SettingsCatalog.name);
+        Objects.equals(this.name, v1SettingsCatalog.name) &&
+        Objects.equals(this.version, v1SettingsCatalog.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name);
+    return Objects.hash(uuid, name, version);
   }
 
   @Override
@@ -128,6 +155,7 @@ public class V1SettingsCatalog {
     sb.append("class V1SettingsCatalog {\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -152,6 +180,7 @@ public class V1SettingsCatalog {
     openapiFields = new HashSet<String>();
     openapiFields.add("uuid");
     openapiFields.add("name");
+    openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -182,6 +211,9 @@ public class V1SettingsCatalog {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }
 

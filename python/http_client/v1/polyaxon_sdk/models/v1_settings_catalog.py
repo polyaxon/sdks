@@ -29,7 +29,8 @@ class V1SettingsCatalog(BaseModel):
     """
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
-    __properties = ["uuid", "name"]
+    version: Optional[StrictStr] = None
+    __properties = ["uuid", "name", "version"]
 
     class Config:
         allow_population_by_field_name = True
@@ -67,7 +68,8 @@ class V1SettingsCatalog(BaseModel):
 
         _obj = V1SettingsCatalog.parse_obj({
             "uuid": obj.get("uuid"),
-            "name": obj.get("name")
+            "name": obj.get("name"),
+            "version": obj.get("version")
         })
         return _obj
 

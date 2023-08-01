@@ -53,4 +53,12 @@ public class V1SettingsCatalogTest {
         // TODO: test name
     }
 
+    /**
+     * Test the property 'version'
+     */
+    @Test
+    public void versionTest() {
+        // TODO: test version
+    }
+
 }
