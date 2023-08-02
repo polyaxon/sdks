@@ -1364,7 +1364,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_multi_run_events**
-> V1EventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection)
+> V1EventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
 
 Get multi runs events
 
@@ -1409,10 +1409,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
     connection = 'connection_example' # str | Connection to use. (optional)
+    status = 'created' # str | Optional status. (optional) (default to 'created')
 
     try:
         # Get multi runs events
-        api_response = api_instance.get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection)
+        api_response = api_instance.get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->get_multi_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -1433,6 +1434,7 @@ Name | Type | Description  | Notes
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
  **connection** | **str**| Connection to use. | [optional] 
+ **status** | **str**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 
@@ -2345,7 +2347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_events**
-> V1EventsResponse get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample, connection=connection)
+> V1EventsResponse get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample, connection=connection, status=status)
 
 Get run events
 
@@ -2390,10 +2392,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
     connection = 'connection_example' # str | Connection to use. (optional)
+    status = 'created' # str | Optional status. (optional) (default to 'created')
 
     try:
         # Get run events
-        api_response = api_instance.get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample, connection=connection)
+        api_response = api_instance.get_run_events(namespace, owner, project, uuid, kind, names=names, orient=orient, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->get_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -2414,6 +2417,7 @@ Name | Type | Description  | Notes
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
  **connection** | **str**| Connection to use. | [optional] 
+ **status** | **str**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 
@@ -2697,7 +2701,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_resources**
-> V1EventsResponse get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
+> V1EventsResponse get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
 
 Get run resources events
 
@@ -2741,10 +2745,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
     connection = 'connection_example' # str | Connection to use. (optional)
+    status = 'created' # str | Optional status. (optional) (default to 'created')
 
     try:
         # Get run resources events
-        api_response = api_instance.get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
+        api_response = api_instance.get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->get_run_resources:\n")
         pprint(api_response)
     except Exception as e:
@@ -2764,6 +2769,7 @@ Name | Type | Description  | Notes
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
  **connection** | **str**| Connection to use. | [optional] 
+ **status** | **str**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 
@@ -3316,7 +3322,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inspect_run**
-> object inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
+> object inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
 
 Inspect an active run full conditions
 
@@ -3360,10 +3366,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     force = True # bool | Force query param. (optional)
     sample = 56 # int | Sample query param. (optional)
     connection = 'connection_example' # str | Connection to use. (optional)
+    status = 'created' # str | Optional status. (optional) (default to 'created')
 
     try:
         # Inspect an active run full conditions
-        api_response = api_instance.inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection)
+        api_response = api_instance.inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->inspect_run:\n")
         pprint(api_response)
     except Exception as e:
@@ -3383,6 +3390,7 @@ Name | Type | Description  | Notes
  **force** | **bool**| Force query param. | [optional] 
  **sample** | **int**| Sample query param. | [optional] 
  **connection** | **str**| Connection to use. | [optional] 
+ **status** | **str**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 

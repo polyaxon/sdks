@@ -6,6 +6,8 @@ import "google/protobuf/struct.proto";
 
 option go_package = "v1/polyboard";
 
+import "v1/polyflow/status.proto";
+
 // Artifact kind
 enum ArtifactKind {
     // Model asset/event
@@ -256,6 +258,9 @@ message RunEventRequest {
 
     // Connection to use
     string connection = 10;
+
+    // Optional status
+    Statuses status = 11;
 }
 
 // Request data to get/delete runs' events
@@ -289,6 +294,9 @@ message RunEventsRequest {
 
     // Connection to use
     string connection = 10;
+
+    // Optional status
+    Statuses status = 11;
 }
 
 // Request data to get/delete run resources
@@ -319,6 +327,9 @@ message RunResourcesRequest {
 
     // Connection to use
     string connection = 9;
+
+    // Optional status
+    Statuses status = 10;
 }
 
 // Request data to get run importance correlation

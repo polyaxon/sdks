@@ -106,6 +106,14 @@ type InspectRunParams struct {
 	*/
 	Sample *int32
 
+	/* Status.
+
+	   Optional status.
+
+	   Default: "created"
+	*/
+	Status *string
+
 	/* Tail.
 
 	   Query param flag to tail the values.
@@ -135,7 +143,18 @@ func (o *InspectRunParams) WithDefaults() *InspectRunParams {
 //
 // All values with no default are reset to their zero value.
 func (o *InspectRunParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		statusDefault = string("created")
+	)
+
+	val := InspectRunParams{
+		Status: &statusDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the inspect run params
@@ -248,6 +267,17 @@ func (o *InspectRunParams) SetSample(sample *int32) {
 	o.Sample = sample
 }
 
+// WithStatus adds the status to the inspect run params
+func (o *InspectRunParams) WithStatus(status *string) *InspectRunParams {
+	o.SetStatus(status)
+	return o
+}
+
+// SetStatus adds the status to the inspect run params
+func (o *InspectRunParams) SetStatus(status *string) {
+	o.Status = status
+}
+
 // WithTail adds the tail to the inspect run params
 func (o *InspectRunParams) WithTail(tail *bool) *InspectRunParams {
 	o.SetTail(tail)
@@ -356,6 +386,23 @@ func (o *InspectRunParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		if qSample != "" {
 
 			if err := r.SetQueryParam("sample", qSample); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Status != nil {
+
+		// query param status
+		var qrStatus string
+
+		if o.Status != nil {
+			qrStatus = *o.Status
+		}
+		qStatus := qrStatus
+		if qStatus != "" {
+
+			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}

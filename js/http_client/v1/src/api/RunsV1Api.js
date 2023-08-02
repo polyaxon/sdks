@@ -983,6 +983,7 @@ export default class RunsV1Api {
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
      * @param {String} [connection] Connection to use.
+     * @param {module:model/String} [status = 'created')] Optional status.
      * @param {module:api/RunsV1Api~getMultiRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EventsResponse}
      */
@@ -1018,7 +1019,8 @@ export default class RunsV1Api {
         'orient': opts['orient'],
         'force': opts['force'],
         'sample': opts['sample'],
-        'connection': opts['connection']
+        'connection': opts['connection'],
+        'status': opts['status']
       };
       let headerParams = {
       };
@@ -1709,6 +1711,7 @@ export default class RunsV1Api {
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
      * @param {String} [connection] Connection to use.
+     * @param {module:model/String} [status = 'created')] Optional status.
      * @param {module:api/RunsV1Api~getRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EventsResponse}
      */
@@ -1748,7 +1751,8 @@ export default class RunsV1Api {
         'orient': opts['orient'],
         'force': opts['force'],
         'sample': opts['sample'],
-        'connection': opts['connection']
+        'connection': opts['connection'],
+        'status': opts['status']
       };
       let headerParams = {
       };
@@ -1975,6 +1979,7 @@ export default class RunsV1Api {
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
      * @param {String} [connection] Connection to use.
+     * @param {module:model/String} [status = 'created')] Optional status.
      * @param {module:api/RunsV1Api~getRunResourcesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1EventsResponse}
      */
@@ -2009,7 +2014,8 @@ export default class RunsV1Api {
         'tail': opts['tail'],
         'force': opts['force'],
         'sample': opts['sample'],
-        'connection': opts['connection']
+        'connection': opts['connection'],
+        'status': opts['status']
       };
       let headerParams = {
       };
@@ -2413,6 +2419,7 @@ export default class RunsV1Api {
      * @param {Boolean} [force] Force query param.
      * @param {Number} [sample] Sample query param.
      * @param {String} [connection] Connection to use.
+     * @param {module:model/String} [status = 'created')] Optional status.
      * @param {module:api/RunsV1Api~inspectRunCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -2447,7 +2454,8 @@ export default class RunsV1Api {
         'tail': opts['tail'],
         'force': opts['force'],
         'sample': opts['sample'],
-        'connection': opts['connection']
+        'connection': opts['connection'],
+        'status': opts['status']
       };
       let headerParams = {
       };

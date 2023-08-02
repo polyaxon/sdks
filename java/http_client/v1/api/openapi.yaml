@@ -16786,6 +16786,36 @@ paths:
         schema:
           type: string
         style: form
+      - description: Optional status.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: created
+          enum:
+          - created
+          - resuming
+          - on_schedule
+          - compiled
+          - queued
+          - scheduled
+          - starting
+          - running
+          - processing
+          - stopping
+          - failed
+          - stopped
+          - succeeded
+          - skipped
+          - warning
+          - unschedulable
+          - upstream_failed
+          - retrying
+          - unknown
+          - done
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17377,6 +17407,36 @@ paths:
         schema:
           type: string
         style: form
+      - description: Optional status.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: created
+          enum:
+          - created
+          - resuming
+          - on_schedule
+          - compiled
+          - queued
+          - scheduled
+          - starting
+          - running
+          - processing
+          - stopping
+          - failed
+          - stopped
+          - succeeded
+          - skipped
+          - warning
+          - unschedulable
+          - upstream_failed
+          - retrying
+          - unknown
+          - done
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17567,6 +17627,36 @@ paths:
         name: connection
         required: false
         schema:
+          type: string
+        style: form
+      - description: Optional status.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: created
+          enum:
+          - created
+          - resuming
+          - on_schedule
+          - compiled
+          - queued
+          - scheduled
+          - starting
+          - running
+          - processing
+          - stopping
+          - failed
+          - stopped
+          - succeeded
+          - skipped
+          - warning
+          - unschedulable
+          - upstream_failed
+          - retrying
+          - unknown
+          - done
           type: string
         style: form
       responses:
@@ -17858,6 +17948,36 @@ paths:
         name: connection
         required: false
         schema:
+          type: string
+        style: form
+      - description: Optional status.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: created
+          enum:
+          - created
+          - resuming
+          - on_schedule
+          - compiled
+          - queued
+          - scheduled
+          - starting
+          - running
+          - processing
+          - stopping
+          - failed
+          - stopped
+          - succeeded
+          - skipped
+          - warning
+          - unschedulable
+          - upstream_failed
+          - retrying
+          - unknown
+          - done
           type: string
         style: form
       responses:

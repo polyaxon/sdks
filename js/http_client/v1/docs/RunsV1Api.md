@@ -977,7 +977,8 @@ let opts = {
   'orient': "orient_example", // String | Orient query param.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection to use.
+  'connection': "connection_example", // String | Connection to use.
+  'status': "'created'" // String | Optional status.
 };
 apiInstance.getMultiRunEvents(namespace, owner, project, kind, opts, (error, data, response) => {
   if (error) {
@@ -1003,6 +1004,7 @@ Name | Type | Description  | Notes
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
  **connection** | **String**| Connection to use. | [optional] 
+ **status** | **String**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 
@@ -1672,7 +1674,8 @@ let opts = {
   'orient': "orient_example", // String | Orient query param.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection to use.
+  'connection': "connection_example", // String | Connection to use.
+  'status': "'created'" // String | Optional status.
 };
 apiInstance.getRunEvents(namespace, owner, project, uuid, kind, opts, (error, data, response) => {
   if (error) {
@@ -1698,6 +1701,7 @@ Name | Type | Description  | Notes
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
  **connection** | **String**| Connection to use. | [optional] 
+ **status** | **String**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 
@@ -1915,7 +1919,8 @@ let opts = {
   'tail': true, // Boolean | Query param flag to tail the values.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection to use.
+  'connection': "connection_example", // String | Connection to use.
+  'status': "'created'" // String | Optional status.
 };
 apiInstance.getRunResources(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -1940,6 +1945,7 @@ Name | Type | Description  | Notes
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
  **connection** | **String**| Connection to use. | [optional] 
+ **status** | **String**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 
@@ -2346,7 +2352,8 @@ let opts = {
   'tail': true, // Boolean | Query param flag to tail the values.
   'force': true, // Boolean | Force query param.
   'sample': 56, // Number | Sample query param.
-  'connection': "connection_example" // String | Connection to use.
+  'connection': "connection_example", // String | Connection to use.
+  'status': "'created'" // String | Optional status.
 };
 apiInstance.inspectRun(namespace, owner, project, uuid, opts, (error, data, response) => {
   if (error) {
@@ -2371,6 +2378,7 @@ Name | Type | Description  | Notes
  **force** | **Boolean**| Force query param. | [optional] 
  **sample** | **Number**| Sample query param. | [optional] 
  **connection** | **String**| Connection to use. | [optional] 
+ **status** | **String**| Optional status. | [optional] [default to &#39;created&#39;]
 
 ### Return type
 

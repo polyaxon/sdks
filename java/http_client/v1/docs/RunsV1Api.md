@@ -1282,7 +1282,7 @@ null (empty response body)
 
 <a name="getMultiRunEvents"></a>
 # **getMultiRunEvents**
-> V1EventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection)
+> V1EventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status)
 
 Get multi runs events
 
@@ -1318,8 +1318,9 @@ public class Example {
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
     String connection = "connection_example"; // String | Connection to use.
+    String status = "created"; // String | Optional status.
     try {
-      V1EventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection);
+      V1EventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getMultiRunEvents");
@@ -1346,6 +1347,7 @@ public class Example {
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
 | **connection** | **String**| Connection to use. | [optional] |
+| **status** | **String**| Optional status. | [optional] [default to created] [enum: created, resuming, on_schedule, compiled, queued, scheduled, starting, running, processing, stopping, failed, stopped, succeeded, skipped, warning, unschedulable, upstream_failed, retrying, unknown, done] |
 
 ### Return type
 
@@ -2197,7 +2199,7 @@ public class Example {
 
 <a name="getRunEvents"></a>
 # **getRunEvents**
-> V1EventsResponse getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection)
+> V1EventsResponse getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection, status)
 
 Get run events
 
@@ -2233,8 +2235,9 @@ public class Example {
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
     String connection = "connection_example"; // String | Connection to use.
+    String status = "created"; // String | Optional status.
     try {
-      V1EventsResponse result = apiInstance.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection);
+      V1EventsResponse result = apiInstance.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunEvents");
@@ -2261,6 +2264,7 @@ public class Example {
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
 | **connection** | **String**| Connection to use. | [optional] |
+| **status** | **String**| Optional status. | [optional] [default to created] [enum: created, resuming, on_schedule, compiled, queued, scheduled, starting, running, processing, stopping, failed, stopped, succeeded, skipped, warning, unschedulable, upstream_failed, retrying, unknown, done] |
 
 ### Return type
 
@@ -2525,7 +2529,7 @@ public class Example {
 
 <a name="getRunResources"></a>
 # **getRunResources**
-> V1EventsResponse getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection)
+> V1EventsResponse getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection, status)
 
 Get run resources events
 
@@ -2560,8 +2564,9 @@ public class Example {
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
     String connection = "connection_example"; // String | Connection to use.
+    String status = "created"; // String | Optional status.
     try {
-      V1EventsResponse result = apiInstance.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection);
+      V1EventsResponse result = apiInstance.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunResources");
@@ -2587,6 +2592,7 @@ public class Example {
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
 | **connection** | **String**| Connection to use. | [optional] |
+| **status** | **String**| Optional status. | [optional] [default to created] [enum: created, resuming, on_schedule, compiled, queued, scheduled, starting, running, processing, stopping, failed, stopped, succeeded, skipped, warning, unschedulable, upstream_failed, retrying, unknown, done] |
 
 ### Return type
 
@@ -3102,7 +3108,7 @@ public class Example {
 
 <a name="inspectRun"></a>
 # **inspectRun**
-> Object inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection)
+> Object inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection, status)
 
 Inspect an active run full conditions
 
@@ -3137,8 +3143,9 @@ public class Example {
     Boolean force = true; // Boolean | Force query param.
     Integer sample = 56; // Integer | Sample query param.
     String connection = "connection_example"; // String | Connection to use.
+    String status = "created"; // String | Optional status.
     try {
-      Object result = apiInstance.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection);
+      Object result = apiInstance.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#inspectRun");
@@ -3164,6 +3171,7 @@ public class Example {
 | **force** | **Boolean**| Force query param. | [optional] |
 | **sample** | **Integer**| Sample query param. | [optional] |
 | **connection** | **String**| Connection to use. | [optional] |
+| **status** | **String**| Optional status. | [optional] [default to created] [enum: created, resuming, on_schedule, compiled, queued, scheduled, starting, running, processing, stopping, failed, stopped, succeeded, skipped, warning, unschedulable, upstream_failed, retrying, unknown, done] |
 
 ### Return type
 

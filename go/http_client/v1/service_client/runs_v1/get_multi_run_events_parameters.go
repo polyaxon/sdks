@@ -124,6 +124,14 @@ type GetMultiRunEventsParams struct {
 	*/
 	Sample *int32
 
+	/* Status.
+
+	   Optional status.
+
+	   Default: "created"
+	*/
+	Status *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -141,7 +149,18 @@ func (o *GetMultiRunEventsParams) WithDefaults() *GetMultiRunEventsParams {
 //
 // All values with no default are reset to their zero value.
 func (o *GetMultiRunEventsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		statusDefault = string("created")
+	)
+
+	val := GetMultiRunEventsParams{
+		Status: &statusDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get multi run events params
@@ -287,6 +306,17 @@ func (o *GetMultiRunEventsParams) SetSample(sample *int32) {
 	o.Sample = sample
 }
 
+// WithStatus adds the status to the get multi run events params
+func (o *GetMultiRunEventsParams) WithStatus(status *string) *GetMultiRunEventsParams {
+	o.SetStatus(status)
+	return o
+}
+
+// SetStatus adds the status to the get multi run events params
+func (o *GetMultiRunEventsParams) SetStatus(status *string) {
+	o.Status = status
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetMultiRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -412,6 +442,23 @@ func (o *GetMultiRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		if qSample != "" {
 
 			if err := r.SetQueryParam("sample", qSample); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Status != nil {
+
+		// query param status
+		var qrStatus string
+
+		if o.Status != nil {
+			qrStatus = *o.Status
+		}
+		qStatus := qrStatus
+		if qStatus != "" {
+
+			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}

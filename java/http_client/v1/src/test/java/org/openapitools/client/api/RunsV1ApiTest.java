@@ -307,7 +307,8 @@ public class RunsV1ApiTest {
         Boolean force = null;
         Integer sample = null;
         String connection = null;
-        V1EventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection);
+        String status = null;
+        V1EventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -507,7 +508,8 @@ public class RunsV1ApiTest {
         Boolean force = null;
         Integer sample = null;
         String connection = null;
-        V1EventsResponse response = api.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection);
+        String status = null;
+        V1EventsResponse response = api.getRunEvents(namespace, owner, project, uuid, kind, names, orient, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -576,7 +578,8 @@ public class RunsV1ApiTest {
         Boolean force = null;
         Integer sample = null;
         String connection = null;
-        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection);
+        String status = null;
+        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -700,7 +703,8 @@ public class RunsV1ApiTest {
         Boolean force = null;
         Integer sample = null;
         String connection = null;
-        Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection);
+        String status = null;
+        Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
         // TODO: test validations
     }
 

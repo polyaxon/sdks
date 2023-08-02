@@ -202,6 +202,7 @@ export interface GetMultiRunEventsRequest {
     force?: boolean;
     sample?: number;
     connection?: string;
+    status?: GetMultiRunEventsStatusEnum;
 }
 
 export interface GetRunRequest {
@@ -314,6 +315,7 @@ export interface GetRunEventsRequest {
     force?: boolean;
     sample?: number;
     connection?: string;
+    status?: GetRunEventsStatusEnum;
 }
 
 export interface GetRunImportanceRequest {
@@ -351,6 +353,7 @@ export interface GetRunResourcesRequest {
     force?: boolean;
     sample?: number;
     connection?: string;
+    status?: GetRunResourcesStatusEnum;
 }
 
 export interface GetRunSettingsRequest {
@@ -419,6 +422,7 @@ export interface InspectRunRequest {
     force?: boolean;
     sample?: number;
     connection?: string;
+    status?: InspectRunStatusEnum;
 }
 
 export interface InvalidateRunRequest {
@@ -1360,6 +1364,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['connection'] = requestParameters.connection;
         }
 
+        if (requestParameters.status !== undefined) {
+            queryParameters['status'] = requestParameters.status;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2014,6 +2022,10 @@ export class RunsV1Api extends runtime.BaseAPI {
             queryParameters['connection'] = requestParameters.connection;
         }
 
+        if (requestParameters.status !== undefined) {
+            queryParameters['status'] = requestParameters.status;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.apiKey) {
@@ -2235,6 +2247,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.connection !== undefined) {
             queryParameters['connection'] = requestParameters.connection;
+        }
+
+        if (requestParameters.status !== undefined) {
+            queryParameters['status'] = requestParameters.status;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2633,6 +2649,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.connection !== undefined) {
             queryParameters['connection'] = requestParameters.connection;
+        }
+
+        if (requestParameters.status !== undefined) {
+            queryParameters['status'] = requestParameters.status;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3755,6 +3775,32 @@ export type GetMultiRunEventsKindEnum = typeof GetMultiRunEventsKindEnum[keyof t
 /**
  * @export
  */
+export const GetMultiRunEventsStatusEnum = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type GetMultiRunEventsStatusEnum = typeof GetMultiRunEventsStatusEnum[keyof typeof GetMultiRunEventsStatusEnum];
+/**
+ * @export
+ */
 export const GetRunEventsKindEnum = {
     Model: 'model',
     Audio: 'audio',
@@ -3789,3 +3835,81 @@ export const GetRunEventsKindEnum = {
     Artifact: 'artifact'
 } as const;
 export type GetRunEventsKindEnum = typeof GetRunEventsKindEnum[keyof typeof GetRunEventsKindEnum];
+/**
+ * @export
+ */
+export const GetRunEventsStatusEnum = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type GetRunEventsStatusEnum = typeof GetRunEventsStatusEnum[keyof typeof GetRunEventsStatusEnum];
+/**
+ * @export
+ */
+export const GetRunResourcesStatusEnum = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type GetRunResourcesStatusEnum = typeof GetRunResourcesStatusEnum[keyof typeof GetRunResourcesStatusEnum];
+/**
+ * @export
+ */
+export const InspectRunStatusEnum = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type InspectRunStatusEnum = typeof InspectRunStatusEnum[keyof typeof InspectRunStatusEnum];

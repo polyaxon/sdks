@@ -106,6 +106,14 @@ type GetRunResourcesParams struct {
 	*/
 	Sample *int32
 
+	/* Status.
+
+	   Optional status.
+
+	   Default: "created"
+	*/
+	Status *string
+
 	/* Tail.
 
 	   Query param flag to tail the values.
@@ -135,7 +143,18 @@ func (o *GetRunResourcesParams) WithDefaults() *GetRunResourcesParams {
 //
 // All values with no default are reset to their zero value.
 func (o *GetRunResourcesParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		statusDefault = string("created")
+	)
+
+	val := GetRunResourcesParams{
+		Status: &statusDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get run resources params
@@ -248,6 +267,17 @@ func (o *GetRunResourcesParams) SetSample(sample *int32) {
 	o.Sample = sample
 }
 
+// WithStatus adds the status to the get run resources params
+func (o *GetRunResourcesParams) WithStatus(status *string) *GetRunResourcesParams {
+	o.SetStatus(status)
+	return o
+}
+
+// SetStatus adds the status to the get run resources params
+func (o *GetRunResourcesParams) SetStatus(status *string) {
+	o.Status = status
+}
+
 // WithTail adds the tail to the get run resources params
 func (o *GetRunResourcesParams) WithTail(tail *bool) *GetRunResourcesParams {
 	o.SetTail(tail)
@@ -356,6 +386,23 @@ func (o *GetRunResourcesParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qSample != "" {
 
 			if err := r.SetQueryParam("sample", qSample); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Status != nil {
+
+		// query param status
+		var qrStatus string
+
+		if o.Status != nil {
+			qrStatus = *o.Status
+		}
+		qStatus := qrStatus
+		if qStatus != "" {
+
+			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}

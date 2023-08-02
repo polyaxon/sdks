@@ -15453,6 +15453,36 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "Optional status.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created",
+              "resuming",
+              "on_schedule",
+              "compiled",
+              "queued",
+              "scheduled",
+              "starting",
+              "running",
+              "processing",
+              "stopping",
+              "failed",
+              "stopped",
+              "succeeded",
+              "skipped",
+              "warning",
+              "unschedulable",
+              "upstream_failed",
+              "retrying",
+              "unknown",
+              "done"
+            ],
+            "default": "created"
           }
         ],
         "tags": [
@@ -15988,6 +16018,36 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "Optional status.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created",
+              "resuming",
+              "on_schedule",
+              "compiled",
+              "queued",
+              "scheduled",
+              "starting",
+              "running",
+              "processing",
+              "stopping",
+              "failed",
+              "stopped",
+              "succeeded",
+              "skipped",
+              "warning",
+              "unschedulable",
+              "upstream_failed",
+              "retrying",
+              "unknown",
+              "done"
+            ],
+            "default": "created"
           }
         ],
         "tags": [
@@ -16163,6 +16223,36 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "Optional status.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created",
+              "resuming",
+              "on_schedule",
+              "compiled",
+              "queued",
+              "scheduled",
+              "starting",
+              "running",
+              "processing",
+              "stopping",
+              "failed",
+              "stopped",
+              "succeeded",
+              "skipped",
+              "warning",
+              "unschedulable",
+              "upstream_failed",
+              "retrying",
+              "unknown",
+              "done"
+            ],
+            "default": "created"
           }
         ],
         "tags": [
@@ -16427,6 +16517,36 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "Optional status.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created",
+              "resuming",
+              "on_schedule",
+              "compiled",
+              "queued",
+              "scheduled",
+              "starting",
+              "running",
+              "processing",
+              "stopping",
+              "failed",
+              "stopped",
+              "succeeded",
+              "skipped",
+              "warning",
+              "unschedulable",
+              "upstream_failed",
+              "retrying",
+              "unknown",
+              "done"
+            ],
+            "default": "created"
           }
         ],
         "tags": [

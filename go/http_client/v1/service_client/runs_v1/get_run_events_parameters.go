@@ -118,6 +118,14 @@ type GetRunEventsParams struct {
 	*/
 	Sample *int32
 
+	/* Status.
+
+	   Optional status.
+
+	   Default: "created"
+	*/
+	Status *string
+
 	/* UUID.
 
 	   Uuid identifier of the entity
@@ -141,7 +149,18 @@ func (o *GetRunEventsParams) WithDefaults() *GetRunEventsParams {
 //
 // All values with no default are reset to their zero value.
 func (o *GetRunEventsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		statusDefault = string("created")
+	)
+
+	val := GetRunEventsParams{
+		Status: &statusDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get run events params
@@ -276,6 +295,17 @@ func (o *GetRunEventsParams) SetSample(sample *int32) {
 	o.Sample = sample
 }
 
+// WithStatus adds the status to the get run events params
+func (o *GetRunEventsParams) WithStatus(status *string) *GetRunEventsParams {
+	o.SetStatus(status)
+	return o
+}
+
+// SetStatus adds the status to the get run events params
+func (o *GetRunEventsParams) SetStatus(status *string) {
+	o.Status = status
+}
+
 // WithUUID adds the uuid to the get run events params
 func (o *GetRunEventsParams) WithUUID(uuid string) *GetRunEventsParams {
 	o.SetUUID(uuid)
@@ -395,6 +425,23 @@ func (o *GetRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if qSample != "" {
 
 			if err := r.SetQueryParam("sample", qSample); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Status != nil {
+
+		// query param status
+		var qrStatus string
+
+		if o.Status != nil {
+			qrStatus = *o.Status
+		}
+		qStatus := qrStatus
+		if qStatus != "" {
+
+			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}
