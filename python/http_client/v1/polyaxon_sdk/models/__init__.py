@@ -234,6 +234,7 @@ from polyaxon_sdk.models.v1_user import V1User
 from polyaxon_sdk.models.v1_user_email import V1UserEmail
 from polyaxon_sdk.models.v1_user_singup import V1UserSingup
 from polyaxon_sdk.models.v1_uuids import V1Uuids
+from polyaxon_sdk.models.v1_validation import V1Validation
 from polyaxon_sdk.models.v1_version import V1Version
 from polyaxon_sdk.models.v1_wasb_type import V1WasbType
 from polyaxon_sdk.models.v1_xg_boost_job import V1XGBoostJob

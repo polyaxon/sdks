@@ -15,11 +15,12 @@
 |**isList** | **Boolean** |  |  [optional] |
 |**isFlag** | **Boolean** |  |  [optional] |
 |**argFormat** | **String** |  |  [optional] |
-|**delayValidation** | **Boolean** |  |  [optional] |
-|**options** | **List&lt;Object&gt;** |  |  [optional] |
 |**connection** | **String** |  |  [optional] |
 |**toInit** | **Boolean** |  |  [optional] |
 |**toEnv** | **String** |  |  [optional] |
+|**validation** | [**V1Validation**](V1Validation.md) |  |  [optional] |
+|**delayValidation** | **Boolean** |  |  [optional] |
+|**options** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

@@ -7004,7 +7004,7 @@
           "type": "string"
         },
         "delayValidation": {
-          "title": "A flag to tell if param validation for this input/output should be delayed",
+          "title": "(Deprecated) A flag to tell if param validation for this input/output should be delayed",
           "type": "boolean"
         },
         "description": {
@@ -7031,7 +7031,7 @@
           "items": {
             "type": "object"
           },
-          "title": "An optional field to provide possible values for validation",
+          "title": "(Deprecated) An optional field to provide possible values for validation",
           "type": "array"
         },
         "toEnv": {
@@ -7045,6 +7045,10 @@
         "type": {
           "title": "The type of the input/output",
           "type": "string"
+        },
+        "validation": {
+          "$ref": "#/definitions/v1Validation",
+          "title": "Optional validation for this input/output"
         },
         "value": {
           "title": "The value of the input/output should be compatible with the type",
@@ -11004,6 +11008,97 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "v1Validation": {
+      "properties": {
+        "contains": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Generic",
+          "type": "array"
+        },
+        "containsKeys": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "decimalPlaces": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "delay": {
+          "title": "Validation delay",
+          "type": "boolean"
+        },
+        "excludes": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "excludesKeys": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gt": {
+          "format": "int32",
+          "title": "Numeric Constraints",
+          "type": "integer"
+        },
+        "keys": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dict Constraints",
+          "type": "array"
+        },
+        "le": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxDigits": {
+          "format": "int32",
+          "title": "Decimal Constraints",
+          "type": "integer"
+        },
+        "maxLength": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "minLength": {
+          "format": "int32",
+          "title": "Str/List/Dict Constraints",
+          "type": "integer"
+        },
+        "multipleOf": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "options": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "regex": {
+          "title": "String Constraints",
+          "type": "string"
+        }
+      },
+      "title": "Validation specification based on pydantic",
       "type": "object"
     },
     "v1Version": {

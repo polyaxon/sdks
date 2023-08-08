@@ -8,6 +8,7 @@ package service_model
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -23,7 +24,7 @@ type V1IO struct {
 	// A flag to signal to Polyaxon that this io is used with a connection
 	Connection string `json:"connection,omitempty"`
 
-	// A flag to tell if param validation for this input/output should be delayed
+	// (Deprecated) A flag to tell if param validation for this input/output should be delayed
 	DelayValidation bool `json:"delayValidation,omitempty"`
 
 	// Description for the input/output
@@ -41,7 +42,7 @@ type V1IO struct {
 	// Name for the input/output
 	Name string `json:"name,omitempty"`
 
-	// An optional field to provide possible values for validation
+	// (Deprecated) An optional field to provide possible values for validation
 	Options []interface{} `json:"options"`
 
 	// A flag to signal to Polyaxon that this io must be tranformed to the environment variable passed
@@ -53,17 +54,78 @@ type V1IO struct {
 	// The type of the input/output
 	Type string `json:"type,omitempty"`
 
+	// Optional validation for this input/output
+	Validation *V1Validation `json:"validation,omitempty"`
+
 	// The value of the input/output should be compatible with the type
 	Value interface{} `json:"value,omitempty"`
 }
 
 // Validate validates this v1 i o
 func (m *V1IO) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateValidation(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this v1 i o based on context it is used
+func (m *V1IO) validateValidation(formats strfmt.Registry) error {
+	if swag.IsZero(m.Validation) { // not required
+		return nil
+	}
+
+	if m.Validation != nil {
+		if err := m.Validation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("validation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("validation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this v1 i o based on the context it is used
 func (m *V1IO) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateValidation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *V1IO) contextValidateValidation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Validation != nil {
+
+		if swag.IsZero(m.Validation) { // not required
+			return nil
+		}
+
+		if err := m.Validation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("validation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("validation")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

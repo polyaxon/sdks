@@ -102,18 +102,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property delayValidation (base name: "delayValidation")', function() {
-      // uncomment below and update the code to test the property delayValidation
-      //var instance = new PolyaxonSdk.V1IO();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property options (base name: "options")', function() {
-      // uncomment below and update the code to test the property options
-      //var instance = new PolyaxonSdk.V1IO();
-      //expect(instance).to.be();
-    });
-
     it('should have the property connection (base name: "connection")', function() {
       // uncomment below and update the code to test the property connection
       //var instance = new PolyaxonSdk.V1IO();
@@ -128,6 +116,24 @@
 
     it('should have the property toEnv (base name: "toEnv")', function() {
       // uncomment below and update the code to test the property toEnv
+      //var instance = new PolyaxonSdk.V1IO();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property validation (base name: "validation")', function() {
+      // uncomment below and update the code to test the property validation
+      //var instance = new PolyaxonSdk.V1IO();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property delayValidation (base name: "delayValidation")', function() {
+      // uncomment below and update the code to test the property delayValidation
+      //var instance = new PolyaxonSdk.V1IO();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
       //var instance = new PolyaxonSdk.V1IO();
       //expect(instance).to.be();
     });

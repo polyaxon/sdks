@@ -22,6 +22,7 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
+from polyaxon_sdk.models.v1_validation import V1Validation
 
 class V1IO(BaseModel):
     """
@@ -35,12 +36,13 @@ class V1IO(BaseModel):
     is_list: Optional[StrictBool] = Field(None, alias="isList")
     is_flag: Optional[StrictBool] = Field(None, alias="isFlag")
     arg_format: Optional[StrictStr] = Field(None, alias="argFormat")
-    delay_validation: Optional[StrictBool] = Field(None, alias="delayValidation")
-    options: Optional[conlist(Dict[str, Any])] = None
     connection: Optional[StrictStr] = None
     to_init: Optional[StrictBool] = Field(None, alias="toInit")
     to_env: Optional[StrictStr] = Field(None, alias="toEnv")
-    __properties = ["name", "description", "type", "value", "isOptional", "isList", "isFlag", "argFormat", "delayValidation", "options", "connection", "toInit", "toEnv"]
+    validation: Optional[V1Validation] = None
+    delay_validation: Optional[StrictBool] = Field(None, alias="delayValidation")
+    options: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["name", "description", "type", "value", "isOptional", "isList", "isFlag", "argFormat", "connection", "toInit", "toEnv", "validation", "delayValidation", "options"]
 
     class Config:
         allow_population_by_field_name = True
@@ -65,6 +67,9 @@ class V1IO(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of validation
+        if self.validation:
+            _dict['validation'] = self.validation.to_dict()
         return _dict
 
     @classmethod
@@ -85,11 +90,12 @@ class V1IO(BaseModel):
             "is_list": obj.get("isList"),
             "is_flag": obj.get("isFlag"),
             "arg_format": obj.get("argFormat"),
-            "delay_validation": obj.get("delayValidation"),
-            "options": obj.get("options"),
             "connection": obj.get("connection"),
             "to_init": obj.get("toInit"),
-            "to_env": obj.get("toEnv")
+            "to_env": obj.get("toEnv"),
+            "validation": V1Validation.from_dict(obj.get("validation")) if obj.get("validation") is not None else None,
+            "delay_validation": obj.get("delayValidation"),
+            "options": obj.get("options")
         })
         return _obj
 

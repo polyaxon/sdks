@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.V1Validation;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -104,22 +105,6 @@ public class V1IOTest {
     }
 
     /**
-     * Test the property 'delayValidation'
-     */
-    @Test
-    public void delayValidationTest() {
-        // TODO: test delayValidation
-    }
-
-    /**
-     * Test the property 'options'
-     */
-    @Test
-    public void optionsTest() {
-        // TODO: test options
-    }
-
-    /**
      * Test the property 'connection'
      */
     @Test
@@ -141,6 +126,30 @@ public class V1IOTest {
     @Test
     public void toEnvTest() {
         // TODO: test toEnv
+    }
+
+    /**
+     * Test the property 'validation'
+     */
+    @Test
+    public void validationTest() {
+        // TODO: test validation
+    }
+
+    /**
+     * Test the property 'delayValidation'
+     */
+    @Test
+    public void delayValidationTest() {
+        // TODO: test delayValidation
+    }
+
+    /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        // TODO: test options
     }
 
 }

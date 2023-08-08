@@ -28002,18 +28002,6 @@
             "title" : "An optional argFromat of the input/output to be used instead of passing the value as is",
             "type" : "string"
           },
-          "delayValidation" : {
-            "title" : "A flag to tell if param validation for this input/output should be delayed",
-            "type" : "boolean"
-          },
-          "options" : {
-            "title" : "An optional field to provide possible values for validation",
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : { }
-            }
-          },
           "connection" : {
             "title" : "A flag to signal to Polyaxon that this io is used with a connection",
             "type" : "string"
@@ -28025,6 +28013,21 @@
           "toEnv" : {
             "title" : "A flag to signal to Polyaxon that this io must be tranformed to the environment variable passed",
             "type" : "string"
+          },
+          "validation" : {
+            "$ref" : "#/components/schemas/v1Validation"
+          },
+          "delayValidation" : {
+            "title" : "(Deprecated) A flag to tell if param validation for this input/output should be delayed",
+            "type" : "boolean"
+          },
+          "options" : {
+            "title" : "(Deprecated) An optional field to provide possible values for validation",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
           }
         }
       },
@@ -31732,6 +31735,100 @@
             "type" : "array",
             "items" : {
               "type" : "string"
+            }
+          }
+        }
+      },
+      "v1Validation" : {
+        "title" : "Validation specification based on pydantic",
+        "type" : "object",
+        "properties" : {
+          "delay" : {
+            "title" : "Validation delay",
+            "type" : "boolean"
+          },
+          "gt" : {
+            "title" : "Numeric Constraints",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "ge" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "lt" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "le" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "multipleOf" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxDigits" : {
+            "title" : "Decimal Constraints",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "decimalPlaces" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "regex" : {
+            "title" : "String Constraints",
+            "type" : "string"
+          },
+          "minLength" : {
+            "title" : "Str/List/Dict Constraints",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxLength" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "keys" : {
+            "title" : "Dict Constraints",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "containsKeys" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "excludesKeys" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "contains" : {
+            "title" : "Generic",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          },
+          "excludes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          },
+          "options" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
             }
           }
         }

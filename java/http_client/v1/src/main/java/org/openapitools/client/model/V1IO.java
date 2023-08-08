@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.V1Validation;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -82,14 +83,6 @@ public class V1IO {
   @SerializedName(SERIALIZED_NAME_ARG_FORMAT)
   private String argFormat;
 
-  public static final String SERIALIZED_NAME_DELAY_VALIDATION = "delayValidation";
-  @SerializedName(SERIALIZED_NAME_DELAY_VALIDATION)
-  private Boolean delayValidation;
-
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<Object> options;
-
   public static final String SERIALIZED_NAME_CONNECTION = "connection";
   @SerializedName(SERIALIZED_NAME_CONNECTION)
   private String connection;
@@ -101,6 +94,18 @@ public class V1IO {
   public static final String SERIALIZED_NAME_TO_ENV = "toEnv";
   @SerializedName(SERIALIZED_NAME_TO_ENV)
   private String toEnv;
+
+  public static final String SERIALIZED_NAME_VALIDATION = "validation";
+  @SerializedName(SERIALIZED_NAME_VALIDATION)
+  private V1Validation validation;
+
+  public static final String SERIALIZED_NAME_DELAY_VALIDATION = "delayValidation";
+  @SerializedName(SERIALIZED_NAME_DELAY_VALIDATION)
+  private Boolean delayValidation;
+
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private List<Object> options;
 
   public V1IO() {
   }
@@ -281,58 +286,6 @@ public class V1IO {
   }
 
 
-  public V1IO delayValidation(Boolean delayValidation) {
-
-    this.delayValidation = delayValidation;
-    return this;
-  }
-
-   /**
-   * Get delayValidation
-   * @return delayValidation
-  **/
-  @javax.annotation.Nullable
-
-  public Boolean getDelayValidation() {
-    return delayValidation;
-  }
-
-
-  public void setDelayValidation(Boolean delayValidation) {
-    this.delayValidation = delayValidation;
-  }
-
-
-  public V1IO options(List<Object> options) {
-
-    this.options = options;
-    return this;
-  }
-
-  public V1IO addOptionsItem(Object optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
-    this.options.add(optionsItem);
-    return this;
-  }
-
-   /**
-   * Get options
-   * @return options
-  **/
-  @javax.annotation.Nullable
-
-  public List<Object> getOptions() {
-    return options;
-  }
-
-
-  public void setOptions(List<Object> options) {
-    this.options = options;
-  }
-
-
   public V1IO connection(String connection) {
 
     this.connection = connection;
@@ -399,6 +352,80 @@ public class V1IO {
   }
 
 
+  public V1IO validation(V1Validation validation) {
+
+    this.validation = validation;
+    return this;
+  }
+
+   /**
+   * Get validation
+   * @return validation
+  **/
+  @javax.annotation.Nullable
+
+  public V1Validation getValidation() {
+    return validation;
+  }
+
+
+  public void setValidation(V1Validation validation) {
+    this.validation = validation;
+  }
+
+
+  public V1IO delayValidation(Boolean delayValidation) {
+
+    this.delayValidation = delayValidation;
+    return this;
+  }
+
+   /**
+   * Get delayValidation
+   * @return delayValidation
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getDelayValidation() {
+    return delayValidation;
+  }
+
+
+  public void setDelayValidation(Boolean delayValidation) {
+    this.delayValidation = delayValidation;
+  }
+
+
+  public V1IO options(List<Object> options) {
+
+    this.options = options;
+    return this;
+  }
+
+  public V1IO addOptionsItem(Object optionsItem) {
+    if (this.options == null) {
+      this.options = new ArrayList<>();
+    }
+    this.options.add(optionsItem);
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getOptions() {
+    return options;
+  }
+
+
+  public void setOptions(List<Object> options) {
+    this.options = options;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -417,16 +444,17 @@ public class V1IO {
         Objects.equals(this.isList, v1IO.isList) &&
         Objects.equals(this.isFlag, v1IO.isFlag) &&
         Objects.equals(this.argFormat, v1IO.argFormat) &&
-        Objects.equals(this.delayValidation, v1IO.delayValidation) &&
-        Objects.equals(this.options, v1IO.options) &&
         Objects.equals(this.connection, v1IO.connection) &&
         Objects.equals(this.toInit, v1IO.toInit) &&
-        Objects.equals(this.toEnv, v1IO.toEnv);
+        Objects.equals(this.toEnv, v1IO.toEnv) &&
+        Objects.equals(this.validation, v1IO.validation) &&
+        Objects.equals(this.delayValidation, v1IO.delayValidation) &&
+        Objects.equals(this.options, v1IO.options);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, value, isOptional, isList, isFlag, argFormat, delayValidation, options, connection, toInit, toEnv);
+    return Objects.hash(name, description, type, value, isOptional, isList, isFlag, argFormat, connection, toInit, toEnv, validation, delayValidation, options);
   }
 
   @Override
@@ -441,11 +469,12 @@ public class V1IO {
     sb.append("    isList: ").append(toIndentedString(isList)).append("\n");
     sb.append("    isFlag: ").append(toIndentedString(isFlag)).append("\n");
     sb.append("    argFormat: ").append(toIndentedString(argFormat)).append("\n");
-    sb.append("    delayValidation: ").append(toIndentedString(delayValidation)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    toInit: ").append(toIndentedString(toInit)).append("\n");
     sb.append("    toEnv: ").append(toIndentedString(toEnv)).append("\n");
+    sb.append("    validation: ").append(toIndentedString(validation)).append("\n");
+    sb.append("    delayValidation: ").append(toIndentedString(delayValidation)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -476,11 +505,12 @@ public class V1IO {
     openapiFields.add("isList");
     openapiFields.add("isFlag");
     openapiFields.add("argFormat");
-    openapiFields.add("delayValidation");
-    openapiFields.add("options");
     openapiFields.add("connection");
     openapiFields.add("toInit");
     openapiFields.add("toEnv");
+    openapiFields.add("validation");
+    openapiFields.add("delayValidation");
+    openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -518,15 +548,19 @@ public class V1IO {
       if ((jsonObj.get("argFormat") != null && !jsonObj.get("argFormat").isJsonNull()) && !jsonObj.get("argFormat").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `argFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("argFormat").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
-      }
       if ((jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()) && !jsonObj.get("connection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection").toString()));
       }
       if ((jsonObj.get("toEnv") != null && !jsonObj.get("toEnv").isJsonNull()) && !jsonObj.get("toEnv").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `toEnv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toEnv").toString()));
+      }
+      // validate the optional field `validation`
+      if (jsonObj.get("validation") != null && !jsonObj.get("validation").isJsonNull()) {
+        V1Validation.validateJsonObject(jsonObj.getAsJsonObject("validation"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
       }
   }
 

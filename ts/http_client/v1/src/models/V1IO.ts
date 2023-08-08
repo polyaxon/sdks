@@ -13,6 +13,13 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Validation } from './V1Validation';
+import {
+    V1ValidationFromJSON,
+    V1ValidationFromJSONTyped,
+    V1ValidationToJSON,
+} from './V1Validation';
+
 /**
  *
  * @export
@@ -69,18 +76,6 @@ export interface V1IO {
     argFormat?: string;
     /**
      *
-     * @type {boolean}
-     * @memberof V1IO
-     */
-    delayValidation?: boolean;
-    /**
-     *
-     * @type {Array<object>}
-     * @memberof V1IO
-     */
-    options?: Array<object>;
-    /**
-     *
      * @type {string}
      * @memberof V1IO
      */
@@ -97,6 +92,24 @@ export interface V1IO {
      * @memberof V1IO
      */
     toEnv?: string;
+    /**
+     *
+     * @type {V1Validation}
+     * @memberof V1IO
+     */
+    validation?: V1Validation;
+    /**
+     *
+     * @type {boolean}
+     * @memberof V1IO
+     */
+    delayValidation?: boolean;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof V1IO
+     */
+    options?: Array<object>;
 }
 
 /**
@@ -126,11 +139,12 @@ export function V1IOFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1IO
         'isList': !exists(json, 'isList') ? undefined : json['isList'],
         'isFlag': !exists(json, 'isFlag') ? undefined : json['isFlag'],
         'argFormat': !exists(json, 'argFormat') ? undefined : json['argFormat'],
-        'delayValidation': !exists(json, 'delayValidation') ? undefined : json['delayValidation'],
-        'options': !exists(json, 'options') ? undefined : json['options'],
         'connection': !exists(json, 'connection') ? undefined : json['connection'],
         'toInit': !exists(json, 'toInit') ? undefined : json['toInit'],
         'toEnv': !exists(json, 'toEnv') ? undefined : json['toEnv'],
+        'validation': !exists(json, 'validation') ? undefined : V1ValidationFromJSON(json['validation']),
+        'delayValidation': !exists(json, 'delayValidation') ? undefined : json['delayValidation'],
+        'options': !exists(json, 'options') ? undefined : json['options'],
     };
 }
 
@@ -151,11 +165,12 @@ export function V1IOToJSON(value?: V1IO | null): any {
         'isList': value.isList,
         'isFlag': value.isFlag,
         'argFormat': value.argFormat,
-        'delayValidation': value.delayValidation,
-        'options': value.options,
         'connection': value.connection,
         'toInit': value.toInit,
         'toEnv': value.toEnv,
+        'validation': V1ValidationToJSON(value.validation),
+        'delayValidation': value.delayValidation,
+        'options': value.options,
     };
 }
 

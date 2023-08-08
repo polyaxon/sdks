@@ -12,11 +12,12 @@ Name | Type | Description | Notes
 **is_list** | **bool** |  | [optional] 
 **is_flag** | **bool** |  | [optional] 
 **arg_format** | **str** |  | [optional] 
-**delay_validation** | **bool** |  | [optional] 
-**options** | **List[object]** |  | [optional] 
 **connection** | **str** |  | [optional] 
 **to_init** | **bool** |  | [optional] 
 **to_env** | **str** |  | [optional] 
+**validation** | [**V1Validation**](V1Validation.md) |  | [optional] 
+**delay_validation** | **bool** |  | [optional] 
+**options** | **List[object]** |  | [optional] 
 
 ## Example
 

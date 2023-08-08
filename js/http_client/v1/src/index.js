@@ -232,6 +232,7 @@ import V1User from './model/V1User';
 import V1UserEmail from './model/V1UserEmail';
 import V1UserSingup from './model/V1UserSingup';
 import V1Uuids from './model/V1Uuids';
+import V1Validation from './model/V1Validation';
 import V1Version from './model/V1Version';
 import V1WasbType from './model/V1WasbType';
 import V1XGBoostJob from './model/V1XGBoostJob';
@@ -257,7 +258,7 @@ import VersionsV1Api from './api/VersionsV1Api';
 
 
 /**
-*    .<br>
+*.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -1607,6 +1608,12 @@ export {
      * @property {module:model/V1Uuids}
      */
     V1Uuids,
+
+    /**
+     * The V1Validation model constructor.
+     * @property {module:model/V1Validation}
+     */
+    V1Validation,
 
     /**
      * The V1Version model constructor.

@@ -3,7 +3,7 @@
 Polyaxon SDKs and REST API specification.
 - API version: 2.0.0-rc30
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -597,6 +597,7 @@ Class | Method | HTTP request | Description
  - [V1UserEmail](docs/V1UserEmail.md)
  - [V1UserSingup](docs/V1UserSingup.md)
  - [V1Uuids](docs/V1Uuids.md)
+ - [V1Validation](docs/V1Validation.md)
  - [V1Version](docs/V1Version.md)
  - [V1WasbType](docs/V1WasbType.md)
  - [V1XGBoostJob](docs/V1XGBoostJob.md)

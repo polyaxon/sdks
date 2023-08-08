@@ -32,20 +32,57 @@ message IO {
     // An optional argFromat of the input/output to be used instead of passing the value as is
     string argFormat = 8;
 
-    // A flag to tell if param validation for this input/output should be delayed
-    bool delayValidation = 9;
-
-    // An optional field to provide possible values for validation
-    repeated google.protobuf.Struct options = 10;
-
     // A flag to signal to Polyaxon that this io is used with a connection
-    string connection = 11;
+    string connection = 9;
 
     // A flag to signal to Polyaxon that this io must be tranformed to an init container
-    bool toInit = 12;
+    bool toInit = 10;
 
     // A flag to signal to Polyaxon that this io must be tranformed to the environment variable passed
-    string toEnv = 13;
+    string toEnv = 11;
+
+    // Optional validation for this input/output
+    Validation validation = 12;
+
+    // (Deprecated) A flag to tell if param validation for this input/output should be delayed
+    bool delayValidation = 13;
+
+    // (Deprecated) An optional field to provide possible values for validation
+    repeated google.protobuf.Struct options = 14;
+}
+
+// Validation specification based on pydantic
+message Validation {
+  // Validation delay
+  bool delay = 1;
+
+  // Numeric Constraints
+  int32 gt = 2;
+  int32 ge = 3;
+  int32 lt = 4;
+  int32 le = 5;
+  int32 multipleOf = 6;
+
+  // Decimal Constraints
+  int32 maxDigits = 7;
+  int32 decimalPlaces = 8;
+
+  // String Constraints
+  string regex = 9;
+
+  // Str/List/Dict Constraints
+  int32 minLength = 10;
+  int32 maxLength = 11;
+
+  // Dict Constraints
+  repeated string keys = 12;
+  repeated string containsKeys = 13;
+  repeated string excludesKeys = 14;
+
+  // Generic
+  repeated google.protobuf.Struct contains = 15;
+  repeated google.protobuf.Struct excludes = 16;
+  repeated google.protobuf.Struct options = 17;
 }
 
 // Param specification

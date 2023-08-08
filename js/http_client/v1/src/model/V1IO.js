@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import V1Validation from './V1Validation';
 
 /**
  * The V1IO model module.
@@ -71,12 +72,6 @@ class V1IO {
             if (data.hasOwnProperty('argFormat')) {
                 obj['argFormat'] = ApiClient.convertToType(data['argFormat'], 'String');
             }
-            if (data.hasOwnProperty('delayValidation')) {
-                obj['delayValidation'] = ApiClient.convertToType(data['delayValidation'], 'Boolean');
-            }
-            if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
-            }
             if (data.hasOwnProperty('connection')) {
                 obj['connection'] = ApiClient.convertToType(data['connection'], 'String');
             }
@@ -85,6 +80,15 @@ class V1IO {
             }
             if (data.hasOwnProperty('toEnv')) {
                 obj['toEnv'] = ApiClient.convertToType(data['toEnv'], 'String');
+            }
+            if (data.hasOwnProperty('validation')) {
+                obj['validation'] = V1Validation.constructFromObject(data['validation']);
+            }
+            if (data.hasOwnProperty('delayValidation')) {
+                obj['delayValidation'] = ApiClient.convertToType(data['delayValidation'], 'Boolean');
+            }
+            if (data.hasOwnProperty('options')) {
+                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
             }
         }
         return obj;
@@ -112,10 +116,6 @@ class V1IO {
         if (data['argFormat'] && !(typeof data['argFormat'] === 'string' || data['argFormat'] instanceof String)) {
             throw new Error("Expected the field `argFormat` to be a primitive type in the JSON string but got " + data['argFormat']);
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['options'])) {
-            throw new Error("Expected the field `options` to be an array in the JSON data but got " + data['options']);
-        }
         // ensure the json data is a string
         if (data['connection'] && !(typeof data['connection'] === 'string' || data['connection'] instanceof String)) {
             throw new Error("Expected the field `connection` to be a primitive type in the JSON string but got " + data['connection']);
@@ -123,6 +123,14 @@ class V1IO {
         // ensure the json data is a string
         if (data['toEnv'] && !(typeof data['toEnv'] === 'string' || data['toEnv'] instanceof String)) {
             throw new Error("Expected the field `toEnv` to be a primitive type in the JSON string but got " + data['toEnv']);
+        }
+        // validate the optional field `validation`
+        if (data['validation']) { // data not null
+          V1Validation.validateJSON(data['validation']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['options'])) {
+            throw new Error("Expected the field `options` to be an array in the JSON data but got " + data['options']);
         }
 
         return true;
@@ -174,16 +182,6 @@ V1IO.prototype['isFlag'] = undefined;
 V1IO.prototype['argFormat'] = undefined;
 
 /**
- * @member {Boolean} delayValidation
- */
-V1IO.prototype['delayValidation'] = undefined;
-
-/**
- * @member {Array.<Object>} options
- */
-V1IO.prototype['options'] = undefined;
-
-/**
  * @member {String} connection
  */
 V1IO.prototype['connection'] = undefined;
@@ -197,6 +195,21 @@ V1IO.prototype['toInit'] = undefined;
  * @member {String} toEnv
  */
 V1IO.prototype['toEnv'] = undefined;
+
+/**
+ * @member {module:model/V1Validation} validation
+ */
+V1IO.prototype['validation'] = undefined;
+
+/**
+ * @member {Boolean} delayValidation
+ */
+V1IO.prototype['delayValidation'] = undefined;
+
+/**
+ * @member {Array.<Object>} options
+ */
+V1IO.prototype['options'] = undefined;
 
 
 
