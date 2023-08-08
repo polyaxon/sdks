@@ -11058,7 +11058,13 @@
           "items": {
             "type": "string"
           },
-          "title": "Dict Constraints",
+          "title": "Dict keys Constraints",
+          "type": "array"
+        },
+        "keysRegex": {
+          "items": {
+            "type": "string"
+          },
           "type": "array"
         },
         "le": {
@@ -11071,11 +11077,15 @@
         },
         "maxDigits": {
           "format": "int32",
-          "title": "Decimal Constraints",
           "type": "integer"
         },
         "maxLength": {
           "format": "int32",
+          "type": "integer"
+        },
+        "minDigits": {
+          "format": "int32",
+          "title": "Decimal Constraints",
           "type": "integer"
         },
         "minLength": {

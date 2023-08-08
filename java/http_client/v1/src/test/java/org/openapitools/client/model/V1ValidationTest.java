@@ -88,6 +88,14 @@ public class V1ValidationTest {
     }
 
     /**
+     * Test the property 'minDigits'
+     */
+    @Test
+    public void minDigitsTest() {
+        // TODO: test minDigits
+    }
+
+    /**
      * Test the property 'maxDigits'
      */
     @Test
@@ -128,6 +136,30 @@ public class V1ValidationTest {
     }
 
     /**
+     * Test the property 'contains'
+     */
+    @Test
+    public void containsTest() {
+        // TODO: test contains
+    }
+
+    /**
+     * Test the property 'excludes'
+     */
+    @Test
+    public void excludesTest() {
+        // TODO: test excludes
+    }
+
+    /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        // TODO: test options
+    }
+
+    /**
      * Test the property 'keys'
      */
     @Test
@@ -152,27 +184,11 @@ public class V1ValidationTest {
     }
 
     /**
-     * Test the property 'contains'
+     * Test the property 'keysRegex'
      */
     @Test
-    public void containsTest() {
-        // TODO: test contains
-    }
-
-    /**
-     * Test the property 'excludes'
-     */
-    @Test
-    public void excludesTest() {
-        // TODO: test excludes
-    }
-
-    /**
-     * Test the property 'options'
-     */
-    @Test
-    public void optionsTest() {
-        // TODO: test options
+    public void keysRegexTest() {
+        // TODO: test keysRegex
     }
 
 }

@@ -33,18 +33,20 @@ class V1Validation(BaseModel):
     lt: Optional[StrictInt] = None
     le: Optional[StrictInt] = None
     multiple_of: Optional[StrictInt] = Field(None, alias="multipleOf")
+    min_digits: Optional[StrictInt] = Field(None, alias="minDigits")
     max_digits: Optional[StrictInt] = Field(None, alias="maxDigits")
     decimal_places: Optional[StrictInt] = Field(None, alias="decimalPlaces")
     regex: Optional[StrictStr] = None
     min_length: Optional[StrictInt] = Field(None, alias="minLength")
     max_length: Optional[StrictInt] = Field(None, alias="maxLength")
-    keys: Optional[conlist(StrictStr)] = None
-    contains_keys: Optional[conlist(StrictStr)] = Field(None, alias="containsKeys")
-    excludes_keys: Optional[conlist(StrictStr)] = Field(None, alias="excludesKeys")
     contains: Optional[conlist(Dict[str, Any])] = None
     excludes: Optional[conlist(Dict[str, Any])] = None
     options: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["delay", "gt", "ge", "lt", "le", "multipleOf", "maxDigits", "decimalPlaces", "regex", "minLength", "maxLength", "keys", "containsKeys", "excludesKeys", "contains", "excludes", "options"]
+    keys: Optional[conlist(StrictStr)] = None
+    contains_keys: Optional[conlist(StrictStr)] = Field(None, alias="containsKeys")
+    excludes_keys: Optional[conlist(StrictStr)] = Field(None, alias="excludesKeys")
+    keys_regex: Optional[conlist(StrictStr)] = Field(None, alias="keysRegex")
+    __properties = ["delay", "gt", "ge", "lt", "le", "multipleOf", "minDigits", "maxDigits", "decimalPlaces", "regex", "minLength", "maxLength", "contains", "excludes", "options", "keys", "containsKeys", "excludesKeys", "keysRegex"]
 
     class Config:
         allow_population_by_field_name = True
@@ -87,17 +89,19 @@ class V1Validation(BaseModel):
             "lt": obj.get("lt"),
             "le": obj.get("le"),
             "multiple_of": obj.get("multipleOf"),
+            "min_digits": obj.get("minDigits"),
             "max_digits": obj.get("maxDigits"),
             "decimal_places": obj.get("decimalPlaces"),
             "regex": obj.get("regex"),
             "min_length": obj.get("minLength"),
             "max_length": obj.get("maxLength"),
+            "contains": obj.get("contains"),
+            "excludes": obj.get("excludes"),
+            "options": obj.get("options"),
             "keys": obj.get("keys"),
             "contains_keys": obj.get("containsKeys"),
             "excludes_keys": obj.get("excludesKeys"),
-            "contains": obj.get("contains"),
-            "excludes": obj.get("excludes"),
-            "options": obj.get("options")
+            "keys_regex": obj.get("keysRegex")
         })
         return _obj
 

@@ -10,17 +10,19 @@ Name | Type | Description | Notes
 **lt** | **int** |  | [optional] 
 **le** | **int** |  | [optional] 
 **multiple_of** | **int** |  | [optional] 
+**min_digits** | **int** |  | [optional] 
 **max_digits** | **int** |  | [optional] 
 **decimal_places** | **int** |  | [optional] 
 **regex** | **str** |  | [optional] 
 **min_length** | **int** |  | [optional] 
 **max_length** | **int** |  | [optional] 
-**keys** | **List[str]** |  | [optional] 
-**contains_keys** | **List[str]** |  | [optional] 
-**excludes_keys** | **List[str]** |  | [optional] 
 **contains** | **List[object]** |  | [optional] 
 **excludes** | **List[object]** |  | [optional] 
 **options** | **List[object]** |  | [optional] 
+**keys** | **List[str]** |  | [optional] 
+**contains_keys** | **List[str]** |  | [optional] 
+**excludes_keys** | **List[str]** |  | [optional] 
+**keys_regex** | **List[str]** |  | [optional] 
 
 ## Example
 

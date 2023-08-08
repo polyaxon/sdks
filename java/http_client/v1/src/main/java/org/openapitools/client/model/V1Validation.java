@@ -74,6 +74,10 @@ public class V1Validation {
   @SerializedName(SERIALIZED_NAME_MULTIPLE_OF)
   private Integer multipleOf;
 
+  public static final String SERIALIZED_NAME_MIN_DIGITS = "minDigits";
+  @SerializedName(SERIALIZED_NAME_MIN_DIGITS)
+  private Integer minDigits;
+
   public static final String SERIALIZED_NAME_MAX_DIGITS = "maxDigits";
   @SerializedName(SERIALIZED_NAME_MAX_DIGITS)
   private Integer maxDigits;
@@ -94,6 +98,18 @@ public class V1Validation {
   @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
   private Integer maxLength;
 
+  public static final String SERIALIZED_NAME_CONTAINS = "contains";
+  @SerializedName(SERIALIZED_NAME_CONTAINS)
+  private List<Object> contains;
+
+  public static final String SERIALIZED_NAME_EXCLUDES = "excludes";
+  @SerializedName(SERIALIZED_NAME_EXCLUDES)
+  private List<Object> excludes;
+
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private List<Object> options;
+
   public static final String SERIALIZED_NAME_KEYS = "keys";
   @SerializedName(SERIALIZED_NAME_KEYS)
   private List<String> keys;
@@ -106,17 +122,9 @@ public class V1Validation {
   @SerializedName(SERIALIZED_NAME_EXCLUDES_KEYS)
   private List<String> excludesKeys;
 
-  public static final String SERIALIZED_NAME_CONTAINS = "contains";
-  @SerializedName(SERIALIZED_NAME_CONTAINS)
-  private List<Object> contains;
-
-  public static final String SERIALIZED_NAME_EXCLUDES = "excludes";
-  @SerializedName(SERIALIZED_NAME_EXCLUDES)
-  private List<Object> excludes;
-
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<Object> options;
+  public static final String SERIALIZED_NAME_KEYS_REGEX = "keysRegex";
+  @SerializedName(SERIALIZED_NAME_KEYS_REGEX)
+  private List<String> keysRegex;
 
   public V1Validation() {
   }
@@ -253,6 +261,28 @@ public class V1Validation {
   }
 
 
+  public V1Validation minDigits(Integer minDigits) {
+
+    this.minDigits = minDigits;
+    return this;
+  }
+
+   /**
+   * Get minDigits
+   * @return minDigits
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMinDigits() {
+    return minDigits;
+  }
+
+
+  public void setMinDigits(Integer minDigits) {
+    this.minDigits = minDigits;
+  }
+
+
   public V1Validation maxDigits(Integer maxDigits) {
 
     this.maxDigits = maxDigits;
@@ -363,96 +393,6 @@ public class V1Validation {
   }
 
 
-  public V1Validation keys(List<String> keys) {
-
-    this.keys = keys;
-    return this;
-  }
-
-  public V1Validation addKeysItem(String keysItem) {
-    if (this.keys == null) {
-      this.keys = new ArrayList<>();
-    }
-    this.keys.add(keysItem);
-    return this;
-  }
-
-   /**
-   * Get keys
-   * @return keys
-  **/
-  @javax.annotation.Nullable
-
-  public List<String> getKeys() {
-    return keys;
-  }
-
-
-  public void setKeys(List<String> keys) {
-    this.keys = keys;
-  }
-
-
-  public V1Validation containsKeys(List<String> containsKeys) {
-
-    this.containsKeys = containsKeys;
-    return this;
-  }
-
-  public V1Validation addContainsKeysItem(String containsKeysItem) {
-    if (this.containsKeys == null) {
-      this.containsKeys = new ArrayList<>();
-    }
-    this.containsKeys.add(containsKeysItem);
-    return this;
-  }
-
-   /**
-   * Get containsKeys
-   * @return containsKeys
-  **/
-  @javax.annotation.Nullable
-
-  public List<String> getContainsKeys() {
-    return containsKeys;
-  }
-
-
-  public void setContainsKeys(List<String> containsKeys) {
-    this.containsKeys = containsKeys;
-  }
-
-
-  public V1Validation excludesKeys(List<String> excludesKeys) {
-
-    this.excludesKeys = excludesKeys;
-    return this;
-  }
-
-  public V1Validation addExcludesKeysItem(String excludesKeysItem) {
-    if (this.excludesKeys == null) {
-      this.excludesKeys = new ArrayList<>();
-    }
-    this.excludesKeys.add(excludesKeysItem);
-    return this;
-  }
-
-   /**
-   * Get excludesKeys
-   * @return excludesKeys
-  **/
-  @javax.annotation.Nullable
-
-  public List<String> getExcludesKeys() {
-    return excludesKeys;
-  }
-
-
-  public void setExcludesKeys(List<String> excludesKeys) {
-    this.excludesKeys = excludesKeys;
-  }
-
-
   public V1Validation contains(List<Object> contains) {
 
     this.contains = contains;
@@ -543,6 +483,126 @@ public class V1Validation {
   }
 
 
+  public V1Validation keys(List<String> keys) {
+
+    this.keys = keys;
+    return this;
+  }
+
+  public V1Validation addKeysItem(String keysItem) {
+    if (this.keys == null) {
+      this.keys = new ArrayList<>();
+    }
+    this.keys.add(keysItem);
+    return this;
+  }
+
+   /**
+   * Get keys
+   * @return keys
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getKeys() {
+    return keys;
+  }
+
+
+  public void setKeys(List<String> keys) {
+    this.keys = keys;
+  }
+
+
+  public V1Validation containsKeys(List<String> containsKeys) {
+
+    this.containsKeys = containsKeys;
+    return this;
+  }
+
+  public V1Validation addContainsKeysItem(String containsKeysItem) {
+    if (this.containsKeys == null) {
+      this.containsKeys = new ArrayList<>();
+    }
+    this.containsKeys.add(containsKeysItem);
+    return this;
+  }
+
+   /**
+   * Get containsKeys
+   * @return containsKeys
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getContainsKeys() {
+    return containsKeys;
+  }
+
+
+  public void setContainsKeys(List<String> containsKeys) {
+    this.containsKeys = containsKeys;
+  }
+
+
+  public V1Validation excludesKeys(List<String> excludesKeys) {
+
+    this.excludesKeys = excludesKeys;
+    return this;
+  }
+
+  public V1Validation addExcludesKeysItem(String excludesKeysItem) {
+    if (this.excludesKeys == null) {
+      this.excludesKeys = new ArrayList<>();
+    }
+    this.excludesKeys.add(excludesKeysItem);
+    return this;
+  }
+
+   /**
+   * Get excludesKeys
+   * @return excludesKeys
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getExcludesKeys() {
+    return excludesKeys;
+  }
+
+
+  public void setExcludesKeys(List<String> excludesKeys) {
+    this.excludesKeys = excludesKeys;
+  }
+
+
+  public V1Validation keysRegex(List<String> keysRegex) {
+
+    this.keysRegex = keysRegex;
+    return this;
+  }
+
+  public V1Validation addKeysRegexItem(String keysRegexItem) {
+    if (this.keysRegex == null) {
+      this.keysRegex = new ArrayList<>();
+    }
+    this.keysRegex.add(keysRegexItem);
+    return this;
+  }
+
+   /**
+   * Get keysRegex
+   * @return keysRegex
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getKeysRegex() {
+    return keysRegex;
+  }
+
+
+  public void setKeysRegex(List<String> keysRegex) {
+    this.keysRegex = keysRegex;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -559,22 +619,24 @@ public class V1Validation {
         Objects.equals(this.lt, v1Validation.lt) &&
         Objects.equals(this.le, v1Validation.le) &&
         Objects.equals(this.multipleOf, v1Validation.multipleOf) &&
+        Objects.equals(this.minDigits, v1Validation.minDigits) &&
         Objects.equals(this.maxDigits, v1Validation.maxDigits) &&
         Objects.equals(this.decimalPlaces, v1Validation.decimalPlaces) &&
         Objects.equals(this.regex, v1Validation.regex) &&
         Objects.equals(this.minLength, v1Validation.minLength) &&
         Objects.equals(this.maxLength, v1Validation.maxLength) &&
+        Objects.equals(this.contains, v1Validation.contains) &&
+        Objects.equals(this.excludes, v1Validation.excludes) &&
+        Objects.equals(this.options, v1Validation.options) &&
         Objects.equals(this.keys, v1Validation.keys) &&
         Objects.equals(this.containsKeys, v1Validation.containsKeys) &&
         Objects.equals(this.excludesKeys, v1Validation.excludesKeys) &&
-        Objects.equals(this.contains, v1Validation.contains) &&
-        Objects.equals(this.excludes, v1Validation.excludes) &&
-        Objects.equals(this.options, v1Validation.options);
+        Objects.equals(this.keysRegex, v1Validation.keysRegex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delay, gt, ge, lt, le, multipleOf, maxDigits, decimalPlaces, regex, minLength, maxLength, keys, containsKeys, excludesKeys, contains, excludes, options);
+    return Objects.hash(delay, gt, ge, lt, le, multipleOf, minDigits, maxDigits, decimalPlaces, regex, minLength, maxLength, contains, excludes, options, keys, containsKeys, excludesKeys, keysRegex);
   }
 
   @Override
@@ -587,17 +649,19 @@ public class V1Validation {
     sb.append("    lt: ").append(toIndentedString(lt)).append("\n");
     sb.append("    le: ").append(toIndentedString(le)).append("\n");
     sb.append("    multipleOf: ").append(toIndentedString(multipleOf)).append("\n");
+    sb.append("    minDigits: ").append(toIndentedString(minDigits)).append("\n");
     sb.append("    maxDigits: ").append(toIndentedString(maxDigits)).append("\n");
     sb.append("    decimalPlaces: ").append(toIndentedString(decimalPlaces)).append("\n");
     sb.append("    regex: ").append(toIndentedString(regex)).append("\n");
     sb.append("    minLength: ").append(toIndentedString(minLength)).append("\n");
     sb.append("    maxLength: ").append(toIndentedString(maxLength)).append("\n");
-    sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
-    sb.append("    containsKeys: ").append(toIndentedString(containsKeys)).append("\n");
-    sb.append("    excludesKeys: ").append(toIndentedString(excludesKeys)).append("\n");
     sb.append("    contains: ").append(toIndentedString(contains)).append("\n");
     sb.append("    excludes: ").append(toIndentedString(excludes)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
+    sb.append("    containsKeys: ").append(toIndentedString(containsKeys)).append("\n");
+    sb.append("    excludesKeys: ").append(toIndentedString(excludesKeys)).append("\n");
+    sb.append("    keysRegex: ").append(toIndentedString(keysRegex)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -626,17 +690,19 @@ public class V1Validation {
     openapiFields.add("lt");
     openapiFields.add("le");
     openapiFields.add("multipleOf");
+    openapiFields.add("minDigits");
     openapiFields.add("maxDigits");
     openapiFields.add("decimalPlaces");
     openapiFields.add("regex");
     openapiFields.add("minLength");
     openapiFields.add("maxLength");
-    openapiFields.add("keys");
-    openapiFields.add("containsKeys");
-    openapiFields.add("excludesKeys");
     openapiFields.add("contains");
     openapiFields.add("excludes");
     openapiFields.add("options");
+    openapiFields.add("keys");
+    openapiFields.add("containsKeys");
+    openapiFields.add("excludesKeys");
+    openapiFields.add("keysRegex");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -666,6 +732,18 @@ public class V1Validation {
         throw new IllegalArgumentException(String.format("Expected the field `regex` to be a primitive type in the JSON string but got `%s`", jsonObj.get("regex").toString()));
       }
       // ensure the optional json data is an array if present
+      if (jsonObj.get("contains") != null && !jsonObj.get("contains").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contains` to be an array in the JSON string but got `%s`", jsonObj.get("contains").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("excludes") != null && !jsonObj.get("excludes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `excludes` to be an array in the JSON string but got `%s`", jsonObj.get("excludes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
+      }
+      // ensure the optional json data is an array if present
       if (jsonObj.get("keys") != null && !jsonObj.get("keys").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `keys` to be an array in the JSON string but got `%s`", jsonObj.get("keys").toString()));
       }
@@ -678,16 +756,8 @@ public class V1Validation {
         throw new IllegalArgumentException(String.format("Expected the field `excludesKeys` to be an array in the JSON string but got `%s`", jsonObj.get("excludesKeys").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("contains") != null && !jsonObj.get("contains").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contains` to be an array in the JSON string but got `%s`", jsonObj.get("contains").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("excludes") != null && !jsonObj.get("excludes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `excludes` to be an array in the JSON string but got `%s`", jsonObj.get("excludes").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
+      if (jsonObj.get("keysRegex") != null && !jsonObj.get("keysRegex").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `keysRegex` to be an array in the JSON string but got `%s`", jsonObj.get("keysRegex").toString()));
       }
   }
 

@@ -60,6 +60,12 @@ export interface V1Validation {
      * @type {number}
      * @memberof V1Validation
      */
+    minDigits?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof V1Validation
+     */
     maxDigits?: number;
     /**
      *
@@ -87,6 +93,24 @@ export interface V1Validation {
     maxLength?: number;
     /**
      *
+     * @type {Array<object>}
+     * @memberof V1Validation
+     */
+    contains?: Array<object>;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof V1Validation
+     */
+    excludes?: Array<object>;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof V1Validation
+     */
+    options?: Array<object>;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Validation
      */
@@ -105,22 +129,10 @@ export interface V1Validation {
     excludesKeys?: Array<string>;
     /**
      *
-     * @type {Array<object>}
+     * @type {Array<string>}
      * @memberof V1Validation
      */
-    contains?: Array<object>;
-    /**
-     *
-     * @type {Array<object>}
-     * @memberof V1Validation
-     */
-    excludes?: Array<object>;
-    /**
-     *
-     * @type {Array<object>}
-     * @memberof V1Validation
-     */
-    options?: Array<object>;
+    keysRegex?: Array<string>;
 }
 
 /**
@@ -148,17 +160,19 @@ export function V1ValidationFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'lt': !exists(json, 'lt') ? undefined : json['lt'],
         'le': !exists(json, 'le') ? undefined : json['le'],
         'multipleOf': !exists(json, 'multipleOf') ? undefined : json['multipleOf'],
+        'minDigits': !exists(json, 'minDigits') ? undefined : json['minDigits'],
         'maxDigits': !exists(json, 'maxDigits') ? undefined : json['maxDigits'],
         'decimalPlaces': !exists(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
         'regex': !exists(json, 'regex') ? undefined : json['regex'],
         'minLength': !exists(json, 'minLength') ? undefined : json['minLength'],
         'maxLength': !exists(json, 'maxLength') ? undefined : json['maxLength'],
-        'keys': !exists(json, 'keys') ? undefined : json['keys'],
-        'containsKeys': !exists(json, 'containsKeys') ? undefined : json['containsKeys'],
-        'excludesKeys': !exists(json, 'excludesKeys') ? undefined : json['excludesKeys'],
         'contains': !exists(json, 'contains') ? undefined : json['contains'],
         'excludes': !exists(json, 'excludes') ? undefined : json['excludes'],
         'options': !exists(json, 'options') ? undefined : json['options'],
+        'keys': !exists(json, 'keys') ? undefined : json['keys'],
+        'containsKeys': !exists(json, 'containsKeys') ? undefined : json['containsKeys'],
+        'excludesKeys': !exists(json, 'excludesKeys') ? undefined : json['excludesKeys'],
+        'keysRegex': !exists(json, 'keysRegex') ? undefined : json['keysRegex'],
     };
 }
 
@@ -177,17 +191,19 @@ export function V1ValidationToJSON(value?: V1Validation | null): any {
         'lt': value.lt,
         'le': value.le,
         'multipleOf': value.multipleOf,
+        'minDigits': value.minDigits,
         'maxDigits': value.maxDigits,
         'decimalPlaces': value.decimalPlaces,
         'regex': value.regex,
         'minLength': value.minLength,
         'maxLength': value.maxLength,
-        'keys': value.keys,
-        'containsKeys': value.containsKeys,
-        'excludesKeys': value.excludesKeys,
         'contains': value.contains,
         'excludes': value.excludes,
         'options': value.options,
+        'keys': value.keys,
+        'containsKeys': value.containsKeys,
+        'excludesKeys': value.excludesKeys,
+        'keysRegex': value.keysRegex,
     };
 }
 

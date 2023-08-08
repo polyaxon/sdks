@@ -65,6 +65,9 @@ class V1Validation {
             if (data.hasOwnProperty('multipleOf')) {
                 obj['multipleOf'] = ApiClient.convertToType(data['multipleOf'], 'Number');
             }
+            if (data.hasOwnProperty('minDigits')) {
+                obj['minDigits'] = ApiClient.convertToType(data['minDigits'], 'Number');
+            }
             if (data.hasOwnProperty('maxDigits')) {
                 obj['maxDigits'] = ApiClient.convertToType(data['maxDigits'], 'Number');
             }
@@ -80,6 +83,15 @@ class V1Validation {
             if (data.hasOwnProperty('maxLength')) {
                 obj['maxLength'] = ApiClient.convertToType(data['maxLength'], 'Number');
             }
+            if (data.hasOwnProperty('contains')) {
+                obj['contains'] = ApiClient.convertToType(data['contains'], [Object]);
+            }
+            if (data.hasOwnProperty('excludes')) {
+                obj['excludes'] = ApiClient.convertToType(data['excludes'], [Object]);
+            }
+            if (data.hasOwnProperty('options')) {
+                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
+            }
             if (data.hasOwnProperty('keys')) {
                 obj['keys'] = ApiClient.convertToType(data['keys'], ['String']);
             }
@@ -89,14 +101,8 @@ class V1Validation {
             if (data.hasOwnProperty('excludesKeys')) {
                 obj['excludesKeys'] = ApiClient.convertToType(data['excludesKeys'], ['String']);
             }
-            if (data.hasOwnProperty('contains')) {
-                obj['contains'] = ApiClient.convertToType(data['contains'], [Object]);
-            }
-            if (data.hasOwnProperty('excludes')) {
-                obj['excludes'] = ApiClient.convertToType(data['excludes'], [Object]);
-            }
-            if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
+            if (data.hasOwnProperty('keysRegex')) {
+                obj['keysRegex'] = ApiClient.convertToType(data['keysRegex'], ['String']);
             }
         }
         return obj;
@@ -113,6 +119,18 @@ class V1Validation {
             throw new Error("Expected the field `regex` to be a primitive type in the JSON string but got " + data['regex']);
         }
         // ensure the json data is an array
+        if (!Array.isArray(data['contains'])) {
+            throw new Error("Expected the field `contains` to be an array in the JSON data but got " + data['contains']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['excludes'])) {
+            throw new Error("Expected the field `excludes` to be an array in the JSON data but got " + data['excludes']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['options'])) {
+            throw new Error("Expected the field `options` to be an array in the JSON data but got " + data['options']);
+        }
+        // ensure the json data is an array
         if (!Array.isArray(data['keys'])) {
             throw new Error("Expected the field `keys` to be an array in the JSON data but got " + data['keys']);
         }
@@ -125,16 +143,8 @@ class V1Validation {
             throw new Error("Expected the field `excludesKeys` to be an array in the JSON data but got " + data['excludesKeys']);
         }
         // ensure the json data is an array
-        if (!Array.isArray(data['contains'])) {
-            throw new Error("Expected the field `contains` to be an array in the JSON data but got " + data['contains']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['excludes'])) {
-            throw new Error("Expected the field `excludes` to be an array in the JSON data but got " + data['excludes']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['options'])) {
-            throw new Error("Expected the field `options` to be an array in the JSON data but got " + data['options']);
+        if (!Array.isArray(data['keysRegex'])) {
+            throw new Error("Expected the field `keysRegex` to be an array in the JSON data but got " + data['keysRegex']);
         }
 
         return true;
@@ -176,6 +186,11 @@ V1Validation.prototype['le'] = undefined;
 V1Validation.prototype['multipleOf'] = undefined;
 
 /**
+ * @member {Number} minDigits
+ */
+V1Validation.prototype['minDigits'] = undefined;
+
+/**
  * @member {Number} maxDigits
  */
 V1Validation.prototype['maxDigits'] = undefined;
@@ -201,6 +216,21 @@ V1Validation.prototype['minLength'] = undefined;
 V1Validation.prototype['maxLength'] = undefined;
 
 /**
+ * @member {Array.<Object>} contains
+ */
+V1Validation.prototype['contains'] = undefined;
+
+/**
+ * @member {Array.<Object>} excludes
+ */
+V1Validation.prototype['excludes'] = undefined;
+
+/**
+ * @member {Array.<Object>} options
+ */
+V1Validation.prototype['options'] = undefined;
+
+/**
  * @member {Array.<String>} keys
  */
 V1Validation.prototype['keys'] = undefined;
@@ -216,19 +246,9 @@ V1Validation.prototype['containsKeys'] = undefined;
 V1Validation.prototype['excludesKeys'] = undefined;
 
 /**
- * @member {Array.<Object>} contains
+ * @member {Array.<String>} keysRegex
  */
-V1Validation.prototype['contains'] = undefined;
-
-/**
- * @member {Array.<Object>} excludes
- */
-V1Validation.prototype['excludes'] = undefined;
-
-/**
- * @member {Array.<Object>} options
- */
-V1Validation.prototype['options'] = undefined;
+V1Validation.prototype['keysRegex'] = undefined;
 
 
 

@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property minDigits (base name: "minDigits")', function() {
+      // uncomment below and update the code to test the property minDigits
+      //var instance = new PolyaxonSdk.V1Validation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property maxDigits (base name: "maxDigits")', function() {
       // uncomment below and update the code to test the property maxDigits
       //var instance = new PolyaxonSdk.V1Validation();
@@ -120,6 +126,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property contains (base name: "contains")', function() {
+      // uncomment below and update the code to test the property contains
+      //var instance = new PolyaxonSdk.V1Validation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property excludes (base name: "excludes")', function() {
+      // uncomment below and update the code to test the property excludes
+      //var instance = new PolyaxonSdk.V1Validation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new PolyaxonSdk.V1Validation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property keys (base name: "keys")', function() {
       // uncomment below and update the code to test the property keys
       //var instance = new PolyaxonSdk.V1Validation();
@@ -138,20 +162,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property contains (base name: "contains")', function() {
-      // uncomment below and update the code to test the property contains
-      //var instance = new PolyaxonSdk.V1Validation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property excludes (base name: "excludes")', function() {
-      // uncomment below and update the code to test the property excludes
-      //var instance = new PolyaxonSdk.V1Validation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property options (base name: "options")', function() {
-      // uncomment below and update the code to test the property options
+    it('should have the property keysRegex (base name: "keysRegex")', function() {
+      // uncomment below and update the code to test the property keysRegex
       //var instance = new PolyaxonSdk.V1Validation();
       //expect(instance).to.be();
     });

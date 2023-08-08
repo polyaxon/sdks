@@ -23520,10 +23520,14 @@
           "type": "integer",
           "format": "int32"
         },
-        "maxDigits": {
+        "minDigits": {
           "type": "integer",
           "format": "int32",
           "title": "Decimal Constraints"
+        },
+        "maxDigits": {
+          "type": "integer",
+          "format": "int32"
         },
         "decimalPlaces": {
           "type": "integer",
@@ -23542,25 +23546,6 @@
           "type": "integer",
           "format": "int32"
         },
-        "keys": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Dict Constraints"
-        },
-        "containsKeys": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "excludesKeys": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "contains": {
           "type": "array",
           "items": {
@@ -23578,6 +23563,31 @@
           "type": "array",
           "items": {
             "type": "object"
+          }
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Dict keys Constraints"
+        },
+        "containsKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludesKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "keysRegex": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         }
       },
