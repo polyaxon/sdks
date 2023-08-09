@@ -110,6 +110,14 @@ public class V1Validation {
   @SerializedName(SERIALIZED_NAME_OPTIONS)
   private List<Object> options;
 
+  public static final String SERIALIZED_NAME_MIN_ITEMS = "minItems";
+  @SerializedName(SERIALIZED_NAME_MIN_ITEMS)
+  private Integer minItems;
+
+  public static final String SERIALIZED_NAME_MAX_ITEMS = "maxItems";
+  @SerializedName(SERIALIZED_NAME_MAX_ITEMS)
+  private Integer maxItems;
+
   public static final String SERIALIZED_NAME_KEYS = "keys";
   @SerializedName(SERIALIZED_NAME_KEYS)
   private List<String> keys;
@@ -121,10 +129,6 @@ public class V1Validation {
   public static final String SERIALIZED_NAME_EXCLUDES_KEYS = "excludesKeys";
   @SerializedName(SERIALIZED_NAME_EXCLUDES_KEYS)
   private List<String> excludesKeys;
-
-  public static final String SERIALIZED_NAME_KEYS_REGEX = "keysRegex";
-  @SerializedName(SERIALIZED_NAME_KEYS_REGEX)
-  private List<String> keysRegex;
 
   public V1Validation() {
   }
@@ -483,6 +487,50 @@ public class V1Validation {
   }
 
 
+  public V1Validation minItems(Integer minItems) {
+
+    this.minItems = minItems;
+    return this;
+  }
+
+   /**
+   * Get minItems
+   * @return minItems
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMinItems() {
+    return minItems;
+  }
+
+
+  public void setMinItems(Integer minItems) {
+    this.minItems = minItems;
+  }
+
+
+  public V1Validation maxItems(Integer maxItems) {
+
+    this.maxItems = maxItems;
+    return this;
+  }
+
+   /**
+   * Get maxItems
+   * @return maxItems
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getMaxItems() {
+    return maxItems;
+  }
+
+
+  public void setMaxItems(Integer maxItems) {
+    this.maxItems = maxItems;
+  }
+
+
   public V1Validation keys(List<String> keys) {
 
     this.keys = keys;
@@ -573,36 +621,6 @@ public class V1Validation {
   }
 
 
-  public V1Validation keysRegex(List<String> keysRegex) {
-
-    this.keysRegex = keysRegex;
-    return this;
-  }
-
-  public V1Validation addKeysRegexItem(String keysRegexItem) {
-    if (this.keysRegex == null) {
-      this.keysRegex = new ArrayList<>();
-    }
-    this.keysRegex.add(keysRegexItem);
-    return this;
-  }
-
-   /**
-   * Get keysRegex
-   * @return keysRegex
-  **/
-  @javax.annotation.Nullable
-
-  public List<String> getKeysRegex() {
-    return keysRegex;
-  }
-
-
-  public void setKeysRegex(List<String> keysRegex) {
-    this.keysRegex = keysRegex;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -628,15 +646,16 @@ public class V1Validation {
         Objects.equals(this.contains, v1Validation.contains) &&
         Objects.equals(this.excludes, v1Validation.excludes) &&
         Objects.equals(this.options, v1Validation.options) &&
+        Objects.equals(this.minItems, v1Validation.minItems) &&
+        Objects.equals(this.maxItems, v1Validation.maxItems) &&
         Objects.equals(this.keys, v1Validation.keys) &&
         Objects.equals(this.containsKeys, v1Validation.containsKeys) &&
-        Objects.equals(this.excludesKeys, v1Validation.excludesKeys) &&
-        Objects.equals(this.keysRegex, v1Validation.keysRegex);
+        Objects.equals(this.excludesKeys, v1Validation.excludesKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delay, gt, ge, lt, le, multipleOf, minDigits, maxDigits, decimalPlaces, regex, minLength, maxLength, contains, excludes, options, keys, containsKeys, excludesKeys, keysRegex);
+    return Objects.hash(delay, gt, ge, lt, le, multipleOf, minDigits, maxDigits, decimalPlaces, regex, minLength, maxLength, contains, excludes, options, minItems, maxItems, keys, containsKeys, excludesKeys);
   }
 
   @Override
@@ -658,10 +677,11 @@ public class V1Validation {
     sb.append("    contains: ").append(toIndentedString(contains)).append("\n");
     sb.append("    excludes: ").append(toIndentedString(excludes)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    minItems: ").append(toIndentedString(minItems)).append("\n");
+    sb.append("    maxItems: ").append(toIndentedString(maxItems)).append("\n");
     sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
     sb.append("    containsKeys: ").append(toIndentedString(containsKeys)).append("\n");
     sb.append("    excludesKeys: ").append(toIndentedString(excludesKeys)).append("\n");
-    sb.append("    keysRegex: ").append(toIndentedString(keysRegex)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -699,10 +719,11 @@ public class V1Validation {
     openapiFields.add("contains");
     openapiFields.add("excludes");
     openapiFields.add("options");
+    openapiFields.add("minItems");
+    openapiFields.add("maxItems");
     openapiFields.add("keys");
     openapiFields.add("containsKeys");
     openapiFields.add("excludesKeys");
-    openapiFields.add("keysRegex");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -754,10 +775,6 @@ public class V1Validation {
       // ensure the optional json data is an array if present
       if (jsonObj.get("excludesKeys") != null && !jsonObj.get("excludesKeys").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `excludesKeys` to be an array in the JSON string but got `%s`", jsonObj.get("excludesKeys").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("keysRegex") != null && !jsonObj.get("keysRegex").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `keysRegex` to be an array in the JSON string but got `%s`", jsonObj.get("keysRegex").toString()));
       }
   }
 

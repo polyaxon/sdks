@@ -19,10 +19,11 @@ Name | Type | Description | Notes
 **contains** | **List[object]** |  | [optional] 
 **excludes** | **List[object]** |  | [optional] 
 **options** | **List[object]** |  | [optional] 
+**min_items** | **int** |  | [optional] 
+**max_items** | **int** |  | [optional] 
 **keys** | **List[str]** |  | [optional] 
 **contains_keys** | **List[str]** |  | [optional] 
 **excludes_keys** | **List[str]** |  | [optional] 
-**keys_regex** | **List[str]** |  | [optional] 
 
 ## Example
 

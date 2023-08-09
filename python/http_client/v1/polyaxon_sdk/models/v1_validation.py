@@ -42,11 +42,12 @@ class V1Validation(BaseModel):
     contains: Optional[conlist(Dict[str, Any])] = None
     excludes: Optional[conlist(Dict[str, Any])] = None
     options: Optional[conlist(Dict[str, Any])] = None
+    min_items: Optional[StrictInt] = Field(None, alias="minItems")
+    max_items: Optional[StrictInt] = Field(None, alias="maxItems")
     keys: Optional[conlist(StrictStr)] = None
     contains_keys: Optional[conlist(StrictStr)] = Field(None, alias="containsKeys")
     excludes_keys: Optional[conlist(StrictStr)] = Field(None, alias="excludesKeys")
-    keys_regex: Optional[conlist(StrictStr)] = Field(None, alias="keysRegex")
-    __properties = ["delay", "gt", "ge", "lt", "le", "multipleOf", "minDigits", "maxDigits", "decimalPlaces", "regex", "minLength", "maxLength", "contains", "excludes", "options", "keys", "containsKeys", "excludesKeys", "keysRegex"]
+    __properties = ["delay", "gt", "ge", "lt", "le", "multipleOf", "minDigits", "maxDigits", "decimalPlaces", "regex", "minLength", "maxLength", "contains", "excludes", "options", "minItems", "maxItems", "keys", "containsKeys", "excludesKeys"]
 
     class Config:
         allow_population_by_field_name = True
@@ -98,10 +99,11 @@ class V1Validation(BaseModel):
             "contains": obj.get("contains"),
             "excludes": obj.get("excludes"),
             "options": obj.get("options"),
+            "min_items": obj.get("minItems"),
+            "max_items": obj.get("maxItems"),
             "keys": obj.get("keys"),
             "contains_keys": obj.get("containsKeys"),
-            "excludes_keys": obj.get("excludesKeys"),
-            "keys_regex": obj.get("keysRegex")
+            "excludes_keys": obj.get("excludesKeys")
         })
         return _obj
 

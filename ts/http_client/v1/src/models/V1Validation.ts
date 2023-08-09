@@ -111,6 +111,18 @@ export interface V1Validation {
     options?: Array<object>;
     /**
      *
+     * @type {number}
+     * @memberof V1Validation
+     */
+    minItems?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof V1Validation
+     */
+    maxItems?: number;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Validation
      */
@@ -127,12 +139,6 @@ export interface V1Validation {
      * @memberof V1Validation
      */
     excludesKeys?: Array<string>;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof V1Validation
-     */
-    keysRegex?: Array<string>;
 }
 
 /**
@@ -169,10 +175,11 @@ export function V1ValidationFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'contains': !exists(json, 'contains') ? undefined : json['contains'],
         'excludes': !exists(json, 'excludes') ? undefined : json['excludes'],
         'options': !exists(json, 'options') ? undefined : json['options'],
+        'minItems': !exists(json, 'minItems') ? undefined : json['minItems'],
+        'maxItems': !exists(json, 'maxItems') ? undefined : json['maxItems'],
         'keys': !exists(json, 'keys') ? undefined : json['keys'],
         'containsKeys': !exists(json, 'containsKeys') ? undefined : json['containsKeys'],
         'excludesKeys': !exists(json, 'excludesKeys') ? undefined : json['excludesKeys'],
-        'keysRegex': !exists(json, 'keysRegex') ? undefined : json['keysRegex'],
     };
 }
 
@@ -200,10 +207,11 @@ export function V1ValidationToJSON(value?: V1Validation | null): any {
         'contains': value.contains,
         'excludes': value.excludes,
         'options': value.options,
+        'minItems': value.minItems,
+        'maxItems': value.maxItems,
         'keys': value.keys,
         'containsKeys': value.containsKeys,
         'excludesKeys': value.excludesKeys,
-        'keysRegex': value.keysRegex,
     };
 }
 

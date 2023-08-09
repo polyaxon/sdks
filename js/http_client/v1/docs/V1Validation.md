@@ -19,9 +19,10 @@ Name | Type | Description | Notes
 **contains** | **[Object]** |  | [optional] 
 **excludes** | **[Object]** |  | [optional] 
 **options** | **[Object]** |  | [optional] 
+**minItems** | **Number** |  | [optional] 
+**maxItems** | **Number** |  | [optional] 
 **keys** | **[String]** |  | [optional] 
 **containsKeys** | **[String]** |  | [optional] 
 **excludesKeys** | **[String]** |  | [optional] 
-**keysRegex** | **[String]** |  | [optional] 
 
 

@@ -160,6 +160,22 @@ public class V1ValidationTest {
     }
 
     /**
+     * Test the property 'minItems'
+     */
+    @Test
+    public void minItemsTest() {
+        // TODO: test minItems
+    }
+
+    /**
+     * Test the property 'maxItems'
+     */
+    @Test
+    public void maxItemsTest() {
+        // TODO: test maxItems
+    }
+
+    /**
      * Test the property 'keys'
      */
     @Test
@@ -181,14 +197,6 @@ public class V1ValidationTest {
     @Test
     public void excludesKeysTest() {
         // TODO: test excludesKeys
-    }
-
-    /**
-     * Test the property 'keysRegex'
-     */
-    @Test
-    public void keysRegexTest() {
-        // TODO: test keysRegex
     }
 
 }

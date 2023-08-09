@@ -144,6 +144,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property minItems (base name: "minItems")', function() {
+      // uncomment below and update the code to test the property minItems
+      //var instance = new PolyaxonSdk.V1Validation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maxItems (base name: "maxItems")', function() {
+      // uncomment below and update the code to test the property maxItems
+      //var instance = new PolyaxonSdk.V1Validation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property keys (base name: "keys")', function() {
       // uncomment below and update the code to test the property keys
       //var instance = new PolyaxonSdk.V1Validation();
@@ -158,12 +170,6 @@
 
     it('should have the property excludesKeys (base name: "excludesKeys")', function() {
       // uncomment below and update the code to test the property excludesKeys
-      //var instance = new PolyaxonSdk.V1Validation();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property keysRegex (base name: "keysRegex")', function() {
-      // uncomment below and update the code to test the property keysRegex
       //var instance = new PolyaxonSdk.V1Validation();
       //expect(instance).to.be();
     });

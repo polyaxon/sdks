@@ -92,6 +92,12 @@ class V1Validation {
             if (data.hasOwnProperty('options')) {
                 obj['options'] = ApiClient.convertToType(data['options'], [Object]);
             }
+            if (data.hasOwnProperty('minItems')) {
+                obj['minItems'] = ApiClient.convertToType(data['minItems'], 'Number');
+            }
+            if (data.hasOwnProperty('maxItems')) {
+                obj['maxItems'] = ApiClient.convertToType(data['maxItems'], 'Number');
+            }
             if (data.hasOwnProperty('keys')) {
                 obj['keys'] = ApiClient.convertToType(data['keys'], ['String']);
             }
@@ -100,9 +106,6 @@ class V1Validation {
             }
             if (data.hasOwnProperty('excludesKeys')) {
                 obj['excludesKeys'] = ApiClient.convertToType(data['excludesKeys'], ['String']);
-            }
-            if (data.hasOwnProperty('keysRegex')) {
-                obj['keysRegex'] = ApiClient.convertToType(data['keysRegex'], ['String']);
             }
         }
         return obj;
@@ -141,10 +144,6 @@ class V1Validation {
         // ensure the json data is an array
         if (!Array.isArray(data['excludesKeys'])) {
             throw new Error("Expected the field `excludesKeys` to be an array in the JSON data but got " + data['excludesKeys']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['keysRegex'])) {
-            throw new Error("Expected the field `keysRegex` to be an array in the JSON data but got " + data['keysRegex']);
         }
 
         return true;
@@ -231,6 +230,16 @@ V1Validation.prototype['excludes'] = undefined;
 V1Validation.prototype['options'] = undefined;
 
 /**
+ * @member {Number} minItems
+ */
+V1Validation.prototype['minItems'] = undefined;
+
+/**
+ * @member {Number} maxItems
+ */
+V1Validation.prototype['maxItems'] = undefined;
+
+/**
  * @member {Array.<String>} keys
  */
 V1Validation.prototype['keys'] = undefined;
@@ -244,11 +253,6 @@ V1Validation.prototype['containsKeys'] = undefined;
  * @member {Array.<String>} excludesKeys
  */
 V1Validation.prototype['excludesKeys'] = undefined;
-
-/**
- * @member {Array.<String>} keysRegex
- */
-V1Validation.prototype['keysRegex'] = undefined;
 
 
 

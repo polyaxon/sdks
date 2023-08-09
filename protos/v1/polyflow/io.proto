@@ -56,22 +56,20 @@ message Validation {
   // Validation delay
   bool delay = 1;
 
-  // Numeric Constraints
+  // Numeric Constraints (these constraints are also applied item wise for lists and for dict values)
   int32 gt = 2;
   int32 ge = 3;
   int32 lt = 4;
   int32 le = 5;
   int32 multipleOf = 6;
 
-  // Decimal Constraints
+  // Decimal Constraints (these constraints are also applied item wise for lists and for dict values)
   int32 minDigits = 7;
   int32 maxDigits = 8;
   int32 decimalPlaces = 9;
 
-  // String Constraints
+  // String Constraints (these constraints are also applied item wise for lists and for dict values)
   string regex = 10;
-
-  // Str/List/Dict Constraints
   int32 minLength = 11;
   int32 maxLength = 12;
 
@@ -80,11 +78,14 @@ message Validation {
   repeated google.protobuf.Struct excludes = 14;
   repeated google.protobuf.Struct options = 15;
 
+  // Items Constraints
+  int32 minItems = 16;
+  int32 maxItems = 17;
+
   // Dict keys Constraints
-  repeated string keys = 16;
-  repeated string containsKeys = 17;
-  repeated string excludesKeys = 18;
-  repeated string keysRegex = 19;
+  repeated string keys = 18;
+  repeated string containsKeys = 19;
+  repeated string excludesKeys = 20;
 }
 
 // Param specification

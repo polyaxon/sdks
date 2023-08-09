@@ -38,14 +38,11 @@ type V1Validation struct {
 	// ge
 	Ge int32 `json:"ge,omitempty"`
 
-	// Numeric Constraints
+	// Numeric Constraints (these constraints are also applied item wise for lists and for dict values)
 	Gt int32 `json:"gt,omitempty"`
 
 	// Dict keys Constraints
 	Keys []string `json:"keys"`
-
-	// keys regex
-	KeysRegex []string `json:"keysRegex"`
 
 	// le
 	Le int32 `json:"le,omitempty"`
@@ -56,13 +53,19 @@ type V1Validation struct {
 	// max digits
 	MaxDigits int32 `json:"maxDigits,omitempty"`
 
+	// max items
+	MaxItems int32 `json:"maxItems,omitempty"`
+
 	// max length
 	MaxLength int32 `json:"maxLength,omitempty"`
 
-	// Decimal Constraints
+	// Decimal Constraints (these constraints are also applied item wise for lists and for dict values)
 	MinDigits int32 `json:"minDigits,omitempty"`
 
-	// Str/List/Dict Constraints
+	// Items Constraints
+	MinItems int32 `json:"minItems,omitempty"`
+
+	// min length
 	MinLength int32 `json:"minLength,omitempty"`
 
 	// multiple of
@@ -71,7 +74,7 @@ type V1Validation struct {
 	// options
 	Options []interface{} `json:"options"`
 
-	// String Constraints
+	// String Constraints (these constraints are also applied item wise for lists and for dict values)
 	Regex string `json:"regex,omitempty"`
 }
 

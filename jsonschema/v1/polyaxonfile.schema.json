@@ -11051,7 +11051,7 @@
         },
         "gt": {
           "format": "int32",
-          "title": "Numeric Constraints",
+          "title": "Numeric Constraints (these constraints are also applied item wise for lists and for dict values)",
           "type": "integer"
         },
         "keys": {
@@ -11059,12 +11059,6 @@
             "type": "string"
           },
           "title": "Dict keys Constraints",
-          "type": "array"
-        },
-        "keysRegex": {
-          "items": {
-            "type": "string"
-          },
           "type": "array"
         },
         "le": {
@@ -11079,18 +11073,26 @@
           "format": "int32",
           "type": "integer"
         },
+        "maxItems": {
+          "format": "int32",
+          "type": "integer"
+        },
         "maxLength": {
           "format": "int32",
           "type": "integer"
         },
         "minDigits": {
           "format": "int32",
-          "title": "Decimal Constraints",
+          "title": "Decimal Constraints (these constraints are also applied item wise for lists and for dict values)",
+          "type": "integer"
+        },
+        "minItems": {
+          "format": "int32",
+          "title": "Items Constraints",
           "type": "integer"
         },
         "minLength": {
           "format": "int32",
-          "title": "Str/List/Dict Constraints",
           "type": "integer"
         },
         "multipleOf": {
@@ -11104,7 +11106,7 @@
           "type": "array"
         },
         "regex": {
-          "title": "String Constraints",
+          "title": "String Constraints (these constraints are also applied item wise for lists and for dict values)",
           "type": "string"
         }
       },

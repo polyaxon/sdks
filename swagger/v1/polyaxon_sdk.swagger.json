@@ -23502,7 +23502,7 @@
         "gt": {
           "type": "integer",
           "format": "int32",
-          "title": "Numeric Constraints"
+          "title": "Numeric Constraints (these constraints are also applied item wise for lists and for dict values)"
         },
         "ge": {
           "type": "integer",
@@ -23523,7 +23523,7 @@
         "minDigits": {
           "type": "integer",
           "format": "int32",
-          "title": "Decimal Constraints"
+          "title": "Decimal Constraints (these constraints are also applied item wise for lists and for dict values)"
         },
         "maxDigits": {
           "type": "integer",
@@ -23535,12 +23535,11 @@
         },
         "regex": {
           "type": "string",
-          "title": "String Constraints"
+          "title": "String Constraints (these constraints are also applied item wise for lists and for dict values)"
         },
         "minLength": {
           "type": "integer",
-          "format": "int32",
-          "title": "Str/List/Dict Constraints"
+          "format": "int32"
         },
         "maxLength": {
           "type": "integer",
@@ -23565,6 +23564,15 @@
             "type": "object"
           }
         },
+        "minItems": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Items Constraints"
+        },
+        "maxItems": {
+          "type": "integer",
+          "format": "int32"
+        },
         "keys": {
           "type": "array",
           "items": {
@@ -23579,12 +23587,6 @@
           }
         },
         "excludesKeys": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "keysRegex": {
           "type": "array",
           "items": {
             "type": "string"

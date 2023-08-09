@@ -22,10 +22,11 @@
 |**contains** | **List&lt;Object&gt;** |  |  [optional] |
 |**excludes** | **List&lt;Object&gt;** |  |  [optional] |
 |**options** | **List&lt;Object&gt;** |  |  [optional] |
+|**minItems** | **Integer** |  |  [optional] |
+|**maxItems** | **Integer** |  |  [optional] |
 |**keys** | **List&lt;String&gt;** |  |  [optional] |
 |**containsKeys** | **List&lt;String&gt;** |  |  [optional] |
 |**excludesKeys** | **List&lt;String&gt;** |  |  [optional] |
-|**keysRegex** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

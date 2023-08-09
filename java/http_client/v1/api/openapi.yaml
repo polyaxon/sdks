@@ -19186,9 +19186,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19202,6 +19200,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19235,9 +19234,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19251,6 +19248,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19314,9 +19312,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19330,6 +19326,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19363,9 +19360,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19379,6 +19374,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19415,9 +19411,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19431,6 +19425,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19464,9 +19459,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19480,6 +19473,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19555,10 +19549,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 8.8637295
+        cost: 1.8268702
         kind: kind
         trigger: null
-        version: 4.5739365
+        version: 9.254184
         tags:
         - tags
         - tags
@@ -19725,9 +19719,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19741,6 +19733,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19774,9 +19767,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19790,6 +19781,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19821,7 +19813,7 @@ components:
           sections:
           - sections
           - sections
-        cost: 6.0738983
+        cost: 4.459605
         kind: kind
         plugins:
           mountArtifactsStore: true
@@ -19870,9 +19862,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19886,6 +19876,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -19919,9 +19910,7 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            keysRegex:
-            - keysRegex
-            - keysRegex
+            maxItems: 8
             excludes:
             - "{}"
             - "{}"
@@ -19935,6 +19924,7 @@ components:
             - containsKeys
             - containsKeys
             gt: 1
+            minItems: 6
             regex: regex
             contains:
             - "{}"
@@ -20142,7 +20132,7 @@ components:
     v1ConnectionResource:
       example:
         mountPath: mountPath
-        defaultMode: 9
+        defaultMode: 0
         name: name
         items:
         - items
@@ -20249,7 +20239,7 @@ components:
         kind: null
         configMap:
           mountPath: mountPath
-          defaultMode: 9
+          defaultMode: 0
           name: name
           items:
           - items
@@ -20260,7 +20250,7 @@ components:
           key: annotations
         secret:
           mountPath: mountPath
-          defaultMode: 9
+          defaultMode: 0
           name: name
           items:
           - items
@@ -20318,7 +20308,7 @@ components:
       example:
         cron: cron
         dependsOnPast: true
-        maxRuns: 9
+        maxRuns: 3
         kind: cron
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
@@ -20372,9 +20362,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20388,6 +20376,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20421,9 +20410,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20437,6 +20424,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20468,7 +20456,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 6.0738983
+          cost: 4.459605
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -20517,9 +20505,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20533,6 +20519,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20566,9 +20553,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20582,6 +20567,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20693,9 +20679,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20709,6 +20693,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20742,9 +20727,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20758,6 +20741,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20789,7 +20773,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 6.0738983
+          cost: 4.459605
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -20838,9 +20822,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20854,6 +20836,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -20887,9 +20870,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -20903,6 +20884,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -21175,9 +21157,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21191,6 +21171,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21224,9 +21205,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21240,6 +21219,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21271,7 +21251,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.0738983
+            cost: 4.459605
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -21320,9 +21300,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21336,6 +21314,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21369,9 +21348,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21385,6 +21362,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21665,9 +21643,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21681,6 +21657,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21714,9 +21691,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21730,6 +21705,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21761,7 +21737,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.0738983
+            cost: 4.459605
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -21810,9 +21786,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21826,6 +21800,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -21859,9 +21834,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -21875,6 +21848,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -22011,7 +21985,7 @@ components:
         connections:
         - connections
         - connections
-        concurrency: 8
+        concurrency: 3
       properties:
         kind:
           default: dag
@@ -22316,7 +22290,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 8
           volumes:
           - null
           - null
@@ -22478,7 +22452,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 8
           volumes:
           - null
           - null
@@ -22639,7 +22613,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 8
           volumes:
           - null
           - null
@@ -22814,7 +22788,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 2
+        replicas: 8
         volumes:
         - null
         - null
@@ -23251,46 +23225,46 @@ components:
       example:
         image:
           path: path
-          colorspace: 8
-          width: 5
-          height: 5
+          colorspace: 3
+          width: 7
+          height: 8
         curve:
           annotation: annotation
           kind: null
           x:
-          - 2.3800902
-          - 2.3800902
+          - 8.675064
+          - 8.675064
           "y":
-          - 3.8041127
-          - 3.8041127
+          - 4.5183096
+          - 4.5183096
         video:
           path: path
           content_type: content_type
           colorspace: 3
-          width: 0
-          height: 7
+          width: 2
+          height: 3
         histogram:
           counts:
-          - 3.7814124730767915
-          - 3.7814124730767915
+          - 9.897492629215506
+          - 9.897492629215506
           values:
-          - 7.606863723092579
-          - 7.606863723092579
+          - 3.111202833403195
+          - 3.111202833403195
         artifact:
           path: path
           kind: null
-        metric: 0.4182561
-        step: 8
+        metric: 5.3124895
+        step: 5
         html: html
         model:
           path: path
           framework: framework
           spec: "{}"
         audio:
-          num_channels: 9
+          num_channels: 7
           path: path
-          length_frames: 5
-          sample_rate: 3.1112027
+          length_frames: 0
+          sample_rate: 5.877125
           content_type: content_type
         text: text
         dataframe:
@@ -23362,10 +23336,10 @@ components:
       type: object
     v1EventAudio:
       example:
-        num_channels: 9
+        num_channels: 7
         path: path
-        length_frames: 5
-        sample_rate: 3.1112027
+        length_frames: 0
+        sample_rate: 5.877125
         content_type: content_type
       properties:
         sample_rate:
@@ -23450,11 +23424,11 @@ components:
         annotation: annotation
         kind: null
         x:
-        - 2.3800902
-        - 2.3800902
+        - 8.675064
+        - 8.675064
         "y":
-        - 3.8041127
-        - 3.8041127
+        - 4.5183096
+        - 4.5183096
       properties:
         kind:
           $ref: '#/components/schemas/v1EventCurveKind'
@@ -23503,11 +23477,11 @@ components:
     v1EventHistogram:
       example:
         counts:
-        - 3.7814124730767915
-        - 3.7814124730767915
+        - 9.897492629215506
+        - 9.897492629215506
         values:
-        - 7.606863723092579
-        - 7.606863723092579
+        - 3.111202833403195
+        - 3.111202833403195
       properties:
         values:
           items:
@@ -23524,9 +23498,9 @@ components:
     v1EventImage:
       example:
         path: path
-        colorspace: 8
-        width: 5
-        height: 5
+        colorspace: 3
+        width: 7
+        height: 8
       properties:
         height:
           description: Height of the image.
@@ -23640,8 +23614,8 @@ components:
         path: path
         content_type: content_type
         colorspace: 3
-        width: 0
-        height: 7
+        width: 2
+        height: 3
       properties:
         height:
           description: Height of the video.
@@ -24432,9 +24406,7 @@ components:
         value: "{}"
         validation:
           multipleOf: 0
-          keysRegex:
-          - keysRegex
-          - keysRegex
+          maxItems: 8
           excludes:
           - "{}"
           - "{}"
@@ -24448,6 +24420,7 @@ components:
           - containsKeys
           - containsKeys
           gt: 1
+          minItems: 6
           regex: regex
           contains:
           - "{}"
@@ -24645,11 +24618,11 @@ components:
     v1IntervalSchedule:
       example:
         dependsOnPast: true
-        maxRuns: 1
+        maxRuns: 9
         kind: interval
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
-        frequency: 3
+        frequency: 8
       properties:
         kind:
           default: interval
@@ -25153,7 +25126,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 3
+        replicas: 2
         volumes:
         - null
         - null
@@ -27030,7 +27003,7 @@ components:
     v1MPIJob:
       example:
         cleanPodPolicy: null
-        slotsPerWorker: 0
+        slotsPerWorker: 1
         kind: mpijob
         worker:
           container: "{}"
@@ -27186,7 +27159,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -27194,7 +27167,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 4
+          minAvailable: 0
           priorityClass: priorityClass
           queue: queue
         launcher:
@@ -27351,7 +27324,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -27534,7 +27507,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -27696,7 +27669,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -27857,7 +27830,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -28018,7 +27991,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -28179,7 +28152,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -28341,7 +28314,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -28349,7 +28322,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 4
+          minAvailable: 0
           priorityClass: priorityClass
           queue: queue
       properties:
@@ -28823,9 +28796,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -28839,6 +28810,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -28872,9 +28844,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -28888,6 +28858,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -28919,7 +28890,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 6.0738983
+          cost: 4.459605
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -28968,9 +28939,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -28984,6 +28953,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -29017,9 +28987,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -29033,6 +29001,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -29595,7 +29564,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -29603,7 +29572,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 4
+          minAvailable: 0
           priorityClass: priorityClass
           queue: queue
         master:
@@ -29760,7 +29729,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -30523,7 +30492,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -30531,7 +30500,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 4
+          minAvailable: 0
           priorityClass: priorityClass
           queue: queue
         master:
@@ -30688,7 +30657,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -30819,7 +30788,7 @@ components:
       example:
         rayVersion: rayVersion
         head:
-          maxReplicas: 6
+          maxReplicas: 8
           container: "{}"
           init:
           - modelRef: modelRef
@@ -30974,8 +30943,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 8
-          replicas: 1
+          minReplicas: 4
+          replicas: 6
           volumes:
           - null
           - null
@@ -30989,7 +30958,7 @@ components:
         kind: rayjob
         entrypoint: entrypoint
         workers:
-        - maxReplicas: 6
+        - maxReplicas: 8
           container: "{}"
           init:
           - modelRef: modelRef
@@ -31144,8 +31113,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 8
-          replicas: 1
+          minReplicas: 4
+          replicas: 6
           volumes:
           - null
           - null
@@ -31154,7 +31123,7 @@ components:
           connections:
           - connections
           - connections
-        - maxReplicas: 6
+        - maxReplicas: 8
           container: "{}"
           init:
           - modelRef: modelRef
@@ -31309,8 +31278,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 8
-          replicas: 1
+          minReplicas: 4
+          replicas: 6
           volumes:
           - null
           - null
@@ -31352,7 +31321,7 @@ components:
       type: object
     v1RayReplica:
       example:
-        maxReplicas: 6
+        maxReplicas: 8
         container: "{}"
         init:
         - modelRef: modelRef
@@ -31507,8 +31476,8 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        minReplicas: 8
-        replicas: 1
+        minReplicas: 4
+        replicas: 6
         volumes:
         - null
         - null
@@ -32354,7 +32323,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 8
             volumes:
             - null
             - null
@@ -32516,7 +32485,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 8
             volumes:
             - null
             - null
@@ -32677,7 +32646,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 8
             volumes:
             - null
             - null
@@ -32841,7 +32810,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -32849,7 +32818,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 4
+            minAvailable: 0
             priorityClass: priorityClass
             queue: queue
           master:
@@ -33006,7 +32975,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -33016,7 +32985,7 @@ components:
         rayJob:
           rayVersion: rayVersion
           head:
-            maxReplicas: 6
+            maxReplicas: 8
             container: "{}"
             init:
             - modelRef: modelRef
@@ -33171,8 +33140,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 8
-            replicas: 1
+            minReplicas: 4
+            replicas: 6
             volumes:
             - null
             - null
@@ -33186,7 +33155,7 @@ components:
           kind: rayjob
           entrypoint: entrypoint
           workers:
-          - maxReplicas: 6
+          - maxReplicas: 8
             container: "{}"
             init:
             - modelRef: modelRef
@@ -33341,8 +33310,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 8
-            replicas: 1
+            minReplicas: 4
+            replicas: 6
             volumes:
             - null
             - null
@@ -33351,7 +33320,7 @@ components:
             connections:
             - connections
             - connections
-          - maxReplicas: 6
+          - maxReplicas: 8
             container: "{}"
             init:
             - modelRef: modelRef
@@ -33506,8 +33475,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 8
-            replicas: 1
+            minReplicas: 4
+            replicas: 6
             volumes:
             - null
             - null
@@ -33673,7 +33642,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -33835,7 +33804,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -33996,7 +33965,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -34157,7 +34126,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -34318,7 +34287,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -34480,7 +34449,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -34488,7 +34457,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 4
+            minAvailable: 0
             priorityClass: priorityClass
             queue: queue
         service:
@@ -34815,7 +34784,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -34977,7 +34946,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -35138,7 +35107,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -35146,7 +35115,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 4
+            minAvailable: 0
             priorityClass: priorityClass
             queue: queue
           evaluator:
@@ -35303,7 +35272,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -35467,7 +35436,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -35475,7 +35444,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 4
+            minAvailable: 0
             priorityClass: priorityClass
             queue: queue
           master:
@@ -35632,7 +35601,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -35663,9 +35632,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -35679,6 +35646,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -35712,9 +35680,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -35728,6 +35694,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -35759,7 +35726,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.0738983
+            cost: 4.459605
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -35808,9 +35775,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -35824,6 +35789,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -35857,9 +35823,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -35873,6 +35837,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -35984,9 +35949,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -36000,6 +35963,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -36033,9 +35997,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -36049,6 +36011,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -36080,7 +36043,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.0738983
+            cost: 4.459605
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -36129,9 +36092,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -36145,6 +36106,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -36178,9 +36140,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -36194,6 +36154,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -36466,9 +36427,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -36482,6 +36441,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -36515,9 +36475,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -36531,6 +36489,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -36562,7 +36521,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 6.0738983
+              cost: 4.459605
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -36611,9 +36570,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -36627,6 +36584,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -36660,9 +36618,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -36676,6 +36632,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -36956,9 +36913,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -36972,6 +36927,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -37005,9 +36961,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -37021,6 +36975,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -37052,7 +37007,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 6.0738983
+              cost: 4.459605
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -37101,9 +37056,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -37117,6 +37070,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -37150,9 +37104,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -37166,6 +37118,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -37302,7 +37255,7 @@ components:
           connections:
           - connections
           - connections
-          concurrency: 8
+          concurrency: 3
         pytorchJob:
           cleanPodPolicy: null
           kind: pytorchjob
@@ -37460,7 +37413,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -37468,7 +37421,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 4
+            minAvailable: 0
             priorityClass: priorityClass
             queue: queue
           master:
@@ -37625,7 +37578,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -37795,7 +37748,7 @@ components:
           - connections
         mpiJob:
           cleanPodPolicy: null
-          slotsPerWorker: 0
+          slotsPerWorker: 1
           kind: mpijob
           worker:
             container: "{}"
@@ -37951,7 +37904,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -37959,7 +37912,7 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 4
+            minAvailable: 0
             priorityClass: priorityClass
             queue: queue
           launcher:
@@ -38116,7 +38069,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 2
             volumes:
             - null
             - null
@@ -38235,7 +38188,7 @@ components:
         cron:
           cron: cron
           dependsOnPast: true
-          maxRuns: 9
+          maxRuns: 3
           kind: cron
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
@@ -38244,11 +38197,11 @@ components:
           startAt: 2000-01-23T04:56:07.000+00:00
         interval:
           dependsOnPast: true
-          maxRuns: 1
+          maxRuns: 9
           kind: interval
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
-          frequency: 3
+          frequency: 8
       properties:
         cron:
           $ref: '#/components/schemas/v1CronSchedule'
@@ -38267,7 +38220,7 @@ components:
       type: string
     v1SchedulingPolicy:
       example:
-        minAvailable: 4
+        minAvailable: 0
         priorityClass: priorityClass
         queue: queue
       properties:
@@ -38311,7 +38264,7 @@ components:
           user: user
         resource:
           mountPath: mountPath
-          defaultMode: 9
+          defaultMode: 0
           name: name
           items:
           - items
@@ -38472,7 +38425,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 8
               volumes:
               - null
               - null
@@ -38634,7 +38587,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 8
               volumes:
               - null
               - null
@@ -38795,7 +38748,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 8
               volumes:
               - null
               - null
@@ -38959,7 +38912,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -38967,7 +38920,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 4
+              minAvailable: 0
               priorityClass: priorityClass
               queue: queue
             master:
@@ -39124,7 +39077,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -39134,7 +39087,7 @@ components:
           rayJob:
             rayVersion: rayVersion
             head:
-              maxReplicas: 6
+              maxReplicas: 8
               container: "{}"
               init:
               - modelRef: modelRef
@@ -39289,8 +39242,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 8
-              replicas: 1
+              minReplicas: 4
+              replicas: 6
               volumes:
               - null
               - null
@@ -39304,7 +39257,7 @@ components:
             kind: rayjob
             entrypoint: entrypoint
             workers:
-            - maxReplicas: 6
+            - maxReplicas: 8
               container: "{}"
               init:
               - modelRef: modelRef
@@ -39459,8 +39412,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 8
-              replicas: 1
+              minReplicas: 4
+              replicas: 6
               volumes:
               - null
               - null
@@ -39469,7 +39422,7 @@ components:
               connections:
               - connections
               - connections
-            - maxReplicas: 6
+            - maxReplicas: 8
               container: "{}"
               init:
               - modelRef: modelRef
@@ -39624,8 +39577,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 8
-              replicas: 1
+              minReplicas: 4
+              replicas: 6
               volumes:
               - null
               - null
@@ -39791,7 +39744,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -39953,7 +39906,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -40114,7 +40067,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -40275,7 +40228,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -40436,7 +40389,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -40598,7 +40551,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -40606,7 +40559,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 4
+              minAvailable: 0
               priorityClass: priorityClass
               queue: queue
           service:
@@ -40933,7 +40886,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -41095,7 +41048,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -41256,7 +41209,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -41264,7 +41217,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 4
+              minAvailable: 0
               priorityClass: priorityClass
               queue: queue
             evaluator:
@@ -41421,7 +41374,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -41585,7 +41538,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -41593,7 +41546,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 4
+              minAvailable: 0
               priorityClass: priorityClass
               queue: queue
             master:
@@ -41750,7 +41703,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -41781,9 +41734,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -41797,6 +41748,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -41830,9 +41782,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -41846,6 +41796,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -41877,7 +41828,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 6.0738983
+              cost: 4.459605
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -41926,9 +41877,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -41942,6 +41891,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -41975,9 +41925,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -41991,6 +41939,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -42102,9 +42051,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -42118,6 +42065,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -42151,9 +42099,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -42167,6 +42113,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -42198,7 +42145,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 6.0738983
+              cost: 4.459605
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -42247,9 +42194,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -42263,6 +42208,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -42296,9 +42242,7 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  keysRegex:
-                  - keysRegex
-                  - keysRegex
+                  maxItems: 8
                   excludes:
                   - "{}"
                   - "{}"
@@ -42312,6 +42256,7 @@ components:
                   - containsKeys
                   - containsKeys
                   gt: 1
+                  minItems: 6
                   regex: regex
                   contains:
                   - "{}"
@@ -42584,9 +42529,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -42600,6 +42543,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -42633,9 +42577,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -42649,6 +42591,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -42680,7 +42623,7 @@ components:
                   sections:
                   - sections
                   - sections
-                cost: 6.0738983
+                cost: 4.459605
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -42729,9 +42672,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -42745,6 +42686,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -42778,9 +42720,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -42794,6 +42734,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -43074,9 +43015,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -43090,6 +43029,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -43123,9 +43063,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -43139,6 +43077,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -43170,7 +43109,7 @@ components:
                   sections:
                   - sections
                   - sections
-                cost: 6.0738983
+                cost: 4.459605
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -43219,9 +43158,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -43235,6 +43172,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -43268,9 +43206,7 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    keysRegex:
-                    - keysRegex
-                    - keysRegex
+                    maxItems: 8
                     excludes:
                     - "{}"
                     - "{}"
@@ -43284,6 +43220,7 @@ components:
                     - containsKeys
                     - containsKeys
                     gt: 1
+                    minItems: 6
                     regex: regex
                     contains:
                     - "{}"
@@ -43420,7 +43357,7 @@ components:
             connections:
             - connections
             - connections
-            concurrency: 8
+            concurrency: 3
           pytorchJob:
             cleanPodPolicy: null
             kind: pytorchjob
@@ -43578,7 +43515,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -43586,7 +43523,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 4
+              minAvailable: 0
               priorityClass: priorityClass
               queue: queue
             master:
@@ -43743,7 +43680,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -43913,7 +43850,7 @@ components:
             - connections
           mpiJob:
             cleanPodPolicy: null
-            slotsPerWorker: 0
+            slotsPerWorker: 1
             kind: mpijob
             worker:
               container: "{}"
@@ -44069,7 +44006,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -44077,7 +44014,7 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 4
+              minAvailable: 0
               priorityClass: priorityClass
               queue: queue
             launcher:
@@ -44234,7 +44171,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 2
               volumes:
               - null
               - null
@@ -44468,7 +44405,7 @@ components:
           cron:
             cron: cron
             dependsOnPast: true
-            maxRuns: 9
+            maxRuns: 3
             kind: cron
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
@@ -44477,11 +44414,11 @@ components:
             startAt: 2000-01-23T04:56:07.000+00:00
           interval:
             dependsOnPast: true
-            maxRuns: 1
+            maxRuns: 9
             kind: interval
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
-            frequency: 3
+            frequency: 8
         polyaxonSidecarContainer:
           sleepInterval: 5
           image: image
@@ -44507,7 +44444,7 @@ components:
           kind: null
           configMap:
             mountPath: mountPath
-            defaultMode: 9
+            defaultMode: 0
             name: name
             items:
             - items
@@ -44518,7 +44455,7 @@ components:
             key: annotations
           secret:
             mountPath: mountPath
-            defaultMode: 9
+            defaultMode: 0
             name: name
             items:
             - items
@@ -44535,46 +44472,46 @@ components:
         event:
           image:
             path: path
-            colorspace: 8
-            width: 5
-            height: 5
+            colorspace: 3
+            width: 7
+            height: 8
           curve:
             annotation: annotation
             kind: null
             x:
-            - 2.3800902
-            - 2.3800902
+            - 8.675064
+            - 8.675064
             "y":
-            - 3.8041127
-            - 3.8041127
+            - 4.5183096
+            - 4.5183096
           video:
             path: path
             content_type: content_type
             colorspace: 3
-            width: 0
-            height: 7
+            width: 2
+            height: 3
           histogram:
             counts:
-            - 3.7814124730767915
-            - 3.7814124730767915
+            - 9.897492629215506
+            - 9.897492629215506
             values:
-            - 7.606863723092579
-            - 7.606863723092579
+            - 3.111202833403195
+            - 3.111202833403195
           artifact:
             path: path
             kind: null
-          metric: 0.4182561
-          step: 8
+          metric: 5.3124895
+          step: 5
           html: html
           model:
             path: path
             framework: framework
             spec: "{}"
           audio:
-            num_channels: 9
+            num_channels: 7
             path: path
-            length_frames: 5
-            sample_rate: 3.1112027
+            length_frames: 0
+            sample_rate: 5.877125
             content_type: content_type
           text: text
           dataframe:
@@ -44777,9 +44714,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -44793,6 +44728,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -44826,9 +44762,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -44842,6 +44776,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -44873,7 +44808,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.0738983
+            cost: 4.459605
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -44922,9 +44857,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -44938,6 +44871,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -44971,9 +44905,7 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                keysRegex:
-                - keysRegex
-                - keysRegex
+                maxItems: 8
                 excludes:
                 - "{}"
                 - "{}"
@@ -44987,6 +44919,7 @@ components:
                 - containsKeys
                 - containsKeys
                 gt: 1
+                minItems: 6
                 regex: regex
                 contains:
                 - "{}"
@@ -45146,9 +45079,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -45162,6 +45093,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -45195,9 +45127,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -45211,6 +45141,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -45274,9 +45205,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -45290,6 +45219,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -45323,9 +45253,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -45339,6 +45267,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -45375,9 +45304,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -45391,6 +45318,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -45424,9 +45352,7 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              keysRegex:
-              - keysRegex
-              - keysRegex
+              maxItems: 8
               excludes:
               - "{}"
               - "{}"
@@ -45440,6 +45366,7 @@ components:
               - containsKeys
               - containsKeys
               gt: 1
+              minItems: 6
               regex: regex
               contains:
               - "{}"
@@ -45515,10 +45442,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 8.8637295
+          cost: 1.8268702
           kind: kind
           trigger: null
-          version: 4.5739365
+          version: 9.254184
           tags:
           - tags
           - tags
@@ -46432,7 +46359,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -46594,7 +46521,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -46755,7 +46682,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -46763,7 +46690,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 4
+          minAvailable: 0
           priorityClass: priorityClass
           queue: queue
         evaluator:
@@ -46920,7 +46847,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -47460,9 +47387,7 @@ components:
     v1Validation:
       example:
         multipleOf: 0
-        keysRegex:
-        - keysRegex
-        - keysRegex
+        maxItems: 8
         excludes:
         - "{}"
         - "{}"
@@ -47476,6 +47401,7 @@ components:
         - containsKeys
         - containsKeys
         gt: 1
+        minItems: 6
         regex: regex
         contains:
         - "{}"
@@ -47498,7 +47424,8 @@ components:
           type: boolean
         gt:
           format: int32
-          title: Numeric Constraints
+          title: Numeric Constraints (these constraints are also applied item wise
+            for lists and for dict values)
           type: integer
         ge:
           format: int32
@@ -47514,7 +47441,8 @@ components:
           type: integer
         minDigits:
           format: int32
-          title: Decimal Constraints
+          title: Decimal Constraints (these constraints are also applied item wise
+            for lists and for dict values)
           type: integer
         maxDigits:
           format: int32
@@ -47523,11 +47451,11 @@ components:
           format: int32
           type: integer
         regex:
-          title: String Constraints
+          title: String Constraints (these constraints are also applied item wise
+            for lists and for dict values)
           type: string
         minLength:
           format: int32
-          title: Str/List/Dict Constraints
           type: integer
         maxLength:
           format: int32
@@ -47548,6 +47476,13 @@ components:
             properties: {}
             type: object
           type: array
+        minItems:
+          format: int32
+          title: Items Constraints
+          type: integer
+        maxItems:
+          format: int32
+          type: integer
         keys:
           items:
             type: string
@@ -47558,10 +47493,6 @@ components:
             type: string
           type: array
         excludesKeys:
-          items:
-            type: string
-          type: array
-        keysRegex:
           items:
             type: string
           type: array
@@ -47758,7 +47689,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null
@@ -47766,7 +47697,7 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 4
+          minAvailable: 0
           priorityClass: priorityClass
           queue: queue
         master:
@@ -47923,7 +47854,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 2
           volumes:
           - null
           - null

@@ -31748,7 +31748,7 @@
             "type" : "boolean"
           },
           "gt" : {
-            "title" : "Numeric Constraints",
+            "title" : "Numeric Constraints (these constraints are also applied item wise for lists and for dict values)",
             "type" : "integer",
             "format" : "int32"
           },
@@ -31769,7 +31769,7 @@
             "format" : "int32"
           },
           "minDigits" : {
-            "title" : "Decimal Constraints",
+            "title" : "Decimal Constraints (these constraints are also applied item wise for lists and for dict values)",
             "type" : "integer",
             "format" : "int32"
           },
@@ -31782,11 +31782,10 @@
             "format" : "int32"
           },
           "regex" : {
-            "title" : "String Constraints",
+            "title" : "String Constraints (these constraints are also applied item wise for lists and for dict values)",
             "type" : "string"
           },
           "minLength" : {
-            "title" : "Str/List/Dict Constraints",
             "type" : "integer",
             "format" : "int32"
           },
@@ -31816,6 +31815,15 @@
               "properties" : { }
             }
           },
+          "minItems" : {
+            "title" : "Items Constraints",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxItems" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
           "keys" : {
             "title" : "Dict keys Constraints",
             "type" : "array",
@@ -31830,12 +31838,6 @@
             }
           },
           "excludesKeys" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "keysRegex" : {
             "type" : "array",
             "items" : {
               "type" : "string"
