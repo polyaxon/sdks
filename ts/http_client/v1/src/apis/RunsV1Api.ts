@@ -371,6 +371,7 @@ export interface GetRunStatsRequest {
     sort?: string;
     query?: string;
     bookmarks?: boolean;
+    mode?: string;
     kind?: string;
     aggregate?: string;
     groupby?: string;
@@ -2355,6 +2356,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.bookmarks !== undefined) {
             queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
         }
 
         if (requestParameters.kind !== undefined) {

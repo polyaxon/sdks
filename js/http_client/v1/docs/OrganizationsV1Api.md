@@ -972,6 +972,7 @@ let opts = {
   'sort': "sort_example", // String | Sort to order the search.
   'query': "query_example", // String | Query filter the search.
   'bookmarks': true, // Boolean | Filter by bookmarks.
+  'mode': "mode_example", // String | Stats Mode.
   'kind': "kind_example", // String | Stats Kind.
   'aggregate': "aggregate_example", // String | Stats aggregate.
   'groupby': "groupby_example", // String | Stats group.
@@ -997,6 +998,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| Sort to order the search. | [optional] 
  **query** | **String**| Query filter the search. | [optional] 
  **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] 
+ **mode** | **String**| Stats Mode. | [optional] 
  **kind** | **String**| Stats Kind. | [optional] 
  **aggregate** | **String**| Stats aggregate. | [optional] 
  **groupby** | **String**| Stats group. | [optional] 

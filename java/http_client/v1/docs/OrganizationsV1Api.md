@@ -1276,7 +1276,7 @@ public class Example {
 
 <a name="getOrganizationStats"></a>
 # **getOrganizationStats**
-> Object getOrganizationStats(owner, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc)
+> Object getOrganizationStats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc)
 
 Get organization stats
 
@@ -1308,12 +1308,13 @@ public class Example {
     String sort = "sort_example"; // String | Sort to order the search.
     String query = "query_example"; // String | Query filter the search.
     Boolean bookmarks = true; // Boolean | Filter by bookmarks.
+    String mode = "mode_example"; // String | Stats Mode.
     String kind = "kind_example"; // String | Stats Kind.
     String aggregate = "aggregate_example"; // String | Stats aggregate.
     String groupby = "groupby_example"; // String | Stats group.
     String trunc = "trunc_example"; // String | Stats trunc.
     try {
-      Object result = apiInstance.getOrganizationStats(owner, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
+      Object result = apiInstance.getOrganizationStats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationStats");
@@ -1336,6 +1337,7 @@ public class Example {
 | **sort** | **String**| Sort to order the search. | [optional] |
 | **query** | **String**| Query filter the search. | [optional] |
 | **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Stats Mode. | [optional] |
 | **kind** | **String**| Stats Kind. | [optional] |
 | **aggregate** | **String**| Stats aggregate. | [optional] |
 | **groupby** | **String**| Stats group. | [optional] |

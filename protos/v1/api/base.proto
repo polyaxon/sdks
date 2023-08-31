@@ -283,17 +283,20 @@ message OwnerStatsRequest {
   // Filter by bookmarks
   bool bookmarks = 6;
 
+  // Stats Mode
+  string mode = 7;
+
   // Stats Kind
-  string kind = 7;
+  string kind = 8;
 
   // Stats aggregate
-  string aggregate = 8;
+  string aggregate = 9;
 
   // Stats group
-  string groupby = 9;
+  string groupby = 10;
 
   // Stats trunc
-  string trunc = 10;
+  string trunc = 11;
 }
 
 // Request list data with owner/agent namespace
@@ -349,17 +352,20 @@ message OwnerEntityStatsRequest {
   // Filter by bookmarks
   bool bookmarks = 7;
 
+  // Stats Mode
+  string mode = 8;
+
   // Stats Kind
-  string kind = 8;
+  string kind = 9;
 
   // Stats aggregate
-  string aggregate = 9;
+  string aggregate = 10;
 
   // Stats group
-  string groupby = 10;
+  string groupby = 11;
 
   // Stats trunc
-  string trunc = 11;
+  string trunc = 12;
 }
 
 // Request list data with owner/project/entity namespace
@@ -469,17 +475,20 @@ message OwnerSubEntityStatsRequestByUid {
   // Filter by bookmarks
   bool bookmarks = 8;
 
+  // Stats Mode
+  string mode = 9;
+
   // Stats Kind
-  string kind = 9;
+  string kind = 10;
 
   // Stats aggregate
-  string aggregate = 10;
+  string aggregate = 11;
 
   // Stats group
-  string groupby = 11;
+  string groupby = 12;
 
   // Stats trunc
-  string trunc = 12;
+  string trunc = 13;
 }
 
 // Artifact tree response

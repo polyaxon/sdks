@@ -871,6 +871,7 @@ export default class OrganizationsV1Api {
      * @param {String} [sort] Sort to order the search.
      * @param {String} [query] Query filter the search.
      * @param {Boolean} [bookmarks] Filter by bookmarks.
+     * @param {String} [mode] Stats Mode.
      * @param {String} [kind] Stats Kind.
      * @param {String} [aggregate] Stats aggregate.
      * @param {String} [groupby] Stats group.
@@ -895,6 +896,7 @@ export default class OrganizationsV1Api {
         'sort': opts['sort'],
         'query': opts['query'],
         'bookmarks': opts['bookmarks'],
+        'mode': opts['mode'],
         'kind': opts['kind'],
         'aggregate': opts['aggregate'],
         'groupby': opts['groupby'],

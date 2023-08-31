@@ -94,6 +94,12 @@ type GetOrganizationStatsParams struct {
 	*/
 	Limit *int32
 
+	/* Mode.
+
+	   Stats Mode.
+	*/
+	Mode *string
+
 	/* Offset.
 
 	   Pagination offset.
@@ -232,6 +238,17 @@ func (o *GetOrganizationStatsParams) WithLimit(limit *int32) *GetOrganizationSta
 // SetLimit adds the limit to the get organization stats params
 func (o *GetOrganizationStatsParams) SetLimit(limit *int32) {
 	o.Limit = limit
+}
+
+// WithMode adds the mode to the get organization stats params
+func (o *GetOrganizationStatsParams) WithMode(mode *string) *GetOrganizationStatsParams {
+	o.SetMode(mode)
+	return o
+}
+
+// SetMode adds the mode to the get organization stats params
+func (o *GetOrganizationStatsParams) SetMode(mode *string) {
+	o.Mode = mode
 }
 
 // WithOffset adds the offset to the get organization stats params
@@ -377,6 +394,23 @@ func (o *GetOrganizationStatsParams) WriteToRequest(r runtime.ClientRequest, reg
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Mode != nil {
+
+		// query param mode
+		var qrMode string
+
+		if o.Mode != nil {
+			qrMode = *o.Mode
+		}
+		qMode := qrMode
+		if qMode != "" {
+
+			if err := r.SetQueryParam("mode", qMode); err != nil {
 				return err
 			}
 		}

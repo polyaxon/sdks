@@ -100,6 +100,12 @@ type GetRunStatsParams struct {
 	*/
 	Limit *int32
 
+	/* Mode.
+
+	   Stats Mode.
+	*/
+	Mode *string
+
 	/* Offset.
 
 	   Pagination offset.
@@ -255,6 +261,17 @@ func (o *GetRunStatsParams) WithLimit(limit *int32) *GetRunStatsParams {
 // SetLimit adds the limit to the get run stats params
 func (o *GetRunStatsParams) SetLimit(limit *int32) {
 	o.Limit = limit
+}
+
+// WithMode adds the mode to the get run stats params
+func (o *GetRunStatsParams) WithMode(mode *string) *GetRunStatsParams {
+	o.SetMode(mode)
+	return o
+}
+
+// SetMode adds the mode to the get run stats params
+func (o *GetRunStatsParams) SetMode(mode *string) {
+	o.Mode = mode
 }
 
 // WithOffset adds the offset to the get run stats params
@@ -416,6 +433,23 @@ func (o *GetRunStatsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Mode != nil {
+
+		// query param mode
+		var qrMode string
+
+		if o.Mode != nil {
+			qrMode = *o.Mode
+		}
+		qMode := qrMode
+		if qMode != "" {
+
+			if err := r.SetQueryParam("mode", qMode); err != nil {
 				return err
 			}
 		}

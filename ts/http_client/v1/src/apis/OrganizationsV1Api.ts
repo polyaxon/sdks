@@ -174,6 +174,7 @@ export interface GetOrganizationStatsRequest {
     sort?: string;
     query?: string;
     bookmarks?: boolean;
+    mode?: string;
     kind?: string;
     aggregate?: string;
     groupby?: string;
@@ -1076,6 +1077,10 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.bookmarks !== undefined) {
             queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
         }
 
         if (requestParameters.kind !== undefined) {

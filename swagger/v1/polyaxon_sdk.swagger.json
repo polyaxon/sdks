@@ -7304,6 +7304,13 @@
             "type": "boolean"
           },
           {
+            "name": "mode",
+            "description": "Stats Mode.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "kind",
             "description": "Stats Kind.",
             "in": "query",
@@ -10914,6 +10921,13 @@
             "type": "boolean"
           },
           {
+            "name": "mode",
+            "description": "Stats Mode.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "kind",
             "description": "Stats Kind.",
             "in": "query",
@@ -12913,6 +12927,13 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Stats Mode.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           },
           {
             "name": "kind",

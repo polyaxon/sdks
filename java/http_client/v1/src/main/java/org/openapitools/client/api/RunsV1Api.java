@@ -5986,6 +5986,7 @@ public class RunsV1Api {
      * @param sort Sort to order the search. (optional)
      * @param query Query filter the search. (optional)
      * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
      * @param kind Stats Kind. (optional)
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
@@ -6003,7 +6004,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunStatsCall(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRunStatsCall(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6051,6 +6052,10 @@ public class RunsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("bookmarks", bookmarks));
         }
 
+        if (mode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mode", mode));
+        }
+
         if (kind != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
         }
@@ -6087,7 +6092,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRunStatsValidateBeforeCall(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRunStatsValidateBeforeCall(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getRunStats(Async)");
@@ -6103,7 +6108,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getRunStats(Async)");
         }
 
-        return getRunStatsCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, _callback);
+        return getRunStatsCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, _callback);
 
     }
 
@@ -6118,6 +6123,7 @@ public class RunsV1Api {
      * @param sort Sort to order the search. (optional)
      * @param query Query filter the search. (optional)
      * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
      * @param kind Stats Kind. (optional)
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
@@ -6134,8 +6140,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object getRunStats(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc) throws ApiException {
-        ApiResponse<Object> localVarResp = getRunStatsWithHttpInfo(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
+    public Object getRunStats(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc) throws ApiException {
+        ApiResponse<Object> localVarResp = getRunStatsWithHttpInfo(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
         return localVarResp.getData();
     }
 
@@ -6150,6 +6156,7 @@ public class RunsV1Api {
      * @param sort Sort to order the search. (optional)
      * @param query Query filter the search. (optional)
      * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
      * @param kind Stats Kind. (optional)
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
@@ -6166,8 +6173,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getRunStatsWithHttpInfo(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc) throws ApiException {
-        okhttp3.Call localVarCall = getRunStatsValidateBeforeCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, null);
+    public ApiResponse<Object> getRunStatsWithHttpInfo(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc) throws ApiException {
+        okhttp3.Call localVarCall = getRunStatsValidateBeforeCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6183,6 +6190,7 @@ public class RunsV1Api {
      * @param sort Sort to order the search. (optional)
      * @param query Query filter the search. (optional)
      * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
      * @param kind Stats Kind. (optional)
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
@@ -6200,9 +6208,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunStatsAsync(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String kind, String aggregate, String groupby, String trunc, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getRunStatsAsync(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRunStatsValidateBeforeCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, _callback);
+        okhttp3.Call localVarCall = getRunStatsValidateBeforeCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

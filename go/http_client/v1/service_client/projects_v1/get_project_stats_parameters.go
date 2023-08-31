@@ -94,6 +94,12 @@ type GetProjectStatsParams struct {
 	*/
 	Limit *int32
 
+	/* Mode.
+
+	   Stats Mode.
+	*/
+	Mode *string
+
 	/* Name.
 
 	   Entity managing the resource
@@ -238,6 +244,17 @@ func (o *GetProjectStatsParams) WithLimit(limit *int32) *GetProjectStatsParams {
 // SetLimit adds the limit to the get project stats params
 func (o *GetProjectStatsParams) SetLimit(limit *int32) {
 	o.Limit = limit
+}
+
+// WithMode adds the mode to the get project stats params
+func (o *GetProjectStatsParams) WithMode(mode *string) *GetProjectStatsParams {
+	o.SetMode(mode)
+	return o
+}
+
+// SetMode adds the mode to the get project stats params
+func (o *GetProjectStatsParams) SetMode(mode *string) {
+	o.Mode = mode
 }
 
 // WithName adds the name to the get project stats params
@@ -394,6 +411,23 @@ func (o *GetProjectStatsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qLimit != "" {
 
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Mode != nil {
+
+		// query param mode
+		var qrMode string
+
+		if o.Mode != nil {
+			qrMode = *o.Mode
+		}
+		qMode := qrMode
+		if qMode != "" {
+
+			if err := r.SetQueryParam("mode", qMode); err != nil {
 				return err
 			}
 		}

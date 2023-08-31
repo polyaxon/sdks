@@ -1364,7 +1364,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_stats**
-> object get_organization_stats(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+> object get_organization_stats(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
 
 Get organization stats
 
@@ -1405,6 +1405,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     sort = 'sort_example' # str | Sort to order the search. (optional)
     query = 'query_example' # str | Query filter the search. (optional)
     bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Stats Mode. (optional)
     kind = 'kind_example' # str | Stats Kind. (optional)
     aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
     groupby = 'groupby_example' # str | Stats group. (optional)
@@ -1412,7 +1413,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get organization stats
-        api_response = api_instance.get_organization_stats(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+        api_response = api_instance.get_organization_stats(owner, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
         print("The response of OrganizationsV1Api->get_organization_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1429,6 +1430,7 @@ Name | Type | Description  | Notes
  **sort** | **str**| Sort to order the search. | [optional] 
  **query** | **str**| Query filter the search. | [optional] 
  **bookmarks** | **bool**| Filter by bookmarks. | [optional] 
+ **mode** | **str**| Stats Mode. | [optional] 
  **kind** | **str**| Stats Kind. | [optional] 
  **aggregate** | **str**| Stats aggregate. | [optional] 
  **groupby** | **str**| Stats group. | [optional] 

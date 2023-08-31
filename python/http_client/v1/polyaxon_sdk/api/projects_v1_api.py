@@ -1943,13 +1943,13 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_project_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs) -> object:  # noqa: E501
+    def get_project_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs) -> object:  # noqa: E501
         """Get project stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_project_stats(owner, name, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, async_req=True)
+        >>> thread = api.get_project_stats(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -1966,6 +1966,8 @@ class ProjectsV1Api(object):
         :type query: str
         :param bookmarks: Filter by bookmarks.
         :type bookmarks: bool
+        :param mode: Stats Mode.
+        :type mode: str
         :param kind: Stats Kind.
         :type kind: str
         :param aggregate: Stats aggregate.
@@ -1990,16 +1992,16 @@ class ProjectsV1Api(object):
         :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_project_stats_with_http_info(owner, name, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, **kwargs)  # noqa: E501
+        return self.get_project_stats_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_project_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs):  # noqa: E501
+    def get_project_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs):  # noqa: E501
         """Get project stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_project_stats_with_http_info(owner, name, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc, async_req=True)
+        >>> thread = api.get_project_stats_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -2016,6 +2018,8 @@ class ProjectsV1Api(object):
         :type query: str
         :param bookmarks: Filter by bookmarks.
         :type bookmarks: bool
+        :param mode: Stats Mode.
+        :type mode: str
         :param kind: Stats Kind.
         :type kind: str
         :param aggregate: Stats aggregate.
@@ -2058,6 +2062,7 @@ class ProjectsV1Api(object):
             'sort',
             'query',
             'bookmarks',
+            'mode',
             'kind',
             'aggregate',
             'groupby',
@@ -2112,6 +2117,9 @@ class ProjectsV1Api(object):
 
         if _params.get('bookmarks') is not None:  # noqa: E501
             _query_params.append(('bookmarks', _params['bookmarks']))
+
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
 
         if _params.get('kind') is not None:  # noqa: E501
             _query_params.append(('kind', _params['kind']))

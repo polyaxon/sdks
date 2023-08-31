@@ -7901,6 +7901,14 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Stats Mode.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Stats Kind.
         explode: true
         in: query
@@ -11844,6 +11852,14 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Stats Mode.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Stats Kind.
         explode: true
         in: query
@@ -14045,6 +14061,14 @@ paths:
         required: false
         schema:
           type: boolean
+        style: form
+      - description: Stats Mode.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
         style: form
       - description: Stats Kind.
         explode: true

@@ -225,11 +225,12 @@ public class ProjectsV1ApiTest {
         String sort = null;
         String query = null;
         Boolean bookmarks = null;
+        String mode = null;
         String kind = null;
         String aggregate = null;
         String groupby = null;
         String trunc = null;
-        Object response = api.getProjectStats(owner, name, offset, limit, sort, query, bookmarks, kind, aggregate, groupby, trunc);
+        Object response = api.getProjectStats(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
         // TODO: test validations
     }
 
