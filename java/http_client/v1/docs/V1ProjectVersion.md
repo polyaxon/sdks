@@ -26,6 +26,7 @@
 |**readme** | **String** |  |  [optional] |
 |**state** | **String** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
+|**contributors** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

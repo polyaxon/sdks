@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **readme** | **str** |  | [optional] 
 **state** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
+**contributors** | **List[object]** |  | [optional] 
 
 ## Example
 

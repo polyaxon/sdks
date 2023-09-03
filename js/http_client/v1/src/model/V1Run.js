@@ -155,6 +155,9 @@ class V1Run {
             if (data.hasOwnProperty('role')) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
             }
+            if (data.hasOwnProperty('contributors')) {
+                obj['contributors'] = ApiClient.convertToType(data['contributors'], [Object]);
+            }
             if (data.hasOwnProperty('settings')) {
                 obj['settings'] = V1RunSettings.constructFromObject(data['settings']);
             }
@@ -238,6 +241,10 @@ class V1Run {
         // ensure the json data is a string
         if (data['role'] && !(typeof data['role'] === 'string' || data['role'] instanceof String)) {
             throw new Error("Expected the field `role` to be a primitive type in the JSON string but got " + data['role']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['contributors'])) {
+            throw new Error("Expected the field `contributors` to be an array in the JSON data but got " + data['contributors']);
         }
         // validate the optional field `settings`
         if (data['settings']) { // data not null
@@ -420,6 +427,11 @@ V1Run.prototype['status_conditions'] = undefined;
  * @member {String} role
  */
 V1Run.prototype['role'] = undefined;
+
+/**
+ * @member {Array.<Object>} contributors
+ */
+V1Run.prototype['contributors'] = undefined;
 
 /**
  * @member {module:model/V1RunSettings} settings

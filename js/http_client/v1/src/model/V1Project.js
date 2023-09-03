@@ -93,6 +93,9 @@ class V1Project {
             if (data.hasOwnProperty('live_state')) {
                 obj['live_state'] = ApiClient.convertToType(data['live_state'], 'Number');
             }
+            if (data.hasOwnProperty('contributors')) {
+                obj['contributors'] = ApiClient.convertToType(data['contributors'], [Object]);
+            }
         }
         return obj;
     }
@@ -142,6 +145,10 @@ class V1Project {
         // ensure the json data is a string
         if (data['role'] && !(typeof data['role'] === 'string' || data['role'] instanceof String)) {
             throw new Error("Expected the field `role` to be a primitive type in the JSON string but got " + data['role']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['contributors'])) {
+            throw new Error("Expected the field `contributors` to be an array in the JSON data but got " + data['contributors']);
         }
 
         return true;
@@ -226,6 +233,11 @@ V1Project.prototype['role'] = undefined;
  * @member {Number} live_state
  */
 V1Project.prototype['live_state'] = undefined;
+
+/**
+ * @member {Array.<Object>} contributors
+ */
+V1Project.prototype['contributors'] = undefined;
 
 
 

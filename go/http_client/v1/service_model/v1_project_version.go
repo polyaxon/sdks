@@ -29,6 +29,9 @@ type V1ProjectVersion struct {
 	// The metadata/content body
 	Content string `json:"content,omitempty"`
 
+	// Contributors
+	Contributors []interface{} `json:"contributors"`
+
 	// Optional time when the entity was created
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`

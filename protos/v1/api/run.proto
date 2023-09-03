@@ -183,17 +183,20 @@ message Run {
     // Current user's role in this (org/teams)/project/runs
     string role = 33;
 
+    // Contributors
+    repeated google.protobuf.Struct contributors = 34;
+
     // Optional settings
-    RunSettings settings = 34;
+    RunSettings settings = 35;
 
     // Options resources
-    RunResources resources = 35;
+    RunResources resources = 36;
 
     // Optional graph definition
-    google.protobuf.Struct graph = 36;
+    google.protobuf.Struct graph = 37;
 
     // Optional merge flag
-    bool merge = 37;
+    bool merge = 38;
 }
 
 // Operation creation

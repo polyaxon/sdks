@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  | [optional] 
 **role** | **str** |  | [optional] 
 **live_state** | **int** |  | [optional] 
+**contributors** | **List[object]** |  | [optional] 
 
 ## Example
 

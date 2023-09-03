@@ -314,6 +314,14 @@ public class V1RunTest {
     }
 
     /**
+     * Test the property 'contributors'
+     */
+    @Test
+    public void contributorsTest() {
+        // TODO: test contributors
+    }
+
+    /**
      * Test the property 'settings'
      */
     @Test

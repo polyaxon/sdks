@@ -195,4 +195,12 @@ public class V1ProjectVersionTest {
         // TODO: test role
     }
 
+    /**
+     * Test the property 'contributors'
+     */
+    @Test
+    public void contributorsTest() {
+        // TODO: test contributors
+    }
+
 }

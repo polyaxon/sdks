@@ -116,6 +116,12 @@ export interface V1Project {
      * @memberof V1Project
      */
     live_state?: number;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof V1Project
+     */
+    contributors?: Array<object>;
 }
 
 /**
@@ -152,6 +158,7 @@ export function V1ProjectFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'settings': !exists(json, 'settings') ? undefined : V1ProjectSettingsFromJSON(json['settings']),
         'role': !exists(json, 'role') ? undefined : json['role'],
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
+        'contributors': !exists(json, 'contributors') ? undefined : json['contributors'],
     };
 }
 
@@ -179,6 +186,7 @@ export function V1ProjectToJSON(value?: V1Project | null): any {
         'settings': V1ProjectSettingsToJSON(value.settings),
         'role': value.role,
         'live_state': value.live_state,
+        'contributors': value.contributors,
     };
 }
 

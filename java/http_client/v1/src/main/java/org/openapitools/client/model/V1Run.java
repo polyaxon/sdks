@@ -192,6 +192,10 @@ public class V1Run {
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
 
+  public static final String SERIALIZED_NAME_CONTRIBUTORS = "contributors";
+  @SerializedName(SERIALIZED_NAME_CONTRIBUTORS)
+  private List<Object> contributors;
+
   public static final String SERIALIZED_NAME_SETTINGS = "settings";
   @SerializedName(SERIALIZED_NAME_SETTINGS)
   private V1RunSettings settings;
@@ -953,6 +957,36 @@ public class V1Run {
   }
 
 
+  public V1Run contributors(List<Object> contributors) {
+
+    this.contributors = contributors;
+    return this;
+  }
+
+  public V1Run addContributorsItem(Object contributorsItem) {
+    if (this.contributors == null) {
+      this.contributors = new ArrayList<>();
+    }
+    this.contributors.add(contributorsItem);
+    return this;
+  }
+
+   /**
+   * Get contributors
+   * @return contributors
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getContributors() {
+    return contributors;
+  }
+
+
+  public void setContributors(List<Object> contributors) {
+    this.contributors = contributors;
+  }
+
+
   public V1Run settings(V1RunSettings settings) {
 
     this.settings = settings;
@@ -1084,6 +1118,7 @@ public class V1Run {
         Objects.equals(this.pipeline, v1Run.pipeline) &&
         Objects.equals(this.statusConditions, v1Run.statusConditions) &&
         Objects.equals(this.role, v1Run.role) &&
+        Objects.equals(this.contributors, v1Run.contributors) &&
         Objects.equals(this.settings, v1Run.settings) &&
         Objects.equals(this.resources, v1Run.resources) &&
         Objects.equals(this.graph, v1Run.graph) &&
@@ -1092,7 +1127,7 @@ public class V1Run {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, user, owner, project, scheduleAt, createdAt, updatedAt, startedAt, finishedAt, waitTime, duration, managedBy, isManaged, isApproved, pending, content, rawContent, status, bookmarked, liveState, readme, metaInfo, kind, runtime, inputs, outputs, original, pipeline, statusConditions, role, settings, resources, graph, merge);
+    return Objects.hash(uuid, name, description, tags, user, owner, project, scheduleAt, createdAt, updatedAt, startedAt, finishedAt, waitTime, duration, managedBy, isManaged, isApproved, pending, content, rawContent, status, bookmarked, liveState, readme, metaInfo, kind, runtime, inputs, outputs, original, pipeline, statusConditions, role, contributors, settings, resources, graph, merge);
   }
 
   @Override
@@ -1132,6 +1167,7 @@ public class V1Run {
     sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    statusConditions: ").append(toIndentedString(statusConditions)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    contributors: ").append(toIndentedString(contributors)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    graph: ").append(toIndentedString(graph)).append("\n");
@@ -1191,6 +1227,7 @@ public class V1Run {
     openapiFields.add("pipeline");
     openapiFields.add("status_conditions");
     openapiFields.add("role");
+    openapiFields.add("contributors");
     openapiFields.add("settings");
     openapiFields.add("resources");
     openapiFields.add("graph");
@@ -1275,6 +1312,10 @@ public class V1Run {
       }
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("contributors") != null && !jsonObj.get("contributors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contributors` to be an array in the JSON string but got `%s`", jsonObj.get("contributors").toString()));
       }
       // validate the optional field `settings`
       if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {

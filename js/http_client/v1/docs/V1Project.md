@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  | [optional] 
 **role** | **String** |  | [optional] 
 **live_state** | **Number** |  | [optional] 
+**contributors** | **[Object]** |  | [optional] 
 
 

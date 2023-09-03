@@ -8932,6 +8932,13 @@
           "title": "Optional if this entity was bookmarked",
           "type": "boolean"
         },
+        "contributors": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Contributors",
+          "type": "array"
+        },
         "created_at": {
           "format": "date-time",
           "title": "Optional time when the entity was created",
@@ -9100,6 +9107,13 @@
         "content": {
           "title": "The metadata/content body",
           "type": "string"
+        },
+        "contributors": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Contributors",
+          "type": "array"
         },
         "created_at": {
           "format": "date-time",
@@ -9468,6 +9482,13 @@
         "content": {
           "title": "Optional content of the entity's spec",
           "type": "string"
+        },
+        "contributors": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Contributors",
+          "type": "array"
         },
         "created_at": {
           "format": "date-time",

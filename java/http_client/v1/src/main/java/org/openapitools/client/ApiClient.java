@@ -1087,7 +1087,7 @@ public class ApiClient {
      * @param returnType Return type
      * @return Type
      * @throws org.openapitools.client.ApiException If the response has an unsuccessful status code or
-     *                  fail to deserialize the response body
+     *              fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType) throws ApiException {
         if (response.isSuccessful()) {

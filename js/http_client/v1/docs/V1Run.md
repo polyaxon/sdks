@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **pipeline** | [**V1Pipeline**](V1Pipeline.md) |  | [optional] 
 **status_conditions** | [**[V1StatusCondition]**](V1StatusCondition.md) |  | [optional] 
 **role** | **String** |  | [optional] 
+**contributors** | **[Object]** |  | [optional] 
 **settings** | [**V1RunSettings**](V1RunSettings.md) |  | [optional] 
 **resources** | [**V1RunResources**](V1RunResources.md) |  | [optional] 
 **graph** | **Object** |  | [optional] 

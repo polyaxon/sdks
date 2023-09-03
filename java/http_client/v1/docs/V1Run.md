@@ -40,6 +40,7 @@
 |**pipeline** | [**V1Pipeline**](V1Pipeline.md) |  |  [optional] |
 |**statusConditions** | [**List&lt;V1StatusCondition&gt;**](V1StatusCondition.md) |  |  [optional] |
 |**role** | **String** |  |  [optional] |
+|**contributors** | **List&lt;Object&gt;** |  |  [optional] |
 |**settings** | [**V1RunSettings**](V1RunSettings.md) |  |  [optional] |
 |**resources** | [**V1RunResources**](V1RunResources.md) |  |  [optional] |
 |**graph** | **Object** |  |  [optional] |

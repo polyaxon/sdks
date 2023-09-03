@@ -152,6 +152,12 @@ export interface V1ProjectVersion {
      * @memberof V1ProjectVersion
      */
     role?: string;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof V1ProjectVersion
+     */
+    contributors?: Array<object>;
 }
 
 /**
@@ -192,6 +198,7 @@ export function V1ProjectVersionFromJSONTyped(json: any, ignoreDiscriminator: bo
         'readme': !exists(json, 'readme') ? undefined : json['readme'],
         'state': !exists(json, 'state') ? undefined : json['state'],
         'role': !exists(json, 'role') ? undefined : json['role'],
+        'contributors': !exists(json, 'contributors') ? undefined : json['contributors'],
     };
 }
 
@@ -223,6 +230,7 @@ export function V1ProjectVersionToJSON(value?: V1ProjectVersion | null): any {
         'readme': value.readme,
         'state': value.state,
         'role': value.role,
+        'contributors': value.contributors,
     };
 }
 

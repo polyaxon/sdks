@@ -22,6 +22,7 @@
 |**settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
+|**contributors** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

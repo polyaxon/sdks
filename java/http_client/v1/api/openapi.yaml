@@ -25618,6 +25618,9 @@ components:
           name: name
           connection: connection
           state: state
+          contributors:
+          - "{}"
+          - "{}"
           artifacts:
           - artifacts
           - artifacts
@@ -25653,6 +25656,9 @@ components:
           name: name
           connection: connection
           state: state
+          contributors:
+          - "{}"
+          - "{}"
           artifacts:
           - artifacts
           - artifacts
@@ -25725,6 +25731,9 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           is_public: true
+          contributors:
+          - "{}"
+          - "{}"
           excluded_runtimes:
           - excluded_runtimes
           - excluded_runtimes
@@ -25773,6 +25782,9 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           is_public: true
+          contributors:
+          - "{}"
+          - "{}"
           excluded_runtimes:
           - excluded_runtimes
           - excluded_runtimes
@@ -26005,6 +26017,9 @@ components:
             name: name
             started_at: 2000-01-23T04:56:07.000+00:00
             is_approved: true
+            contributors:
+            - "{}"
+            - "{}"
             user: user
             status_conditions:
             - reason: reason
@@ -26104,6 +26119,9 @@ components:
             name: name
             started_at: 2000-01-23T04:56:07.000+00:00
             is_approved: true
+            contributors:
+            - "{}"
+            - "{}"
             user: user
             status_conditions:
             - reason: reason
@@ -26204,6 +26222,9 @@ components:
             name: name
             started_at: 2000-01-23T04:56:07.000+00:00
             is_approved: true
+            contributors:
+            - "{}"
+            - "{}"
             user: user
             status_conditions:
             - reason: reason
@@ -26303,6 +26324,9 @@ components:
             name: name
             started_at: 2000-01-23T04:56:07.000+00:00
             is_approved: true
+            contributors:
+            - "{}"
+            - "{}"
             user: user
             status_conditions:
             - reason: reason
@@ -26426,6 +26450,9 @@ components:
           name: name
           started_at: 2000-01-23T04:56:07.000+00:00
           is_approved: true
+          contributors:
+          - "{}"
+          - "{}"
           user: user
           status_conditions:
           - reason: reason
@@ -26522,6 +26549,9 @@ components:
           name: name
           started_at: 2000-01-23T04:56:07.000+00:00
           is_approved: true
+          contributors:
+          - "{}"
+          - "{}"
           user: user
           status_conditions:
           - reason: reason
@@ -30097,6 +30127,9 @@ components:
         updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
         is_public: true
+        contributors:
+        - "{}"
+        - "{}"
         excluded_runtimes:
         - excluded_runtimes
         - excluded_runtimes
@@ -30154,6 +30187,12 @@ components:
           format: int32
           title: Current live state
           type: integer
+        contributors:
+          items:
+            properties: {}
+            type: object
+          title: Contributors
+          type: array
       title: Project specification
       type: object
     v1ProjectSettings:
@@ -30279,6 +30318,9 @@ components:
         name: name
         connection: connection
         state: state
+        contributors:
+        - "{}"
+        - "{}"
         artifacts:
         - artifacts
         - artifacts
@@ -30349,6 +30391,12 @@ components:
         role:
           title: Current user's role in this (org/teams)/hub/version
           type: string
+        contributors:
+          items:
+            properties: {}
+            type: object
+          title: Contributors
+          type: array
       title: component hub specification
       type: object
     v1ProjectVersionKind:
@@ -31674,6 +31722,9 @@ components:
         name: name
         started_at: 2000-01-23T04:56:07.000+00:00
         is_approved: true
+        contributors:
+        - "{}"
+        - "{}"
         user: user
         status_conditions:
         - reason: reason
@@ -31799,6 +31850,12 @@ components:
         role:
           title: Current user's role in this (org/teams)/project/runs
           type: string
+        contributors:
+          items:
+            properties: {}
+            type: object
+          title: Contributors
+          type: array
         settings:
           $ref: '#/components/schemas/v1RunSettings'
         resources:
@@ -31962,6 +32019,9 @@ components:
           name: name
           started_at: 2000-01-23T04:56:07.000+00:00
           is_approved: true
+          contributors:
+          - "{}"
+          - "{}"
           user: user
           status_conditions:
           - reason: reason
@@ -32061,6 +32121,9 @@ components:
           name: name
           started_at: 2000-01-23T04:56:07.000+00:00
           is_approved: true
+          contributors:
+          - "{}"
+          - "{}"
           user: user
           status_conditions:
           - reason: reason

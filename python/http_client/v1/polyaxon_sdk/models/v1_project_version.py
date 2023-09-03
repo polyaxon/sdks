@@ -49,7 +49,8 @@ class V1ProjectVersion(BaseModel):
     readme: Optional[StrictStr] = None
     state: Optional[StrictStr] = None
     role: Optional[StrictStr] = None
-    __properties = ["uuid", "name", "description", "tags", "owner", "project", "connection", "run", "artifacts", "meta_info", "created_at", "updated_at", "stage", "kind", "stage_conditions", "content", "readme", "state", "role"]
+    contributors: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["uuid", "name", "description", "tags", "owner", "project", "connection", "run", "artifacts", "meta_info", "created_at", "updated_at", "stage", "kind", "stage_conditions", "content", "readme", "state", "role", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -111,7 +112,8 @@ class V1ProjectVersion(BaseModel):
             "content": obj.get("content"),
             "readme": obj.get("readme"),
             "state": obj.get("state"),
-            "role": obj.get("role")
+            "role": obj.get("role"),
+            "contributors": obj.get("contributors")
         })
         return _obj
 

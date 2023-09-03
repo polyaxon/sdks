@@ -69,11 +69,12 @@ class V1Run(BaseModel):
     pipeline: Optional[V1Pipeline] = None
     status_conditions: Optional[conlist(V1StatusCondition)] = None
     role: Optional[StrictStr] = None
+    contributors: Optional[conlist(Dict[str, Any])] = None
     settings: Optional[V1RunSettings] = None
     resources: Optional[V1RunResources] = None
     graph: Optional[Dict[str, Any]] = None
     merge: Optional[StrictBool] = None
-    __properties = ["uuid", "name", "description", "tags", "user", "owner", "project", "schedule_at", "created_at", "updated_at", "started_at", "finished_at", "wait_time", "duration", "managed_by", "is_managed", "is_approved", "pending", "content", "raw_content", "status", "bookmarked", "live_state", "readme", "meta_info", "kind", "runtime", "inputs", "outputs", "original", "pipeline", "status_conditions", "role", "settings", "resources", "graph", "merge"]
+    __properties = ["uuid", "name", "description", "tags", "user", "owner", "project", "schedule_at", "created_at", "updated_at", "started_at", "finished_at", "wait_time", "duration", "managed_by", "is_managed", "is_approved", "pending", "content", "raw_content", "status", "bookmarked", "live_state", "readme", "meta_info", "kind", "runtime", "inputs", "outputs", "original", "pipeline", "status_conditions", "role", "contributors", "settings", "resources", "graph", "merge"]
 
     class Config:
         allow_population_by_field_name = True
@@ -162,6 +163,7 @@ class V1Run(BaseModel):
             "pipeline": V1Pipeline.from_dict(obj.get("pipeline")) if obj.get("pipeline") is not None else None,
             "status_conditions": [V1StatusCondition.from_dict(_item) for _item in obj.get("status_conditions")] if obj.get("status_conditions") is not None else None,
             "role": obj.get("role"),
+            "contributors": obj.get("contributors"),
             "settings": V1RunSettings.from_dict(obj.get("settings")) if obj.get("settings") is not None else None,
             "resources": V1RunResources.from_dict(obj.get("resources")) if obj.get("resources") is not None else None,
             "graph": obj.get("graph"),

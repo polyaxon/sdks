@@ -274,6 +274,12 @@ export interface V1Run {
     role?: string;
     /**
      *
+     * @type {Array<object>}
+     * @memberof V1Run
+     */
+    contributors?: Array<object>;
+    /**
+     *
      * @type {V1RunSettings}
      * @memberof V1Run
      */
@@ -350,6 +356,7 @@ export function V1RunFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1R
         'pipeline': !exists(json, 'pipeline') ? undefined : V1PipelineFromJSON(json['pipeline']),
         'status_conditions': !exists(json, 'status_conditions') ? undefined : ((json['status_conditions'] as Array<any>).map(V1StatusConditionFromJSON)),
         'role': !exists(json, 'role') ? undefined : json['role'],
+        'contributors': !exists(json, 'contributors') ? undefined : json['contributors'],
         'settings': !exists(json, 'settings') ? undefined : V1RunSettingsFromJSON(json['settings']),
         'resources': !exists(json, 'resources') ? undefined : V1RunResourcesFromJSON(json['resources']),
         'graph': !exists(json, 'graph') ? undefined : json['graph'],
@@ -399,6 +406,7 @@ export function V1RunToJSON(value?: V1Run | null): any {
         'pipeline': V1PipelineToJSON(value.pipeline),
         'status_conditions': value.status_conditions === undefined ? undefined : ((value.status_conditions as Array<any>).map(V1StatusConditionToJSON)),
         'role': value.role,
+        'contributors': value.contributors,
         'settings': V1RunSettingsToJSON(value.settings),
         'resources': V1RunResourcesToJSON(value.resources),
         'graph': value.graph,

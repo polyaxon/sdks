@@ -29866,6 +29866,14 @@
             "title" : "Current live state",
             "type" : "integer",
             "format" : "int32"
+          },
+          "contributors" : {
+            "title" : "Contributors",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
           }
         }
       },
@@ -30038,6 +30046,14 @@
           "role" : {
             "title" : "Current user's role in this (org/teams)/hub/version",
             "type" : "string"
+          },
+          "contributors" : {
+            "title" : "Contributors",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
           }
         }
       },
@@ -30450,6 +30466,14 @@
           "role" : {
             "title" : "Current user's role in this (org/teams)/project/runs",
             "type" : "string"
+          },
+          "contributors" : {
+            "title" : "Contributors",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
           },
           "settings" : {
             "$ref" : "#/components/schemas/v1RunSettings"

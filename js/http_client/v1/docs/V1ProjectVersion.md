@@ -23,5 +23,6 @@ Name | Type | Description | Notes
 **readme** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 **role** | **String** |  | [optional] 
+**contributors** | **[Object]** |  | [optional] 
 
 

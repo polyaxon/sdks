@@ -20,7 +20,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
 from polyaxon_sdk.models.v1_project_settings import V1ProjectSettings
 
@@ -43,7 +43,8 @@ class V1Project(BaseModel):
     settings: Optional[V1ProjectSettings] = None
     role: Optional[StrictStr] = None
     live_state: Optional[StrictInt] = None
-    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "is_public", "bookmarked", "readme", "excluded_features", "excluded_runtimes", "settings", "role", "live_state"]
+    contributors: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "is_public", "bookmarked", "readme", "excluded_features", "excluded_runtimes", "settings", "role", "live_state", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -97,7 +98,8 @@ class V1Project(BaseModel):
             "excluded_runtimes": obj.get("excluded_runtimes"),
             "settings": V1ProjectSettings.from_dict(obj.get("settings")) if obj.get("settings") is not None else None,
             "role": obj.get("role"),
-            "live_state": obj.get("live_state")
+            "live_state": obj.get("live_state"),
+            "contributors": obj.get("contributors")
         })
         return _obj
 

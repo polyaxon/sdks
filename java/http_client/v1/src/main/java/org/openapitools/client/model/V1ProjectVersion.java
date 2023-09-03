@@ -130,6 +130,10 @@ public class V1ProjectVersion {
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
 
+  public static final String SERIALIZED_NAME_CONTRIBUTORS = "contributors";
+  @SerializedName(SERIALIZED_NAME_CONTRIBUTORS)
+  private List<Object> contributors;
+
   public V1ProjectVersion() {
   }
 
@@ -575,6 +579,36 @@ public class V1ProjectVersion {
   }
 
 
+  public V1ProjectVersion contributors(List<Object> contributors) {
+
+    this.contributors = contributors;
+    return this;
+  }
+
+  public V1ProjectVersion addContributorsItem(Object contributorsItem) {
+    if (this.contributors == null) {
+      this.contributors = new ArrayList<>();
+    }
+    this.contributors.add(contributorsItem);
+    return this;
+  }
+
+   /**
+   * Get contributors
+   * @return contributors
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getContributors() {
+    return contributors;
+  }
+
+
+  public void setContributors(List<Object> contributors) {
+    this.contributors = contributors;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -603,12 +637,13 @@ public class V1ProjectVersion {
         Objects.equals(this.content, v1ProjectVersion.content) &&
         Objects.equals(this.readme, v1ProjectVersion.readme) &&
         Objects.equals(this.state, v1ProjectVersion.state) &&
-        Objects.equals(this.role, v1ProjectVersion.role);
+        Objects.equals(this.role, v1ProjectVersion.role) &&
+        Objects.equals(this.contributors, v1ProjectVersion.contributors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, readme, state, role);
+    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, readme, state, role, contributors);
   }
 
   @Override
@@ -634,6 +669,7 @@ public class V1ProjectVersion {
     sb.append("    readme: ").append(toIndentedString(readme)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    contributors: ").append(toIndentedString(contributors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -675,6 +711,7 @@ public class V1ProjectVersion {
     openapiFields.add("readme");
     openapiFields.add("state");
     openapiFields.add("role");
+    openapiFields.add("contributors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -754,6 +791,10 @@ public class V1ProjectVersion {
       }
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("contributors") != null && !jsonObj.get("contributors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contributors` to be an array in the JSON string but got `%s`", jsonObj.get("contributors").toString()));
       }
   }
 

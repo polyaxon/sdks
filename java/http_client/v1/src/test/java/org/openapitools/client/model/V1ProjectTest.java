@@ -161,4 +161,12 @@ public class V1ProjectTest {
         // TODO: test liveState
     }
 
+    /**
+     * Test the property 'contributors'
+     */
+    @Test
+    public void contributorsTest() {
+        // TODO: test contributors
+    }
+
 }
