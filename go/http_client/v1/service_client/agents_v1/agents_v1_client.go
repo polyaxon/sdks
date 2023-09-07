@@ -32,6 +32,8 @@ type ClientService interface {
 
 	CreateAgentStatus(params *CreateAgentStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentStatusOK, *CreateAgentStatusNoContent, error)
 
+	CronAgent(params *CronAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CronAgentOK, *CronAgentNoContent, error)
+
 	DeleteAgent(params *DeleteAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteAgentOK, *DeleteAgentNoContent, error)
 
 	GetAgent(params *GetAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentOK, *GetAgentNoContent, error)
@@ -140,6 +142,46 @@ func (a *Client) CreateAgentStatus(params *CreateAgentStatusParams, authInfo run
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*CreateAgentStatusDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+CronAgent globals cron
+*/
+func (a *Client) CronAgent(params *CronAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CronAgentOK, *CronAgentNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCronAgentParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CronAgent",
+		Method:             "POST",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/cron",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CronAgentReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CronAgentOK:
+		return value, nil, nil
+	case *CronAgentNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CronAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

@@ -1298,6 +1298,47 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/agents/cron": {
+      "post": {
+        "summary": "Global Cron",
+        "operationId": "CronAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/agents/names": {
       "get": {
         "summary": "List agents names",

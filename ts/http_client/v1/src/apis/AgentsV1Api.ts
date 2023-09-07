@@ -51,6 +51,10 @@ export interface CreateAgentStatusRequest {
     body: V1AgentStatusBodyRequest;
 }
 
+export interface CronAgentRequest {
+    owner: string;
+}
+
 export interface DeleteAgentRequest {
     owner: string;
     uuid: string;
@@ -230,6 +234,39 @@ export class AgentsV1Api extends runtime.BaseAPI {
     async createAgentStatus(requestParameters: CreateAgentStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Status> {
         const response = await this.createAgentStatusRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Global Cron
+     */
+    async cronAgentRaw(requestParameters: CronAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling cronAgent.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/agents/cron`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Global Cron
+     */
+    async cronAgent(requestParameters: CronAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.cronAgentRaw(requestParameters, initOverrides);
     }
 
     /**

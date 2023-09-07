@@ -1204,10 +1204,17 @@ service AgentsV1 {
     };
   }
 
-    // Get Global State (queues/runs)
+  // Get Global State (queues/runs)
   rpc GetGlobalState(OwnerRequest) returns (AgentStateResponse) {
     option (google.api.http) = {
       get: "/api/v1/orgs/{owner}/agents/state"
+    };
+  }
+
+  // Global Cron
+  rpc CronAgent(OwnerRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/agents/cron"
     };
   }
 

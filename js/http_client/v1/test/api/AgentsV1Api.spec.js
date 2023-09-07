@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('cronAgent', function() {
+      it('should call cronAgent successfully', function(done) {
+        //uncomment below and update the code to test cronAgent
+        //instance.cronAgent(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteAgent', function() {
       it('should call deleteAgent successfully', function(done) {
         //uncomment below and update the code to test deleteAgent

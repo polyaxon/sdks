@@ -142,6 +142,47 @@ export default class AgentsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the cronAgent operation.
+     * @callback module:api/AgentsV1Api~cronAgentCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Global Cron
+     * @param {String} owner Owner of the namespace
+     * @param {module:api/AgentsV1Api~cronAgentCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    cronAgent(owner, callback) {
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling cronAgent");
+      }
+
+      let pathParams = {
+        'owner': owner
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/agents/cron', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the deleteAgent operation.
      * @callback module:api/AgentsV1Api~deleteAgentCallback
      * @param {String} error Error message, if any.

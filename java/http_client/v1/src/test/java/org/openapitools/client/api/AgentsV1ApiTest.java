@@ -65,6 +65,18 @@ public class AgentsV1ApiTest {
     }
 
     /**
+     * Global Cron
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void cronAgentTest() throws ApiException {
+        String owner = null;
+        api.cronAgent(owner);
+        // TODO: test validations
+    }
+
+    /**
      * Delete agent
      *
      * @throws ApiException if the Api call fails
