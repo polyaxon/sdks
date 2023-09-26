@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**getOrganizationRuns**](OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 [**getOrganizationSettings**](OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
 [**getOrganizationStats**](OrganizationsV1Api.md#getOrganizationStats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats
+[**getOrganizationVersions**](OrganizationsV1Api.md#getOrganizationVersions) | **GET** /api/v1/orgs/{owner}/versions/{kind} | Get all runs in an organization
 [**invalidateOrganizationRuns**](OrganizationsV1Api.md#invalidateOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/invalidate | Invalidate cross-project runs selection
 [**listOrganizationMemberNames**](OrganizationsV1Api.md#listOrganizationMemberNames) | **GET** /api/v1/orgs/{owner}/members/names | Get organization member names
 [**listOrganizationMembers**](OrganizationsV1Api.md#listOrganizationMembers) | **GET** /api/v1/orgs/{owner}/members | Get organization members
@@ -1007,6 +1008,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationVersions
+
+> V1ListProjectVersionsResponse getOrganizationVersions(owner, kind, opts)
+
+Get all runs in an organization
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let kind = "kind_example"; // String | Version Kind
+let opts = {
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'no_page': true // Boolean | No pagination.
+};
+apiInstance.getOrganizationVersions(owner, kind, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **kind** | **String**| Version Kind | 
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **no_page** | **Boolean**| No pagination. | [optional] 
+
+### Return type
+
+[**V1ListProjectVersionsResponse**](V1ListProjectVersionsResponse.md)
 
 ### Authorization
 

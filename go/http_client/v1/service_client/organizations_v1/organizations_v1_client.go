@@ -62,6 +62,8 @@ type ClientService interface {
 
 	GetOrganizationStats(params *GetOrganizationStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationStatsOK, *GetOrganizationStatsNoContent, error)
 
+	GetOrganizationVersions(params *GetOrganizationVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationVersionsOK, *GetOrganizationVersionsNoContent, error)
+
 	InvalidateOrganizationRuns(params *InvalidateOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateOrganizationRunsOK, *InvalidateOrganizationRunsNoContent, error)
 
 	ListOrganizationMemberNames(params *ListOrganizationMemberNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationMemberNamesOK, *ListOrganizationMemberNamesNoContent, error)
@@ -780,6 +782,46 @@ func (a *Client) GetOrganizationStats(params *GetOrganizationStatsParams, authIn
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetOrganizationStatsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetOrganizationVersions gets all runs in an organization
+*/
+func (a *Client) GetOrganizationVersions(params *GetOrganizationVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationVersionsOK, *GetOrganizationVersionsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOrganizationVersionsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetOrganizationVersions",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/versions/{kind}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetOrganizationVersionsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetOrganizationVersionsOK:
+		return value, nil, nil
+	case *GetOrganizationVersionsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetOrganizationVersionsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

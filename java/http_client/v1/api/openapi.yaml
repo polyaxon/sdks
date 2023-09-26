@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.0.0-rc41
+  version: 2.0.0-rc48
 servers:
 - url: /
 security:
@@ -9518,6 +9518,103 @@ paths:
       summary: Get team member details
       tags:
       - TeamsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/versions/{kind}:
+    get:
+      operationId: GetOrganizationVersions
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Version Kind
+        explode: false
+        in: path
+        name: kind
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: No pagination.
+        explode: true
+        in: query
+        name: no_page
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListProjectVersionsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get all runs in an organization
+      tags:
+      - OrganizationsV1
       x-accepts: application/json
   /api/v1/users:
     get:

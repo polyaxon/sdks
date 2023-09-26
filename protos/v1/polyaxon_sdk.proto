@@ -50,7 +50,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "2.0.0-rc41";
+        version: "2.0.0-rc48";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -1659,6 +1659,13 @@ service OrganizationsV1 {
   rpc GetOrganizationStats(OwnerStatsRequest) returns (google.protobuf.Struct) {
     option (google.api.http) = {
       get: "/api/v1/orgs/{owner}/stats"
+    };
+  }
+
+  // Get all runs in an organization
+  rpc GetOrganizationVersions(OwnerVersionResourceListRequest) returns (ListProjectVersionsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/versions/{kind}"
     };
   }
 

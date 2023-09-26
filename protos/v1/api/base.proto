@@ -263,6 +263,31 @@ message OwnerResourceListRequest {
 }
 
 
+// Request list data with owner/kind namespace
+message OwnerVersionResourceListRequest {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Version Kind
+  string kind = 2;
+
+  // Pagination offset
+  int32 offset = 3;
+
+  // Limit size
+  int32 limit = 4;
+
+  // Sort to order the search
+  string sort = 5;
+
+  // Query filter the search
+  string query = 6;
+
+  // No pagination
+  bool no_page = 7;
+}
+
+
 // Request stats data with owner namespace
 message OwnerStatsRequest {
   // Owner of the namespace

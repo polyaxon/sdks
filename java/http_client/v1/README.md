@@ -1,9 +1,9 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.0.0-rc41
+- API version: 2.0.0-rc48
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.0.0-rc41</version>
+  <version>2.0.0-rc48</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.0.0-rc41"
+     implementation "org.openapitools:openapi-java-client:2.0.0-rc48"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.0.0-rc41.jar`
+* `target/openapi-java-client-2.0.0-rc48.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**getOrganizationRuns**](docs/OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 *OrganizationsV1Api* | [**getOrganizationSettings**](docs/OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
 *OrganizationsV1Api* | [**getOrganizationStats**](docs/OrganizationsV1Api.md#getOrganizationStats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats
+*OrganizationsV1Api* | [**getOrganizationVersions**](docs/OrganizationsV1Api.md#getOrganizationVersions) | **GET** /api/v1/orgs/{owner}/versions/{kind} | Get all runs in an organization
 *OrganizationsV1Api* | [**invalidateOrganizationRuns**](docs/OrganizationsV1Api.md#invalidateOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/invalidate | Invalidate cross-project runs selection
 *OrganizationsV1Api* | [**listOrganizationMemberNames**](docs/OrganizationsV1Api.md#listOrganizationMemberNames) | **GET** /api/v1/orgs/{owner}/members/names | Get organization member names
 *OrganizationsV1Api* | [**listOrganizationMembers**](docs/OrganizationsV1Api.md#listOrganizationMembers) | **GET** /api/v1/orgs/{owner}/members | Get organization members
