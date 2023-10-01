@@ -19,6 +19,7 @@
 |**queue** | **String** |  |  [optional] |
 |**preset** | **String** |  |  [optional] |
 |**isCloudViewable** | **Boolean** |  |  [optional] |
+|**archivedDeletionInterval** | **Integer** |  |  [optional] |
 |**auth** | **Object** |  |  [optional] |
 |**plan** | **Object** |  |  [optional] |
 |**usage** | **Object** |  |  [optional] |

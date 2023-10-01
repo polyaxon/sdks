@@ -811,6 +811,7 @@ export default class OrganizationsV1Api {
      * @param {String} [organization_queue] Default queue.
      * @param {String} [organization_preset] Default preset.
      * @param {Boolean} [organization_is_cloud_viewable] Setting to enable viewable metadata on cloud.
+     * @param {Number} [organization_archived_deletion_interval] Setting to configure default archived deletion interval.
      * @param {module:api/OrganizationsV1Api~getOrganizationSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Organization}
      */
@@ -837,7 +838,8 @@ export default class OrganizationsV1Api {
         'organization.role': opts['organization_role'],
         'organization.queue': opts['organization_queue'],
         'organization.preset': opts['organization_preset'],
-        'organization.is_cloud_viewable': opts['organization_is_cloud_viewable']
+        'organization.is_cloud_viewable': opts['organization_is_cloud_viewable'],
+        'organization.archived_deletion_interval': opts['organization_archived_deletion_interval']
       };
       let headerParams = {
       };

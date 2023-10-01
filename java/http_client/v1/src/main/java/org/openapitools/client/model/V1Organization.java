@@ -97,6 +97,10 @@ public class V1Organization {
   @SerializedName(SERIALIZED_NAME_IS_CLOUD_VIEWABLE)
   private Boolean isCloudViewable;
 
+  public static final String SERIALIZED_NAME_ARCHIVED_DELETION_INTERVAL = "archived_deletion_interval";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED_DELETION_INTERVAL)
+  private Integer archivedDeletionInterval;
+
   public static final String SERIALIZED_NAME_AUTH = "auth";
   @SerializedName(SERIALIZED_NAME_AUTH)
   private Object auth;
@@ -376,6 +380,28 @@ public class V1Organization {
   }
 
 
+  public V1Organization archivedDeletionInterval(Integer archivedDeletionInterval) {
+    
+    this.archivedDeletionInterval = archivedDeletionInterval;
+    return this;
+  }
+
+   /**
+   * Get archivedDeletionInterval
+   * @return archivedDeletionInterval
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getArchivedDeletionInterval() {
+    return archivedDeletionInterval;
+  }
+
+
+  public void setArchivedDeletionInterval(Integer archivedDeletionInterval) {
+    this.archivedDeletionInterval = archivedDeletionInterval;
+  }
+
+
   public V1Organization auth(Object auth) {
     
     this.auth = auth;
@@ -464,6 +490,7 @@ public class V1Organization {
         Objects.equals(this.queue, v1Organization.queue) &&
         Objects.equals(this.preset, v1Organization.preset) &&
         Objects.equals(this.isCloudViewable, v1Organization.isCloudViewable) &&
+        Objects.equals(this.archivedDeletionInterval, v1Organization.archivedDeletionInterval) &&
         Objects.equals(this.auth, v1Organization.auth) &&
         Objects.equals(this.plan, v1Organization.plan) &&
         Objects.equals(this.usage, v1Organization.usage);
@@ -471,7 +498,7 @@ public class V1Organization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, userEmail, name, isPublic, createdAt, updatedAt, supportRevokeAt, expiration, role, queue, preset, isCloudViewable, auth, plan, usage);
+    return Objects.hash(user, userEmail, name, isPublic, createdAt, updatedAt, supportRevokeAt, expiration, role, queue, preset, isCloudViewable, archivedDeletionInterval, auth, plan, usage);
   }
 
   @Override
@@ -490,6 +517,7 @@ public class V1Organization {
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
     sb.append("    isCloudViewable: ").append(toIndentedString(isCloudViewable)).append("\n");
+    sb.append("    archivedDeletionInterval: ").append(toIndentedString(archivedDeletionInterval)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
@@ -527,6 +555,7 @@ public class V1Organization {
     openapiFields.add("queue");
     openapiFields.add("preset");
     openapiFields.add("is_cloud_viewable");
+    openapiFields.add("archived_deletion_interval");
     openapiFields.add("auth");
     openapiFields.add("plan");
     openapiFields.add("usage");

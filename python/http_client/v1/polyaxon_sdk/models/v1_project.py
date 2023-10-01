@@ -40,11 +40,12 @@ class V1Project(BaseModel):
     readme: Optional[StrictStr] = None
     excluded_features: Optional[conlist(StrictStr)] = None
     excluded_runtimes: Optional[conlist(StrictStr)] = None
+    archived_deletion_interval: Optional[StrictInt] = None
     settings: Optional[V1ProjectSettings] = None
     role: Optional[StrictStr] = None
     live_state: Optional[StrictInt] = None
     contributors: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "is_public", "bookmarked", "readme", "excluded_features", "excluded_runtimes", "settings", "role", "live_state", "contributors"]
+    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "is_public", "bookmarked", "readme", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "settings", "role", "live_state", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -96,6 +97,7 @@ class V1Project(BaseModel):
             "readme": obj.get("readme"),
             "excluded_features": obj.get("excluded_features"),
             "excluded_runtimes": obj.get("excluded_runtimes"),
+            "archived_deletion_interval": obj.get("archived_deletion_interval"),
             "settings": V1ProjectSettings.from_dict(obj.get("settings")) if obj.get("settings") is not None else None,
             "role": obj.get("role"),
             "live_state": obj.get("live_state"),

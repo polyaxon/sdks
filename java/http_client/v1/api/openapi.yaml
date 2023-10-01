@@ -7746,6 +7746,15 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Setting to configure default archived deletion interval.
+        explode: true
+        in: query
+        name: organization.archived_deletion_interval
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -25635,6 +25644,7 @@ components:
           usage: "{}"
           created_at: 2000-01-23T04:56:07.000+00:00
           preset: preset
+          archived_deletion_interval: 6
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           is_public: true
@@ -25650,6 +25660,7 @@ components:
           usage: "{}"
           created_at: 2000-01-23T04:56:07.000+00:00
           preset: preset
+          archived_deletion_interval: 6
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           is_public: true
@@ -25863,8 +25874,9 @@ components:
           bookmarked: true
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 6
+          live_state: 1
           readme: readme
+          archived_deletion_interval: 6
           uuid: uuid
           tags:
           - tags
@@ -25914,8 +25926,9 @@ components:
           bookmarked: true
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
-          live_state: 6
+          live_state: 1
           readme: readme
+          archived_deletion_interval: 6
           uuid: uuid
           tags:
           - tags
@@ -29508,6 +29521,7 @@ components:
         usage: "{}"
         created_at: 2000-01-23T04:56:07.000+00:00
         preset: preset
+        archived_deletion_interval: 6
         updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
         is_public: true
@@ -29556,6 +29570,10 @@ components:
         is_cloud_viewable:
           title: Setting to enable viewable metadata on cloud
           type: boolean
+        archived_deletion_interval:
+          format: int32
+          title: Setting to configure default archived deletion interval
+          type: integer
         auth:
           properties: {}
           title: Auth Settings
@@ -30259,8 +30277,9 @@ components:
         bookmarked: true
         description: description
         created_at: 2000-01-23T04:56:07.000+00:00
-        live_state: 6
+        live_state: 1
         readme: readme
+        archived_deletion_interval: 6
         uuid: uuid
         tags:
         - tags
@@ -30319,6 +30338,10 @@ components:
             type: string
           title: Optional project excluded runtimes
           type: array
+        archived_deletion_interval:
+          format: int32
+          title: Optional project archived deletion interval
+          type: integer
         settings:
           $ref: '#/components/schemas/v1ProjectSettings'
         role:

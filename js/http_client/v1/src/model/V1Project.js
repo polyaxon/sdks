@@ -84,6 +84,9 @@ class V1Project {
             if (data.hasOwnProperty('excluded_runtimes')) {
                 obj['excluded_runtimes'] = ApiClient.convertToType(data['excluded_runtimes'], ['String']);
             }
+            if (data.hasOwnProperty('archived_deletion_interval')) {
+                obj['archived_deletion_interval'] = ApiClient.convertToType(data['archived_deletion_interval'], 'Number');
+            }
             if (data.hasOwnProperty('settings')) {
                 obj['settings'] = V1ProjectSettings.constructFromObject(data['settings']);
             }
@@ -218,6 +221,11 @@ V1Project.prototype['excluded_features'] = undefined;
  * @member {Array.<String>} excluded_runtimes
  */
 V1Project.prototype['excluded_runtimes'] = undefined;
+
+/**
+ * @member {Number} archived_deletion_interval
+ */
+V1Project.prototype['archived_deletion_interval'] = undefined;
 
 /**
  * @member {module:model/V1ProjectSettings} settings

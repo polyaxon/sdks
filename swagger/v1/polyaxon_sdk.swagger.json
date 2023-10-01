@@ -7160,6 +7160,14 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          },
+          {
+            "name": "organization.archived_deletion_interval",
+            "description": "Setting to configure default archived deletion interval.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -21228,6 +21236,11 @@
           "type": "boolean",
           "title": "Setting to enable viewable metadata on cloud"
         },
+        "archived_deletion_interval": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Setting to configure default archived deletion interval"
+        },
         "auth": {
           "type": "object",
           "title": "Auth Settings"
@@ -21627,6 +21640,11 @@
             "type": "string"
           },
           "title": "Optional project excluded runtimes"
+        },
+        "archived_deletion_interval": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Optional project archived deletion interval"
         },
         "settings": {
           "$ref": "#/definitions/v1ProjectSettings",

@@ -19,6 +19,7 @@
 |**readme** | **String** |  |  [optional] |
 |**excludedFeatures** | **List&lt;String&gt;** |  |  [optional] |
 |**excludedRuntimes** | **List&lt;String&gt;** |  |  [optional] |
+|**archivedDeletionInterval** | **Integer** |  |  [optional] |
 |**settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |

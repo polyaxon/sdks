@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **queue** | **String** |  | [optional] 
 **preset** | **String** |  | [optional] 
 **is_cloud_viewable** | **Boolean** |  | [optional] 
+**archived_deletion_interval** | **Number** |  | [optional] 
 **auth** | **Object** |  | [optional] 
 **plan** | **Object** |  | [optional] 
 **usage** | **Object** |  | [optional] 

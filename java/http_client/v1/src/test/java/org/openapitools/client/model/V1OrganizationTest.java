@@ -135,6 +135,14 @@ public class V1OrganizationTest {
     }
 
     /**
+     * Test the property 'archivedDeletionInterval'
+     */
+    @Test
+    public void archivedDeletionIntervalTest() {
+        // TODO: test archivedDeletionInterval
+    }
+
+    /**
      * Test the property 'auth'
      */
     @Test

@@ -62,6 +62,14 @@ GetOrganizationSettingsParams contains all the parameters to send to the API end
 */
 type GetOrganizationSettingsParams struct {
 
+	/* OrganizationArchivedDeletionInterval.
+
+	   Setting to configure default archived deletion interval.
+
+	   Format: int32
+	*/
+	OrganizationArchivedDeletionInterval *int32
+
 	/* OrganizationCreatedAt.
 
 	   Optional time when the entity was created.
@@ -199,6 +207,17 @@ func (o *GetOrganizationSettingsParams) WithHTTPClient(client *http.Client) *Get
 // SetHTTPClient adds the HTTPClient to the get organization settings params
 func (o *GetOrganizationSettingsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithOrganizationArchivedDeletionInterval adds the organizationArchivedDeletionInterval to the get organization settings params
+func (o *GetOrganizationSettingsParams) WithOrganizationArchivedDeletionInterval(organizationArchivedDeletionInterval *int32) *GetOrganizationSettingsParams {
+	o.SetOrganizationArchivedDeletionInterval(organizationArchivedDeletionInterval)
+	return o
+}
+
+// SetOrganizationArchivedDeletionInterval adds the organizationArchivedDeletionInterval to the get organization settings params
+func (o *GetOrganizationSettingsParams) SetOrganizationArchivedDeletionInterval(organizationArchivedDeletionInterval *int32) {
+	o.OrganizationArchivedDeletionInterval = organizationArchivedDeletionInterval
 }
 
 // WithOrganizationCreatedAt adds the organizationCreatedAt to the get organization settings params
@@ -351,6 +370,23 @@ func (o *GetOrganizationSettingsParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+
+	if o.OrganizationArchivedDeletionInterval != nil {
+
+		// query param organization.archived_deletion_interval
+		var qrOrganizationArchivedDeletionInterval int32
+
+		if o.OrganizationArchivedDeletionInterval != nil {
+			qrOrganizationArchivedDeletionInterval = *o.OrganizationArchivedDeletionInterval
+		}
+		qOrganizationArchivedDeletionInterval := swag.FormatInt32(qrOrganizationArchivedDeletionInterval)
+		if qOrganizationArchivedDeletionInterval != "" {
+
+			if err := r.SetQueryParam("organization.archived_deletion_interval", qOrganizationArchivedDeletionInterval); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.OrganizationCreatedAt != nil {
 

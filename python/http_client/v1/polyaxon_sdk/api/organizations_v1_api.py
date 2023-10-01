@@ -2502,13 +2502,13 @@ class OrganizationsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_organization_settings(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], organization_user : Annotated[Optional[StrictStr], Field(description="User.")] = None, organization_user_email : Annotated[Optional[StrictStr], Field(description="Read-only User email.")] = None, organization_name : Annotated[Optional[StrictStr], Field(description="Name.")] = None, organization_is_public : Annotated[Optional[StrictBool], Field(description="Optional flag to tell if this organization is public.")] = None, organization_created_at : Annotated[Optional[datetime], Field(description="Optional time when the entity was created.")] = None, organization_updated_at : Annotated[Optional[datetime], Field(description="Optional last time the entity was updated.")] = None, organization_support_revoke_at : Annotated[Optional[datetime], Field(description="Optional time to revoke support access.")] = None, organization_expiration : Annotated[Optional[StrictInt], Field(description="Optional expiration for support.")] = None, organization_role : Annotated[Optional[StrictStr], Field(description="Current user's role in this org.")] = None, organization_queue : Annotated[Optional[StrictStr], Field(description="Default queue.")] = None, organization_preset : Annotated[Optional[StrictStr], Field(description="Default preset.")] = None, organization_is_cloud_viewable : Annotated[Optional[StrictBool], Field(description="Setting to enable viewable metadata on cloud.")] = None, **kwargs) -> V1Organization:  # noqa: E501
+    def get_organization_settings(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], organization_user : Annotated[Optional[StrictStr], Field(description="User.")] = None, organization_user_email : Annotated[Optional[StrictStr], Field(description="Read-only User email.")] = None, organization_name : Annotated[Optional[StrictStr], Field(description="Name.")] = None, organization_is_public : Annotated[Optional[StrictBool], Field(description="Optional flag to tell if this organization is public.")] = None, organization_created_at : Annotated[Optional[datetime], Field(description="Optional time when the entity was created.")] = None, organization_updated_at : Annotated[Optional[datetime], Field(description="Optional last time the entity was updated.")] = None, organization_support_revoke_at : Annotated[Optional[datetime], Field(description="Optional time to revoke support access.")] = None, organization_expiration : Annotated[Optional[StrictInt], Field(description="Optional expiration for support.")] = None, organization_role : Annotated[Optional[StrictStr], Field(description="Current user's role in this org.")] = None, organization_queue : Annotated[Optional[StrictStr], Field(description="Default queue.")] = None, organization_preset : Annotated[Optional[StrictStr], Field(description="Default preset.")] = None, organization_is_cloud_viewable : Annotated[Optional[StrictBool], Field(description="Setting to enable viewable metadata on cloud.")] = None, organization_archived_deletion_interval : Annotated[Optional[StrictInt], Field(description="Setting to configure default archived deletion interval.")] = None, **kwargs) -> V1Organization:  # noqa: E501
         """Get organization settings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organization_settings(owner, organization_user, organization_user_email, organization_name, organization_is_public, organization_created_at, organization_updated_at, organization_support_revoke_at, organization_expiration, organization_role, organization_queue, organization_preset, organization_is_cloud_viewable, async_req=True)
+        >>> thread = api.get_organization_settings(owner, organization_user, organization_user_email, organization_name, organization_is_public, organization_created_at, organization_updated_at, organization_support_revoke_at, organization_expiration, organization_role, organization_queue, organization_preset, organization_is_cloud_viewable, organization_archived_deletion_interval, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -2537,6 +2537,8 @@ class OrganizationsV1Api(object):
         :type organization_preset: str
         :param organization_is_cloud_viewable: Setting to enable viewable metadata on cloud.
         :type organization_is_cloud_viewable: bool
+        :param organization_archived_deletion_interval: Setting to configure default archived deletion interval.
+        :type organization_archived_deletion_interval: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2553,16 +2555,16 @@ class OrganizationsV1Api(object):
         :rtype: V1Organization
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_organization_settings_with_http_info(owner, organization_user, organization_user_email, organization_name, organization_is_public, organization_created_at, organization_updated_at, organization_support_revoke_at, organization_expiration, organization_role, organization_queue, organization_preset, organization_is_cloud_viewable, **kwargs)  # noqa: E501
+        return self.get_organization_settings_with_http_info(owner, organization_user, organization_user_email, organization_name, organization_is_public, organization_created_at, organization_updated_at, organization_support_revoke_at, organization_expiration, organization_role, organization_queue, organization_preset, organization_is_cloud_viewable, organization_archived_deletion_interval, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_organization_settings_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], organization_user : Annotated[Optional[StrictStr], Field(description="User.")] = None, organization_user_email : Annotated[Optional[StrictStr], Field(description="Read-only User email.")] = None, organization_name : Annotated[Optional[StrictStr], Field(description="Name.")] = None, organization_is_public : Annotated[Optional[StrictBool], Field(description="Optional flag to tell if this organization is public.")] = None, organization_created_at : Annotated[Optional[datetime], Field(description="Optional time when the entity was created.")] = None, organization_updated_at : Annotated[Optional[datetime], Field(description="Optional last time the entity was updated.")] = None, organization_support_revoke_at : Annotated[Optional[datetime], Field(description="Optional time to revoke support access.")] = None, organization_expiration : Annotated[Optional[StrictInt], Field(description="Optional expiration for support.")] = None, organization_role : Annotated[Optional[StrictStr], Field(description="Current user's role in this org.")] = None, organization_queue : Annotated[Optional[StrictStr], Field(description="Default queue.")] = None, organization_preset : Annotated[Optional[StrictStr], Field(description="Default preset.")] = None, organization_is_cloud_viewable : Annotated[Optional[StrictBool], Field(description="Setting to enable viewable metadata on cloud.")] = None, **kwargs):  # noqa: E501
+    def get_organization_settings_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], organization_user : Annotated[Optional[StrictStr], Field(description="User.")] = None, organization_user_email : Annotated[Optional[StrictStr], Field(description="Read-only User email.")] = None, organization_name : Annotated[Optional[StrictStr], Field(description="Name.")] = None, organization_is_public : Annotated[Optional[StrictBool], Field(description="Optional flag to tell if this organization is public.")] = None, organization_created_at : Annotated[Optional[datetime], Field(description="Optional time when the entity was created.")] = None, organization_updated_at : Annotated[Optional[datetime], Field(description="Optional last time the entity was updated.")] = None, organization_support_revoke_at : Annotated[Optional[datetime], Field(description="Optional time to revoke support access.")] = None, organization_expiration : Annotated[Optional[StrictInt], Field(description="Optional expiration for support.")] = None, organization_role : Annotated[Optional[StrictStr], Field(description="Current user's role in this org.")] = None, organization_queue : Annotated[Optional[StrictStr], Field(description="Default queue.")] = None, organization_preset : Annotated[Optional[StrictStr], Field(description="Default preset.")] = None, organization_is_cloud_viewable : Annotated[Optional[StrictBool], Field(description="Setting to enable viewable metadata on cloud.")] = None, organization_archived_deletion_interval : Annotated[Optional[StrictInt], Field(description="Setting to configure default archived deletion interval.")] = None, **kwargs):  # noqa: E501
         """Get organization settings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organization_settings_with_http_info(owner, organization_user, organization_user_email, organization_name, organization_is_public, organization_created_at, organization_updated_at, organization_support_revoke_at, organization_expiration, organization_role, organization_queue, organization_preset, organization_is_cloud_viewable, async_req=True)
+        >>> thread = api.get_organization_settings_with_http_info(owner, organization_user, organization_user_email, organization_name, organization_is_public, organization_created_at, organization_updated_at, organization_support_revoke_at, organization_expiration, organization_role, organization_queue, organization_preset, organization_is_cloud_viewable, organization_archived_deletion_interval, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -2591,6 +2593,8 @@ class OrganizationsV1Api(object):
         :type organization_preset: str
         :param organization_is_cloud_viewable: Setting to enable viewable metadata on cloud.
         :type organization_is_cloud_viewable: bool
+        :param organization_archived_deletion_interval: Setting to configure default archived deletion interval.
+        :type organization_archived_deletion_interval: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -2630,7 +2634,8 @@ class OrganizationsV1Api(object):
             'organization_role',
             'organization_queue',
             'organization_preset',
-            'organization_is_cloud_viewable'
+            'organization_is_cloud_viewable',
+            'organization_archived_deletion_interval'
         ]
         _all_params.extend(
             [
@@ -2708,6 +2713,9 @@ class OrganizationsV1Api(object):
 
         if _params.get('organization_is_cloud_viewable') is not None:  # noqa: E501
             _query_params.append(('organization.is_cloud_viewable', _params['organization_is_cloud_viewable']))
+
+        if _params.get('organization_archived_deletion_interval') is not None:  # noqa: E501
+            _query_params.append(('organization.archived_deletion_interval', _params['organization_archived_deletion_interval']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))

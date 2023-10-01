@@ -45,14 +45,17 @@ message Organization {
     // Setting to enable viewable metadata on cloud
     bool is_cloud_viewable = 12;
 
+    // Setting to configure default archived deletion interval
+    int32 archived_deletion_interval = 13;
+
     // Auth Settings
-    google.protobuf.Struct auth = 13;
+    google.protobuf.Struct auth = 14;
 
     // Plan settings
-    google.protobuf.Struct plan = 14;
+    google.protobuf.Struct plan = 15;
 
     // Usage info
-    google.protobuf.Struct usage = 15;
+    google.protobuf.Struct usage = 16;
 }
 
  // Request data to update organizations

@@ -8535,6 +8535,11 @@
     },
     "v1Organization": {
       "properties": {
+        "archived_deletion_interval": {
+          "format": "int32",
+          "title": "Setting to configure default archived deletion interval",
+          "type": "integer"
+        },
         "auth": {
           "title": "Auth Settings",
           "type": "object"
@@ -8928,6 +8933,11 @@
     },
     "v1Project": {
       "properties": {
+        "archived_deletion_interval": {
+          "format": "int32",
+          "title": "Optional project archived deletion interval",
+          "type": "integer"
+        },
         "bookmarked": {
           "title": "Optional if this entity was bookmarked",
           "type": "boolean"

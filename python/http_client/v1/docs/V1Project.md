@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **readme** | **str** |  | [optional] 
 **excluded_features** | **List[str]** |  | [optional] 
 **excluded_runtimes** | **List[str]** |  | [optional] 
+**archived_deletion_interval** | **int** |  | [optional] 
 **settings** | [**V1ProjectSettings**](V1ProjectSettings.md) |  | [optional] 
 **role** | **str** |  | [optional] 
 **live_state** | **int** |  | [optional] 

@@ -126,6 +126,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property archived_deletion_interval (base name: "archived_deletion_interval")', function() {
+      // uncomment below and update the code to test the property archived_deletion_interval
+      //var instance = new PolyaxonSdk.V1Organization();
+      //expect(instance).to.be();
+    });
+
     it('should have the property auth (base name: "auth")', function() {
       // uncomment below and update the code to test the property auth
       //var instance = new PolyaxonSdk.V1Organization();

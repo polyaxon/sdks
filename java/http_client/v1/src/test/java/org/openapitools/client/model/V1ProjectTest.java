@@ -138,6 +138,14 @@ public class V1ProjectTest {
     }
 
     /**
+     * Test the property 'archivedDeletionInterval'
+     */
+    @Test
+    public void archivedDeletionIntervalTest() {
+        // TODO: test archivedDeletionInterval
+    }
+
+    /**
      * Test the property 'settings'
      */
     @Test

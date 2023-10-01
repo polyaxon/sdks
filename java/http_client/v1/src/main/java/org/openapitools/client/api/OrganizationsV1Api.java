@@ -2485,6 +2485,7 @@ public class OrganizationsV1Api {
      * @param organizationQueue Default queue. (optional)
      * @param organizationPreset Default preset. (optional)
      * @param organizationIsCloudViewable Setting to enable viewable metadata on cloud. (optional)
+     * @param organizationArchivedDeletionInterval Setting to configure default archived deletion interval. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2498,7 +2499,7 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrganizationSettingsCall(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrganizationSettingsCall(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, Integer organizationArchivedDeletionInterval, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2572,6 +2573,10 @@ public class OrganizationsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("organization.is_cloud_viewable", organizationIsCloudViewable));
         }
 
+        if (organizationArchivedDeletionInterval != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("organization.archived_deletion_interval", organizationArchivedDeletionInterval));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2592,13 +2597,13 @@ public class OrganizationsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrganizationSettingsValidateBeforeCall(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrganizationSettingsValidateBeforeCall(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, Integer organizationArchivedDeletionInterval, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationSettings(Async)");
         }
 
-        return getOrganizationSettingsCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, _callback);
+        return getOrganizationSettingsCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval, _callback);
 
     }
 
@@ -2618,6 +2623,7 @@ public class OrganizationsV1Api {
      * @param organizationQueue Default queue. (optional)
      * @param organizationPreset Default preset. (optional)
      * @param organizationIsCloudViewable Setting to enable viewable metadata on cloud. (optional)
+     * @param organizationArchivedDeletionInterval Setting to configure default archived deletion interval. (optional)
      * @return V1Organization
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2630,8 +2636,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1Organization getOrganizationSettings(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable) throws ApiException {
-        ApiResponse<V1Organization> localVarResp = getOrganizationSettingsWithHttpInfo(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable);
+    public V1Organization getOrganizationSettings(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, Integer organizationArchivedDeletionInterval) throws ApiException {
+        ApiResponse<V1Organization> localVarResp = getOrganizationSettingsWithHttpInfo(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval);
         return localVarResp.getData();
     }
 
@@ -2651,6 +2657,7 @@ public class OrganizationsV1Api {
      * @param organizationQueue Default queue. (optional)
      * @param organizationPreset Default preset. (optional)
      * @param organizationIsCloudViewable Setting to enable viewable metadata on cloud. (optional)
+     * @param organizationArchivedDeletionInterval Setting to configure default archived deletion interval. (optional)
      * @return ApiResponse&lt;V1Organization&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2663,8 +2670,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1Organization> getOrganizationSettingsWithHttpInfo(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable) throws ApiException {
-        okhttp3.Call localVarCall = getOrganizationSettingsValidateBeforeCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, null);
+    public ApiResponse<V1Organization> getOrganizationSettingsWithHttpInfo(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, Integer organizationArchivedDeletionInterval) throws ApiException {
+        okhttp3.Call localVarCall = getOrganizationSettingsValidateBeforeCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval, null);
         Type localVarReturnType = new TypeToken<V1Organization>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2685,6 +2692,7 @@ public class OrganizationsV1Api {
      * @param organizationQueue Default queue. (optional)
      * @param organizationPreset Default preset. (optional)
      * @param organizationIsCloudViewable Setting to enable viewable metadata on cloud. (optional)
+     * @param organizationArchivedDeletionInterval Setting to configure default archived deletion interval. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2698,9 +2706,9 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrganizationSettingsAsync(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, final ApiCallback<V1Organization> _callback) throws ApiException {
+    public okhttp3.Call getOrganizationSettingsAsync(String owner, String organizationUser, String organizationUserEmail, String organizationName, Boolean organizationIsPublic, OffsetDateTime organizationCreatedAt, OffsetDateTime organizationUpdatedAt, OffsetDateTime organizationSupportRevokeAt, Integer organizationExpiration, String organizationRole, String organizationQueue, String organizationPreset, Boolean organizationIsCloudViewable, Integer organizationArchivedDeletionInterval, final ApiCallback<V1Organization> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrganizationSettingsValidateBeforeCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, _callback);
+        okhttp3.Call localVarCall = getOrganizationSettingsValidateBeforeCall(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval, _callback);
         Type localVarReturnType = new TypeToken<V1Organization>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

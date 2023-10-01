@@ -39,10 +39,11 @@ class V1Organization(BaseModel):
     queue: Optional[StrictStr] = None
     preset: Optional[StrictStr] = None
     is_cloud_viewable: Optional[StrictBool] = None
+    archived_deletion_interval: Optional[StrictInt] = None
     auth: Optional[Dict[str, Any]] = None
     plan: Optional[Dict[str, Any]] = None
     usage: Optional[Dict[str, Any]] = None
-    __properties = ["user", "user_email", "name", "is_public", "created_at", "updated_at", "support_revoke_at", "expiration", "role", "queue", "preset", "is_cloud_viewable", "auth", "plan", "usage"]
+    __properties = ["user", "user_email", "name", "is_public", "created_at", "updated_at", "support_revoke_at", "expiration", "role", "queue", "preset", "is_cloud_viewable", "archived_deletion_interval", "auth", "plan", "usage"]
 
     class Config:
         allow_population_by_field_name = True
@@ -91,6 +92,7 @@ class V1Organization(BaseModel):
             "queue": obj.get("queue"),
             "preset": obj.get("preset"),
             "is_cloud_viewable": obj.get("is_cloud_viewable"),
+            "archived_deletion_interval": obj.get("archived_deletion_interval"),
             "auth": obj.get("auth"),
             "plan": obj.get("plan"),
             "usage": obj.get("usage")

@@ -83,6 +83,9 @@ class V1Organization {
             if (data.hasOwnProperty('is_cloud_viewable')) {
                 obj['is_cloud_viewable'] = ApiClient.convertToType(data['is_cloud_viewable'], 'Boolean');
             }
+            if (data.hasOwnProperty('archived_deletion_interval')) {
+                obj['archived_deletion_interval'] = ApiClient.convertToType(data['archived_deletion_interval'], 'Number');
+            }
             if (data.hasOwnProperty('auth')) {
                 obj['auth'] = ApiClient.convertToType(data['auth'], Object);
             }
@@ -194,6 +197,11 @@ V1Organization.prototype['preset'] = undefined;
  * @member {Boolean} is_cloud_viewable
  */
 V1Organization.prototype['is_cloud_viewable'] = undefined;
+
+/**
+ * @member {Number} archived_deletion_interval
+ */
+V1Organization.prototype['archived_deletion_interval'] = undefined;
 
 /**
  * @member {Object} auth

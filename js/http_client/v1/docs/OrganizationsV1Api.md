@@ -904,7 +904,8 @@ let opts = {
   'organization_role': "organization_role_example", // String | Current user's role in this org.
   'organization_queue': "organization_queue_example", // String | Default queue.
   'organization_preset': "organization_preset_example", // String | Default preset.
-  'organization_is_cloud_viewable': true // Boolean | Setting to enable viewable metadata on cloud.
+  'organization_is_cloud_viewable': true, // Boolean | Setting to enable viewable metadata on cloud.
+  'organization_archived_deletion_interval': 56 // Number | Setting to configure default archived deletion interval.
 };
 apiInstance.getOrganizationSettings(owner, opts, (error, data, response) => {
   if (error) {
@@ -933,6 +934,7 @@ Name | Type | Description  | Notes
  **organization_queue** | **String**| Default queue. | [optional] 
  **organization_preset** | **String**| Default preset. | [optional] 
  **organization_is_cloud_viewable** | **Boolean**| Setting to enable viewable metadata on cloud. | [optional] 
+ **organization_archived_deletion_interval** | **Number**| Setting to configure default archived deletion interval. | [optional] 
 
 ### Return type
 

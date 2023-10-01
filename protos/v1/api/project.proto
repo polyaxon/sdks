@@ -50,17 +50,20 @@ message Project {
     // Optional project excluded runtimes
     repeated string excluded_runtimes = 12;
 
+    // Optional project archived deletion interval
+    int32 archived_deletion_interval = 13;
+
     // Optional project settings
-    ProjectSettings settings = 13;
+    ProjectSettings settings = 14;
 
     // Current user's role in this (org/teams)/project
-    string role = 14;
+    string role = 15;
 
     // Current live state
-    int32 live_state = 15;
+    int32 live_state = 16;
 
     // Contributors
-    repeated google.protobuf.Struct contributors = 16;
+    repeated google.protobuf.Struct contributors = 17;
 }
 
  // Request data to create/update project

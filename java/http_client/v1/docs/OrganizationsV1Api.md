@@ -1182,7 +1182,7 @@ public class Example {
 
 <a name="getOrganizationSettings"></a>
 # **getOrganizationSettings**
-> V1Organization getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable)
+> V1Organization getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval)
 
 Get organization settings
 
@@ -1221,8 +1221,9 @@ public class Example {
     String organizationQueue = "organizationQueue_example"; // String | Default queue.
     String organizationPreset = "organizationPreset_example"; // String | Default preset.
     Boolean organizationIsCloudViewable = true; // Boolean | Setting to enable viewable metadata on cloud.
+    Integer organizationArchivedDeletionInterval = 56; // Integer | Setting to configure default archived deletion interval.
     try {
-      V1Organization result = apiInstance.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable);
+      V1Organization result = apiInstance.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationSettings");
@@ -1252,6 +1253,7 @@ public class Example {
 | **organizationQueue** | **String**| Default queue. | [optional] |
 | **organizationPreset** | **String**| Default preset. | [optional] |
 | **organizationIsCloudViewable** | **Boolean**| Setting to enable viewable metadata on cloud. | [optional] |
+| **organizationArchivedDeletionInterval** | **Integer**| Setting to configure default archived deletion interval. | [optional] |
 
 ### Return type
 

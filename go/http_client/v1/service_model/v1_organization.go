@@ -19,6 +19,9 @@ import (
 // swagger:model v1Organization
 type V1Organization struct {
 
+	// Setting to configure default archived deletion interval
+	ArchivedDeletionInterval int32 `json:"archived_deletion_interval,omitempty"`
+
 	// Auth Settings
 	Auth interface{} `json:"auth,omitempty"`
 

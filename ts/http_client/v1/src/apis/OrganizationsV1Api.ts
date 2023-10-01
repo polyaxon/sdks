@@ -168,6 +168,7 @@ export interface GetOrganizationSettingsRequest {
     organizationQueue?: string;
     organizationPreset?: string;
     organizationIsCloudViewable?: boolean;
+    organizationArchivedDeletionInterval?: number;
 }
 
 export interface GetOrganizationStatsRequest {
@@ -1036,6 +1037,10 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.organizationIsCloudViewable !== undefined) {
             queryParameters['organization.is_cloud_viewable'] = requestParameters.organizationIsCloudViewable;
+        }
+
+        if (requestParameters.organizationArchivedDeletionInterval !== undefined) {
+            queryParameters['organization.archived_deletion_interval'] = requestParameters.organizationArchivedDeletionInterval;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -93,6 +93,12 @@ export interface V1Organization {
     is_cloud_viewable?: boolean;
     /**
      * 
+     * @type {number}
+     * @memberof V1Organization
+     */
+    archived_deletion_interval?: number;
+    /**
+     * 
      * @type {object}
      * @memberof V1Organization
      */
@@ -142,6 +148,7 @@ export function V1OrganizationFromJSONTyped(json: any, ignoreDiscriminator: bool
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
         'preset': !exists(json, 'preset') ? undefined : json['preset'],
         'is_cloud_viewable': !exists(json, 'is_cloud_viewable') ? undefined : json['is_cloud_viewable'],
+        'archived_deletion_interval': !exists(json, 'archived_deletion_interval') ? undefined : json['archived_deletion_interval'],
         'auth': !exists(json, 'auth') ? undefined : json['auth'],
         'plan': !exists(json, 'plan') ? undefined : json['plan'],
         'usage': !exists(json, 'usage') ? undefined : json['usage'],
@@ -169,6 +176,7 @@ export function V1OrganizationToJSON(value?: V1Organization | null): any {
         'queue': value.queue,
         'preset': value.preset,
         'is_cloud_viewable': value.is_cloud_viewable,
+        'archived_deletion_interval': value.archived_deletion_interval,
         'auth': value.auth,
         'plan': value.plan,
         'usage': value.usage,

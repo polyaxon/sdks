@@ -100,6 +100,10 @@ public class V1Project {
   @SerializedName(SERIALIZED_NAME_EXCLUDED_RUNTIMES)
   private List<String> excludedRuntimes;
 
+  public static final String SERIALIZED_NAME_ARCHIVED_DELETION_INTERVAL = "archived_deletion_interval";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED_DELETION_INTERVAL)
+  private Integer archivedDeletionInterval;
+
   public static final String SERIALIZED_NAME_SETTINGS = "settings";
   @SerializedName(SERIALIZED_NAME_SETTINGS)
   private V1ProjectSettings settings;
@@ -407,6 +411,28 @@ public class V1Project {
   }
 
 
+  public V1Project archivedDeletionInterval(Integer archivedDeletionInterval) {
+    
+    this.archivedDeletionInterval = archivedDeletionInterval;
+    return this;
+  }
+
+   /**
+   * Get archivedDeletionInterval
+   * @return archivedDeletionInterval
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getArchivedDeletionInterval() {
+    return archivedDeletionInterval;
+  }
+
+
+  public void setArchivedDeletionInterval(Integer archivedDeletionInterval) {
+    this.archivedDeletionInterval = archivedDeletionInterval;
+  }
+
+
   public V1Project settings(V1ProjectSettings settings) {
     
     this.settings = settings;
@@ -525,6 +551,7 @@ public class V1Project {
         Objects.equals(this.readme, v1Project.readme) &&
         Objects.equals(this.excludedFeatures, v1Project.excludedFeatures) &&
         Objects.equals(this.excludedRuntimes, v1Project.excludedRuntimes) &&
+        Objects.equals(this.archivedDeletionInterval, v1Project.archivedDeletionInterval) &&
         Objects.equals(this.settings, v1Project.settings) &&
         Objects.equals(this.role, v1Project.role) &&
         Objects.equals(this.liveState, v1Project.liveState) &&
@@ -533,7 +560,7 @@ public class V1Project {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, description, tags, createdAt, updatedAt, isPublic, bookmarked, readme, excludedFeatures, excludedRuntimes, settings, role, liveState, contributors);
+    return Objects.hash(uuid, owner, name, description, tags, createdAt, updatedAt, isPublic, bookmarked, readme, excludedFeatures, excludedRuntimes, archivedDeletionInterval, settings, role, liveState, contributors);
   }
 
   @Override
@@ -552,6 +579,7 @@ public class V1Project {
     sb.append("    readme: ").append(toIndentedString(readme)).append("\n");
     sb.append("    excludedFeatures: ").append(toIndentedString(excludedFeatures)).append("\n");
     sb.append("    excludedRuntimes: ").append(toIndentedString(excludedRuntimes)).append("\n");
+    sb.append("    archivedDeletionInterval: ").append(toIndentedString(archivedDeletionInterval)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
@@ -590,6 +618,7 @@ public class V1Project {
     openapiFields.add("readme");
     openapiFields.add("excluded_features");
     openapiFields.add("excluded_runtimes");
+    openapiFields.add("archived_deletion_interval");
     openapiFields.add("settings");
     openapiFields.add("role");
     openapiFields.add("live_state");

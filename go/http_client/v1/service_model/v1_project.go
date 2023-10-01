@@ -19,6 +19,9 @@ import (
 // swagger:model v1Project
 type V1Project struct {
 
+	// Optional project archived deletion interval
+	ArchivedDeletionInterval int32 `json:"archived_deletion_interval,omitempty"`
+
 	// Optional if this entity was bookmarked
 	Bookmarked bool `json:"bookmarked,omitempty"`
 

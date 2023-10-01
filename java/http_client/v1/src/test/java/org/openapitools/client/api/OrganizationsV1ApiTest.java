@@ -282,7 +282,8 @@ public class OrganizationsV1ApiTest {
         String organizationQueue = null;
         String organizationPreset = null;
         Boolean organizationIsCloudViewable = null;
-        V1Organization response = api.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable);
+        Integer organizationArchivedDeletionInterval = null;
+        V1Organization response = api.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval);
         // TODO: test validations
     }
 

@@ -100,6 +100,12 @@ export interface V1Project {
     excluded_runtimes?: Array<string>;
     /**
      * 
+     * @type {number}
+     * @memberof V1Project
+     */
+    archived_deletion_interval?: number;
+    /**
+     * 
      * @type {V1ProjectSettings}
      * @memberof V1Project
      */
@@ -155,6 +161,7 @@ export function V1ProjectFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'readme': !exists(json, 'readme') ? undefined : json['readme'],
         'excluded_features': !exists(json, 'excluded_features') ? undefined : json['excluded_features'],
         'excluded_runtimes': !exists(json, 'excluded_runtimes') ? undefined : json['excluded_runtimes'],
+        'archived_deletion_interval': !exists(json, 'archived_deletion_interval') ? undefined : json['archived_deletion_interval'],
         'settings': !exists(json, 'settings') ? undefined : V1ProjectSettingsFromJSON(json['settings']),
         'role': !exists(json, 'role') ? undefined : json['role'],
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
@@ -183,6 +190,7 @@ export function V1ProjectToJSON(value?: V1Project | null): any {
         'readme': value.readme,
         'excluded_features': value.excluded_features,
         'excluded_runtimes': value.excluded_runtimes,
+        'archived_deletion_interval': value.archived_deletion_interval,
         'settings': V1ProjectSettingsToJSON(value.settings),
         'role': value.role,
         'live_state': value.live_state,

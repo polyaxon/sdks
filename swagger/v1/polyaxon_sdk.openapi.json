@@ -10894,6 +10894,17 @@
           "schema" : {
             "type" : "boolean"
           }
+        }, {
+          "name" : "organization.archived_deletion_interval",
+          "in" : "query",
+          "description" : "Setting to configure default archived deletion interval.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -29661,6 +29672,11 @@
             "title" : "Setting to enable viewable metadata on cloud",
             "type" : "boolean"
           },
+          "archived_deletion_interval" : {
+            "title" : "Setting to configure default archived deletion interval",
+            "type" : "integer",
+            "format" : "int32"
+          },
           "auth" : {
             "title" : "Auth Settings",
             "type" : "object",
@@ -30050,6 +30066,11 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "archived_deletion_interval" : {
+            "title" : "Optional project archived deletion interval",
+            "type" : "integer",
+            "format" : "int32"
           },
           "settings" : {
             "$ref" : "#/components/schemas/v1ProjectSettings"
