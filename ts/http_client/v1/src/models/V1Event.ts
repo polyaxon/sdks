@@ -67,6 +67,12 @@ import {
     V1EventModelFromJSONTyped,
     V1EventModelToJSON,
 } from './V1EventModel';
+import type { V1EventSpan } from './V1EventSpan';
+import {
+    V1EventSpanFromJSON,
+    V1EventSpanFromJSONTyped,
+    V1EventSpanToJSON,
+} from './V1EventSpan';
 import type { V1EventVideo } from './V1EventVideo';
 import {
     V1EventVideoFromJSON,
@@ -170,6 +176,12 @@ export interface V1Event {
      * @memberof V1Event
      */
     confusion?: V1EventConfusionMatrix;
+    /**
+     *
+     * @type {V1EventSpan}
+     * @memberof V1Event
+     */
+    span?: V1EventSpan;
 }
 
 /**
@@ -206,6 +218,7 @@ export function V1EventFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'dataframe': !exists(json, 'dataframe') ? undefined : V1EventDataframeFromJSON(json['dataframe']),
         'curve': !exists(json, 'curve') ? undefined : V1EventCurveFromJSON(json['curve']),
         'confusion': !exists(json, 'confusion') ? undefined : V1EventConfusionMatrixFromJSON(json['confusion']),
+        'span': !exists(json, 'span') ? undefined : V1EventSpanFromJSON(json['span']),
     };
 }
 
@@ -233,6 +246,7 @@ export function V1EventToJSON(value?: V1Event | null): any {
         'dataframe': V1EventDataframeToJSON(value.dataframe),
         'curve': V1EventCurveToJSON(value.curve),
         'confusion': V1EventConfusionMatrixToJSON(value.confusion),
+        'span': V1EventSpanToJSON(value.span),
     };
 }
 

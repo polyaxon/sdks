@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package v1;
+
+import "v1/flow/dask.proto";
+import "v1/flow/dag.proto";
+import "v1/flow/job.proto";
+import "v1/flow/service.proto";
+import "v1/flow/kubeflow.proto";
+import "v1/flow/ray.proto";
+
+option go_package = "v1/flow";
+
+message RunSchema {
+    oneof run {
+        Job job = 1;
+        Service service = 2;
+        Dag dag = 3;
+        TFJob tfJob = 4;
+        PytorchJob pytorchJob = 5;
+        MPIJob mpiJob = 6;
+        MXJob mxJob = 7;
+        XGBoostJob xgboostJob = 8;
+        PaddleJob paddleJob = 9;
+        DaskJob daskJob = 10;
+        RayJob rayJob = 11;
+    }
+}

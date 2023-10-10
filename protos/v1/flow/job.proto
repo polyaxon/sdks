@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package v1;
+
+import "v1/flow/environment.proto";
+import "v1/flow/init.proto";
+import "v1/flow/k8s.proto";
+
+option go_package = "v1/flow";
+
+// Job specification
+message Job {
+    // Optional component kind, should be equal to 'job'
+    string kind = 1;
+
+    // Optional environment section
+    Environment environment = 2;
+
+    // Optional connections section
+    repeated string connections = 3;
+
+    // Volumes is a list of volumes that can be mounted.
+    repeated Volume volumes = 4;
+
+    // Optional init connections/containers section
+    repeated Init init = 5;
+
+    // Optional sidecars section
+    repeated Container sidecars = 6;
+
+    // Optional container to run
+    Container container = 7;
+}

@@ -78,6 +78,8 @@ import V1EventHistogram from './model/V1EventHistogram';
 import V1EventImage from './model/V1EventImage';
 import V1EventKind from './model/V1EventKind';
 import V1EventModel from './model/V1EventModel';
+import V1EventSpan from './model/V1EventSpan';
+import V1EventSpanKind from './model/V1EventSpanKind';
 import V1EventTrigger from './model/V1EventTrigger';
 import V1EventType from './model/V1EventType';
 import V1EventVideo from './model/V1EventVideo';
@@ -190,6 +192,8 @@ import V1RunArtifacts from './model/V1RunArtifacts';
 import V1RunConnection from './model/V1RunConnection';
 import V1RunEdge from './model/V1RunEdge';
 import V1RunEdgeKind from './model/V1RunEdgeKind';
+import V1RunEdgeLineage from './model/V1RunEdgeLineage';
+import V1RunEdgesGraph from './model/V1RunEdgesGraph';
 import V1RunKind from './model/V1RunKind';
 import V1RunPending from './model/V1RunPending';
 import V1RunReferenceCatalog from './model/V1RunReferenceCatalog';
@@ -684,6 +688,18 @@ export {
      * @property {module:model/V1EventModel}
      */
     V1EventModel,
+
+    /**
+     * The V1EventSpan model constructor.
+     * @property {module:model/V1EventSpan}
+     */
+    V1EventSpan,
+
+    /**
+     * The V1EventSpanKind model constructor.
+     * @property {module:model/V1EventSpanKind}
+     */
+    V1EventSpanKind,
 
     /**
      * The V1EventTrigger model constructor.
@@ -1356,6 +1372,18 @@ export {
      * @property {module:model/V1RunEdgeKind}
      */
     V1RunEdgeKind,
+
+    /**
+     * The V1RunEdgeLineage model constructor.
+     * @property {module:model/V1RunEdgeLineage}
+     */
+    V1RunEdgeLineage,
+
+    /**
+     * The V1RunEdgesGraph model constructor.
+     * @property {module:model/V1RunEdgesGraph}
+     */
+    V1RunEdgesGraph,
 
     /**
      * The V1RunKind model constructor.

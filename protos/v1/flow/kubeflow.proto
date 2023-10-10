@@ -1,0 +1,189 @@
+syntax = "proto3";
+
+package v1;
+
+import "v1/flow/environment.proto";
+import "v1/flow/init.proto";
+import "v1/flow/k8s.proto";
+
+option go_package = "v1/flow";
+
+message SchedulingPolicy {
+  	int32 minAvailable = 1;
+	  string queue = 2;
+	  string priorityClass = 3;
+}
+
+// Distributed Replica specification
+message KFReplica {
+    // Number of replicas
+    int32 replicas = 1;
+
+    // Optional environment section
+    Environment environment = 2;
+
+    // Optional connections section
+    repeated string connections = 3;
+
+    // Optional connections section
+    repeated Volume volumes = 4;
+
+    // Optional init connections section
+    repeated Init init = 5;
+
+    // Optional sidecars section
+    repeated Container sidecars = 6;
+
+    // Optional container to run
+    Container container = 7;
+}
+
+// CleanPodPolicy
+enum CleanPodPolicy {
+	All = 0;
+	Running = 1;
+	None = 2;
+}
+
+// MPI Job specification
+message MPIJob {
+    // Optional component kind, should be equal to 'mpijob'
+    string kind = 1;
+
+    // optional clean pod policy section
+    CleanPodPolicy cleanPodPolicy = 2;
+
+    // optional scheduling policy section
+    SchedulingPolicy schedulingPolicy = 3;
+
+    // Optional slots per worker
+    int32 slotsPerWorker = 6;
+
+    // Worker replicas definition
+    KFReplica worker = 7;
+
+    // Launcher replicas definition
+    KFReplica launcher = 8;
+}
+
+// Pytorch Job specification
+message PytorchJob {
+    // Optional component kind, should be equal to 'pytorchjob'
+    string kind = 1;
+
+    // optional clean pod policy section
+    CleanPodPolicy cleanPodPolicy = 2;
+
+    // optional scheduling policy section
+    SchedulingPolicy schedulingPolicy = 3;
+
+    // Master replicas definition
+    KFReplica master = 4;
+
+    // Worker replicas definition
+    KFReplica worker = 5;
+}
+
+// TF Job specification
+message TFJob {
+    // Optional component kind, should be equal to 'tfjob'
+    string kind = 1;
+
+    // optional clean pod policy section
+    CleanPodPolicy cleanPodPolicy = 2;
+
+    // optional scheduling policy section
+    SchedulingPolicy schedulingPolicy = 3;
+
+    // optional flag to enable dynamic worker
+    bool enableDynamicWorker = 4;
+
+    // Chief replicas definition
+    KFReplica chief = 5;
+
+    // Worker replicas definition
+    KFReplica worker = 6;
+
+    // PS replicas definition
+    KFReplica ps = 7;
+
+    // Evaluator replicas definition
+    KFReplica evaluator = 8;
+}
+
+// MXNet Job specification
+message MXJob {
+
+  enum Mode {
+    // Train Mode, requires Server, Scheduler, Worker
+    MXTrain = 0;
+    // Tune Mode, requires Tuner
+    MXTune = 1;
+  }
+
+  // Optional component kind, should be equal to 'mxjob'
+  string kind = 1;
+
+  // optional clean pod policy section
+  CleanPodPolicy cleanPodPolicy = 2;
+
+  // optional scheduling policy section
+  SchedulingPolicy schedulingPolicy = 3;
+
+  // MXJob mode "MXTrain" and "MXTune".
+  Mode mode = 4;
+
+  // Scheduler replicas definition
+  KFReplica scheduler = 5;
+
+  // Server replicas definition
+  KFReplica server = 6;
+
+  // Worker replicas definition
+  KFReplica worker = 7;
+
+  // TunerTracker replicas definition
+  KFReplica tuner_tracker = 8;
+
+  // TunerServer replicas definition
+  KFReplica tuner_server = 9;
+
+  // Tuner replicas definition
+  KFReplica tuner = 10;
+}
+
+// XGBoost Job specification
+message XGBoostJob {
+  // Optional component kind, should be equal to 'xgboostjob'
+  string kind = 1;
+
+  // optional clean pod policy section
+  CleanPodPolicy cleanPodPolicy = 2;
+
+  // optional scheduling policy section
+  SchedulingPolicy schedulingPolicy = 3;
+
+  // Master replicas definition
+  KFReplica master = 4;
+
+  // Worker replicas definition
+  KFReplica worker = 5;
+}
+
+// Paddle Job specification
+message PaddleJob {
+  // Optional component kind, should be equal to 'paddlejob'
+  string kind = 1;
+
+  // optional clean pod policy section
+  CleanPodPolicy cleanPodPolicy = 2;
+
+  // optional scheduling policy section
+  SchedulingPolicy schedulingPolicy = 3;
+
+  // Master replicas definition
+  KFReplica master = 4;
+
+  // Worker replicas definition
+  KFReplica worker = 5;
+}

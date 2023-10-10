@@ -75,6 +75,13 @@ export default class V1RunEdgeKind {
         "build" = "build";
 
 
+        /**
+         * value: "manual"
+         * @const
+         */
+        "manual" = "manual";
+
+
 
     /**
     * Returns a <code>V1RunEdgeKind</code> enum value from a Javascript object name.

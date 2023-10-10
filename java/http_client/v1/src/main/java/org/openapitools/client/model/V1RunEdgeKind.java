@@ -43,7 +43,9 @@ public enum V1RunEdgeKind {
 
   TB("tb"),
 
-  BUILD("build");
+  BUILD("build"),
+
+  MANUAL("manual");
 
   private String value;
 

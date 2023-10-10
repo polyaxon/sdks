@@ -5970,6 +5970,9 @@
         "model": {
           "$ref": "#/definitions/v1EventModel"
         },
+        "span": {
+          "$ref": "#/definitions/v1EventSpan"
+        },
         "step": {
           "description": "Global step of the event.",
           "format": "int32",
@@ -6240,6 +6243,82 @@
       },
       "title": "Model spec definition",
       "type": "object"
+    },
+    "v1EventSpan": {
+      "properties": {
+        "children": {
+          "items": {
+            "$ref": "#/definitions/v1EventSpan"
+          },
+          "title": "Child events",
+          "type": "array"
+        },
+        "finished_at": {
+          "format": "date-time",
+          "title": "End time",
+          "type": "string"
+        },
+        "inputs": {
+          "title": "Inputs",
+          "type": "object"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1EventSpanKind",
+          "title": "Span kind"
+        },
+        "metadata": {
+          "title": "Metadata",
+          "type": "object"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "outputs": {
+          "title": "Outputs",
+          "type": "object"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Start time",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1Statuses",
+          "title": "Status"
+        },
+        "status_conditions": {
+          "items": {
+            "$ref": "#/definitions/v1StatusCondition"
+          },
+          "title": "Status conditions",
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        }
+      },
+      "title": "Trace/Span spec definition",
+      "type": "object"
+    },
+    "v1EventSpanKind": {
+      "default": "LLM",
+      "enum": [
+        "LLM",
+        "CHAIN",
+        "AGENT",
+        "TOOL"
+      ],
+      "title": "Curve kind",
+      "type": "string"
     },
     "v1EventTrigger": {
       "properties": {
@@ -9510,9 +9589,9 @@
           "type": "string"
         },
         "duration": {
-          "format": "int32",
+          "format": "float",
           "title": "Optional duration of the entity",
-          "type": "integer"
+          "type": "number"
         },
         "finished_at": {
           "format": "date-time",
@@ -9650,9 +9729,9 @@
           "type": "string"
         },
         "wait_time": {
-          "format": "int32",
+          "format": "float",
           "title": "Optional wait time of the entity",
-          "type": "integer"
+          "type": "number"
         }
       },
       "title": "Run specification",
@@ -9768,9 +9847,40 @@
         "join",
         "run",
         "tb",
-        "build"
+        "build",
+        "manual"
       ],
       "type": "string"
+    },
+    "v1RunEdgeLineage": {
+      "properties": {
+        "is_upstream": {
+          "title": "Optional edge run direction",
+          "type": "boolean"
+        },
+        "uuid": {
+          "title": "Run uuid to link",
+          "type": "string"
+        },
+        "values": {
+          "title": "Optional edge values",
+          "type": "object"
+        }
+      },
+      "title": "single run edge",
+      "type": "object"
+    },
+    "v1RunEdgesGraph": {
+      "properties": {
+        "edges": {
+          "items": {
+            "$ref": "#/definitions/v1RunEdgeLineage"
+          },
+          "title": "Run edges",
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "v1RunKind": {
       "default": "job",

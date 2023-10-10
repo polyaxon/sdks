@@ -316,6 +316,7 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.RunsV1Api* | [**restoreRun**](docs/RunsV1Api.md#restoreRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 *PolyaxonSdk.RunsV1Api* | [**restoreRuns**](docs/RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 *PolyaxonSdk.RunsV1Api* | [**resumeRun**](docs/RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
+*PolyaxonSdk.RunsV1Api* | [**setRunEdgesLineage**](docs/RunsV1Api.md#setRunEdgesLineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
 *PolyaxonSdk.RunsV1Api* | [**stopRun**](docs/RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 *PolyaxonSdk.RunsV1Api* | [**stopRuns**](docs/RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 *PolyaxonSdk.RunsV1Api* | [**syncRun**](docs/RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
@@ -451,6 +452,8 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1EventImage](docs/V1EventImage.md)
  - [PolyaxonSdk.V1EventKind](docs/V1EventKind.md)
  - [PolyaxonSdk.V1EventModel](docs/V1EventModel.md)
+ - [PolyaxonSdk.V1EventSpan](docs/V1EventSpan.md)
+ - [PolyaxonSdk.V1EventSpanKind](docs/V1EventSpanKind.md)
  - [PolyaxonSdk.V1EventTrigger](docs/V1EventTrigger.md)
  - [PolyaxonSdk.V1EventType](docs/V1EventType.md)
  - [PolyaxonSdk.V1EventVideo](docs/V1EventVideo.md)
@@ -563,6 +566,8 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1RunConnection](docs/V1RunConnection.md)
  - [PolyaxonSdk.V1RunEdge](docs/V1RunEdge.md)
  - [PolyaxonSdk.V1RunEdgeKind](docs/V1RunEdgeKind.md)
+ - [PolyaxonSdk.V1RunEdgeLineage](docs/V1RunEdgeLineage.md)
+ - [PolyaxonSdk.V1RunEdgesGraph](docs/V1RunEdgesGraph.md)
  - [PolyaxonSdk.V1RunKind](docs/V1RunKind.md)
  - [PolyaxonSdk.V1RunPending](docs/V1RunPending.md)
  - [PolyaxonSdk.V1RunReferenceCatalog](docs/V1RunReferenceCatalog.md)

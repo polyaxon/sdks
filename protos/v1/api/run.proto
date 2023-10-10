@@ -6,7 +6,7 @@ import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 import "v1/api/base.proto";
-import "v1/polyflow/status.proto";
+import "v1/flow/status.proto";
 import "v1/api/status.proto";
 
 option go_package = "v1/api";
@@ -121,10 +121,10 @@ message Run {
     google.protobuf.Timestamp finished_at = 12;
 
     // Optional wait time of the entity
-    int32 wait_time = 13;
+    float wait_time = 13;
 
     // Optional duration of the entity
-    int32 duration = 14;
+    float duration = 14;
 
     // Optional flag of the managing service
     ManagedBy managed_by = 15;
@@ -357,6 +357,7 @@ message RunEdge {
       run = 5;
       tb = 6;  // tensorboard
       build = 7;
+      manual = 8;
   }
 
   // Optional uuid of the edge run
@@ -388,4 +389,36 @@ message ListRunEdgesResponse {
 
   // Next page
   string next = 4;
+}
+
+// single run edge
+message RunEdgeLineage {
+  // Run uuid to link
+  string uuid = 1;
+
+  // Optional edge run direction
+  bool is_upstream = 2;
+
+  // Optional edge values
+  google.protobuf.Struct values = 3;
+}
+
+message RunEdgesGraph {
+  // Run edges
+  repeated RunEdgeLineage edges = 1;
+}
+
+// Request body to set manual run edges
+message RunEdgesBody {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Project
+  string project = 2;
+
+  // Run uuid
+  string uuid = 3;
+
+  // Run edges graph
+  RunEdgesGraph graph = 4;
 }

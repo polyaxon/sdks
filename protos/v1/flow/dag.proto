@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+
+import "v1/flow/component.proto";
+import "v1/flow/operation.proto";
+import "v1/flow/environment.proto";
+import "v1/flow/k8s.proto";
+
+option go_package = "v1/flow";
+
+// Dag specificaiton
+message Dag {
+    // Optional component kind, should be equal to 'dag'
+    string kind = 1;
+
+    // Ops used in the graph
+    repeated Operation operations = 2;
+
+    // Optional component refrences
+    repeated Component components = 4;
+
+    // Optional component description
+    int32 concurrency = 5;
+
+    // Optional component tags
+    repeated google.protobuf.Struct earlyStopping = 6;
+
+    // Optional environment section
+    Environment environment = 7;
+
+    // Optional connections section
+    repeated string connections = 8;
+
+    // Volumes is a list of volumes that can be mounted.
+    repeated Volume volumes = 9;
+}

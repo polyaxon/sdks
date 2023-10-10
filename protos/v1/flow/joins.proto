@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "v1/flow";
+
+// JoinParam specification
+message JoinParam {
+  // The value to pass, if no ref or search is passed then it corresponds to a literal value
+  string value = 1;
+
+  // A flag to signal to Polyaxon that this param is used with a connection
+  string connection = 2;
+
+  // A flag to signal to Polyaxon that this param must be tranformed to an init container
+  bool toInit = 3;
+
+  // A flag to signal to Polyaxon that this param must be tranformed to the environment variable passed
+  string toEnv = 4;
+
+  // A flag to signal to Polyaxon that this param should not be validated against io
+  bool contextOnly = 5;
+}
+
+// Join specification
+message Join {
+    // An optional ref to an already saved search
+    string ref = 1;
+
+    // The search query
+    string query = 2;
+
+    // The search sort
+    string sort = 3;
+
+    // The search limit
+    int32 limit = 4;
+
+    // The search offset
+    int32 offset = 5;
+
+    // The params mapping keys to the values to pull from the join
+    map<string, JoinParam> params = 6;
+}

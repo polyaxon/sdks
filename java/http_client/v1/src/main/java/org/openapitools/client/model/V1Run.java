@@ -110,11 +110,11 @@ public class V1Run {
 
   public static final String SERIALIZED_NAME_WAIT_TIME = "wait_time";
   @SerializedName(SERIALIZED_NAME_WAIT_TIME)
-  private Integer waitTime;
+  private Float waitTime;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  private Integer duration;
+  private Float duration;
 
   public static final String SERIALIZED_NAME_MANAGED_BY = "managed_by";
   @SerializedName(SERIALIZED_NAME_MANAGED_BY)
@@ -487,7 +487,7 @@ public class V1Run {
   }
 
 
-  public V1Run waitTime(Integer waitTime) {
+  public V1Run waitTime(Float waitTime) {
 
     this.waitTime = waitTime;
     return this;
@@ -499,17 +499,17 @@ public class V1Run {
   **/
   @javax.annotation.Nullable
 
-  public Integer getWaitTime() {
+  public Float getWaitTime() {
     return waitTime;
   }
 
 
-  public void setWaitTime(Integer waitTime) {
+  public void setWaitTime(Float waitTime) {
     this.waitTime = waitTime;
   }
 
 
-  public V1Run duration(Integer duration) {
+  public V1Run duration(Float duration) {
 
     this.duration = duration;
     return this;
@@ -521,12 +521,12 @@ public class V1Run {
   **/
   @javax.annotation.Nullable
 
-  public Integer getDuration() {
+  public Float getDuration() {
     return duration;
   }
 
 
-  public void setDuration(Integer duration) {
+  public void setDuration(Float duration) {
     this.duration = duration;
   }
 

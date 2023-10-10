@@ -52,6 +52,9 @@ type V1Event struct {
 	// model
 	Model *V1EventModel `json:"model,omitempty"`
 
+	// span
+	Span *V1EventSpan `json:"span,omitempty"`
+
 	// Global step of the event.
 	Step int32 `json:"step,omitempty"`
 
@@ -103,6 +106,10 @@ func (m *V1Event) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateModel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSpan(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -291,6 +298,25 @@ func (m *V1Event) validateModel(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Event) validateSpan(formats strfmt.Registry) error {
+	if swag.IsZero(m.Span) { // not required
+		return nil
+	}
+
+	if m.Span != nil {
+		if err := m.Span.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("span")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("span")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *V1Event) validateTimestamp(formats strfmt.Registry) error {
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
@@ -359,6 +385,10 @@ func (m *V1Event) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 	}
 
 	if err := m.contextValidateModel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSpan(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -553,6 +583,27 @@ func (m *V1Event) contextValidateModel(ctx context.Context, formats strfmt.Regis
 				return ve.ValidateName("model")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("model")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Event) contextValidateSpan(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Span != nil {
+
+		if swag.IsZero(m.Span) { // not required
+			return nil
+		}
+
+		if err := m.Span.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("span")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("span")
 			}
 			return err
 		}

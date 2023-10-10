@@ -33,6 +33,7 @@ import type {
   V1Run,
   V1RunArtifact,
   V1RunArtifacts,
+  V1RunEdgesGraph,
   V1RunSettings,
   V1Status,
   V1Uuids,
@@ -74,6 +75,8 @@ import {
     V1RunArtifactToJSON,
     V1RunArtifactsFromJSON,
     V1RunArtifactsToJSON,
+    V1RunEdgesGraphFromJSON,
+    V1RunEdgesGraphToJSON,
     V1RunSettingsFromJSON,
     V1RunSettingsToJSON,
     V1StatusFromJSON,
@@ -507,6 +510,13 @@ export interface ResumeRunRequest {
     project: string;
     runUuid: string;
     body: V1Run;
+}
+
+export interface SetRunEdgesLineageRequest {
+    owner: string;
+    project: string;
+    uuid: string;
+    body: V1RunEdgesGraph;
 }
 
 export interface StopRunRequest {
@@ -3225,6 +3235,54 @@ export class RunsV1Api extends runtime.BaseAPI {
     async resumeRun(requestParameters: ResumeRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
         const response = await this.resumeRunRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Set run edges graph lineage
+     */
+    async setRunEdgesLineageRaw(requestParameters: SetRunEdgesLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling setRunEdgesLineage.');
+        }
+
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling setRunEdgesLineage.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling setRunEdgesLineage.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling setRunEdgesLineage.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/{owner}/{project}/runs/{uuid}/lineage/edges`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1RunEdgesGraphToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Set run edges graph lineage
+     */
+    async setRunEdgesLineage(requestParameters: SetRunEdgesLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.setRunEdgesLineageRaw(requestParameters, initOverrides);
     }
 
     /**

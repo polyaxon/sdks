@@ -34,6 +34,7 @@ import org.openapitools.client.model.V1OperationBody;
 import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1RunArtifact;
 import org.openapitools.client.model.V1RunArtifacts;
+import org.openapitools.client.model.V1RunEdgesGraph;
 import org.openapitools.client.model.V1RunSettings;
 import org.openapitools.client.model.V1Status;
 import org.openapitools.client.model.V1Uuids;
@@ -877,6 +878,21 @@ public class RunsV1ApiTest {
         String runUuid = null;
         V1Run body = null;
         V1Run response = api.resumeRun(owner, project, runUuid, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Set run edges graph lineage
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void setRunEdgesLineageTest() throws ApiException {
+        String owner = null;
+        String project = null;
+        String uuid = null;
+        V1RunEdgesGraph body = null;
+        api.setRunEdgesLineage(owner, project, uuid, body);
         // TODO: test validations
     }
 

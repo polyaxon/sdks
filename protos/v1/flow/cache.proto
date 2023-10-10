@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "v1/flow";
+
+// Cache specification
+// Cache is calculated based on inputs state as well as component version if used
+message Cache {
+    // Optional flag to disable cache, Cache is enabled by default
+    bool disable = 1;
+
+    // Optional time to live for the cache before it gets invalidated automatically,
+    // the TTL is calculated based on the time the run starts
+    int32 ttl = 2;
+
+    // Optional Inputs/Outputs' names to consider for the cache, default behavior to consider all inputs/outputs
+    repeated string io = 3;
+
+    // Optional sections to consider for the cache, default behavior to consider container(command, args), init section, and connections section
+    repeated string sections = 4;
+}

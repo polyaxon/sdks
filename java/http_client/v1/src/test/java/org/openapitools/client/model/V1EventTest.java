@@ -29,6 +29,7 @@ import org.openapitools.client.model.V1EventDataframe;
 import org.openapitools.client.model.V1EventHistogram;
 import org.openapitools.client.model.V1EventImage;
 import org.openapitools.client.model.V1EventModel;
+import org.openapitools.client.model.V1EventSpan;
 import org.openapitools.client.model.V1EventVideo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -166,6 +167,14 @@ public class V1EventTest {
     @Test
     public void confusionTest() {
         // TODO: test confusion
+    }
+
+    /**
+     * Test the property 'span'
+     */
+    @Test
+    public void spanTest() {
+        // TODO: test span
     }
 
 }

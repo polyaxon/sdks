@@ -548,6 +548,16 @@
         done();
       });
     });
+    describe('setRunEdgesLineage', function() {
+      it('should call setRunEdgesLineage successfully', function(done) {
+        //uncomment below and update the code to test setRunEdgesLineage
+        //instance.setRunEdgesLineage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('stopRun', function() {
       it('should call stopRun successfully', function(done) {
         //uncomment below and update the code to test stopRun

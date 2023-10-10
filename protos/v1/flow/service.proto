@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package v1;
+
+import "v1/flow/environment.proto";
+import "v1/flow/init.proto";
+import "v1/flow/k8s.proto";
+
+option go_package = "v1/flow";
+
+// Service specification
+message Service {
+    // Optional component kind, should be equal to 'service'
+    string kind = 1;
+
+    // Optional environment section
+    Environment environment = 2;
+
+    // Optional connections section
+    repeated string connections = 3;
+
+    // Volumes is a list of volumes that can be mounted.
+    repeated Volume volumes = 4;
+
+    // Optional init connections/containers section
+    repeated Init init = 5;
+
+    // Optional sidecars section
+    repeated Container sidecars = 6;
+
+    // Optional container to notification
+    Container container = 7;
+
+    // Optional service section
+    repeated int32 ports = 8;
+
+    // Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).
+    // Default is false, the service shoud handle a base url.
+    bool rewritePath = 9;
+
+    // Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth
+    // Default is false, the service will be controlled by Polyaxon's auth.
+    bool isExternal = 10;
+
+    // Optional value to provision more than a single replica for the service
+    int32 replicas = 11;
+}

@@ -15998,6 +15998,75 @@ paths:
       tags:
       - RunsV1
       x-accepts: application/json
+  /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges:
+    post:
+      operationId: SetRunEdgesLineage
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Project
+        explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Run uuid
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1RunEdgesGraph'
+        description: Run edges graph
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Set run edges graph lineage
+      tags:
+      - RunsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
   /api/v1/{owner}/{project}/runs/{uuid}/statuses:
     post:
       operationId: CreateRunStatus
@@ -23458,6 +23527,35 @@ components:
           - "{}"
           - "{}"
         timestamp: 2000-01-23T04:56:07.000+00:00
+        span:
+          outputs: "{}"
+          metadata: "{}"
+          finished_at: 2000-01-23T04:56:07.000+00:00
+          children:
+          - null
+          - null
+          inputs: "{}"
+          kind: null
+          name: name
+          started_at: 2000-01-23T04:56:07.000+00:00
+          uuid: uuid
+          status_conditions:
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            type: null
+            message: message
+            status: status
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            type: null
+            message: message
+            status: status
+          tags:
+          - tags
+          - tags
+          status: null
       properties:
         timestamp:
           format: date-time
@@ -23494,6 +23592,8 @@ components:
           $ref: '#/components/schemas/v1EventCurve'
         confusion:
           $ref: '#/components/schemas/v1EventConfusionMatrix'
+        span:
+          $ref: '#/components/schemas/v1EventSpan'
       title: Event spec definition
       type: object
     v1EventArtifact:
@@ -23754,6 +23854,93 @@ components:
           type: object
       title: Model spec definition
       type: object
+    v1EventSpan:
+      example:
+        outputs: "{}"
+        metadata: "{}"
+        finished_at: 2000-01-23T04:56:07.000+00:00
+        children:
+        - null
+        - null
+        inputs: "{}"
+        kind: null
+        name: name
+        started_at: 2000-01-23T04:56:07.000+00:00
+        uuid: uuid
+        status_conditions:
+        - reason: reason
+          last_update_time: 2000-01-23T04:56:07.000+00:00
+          last_transition_time: 2000-01-23T04:56:07.000+00:00
+          type: null
+          message: message
+          status: status
+        - reason: reason
+          last_update_time: 2000-01-23T04:56:07.000+00:00
+          last_transition_time: 2000-01-23T04:56:07.000+00:00
+          type: null
+          message: message
+          status: status
+        tags:
+        - tags
+        - tags
+        status: null
+      properties:
+        uuid:
+          title: UUID
+          type: string
+        name:
+          title: Name
+          type: string
+        tags:
+          items:
+            type: string
+          title: Tags
+          type: array
+        started_at:
+          format: date-time
+          title: Start time
+          type: string
+        finished_at:
+          format: date-time
+          title: End time
+          type: string
+        status:
+          $ref: '#/components/schemas/v1Statuses'
+        status_conditions:
+          items:
+            $ref: '#/components/schemas/v1StatusCondition'
+          title: Status conditions
+          type: array
+        metadata:
+          properties: {}
+          title: Metadata
+          type: object
+        inputs:
+          properties: {}
+          title: Inputs
+          type: object
+        outputs:
+          properties: {}
+          title: Outputs
+          type: object
+        children:
+          items:
+            $ref: '#/components/schemas/v1EventSpan'
+          title: Child events
+          type: array
+        kind:
+          $ref: '#/components/schemas/v1EventSpanKind'
+      title: Trace/Span spec definition
+      type: object
+    v1EventSpanKind:
+      default: LLM
+      enum:
+      - LLM
+      - CHAIN
+      - AGENT
+      - TOOL
+      title: Curve kind
+      type: string
     v1EventTrigger:
       example:
         ref: ref
@@ -26102,7 +26289,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
             content: content
-            duration: 1
+            duration: 1.4658129
             updated_at: 2000-01-23T04:56:07.000+00:00
             meta_info: "{}"
             merge: true
@@ -26147,7 +26334,7 @@ components:
               kind: null
               name: name
               uuid: uuid
-            wait_time: 6
+            wait_time: 6.0274563
             schedule_at: 2000-01-23T04:56:07.000+00:00
             bookmarked: true
             kind: null
@@ -26204,7 +26391,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
             content: content
-            duration: 1
+            duration: 1.4658129
             updated_at: 2000-01-23T04:56:07.000+00:00
             meta_info: "{}"
             merge: true
@@ -26249,7 +26436,7 @@ components:
               kind: null
               name: name
               uuid: uuid
-            wait_time: 6
+            wait_time: 6.0274563
             schedule_at: 2000-01-23T04:56:07.000+00:00
             bookmarked: true
             kind: null
@@ -26307,7 +26494,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
             content: content
-            duration: 1
+            duration: 1.4658129
             updated_at: 2000-01-23T04:56:07.000+00:00
             meta_info: "{}"
             merge: true
@@ -26352,7 +26539,7 @@ components:
               kind: null
               name: name
               uuid: uuid
-            wait_time: 6
+            wait_time: 6.0274563
             schedule_at: 2000-01-23T04:56:07.000+00:00
             bookmarked: true
             kind: null
@@ -26409,7 +26596,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             uuid: uuid
             content: content
-            duration: 1
+            duration: 1.4658129
             updated_at: 2000-01-23T04:56:07.000+00:00
             meta_info: "{}"
             merge: true
@@ -26454,7 +26641,7 @@ components:
               kind: null
               name: name
               uuid: uuid
-            wait_time: 6
+            wait_time: 6.0274563
             schedule_at: 2000-01-23T04:56:07.000+00:00
             bookmarked: true
             kind: null
@@ -26535,7 +26722,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
           content: content
-          duration: 1
+          duration: 1.4658129
           updated_at: 2000-01-23T04:56:07.000+00:00
           meta_info: "{}"
           merge: true
@@ -26580,7 +26767,7 @@ components:
             kind: null
             name: name
             uuid: uuid
-          wait_time: 6
+          wait_time: 6.0274563
           schedule_at: 2000-01-23T04:56:07.000+00:00
           bookmarked: true
           kind: null
@@ -26634,7 +26821,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
           content: content
-          duration: 1
+          duration: 1.4658129
           updated_at: 2000-01-23T04:56:07.000+00:00
           meta_info: "{}"
           merge: true
@@ -26679,7 +26866,7 @@ components:
             kind: null
             name: name
             uuid: uuid
-          wait_time: 6
+          wait_time: 6.0274563
           schedule_at: 2000-01-23T04:56:07.000+00:00
           bookmarked: true
           kind: null
@@ -31817,7 +32004,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         uuid: uuid
         content: content
-        duration: 1
+        duration: 1.4658129
         updated_at: 2000-01-23T04:56:07.000+00:00
         meta_info: "{}"
         merge: true
@@ -31862,7 +32049,7 @@ components:
           kind: null
           name: name
           uuid: uuid
-        wait_time: 6
+        wait_time: 6.0274563
         schedule_at: 2000-01-23T04:56:07.000+00:00
         bookmarked: true
         kind: null
@@ -31950,13 +32137,13 @@ components:
           title: Optional last time the entity was started
           type: string
         wait_time:
-          format: int32
+          format: float
           title: Optional wait time of the entity
-          type: integer
+          type: number
         duration:
-          format: int32
+          format: float
           title: Optional duration of the entity
-          type: integer
+          type: number
         managed_by:
           $ref: '#/components/schemas/v1ManagedBy'
         is_managed:
@@ -32114,7 +32301,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
           content: content
-          duration: 1
+          duration: 1.4658129
           updated_at: 2000-01-23T04:56:07.000+00:00
           meta_info: "{}"
           merge: true
@@ -32159,7 +32346,7 @@ components:
             kind: null
             name: name
             uuid: uuid
-          wait_time: 6
+          wait_time: 6.0274563
           schedule_at: 2000-01-23T04:56:07.000+00:00
           bookmarked: true
           kind: null
@@ -32216,7 +32403,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
           content: content
-          duration: 1
+          duration: 1.4658129
           updated_at: 2000-01-23T04:56:07.000+00:00
           meta_info: "{}"
           merge: true
@@ -32261,7 +32448,7 @@ components:
             kind: null
             name: name
             uuid: uuid
-          wait_time: 6
+          wait_time: 6.0274563
           schedule_at: 2000-01-23T04:56:07.000+00:00
           bookmarked: true
           kind: null
@@ -32335,7 +32522,30 @@ components:
       - run
       - tb
       - build
+      - manual
       type: string
+    v1RunEdgeLineage:
+      properties:
+        uuid:
+          title: Run uuid to link
+          type: string
+        is_upstream:
+          title: Optional edge run direction
+          type: boolean
+        values:
+          properties: {}
+          title: Optional edge values
+          type: object
+      title: single run edge
+      type: object
+    v1RunEdgesGraph:
+      properties:
+        edges:
+          items:
+            $ref: '#/components/schemas/v1RunEdgeLineage'
+          title: Run edges
+          type: array
+      type: object
     v1RunKind:
       default: job
       enum:
@@ -44782,6 +44992,35 @@ components:
             - "{}"
             - "{}"
           timestamp: 2000-01-23T04:56:07.000+00:00
+          span:
+            outputs: "{}"
+            metadata: "{}"
+            finished_at: 2000-01-23T04:56:07.000+00:00
+            children:
+            - null
+            - null
+            inputs: "{}"
+            kind: null
+            name: name
+            started_at: 2000-01-23T04:56:07.000+00:00
+            uuid: uuid
+            status_conditions:
+            - reason: reason
+              last_update_time: 2000-01-23T04:56:07.000+00:00
+              last_transition_time: 2000-01-23T04:56:07.000+00:00
+              type: null
+              message: message
+              status: status
+            - reason: reason
+              last_update_time: 2000-01-23T04:56:07.000+00:00
+              last_transition_time: 2000-01-23T04:56:07.000+00:00
+              type: null
+              message: message
+              status: status
+            tags:
+            - tags
+            - tags
+            status: null
         earlyStopping:
           median:
             minSamples: 1

@@ -21,6 +21,7 @@ import V1EventDataframe from './V1EventDataframe';
 import V1EventHistogram from './V1EventHistogram';
 import V1EventImage from './V1EventImage';
 import V1EventModel from './V1EventModel';
+import V1EventSpan from './V1EventSpan';
 import V1EventVideo from './V1EventVideo';
 
 /**
@@ -102,6 +103,9 @@ class V1Event {
             if (data.hasOwnProperty('confusion')) {
                 obj['confusion'] = V1EventConfusionMatrix.constructFromObject(data['confusion']);
             }
+            if (data.hasOwnProperty('span')) {
+                obj['span'] = V1EventSpan.constructFromObject(data['span']);
+            }
         }
         return obj;
     }
@@ -159,6 +163,10 @@ class V1Event {
         // validate the optional field `confusion`
         if (data['confusion']) { // data not null
           V1EventConfusionMatrix.validateJSON(data['confusion']);
+        }
+        // validate the optional field `span`
+        if (data['span']) { // data not null
+          V1EventSpan.validateJSON(data['span']);
         }
 
         return true;
@@ -244,6 +252,11 @@ V1Event.prototype['curve'] = undefined;
  * @member {module:model/V1EventConfusionMatrix} confusion
  */
 V1Event.prototype['confusion'] = undefined;
+
+/**
+ * @member {module:model/V1EventSpan} span
+ */
+V1Event.prototype['span'] = undefined;
 
 
 

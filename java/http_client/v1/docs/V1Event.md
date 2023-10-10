@@ -22,6 +22,7 @@
 |**dataframe** | [**V1EventDataframe**](V1EventDataframe.md) |  |  [optional] |
 |**curve** | [**V1EventCurve**](V1EventCurve.md) |  |  [optional] |
 |**confusion** | [**V1EventConfusionMatrix**](V1EventConfusionMatrix.md) |  |  [optional] |
+|**span** | [**V1EventSpan**](V1EventSpan.md) |  |  [optional] |
 
 
 

@@ -144,6 +144,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property span (base name: "span")', function() {
+      // uncomment below and update the code to test the property span
+      //var instance = new PolyaxonSdk.V1Event();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

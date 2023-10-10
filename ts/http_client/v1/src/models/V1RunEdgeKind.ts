@@ -25,7 +25,8 @@ export const V1RunEdgeKind = {
     Join: 'join',
     Run: 'run',
     Tb: 'tb',
-    Build: 'build'
+    Build: 'build',
+    Manual: 'manual'
 } as const;
 export type V1RunEdgeKind = typeof V1RunEdgeKind[keyof typeof V1RunEdgeKind];
 

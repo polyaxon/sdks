@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "v1/flow";
+
+// Artifact mount specification
+message ArtifactsMount {
+    // Name of the artifact(connection)
+    string name = 1;
+
+    // Paths to mount
+    repeated string paths = 2;
+}

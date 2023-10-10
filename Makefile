@@ -40,8 +40,8 @@ PROTO_PATH := --proto_path=protos/
 # Proto files
 PROTO_SDK := protos/$(VERSION)/*.proto
 PROTO_API := protos/$(VERSION)/api/*.proto
-PROTO_POLYFLOW := protos/$(VERSION)/polyflow/*.proto
-PROTO_POLYBOARD := protos/$(VERSION)/polyboard/*.proto
+PROTO_POLYFLOW := protos/$(VERSION)/flow/*.proto
+PROTO_POLYBOARD := protos/$(VERSION)/tracking/*.proto
 PROTO_SCHEMAS := protos/$(VERSION)/schemas/*.proto
 PROTO_TYPES := protos/$(VERSION)/types/*.proto
 
@@ -167,8 +167,8 @@ clean:
 
 swagger-clean:
 	rm -rf swagger/$(VERSION)/api
-	rm -rf swagger/$(VERSION)/polyboard
-	rm -rf swagger/$(VERSION)/polyflow
+	rm -rf swagger/$(VERSION)/tracking
+	rm -rf swagger/$(VERSION)/flow
 	rm -rf swagger/$(VERSION)/schemas
 	rm -rf swagger/$(VERSION)/types
 	rm -rf python/$(HTTP_CLIENT)/$(VERSION)/.openapi-generator

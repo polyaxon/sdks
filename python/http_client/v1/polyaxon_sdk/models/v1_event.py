@@ -31,6 +31,7 @@ from polyaxon_sdk.models.v1_event_dataframe import V1EventDataframe
 from polyaxon_sdk.models.v1_event_histogram import V1EventHistogram
 from polyaxon_sdk.models.v1_event_image import V1EventImage
 from polyaxon_sdk.models.v1_event_model import V1EventModel
+from polyaxon_sdk.models.v1_event_span import V1EventSpan
 from polyaxon_sdk.models.v1_event_video import V1EventVideo
 
 class V1Event(BaseModel):
@@ -52,7 +53,8 @@ class V1Event(BaseModel):
     dataframe: Optional[V1EventDataframe] = None
     curve: Optional[V1EventCurve] = None
     confusion: Optional[V1EventConfusionMatrix] = None
-    __properties = ["timestamp", "step", "metric", "image", "histogram", "audio", "video", "html", "text", "chart", "model", "artifact", "dataframe", "curve", "confusion"]
+    span: Optional[V1EventSpan] = None
+    __properties = ["timestamp", "step", "metric", "image", "histogram", "audio", "video", "html", "text", "chart", "model", "artifact", "dataframe", "curve", "confusion", "span"]
 
     class Config:
         allow_population_by_field_name = True
@@ -107,6 +109,9 @@ class V1Event(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of confusion
         if self.confusion:
             _dict['confusion'] = self.confusion.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of span
+        if self.span:
+            _dict['span'] = self.span.to_dict()
         return _dict
 
     @classmethod
@@ -133,7 +138,8 @@ class V1Event(BaseModel):
             "artifact": V1EventArtifact.from_dict(obj.get("artifact")) if obj.get("artifact") is not None else None,
             "dataframe": V1EventDataframe.from_dict(obj.get("dataframe")) if obj.get("dataframe") is not None else None,
             "curve": V1EventCurve.from_dict(obj.get("curve")) if obj.get("curve") is not None else None,
-            "confusion": V1EventConfusionMatrix.from_dict(obj.get("confusion")) if obj.get("confusion") is not None else None
+            "confusion": V1EventConfusionMatrix.from_dict(obj.get("confusion")) if obj.get("confusion") is not None else None,
+            "span": V1EventSpan.from_dict(obj.get("span")) if obj.get("span") is not None else None
         })
         return _obj
 

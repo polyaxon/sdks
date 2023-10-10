@@ -31,6 +31,7 @@ import V1OperationBody from '../model/V1OperationBody';
 import V1Run from '../model/V1Run';
 import V1RunArtifact from '../model/V1RunArtifact';
 import V1RunArtifacts from '../model/V1RunArtifacts';
+import V1RunEdgesGraph from '../model/V1RunEdgesGraph';
 import V1RunSettings from '../model/V1RunSettings';
 import V1Status from '../model/V1Status';
 import V1Uuids from '../model/V1Uuids';
@@ -3093,6 +3094,64 @@ export default class RunsV1Api {
       let returnType = V1Run;
       return this.apiClient.callApi(
         '/api/v1/{owner}/{project}/runs/{run.uuid}/resume', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the setRunEdgesLineage operation.
+     * @callback module:api/RunsV1Api~setRunEdgesLineageCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set run edges graph lineage
+     * @param {String} owner Owner of the namespace
+     * @param {String} project Project
+     * @param {String} uuid Run uuid
+     * @param {module:model/V1RunEdgesGraph} body Run edges graph
+     * @param {module:api/RunsV1Api~setRunEdgesLineageCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    setRunEdgesLineage(owner, project, uuid, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling setRunEdgesLineage");
+      }
+      // verify the required parameter 'project' is set
+      if (project === undefined || project === null) {
+        throw new Error("Missing the required parameter 'project' when calling setRunEdgesLineage");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling setRunEdgesLineage");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling setRunEdgesLineage");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'project': project,
+        'uuid': uuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/{owner}/{project}/runs/{uuid}/lineage/edges', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

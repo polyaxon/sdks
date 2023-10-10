@@ -14694,6 +14694,70 @@
         ]
       }
     },
+    "/api/v1/{owner}/{project}/runs/{uuid}/lineage/edges": {
+      "post": {
+        "summary": "Set run edges graph lineage",
+        "operationId": "SetRunEdgesLineage",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Run uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Run edges graph",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RunEdgesGraph"
+            }
+          }
+        ],
+        "tags": [
+          "RunsV1"
+        ]
+      }
+    },
     "/api/v1/{owner}/{project}/runs/{uuid}/statuses": {
       "post": {
         "summary": "Create new run status",
@@ -18744,6 +18808,9 @@
         },
         "confusion": {
           "$ref": "#/definitions/v1EventConfusionMatrix"
+        },
+        "span": {
+          "$ref": "#/definitions/v1EventSpan"
         }
       },
       "title": "Event spec definition"
@@ -18998,6 +19065,82 @@
         }
       },
       "title": "Model spec definition"
+    },
+    "v1EventSpan": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "UUID"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Start time"
+        },
+        "finished_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "End time"
+        },
+        "status": {
+          "$ref": "#/definitions/v1Statuses",
+          "title": "Status"
+        },
+        "status_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1StatusCondition"
+          },
+          "title": "Status conditions"
+        },
+        "metadata": {
+          "type": "object",
+          "title": "Metadata"
+        },
+        "inputs": {
+          "type": "object",
+          "title": "Inputs"
+        },
+        "outputs": {
+          "type": "object",
+          "title": "Outputs"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1EventSpan"
+          },
+          "title": "Child events"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1EventSpanKind",
+          "title": "Span kind"
+        }
+      },
+      "title": "Trace/Span spec definition"
+    },
+    "v1EventSpanKind": {
+      "type": "string",
+      "enum": [
+        "LLM",
+        "CHAIN",
+        "AGENT",
+        "TOOL"
+      ],
+      "default": "LLM",
+      "title": "Curve kind"
     },
     "v1EventTrigger": {
       "type": "object",
@@ -22183,13 +22326,13 @@
           "title": "Optional last time the entity was started"
         },
         "wait_time": {
-          "type": "integer",
-          "format": "int32",
+          "type": "number",
+          "format": "float",
           "title": "Optional wait time of the entity"
         },
         "duration": {
-          "type": "integer",
-          "format": "int32",
+          "type": "number",
+          "format": "float",
           "title": "Optional duration of the entity"
         },
         "managed_by": {
@@ -22408,9 +22551,40 @@
         "join",
         "run",
         "tb",
-        "build"
+        "build",
+        "manual"
       ],
       "default": "action"
+    },
+    "v1RunEdgeLineage": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "Run uuid to link"
+        },
+        "is_upstream": {
+          "type": "boolean",
+          "title": "Optional edge run direction"
+        },
+        "values": {
+          "type": "object",
+          "title": "Optional edge values"
+        }
+      },
+      "title": "single run edge"
+    },
+    "v1RunEdgesGraph": {
+      "type": "object",
+      "properties": {
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1RunEdgeLineage"
+          },
+          "title": "Run edges"
+        }
+      }
     },
     "v1RunKind": {
       "type": "string",

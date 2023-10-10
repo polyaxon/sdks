@@ -19,8 +19,8 @@
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
 |**startedAt** | **OffsetDateTime** |  |  [optional] |
 |**finishedAt** | **OffsetDateTime** |  |  [optional] |
-|**waitTime** | **Integer** |  |  [optional] |
-|**duration** | **Integer** |  |  [optional] |
+|**waitTime** | **Float** |  |  [optional] |
+|**duration** | **Float** |  |  [optional] |
 |**managedBy** | **V1ManagedBy** |  |  [optional] |
 |**isManaged** | **Boolean** |  |  [optional] |
 |**isApproved** | **Boolean** |  |  [optional] |

@@ -4,22 +4,22 @@ syntax = "proto3";
 
 package v1;
 
-import "v1/polyflow/early_stopping.proto";
-import "v1/polyflow/hp_params.proto";
-import "v1/polyflow/mounts.proto";
-import "v1/polyflow/matrix.proto";
-import "v1/polyflow/run.proto";
-import "v1/polyflow/compiled_operation.proto";
-import "v1/polyflow/reference.proto";
-import "v1/polyflow/schedule.proto";
-import "v1/polyflow/auxiliary_containers.proto";
-import "v1/polyflow/connection.proto";
+import "v1/flow/early_stopping.proto";
+import "v1/flow/hp_params.proto";
+import "v1/flow/mounts.proto";
+import "v1/flow/matrix.proto";
+import "v1/flow/run.proto";
+import "v1/flow/compiled_operation.proto";
+import "v1/flow/reference.proto";
+import "v1/flow/schedule.proto";
+import "v1/flow/auxiliary_containers.proto";
+import "v1/flow/connection.proto";
 import "v1/types/artifacts.proto";
 import "v1/types/auth.proto";
 import "v1/types/uri.proto";
 import "v1/types/event.proto";
-import "v1/polyboard/event.proto";
-import "v1/polyflow/operation.proto";
+import "v1/tracking/event.proto";
+import "v1/flow/operation.proto";
 
 option go_package = "v1/schemas/all";
 

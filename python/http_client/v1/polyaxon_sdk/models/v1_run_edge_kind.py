@@ -38,4 +38,5 @@ class V1RunEdgeKind(str, Enum):
     RUN = 'run'
     TB = 'tb'
     BUILD = 'build'
+    MANUAL = 'manual'
 

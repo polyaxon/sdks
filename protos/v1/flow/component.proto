@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+
+import "v1/flow/build.proto";
+import "v1/flow/cache.proto";
+import "v1/flow/hooks.proto";
+import "v1/flow/io.proto";
+import "v1/flow/plugins.proto";
+import "v1/flow/termination.proto";
+import "v1/flow/template.proto";
+
+option go_package = "v1/flow";
+
+// Component specification
+message Component {
+    // Spec version
+    float version = 1;
+
+    // Optional component kind, should be equal to 'operation'
+    string kind = 2;
+
+    // Optional component name, should be a valid fully qualified value: name[:version]
+    string name = 3;
+
+    // Optional component description
+    string description = 4;
+
+    // Optional component tags
+    repeated string tags = 5;
+
+    // Optional presets to use for running this component
+    repeated string presets = 6;
+
+    // Optional queue to use for running this component
+    string queue = 7;
+
+    // Optional flag to disable cache validation and force run this component
+    Cache cache = 8;
+
+    // optional termination section
+    Termination termination = 9;
+
+    // Optional plugins to enable
+    Plugins plugins = 10;
+
+    // Optional hooks section
+    repeated Hook hooks = 11;
+
+    // Optional inputs definition
+    repeated IO inputs = 12;
+
+    // Optional outputs definition
+    repeated IO outputs = 13;
+
+    // Optional build process
+    Build build = 14;
+
+    // Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
+    google.protobuf.Struct run = 15;
+
+    // Optional flag to mark this specification as template
+    Template template = 16;
+
+    // Optional flag to mark this specification requires approval before running
+    bool isApproved = 17;
+
+    // Optional field to assign cost to this Component
+    float cost = 18;
+}

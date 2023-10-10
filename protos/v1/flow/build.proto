@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+
+import "v1/flow/cache.proto";
+import "v1/flow/io.proto";
+import "v1/flow/patch_strategy.proto";
+
+option go_package = "v1/flow";
+
+// Build definition
+message Build {
+    // Component name to use
+    string hubRef = 1;
+
+    // Connection to use
+    string connection = 2;
+
+    // Optional queue to use for scheduling the tuner
+    string queue = 3;
+
+    // Optional list of presets to use for running this tuner
+    repeated string presets = 4;
+
+    // Optional flag to disable cache validation and force run this operation
+    Cache cache = 5;
+
+    // Optional dict of params
+    map<string, Param> params = 6;
+
+    // Optional a run section to override the content of the run in the template
+    google.protobuf.Struct runPatch = 7;
+
+    // Optional patch strategy, default post_merge
+    PatchStrategy patchStrategy = 8;
+}

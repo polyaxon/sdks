@@ -21,5 +21,7 @@
 
 * `BUILD` (value: `"build"`)
 
+* `MANUAL` (value: `"manual"`)
+
 
 

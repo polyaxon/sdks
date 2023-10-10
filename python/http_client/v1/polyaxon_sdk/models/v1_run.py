@@ -21,7 +21,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
+from pydantic import BaseModel, StrictBool, StrictFloat, StrictInt, StrictStr, conlist
 from polyaxon_sdk.models.v1_cloning import V1Cloning
 from polyaxon_sdk.models.v1_managed_by import V1ManagedBy
 from polyaxon_sdk.models.v1_pipeline import V1Pipeline
@@ -48,8 +48,8 @@ class V1Run(BaseModel):
     updated_at: Optional[datetime] = None
     started_at: Optional[datetime] = None
     finished_at: Optional[datetime] = None
-    wait_time: Optional[StrictInt] = None
-    duration: Optional[StrictInt] = None
+    wait_time: Optional[StrictFloat] = None
+    duration: Optional[StrictFloat] = None
     managed_by: Optional[V1ManagedBy] = None
     is_managed: Optional[StrictBool] = None
     is_approved: Optional[StrictBool] = None

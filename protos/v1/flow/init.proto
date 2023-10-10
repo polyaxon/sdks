@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+
+import "v1/flow/k8s.proto";
+import "v1/types/dockerfile.proto";
+import "v1/types/file.proto";
+import "v1/types/tensorboard.proto";
+import "v1/types/git.proto";
+import "v1/types/artifacts.proto";
+
+option go_package = "v1/flow";
+
+// Initializer specification
+message Init {
+    // Artifacts initializer
+    ArtifactsType artifacts = 1;
+
+    // Paths initializer
+    repeated google.protobuf.Struct paths = 2;
+
+    // Override for git connections
+    GitType git = 3;
+
+    // Schema of the dockerfile to init
+    DockerfileType dockerfile = 4;
+
+    // File initializer
+    FileType file = 5;
+
+    // Tensorboard initializer
+    TensorboardType tensorboard = 6;
+
+    // Lineage reference initializer
+    string lineageRef = 7;
+
+    // Artifact version initializer
+    string artifactRef = 8;
+
+    // Model version initializer
+    string modelRef = 9;
+
+    // Optional, connection to use with this initializer
+    string connection = 10;
+
+    // Optional context path, the path to mount to main the container
+    string path = 11;
+
+    // Container to override
+    Container container = 12;
+}

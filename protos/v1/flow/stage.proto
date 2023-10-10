@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "v1/flow";
+
+enum Stages {
+  testing = 0;
+  staging = 1;
+  production = 2;
+  disabled = 3;
+}

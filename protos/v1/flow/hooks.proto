@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package v1;
+
+import "v1/flow/io.proto";
+import "v1/flow/status.proto";
+
+option go_package = "v1/flow";
+
+// Hook definition
+message Hook {
+    // Component name to use
+    string hubRef = 1;
+
+    // Connection to use
+    string connection = 2;
+
+    // Optional trigger policy, default done
+    Statuses trigger = 3;
+
+    // An optional template containing conditions to check before starting the run
+    string conditions = 4;
+
+    // Optional dict of params
+    map<string, Param> params = 5;
+
+    // Optional queue to use for scheduling the hook
+    string queue = 6;
+
+    // Optional preset to use for running this operation
+    repeated string presets = 7;
+
+    // Optional params context from the main operation
+    bool disableDefaults = 8;
+}

@@ -130,6 +130,8 @@ type ClientService interface {
 
 	ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResumeRunOK, *ResumeRunNoContent, error)
 
+	SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SetRunEdgesLineageOK, *SetRunEdgesLineageNoContent, error)
+
 	StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunOK, *StopRunNoContent, error)
 
 	StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunsOK, *StopRunsNoContent, error)
@@ -2150,6 +2152,46 @@ func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthI
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*ResumeRunDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+SetRunEdgesLineage sets run edges graph lineage
+*/
+func (a *Client) SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SetRunEdgesLineageOK, *SetRunEdgesLineageNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSetRunEdgesLineageParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SetRunEdgesLineage",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{project}/runs/{uuid}/lineage/edges",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &SetRunEdgesLineageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *SetRunEdgesLineageOK:
+		return value, nil, nil
+	case *SetRunEdgesLineageNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*SetRunEdgesLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

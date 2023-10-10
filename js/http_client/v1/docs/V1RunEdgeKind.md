@@ -19,4 +19,6 @@
 
 * `build` (value: `"build"`)
 
+* `manual` (value: `"manual"`)
+
 

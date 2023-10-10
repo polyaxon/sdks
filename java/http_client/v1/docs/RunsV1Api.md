@@ -55,6 +55,7 @@ All URIs are relative to *http://localhost*
 | [**restoreRun**](RunsV1Api.md#restoreRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run |
 | [**restoreRuns**](RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs |
 | [**resumeRun**](RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run |
+| [**setRunEdgesLineage**](RunsV1Api.md#setRunEdgesLineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage |
 | [**stopRun**](RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run |
 | [**stopRuns**](RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs |
 | [**syncRun**](RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run |
@@ -4032,6 +4033,82 @@ public class Example {
 ### Return type
 
 [**V1Run**](V1Run.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="setRunEdgesLineage"></a>
+# **setRunEdgesLineage**
+> setRunEdgesLineage(owner, project, uuid, body)
+
+Set run edges graph lineage
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RunsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    RunsV1Api apiInstance = new RunsV1Api(defaultClient);
+    String owner = "owner_example"; // String | Owner of the namespace
+    String project = "project_example"; // String | Project
+    String uuid = "uuid_example"; // String | Run uuid
+    V1RunEdgesGraph body = new V1RunEdgesGraph(); // V1RunEdgesGraph | Run edges graph
+    try {
+      apiInstance.setRunEdgesLineage(owner, project, uuid, body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RunsV1Api#setRunEdgesLineage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **project** | **String**| Project | |
+| **uuid** | **String**| Run uuid | |
+| **body** | [**V1RunEdgesGraph**](V1RunEdgesGraph.md)| Run edges graph | |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

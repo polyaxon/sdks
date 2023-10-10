@@ -4,7 +4,7 @@ package v1;
 
 import "google/protobuf/timestamp.proto";
 
-import "v1/polyflow/connection.proto";
+import "v1/flow/connection.proto";
 
 option go_package = "v1/api";
 

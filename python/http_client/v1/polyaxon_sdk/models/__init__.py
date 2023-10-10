@@ -80,6 +80,8 @@ from polyaxon_sdk.models.v1_event_histogram import V1EventHistogram
 from polyaxon_sdk.models.v1_event_image import V1EventImage
 from polyaxon_sdk.models.v1_event_kind import V1EventKind
 from polyaxon_sdk.models.v1_event_model import V1EventModel
+from polyaxon_sdk.models.v1_event_span import V1EventSpan
+from polyaxon_sdk.models.v1_event_span_kind import V1EventSpanKind
 from polyaxon_sdk.models.v1_event_trigger import V1EventTrigger
 from polyaxon_sdk.models.v1_event_type import V1EventType
 from polyaxon_sdk.models.v1_event_video import V1EventVideo
@@ -192,6 +194,8 @@ from polyaxon_sdk.models.v1_run_artifacts import V1RunArtifacts
 from polyaxon_sdk.models.v1_run_connection import V1RunConnection
 from polyaxon_sdk.models.v1_run_edge import V1RunEdge
 from polyaxon_sdk.models.v1_run_edge_kind import V1RunEdgeKind
+from polyaxon_sdk.models.v1_run_edge_lineage import V1RunEdgeLineage
+from polyaxon_sdk.models.v1_run_edges_graph import V1RunEdgesGraph
 from polyaxon_sdk.models.v1_run_kind import V1RunKind
 from polyaxon_sdk.models.v1_run_pending import V1RunPending
 from polyaxon_sdk.models.v1_run_reference_catalog import V1RunReferenceCatalog

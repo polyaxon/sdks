@@ -55,6 +55,7 @@ Method | HTTP request | Description
 [**restore_run**](RunsV1Api.md#restore_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 [**restore_runs**](RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 [**resume_run**](RunsV1Api.md#resume_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
+[**set_run_edges_lineage**](RunsV1Api.md#set_run_edges_lineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
 [**stop_run**](RunsV1Api.md#stop_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 [**stop_runs**](RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 [**sync_run**](RunsV1Api.md#sync_run) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
@@ -4312,6 +4313,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1Run**](V1Run.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_run_edges_lineage**
+> set_run_edges_lineage(owner, project, uuid, body)
+
+Set run edges graph lineage
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.RunsV1Api(api_client)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project
+    uuid = 'uuid_example' # str | Run uuid
+    body = polyaxon_sdk.V1RunEdgesGraph() # V1RunEdgesGraph | Run edges graph
+
+    try:
+        # Set run edges graph lineage
+        api_instance.set_run_edges_lineage(owner, project, uuid, body)
+    except Exception as e:
+        print("Exception when calling RunsV1Api->set_run_edges_lineage: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**| Owner of the namespace | 
+ **project** | **str**| Project | 
+ **uuid** | **str**| Run uuid | 
+ **body** | [**V1RunEdgesGraph**](V1RunEdgesGraph.md)| Run edges graph | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

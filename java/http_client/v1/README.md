@@ -310,6 +310,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**restoreRun**](docs/RunsV1Api.md#restoreRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 *RunsV1Api* | [**restoreRuns**](docs/RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 *RunsV1Api* | [**resumeRun**](docs/RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
+*RunsV1Api* | [**setRunEdgesLineage**](docs/RunsV1Api.md#setRunEdgesLineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
 *RunsV1Api* | [**stopRun**](docs/RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 *RunsV1Api* | [**stopRuns**](docs/RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 *RunsV1Api* | [**syncRun**](docs/RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
@@ -445,6 +446,8 @@ Class | Method | HTTP request | Description
  - [V1EventImage](docs/V1EventImage.md)
  - [V1EventKind](docs/V1EventKind.md)
  - [V1EventModel](docs/V1EventModel.md)
+ - [V1EventSpan](docs/V1EventSpan.md)
+ - [V1EventSpanKind](docs/V1EventSpanKind.md)
  - [V1EventTrigger](docs/V1EventTrigger.md)
  - [V1EventType](docs/V1EventType.md)
  - [V1EventVideo](docs/V1EventVideo.md)
@@ -557,6 +560,8 @@ Class | Method | HTTP request | Description
  - [V1RunConnection](docs/V1RunConnection.md)
  - [V1RunEdge](docs/V1RunEdge.md)
  - [V1RunEdgeKind](docs/V1RunEdgeKind.md)
+ - [V1RunEdgeLineage](docs/V1RunEdgeLineage.md)
+ - [V1RunEdgesGraph](docs/V1RunEdgesGraph.md)
  - [V1RunKind](docs/V1RunKind.md)
  - [V1RunPending](docs/V1RunPending.md)
  - [V1RunReferenceCatalog](docs/V1RunReferenceCatalog.md)

@@ -31,6 +31,7 @@ import org.openapitools.client.model.V1EventDataframe;
 import org.openapitools.client.model.V1EventHistogram;
 import org.openapitools.client.model.V1EventImage;
 import org.openapitools.client.model.V1EventModel;
+import org.openapitools.client.model.V1EventSpan;
 import org.openapitools.client.model.V1EventVideo;
 
 import com.google.gson.Gson;
@@ -118,6 +119,10 @@ public class V1Event {
   public static final String SERIALIZED_NAME_CONFUSION = "confusion";
   @SerializedName(SERIALIZED_NAME_CONFUSION)
   private V1EventConfusionMatrix confusion;
+
+  public static final String SERIALIZED_NAME_SPAN = "span";
+  @SerializedName(SERIALIZED_NAME_SPAN)
+  private V1EventSpan span;
 
   public V1Event() {
   }
@@ -452,6 +457,28 @@ public class V1Event {
   }
 
 
+  public V1Event span(V1EventSpan span) {
+
+    this.span = span;
+    return this;
+  }
+
+   /**
+   * Get span
+   * @return span
+  **/
+  @javax.annotation.Nullable
+
+  public V1EventSpan getSpan() {
+    return span;
+  }
+
+
+  public void setSpan(V1EventSpan span) {
+    this.span = span;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -476,12 +503,13 @@ public class V1Event {
         Objects.equals(this.artifact, v1Event.artifact) &&
         Objects.equals(this.dataframe, v1Event.dataframe) &&
         Objects.equals(this.curve, v1Event.curve) &&
-        Objects.equals(this.confusion, v1Event.confusion);
+        Objects.equals(this.confusion, v1Event.confusion) &&
+        Objects.equals(this.span, v1Event.span);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timestamp, step, metric, image, histogram, audio, video, html, text, chart, model, artifact, dataframe, curve, confusion);
+    return Objects.hash(timestamp, step, metric, image, histogram, audio, video, html, text, chart, model, artifact, dataframe, curve, confusion, span);
   }
 
   @Override
@@ -503,6 +531,7 @@ public class V1Event {
     sb.append("    dataframe: ").append(toIndentedString(dataframe)).append("\n");
     sb.append("    curve: ").append(toIndentedString(curve)).append("\n");
     sb.append("    confusion: ").append(toIndentedString(confusion)).append("\n");
+    sb.append("    span: ").append(toIndentedString(span)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -540,6 +569,7 @@ public class V1Event {
     openapiFields.add("dataframe");
     openapiFields.add("curve");
     openapiFields.add("confusion");
+    openapiFields.add("span");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -610,6 +640,10 @@ public class V1Event {
       // validate the optional field `confusion`
       if (jsonObj.get("confusion") != null && !jsonObj.get("confusion").isJsonNull()) {
         V1EventConfusionMatrix.validateJsonObject(jsonObj.getAsJsonObject("confusion"));
+      }
+      // validate the optional field `span`
+      if (jsonObj.get("span") != null && !jsonObj.get("span").isJsonNull()) {
+        V1EventSpan.validateJsonObject(jsonObj.getAsJsonObject("span"));
       }
   }
 

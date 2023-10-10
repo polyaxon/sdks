@@ -22405,6 +22405,102 @@
         }
       }
     },
+    "/api/v1/{owner}/{project}/runs/{uuid}/lineage/edges" : {
+      "post" : {
+        "tags" : [ "RunsV1" ],
+        "summary" : "Set run edges graph lineage",
+        "operationId" : "SetRunEdgesLineage",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Project",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Run uuid",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Run edges graph",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1RunEdgesGraph"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : { }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
     "/api/v1/{owner}/{project}/runs/{uuid}/statuses" : {
       "post" : {
         "tags" : [ "RunsV1" ],
@@ -27248,6 +27344,9 @@
           },
           "confusion" : {
             "$ref" : "#/components/schemas/v1EventConfusionMatrix"
+          },
+          "span" : {
+            "$ref" : "#/components/schemas/v1EventSpan"
           }
         }
       },
@@ -27462,6 +27561,78 @@
             "properties" : { }
           }
         }
+      },
+      "v1EventSpan" : {
+        "title" : "Trace/Span spec definition",
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "title" : "UUID",
+            "type" : "string"
+          },
+          "name" : {
+            "title" : "Name",
+            "type" : "string"
+          },
+          "tags" : {
+            "title" : "Tags",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "started_at" : {
+            "title" : "Start time",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "finished_at" : {
+            "title" : "End time",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/v1Statuses"
+          },
+          "status_conditions" : {
+            "title" : "Status conditions",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1StatusCondition"
+            }
+          },
+          "metadata" : {
+            "title" : "Metadata",
+            "type" : "object",
+            "properties" : { }
+          },
+          "inputs" : {
+            "title" : "Inputs",
+            "type" : "object",
+            "properties" : { }
+          },
+          "outputs" : {
+            "title" : "Outputs",
+            "type" : "object",
+            "properties" : { }
+          },
+          "children" : {
+            "title" : "Child events",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1EventSpan"
+            }
+          },
+          "kind" : {
+            "$ref" : "#/components/schemas/v1EventSpanKind"
+          }
+        }
+      },
+      "v1EventSpanKind" : {
+        "title" : "Curve kind",
+        "type" : "string",
+        "enum" : [ "LLM", "CHAIN", "AGENT", "TOOL" ],
+        "default" : "LLM"
       },
       "v1EventTrigger" : {
         "title" : "Event definition",
@@ -30600,13 +30771,13 @@
           },
           "wait_time" : {
             "title" : "Optional wait time of the entity",
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "number",
+            "format" : "float"
           },
           "duration" : {
             "title" : "Optional duration of the entity",
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "number",
+            "format" : "float"
           },
           "managed_by" : {
             "$ref" : "#/components/schemas/v1ManagedBy"
@@ -30810,8 +30981,39 @@
       },
       "v1RunEdgeKind" : {
         "type" : "string",
-        "enum" : [ "action", "event", "hook", "dag", "join", "run", "tb", "build" ],
+        "enum" : [ "action", "event", "hook", "dag", "join", "run", "tb", "build", "manual" ],
         "default" : "action"
+      },
+      "v1RunEdgeLineage" : {
+        "title" : "single run edge",
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "title" : "Run uuid to link",
+            "type" : "string"
+          },
+          "is_upstream" : {
+            "title" : "Optional edge run direction",
+            "type" : "boolean"
+          },
+          "values" : {
+            "title" : "Optional edge values",
+            "type" : "object",
+            "properties" : { }
+          }
+        }
+      },
+      "v1RunEdgesGraph" : {
+        "type" : "object",
+        "properties" : {
+          "edges" : {
+            "title" : "Run edges",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1RunEdgeLineage"
+            }
+          }
+        }
       },
       "v1RunKind" : {
         "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",

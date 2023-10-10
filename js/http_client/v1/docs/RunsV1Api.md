@@ -56,6 +56,7 @@ Method | HTTP request | Description
 [**restoreRun**](RunsV1Api.md#restoreRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
 [**restoreRuns**](RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 [**resumeRun**](RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
+[**setRunEdgesLineage**](RunsV1Api.md#setRunEdgesLineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
 [**stopRun**](RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 [**stopRuns**](RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 [**syncRun**](RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
@@ -3008,6 +3009,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1Run**](V1Run.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## setRunEdgesLineage
+
+> setRunEdgesLineage(owner, project, uuid, body)
+
+Set run edges graph lineage
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.RunsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let project = "project_example"; // String | Project
+let uuid = "uuid_example"; // String | Run uuid
+let body = new PolyaxonSdk.V1RunEdgesGraph(); // V1RunEdgesGraph | Run edges graph
+apiInstance.setRunEdgesLineage(owner, project, uuid, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **project** | **String**| Project | 
+ **uuid** | **String**| Run uuid | 
+ **body** | [**V1RunEdgesGraph**](V1RunEdgesGraph.md)| Run edges graph | 
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
