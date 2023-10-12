@@ -30,17 +30,23 @@ func (m V1EventSpanKind) Pointer() *V1EventSpanKind {
 
 const (
 
-	// V1EventSpanKindLLM captures enum value "LLM"
-	V1EventSpanKindLLM V1EventSpanKind = "LLM"
+	// V1EventSpanKindLlm captures enum value "llm"
+	V1EventSpanKindLlm V1EventSpanKind = "llm"
 
-	// V1EventSpanKindCHAIN captures enum value "CHAIN"
-	V1EventSpanKindCHAIN V1EventSpanKind = "CHAIN"
+	// V1EventSpanKindChain captures enum value "chain"
+	V1EventSpanKindChain V1EventSpanKind = "chain"
 
-	// V1EventSpanKindAGENT captures enum value "AGENT"
-	V1EventSpanKindAGENT V1EventSpanKind = "AGENT"
+	// V1EventSpanKindAgent captures enum value "agent"
+	V1EventSpanKindAgent V1EventSpanKind = "agent"
 
-	// V1EventSpanKindTOOL captures enum value "TOOL"
-	V1EventSpanKindTOOL V1EventSpanKind = "TOOL"
+	// V1EventSpanKindTool captures enum value "tool"
+	V1EventSpanKindTool V1EventSpanKind = "tool"
+
+	// V1EventSpanKindEmbedding captures enum value "embedding"
+	V1EventSpanKindEmbedding V1EventSpanKind = "embedding"
+
+	// V1EventSpanKindRetriever captures enum value "retriever"
+	V1EventSpanKindRetriever V1EventSpanKind = "retriever"
 )
 
 // for schema
@@ -48,7 +54,7 @@ var v1EventSpanKindEnum []interface{}
 
 func init() {
 	var res []V1EventSpanKind
-	if err := json.Unmarshal([]byte(`["LLM","CHAIN","AGENT","TOOL"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["llm","chain","agent","tool","embedding","retriever"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

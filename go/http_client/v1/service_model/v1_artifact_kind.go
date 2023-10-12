@@ -46,6 +46,7 @@ import (
 //   - iteration: Iteration lineage
 //   - markdown: Mardown event
 //   - system: System event
+//   - span: Trace/Span event
 //   - artifact: Generic artifact
 //
 // swagger:model v1ArtifactKind
@@ -152,6 +153,9 @@ const (
 	// V1ArtifactKindSystem captures enum value "system"
 	V1ArtifactKindSystem V1ArtifactKind = "system"
 
+	// V1ArtifactKindSpan captures enum value "span"
+	V1ArtifactKindSpan V1ArtifactKind = "span"
+
 	// V1ArtifactKindArtifact captures enum value "artifact"
 	V1ArtifactKindArtifact V1ArtifactKind = "artifact"
 )
@@ -161,7 +165,7 @@ var v1ArtifactKindEnum []interface{}
 
 func init() {
 	var res []V1ArtifactKind
-	if err := json.Unmarshal([]byte(`["model","audio","video","histogram","image","tensor","dataframe","chart","csv","tsv","psv","ssv","metric","env","html","text","file","dir","dockerfile","docker_image","data","coderef","table","tensorboard","curve","confusion","analysis","iteration","markdown","system","artifact"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["model","audio","video","histogram","image","tensor","dataframe","chart","csv","tsv","psv","ssv","metric","env","html","text","file","dir","dockerfile","docker_image","data","coderef","table","tensorboard","curve","confusion","analysis","iteration","markdown","system","span","artifact"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

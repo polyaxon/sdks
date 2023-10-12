@@ -30,8 +30,10 @@ class V1EventSpanKind(str, Enum):
     """
     allowed enum values
     """
-    LLM = 'LLM'
-    CHAIN = 'CHAIN'
-    AGENT = 'AGENT'
-    TOOL = 'TOOL'
+    LLM = 'llm'
+    CHAIN = 'chain'
+    AGENT = 'agent'
+    TOOL = 'tool'
+    EMBEDDING = 'embedding'
+    RETRIEVER = 'retriever'
 

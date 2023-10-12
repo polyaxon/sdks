@@ -5,13 +5,17 @@
 ## Enum
 
 
-* `LLM` (value: `"LLM"`)
+* `LLM` (value: `"llm"`)
 
-* `CHAIN` (value: `"CHAIN"`)
+* `CHAIN` (value: `"chain"`)
 
-* `AGENT` (value: `"AGENT"`)
+* `AGENT` (value: `"agent"`)
 
-* `TOOL` (value: `"TOOL"`)
+* `TOOL` (value: `"tool"`)
+
+* `EMBEDDING` (value: `"embedding"`)
+
+* `RETRIEVER` (value: `"retriever"`)
 
 
 

@@ -63,6 +63,8 @@
 
 * `system` (value: `"system"`)
 
+* `span` (value: `"span"`)
+
 * `artifact` (value: `"artifact"`)
 
 

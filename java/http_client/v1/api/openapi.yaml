@@ -16977,6 +16977,7 @@ paths:
           - iteration
           - markdown
           - system
+          - span
           - artifact
           type: string
         style: simple
@@ -17606,6 +17607,7 @@ paths:
           - iteration
           - markdown
           - system
+          - span
           - artifact
           type: string
         style: simple
@@ -19020,6 +19022,7 @@ components:
          - iteration: Iteration lineage
          - markdown: Mardown event
          - system: System event
+         - span: Trace/Span event
          - artifact: Generic artifact
       enum:
       - model
@@ -19052,6 +19055,7 @@ components:
       - iteration
       - markdown
       - system
+      - span
       - artifact
       title: Artifact kind
       type: string
@@ -23933,12 +23937,14 @@ components:
       title: Trace/Span spec definition
       type: object
     v1EventSpanKind:
-      default: LLM
+      default: llm
       enum:
-      - LLM
-      - CHAIN
-      - AGENT
-      - TOOL
+      - llm
+      - chain
+      - agent
+      - tool
+      - embedding
+      - retriever
       title: Curve kind
       type: string
     v1EventTrigger:

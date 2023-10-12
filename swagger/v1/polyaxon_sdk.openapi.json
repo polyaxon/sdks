@@ -23718,7 +23718,7 @@
           "explode" : false,
           "schema" : {
             "type" : "string",
-            "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "artifact" ]
+            "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ]
           }
         }, {
           "name" : "names",
@@ -24496,7 +24496,7 @@
           "explode" : false,
           "schema" : {
             "type" : "string",
-            "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "artifact" ]
+            "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ]
           }
         }, {
           "name" : "names",
@@ -26016,8 +26016,8 @@
       "v1ArtifactKind" : {
         "title" : "Artifact kind",
         "type" : "string",
-        "description" : "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - artifact: Generic artifact",
-        "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "artifact" ],
+        "description" : "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - span: Trace/Span event\n - artifact: Generic artifact",
+        "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ],
         "default" : "model"
       },
       "v1ArtifactTree" : {
@@ -27631,8 +27631,8 @@
       "v1EventSpanKind" : {
         "title" : "Curve kind",
         "type" : "string",
-        "enum" : [ "LLM", "CHAIN", "AGENT", "TOOL" ],
-        "default" : "LLM"
+        "enum" : [ "llm", "chain", "agent", "tool", "embedding", "retriever" ],
+        "default" : "llm"
       },
       "v1EventTrigger" : {
         "title" : "Event definition",

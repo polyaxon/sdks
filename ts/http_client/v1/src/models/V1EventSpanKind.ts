@@ -18,10 +18,12 @@
  * @export
  */
 export const V1EventSpanKind = {
-    Llm: 'LLM',
-    Chain: 'CHAIN',
-    Agent: 'AGENT',
-    Tool: 'TOOL'
+    Llm: 'llm',
+    Chain: 'chain',
+    Agent: 'agent',
+    Tool: 'tool',
+    Embedding: 'embedding',
+    Retriever: 'retriever'
 } as const;
 export type V1EventSpanKind = typeof V1EventSpanKind[keyof typeof V1EventSpanKind];
 

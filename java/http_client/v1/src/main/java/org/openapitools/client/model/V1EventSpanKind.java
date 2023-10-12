@@ -29,13 +29,17 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(V1EventSpanKind.Adapter.class)
 public enum V1EventSpanKind {
 
-  LLM("LLM"),
+  LLM("llm"),
 
-  CHAIN("CHAIN"),
+  CHAIN("chain"),
 
-  AGENT("AGENT"),
+  AGENT("agent"),
 
-  TOOL("TOOL");
+  TOOL("tool"),
+
+  EMBEDDING("embedding"),
+
+  RETRIEVER("retriever");
 
   private String value;
 

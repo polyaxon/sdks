@@ -20,31 +20,45 @@ import ApiClient from '../ApiClient';
 export default class V1EventSpanKind {
 
         /**
-         * value: "LLM"
+         * value: "llm"
          * @const
          */
-        "LLM" = "LLM";
+        "llm" = "llm";
 
 
         /**
-         * value: "CHAIN"
+         * value: "chain"
          * @const
          */
-        "CHAIN" = "CHAIN";
+        "chain" = "chain";
 
 
         /**
-         * value: "AGENT"
+         * value: "agent"
          * @const
          */
-        "AGENT" = "AGENT";
+        "agent" = "agent";
 
 
         /**
-         * value: "TOOL"
+         * value: "tool"
          * @const
          */
-        "TOOL" = "TOOL";
+        "tool" = "tool";
+
+
+        /**
+         * value: "embedding"
+         * @const
+         */
+        "embedding" = "embedding";
+
+
+        /**
+         * value: "retriever"
+         * @const
+         */
+        "retriever" = "retriever";
 
 
 

@@ -44,6 +44,7 @@
  *  - iteration: Iteration lineage
  *  - markdown: Mardown event
  *  - system: System event
+ *  - span: Trace/Span event
  *  - artifact: Generic artifact
  * @export
  */
@@ -78,6 +79,7 @@ export const V1ArtifactKind = {
     Iteration: 'iteration',
     Markdown: 'markdown',
     System: 'system',
+    Span: 'span',
     Artifact: 'artifact'
 } as const;
 export type V1ArtifactKind = typeof V1ArtifactKind[keyof typeof V1ArtifactKind];

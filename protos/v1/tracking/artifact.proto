@@ -100,8 +100,11 @@ enum ArtifactKind {
     // System event
     system = 29;
 
+    // Trace/Span event
+    span = 30;
+
     // Generic artifact
-    artifact = 30;
+    artifact = 31;
 }
 
 // Run Artifact spec definition

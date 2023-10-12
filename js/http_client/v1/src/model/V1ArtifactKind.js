@@ -230,6 +230,13 @@ export default class V1ArtifactKind {
 
 
         /**
+         * value: "span"
+         * @const
+         */
+        "span" = "span";
+
+
+        /**
          * value: "artifact"
          * @const
          */

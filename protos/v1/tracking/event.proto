@@ -176,10 +176,12 @@ message EventSpan {
 
   // Curve kind
   enum Kind {
-    LLM = 0;
-    CHAIN = 1;
-    AGENT = 2;
-    TOOL = 3;
+    llm = 0;
+    chain = 1;
+    agent = 2;
+    tool = 3;
+    embedding = 4;
+    retriever = 5;
   }
 
   // UUID

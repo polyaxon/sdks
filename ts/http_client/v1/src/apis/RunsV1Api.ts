@@ -3832,6 +3832,7 @@ export const GetMultiRunEventsKindEnum = {
     Iteration: 'iteration',
     Markdown: 'markdown',
     System: 'system',
+    Span: 'span',
     Artifact: 'artifact'
 } as const;
 export type GetMultiRunEventsKindEnum = typeof GetMultiRunEventsKindEnum[keyof typeof GetMultiRunEventsKindEnum];
@@ -3895,6 +3896,7 @@ export const GetRunEventsKindEnum = {
     Iteration: 'iteration',
     Markdown: 'markdown',
     System: 'system',
+    Span: 'span',
     Artifact: 'artifact'
 } as const;
 export type GetRunEventsKindEnum = typeof GetRunEventsKindEnum[keyof typeof GetRunEventsKindEnum];
