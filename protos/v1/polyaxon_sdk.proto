@@ -189,6 +189,21 @@ service RunsV1 {
     };
   }
 
+  // Skip run
+  rpc SkipRun(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/{owner}/{entity}/runs/{uuid}/skip"
+    };
+  }
+
+  // Skip runs
+  rpc SkipRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/{owner}/{project}/runs/skip"
+      body: "uuids"
+    };
+  }
+
   // Approve run
   rpc ApproveRun(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
     option (google.api.http) = {
@@ -1703,6 +1718,14 @@ service OrganizationsV1 {
   rpc StopOrganizationRuns(OwnerResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       post: "/api/v1/orgs/{owner}/runs/stop"
+      body: "uuids"
+    };
+  }
+
+  // Skip cross-project runs selection
+  rpc SkipOrganizationRuns(OwnerResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/runs/Skip"
       body: "uuids"
     };
   }

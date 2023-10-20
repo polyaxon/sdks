@@ -897,6 +897,34 @@ public class RunsV1ApiTest {
     }
 
     /**
+     * Skip run
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void skipRunTest() throws ApiException {
+        String owner = null;
+        String entity = null;
+        String uuid = null;
+        api.skipRun(owner, entity, uuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Skip runs
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void skipRunsTest() throws ApiException {
+        String owner = null;
+        String project = null;
+        V1Uuids body = null;
+        api.skipRuns(owner, project, body);
+        // TODO: test validations
+    }
+
+    /**
      * Stop run
      *
      * @throws ApiException if the Api call fails

@@ -57,6 +57,8 @@ Method | HTTP request | Description
 [**restoreRuns**](RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 [**resumeRun**](RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
 [**setRunEdgesLineage**](RunsV1Api.md#setRunEdgesLineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
+[**skipRun**](RunsV1Api.md#skipRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/skip | Skip run
+[**skipRuns**](RunsV1Api.md#skipRuns) | **POST** /api/v1/{owner}/{project}/runs/skip | Skip runs
 [**stopRun**](RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 [**stopRuns**](RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 [**syncRun**](RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
@@ -3060,6 +3062,112 @@ Name | Type | Description  | Notes
  **project** | **String**| Project | 
  **uuid** | **String**| Run uuid | 
  **body** | [**V1RunEdgesGraph**](V1RunEdgesGraph.md)| Run edges graph | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## skipRun
+
+> skipRun(owner, entity, uuid)
+
+Skip run
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.RunsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
+let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
+apiInstance.skipRun(owner, entity, uuid, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **entity** | **String**| Entity: project name, hub name, registry name, ... | 
+ **uuid** | **String**| Uuid identifier of the sub-entity | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## skipRuns
+
+> skipRuns(owner, project, body)
+
+Skip runs
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.RunsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let project = "project_example"; // String | Project under namesapce
+let body = new PolyaxonSdk.V1Uuids(); // V1Uuids | Uuids of the entities
+apiInstance.skipRuns(owner, project, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **project** | **String**| Project under namesapce | 
+ **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
 

@@ -4988,6 +4988,151 @@ public class OrganizationsV1Api {
         return localVarCall;
     }
     /**
+     * Build call for skipOrganizationRuns
+     * @param owner Owner of the namespace (required)
+     * @param body Uuids of the entities (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call skipOrganizationRunsCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/orgs/{owner}/runs/Skip"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call skipOrganizationRunsValidateBeforeCall(String owner, V1Uuids body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling skipOrganizationRuns(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling skipOrganizationRuns(Async)");
+        }
+
+        return skipOrganizationRunsCall(owner, body, _callback);
+
+    }
+
+    /**
+     * Skip cross-project runs selection
+     *
+     * @param owner Owner of the namespace (required)
+     * @param body Uuids of the entities (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void skipOrganizationRuns(String owner, V1Uuids body) throws ApiException {
+        skipOrganizationRunsWithHttpInfo(owner, body);
+    }
+
+    /**
+     * Skip cross-project runs selection
+     *
+     * @param owner Owner of the namespace (required)
+     * @param body Uuids of the entities (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> skipOrganizationRunsWithHttpInfo(String owner, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = skipOrganizationRunsValidateBeforeCall(owner, body, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Skip cross-project runs selection (asynchronously)
+     *
+     * @param owner Owner of the namespace (required)
+     * @param body Uuids of the entities (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call skipOrganizationRunsAsync(String owner, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = skipOrganizationRunsValidateBeforeCall(owner, body, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for stopOrganizationRuns
      * @param owner Owner of the namespace (required)
      * @param body Uuids of the entities (required)

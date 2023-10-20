@@ -519,6 +519,18 @@ export interface SetRunEdgesLineageRequest {
     body: V1RunEdgesGraph;
 }
 
+export interface SkipRunRequest {
+    owner: string;
+    entity: string;
+    uuid: string;
+}
+
+export interface SkipRunsRequest {
+    owner: string;
+    project: string;
+    body: V1Uuids;
+}
+
 export interface StopRunRequest {
     owner: string;
     entity: string;
@@ -3283,6 +3295,91 @@ export class RunsV1Api extends runtime.BaseAPI {
      */
     async setRunEdgesLineage(requestParameters: SetRunEdgesLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.setRunEdgesLineageRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Skip run
+     */
+    async skipRunRaw(requestParameters: SkipRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling skipRun.');
+        }
+
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling skipRun.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling skipRun.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/{owner}/{entity}/runs/{uuid}/skip`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Skip run
+     */
+    async skipRun(requestParameters: SkipRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.skipRunRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Skip runs
+     */
+    async skipRunsRaw(requestParameters: SkipRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling skipRuns.');
+        }
+
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling skipRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling skipRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/{owner}/{project}/runs/skip`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Skip runs
+     */
+    async skipRuns(requestParameters: SkipRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.skipRunsRaw(requestParameters, initOverrides);
     }
 
     /**

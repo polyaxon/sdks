@@ -88,6 +88,8 @@ type ClientService interface {
 
 	RestoreOrganizationRuns(params *RestoreOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreOrganizationRunsOK, *RestoreOrganizationRunsNoContent, error)
 
+	SkipOrganizationRuns(params *SkipOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipOrganizationRunsOK, *SkipOrganizationRunsNoContent, error)
+
 	StopOrganizationRuns(params *StopOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopOrganizationRunsOK, *StopOrganizationRunsNoContent, error)
 
 	TagOrganizationRuns(params *TagOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TagOrganizationRunsOK, *TagOrganizationRunsNoContent, error)
@@ -1302,6 +1304,46 @@ func (a *Client) RestoreOrganizationRuns(params *RestoreOrganizationRunsParams, 
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*RestoreOrganizationRunsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+SkipOrganizationRuns skips cross project runs selection
+*/
+func (a *Client) SkipOrganizationRuns(params *SkipOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipOrganizationRunsOK, *SkipOrganizationRunsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSkipOrganizationRunsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SkipOrganizationRuns",
+		Method:             "POST",
+		PathPattern:        "/api/v1/orgs/{owner}/runs/Skip",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &SkipOrganizationRunsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *SkipOrganizationRunsOK:
+		return value, nil, nil
+	case *SkipOrganizationRunsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*SkipOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

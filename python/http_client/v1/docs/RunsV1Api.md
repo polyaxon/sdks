@@ -56,6 +56,8 @@ Method | HTTP request | Description
 [**restore_runs**](RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 [**resume_run**](RunsV1Api.md#resume_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
 [**set_run_edges_lineage**](RunsV1Api.md#set_run_edges_lineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
+[**skip_run**](RunsV1Api.md#skip_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/skip | Skip run
+[**skip_runs**](RunsV1Api.md#skip_runs) | **POST** /api/v1/{owner}/{project}/runs/skip | Skip runs
 [**stop_run**](RunsV1Api.md#stop_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 [**stop_runs**](RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 [**sync_run**](RunsV1Api.md#sync_run) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
@@ -4390,6 +4392,164 @@ Name | Type | Description  | Notes
  **project** | **str**| Project | 
  **uuid** | **str**| Run uuid | 
  **body** | [**V1RunEdgesGraph**](V1RunEdgesGraph.md)| Run edges graph | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **skip_run**
+> skip_run(owner, entity, uuid)
+
+Skip run
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.RunsV1Api(api_client)
+    owner = 'owner_example' # str | Owner of the namespace
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+
+    try:
+        # Skip run
+        api_instance.skip_run(owner, entity, uuid)
+    except Exception as e:
+        print("Exception when calling RunsV1Api->skip_run: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**| Owner of the namespace | 
+ **entity** | **str**| Entity: project name, hub name, registry name, ... | 
+ **uuid** | **str**| Uuid identifier of the sub-entity | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **skip_runs**
+> skip_runs(owner, project, body)
+
+Skip runs
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.RunsV1Api(api_client)
+    owner = 'owner_example' # str | Owner of the namespace
+    project = 'project_example' # str | Project under namesapce
+    body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
+
+    try:
+        # Skip runs
+        api_instance.skip_runs(owner, project, body)
+    except Exception as e:
+        print("Exception when calling RunsV1Api->skip_runs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**| Owner of the namespace | 
+ **project** | **str**| Project under namesapce | 
+ **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
 

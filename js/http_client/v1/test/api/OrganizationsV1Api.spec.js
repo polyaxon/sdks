@@ -348,6 +348,16 @@
         done();
       });
     });
+    describe('skipOrganizationRuns', function() {
+      it('should call skipOrganizationRuns successfully', function(done) {
+        //uncomment below and update the code to test skipOrganizationRuns
+        //instance.skipOrganizationRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('stopOrganizationRuns', function() {
       it('should call stopOrganizationRuns successfully', function(done) {
         //uncomment below and update the code to test stopOrganizationRuns

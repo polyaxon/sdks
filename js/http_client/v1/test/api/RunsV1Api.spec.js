@@ -558,6 +558,26 @@
         done();
       });
     });
+    describe('skipRun', function() {
+      it('should call skipRun successfully', function(done) {
+        //uncomment below and update the code to test skipRun
+        //instance.skipRun(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('skipRuns', function() {
+      it('should call skipRuns successfully', function(done) {
+        //uncomment below and update the code to test skipRuns
+        //instance.skipRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('stopRun', function() {
       it('should call stopRun successfully', function(done) {
         //uncomment below and update the code to test stopRun

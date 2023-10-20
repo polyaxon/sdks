@@ -496,6 +496,19 @@ public class OrganizationsV1ApiTest {
     }
 
     /**
+     * Skip cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void skipOrganizationRunsTest() throws ApiException {
+        String owner = null;
+        V1Uuids body = null;
+        api.skipOrganizationRuns(owner, body);
+        // TODO: test validations
+    }
+
+    /**
      * Stop cross-project runs selection
      *
      * @throws ApiException if the Api call fails

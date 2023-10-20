@@ -5224,6 +5224,56 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/runs/Skip": {
+      "post": {
+        "summary": "Skip cross-project runs selection",
+        "operationId": "SkipOrganizationRuns",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Uuids of the entities",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Uuids"
+            }
+          }
+        ],
+        "tags": [
+          "OrganizationsV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/runs/approve": {
       "post": {
         "summary": "Approve cross-project runs selection",
@@ -10968,6 +11018,61 @@
         ]
       }
     },
+    "/api/v1/{owner}/{entity}/runs/{uuid}/skip": {
+      "post": {
+        "summary": "Skip run",
+        "operationId": "SkipRun",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "RunsV1"
+        ]
+      }
+    },
     "/api/v1/{owner}/{entity}/runs/{uuid}/stats": {
       "get": {
         "summary": "Get run stats",
@@ -13813,6 +13918,63 @@
       "post": {
         "summary": "Restore runs",
         "operationId": "RestoreRuns",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project under namesapce",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Uuids of the entities",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Uuids"
+            }
+          }
+        ],
+        "tags": [
+          "RunsV1"
+        ]
+      }
+    },
+    "/api/v1/{owner}/{project}/runs/skip": {
+      "post": {
+        "summary": "Skip runs",
+        "operationId": "SkipRuns",
         "responses": {
           "200": {
             "description": "A successful response."

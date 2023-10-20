@@ -9186,6 +9186,316 @@ public class RunsV1Api {
         return localVarCall;
     }
     /**
+     * Build call for skipRun
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity: project name, hub name, registry name, ... (required)
+     * @param uuid Uuid identifier of the sub-entity (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call skipRunCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/{owner}/{entity}/runs/{uuid}/skip"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call skipRunValidateBeforeCall(String owner, String entity, String uuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling skipRun(Async)");
+        }
+
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling skipRun(Async)");
+        }
+
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling skipRun(Async)");
+        }
+
+        return skipRunCall(owner, entity, uuid, _callback);
+
+    }
+
+    /**
+     * Skip run
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity: project name, hub name, registry name, ... (required)
+     * @param uuid Uuid identifier of the sub-entity (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void skipRun(String owner, String entity, String uuid) throws ApiException {
+        skipRunWithHttpInfo(owner, entity, uuid);
+    }
+
+    /**
+     * Skip run
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity: project name, hub name, registry name, ... (required)
+     * @param uuid Uuid identifier of the sub-entity (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> skipRunWithHttpInfo(String owner, String entity, String uuid) throws ApiException {
+        okhttp3.Call localVarCall = skipRunValidateBeforeCall(owner, entity, uuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Skip run (asynchronously)
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity: project name, hub name, registry name, ... (required)
+     * @param uuid Uuid identifier of the sub-entity (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call skipRunAsync(String owner, String entity, String uuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = skipRunValidateBeforeCall(owner, entity, uuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for skipRuns
+     * @param owner Owner of the namespace (required)
+     * @param project Project under namesapce (required)
+     * @param body Uuids of the entities (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call skipRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/{owner}/{project}/runs/skip"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call skipRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling skipRuns(Async)");
+        }
+
+        // verify the required parameter 'project' is set
+        if (project == null) {
+            throw new ApiException("Missing the required parameter 'project' when calling skipRuns(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling skipRuns(Async)");
+        }
+
+        return skipRunsCall(owner, project, body, _callback);
+
+    }
+
+    /**
+     * Skip runs
+     *
+     * @param owner Owner of the namespace (required)
+     * @param project Project under namesapce (required)
+     * @param body Uuids of the entities (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void skipRuns(String owner, String project, V1Uuids body) throws ApiException {
+        skipRunsWithHttpInfo(owner, project, body);
+    }
+
+    /**
+     * Skip runs
+     *
+     * @param owner Owner of the namespace (required)
+     * @param project Project under namesapce (required)
+     * @param body Uuids of the entities (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> skipRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = skipRunsValidateBeforeCall(owner, project, body, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Skip runs (asynchronously)
+     *
+     * @param owner Owner of the namespace (required)
+     * @param project Project under namesapce (required)
+     * @param body Uuids of the entities (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call skipRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = skipRunsValidateBeforeCall(owner, project, body, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for stopRun
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)

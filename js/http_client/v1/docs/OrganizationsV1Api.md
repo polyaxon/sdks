@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**patchOrganizationSettings**](OrganizationsV1Api.md#patchOrganizationSettings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings
 [**resendOrganizationInvitation**](OrganizationsV1Api.md#resendOrganizationInvitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation
 [**restoreOrganizationRuns**](OrganizationsV1Api.md#restoreOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection
+[**skipOrganizationRuns**](OrganizationsV1Api.md#skipOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/Skip | Skip cross-project runs selection
 [**stopOrganizationRuns**](OrganizationsV1Api.md#stopOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection
 [**tagOrganizationRuns**](OrganizationsV1Api.md#tagOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection
 [**transferOrganizationRuns**](OrganizationsV1Api.md#transferOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project
@@ -1696,6 +1697,57 @@ let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
 let body = new PolyaxonSdk.V1Uuids(); // V1Uuids | Uuids of the entities
 apiInstance.restoreOrganizationRuns(owner, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## skipOrganizationRuns
+
+> skipOrganizationRuns(owner, body)
+
+Skip cross-project runs selection
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let body = new PolyaxonSdk.V1Uuids(); // V1Uuids | Uuids of the entities
+apiInstance.skipOrganizationRuns(owner, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

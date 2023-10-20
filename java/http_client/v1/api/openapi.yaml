@@ -5672,6 +5672,59 @@ paths:
       tags:
       - OrganizationsV1
       x-accepts: application/json
+  /api/v1/orgs/{owner}/runs/Skip:
+    post:
+      operationId: SkipOrganizationRuns
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Uuids'
+        description: Uuids of the entities
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Skip cross-project runs selection
+      tags:
+      - OrganizationsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
   /api/v1/orgs/{owner}/runs/approve:
     post:
       operationId: ApproveOrganizationRuns
@@ -11932,6 +11985,66 @@ paths:
       tags:
       - RunsV1
       x-accepts: application/json
+  /api/v1/{owner}/{entity}/runs/{uuid}/skip:
+    post:
+      operationId: SkipRun
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Entity: project name, hub name, registry name, ..."
+        explode: false
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the sub-entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Skip run
+      tags:
+      - RunsV1
+      x-accepts: application/json
   /api/v1/{owner}/{entity}/runs/{uuid}/stats:
     get:
       operationId: GetRunStats
@@ -15098,6 +15211,67 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response.
       summary: Restore runs
+      tags:
+      - RunsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/{owner}/{project}/runs/skip:
+    post:
+      operationId: SkipRuns
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Project under namesapce
+        explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Uuids'
+        description: Uuids of the entities
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Skip runs
       tags:
       - RunsV1
       x-codegen-request-body-name: body

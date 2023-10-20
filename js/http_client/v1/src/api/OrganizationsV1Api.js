@@ -1562,6 +1562,52 @@ export default class OrganizationsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the skipOrganizationRuns operation.
+     * @callback module:api/OrganizationsV1Api~skipOrganizationRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Skip cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/OrganizationsV1Api~skipOrganizationRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    skipOrganizationRuns(owner, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling skipOrganizationRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling skipOrganizationRuns");
+      }
+
+      let pathParams = {
+        'owner': owner
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/runs/Skip', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the stopOrganizationRuns operation.
      * @callback module:api/OrganizationsV1Api~stopOrganizationRunsCallback
      * @param {String} error Error message, if any.

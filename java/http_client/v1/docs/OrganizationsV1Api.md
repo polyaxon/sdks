@@ -35,6 +35,7 @@ All URIs are relative to *http://localhost*
 | [**patchOrganizationSettings**](OrganizationsV1Api.md#patchOrganizationSettings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings |
 | [**resendOrganizationInvitation**](OrganizationsV1Api.md#resendOrganizationInvitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation |
 | [**restoreOrganizationRuns**](OrganizationsV1Api.md#restoreOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection |
+| [**skipOrganizationRuns**](OrganizationsV1Api.md#skipOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/Skip | Skip cross-project runs selection |
 | [**stopOrganizationRuns**](OrganizationsV1Api.md#stopOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection |
 | [**tagOrganizationRuns**](OrganizationsV1Api.md#tagOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection |
 | [**transferOrganizationRuns**](OrganizationsV1Api.md#transferOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project |
@@ -2307,6 +2308,78 @@ public class Example {
       apiInstance.restoreOrganizationRuns(owner, body);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#restoreOrganizationRuns");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="skipOrganizationRuns"></a>
+# **skipOrganizationRuns**
+> skipOrganizationRuns(owner, body)
+
+Skip cross-project runs selection
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.OrganizationsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    OrganizationsV1Api apiInstance = new OrganizationsV1Api(defaultClient);
+    String owner = "owner_example"; // String | Owner of the namespace
+    V1Uuids body = new V1Uuids(); // V1Uuids | Uuids of the entities
+    try {
+      apiInstance.skipOrganizationRuns(owner, body);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrganizationsV1Api#skipOrganizationRuns");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

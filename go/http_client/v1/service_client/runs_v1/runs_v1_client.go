@@ -132,6 +132,10 @@ type ClientService interface {
 
 	SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SetRunEdgesLineageOK, *SetRunEdgesLineageNoContent, error)
 
+	SkipRun(params *SkipRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipRunOK, *SkipRunNoContent, error)
+
+	SkipRuns(params *SkipRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipRunsOK, *SkipRunsNoContent, error)
+
 	StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunOK, *StopRunNoContent, error)
 
 	StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunsOK, *StopRunsNoContent, error)
@@ -2192,6 +2196,86 @@ func (a *Client) SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo r
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*SetRunEdgesLineageDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+SkipRun skips run
+*/
+func (a *Client) SkipRun(params *SkipRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipRunOK, *SkipRunNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSkipRunParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SkipRun",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{entity}/runs/{uuid}/skip",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &SkipRunReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *SkipRunOK:
+		return value, nil, nil
+	case *SkipRunNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*SkipRunDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+SkipRuns skips runs
+*/
+func (a *Client) SkipRuns(params *SkipRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipRunsOK, *SkipRunsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSkipRunsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "SkipRuns",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{project}/runs/skip",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &SkipRunsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *SkipRunsOK:
+		return value, nil, nil
+	case *SkipRunsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*SkipRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

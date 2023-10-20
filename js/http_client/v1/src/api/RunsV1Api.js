@@ -3158,6 +3158,111 @@ export default class RunsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the skipRun operation.
+     * @callback module:api/RunsV1Api~skipRunCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Skip run
+     * @param {String} owner Owner of the namespace
+     * @param {String} entity Entity: project name, hub name, registry name, ...
+     * @param {String} uuid Uuid identifier of the sub-entity
+     * @param {module:api/RunsV1Api~skipRunCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    skipRun(owner, entity, uuid, callback) {
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling skipRun");
+      }
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling skipRun");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling skipRun");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'entity': entity,
+        'uuid': uuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/{owner}/{entity}/runs/{uuid}/skip', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the skipRuns operation.
+     * @callback module:api/RunsV1Api~skipRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Skip runs
+     * @param {String} owner Owner of the namespace
+     * @param {String} project Project under namesapce
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/RunsV1Api~skipRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    skipRuns(owner, project, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling skipRuns");
+      }
+      // verify the required parameter 'project' is set
+      if (project === undefined || project === null) {
+        throw new Error("Missing the required parameter 'project' when calling skipRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling skipRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'project': project
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/{owner}/{project}/runs/skip', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the stopRun operation.
      * @callback module:api/RunsV1Api~stopRunCallback
      * @param {String} error Error message, if any.

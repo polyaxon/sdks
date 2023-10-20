@@ -190,6 +190,7 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**patchOrganizationSettings**](docs/OrganizationsV1Api.md#patchOrganizationSettings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings
 *OrganizationsV1Api* | [**resendOrganizationInvitation**](docs/OrganizationsV1Api.md#resendOrganizationInvitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation
 *OrganizationsV1Api* | [**restoreOrganizationRuns**](docs/OrganizationsV1Api.md#restoreOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection
+*OrganizationsV1Api* | [**skipOrganizationRuns**](docs/OrganizationsV1Api.md#skipOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/Skip | Skip cross-project runs selection
 *OrganizationsV1Api* | [**stopOrganizationRuns**](docs/OrganizationsV1Api.md#stopOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection
 *OrganizationsV1Api* | [**tagOrganizationRuns**](docs/OrganizationsV1Api.md#tagOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection
 *OrganizationsV1Api* | [**transferOrganizationRuns**](docs/OrganizationsV1Api.md#transferOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project
@@ -311,6 +312,8 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**restoreRuns**](docs/RunsV1Api.md#restoreRuns) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
 *RunsV1Api* | [**resumeRun**](docs/RunsV1Api.md#resumeRun) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
 *RunsV1Api* | [**setRunEdgesLineage**](docs/RunsV1Api.md#setRunEdgesLineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
+*RunsV1Api* | [**skipRun**](docs/RunsV1Api.md#skipRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/skip | Skip run
+*RunsV1Api* | [**skipRuns**](docs/RunsV1Api.md#skipRuns) | **POST** /api/v1/{owner}/{project}/runs/skip | Skip runs
 *RunsV1Api* | [**stopRun**](docs/RunsV1Api.md#stopRun) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
 *RunsV1Api* | [**stopRuns**](docs/RunsV1Api.md#stopRuns) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
 *RunsV1Api* | [**syncRun**](docs/RunsV1Api.md#syncRun) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run

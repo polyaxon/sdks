@@ -261,6 +261,11 @@ export interface RestoreOrganizationRunsRequest {
     body: V1Uuids;
 }
 
+export interface SkipOrganizationRunsRequest {
+    owner: string;
+    body: V1Uuids;
+}
+
 export interface StopOrganizationRunsRequest {
     owner: string;
     body: V1Uuids;
@@ -1723,6 +1728,46 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
      */
     async restoreOrganizationRuns(requestParameters: RestoreOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.restoreOrganizationRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Skip cross-project runs selection
+     */
+    async skipOrganizationRunsRaw(requestParameters: SkipOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling skipOrganizationRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling skipOrganizationRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/runs/Skip`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Skip cross-project runs selection
+     */
+    async skipOrganizationRuns(requestParameters: SkipOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.skipOrganizationRunsRaw(requestParameters, initOverrides);
     }
 
     /**
