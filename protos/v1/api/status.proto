@@ -28,6 +28,9 @@ message StatusCondition {
 
     // last transition time
     google.protobuf.Timestamp last_transition_time = 6;
+
+    // Optional meta_info
+    google.protobuf.Struct meta_info = 7;
 }
 
 // Status specification

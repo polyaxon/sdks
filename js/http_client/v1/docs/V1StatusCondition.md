@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **message** | **String** |  | [optional] 
 **last_update_time** | **Date** |  | [optional] 
 **last_transition_time** | **Date** |  | [optional] 
+**meta_info** | **Object** |  | [optional] 
 
 

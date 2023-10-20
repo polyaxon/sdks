@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package v1;
 
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 import "v1/flow/stage.proto";
@@ -27,6 +28,9 @@ message StageCondition {
 
     // last transition time
     google.protobuf.Timestamp last_transition_time = 6;
+
+    // Optional meta_info
+    google.protobuf.Struct meta_info = 7;
 }
 
 // Stage specification

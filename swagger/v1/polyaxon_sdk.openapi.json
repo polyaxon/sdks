@@ -31874,6 +31874,11 @@
             "title" : "last transition time",
             "type" : "string",
             "format" : "date-time"
+          },
+          "meta_info" : {
+            "title" : "Optional meta_info",
+            "type" : "object",
+            "properties" : { }
           }
         }
       },
@@ -31935,6 +31940,11 @@
             "title" : "last transition time",
             "type" : "string",
             "format" : "date-time"
+          },
+          "meta_info" : {
+            "title" : "Optional meta_info",
+            "type" : "object",
+            "properties" : { }
           }
         }
       },

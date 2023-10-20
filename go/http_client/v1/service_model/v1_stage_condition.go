@@ -30,6 +30,9 @@ type V1StageCondition struct {
 	// Status message
 	Message string `json:"message,omitempty"`
 
+	// Optional meta_info
+	MetaInfo interface{} `json:"meta_info,omitempty"`
+
 	// Status reason
 	Reason string `json:"reason,omitempty"`
 

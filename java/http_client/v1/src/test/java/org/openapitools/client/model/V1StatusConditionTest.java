@@ -87,4 +87,12 @@ public class V1StatusConditionTest {
         // TODO: test lastTransitionTime
     }
 
+    /**
+     * Test the property 'metaInfo'
+     */
+    @Test
+    public void metaInfoTest() {
+        // TODO: test metaInfo
+    }
+
 }

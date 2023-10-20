@@ -23398,6 +23398,10 @@
           "type": "string",
           "format": "date-time",
           "title": "last transition time"
+        },
+        "meta_info": {
+          "type": "object",
+          "title": "Optional meta_info"
         }
       },
       "title": "stage condition specification"
@@ -23465,6 +23469,10 @@
           "type": "string",
           "format": "date-time",
           "title": "last transition time"
+        },
+        "meta_info": {
+          "type": "object",
+          "title": "Optional meta_info"
         }
       },
       "title": "Status condition specification"

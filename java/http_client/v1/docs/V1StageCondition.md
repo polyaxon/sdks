@@ -13,6 +13,7 @@
 |**message** | **String** |  |  [optional] |
 |**lastUpdateTime** | **OffsetDateTime** |  |  [optional] |
 |**lastTransitionTime** | **OffsetDateTime** |  |  [optional] |
+|**metaInfo** | **Object** |  |  [optional] |
 
 
 

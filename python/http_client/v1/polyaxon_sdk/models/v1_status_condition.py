@@ -20,7 +20,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Optional
+from typing import Any, Dict, Optional
 from pydantic import BaseModel, StrictStr
 from polyaxon_sdk.models.v1_statuses import V1Statuses
 
@@ -34,7 +34,8 @@ class V1StatusCondition(BaseModel):
     message: Optional[StrictStr] = None
     last_update_time: Optional[datetime] = None
     last_transition_time: Optional[datetime] = None
-    __properties = ["type", "status", "reason", "message", "last_update_time", "last_transition_time"]
+    meta_info: Optional[Dict[str, Any]] = None
+    __properties = ["type", "status", "reason", "message", "last_update_time", "last_transition_time", "meta_info"]
 
     class Config:
         allow_population_by_field_name = True
@@ -76,7 +77,8 @@ class V1StatusCondition(BaseModel):
             "reason": obj.get("reason"),
             "message": obj.get("message"),
             "last_update_time": obj.get("last_update_time"),
-            "last_transition_time": obj.get("last_transition_time")
+            "last_transition_time": obj.get("last_transition_time"),
+            "meta_info": obj.get("meta_info")
         })
         return _obj
 

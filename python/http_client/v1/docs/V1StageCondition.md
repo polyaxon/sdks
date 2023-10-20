@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **message** | **str** |  | [optional] 
 **last_update_time** | **datetime** |  | [optional] 
 **last_transition_time** | **datetime** |  | [optional] 
+**meta_info** | **object** |  | [optional] 
 
 ## Example
 

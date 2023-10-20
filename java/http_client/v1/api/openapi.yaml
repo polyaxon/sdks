@@ -23720,12 +23720,14 @@ components:
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -24048,12 +24050,14 @@ components:
         status_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
           status: status
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
@@ -26123,12 +26127,14 @@ components:
           stage_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -26161,12 +26167,14 @@ components:
           stage_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -26545,12 +26553,14 @@ components:
             status_conditions:
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
               status: status
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
@@ -26647,12 +26657,14 @@ components:
             status_conditions:
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
               status: status
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
@@ -26750,12 +26762,14 @@ components:
             status_conditions:
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
               status: status
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
@@ -26852,12 +26866,14 @@ components:
             status_conditions:
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
               status: status
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
@@ -26978,12 +26994,14 @@ components:
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -27077,12 +27095,14 @@ components:
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -30835,12 +30855,14 @@ components:
         stage_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
           status: status
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
@@ -32260,12 +32282,14 @@ components:
         status_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
           status: status
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
@@ -32557,12 +32581,14 @@ components:
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -32659,12 +32685,14 @@ components:
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
             status: status
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
             last_transition_time: 2000-01-23T04:56:07.000+00:00
             type: null
             message: message
@@ -45187,12 +45215,14 @@ components:
             status_conditions:
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
               status: status
             - reason: reason
               last_update_time: 2000-01-23T04:56:07.000+00:00
+              meta_info: "{}"
               last_transition_time: 2000-01-23T04:56:07.000+00:00
               type: null
               message: message
@@ -46720,12 +46750,14 @@ components:
         stage_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
           status: status
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
@@ -46748,6 +46780,7 @@ components:
       example:
         reason: reason
         last_update_time: 2000-01-23T04:56:07.000+00:00
+        meta_info: "{}"
         last_transition_time: 2000-01-23T04:56:07.000+00:00
         type: null
         message: message
@@ -46772,6 +46805,10 @@ components:
           format: date-time
           title: last transition time
           type: string
+        meta_info:
+          properties: {}
+          title: Optional meta_info
+          type: object
       title: stage condition specification
       type: object
     v1Stages:
@@ -46789,12 +46826,14 @@ components:
         status_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
           status: status
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
           last_transition_time: 2000-01-23T04:56:07.000+00:00
           type: null
           message: message
@@ -46821,6 +46860,7 @@ components:
       example:
         reason: reason
         last_update_time: 2000-01-23T04:56:07.000+00:00
+        meta_info: "{}"
         last_transition_time: 2000-01-23T04:56:07.000+00:00
         type: null
         message: message
@@ -46845,6 +46885,10 @@ components:
           format: date-time
           title: last transition time
           type: string
+        meta_info:
+          properties: {}
+          title: Optional meta_info
+          type: object
       title: Status condition specification
       type: object
     v1Statuses:

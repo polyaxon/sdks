@@ -10518,6 +10518,10 @@
           "title": "Status message",
           "type": "string"
         },
+        "meta_info": {
+          "title": "Optional meta_info",
+          "type": "object"
+        },
         "reason": {
           "title": "Status reason",
           "type": "string"
@@ -10584,6 +10588,10 @@
         "message": {
           "title": "Status message",
           "type": "string"
+        },
+        "meta_info": {
+          "title": "Optional meta_info",
+          "type": "object"
         },
         "reason": {
           "title": "Status reason",

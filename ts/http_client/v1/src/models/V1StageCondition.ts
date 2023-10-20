@@ -62,6 +62,12 @@ export interface V1StageCondition {
      * @memberof V1StageCondition
      */
     last_transition_time?: Date;
+    /**
+     *
+     * @type {object}
+     * @memberof V1StageCondition
+     */
+    meta_info?: object;
 }
 
 /**
@@ -89,6 +95,7 @@ export function V1StageConditionFromJSONTyped(json: any, ignoreDiscriminator: bo
         'message': !exists(json, 'message') ? undefined : json['message'],
         'last_update_time': !exists(json, 'last_update_time') ? undefined : (new Date(json['last_update_time'])),
         'last_transition_time': !exists(json, 'last_transition_time') ? undefined : (new Date(json['last_transition_time'])),
+        'meta_info': !exists(json, 'meta_info') ? undefined : json['meta_info'],
     };
 }
 
@@ -107,6 +114,7 @@ export function V1StageConditionToJSON(value?: V1StageCondition | null): any {
         'message': value.message,
         'last_update_time': value.last_update_time === undefined ? undefined : (value.last_update_time.toISOString()),
         'last_transition_time': value.last_transition_time === undefined ? undefined : (value.last_transition_time.toISOString()),
+        'meta_info': value.meta_info,
     };
 }
 

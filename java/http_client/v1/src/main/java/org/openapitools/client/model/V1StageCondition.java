@@ -74,6 +74,10 @@ public class V1StageCondition {
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
   private OffsetDateTime lastTransitionTime;
 
+  public static final String SERIALIZED_NAME_META_INFO = "meta_info";
+  @SerializedName(SERIALIZED_NAME_META_INFO)
+  private Object metaInfo;
+
   public V1StageCondition() {
   }
 
@@ -209,6 +213,28 @@ public class V1StageCondition {
   }
 
 
+  public V1StageCondition metaInfo(Object metaInfo) {
+
+    this.metaInfo = metaInfo;
+    return this;
+  }
+
+   /**
+   * Get metaInfo
+   * @return metaInfo
+  **/
+  @javax.annotation.Nullable
+
+  public Object getMetaInfo() {
+    return metaInfo;
+  }
+
+
+  public void setMetaInfo(Object metaInfo) {
+    this.metaInfo = metaInfo;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -224,12 +250,13 @@ public class V1StageCondition {
         Objects.equals(this.reason, v1StageCondition.reason) &&
         Objects.equals(this.message, v1StageCondition.message) &&
         Objects.equals(this.lastUpdateTime, v1StageCondition.lastUpdateTime) &&
-        Objects.equals(this.lastTransitionTime, v1StageCondition.lastTransitionTime);
+        Objects.equals(this.lastTransitionTime, v1StageCondition.lastTransitionTime) &&
+        Objects.equals(this.metaInfo, v1StageCondition.metaInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, status, reason, message, lastUpdateTime, lastTransitionTime);
+    return Objects.hash(type, status, reason, message, lastUpdateTime, lastTransitionTime, metaInfo);
   }
 
   @Override
@@ -242,6 +269,7 @@ public class V1StageCondition {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
     sb.append("    lastTransitionTime: ").append(toIndentedString(lastTransitionTime)).append("\n");
+    sb.append("    metaInfo: ").append(toIndentedString(metaInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -270,6 +298,7 @@ public class V1StageCondition {
     openapiFields.add("message");
     openapiFields.add("last_update_time");
     openapiFields.add("last_transition_time");
+    openapiFields.add("meta_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

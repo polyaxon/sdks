@@ -66,6 +66,9 @@ class V1StatusCondition {
             if (data.hasOwnProperty('last_transition_time')) {
                 obj['last_transition_time'] = ApiClient.convertToType(data['last_transition_time'], 'Date');
             }
+            if (data.hasOwnProperty('meta_info')) {
+                obj['meta_info'] = ApiClient.convertToType(data['meta_info'], Object);
+            }
         }
         return obj;
     }
@@ -126,6 +129,11 @@ V1StatusCondition.prototype['last_update_time'] = undefined;
  * @member {Date} last_transition_time
  */
 V1StatusCondition.prototype['last_transition_time'] = undefined;
+
+/**
+ * @member {Object} meta_info
+ */
+V1StatusCondition.prototype['meta_info'] = undefined;
 
 
 
