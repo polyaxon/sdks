@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **dist** | **str** |  | [optional] 
 **host** | **str** |  | [optional] 
 **hmac** | **str** |  | [optional] 
+**mode** | **str** |  | [optional] 
 **auth** | **List[str]** |  | [optional] 
 
 ## Example

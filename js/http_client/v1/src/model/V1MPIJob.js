@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.0.0-rc54
  * Contact: contact@polyaxon.com
@@ -26,8 +26,8 @@ class V1MPIJob {
      * Constructs a new <code>V1MPIJob</code>.
      * @alias module:model/V1MPIJob
      */
-    constructor() {
-
+    constructor() { 
+        
         V1MPIJob.initialize(this);
     }
 
@@ -36,7 +36,7 @@ class V1MPIJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

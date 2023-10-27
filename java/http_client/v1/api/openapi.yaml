@@ -25136,6 +25136,7 @@ components:
       type: object
     v1Installation:
       example:
+        mode: mode
         auth:
         - auth
         - auth
@@ -25154,6 +25155,8 @@ components:
         host:
           type: string
         hmac:
+          type: string
+        mode:
           type: string
         auth:
           items:

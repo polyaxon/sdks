@@ -70,6 +70,10 @@ public class V1Installation {
   @SerializedName(SERIALIZED_NAME_HMAC)
   private String hmac;
 
+  public static final String SERIALIZED_NAME_MODE = "mode";
+  @SerializedName(SERIALIZED_NAME_MODE)
+  private String mode;
+
   public static final String SERIALIZED_NAME_AUTH = "auth";
   @SerializedName(SERIALIZED_NAME_AUTH)
   private List<String> auth;
@@ -187,6 +191,28 @@ public class V1Installation {
   }
 
 
+  public V1Installation mode(String mode) {
+
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @javax.annotation.Nullable
+
+  public String getMode() {
+    return mode;
+  }
+
+
+  public void setMode(String mode) {
+    this.mode = mode;
+  }
+
+
   public V1Installation auth(List<String> auth) {
 
     this.auth = auth;
@@ -232,12 +258,13 @@ public class V1Installation {
         Objects.equals(this.dist, v1Installation.dist) &&
         Objects.equals(this.host, v1Installation.host) &&
         Objects.equals(this.hmac, v1Installation.hmac) &&
+        Objects.equals(this.mode, v1Installation.mode) &&
         Objects.equals(this.auth, v1Installation.auth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, version, dist, host, hmac, auth);
+    return Objects.hash(key, version, dist, host, hmac, mode, auth);
   }
 
   @Override
@@ -249,6 +276,7 @@ public class V1Installation {
     sb.append("    dist: ").append(toIndentedString(dist)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    hmac: ").append(toIndentedString(hmac)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -277,6 +305,7 @@ public class V1Installation {
     openapiFields.add("dist");
     openapiFields.add("host");
     openapiFields.add("hmac");
+    openapiFields.add("mode");
     openapiFields.add("auth");
 
     // a set of required properties/fields (JSON key names)
@@ -317,6 +346,9 @@ public class V1Installation {
       }
       if ((jsonObj.get("hmac") != null && !jsonObj.get("hmac").isJsonNull()) && !jsonObj.get("hmac").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hmac` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hmac").toString()));
+      }
+      if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("auth") != null && !jsonObj.get("auth").isJsonArray()) {

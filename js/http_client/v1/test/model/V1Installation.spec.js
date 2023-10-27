@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property mode (base name: "mode")', function() {
+      // uncomment below and update the code to test the property mode
+      //var instance = new PolyaxonSdk.V1Installation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property auth (base name: "auth")', function() {
       // uncomment below and update the code to test the property auth
       //var instance = new PolyaxonSdk.V1Installation();

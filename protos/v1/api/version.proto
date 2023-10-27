@@ -20,7 +20,8 @@ message Installation {
     string dist = 3;
     string host = 4;
     string hmac = 5;
-    repeated string auth = 6;
+    string mode = 6;
+    repeated string auth = 7;
 }
 
 message Compatibility {

@@ -12,6 +12,7 @@
 |**dist** | **String** |  |  [optional] |
 |**host** | **String** |  |  [optional] |
 |**hmac** | **String** |  |  [optional] |
+|**mode** | **String** |  |  [optional] |
 |**auth** | **List&lt;String&gt;** |  |  [optional] |
 
 

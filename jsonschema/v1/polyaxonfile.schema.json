@@ -7217,6 +7217,9 @@
         "key": {
           "type": "string"
         },
+        "mode": {
+          "type": "string"
+        },
         "version": {
           "type": "string"
         }

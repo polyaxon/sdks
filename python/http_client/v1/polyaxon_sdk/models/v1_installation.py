@@ -32,8 +32,9 @@ class V1Installation(BaseModel):
     dist: Optional[StrictStr] = None
     host: Optional[StrictStr] = None
     hmac: Optional[StrictStr] = None
+    mode: Optional[StrictStr] = None
     auth: Optional[conlist(StrictStr)] = None
-    __properties = ["key", "version", "dist", "host", "hmac", "auth"]
+    __properties = ["key", "version", "dist", "host", "hmac", "mode", "auth"]
 
     class Config:
         allow_population_by_field_name = True
@@ -75,6 +76,7 @@ class V1Installation(BaseModel):
             "dist": obj.get("dist"),
             "host": obj.get("host"),
             "hmac": obj.get("hmac"),
+            "mode": obj.get("mode"),
             "auth": obj.get("auth")
         })
         return _obj

@@ -51,6 +51,12 @@ export interface V1Installation {
     hmac?: string;
     /**
      *
+     * @type {string}
+     * @memberof V1Installation
+     */
+    mode?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Installation
      */
@@ -81,6 +87,7 @@ export function V1InstallationFromJSONTyped(json: any, ignoreDiscriminator: bool
         'dist': !exists(json, 'dist') ? undefined : json['dist'],
         'host': !exists(json, 'host') ? undefined : json['host'],
         'hmac': !exists(json, 'hmac') ? undefined : json['hmac'],
+        'mode': !exists(json, 'mode') ? undefined : json['mode'],
         'auth': !exists(json, 'auth') ? undefined : json['auth'],
     };
 }
@@ -99,6 +106,7 @@ export function V1InstallationToJSON(value?: V1Installation | null): any {
         'dist': value.dist,
         'host': value.host,
         'hmac': value.hmac,
+        'mode': value.mode,
         'auth': value.auth,
     };
 }

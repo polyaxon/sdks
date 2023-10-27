@@ -20177,6 +20177,9 @@
         "hmac": {
           "type": "string"
         },
+        "mode": {
+          "type": "string"
+        },
         "auth": {
           "type": "array",
           "items": {

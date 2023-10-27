@@ -62,6 +62,9 @@ class V1Installation {
             if (data.hasOwnProperty('hmac')) {
                 obj['hmac'] = ApiClient.convertToType(data['hmac'], 'String');
             }
+            if (data.hasOwnProperty('mode')) {
+                obj['mode'] = ApiClient.convertToType(data['mode'], 'String');
+            }
             if (data.hasOwnProperty('auth')) {
                 obj['auth'] = ApiClient.convertToType(data['auth'], ['String']);
             }
@@ -94,6 +97,10 @@ class V1Installation {
         // ensure the json data is a string
         if (data['hmac'] && !(typeof data['hmac'] === 'string' || data['hmac'] instanceof String)) {
             throw new Error("Expected the field `hmac` to be a primitive type in the JSON string but got " + data['hmac']);
+        }
+        // ensure the json data is a string
+        if (data['mode'] && !(typeof data['mode'] === 'string' || data['mode'] instanceof String)) {
+            throw new Error("Expected the field `mode` to be a primitive type in the JSON string but got " + data['mode']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['auth'])) {
@@ -132,6 +139,11 @@ V1Installation.prototype['host'] = undefined;
  * @member {String} hmac
  */
 V1Installation.prototype['hmac'] = undefined;
+
+/**
+ * @member {String} mode
+ */
+V1Installation.prototype['mode'] = undefined;
 
 /**
  * @member {Array.<String>} auth

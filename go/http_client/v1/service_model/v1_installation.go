@@ -32,6 +32,9 @@ type V1Installation struct {
 	// key
 	Key string `json:"key,omitempty"`
 
+	// mode
+	Mode string `json:"mode,omitempty"`
+
 	// version
 	Version string `json:"version,omitempty"`
 }

@@ -80,6 +80,14 @@ public class V1InstallationTest {
     }
 
     /**
+     * Test the property 'mode'
+     */
+    @Test
+    public void modeTest() {
+        // TODO: test mode
+    }
+
+    /**
      * Test the property 'auth'
      */
     @Test

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **dist** | **String** |  | [optional] 
 **host** | **String** |  | [optional] 
 **hmac** | **String** |  | [optional] 
+**mode** | **String** |  | [optional] 
 **auth** | **[String]** |  | [optional] 
 
 
