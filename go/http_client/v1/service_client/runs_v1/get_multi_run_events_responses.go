@@ -70,7 +70,7 @@ GetMultiRunEventsOK describes a response with status code 200, with default head
 A successful response.
 */
 type GetMultiRunEventsOK struct {
-	Payload *service_model.V1EventsResponse
+	Payload *service_model.V1MultiEventsResponse
 }
 
 // IsSuccess returns true when this get multi run events o k response has a 2xx status code
@@ -111,13 +111,13 @@ func (o *GetMultiRunEventsOK) String() string {
 	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetMultiRunEventsOK) GetPayload() *service_model.V1EventsResponse {
+func (o *GetMultiRunEventsOK) GetPayload() *service_model.V1MultiEventsResponse {
 	return o.Payload
 }
 
 func (o *GetMultiRunEventsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(service_model.V1EventsResponse)
+	o.Payload = new(service_model.V1MultiEventsResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -8301,6 +8301,16 @@
       },
       "type": "object"
     },
+    "v1MultiEventsResponse": {
+      "properties": {
+        "data": {
+          "title": "Events data",
+          "type": "object"
+        }
+      },
+      "title": "Multi Run Events response definition",
+      "type": "object"
+    },
     "v1Notification": {
       "properties": {
         "connections": {

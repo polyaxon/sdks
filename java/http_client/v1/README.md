@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.0.0-rc54
+- API version: 2.0.0
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.0.0-rc54</version>
+  <version>2.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.0.0-rc54"
+     implementation "org.openapitools:openapi-java-client:2.0.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.0.0-rc54.jar`
+* `target/openapi-java-client-2.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -278,6 +278,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**deleteRunArtifacts**](docs/RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 *RunsV1Api* | [**deleteRuns**](docs/RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
 *RunsV1Api* | [**getMultiRunEvents**](docs/RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
+*RunsV1Api* | [**getMultiRunImportance**](docs/RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
 *RunsV1Api* | [**getRun**](docs/RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 *RunsV1Api* | [**getRunArtifact**](docs/RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
 *RunsV1Api* | [**getRunArtifactLineage**](docs/RunsV1Api.md#getRunArtifactLineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage
@@ -289,7 +290,6 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**getRunConnectionsLineage**](docs/RunsV1Api.md#getRunConnectionsLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections | Get run connections lineage
 *RunsV1Api* | [**getRunDownstreamLineage**](docs/RunsV1Api.md#getRunDownstreamLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream | Get run downstream lineage
 *RunsV1Api* | [**getRunEvents**](docs/RunsV1Api.md#getRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind} | Get run events
-*RunsV1Api* | [**getRunImportance**](docs/RunsV1Api.md#getRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance | Get run importance
 *RunsV1Api* | [**getRunLogs**](docs/RunsV1Api.md#getRunLogs) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs | Get run logs
 *RunsV1Api* | [**getRunNamespace**](docs/RunsV1Api.md#getRunNamespace) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/namespace | Get Run namespace
 *RunsV1Api* | [**getRunResources**](docs/RunsV1Api.md#getRunResources) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources | Get run resources events
@@ -526,6 +526,7 @@ Class | Method | HTTP request | Description
  - [V1MatrixKind](docs/V1MatrixKind.md)
  - [V1MedianStoppingPolicy](docs/V1MedianStoppingPolicy.md)
  - [V1MetricEarlyStopping](docs/V1MetricEarlyStopping.md)
+ - [V1MultiEventsResponse](docs/V1MultiEventsResponse.md)
  - [V1Notification](docs/V1Notification.md)
  - [V1Operation](docs/V1Operation.md)
  - [V1OperationBody](docs/V1OperationBody.md)

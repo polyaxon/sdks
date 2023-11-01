@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.0.0-rc54"
+    "version" : "2.0.0"
   },
   "servers" : [ {
     "url" : "/"
@@ -24046,7 +24046,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/v1EventsResponse"
+                  "$ref" : "#/components/schemas/v1MultiEventsResponse"
                 }
               }
             }
@@ -24092,6 +24092,108 @@
             }
           }
         }
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance" : {
+      "post" : {
+        "tags" : [ "RunsV1" ],
+        "summary" : "Get multi run importance",
+        "operationId" : "GetMultiRunImportance",
+        "parameters" : [ {
+          "name" : "namespace",
+          "in" : "path",
+          "description" : "namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Project where the run will be assigned",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Params/Metrics data",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1MultiEventsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
       }
     },
     "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact" : {
@@ -24860,118 +24962,6 @@
             }
           }
         }
-      }
-    },
-    "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance" : {
-      "post" : {
-        "tags" : [ "RunsV1" ],
-        "summary" : "Get run importance",
-        "operationId" : "GetRunImportance",
-        "parameters" : [ {
-          "name" : "namespace",
-          "in" : "path",
-          "description" : "namespace",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "owner",
-          "in" : "path",
-          "description" : "Owner of the namespace",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "project",
-          "in" : "path",
-          "description" : "Project where the run will be assigned",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "uuid",
-          "in" : "path",
-          "description" : "Uuid identifier of the entity",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "requestBody" : {
-          "description" : "Params/Metrics data",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "type" : "object"
-              }
-            }
-          },
-          "required" : true
-        },
-        "responses" : {
-          "200" : {
-            "description" : "A successful response.",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/v1EventsResponse"
-                }
-              }
-            }
-          },
-          "204" : {
-            "description" : "No content.",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "object"
-                }
-              }
-            }
-          },
-          "403" : {
-            "description" : "You don't have permission to access the resource.",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "object"
-                }
-              }
-            }
-          },
-          "404" : {
-            "description" : "Resource does not exist.",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "object"
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "An unexpected error response.",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/runtimeError"
-                }
-              }
-            }
-          }
-        },
-        "x-codegen-request-body-name" : "body"
       }
     },
     "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect" : {
@@ -29798,6 +29788,17 @@
           }
         },
         "description" : "MetricEarlyStoppingSchema specification\nEarly stopping based on metric config."
+      },
+      "v1MultiEventsResponse" : {
+        "title" : "Multi Run Events response definition",
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "title" : "Events data",
+            "type" : "object",
+            "properties" : { }
+          }
+        }
       },
       "v1Notification" : {
         "title" : "Notification message",

@@ -142,6 +142,7 @@ export * from './V1Matrix';
 export * from './V1MatrixKind';
 export * from './V1MedianStoppingPolicy';
 export * from './V1MetricEarlyStopping';
+export * from './V1MultiEventsResponse';
 export * from './V1Notification';
 export * from './V1Operation';
 export * from './V1OperationBody';

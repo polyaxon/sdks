@@ -346,9 +346,6 @@ message RunImportanceCorrelationRequest {
   // Project where the run will be assigned
   string project = 3;
 
-  // Uuid identifier of the entity
-  string uuid = 4;
-
   // Params/Metrics data
-  google.protobuf.Struct data = 5;
+  google.protobuf.Struct data = 4;
 }

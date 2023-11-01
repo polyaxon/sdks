@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.0.0-rc54
+  version: 2.0.0
 servers:
 - url: /
 security:
@@ -17239,7 +17239,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/v1EventsResponse'
+                $ref: '#/components/schemas/v1MultiEventsResponse'
           description: A successful response.
         "204":
           content:
@@ -17268,6 +17268,78 @@ paths:
       summary: Get multi runs events
       tags:
       - RunsV1
+      x-accepts: application/json
+  /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance:
+    post:
+      operationId: GetMultiRunImportance
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Project where the run will be assigned
+        explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Params/Metrics data
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1MultiEventsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get multi run importance
+      tags:
+      - RunsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts: application/json
   /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact:
     delete:
@@ -17890,86 +17962,6 @@ paths:
       summary: Get run events
       tags:
       - RunsV1
-      x-accepts: application/json
-  /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance:
-    post:
-      operationId: GetRunImportance
-      parameters:
-      - description: namespace
-        explode: false
-        in: path
-        name: namespace
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Owner of the namespace
-        explode: false
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Project where the run will be assigned
-        explode: false
-        in: path
-        name: project
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Uuid identifier of the entity
-        explode: false
-        in: path
-        name: uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-        description: Params/Metrics data
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1EventsResponse'
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Get run importance
-      tags:
-      - RunsV1
-      x-codegen-request-body-name: body
-      x-content-type: application/json
       x-accepts: application/json
   /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect:
     get:
@@ -29221,6 +29213,16 @@ components:
             Policy to use, should be one of the stopping policies:
             MedianStoppingPolicy, AverageStoppingPolicy, TruncationStoppingPolicy
           type: object
+      type: object
+    v1MultiEventsResponse:
+      example:
+        data: "{}"
+      properties:
+        data:
+          properties: {}
+          title: Events data
+          type: object
+      title: Multi Run Events response definition
       type: object
     v1Notification:
       example:

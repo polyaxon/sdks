@@ -253,3 +253,9 @@ message EventsResponse {
     // Events data
     repeated google.protobuf.Struct data = 1;
 }
+
+// Multi Run Events response definition
+message MultiEventsResponse {
+  // Events data
+  google.protobuf.Struct data = 1;
+}

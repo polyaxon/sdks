@@ -22,6 +22,7 @@ All URIs are relative to *http://localhost*
 | [**deleteRunArtifacts**](RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts |
 | [**deleteRuns**](RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs |
 | [**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events |
+| [**getMultiRunImportance**](RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance |
 | [**getRun**](RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run |
 | [**getRunArtifact**](RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact |
 | [**getRunArtifactLineage**](RunsV1Api.md#getRunArtifactLineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage |
@@ -33,7 +34,6 @@ All URIs are relative to *http://localhost*
 | [**getRunConnectionsLineage**](RunsV1Api.md#getRunConnectionsLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections | Get run connections lineage |
 | [**getRunDownstreamLineage**](RunsV1Api.md#getRunDownstreamLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream | Get run downstream lineage |
 | [**getRunEvents**](RunsV1Api.md#getRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind} | Get run events |
-| [**getRunImportance**](RunsV1Api.md#getRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance | Get run importance |
 | [**getRunLogs**](RunsV1Api.md#getRunLogs) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs | Get run logs |
 | [**getRunNamespace**](RunsV1Api.md#getRunNamespace) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/namespace | Get Run namespace |
 | [**getRunResources**](RunsV1Api.md#getRunResources) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources | Get run resources events |
@@ -1285,7 +1285,7 @@ null (empty response body)
 
 <a name="getMultiRunEvents"></a>
 # **getMultiRunEvents**
-> V1EventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status)
+> V1MultiEventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status)
 
 Get multi runs events
 
@@ -1323,7 +1323,7 @@ public class Example {
     String connection = "connection_example"; // String | Connection to use.
     String status = "created"; // String | Optional status.
     try {
-      V1EventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
+      V1MultiEventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getMultiRunEvents");
@@ -1354,7 +1354,7 @@ public class Example {
 
 ### Return type
 
-[**V1EventsResponse**](V1EventsResponse.md)
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
 
 ### Authorization
 
@@ -1363,6 +1363,83 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="getMultiRunImportance"></a>
+# **getMultiRunImportance**
+> V1MultiEventsResponse getMultiRunImportance(namespace, owner, project, body)
+
+Get multi run importance
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RunsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    RunsV1Api apiInstance = new RunsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
+    String owner = "owner_example"; // String | Owner of the namespace
+    String project = "project_example"; // String | Project where the run will be assigned
+    Object body = null; // Object | Params/Metrics data
+    try {
+      V1MultiEventsResponse result = apiInstance.getMultiRunImportance(namespace, owner, project, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RunsV1Api#getMultiRunImportance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
+| **owner** | **String**| Owner of the namespace | |
+| **project** | **String**| Project where the run will be assigned | |
+| **body** | **Object**| Params/Metrics data | |
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -2280,85 +2357,6 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
-| **204** | No content. |  -  |
-| **403** | You don&#39;t have permission to access the resource. |  -  |
-| **404** | Resource does not exist. |  -  |
-| **0** | An unexpected error response. |  -  |
-
-<a name="getRunImportance"></a>
-# **getRunImportance**
-> V1EventsResponse getRunImportance(namespace, owner, project, uuid, body)
-
-Get run importance
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.RunsV1Api;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: ApiKey
-    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-    ApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKey.setApiKeyPrefix("Token");
-
-    RunsV1Api apiInstance = new RunsV1Api(defaultClient);
-    String namespace = "namespace_example"; // String | namespace
-    String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project where the run will be assigned
-    String uuid = "uuid_example"; // String | Uuid identifier of the entity
-    Object body = null; // Object | Params/Metrics data
-    try {
-      V1EventsResponse result = apiInstance.getRunImportance(namespace, owner, project, uuid, body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RunsV1Api#getRunImportance");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**| namespace | |
-| **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project where the run will be assigned | |
-| **uuid** | **String**| Uuid identifier of the entity | |
-| **body** | **Object**| Params/Metrics data | |
-
-### Return type
-
-[**V1EventsResponse**](V1EventsResponse.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

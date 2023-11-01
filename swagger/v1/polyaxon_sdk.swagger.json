@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.0.0-rc54",
+    "version": "2.0.0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -15711,7 +15711,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1EventsResponse"
+              "$ref": "#/definitions/v1MultiEventsResponse"
             }
           },
           "204": {
@@ -15868,6 +15868,73 @@
               "done"
             ],
             "default": "created"
+          }
+        ],
+        "tags": [
+          "RunsV1"
+        ]
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance": {
+      "post": {
+        "summary": "Get multi run importance",
+        "operationId": "GetMultiRunImportance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MultiEventsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "description": "Project where the run will be assigned",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Params/Metrics data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
           }
         ],
         "tags": [
@@ -16434,80 +16501,6 @@
               "done"
             ],
             "default": "created"
-          }
-        ],
-        "tags": [
-          "RunsV1"
-        ]
-      }
-    },
-    "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance": {
-      "post": {
-        "summary": "Get run importance",
-        "operationId": "GetRunImportance",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1EventsResponse"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "namespace",
-            "description": "namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "project",
-            "description": "Project where the run will be assigned",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "uuid",
-            "description": "Uuid identifier of the entity",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Params/Metrics data",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object"
-            }
           }
         ],
         "tags": [
@@ -21245,6 +21238,16 @@
         }
       },
       "description": "MetricEarlyStoppingSchema specification\nEarly stopping based on metric config."
+    },
+    "v1MultiEventsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "title": "Events data"
+        }
+      },
+      "title": "Multi Run Events response definition"
     },
     "v1Notification": {
       "type": "object",

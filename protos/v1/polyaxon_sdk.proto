@@ -50,7 +50,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "2.0.0-rc54";
+        version: "2.0.0";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -485,14 +485,6 @@ service RunsV1 {
     };
   }
 
-  // Get run importance
-  rpc GetRunImportance(RunImportanceCorrelationRequest) returns (EventsResponse) {
-    option (google.api.http) = {
-      post: "/streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance"
-      body: "data",
-    };
-  }
-
   // Get run events
   rpc GetRunEvents(RunEventRequest) returns (EventsResponse) {
     option (google.api.http) = {
@@ -500,8 +492,16 @@ service RunsV1 {
     };
   }
 
+  // Get multi run importance
+  rpc GetMultiRunImportance(RunImportanceCorrelationRequest) returns (MultiEventsResponse) {
+    option (google.api.http) = {
+      post: "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance"
+      body: "data",
+    };
+  }
+
   // Get multi runs events
-  rpc GetMultiRunEvents(RunEventsRequest) returns (EventsResponse) {
+  rpc GetMultiRunEvents(RunEventsRequest) returns (MultiEventsResponse) {
     option (google.api.http) = {
       get: "/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}"
     };

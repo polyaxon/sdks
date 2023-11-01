@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**deleteRunArtifacts**](RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 [**deleteRuns**](RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
 [**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
+[**getMultiRunImportance**](RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
 [**getRun**](RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 [**getRunArtifact**](RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
 [**getRunArtifactLineage**](RunsV1Api.md#getRunArtifactLineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage
@@ -34,7 +35,6 @@ Method | HTTP request | Description
 [**getRunConnectionsLineage**](RunsV1Api.md#getRunConnectionsLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections | Get run connections lineage
 [**getRunDownstreamLineage**](RunsV1Api.md#getRunDownstreamLineage) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/lineage/downstream | Get run downstream lineage
 [**getRunEvents**](RunsV1Api.md#getRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind} | Get run events
-[**getRunImportance**](RunsV1Api.md#getRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/importance | Get run importance
 [**getRunLogs**](RunsV1Api.md#getRunLogs) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/logs | Get run logs
 [**getRunNamespace**](RunsV1Api.md#getRunNamespace) | **GET** /api/v1/{owner}/{entity}/runs/{uuid}/namespace | Get Run namespace
 [**getRunResources**](RunsV1Api.md#getRunResources) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources | Get run resources events
@@ -954,7 +954,7 @@ null (empty response body)
 
 ## getMultiRunEvents
 
-> V1EventsResponse getMultiRunEvents(namespace, owner, project, kind, opts)
+> V1MultiEventsResponse getMultiRunEvents(namespace, owner, project, kind, opts)
 
 Get multi runs events
 
@@ -1011,7 +1011,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EventsResponse**](V1EventsResponse.md)
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
 
 ### Authorization
 
@@ -1020,6 +1020,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getMultiRunImportance
+
+> V1MultiEventsResponse getMultiRunImportance(namespace, owner, project, body)
+
+Get multi run importance
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.RunsV1Api();
+let namespace = "namespace_example"; // String | namespace
+let owner = "owner_example"; // String | Owner of the namespace
+let project = "project_example"; // String | Project where the run will be assigned
+let body = {key: null}; // Object | Params/Metrics data
+apiInstance.getMultiRunImportance(namespace, owner, project, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
+ **owner** | **String**| Owner of the namespace | 
+ **project** | **String**| Project where the run will be assigned | 
+ **body** | **Object**| Params/Metrics data | 
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1717,63 +1772,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getRunImportance
-
-> V1EventsResponse getRunImportance(namespace, owner, project, uuid, body)
-
-Get run importance
-
-### Example
-
-```javascript
-import PolyaxonSdk from 'polyaxon-sdk';
-let defaultClient = PolyaxonSdk.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new PolyaxonSdk.RunsV1Api();
-let namespace = "namespace_example"; // String | namespace
-let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project where the run will be assigned
-let uuid = "uuid_example"; // String | Uuid identifier of the entity
-let body = {key: null}; // Object | Params/Metrics data
-apiInstance.getRunImportance(namespace, owner, project, uuid, body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **namespace** | **String**| namespace | 
- **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project where the run will be assigned | 
- **uuid** | **String**| Uuid identifier of the entity | 
- **body** | **Object**| Params/Metrics data | 
-
-### Return type
-
-[**V1EventsResponse**](V1EventsResponse.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
