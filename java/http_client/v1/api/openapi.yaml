@@ -19229,15 +19229,15 @@ components:
       example:
         is_done: true
         files:
-          key: files
+          key: 0
         dirs:
         - dirs
         - dirs
       properties:
         files:
           additionalProperties:
-            format: int64
-            type: string
+            format: int32
+            type: integer
           type: object
         dirs:
           items:

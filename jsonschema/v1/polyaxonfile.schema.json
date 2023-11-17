@@ -4462,8 +4462,8 @@
         },
         "files": {
           "additionalProperties": {
-            "format": "int64",
-            "type": "string"
+            "format": "int32",
+            "type": "integer"
           },
           "type": "object"
         },

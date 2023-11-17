@@ -518,7 +518,7 @@ message OwnerSubEntityStatsRequestByUid {
 
 // Artifact tree response
 message ArtifactTree {
-  map<string, int64> files = 1;
+  map<string, int32> files = 1;
   repeated string dirs = 2;
   bool is_done = 3;
 }

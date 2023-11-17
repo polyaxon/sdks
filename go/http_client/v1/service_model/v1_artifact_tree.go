@@ -21,7 +21,7 @@ type V1ArtifactTree struct {
 	Dirs []string `json:"dirs"`
 
 	// files
-	Files map[string]string `json:"files,omitempty"`
+	Files map[string]int32 `json:"files,omitempty"`
 
 	// is done
 	IsDone bool `json:"is_done,omitempty"`

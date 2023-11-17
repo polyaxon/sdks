@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**files** | **Dict[str, str]** |  | [optional] 
+**files** | **Dict[str, int]** |  | [optional] 
 **dirs** | **List[str]** |  | [optional] 
 **is_done** | **bool** |  | [optional] 
 

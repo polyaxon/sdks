@@ -48,7 +48,7 @@ class V1ArtifactTree {
             obj = obj || new V1ArtifactTree();
 
             if (data.hasOwnProperty('files')) {
-                obj['files'] = ApiClient.convertToType(data['files'], {'String': 'String'});
+                obj['files'] = ApiClient.convertToType(data['files'], {'String': 'Number'});
             }
             if (data.hasOwnProperty('dirs')) {
                 obj['dirs'] = ApiClient.convertToType(data['dirs'], ['String']);
@@ -80,7 +80,7 @@ class V1ArtifactTree {
 
 
 /**
- * @member {Object.<String, String>} files
+ * @member {Object.<String, Number>} files
  */
 V1ArtifactTree.prototype['files'] = undefined;
 

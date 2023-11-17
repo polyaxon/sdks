@@ -21,13 +21,13 @@ import json
 
 
 from typing import Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, conlist
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
 
 class V1ArtifactTree(BaseModel):
     """
     V1ArtifactTree
     """
-    files: Optional[Dict[str, StrictStr]] = None
+    files: Optional[Dict[str, StrictInt]] = None
     dirs: Optional[conlist(StrictStr)] = None
     is_done: Optional[StrictBool] = None
     __properties = ["files", "dirs", "is_done"]

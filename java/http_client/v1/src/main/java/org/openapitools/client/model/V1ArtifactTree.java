@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 public class V1ArtifactTree {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
-  private Map<String, String> files = new HashMap<>();
+  private Map<String, Integer> files = new HashMap<>();
 
   public static final String SERIALIZED_NAME_DIRS = "dirs";
   @SerializedName(SERIALIZED_NAME_DIRS)
@@ -67,13 +67,13 @@ public class V1ArtifactTree {
   public V1ArtifactTree() {
   }
 
-  public V1ArtifactTree files(Map<String, String> files) {
+  public V1ArtifactTree files(Map<String, Integer> files) {
 
     this.files = files;
     return this;
   }
 
-  public V1ArtifactTree putFilesItem(String key, String filesItem) {
+  public V1ArtifactTree putFilesItem(String key, Integer filesItem) {
     if (this.files == null) {
       this.files = new HashMap<>();
     }
@@ -87,12 +87,12 @@ public class V1ArtifactTree {
   **/
   @javax.annotation.Nullable
 
-  public Map<String, String> getFiles() {
+  public Map<String, Integer> getFiles() {
     return files;
   }
 
 
-  public void setFiles(Map<String, String> files) {
+  public void setFiles(Map<String, Integer> files) {
     this.files = files;
   }
 

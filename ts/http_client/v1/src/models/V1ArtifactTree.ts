@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface V1ArtifactTree {
     /**
      *
-     * @type {{ [key: string]: string; }}
+     * @type {{ [key: string]: number; }}
      * @memberof V1ArtifactTree
      */
-    files?: { [key: string]: string; };
+    files?: { [key: string]: number; };
     /**
      *
      * @type {Array<string>}

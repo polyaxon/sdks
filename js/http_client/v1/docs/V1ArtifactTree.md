@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**files** | **{String: String}** |  | [optional] 
+**files** | **{String: Number}** |  | [optional] 
 **dirs** | **[String]** |  | [optional] 
 **is_done** | **Boolean** |  | [optional] 
 
