@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -698,6 +698,13 @@
           {
             "name": "auth",
             "description": "auth.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "orgs",
+            "description": "orgs.",
             "in": "query",
             "required": false,
             "type": "boolean"
@@ -3932,6 +3939,59 @@
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "OrganizationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/license": {
+      "post": {
+        "summary": "Organization license",
+        "operationId": "OrganizationLicense",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Organization"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Organization body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Organization"
+            }
           }
         ],
         "tags": [
@@ -20172,6 +20232,9 @@
         },
         "mode": {
           "type": "string"
+        },
+        "orgs": {
+          "type": "boolean"
         },
         "auth": {
           "type": "array",

@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.0.1"
+    "version" : "2.0.2"
   },
   "servers" : [ {
     "url" : "/"
@@ -1006,6 +1006,16 @@
           "name" : "auth",
           "in" : "query",
           "description" : "auth.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "orgs",
+          "in" : "query",
+          "description" : "orgs.",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -5985,6 +5995,88 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/v1OrganizationMember"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/license" : {
+      "post" : {
+        "tags" : [ "OrganizationsV1" ],
+        "summary" : "Organization license",
+        "operationId" : "OrganizationLicense",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Organization body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Organization"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Organization"
                 }
               }
             }
@@ -28747,6 +28839,9 @@
           },
           "mode" : {
             "type" : "string"
+          },
+          "orgs" : {
+            "type" : "boolean"
           },
           "auth" : {
             "type" : "array",

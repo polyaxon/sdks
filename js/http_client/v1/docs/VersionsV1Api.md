@@ -84,7 +84,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.VersionsV1Api();
 let opts = {
-  'auth': true // Boolean | auth.
+  'auth': true, // Boolean | auth.
+  'orgs': true // Boolean | orgs.
 };
 apiInstance.getInstallation(opts, (error, data, response) => {
   if (error) {
@@ -101,6 +102,7 @@ apiInstance.getInstallation(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auth** | **Boolean**| auth. | [optional] 
+ **orgs** | **Boolean**| orgs. | [optional] 
 
 ### Return type
 

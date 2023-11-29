@@ -74,6 +74,8 @@ type ClientService interface {
 
 	ListOrganizations(params *ListOrganizationsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationsOK, *ListOrganizationsNoContent, error)
 
+	OrganizationLicense(params *OrganizationLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*OrganizationLicenseOK, *OrganizationLicenseNoContent, error)
+
 	OrganizationPlan(params *OrganizationPlanParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*OrganizationPlanOK, *OrganizationPlanNoContent, error)
 
 	PatchOrganization(params *PatchOrganizationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchOrganizationOK, *PatchOrganizationNoContent, error)
@@ -1024,6 +1026,46 @@ func (a *Client) ListOrganizations(params *ListOrganizationsParams, authInfo run
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*ListOrganizationsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+OrganizationLicense organizations license
+*/
+func (a *Client) OrganizationLicense(params *OrganizationLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*OrganizationLicenseOK, *OrganizationLicenseNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewOrganizationLicenseParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "OrganizationLicense",
+		Method:             "POST",
+		PathPattern:        "/api/v1/orgs/{owner}/license",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &OrganizationLicenseReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *OrganizationLicenseOK:
+		return value, nil, nil
+	case *OrganizationLicenseNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*OrganizationLicenseDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

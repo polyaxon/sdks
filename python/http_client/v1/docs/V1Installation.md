@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **host** | **str** |  | [optional] 
 **hmac** | **str** |  | [optional] 
 **mode** | **str** |  | [optional] 
+**orgs** | **bool** |  | [optional] 
 **auth** | **List[str]** |  | [optional] 
 
 ## Example

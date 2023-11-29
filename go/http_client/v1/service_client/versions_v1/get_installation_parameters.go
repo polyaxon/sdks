@@ -68,6 +68,12 @@ type GetInstallationParams struct {
 	*/
 	Auth *bool
 
+	/* Orgs.
+
+	   orgs.
+	*/
+	Orgs *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -132,6 +138,17 @@ func (o *GetInstallationParams) SetAuth(auth *bool) {
 	o.Auth = auth
 }
 
+// WithOrgs adds the orgs to the get installation params
+func (o *GetInstallationParams) WithOrgs(orgs *bool) *GetInstallationParams {
+	o.SetOrgs(orgs)
+	return o
+}
+
+// SetOrgs adds the orgs to the get installation params
+func (o *GetInstallationParams) SetOrgs(orgs *bool) {
+	o.Orgs = orgs
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetInstallationParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -152,6 +169,23 @@ func (o *GetInstallationParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qAuth != "" {
 
 			if err := r.SetQueryParam("auth", qAuth); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Orgs != nil {
+
+		// query param orgs
+		var qrOrgs bool
+
+		if o.Orgs != nil {
+			qrOrgs = *o.Orgs
+		}
+		qOrgs := swag.FormatBool(qrOrgs)
+		if qOrgs != "" {
+
+			if err := r.SetQueryParam("orgs", qOrgs); err != nil {
 				return err
 			}
 		}

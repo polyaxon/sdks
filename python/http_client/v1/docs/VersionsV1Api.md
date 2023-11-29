@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_installation**
-> V1Installation get_installation(auth=auth)
+> V1Installation get_installation(auth=auth, orgs=orgs)
 
 Get installation versions
 
@@ -128,10 +128,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.VersionsV1Api(api_client)
     auth = True # bool | auth. (optional)
+    orgs = True # bool | orgs. (optional)
 
     try:
         # Get installation versions
-        api_response = api_instance.get_installation(auth=auth)
+        api_response = api_instance.get_installation(auth=auth, orgs=orgs)
         print("The response of VersionsV1Api->get_installation:\n")
         pprint(api_response)
     except Exception as e:
@@ -143,6 +144,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auth** | **bool**| auth. | [optional] 
+ **orgs** | **bool**| orgs. | [optional] 
 
 ### Return type
 

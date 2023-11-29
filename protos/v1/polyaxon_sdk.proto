@@ -50,7 +50,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "2.0.1";
+        version: "2.0.2";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -1910,6 +1910,14 @@ service OrganizationsV1 {
   rpc OrganizationPlan(OrganizationBodyRequest) returns (Organization) {
     option (google.api.http) = {
       post: "/api/v1/orgs/{owner}/plan"
+      body: "organization"
+    };
+  }
+
+  // Organization license
+  rpc OrganizationLicense(OrganizationBodyRequest) returns (Organization) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/license"
       body: "organization"
     };
   }

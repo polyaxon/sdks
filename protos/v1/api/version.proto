@@ -21,7 +21,8 @@ message Installation {
     string host = 4;
     string hmac = 5;
     string mode = 6;
-    repeated string auth = 7;
+    bool orgs = 7;
+    repeated string auth = 8;
 }
 
 message Compatibility {
@@ -39,6 +40,8 @@ message LogHandler {
 message InstallationResourceRequest {
   // auth
   bool auth = 1;
+  // orgs
+  bool orgs = 2;
 }
 
 

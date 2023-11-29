@@ -7220,6 +7220,9 @@
         "mode": {
           "type": "string"
         },
+        "orgs": {
+          "type": "boolean"
+        },
         "version": {
           "type": "string"
         }

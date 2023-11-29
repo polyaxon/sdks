@@ -13,6 +13,7 @@
 |**host** | **String** |  |  [optional] |
 |**hmac** | **String** |  |  [optional] |
 |**mode** | **String** |  |  [optional] |
+|**orgs** | **Boolean** |  |  [optional] |
 |**auth** | **List&lt;String&gt;** |  |  [optional] |
 
 

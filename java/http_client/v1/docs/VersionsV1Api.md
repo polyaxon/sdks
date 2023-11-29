@@ -87,7 +87,7 @@ public class Example {
 
 <a name="getInstallation"></a>
 # **getInstallation**
-> V1Installation getInstallation(auth)
+> V1Installation getInstallation(auth, orgs)
 
 Get installation versions
 
@@ -114,8 +114,9 @@ public class Example {
 
     VersionsV1Api apiInstance = new VersionsV1Api(defaultClient);
     Boolean auth = true; // Boolean | auth.
+    Boolean orgs = true; // Boolean | orgs.
     try {
-      V1Installation result = apiInstance.getInstallation(auth);
+      V1Installation result = apiInstance.getInstallation(auth, orgs);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VersionsV1Api#getInstallation");
@@ -133,6 +134,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **auth** | **Boolean**| auth. | [optional] |
+| **orgs** | **Boolean**| orgs. | [optional] |
 
 ### Return type
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **host** | **String** |  | [optional] 
 **hmac** | **String** |  | [optional] 
 **mode** | **String** |  | [optional] 
+**orgs** | **Boolean** |  | [optional] 
 **auth** | **[String]** |  | [optional] 
 
 

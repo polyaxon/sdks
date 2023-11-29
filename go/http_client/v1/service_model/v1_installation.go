@@ -35,6 +35,9 @@ type V1Installation struct {
 	// mode
 	Mode string `json:"mode,omitempty"`
 
+	// orgs
+	Orgs bool `json:"orgs,omitempty"`
+
 	// version
 	Version string `json:"version,omitempty"`
 }
