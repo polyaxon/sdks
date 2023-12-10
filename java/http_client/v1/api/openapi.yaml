@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.0.6-rc3
+  version: 2.0.6-rc6
 servers:
 - url: /
 security:
@@ -19755,6 +19755,7 @@ components:
           autoResume: true
           sidecar:
             sleepInterval: 5
+            monitorSpec: true
             image: image
             imagePullPolicy: imagePullPolicy
             syncInterval: 3
@@ -20305,6 +20306,7 @@ components:
           autoResume: true
           sidecar:
             sleepInterval: 5
+            monitorSpec: true
             image: image
             imagePullPolicy: imagePullPolicy
             syncInterval: 3
@@ -20948,6 +20950,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3
@@ -21265,6 +21268,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3
@@ -21514,6 +21518,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3
@@ -21743,6 +21748,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -22000,6 +22006,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3
@@ -22229,6 +22236,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -29343,6 +29351,7 @@ components:
           autoResume: true
           sidecar:
             sleepInterval: 5
+            monitorSpec: true
             image: image
             imagePullPolicy: imagePullPolicy
             syncInterval: 3
@@ -29572,6 +29581,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3
@@ -30533,6 +30543,7 @@ components:
         autoResume: true
         sidecar:
           sleepInterval: 5
+          monitorSpec: true
           image: image
           imagePullPolicy: imagePullPolicy
           syncInterval: 3
@@ -30624,6 +30635,7 @@ components:
     v1PolyaxonSidecarContainer:
       example:
         sleepInterval: 5
+        monitorSpec: true
         image: image
         imagePullPolicy: imagePullPolicy
         syncInterval: 3
@@ -30644,6 +30656,8 @@ components:
           format: int32
           type: integer
         monitorLogs:
+          type: boolean
+        monitorSpec:
           type: boolean
         resources:
           title: Placeholder Resource Requirements
@@ -36482,6 +36496,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -36799,6 +36814,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -37048,6 +37064,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -37277,6 +37294,7 @@ components:
                 autoResume: true
                 sidecar:
                   sleepInterval: 5
+                  monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
                   syncInterval: 3
@@ -37534,6 +37552,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -37763,6 +37782,7 @@ components:
                 autoResume: true
                 sidecar:
                   sleepInterval: 5
+                  monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
                   syncInterval: 3
@@ -42584,6 +42604,7 @@ components:
                 autoResume: true
                 sidecar:
                   sleepInterval: 5
+                  monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
                   syncInterval: 3
@@ -42901,6 +42922,7 @@ components:
                 autoResume: true
                 sidecar:
                   sleepInterval: 5
+                  monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
                   syncInterval: 3
@@ -43150,6 +43172,7 @@ components:
                 autoResume: true
                 sidecar:
                   sleepInterval: 5
+                  monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
                   syncInterval: 3
@@ -43379,6 +43402,7 @@ components:
                   autoResume: true
                   sidecar:
                     sleepInterval: 5
+                    monitorSpec: true
                     image: image
                     imagePullPolicy: imagePullPolicy
                     syncInterval: 3
@@ -43636,6 +43660,7 @@ components:
                 autoResume: true
                 sidecar:
                   sleepInterval: 5
+                  monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
                   syncInterval: 3
@@ -43865,6 +43890,7 @@ components:
                   autoResume: true
                   sidecar:
                     sleepInterval: 5
+                    monitorSpec: true
                     image: image
                     imagePullPolicy: imagePullPolicy
                     syncInterval: 3
@@ -45162,6 +45188,7 @@ components:
             frequency: 8
         polyaxonSidecarContainer:
           sleepInterval: 5
+          monitorSpec: true
           image: image
           imagePullPolicy: imagePullPolicy
           syncInterval: 3
@@ -45366,6 +45393,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3
@@ -45595,6 +45623,7 @@ components:
               autoResume: true
               sidecar:
                 sleepInterval: 5
+                monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
                 syncInterval: 3
@@ -45943,6 +45972,7 @@ components:
             autoResume: true
             sidecar:
               sleepInterval: 5
+              monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
               syncInterval: 3

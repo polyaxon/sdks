@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.0.6-rc3"
+    "version" : "2.0.6-rc6"
   },
   "servers" : [ {
     "url" : "/"
@@ -30465,6 +30465,9 @@
             "format" : "int32"
           },
           "monitorLogs" : {
+            "type" : "boolean"
+          },
+          "monitorSpec" : {
             "type" : "boolean"
           },
           "resources" : {

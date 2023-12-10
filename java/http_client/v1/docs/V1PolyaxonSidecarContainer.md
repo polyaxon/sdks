@@ -13,6 +13,7 @@
 |**sleepInterval** | **Integer** |  |  [optional] |
 |**syncInterval** | **Integer** |  |  [optional] |
 |**monitorLogs** | **Boolean** |  |  [optional] |
+|**monitorSpec** | **Boolean** |  |  [optional] |
 |**resources** | **Object** |  |  [optional] |
 
 

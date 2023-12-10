@@ -8966,6 +8966,9 @@
         "monitorLogs": {
           "type": "boolean"
         },
+        "monitorSpec": {
+          "type": "boolean"
+        },
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements"
         },

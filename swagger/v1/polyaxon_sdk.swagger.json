@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.0.6-rc3",
+    "version": "2.0.6-rc6",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -21902,6 +21902,9 @@
           "format": "int32"
         },
         "monitorLogs": {
+          "type": "boolean"
+        },
+        "monitorSpec": {
           "type": "boolean"
         },
         "resources": {

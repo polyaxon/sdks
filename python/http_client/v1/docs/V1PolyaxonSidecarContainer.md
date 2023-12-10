@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **sleep_interval** | **int** |  | [optional] 
 **sync_interval** | **int** |  | [optional] 
 **monitor_logs** | **bool** |  | [optional] 
+**monitor_spec** | **bool** |  | [optional] 
 **resources** | **object** |  | [optional] 
 
 ## Example

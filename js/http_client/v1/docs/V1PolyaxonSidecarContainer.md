@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **sleepInterval** | **Number** |  | [optional] 
 **syncInterval** | **Number** |  | [optional] 
 **monitorLogs** | **Boolean** |  | [optional] 
+**monitorSpec** | **Boolean** |  | [optional] 
 **resources** | **Object** |  | [optional] 
 
 
