@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ## cronAgent
 
-> cronAgent(owner)
+> V1AgentStateResponse cronAgent(owner)
 
 Global Cron
 
@@ -153,7 +153,7 @@ apiInstance.cronAgent(owner, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**V1AgentStateResponse**](V1AgentStateResponse.md)
 
 ### Authorization
 

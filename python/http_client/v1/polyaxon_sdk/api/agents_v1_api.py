@@ -369,7 +369,7 @@ class AgentsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def cron_agent(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], **kwargs) -> None:  # noqa: E501
+    def cron_agent(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], **kwargs) -> V1AgentStateResponse:  # noqa: E501
         """Global Cron  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -393,7 +393,7 @@ class AgentsV1Api(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: V1AgentStateResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.cron_agent_with_http_info(owner, **kwargs)  # noqa: E501
@@ -431,7 +431,7 @@ class AgentsV1Api(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(V1AgentStateResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -485,7 +485,12 @@ class AgentsV1Api(object):
         # authentication setting
         _auth_settings = ['ApiKey']  # noqa: E501
 
-        _response_types_map = {}
+        _response_types_map = {
+            '200': "V1AgentStateResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
+        }
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/agents/cron', 'POST',

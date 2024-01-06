@@ -1408,7 +1408,10 @@ paths:
         style: simple
       responses:
         "200":
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AgentStateResponse'
           description: A successful response.
         "204":
           content:

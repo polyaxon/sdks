@@ -70,6 +70,7 @@ CronAgentOK describes a response with status code 200, with default header value
 A successful response.
 */
 type CronAgentOK struct {
+	Payload *service_model.V1AgentStateResponse
 }
 
 // IsSuccess returns true when this cron agent o k response has a 2xx status code
@@ -103,14 +104,25 @@ func (o *CronAgentOK) Code() int {
 }
 
 func (o *CronAgentOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK  %+v", 200, o.Payload)
 }
 
 func (o *CronAgentOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK  %+v", 200, o.Payload)
+}
+
+func (o *CronAgentOK) GetPayload() *service_model.V1AgentStateResponse {
+	return o.Payload
 }
 
 func (o *CronAgentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(service_model.V1AgentStateResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

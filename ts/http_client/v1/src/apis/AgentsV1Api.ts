@@ -239,7 +239,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Global Cron
      */
-    async cronAgentRaw(requestParameters: CronAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async cronAgentRaw(requestParameters: CronAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1AgentStateResponse>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling cronAgent.');
         }
@@ -259,14 +259,15 @@ export class AgentsV1Api extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1AgentStateResponseFromJSON(jsonValue));
     }
 
     /**
      * Global Cron
      */
-    async cronAgent(requestParameters: CronAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.cronAgentRaw(requestParameters, initOverrides);
+    async cronAgent(requestParameters: CronAgentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1AgentStateResponse> {
+        const response = await this.cronAgentRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**

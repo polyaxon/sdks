@@ -1235,7 +1235,7 @@ service AgentsV1 {
   }
 
   // Global Cron
-  rpc CronAgent(OwnerRequest) returns (google.protobuf.Empty) {
+  rpc CronAgent(OwnerRequest) returns (AgentStateResponse) {
     option (google.api.http) = {
       post: "/api/v1/orgs/{owner}/agents/cron"
     };

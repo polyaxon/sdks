@@ -145,7 +145,7 @@ export default class AgentsV1Api {
      * Callback function to receive the result of the cronAgent operation.
      * @callback module:api/AgentsV1Api~cronAgentCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/V1AgentStateResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -153,6 +153,7 @@ export default class AgentsV1Api {
      * Global Cron
      * @param {String} owner Owner of the namespace
      * @param {module:api/AgentsV1Api~cronAgentCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1AgentStateResponse}
      */
     cronAgent(owner, callback) {
       let postBody = null;
@@ -174,7 +175,7 @@ export default class AgentsV1Api {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = null;
+      let returnType = V1AgentStateResponse;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/agents/cron', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,

@@ -463,6 +463,7 @@ public class AgentsV1Api {
      * Global Cron
      *
      * @param owner Owner of the namespace (required)
+     * @return V1AgentStateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -474,15 +475,16 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void cronAgent(String owner) throws ApiException {
-        cronAgentWithHttpInfo(owner);
+    public V1AgentStateResponse cronAgent(String owner) throws ApiException {
+        ApiResponse<V1AgentStateResponse> localVarResp = cronAgentWithHttpInfo(owner);
+        return localVarResp.getData();
     }
 
     /**
      * Global Cron
      *
      * @param owner Owner of the namespace (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;V1AgentStateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -494,9 +496,10 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> cronAgentWithHttpInfo(String owner) throws ApiException {
+    public ApiResponse<V1AgentStateResponse> cronAgentWithHttpInfo(String owner) throws ApiException {
         okhttp3.Call localVarCall = cronAgentValidateBeforeCall(owner, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<V1AgentStateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -516,10 +519,11 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cronAgentAsync(String owner, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call cronAgentAsync(String owner, final ApiCallback<V1AgentStateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cronAgentValidateBeforeCall(owner, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<V1AgentStateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

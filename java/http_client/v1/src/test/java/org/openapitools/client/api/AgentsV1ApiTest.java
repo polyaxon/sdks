@@ -72,7 +72,7 @@ public class AgentsV1ApiTest {
     @Test
     public void cronAgentTest() throws ApiException {
         String owner = null;
-        api.cronAgent(owner);
+        V1AgentStateResponse response = api.cronAgent(owner);
         // TODO: test validations
     }
 

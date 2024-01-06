@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cron_agent**
-> cron_agent(owner)
+> V1AgentStateResponse cron_agent(owner)
 
 Global Cron
 
@@ -224,7 +224,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Global Cron
-        api_instance.cron_agent(owner)
+        api_response = api_instance.cron_agent(owner)
+        print("The response of AgentsV1Api->cron_agent:\n")
+        pprint(api_response)
     except Exception as e:
         print("Exception when calling AgentsV1Api->cron_agent: %s\n" % e)
 ```
@@ -237,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**V1AgentStateResponse**](V1AgentStateResponse.md)
 
 ### Authorization
 
