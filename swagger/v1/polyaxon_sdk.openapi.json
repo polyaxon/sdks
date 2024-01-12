@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.0-rc2"
+    "version" : "2.1.0-rc3"
   },
   "servers" : [ {
     "url" : "/"
@@ -2016,6 +2016,17 @@
             "type" : "string"
           }
         } ],
+        "requestBody" : {
+          "description" : "Cron body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "A successful response.",
@@ -2067,7 +2078,8 @@
               }
             }
           }
-        }
+        },
+        "x-codegen-request-body-name" : "body"
       }
     },
     "/api/v1/orgs/{owner}/agents/names" : {

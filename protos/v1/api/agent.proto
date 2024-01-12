@@ -66,6 +66,15 @@ message AgentBodyRequest {
     Agent agent = 2;
 }
 
+// Request data to trigger cron
+message CronBodyRequest {
+    // Owner of the namespace
+    string owner = 1;
+
+    // Cron body
+    google.protobuf.Struct body = 2;
+}
+
 
 // Contains list of agents
 message ListAgentsResponse {

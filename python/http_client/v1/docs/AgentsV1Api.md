@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cron_agent**
-> V1AgentStateResponse cron_agent(owner)
+> V1AgentStateResponse cron_agent(owner, body)
 
 Global Cron
 
@@ -221,10 +221,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
+    body = None # object | Cron body
 
     try:
         # Global Cron
-        api_response = api_instance.cron_agent(owner)
+        api_response = api_instance.cron_agent(owner, body)
         print("The response of AgentsV1Api->cron_agent:\n")
         pprint(api_response)
     except Exception as e:
@@ -236,6 +237,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
+ **body** | **object**| Cron body | 
 
 ### Return type
 
@@ -247,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.0-rc2
+  version: 2.1.0-rc3
 servers:
 - url: /
 security:
@@ -1406,6 +1406,13 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Cron body
+        required: true
       responses:
         "200":
           content:
@@ -1440,6 +1447,8 @@ paths:
       summary: Global Cron
       tags:
       - AgentsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts: application/json
   /api/v1/orgs/{owner}/agents/names:
     get:

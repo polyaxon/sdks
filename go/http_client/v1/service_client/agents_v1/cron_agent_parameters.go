@@ -61,6 +61,12 @@ CronAgentParams contains all the parameters to send to the API endpoint
 */
 type CronAgentParams struct {
 
+	/* Body.
+
+	   Cron body
+	*/
+	Body interface{}
+
 	/* Owner.
 
 	   Owner of the namespace
@@ -120,6 +126,17 @@ func (o *CronAgentParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithBody adds the body to the cron agent params
+func (o *CronAgentParams) WithBody(body interface{}) *CronAgentParams {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the cron agent params
+func (o *CronAgentParams) SetBody(body interface{}) {
+	o.Body = body
+}
+
 // WithOwner adds the owner to the cron agent params
 func (o *CronAgentParams) WithOwner(owner string) *CronAgentParams {
 	o.SetOwner(owner)
@@ -138,6 +155,11 @@ func (o *CronAgentParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		return err
 	}
 	var res []error
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
+			return err
+		}
+	}
 
 	// path param owner
 	if err := r.SetPathParam("owner", o.Owner); err != nil {

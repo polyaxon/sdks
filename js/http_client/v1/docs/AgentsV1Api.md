@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ## cronAgent
 
-> V1AgentStateResponse cronAgent(owner)
+> V1AgentStateResponse cronAgent(owner, body)
 
 Global Cron
 
@@ -149,7 +149,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-apiInstance.cronAgent(owner, (error, data, response) => {
+let body = {key: null}; // Object | Cron body
+apiInstance.cronAgent(owner, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -164,6 +165,7 @@ apiInstance.cronAgent(owner, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
+ **body** | **Object**| Cron body | 
 
 ### Return type
 
@@ -175,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

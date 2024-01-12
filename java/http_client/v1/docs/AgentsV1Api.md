@@ -174,7 +174,7 @@ public class Example {
 
 <a name="cronAgent"></a>
 # **cronAgent**
-> V1AgentStateResponse cronAgent(owner)
+> V1AgentStateResponse cronAgent(owner, body)
 
 Global Cron
 
@@ -201,8 +201,9 @@ public class Example {
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
+    Object body = null; // Object | Cron body
     try {
-      V1AgentStateResponse result = apiInstance.cronAgent(owner);
+      V1AgentStateResponse result = apiInstance.cronAgent(owner, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentsV1Api#cronAgent");
@@ -220,6 +221,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
+| **body** | **Object**| Cron body | |
 
 ### Return type
 
@@ -231,7 +233,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
