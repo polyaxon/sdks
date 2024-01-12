@@ -46,6 +46,9 @@ type V1Component struct {
 	// Optional component name, should be a valid fully qualified value: name[:version]
 	Name string `json:"name,omitempty"`
 
+	// Optional namespace to use, uses agent's namespace by default
+	Namespace string `json:"namespace,omitempty"`
+
 	// Optional outputs definition
 	Outputs []*V1IO `json:"outputs"`
 

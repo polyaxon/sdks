@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.0.6"
+    "version" : "2.1.0-rc2"
   },
   "servers" : [ {
     "url" : "/"
@@ -26524,16 +26524,20 @@
             "title" : "Connection to use",
             "type" : "string"
           },
-          "queue" : {
-            "title" : "Optional queue to use for scheduling the tuner",
-            "type" : "string"
-          },
           "presets" : {
             "title" : "Optional list of presets to use for running this tuner",
             "type" : "array",
             "items" : {
               "type" : "string"
             }
+          },
+          "queue" : {
+            "title" : "Optional queue to use for scheduling the tuner",
+            "type" : "string"
+          },
+          "namespace" : {
+            "title" : "Optional namespace to use, uses agent's namespace by default",
+            "type" : "string"
           },
           "cache" : {
             "$ref" : "#/components/schemas/v1Cache"
@@ -26691,6 +26695,10 @@
           "cache" : {
             "$ref" : "#/components/schemas/v1Cache"
           },
+          "namespace" : {
+            "title" : "Optional namespace to use, uses agent's namespace by default",
+            "type" : "string"
+          },
           "termination" : {
             "$ref" : "#/components/schemas/v1Termination"
           },
@@ -26827,6 +26835,10 @@
           },
           "cache" : {
             "$ref" : "#/components/schemas/v1Cache"
+          },
+          "namespace" : {
+            "title" : "Optional namespace to use, uses agent's namespace by default",
+            "type" : "string"
           },
           "termination" : {
             "$ref" : "#/components/schemas/v1Termination"
@@ -28203,16 +28215,20 @@
               "$ref" : "#/components/schemas/v1Param"
             }
           },
-          "queue" : {
-            "title" : "Optional queue to use for scheduling the hook",
-            "type" : "string"
-          },
           "presets" : {
             "title" : "Optional preset to use for running this operation",
             "type" : "array",
             "items" : {
               "type" : "string"
             }
+          },
+          "queue" : {
+            "title" : "Optional queue to use for scheduling the hook",
+            "type" : "string"
+          },
+          "namespace" : {
+            "title" : "Optional namespace to use, uses agent's namespace by default",
+            "type" : "string"
           },
           "disableDefaults" : {
             "title" : "Optional params context from the main operation",
@@ -29958,6 +29974,10 @@
           },
           "cache" : {
             "$ref" : "#/components/schemas/v1Cache"
+          },
+          "namespace" : {
+            "title" : "Optional namespace to use, uses agent's namespace by default",
+            "type" : "string"
           },
           "termination" : {
             "$ref" : "#/components/schemas/v1Termination"
@@ -32445,16 +32465,20 @@
             "title" : "Component name to use",
             "type" : "string"
           },
-          "queue" : {
-            "title" : "Optional queue to use for scheduling the tuner",
-            "type" : "string"
-          },
           "presets" : {
             "title" : "Optional list of presets to use for running this tuner",
             "type" : "array",
             "items" : {
               "type" : "string"
             }
+          },
+          "queue" : {
+            "title" : "Optional queue to use for scheduling the tuner",
+            "type" : "string"
+          },
+          "namespace" : {
+            "title" : "Optional namespace to use, uses agent's namespace by default",
+            "type" : "string"
           },
           "params" : {
             "title" : "Optional dict of params",

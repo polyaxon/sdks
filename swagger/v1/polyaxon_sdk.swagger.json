@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.0.6",
+    "version": "2.1.0-rc2",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -17803,16 +17803,20 @@
           "type": "string",
           "title": "Connection to use"
         },
-        "queue": {
-          "type": "string",
-          "title": "Optional queue to use for scheduling the tuner"
-        },
         "presets": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "title": "Optional list of presets to use for running this tuner"
+        },
+        "queue": {
+          "type": "string",
+          "title": "Optional queue to use for scheduling the tuner"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Optional namespace to use, uses agent's namespace by default"
         },
         "cache": {
           "$ref": "#/definitions/v1Cache",
@@ -17981,6 +17985,10 @@
           "$ref": "#/definitions/v1Cache",
           "title": "Optional flag to disable cache validation and force run this component"
         },
+        "namespace": {
+          "type": "string",
+          "title": "Optional namespace to use, uses agent's namespace by default"
+        },
         "termination": {
           "$ref": "#/definitions/v1Termination",
           "title": "optional termination section"
@@ -18119,6 +18127,10 @@
         "cache": {
           "$ref": "#/definitions/v1Cache",
           "title": "Optional flag to disable cache validation and force run this component"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Optional namespace to use, uses agent's namespace by default"
         },
         "termination": {
           "$ref": "#/definitions/v1Termination",
@@ -19598,16 +19610,20 @@
           },
           "title": "Optional dict of params"
         },
-        "queue": {
-          "type": "string",
-          "title": "Optional queue to use for scheduling the hook"
-        },
         "presets": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "title": "Optional preset to use for running this operation"
+        },
+        "queue": {
+          "type": "string",
+          "title": "Optional queue to use for scheduling the hook"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Optional namespace to use, uses agent's namespace by default"
         },
         "disableDefaults": {
           "type": "boolean",
@@ -21373,6 +21389,10 @@
         "cache": {
           "$ref": "#/definitions/v1Cache",
           "title": "Optional flag to disable cache validation and force run this operation"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Optional namespace to use, uses agent's namespace by default"
         },
         "termination": {
           "$ref": "#/definitions/v1Termination",
@@ -23973,16 +23993,20 @@
           "type": "string",
           "title": "Component name to use"
         },
-        "queue": {
-          "type": "string",
-          "title": "Optional queue to use for scheduling the tuner"
-        },
         "presets": {
           "type": "array",
           "items": {
             "type": "string"
           },
           "title": "Optional list of presets to use for running this tuner"
+        },
+        "queue": {
+          "type": "string",
+          "title": "Optional queue to use for scheduling the tuner"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Optional namespace to use, uses agent's namespace by default"
         },
         "params": {
           "type": "object",

@@ -24,12 +24,15 @@ message Hook {
     // Optional dict of params
     map<string, Param> params = 5;
 
-    // Optional queue to use for scheduling the hook
-    string queue = 6;
-
     // Optional preset to use for running this operation
-    repeated string presets = 7;
+    repeated string presets = 6;
+
+    // Optional queue to use for scheduling the hook
+    string queue = 7;
+
+    // Optional namespace to use, uses agent's namespace by default
+    string namespace = 8;
 
     // Optional params context from the main operation
-    bool disableDefaults = 8;
+    bool disableDefaults = 9;
 }

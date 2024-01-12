@@ -15,6 +15,7 @@
 |**presets** | **List&lt;String&gt;** |  |  [optional] |
 |**queue** | **String** |  |  [optional] |
 |**cache** | [**V1Cache**](V1Cache.md) |  |  [optional] |
+|**namespace** | **String** |  |  [optional] |
 |**termination** | [**V1Termination**](V1Termination.md) |  |  [optional] |
 |**plugins** | [**V1Plugins**](V1Plugins.md) |  |  [optional] |
 |**schedule** | **Object** |  |  [optional] |

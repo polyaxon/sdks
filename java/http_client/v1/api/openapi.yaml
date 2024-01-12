@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.0.6
+  version: 2.1.0-rc2
 servers:
 - url: /
 security:
@@ -19389,6 +19389,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           params:
             key:
               ref: ref
@@ -19480,6 +19481,7 @@ components:
         - presets
         runPatch: "{}"
         hubRef: hubRef
+        namespace: namespace
         connection: connection
         patchStrategy: null
         params:
@@ -19498,14 +19500,17 @@ components:
         connection:
           title: Connection to use
           type: string
-        queue:
-          title: Optional queue to use for scheduling the tuner
-          type: string
         presets:
           items:
             type: string
           title: Optional list of presets to use for running this tuner
           type: array
+        queue:
+          title: Optional queue to use for scheduling the tuner
+          type: string
+        namespace:
+          title: "Optional namespace to use, uses agent's namespace by default"
+          type: string
         cache:
           $ref: '#/components/schemas/v1Cache'
         params:
@@ -19978,6 +19983,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           disableDefaults: true
           connection: connection
           trigger: null
@@ -19995,6 +20001,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           disableDefaults: true
           connection: connection
           trigger: null
@@ -20060,6 +20067,7 @@ components:
           - presets
           runPatch: "{}"
           hubRef: hubRef
+          namespace: namespace
           connection: connection
           patchStrategy: null
           params:
@@ -20072,6 +20080,7 @@ components:
               value: "{}"
           queue: queue
         name: name
+        namespace: namespace
         conditions: conditions
         queue: queue
       properties:
@@ -20103,6 +20112,9 @@ components:
           type: string
         cache:
           $ref: '#/components/schemas/v1Cache'
+        namespace:
+          title: "Optional namespace to use, uses agent's namespace by default"
+          type: string
         termination:
           $ref: '#/components/schemas/v1Termination'
         plugins:
@@ -20447,6 +20459,7 @@ components:
           - presets
           runPatch: "{}"
           hubRef: hubRef
+          namespace: namespace
           connection: connection
           patchStrategy: null
           params:
@@ -20459,12 +20472,14 @@ components:
               value: "{}"
           queue: queue
         name: name
+        namespace: namespace
         isApproved: true
         hooks:
         - presets:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           disableDefaults: true
           connection: connection
           trigger: null
@@ -20482,6 +20497,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           disableDefaults: true
           connection: connection
           trigger: null
@@ -20526,6 +20542,9 @@ components:
           type: string
         cache:
           $ref: '#/components/schemas/v1Cache'
+        namespace:
+          title: "Optional namespace to use, uses agent's namespace by default"
+          type: string
         termination:
           $ref: '#/components/schemas/v1Termination'
         plugins:
@@ -21091,6 +21110,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -21103,12 +21123,14 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           isApproved: true
           hooks:
           - presets:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -21126,6 +21148,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -21409,6 +21432,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -21421,12 +21445,14 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           isApproved: true
           hooks:
           - presets:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -21444,6 +21470,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -21547,6 +21574,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -21564,6 +21592,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -21889,6 +21918,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -21901,12 +21931,14 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             isApproved: true
             hooks:
             - presets:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -21924,6 +21956,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -21958,6 +21991,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -21970,6 +22004,7 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           patchStrategy: null
           urlRef: urlRef
           conditions: conditions
@@ -22035,6 +22070,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -22052,6 +22088,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -22377,6 +22414,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -22389,12 +22427,14 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             isApproved: true
             hooks:
             - presets:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -22412,6 +22452,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -22446,6 +22487,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -22458,6 +22500,7 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           patchStrategy: null
           urlRef: urlRef
           conditions: conditions
@@ -24418,6 +24461,7 @@ components:
         - presets
         - presets
         hubRef: hubRef
+        namespace: namespace
         disableDefaults: true
         connection: connection
         trigger: null
@@ -24449,14 +24493,17 @@ components:
             $ref: '#/components/schemas/v1Param'
           title: Optional dict of params
           type: object
-        queue:
-          title: Optional queue to use for scheduling the hook
-          type: string
         presets:
           items:
             type: string
           title: Optional preset to use for running this operation
           type: array
+        queue:
+          title: Optional queue to use for scheduling the hook
+          type: string
+        namespace:
+          title: "Optional namespace to use, uses agent's namespace by default"
+          type: string
         disableDefaults:
           title: Optional params context from the main operation
           type: boolean
@@ -24847,6 +24894,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           params:
             key:
               ref: ref
@@ -24923,6 +24971,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           params:
             key:
               ref: ref
@@ -25275,6 +25324,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           params:
             key:
               ref: ref
@@ -29081,6 +29131,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             params:
               key:
                 ref: ref
@@ -29130,6 +29181,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             params:
               key:
                 ref: ref
@@ -29159,6 +29211,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             params:
               key:
                 ref: ref
@@ -29183,6 +29236,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             params:
               key:
                 ref: ref
@@ -29380,6 +29434,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           disableDefaults: true
           connection: connection
           trigger: null
@@ -29397,6 +29452,7 @@ components:
           - presets
           - presets
           hubRef: hubRef
+          namespace: namespace
           disableDefaults: true
           connection: connection
           trigger: null
@@ -29722,6 +29778,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -29734,12 +29791,14 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           isApproved: true
           hooks:
           - presets:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -29757,6 +29816,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -29791,6 +29851,7 @@ components:
           - presets
           runPatch: "{}"
           hubRef: hubRef
+          namespace: namespace
           connection: connection
           patchStrategy: null
           params:
@@ -29803,6 +29864,7 @@ components:
               value: "{}"
           queue: queue
         name: name
+        namespace: namespace
         patchStrategy: null
         urlRef: urlRef
         conditions: conditions
@@ -29837,6 +29899,9 @@ components:
           type: string
         cache:
           $ref: '#/components/schemas/v1Cache'
+        namespace:
+          title: "Optional namespace to use, uses agent's namespace by default"
+          type: string
         termination:
           $ref: '#/components/schemas/v1Termination'
         plugins:
@@ -36637,6 +36702,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -36649,12 +36715,14 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             isApproved: true
             hooks:
             - presets:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -36672,6 +36740,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -36955,6 +37024,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -36967,12 +37037,14 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             isApproved: true
             hooks:
             - presets:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -36990,6 +37062,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -37093,6 +37166,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -37110,6 +37184,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -37435,6 +37510,7 @@ components:
                 - presets
                 runPatch: "{}"
                 hubRef: hubRef
+                namespace: namespace
                 connection: connection
                 patchStrategy: null
                 params:
@@ -37447,12 +37523,14 @@ components:
                     value: "{}"
                 queue: queue
               name: name
+              namespace: namespace
               isApproved: true
               hooks:
               - presets:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -37470,6 +37548,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -37504,6 +37583,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -37516,6 +37596,7 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             patchStrategy: null
             urlRef: urlRef
             conditions: conditions
@@ -37581,6 +37662,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -37598,6 +37680,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -37923,6 +38006,7 @@ components:
                 - presets
                 runPatch: "{}"
                 hubRef: hubRef
+                namespace: namespace
                 connection: connection
                 patchStrategy: null
                 params:
@@ -37935,12 +38019,14 @@ components:
                     value: "{}"
                 queue: queue
               name: name
+              namespace: namespace
               isApproved: true
               hooks:
               - presets:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -37958,6 +38044,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -37992,6 +38079,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -38004,6 +38092,7 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             patchStrategy: null
             urlRef: urlRef
             conditions: conditions
@@ -42745,6 +42834,7 @@ components:
                 - presets
                 runPatch: "{}"
                 hubRef: hubRef
+                namespace: namespace
                 connection: connection
                 patchStrategy: null
                 params:
@@ -42757,12 +42847,14 @@ components:
                     value: "{}"
                 queue: queue
               name: name
+              namespace: namespace
               isApproved: true
               hooks:
               - presets:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -42780,6 +42872,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -43063,6 +43156,7 @@ components:
                 - presets
                 runPatch: "{}"
                 hubRef: hubRef
+                namespace: namespace
                 connection: connection
                 patchStrategy: null
                 params:
@@ -43075,12 +43169,14 @@ components:
                     value: "{}"
                 queue: queue
               name: name
+              namespace: namespace
               isApproved: true
               hooks:
               - presets:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -43098,6 +43194,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -43201,6 +43298,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -43218,6 +43316,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -43543,6 +43642,7 @@ components:
                   - presets
                   runPatch: "{}"
                   hubRef: hubRef
+                  namespace: namespace
                   connection: connection
                   patchStrategy: null
                   params:
@@ -43555,12 +43655,14 @@ components:
                       value: "{}"
                   queue: queue
                 name: name
+                namespace: namespace
                 isApproved: true
                 hooks:
                 - presets:
                   - presets
                   - presets
                   hubRef: hubRef
+                  namespace: namespace
                   disableDefaults: true
                   connection: connection
                   trigger: null
@@ -43578,6 +43680,7 @@ components:
                   - presets
                   - presets
                   hubRef: hubRef
+                  namespace: namespace
                   disableDefaults: true
                   connection: connection
                   trigger: null
@@ -43612,6 +43715,7 @@ components:
                 - presets
                 runPatch: "{}"
                 hubRef: hubRef
+                namespace: namespace
                 connection: connection
                 patchStrategy: null
                 params:
@@ -43624,6 +43728,7 @@ components:
                     value: "{}"
                 queue: queue
               name: name
+              namespace: namespace
               patchStrategy: null
               urlRef: urlRef
               conditions: conditions
@@ -43689,6 +43794,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -43706,6 +43812,7 @@ components:
                 - presets
                 - presets
                 hubRef: hubRef
+                namespace: namespace
                 disableDefaults: true
                 connection: connection
                 trigger: null
@@ -44031,6 +44138,7 @@ components:
                   - presets
                   runPatch: "{}"
                   hubRef: hubRef
+                  namespace: namespace
                   connection: connection
                   patchStrategy: null
                   params:
@@ -44043,12 +44151,14 @@ components:
                       value: "{}"
                   queue: queue
                 name: name
+                namespace: namespace
                 isApproved: true
                 hooks:
                 - presets:
                   - presets
                   - presets
                   hubRef: hubRef
+                  namespace: namespace
                   disableDefaults: true
                   connection: connection
                   trigger: null
@@ -44066,6 +44176,7 @@ components:
                   - presets
                   - presets
                   hubRef: hubRef
+                  namespace: namespace
                   disableDefaults: true
                   connection: connection
                   trigger: null
@@ -44100,6 +44211,7 @@ components:
                 - presets
                 runPatch: "{}"
                 hubRef: hubRef
+                namespace: namespace
                 connection: connection
                 patchStrategy: null
                 params:
@@ -44112,6 +44224,7 @@ components:
                     value: "{}"
                 queue: queue
               name: name
+              namespace: namespace
               patchStrategy: null
               urlRef: urlRef
               conditions: conditions
@@ -45021,6 +45134,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               params:
                 key:
                   ref: ref
@@ -45070,6 +45184,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               params:
                 key:
                   ref: ref
@@ -45099,6 +45214,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               params:
                 key:
                   ref: ref
@@ -45123,6 +45239,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               params:
                 key:
                   ref: ref
@@ -45422,6 +45539,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -45439,6 +45557,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -45764,6 +45883,7 @@ components:
               - presets
               runPatch: "{}"
               hubRef: hubRef
+              namespace: namespace
               connection: connection
               patchStrategy: null
               params:
@@ -45776,12 +45896,14 @@ components:
                   value: "{}"
               queue: queue
             name: name
+            namespace: namespace
             isApproved: true
             hooks:
             - presets:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -45799,6 +45921,7 @@ components:
               - presets
               - presets
               hubRef: hubRef
+              namespace: namespace
               disableDefaults: true
               connection: connection
               trigger: null
@@ -45833,6 +45956,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -45845,6 +45969,7 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           patchStrategy: null
           urlRef: urlRef
           conditions: conditions
@@ -46195,6 +46320,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -46212,6 +46338,7 @@ components:
             - presets
             - presets
             hubRef: hubRef
+            namespace: namespace
             disableDefaults: true
             connection: connection
             trigger: null
@@ -46277,6 +46404,7 @@ components:
             - presets
             runPatch: "{}"
             hubRef: hubRef
+            namespace: namespace
             connection: connection
             patchStrategy: null
             params:
@@ -46289,6 +46417,7 @@ components:
                 value: "{}"
             queue: queue
           name: name
+          namespace: namespace
           conditions: conditions
           queue: queue
       properties:
@@ -48081,6 +48210,7 @@ components:
         - presets
         - presets
         hubRef: hubRef
+        namespace: namespace
         params:
           key:
             ref: ref
@@ -48094,14 +48224,17 @@ components:
         hubRef:
           title: Component name to use
           type: string
-        queue:
-          title: Optional queue to use for scheduling the tuner
-          type: string
         presets:
           items:
             type: string
           title: Optional list of presets to use for running this tuner
           type: array
+        queue:
+          title: Optional queue to use for scheduling the tuner
+          type: string
+        namespace:
+          title: "Optional namespace to use, uses agent's namespace by default"
+          type: string
         params:
           additionalProperties:
             $ref: '#/components/schemas/v1Param'

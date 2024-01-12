@@ -67,14 +67,17 @@ message Tuner {
   // Component name to use
   string hubRef = 1;
 
-  // Optional queue to use for scheduling the tuner
-  string queue = 2;
-
   // Optional list of presets to use for running this tuner
-  repeated string presets = 3;
+  repeated string presets = 2;
+
+  // Optional queue to use for scheduling the tuner
+  string queue = 3;
+
+  // Optional namespace to use, uses agent's namespace by default
+  string namespace = 4;
 
   // Optional dict of params
-  map<string, Param> params = 4;
+  map<string, Param> params = 5;
 }
 
 // Matrix based on hyperband

@@ -65,6 +65,9 @@ type V1CompiledOperation struct {
 	// Optional component name, should a valid slug
 	Name string `json:"name,omitempty"`
 
+	// Optional namespace to use, uses agent's namespace by default
+	Namespace string `json:"namespace,omitempty"`
+
 	// Optional outputs definition
 	Outputs []*V1IO `json:"outputs"`
 

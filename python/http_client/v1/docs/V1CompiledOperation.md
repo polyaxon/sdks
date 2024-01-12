@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **presets** | **List[str]** |  | [optional] 
 **queue** | **str** |  | [optional] 
 **cache** | [**V1Cache**](V1Cache.md) |  | [optional] 
+**namespace** | **str** |  | [optional] 
 **termination** | [**V1Termination**](V1Termination.md) |  | [optional] 
 **plugins** | [**V1Plugins**](V1Plugins.md) |  | [optional] 
 **schedule** | **object** |  | [optional] 

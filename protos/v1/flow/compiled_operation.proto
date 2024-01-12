@@ -42,57 +42,60 @@ message CompiledOperation {
     // Optional flag to disable cache validation and force run this component
     Cache cache = 8;
 
+    // Optional namespace to use, uses agent's namespace by default
+    string namespace = 9;
+
     // optional termination section
-    Termination termination = 9;
+    Termination termination = 10;
 
     // Optional plugins to enable
-    Plugins plugins = 10;
+    Plugins plugins = 11;
 
     // Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)
-    google.protobuf.Struct schedule = 11;
+    google.protobuf.Struct schedule = 12;
 
     // Optional events section, must be a valid List of EventTrigger option (Run/Git/Alert/Webhook/Dataset)
-    repeated EventTrigger events = 12;
+    repeated EventTrigger events = 13;
 
     // Optional build process
-    Build build = 13;
+    Build build = 14;
 
     // Optional hooks section
-    repeated Hook hooks = 14;
+    repeated Hook hooks = 15;
 
     // Optional graph dependencies of this op
-    repeated string dependencies = 15;
+    repeated string dependencies = 16;
 
     // Optional trigger policy
-    TriggerPolicy trigger = 16;
+    TriggerPolicy trigger = 17;
 
     // An optional template containing conditions to check before starting the run
-    string conditions = 17;
+    string conditions = 18;
 
     // Optional flag to skip this run if upstream was skipped
-    bool skipOnUpstreamSkip = 18;
+    bool skipOnUpstreamSkip = 19;
 
     // Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)
-    google.protobuf.Struct matrix = 19;
+    google.protobuf.Struct matrix = 20;
 
     // Optional dict of joins
-    map<string, Join> joins = 20;
+    map<string, Join> joins = 21;
 
     // Optional inputs definition
-    repeated IO inputs = 21;
+    repeated IO inputs = 22;
 
     // Optional outputs definition
-    repeated IO outputs = 22;
+    repeated IO outputs = 23;
 
     // Optional outputs definition
-    repeated IO contexts = 23;
+    repeated IO contexts = 24;
 
     // Optional flag to mark this specification requires approval before running
-    bool isApproved = 24;
+    bool isApproved = 25;
 
     // Optional field to assign cost to this Component
-    float cost = 25;
+    float cost = 26;
 
     // Run definition, should be one of run composition: Container/Ray/Dask/Kubeflow/Dask/Dag
-    google.protobuf.Struct run = 26;
+    google.protobuf.Struct run = 27;
 }

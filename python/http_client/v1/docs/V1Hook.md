@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **trigger** | [**V1Statuses**](V1Statuses.md) |  | [optional] 
 **conditions** | **str** |  | [optional] 
 **params** | [**Dict[str, V1Param]**](V1Param.md) |  | [optional] 
-**queue** | **str** |  | [optional] 
 **presets** | **List[str]** |  | [optional] 
+**queue** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
 **disable_defaults** | **bool** |  | [optional] 
 
 ## Example

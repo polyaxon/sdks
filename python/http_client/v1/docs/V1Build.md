@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hub_ref** | **str** |  | [optional] 
 **connection** | **str** |  | [optional] 
-**queue** | **str** |  | [optional] 
 **presets** | **List[str]** |  | [optional] 
+**queue** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
 **cache** | [**V1Cache**](V1Cache.md) |  | [optional] 
 **params** | [**Dict[str, V1Param]**](V1Param.md) |  | [optional] 
 **run_patch** | **object** |  | [optional] 

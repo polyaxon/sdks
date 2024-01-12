@@ -4636,6 +4636,10 @@
           "title": "Component name to use",
           "type": "string"
         },
+        "namespace": {
+          "title": "Optional namespace to use, uses agent's namespace by default",
+          "type": "string"
+        },
         "params": {
           "additionalProperties": {
             "$ref": "#/definitions/v1Param"
@@ -4873,6 +4877,10 @@
           "title": "Optional component name, should a valid slug",
           "type": "string"
         },
+        "namespace": {
+          "title": "Optional namespace to use, uses agent's namespace by default",
+          "type": "string"
+        },
         "outputs": {
           "items": {
             "$ref": "#/definitions/v1IO"
@@ -5020,6 +5028,10 @@
         },
         "name": {
           "title": "Optional component name, should be a valid fully qualified value: name[:version]",
+          "type": "string"
+        },
+        "namespace": {
+          "title": "Optional namespace to use, uses agent's namespace by default",
           "type": "string"
         },
         "outputs": {
@@ -6554,6 +6566,10 @@
         },
         "hubRef": {
           "title": "Component name to use",
+          "type": "string"
+        },
+        "namespace": {
+          "title": "Optional namespace to use, uses agent's namespace by default",
           "type": "string"
         },
         "params": {
@@ -8432,6 +8448,10 @@
         },
         "name": {
           "title": "Optional component name override, should a valid slug",
+          "type": "string"
+        },
+        "namespace": {
+          "title": "Optional namespace to use, uses agent's namespace by default",
           "type": "string"
         },
         "params": {
@@ -11046,6 +11066,10 @@
       "properties": {
         "hubRef": {
           "title": "Component name to use",
+          "type": "string"
+        },
+        "namespace": {
+          "title": "Optional namespace to use, uses agent's namespace by default",
           "type": "string"
         },
         "params": {

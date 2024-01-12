@@ -71,6 +71,9 @@ type V1Operation struct {
 	// Optional component name override, should a valid slug
 	Name string `json:"name,omitempty"`
 
+	// Optional namespace to use, uses agent's namespace by default
+	Namespace string `json:"namespace,omitempty"`
+
 	// Optional dict of params
 	Params map[string]V1Param `json:"params,omitempty"`
 

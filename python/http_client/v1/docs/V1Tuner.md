@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hub_ref** | **str** |  | [optional] 
-**queue** | **str** |  | [optional] 
 **presets** | **List[str]** |  | [optional] 
+**queue** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
 **params** | [**Dict[str, V1Param]**](V1Param.md) |  | [optional] 
 
 ## Example

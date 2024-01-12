@@ -40,33 +40,36 @@ message Component {
     // Optional flag to disable cache validation and force run this component
     Cache cache = 8;
 
+    // Optional namespace to use, uses agent's namespace by default
+    string namespace = 9;
+
     // optional termination section
-    Termination termination = 9;
+    Termination termination = 10;
 
     // Optional plugins to enable
-    Plugins plugins = 10;
+    Plugins plugins = 11;
 
     // Optional hooks section
-    repeated Hook hooks = 11;
+    repeated Hook hooks = 12;
 
     // Optional inputs definition
-    repeated IO inputs = 12;
+    repeated IO inputs = 13;
 
     // Optional outputs definition
-    repeated IO outputs = 13;
+    repeated IO outputs = 14;
 
     // Optional build process
-    Build build = 14;
+    Build build = 15;
 
     // Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
-    google.protobuf.Struct run = 15;
+    google.protobuf.Struct run = 16;
 
     // Optional flag to mark this specification as template
-    Template template = 16;
+    Template template = 17;
 
     // Optional flag to mark this specification requires approval before running
-    bool isApproved = 17;
+    bool isApproved = 18;
 
     // Optional field to assign cost to this Component
-    float cost = 18;
+    float cost = 19;
 }

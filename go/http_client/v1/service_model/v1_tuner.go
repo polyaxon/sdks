@@ -22,6 +22,9 @@ type V1Tuner struct {
 	// Component name to use
 	HubRef string `json:"hubRef,omitempty"`
 
+	// Optional namespace to use, uses agent's namespace by default
+	Namespace string `json:"namespace,omitempty"`
+
 	// Optional dict of params
 	Params map[string]V1Param `json:"params,omitempty"`
 
