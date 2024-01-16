@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.0-rc3",
+    "version": "2.1.0-rc5",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -21699,6 +21699,30 @@
       },
       "title": "Organization member specification"
     },
+    "v1PaddleElasticPolic": {
+      "type": "object",
+      "properties": {
+        "minReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxRestarts": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "title": "Paddle elastic policy"
+    },
     "v1PaddleJob": {
       "type": "object",
       "properties": {
@@ -21714,6 +21738,10 @@
         "schedulingPolicy": {
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
+        },
+        "elasticPolicy": {
+          "$ref": "#/definitions/v1PaddleElasticPolic",
+          "title": "Optional elastic policy section"
         },
         "master": {
           "$ref": "#/definitions/v1KFReplica",
@@ -22272,6 +22300,61 @@
       ],
       "default": "component"
     },
+    "v1PytorchElasticPolicy": {
+      "type": "object",
+      "properties": {
+        "minReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "description": "minReplicas is the lower limit for the number of replicas to which the training job can scale down."
+        },
+        "maxReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "description": "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null."
+        },
+        "rdvzBackend": {
+          "type": "string"
+        },
+        "rdvzPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rdvzHost": {
+          "type": "string"
+        },
+        "rdvzId": {
+          "type": "string"
+        },
+        "rdvzConf": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "RDZVConf contains additional rendezvous configuration (<key1>=<value1>,<key2>=<value2>,...)."
+        },
+        "standalone": {
+          "type": "boolean",
+          "description": "Start a local standalone rendezvous backend that is represented by a C10d TCP store\non port 29400. Useful when launching single-node, multi-worker job. If specified\n--rdzv_backend, --rdzv_endpoint, --rdzv_id are auto-assigned; any explicitly set values\nare ignored."
+        },
+        "nProcPerNode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of workers per node; supported values: [auto, cpu, gpu, int].\nDeprecated: This API is deprecated in v1.7+\nUse .spec.nprocPerNode instead."
+        },
+        "maxRestarts": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Metrics": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Metrics contains the specifications which are used to calculate the\ndesired replica count (the maximum replica count across all metrics will\nbe used).  The desired replica count is calculated with multiplying the\nratio between the target value and the current value by the current\nnumber of pods. Ergo, metrics used must decrease as the pod count is\nincreased, and vice-versa.  See the individual metric source types for\nmore information about how each type of metric must respond.\nIf not set, the HPA will not be created."
+        }
+      }
+    },
     "v1PytorchJob": {
       "type": "object",
       "properties": {
@@ -22288,6 +22371,10 @@
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
         },
+        "elasticPolicy": {
+          "$ref": "#/definitions/v1PytorchElasticPolicy",
+          "title": "Optional elastic policy section"
+        },
         "master": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Master replicas definition"
@@ -22295,6 +22382,9 @@
         "worker": {
           "$ref": "#/definitions/v1KFReplica",
           "title": "Worker replicas definition"
+        },
+        "nProcPerNode": {
+          "type": "string"
         }
       },
       "title": "Pytorch Job specification"
@@ -23074,8 +23164,15 @@
         "queue": {
           "type": "string"
         },
+        "minResources": {
+          "type": "object"
+        },
         "priorityClass": {
           "type": "string"
+        },
+        "scheduleTimeoutSeconds": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -23622,6 +23719,10 @@
         "schedulingPolicy": {
           "$ref": "#/definitions/v1SchedulingPolicy",
           "title": "optional scheduling policy section"
+        },
+        "successPolicy": {
+          "type": "string",
+          "title": "optiona success policy"
         },
         "enableDynamicWorker": {
           "type": "boolean",

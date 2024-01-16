@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package v1;
 
+import "google/protobuf/struct.proto";
+
 import "v1/flow/environment.proto";
 import "v1/flow/init.proto";
 import "v1/flow/k8s.proto";
@@ -9,9 +11,15 @@ import "v1/flow/k8s.proto";
 option go_package = "v1/flow";
 
 message SchedulingPolicy {
-  	int32 minAvailable = 1;
-	  string queue = 2;
-	  string priorityClass = 3;
+  int32 minAvailable = 1;
+
+  string queue = 2;
+
+  google.protobuf.Struct minResources = 3;
+
+  string priorityClass = 4;
+
+  int32 scheduleTimeoutSeconds = 5;
 }
 
 // Distributed Replica specification
@@ -66,6 +74,48 @@ message MPIJob {
     KFReplica launcher = 8;
 }
 
+message PytorchElasticPolicy {
+	// minReplicas is the lower limit for the number of replicas to which the training job can scale down.
+	int32 minReplicas = 1;
+
+	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null.
+	int32 maxReplicas = 2;
+
+  string rdvzBackend = 3;
+
+	int32 rdvzPort = 4;
+
+  string rdvzHost = 5;
+
+  string rdvzId = 6;
+
+  // RDZVConf contains additional rendezvous configuration (<key1>=<value1>,<key2>=<value2>,...).
+	repeated google.protobuf.Struct rdvzConf = 7;
+
+  // Start a local standalone rendezvous backend that is represented by a C10d TCP store
+	// on port 29400. Useful when launching single-node, multi-worker job. If specified
+	// --rdzv_backend, --rdzv_endpoint, --rdzv_id are auto-assigned; any explicitly set values
+	// are ignored.
+	bool standalone = 8;
+
+  // Number of workers per node; supported values: [auto, cpu, gpu, int].
+	// Deprecated: This API is deprecated in v1.7+
+	// Use .spec.nprocPerNode instead.
+	int32 nProcPerNode = 9;
+
+	int32 maxRestarts = 10;
+
+	// Metrics contains the specifications which are used to calculate the
+	// desired replica count (the maximum replica count across all metrics will
+	// be used).  The desired replica count is calculated with multiplying the
+	// ratio between the target value and the current value by the current
+	// number of pods. Ergo, metrics used must decrease as the pod count is
+	// increased, and vice-versa.  See the individual metric source types for
+	// more information about how each type of metric must respond.
+	// If not set, the HPA will not be created.
+	repeated google.protobuf.Struct Metrics = 11;
+}
+
 // Pytorch Job specification
 message PytorchJob {
     // Optional component kind, should be equal to 'pytorchjob'
@@ -77,11 +127,16 @@ message PytorchJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
+    // Optional elastic policy section
+    PytorchElasticPolicy elasticPolicy = 4;
+
     // Master replicas definition
-    KFReplica master = 4;
+    KFReplica master = 5;
 
     // Worker replicas definition
-    KFReplica worker = 5;
+    KFReplica worker = 6;
+
+    string nProcPerNode = 7;
 }
 
 // TF Job specification
@@ -95,20 +150,23 @@ message TFJob {
     // optional scheduling policy section
     SchedulingPolicy schedulingPolicy = 3;
 
+    // optiona success policy
+    string successPolicy = 4;
+
     // optional flag to enable dynamic worker
-    bool enableDynamicWorker = 4;
+    bool enableDynamicWorker = 5;
 
     // Chief replicas definition
-    KFReplica chief = 5;
+    KFReplica chief = 6;
 
     // Worker replicas definition
-    KFReplica worker = 6;
+    KFReplica worker = 7;
 
     // PS replicas definition
-    KFReplica ps = 7;
+    KFReplica ps = 8;
 
     // Evaluator replicas definition
-    KFReplica evaluator = 8;
+    KFReplica evaluator = 9;
 }
 
 // MXNet Job specification
@@ -170,6 +228,14 @@ message XGBoostJob {
   KFReplica worker = 5;
 }
 
+// Paddle elastic policy
+message PaddleElasticPolic {
+  int32 minReplicas = 1;
+  int32 maxReplicas = 2;
+  int32 maxRestarts = 3;
+  repeated google.protobuf.Struct metrics = 4;
+}
+
 // Paddle Job specification
 message PaddleJob {
   // Optional component kind, should be equal to 'paddlejob'
@@ -181,9 +247,12 @@ message PaddleJob {
   // optional scheduling policy section
   SchedulingPolicy schedulingPolicy = 3;
 
+  // Optional elastic policy section
+  PaddleElasticPolic elasticPolicy = 4;
+
   // Master replicas definition
-  KFReplica master = 4;
+  KFReplica master = 5;
 
   // Worker replicas definition
-  KFReplica worker = 5;
+  KFReplica worker = 6;
 }

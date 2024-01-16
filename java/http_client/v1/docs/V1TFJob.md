@@ -10,6 +10,7 @@
 |**kind** | **String** |  |  [optional] |
 |**cleanPodPolicy** | **V1CleanPodPolicy** |  |  [optional] |
 |**schedulingPolicy** | [**V1SchedulingPolicy**](V1SchedulingPolicy.md) |  |  [optional] |
+|**successPolicy** | **String** |  |  [optional] |
 |**enableDynamicWorker** | **Boolean** |  |  [optional] |
 |**chief** | [**V1KFReplica**](V1KFReplica.md) |  |  [optional] |
 |**worker** | [**V1KFReplica**](V1KFReplica.md) |  |  [optional] |

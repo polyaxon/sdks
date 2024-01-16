@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **kind** | **str** |  | [optional] [default to 'paddlejob']
 **clean_pod_policy** | [**V1CleanPodPolicy**](V1CleanPodPolicy.md) |  | [optional] 
 **scheduling_policy** | [**V1SchedulingPolicy**](V1SchedulingPolicy.md) |  | [optional] 
+**elastic_policy** | [**V1PaddleElasticPolic**](V1PaddleElasticPolic.md) |  | [optional] 
 **master** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 **worker** | [**V1KFReplica**](V1KFReplica.md) |  | [optional] 
 

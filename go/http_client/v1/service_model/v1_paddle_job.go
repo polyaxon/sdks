@@ -21,6 +21,9 @@ type V1PaddleJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
+	// Optional elastic policy section
+	ElasticPolicy *V1PaddleElasticPolic `json:"elasticPolicy,omitempty"`
+
 	// Optional component kind, should be equal to 'paddlejob'
 	Kind *string `json:"kind,omitempty"`
 
@@ -39,6 +42,10 @@ func (m *V1PaddleJob) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCleanPodPolicy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateElasticPolicy(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -71,6 +78,25 @@ func (m *V1PaddleJob) validateCleanPodPolicy(formats strfmt.Registry) error {
 				return ve.ValidateName("cleanPodPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cleanPodPolicy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1PaddleJob) validateElasticPolicy(formats strfmt.Registry) error {
+	if swag.IsZero(m.ElasticPolicy) { // not required
+		return nil
+	}
+
+	if m.ElasticPolicy != nil {
+		if err := m.ElasticPolicy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("elasticPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("elasticPolicy")
 			}
 			return err
 		}
@@ -144,6 +170,10 @@ func (m *V1PaddleJob) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateElasticPolicy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMaster(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -175,6 +205,27 @@ func (m *V1PaddleJob) contextValidateCleanPodPolicy(ctx context.Context, formats
 				return ve.ValidateName("cleanPodPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cleanPodPolicy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1PaddleJob) contextValidateElasticPolicy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ElasticPolicy != nil {
+
+		if swag.IsZero(m.ElasticPolicy) { // not required
+			return nil
+		}
+
+		if err := m.ElasticPolicy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("elasticPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("elasticPolicy")
 			}
 			return err
 		}

@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.0-rc3"
+    "version" : "2.1.0-rc5"
   },
   "servers" : [ {
     "url" : "/"
@@ -30280,6 +30280,31 @@
           }
         }
       },
+      "v1PaddleElasticPolic" : {
+        "title" : "Paddle elastic policy",
+        "type" : "object",
+        "properties" : {
+          "minReplicas" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxReplicas" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxRestarts" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "metrics" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          }
+        }
+      },
       "v1PaddleJob" : {
         "title" : "Paddle Job specification",
         "type" : "object",
@@ -30294,6 +30319,9 @@
           },
           "schedulingPolicy" : {
             "$ref" : "#/components/schemas/v1SchedulingPolicy"
+          },
+          "elasticPolicy" : {
+            "$ref" : "#/components/schemas/v1PaddleElasticPolic"
           },
           "master" : {
             "$ref" : "#/components/schemas/v1KFReplica"
@@ -30836,6 +30864,63 @@
         "enum" : [ "component", "model", "artifact" ],
         "default" : "component"
       },
+      "v1PytorchElasticPolicy" : {
+        "type" : "object",
+        "properties" : {
+          "minReplicas" : {
+            "type" : "integer",
+            "description" : "minReplicas is the lower limit for the number of replicas to which the training job can scale down.",
+            "format" : "int32"
+          },
+          "maxReplicas" : {
+            "type" : "integer",
+            "description" : "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null.",
+            "format" : "int32"
+          },
+          "rdvzBackend" : {
+            "type" : "string"
+          },
+          "rdvzPort" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "rdvzHost" : {
+            "type" : "string"
+          },
+          "rdvzId" : {
+            "type" : "string"
+          },
+          "rdvzConf" : {
+            "type" : "array",
+            "description" : "RDZVConf contains additional rendezvous configuration (<key1>=<value1>,<key2>=<value2>,...).",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          },
+          "standalone" : {
+            "type" : "boolean",
+            "description" : "Start a local standalone rendezvous backend that is represented by a C10d TCP store\non port 29400. Useful when launching single-node, multi-worker job. If specified\n--rdzv_backend, --rdzv_endpoint, --rdzv_id are auto-assigned; any explicitly set values\nare ignored."
+          },
+          "nProcPerNode" : {
+            "type" : "integer",
+            "description" : "Number of workers per node; supported values: [auto, cpu, gpu, int].\nDeprecated: This API is deprecated in v1.7+\nUse .spec.nprocPerNode instead.",
+            "format" : "int32"
+          },
+          "maxRestarts" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "Metrics" : {
+            "type" : "array",
+            "description" : "Metrics contains the specifications which are used to calculate the\ndesired replica count (the maximum replica count across all metrics will\nbe used).  The desired replica count is calculated with multiplying the\nratio between the target value and the current value by the current\nnumber of pods. Ergo, metrics used must decrease as the pod count is\nincreased, and vice-versa.  See the individual metric source types for\nmore information about how each type of metric must respond.\nIf not set, the HPA will not be created.",
+            "items" : {
+              "type" : "object",
+              "properties" : { }
+            }
+          }
+        }
+      },
       "v1PytorchJob" : {
         "title" : "Pytorch Job specification",
         "type" : "object",
@@ -30851,11 +30936,17 @@
           "schedulingPolicy" : {
             "$ref" : "#/components/schemas/v1SchedulingPolicy"
           },
+          "elasticPolicy" : {
+            "$ref" : "#/components/schemas/v1PytorchElasticPolicy"
+          },
           "master" : {
             "$ref" : "#/components/schemas/v1KFReplica"
           },
           "worker" : {
             "$ref" : "#/components/schemas/v1KFReplica"
+          },
+          "nProcPerNode" : {
+            "type" : "string"
           }
         }
       },
@@ -31590,8 +31681,16 @@
           "queue" : {
             "type" : "string"
           },
+          "minResources" : {
+            "type" : "object",
+            "properties" : { }
+          },
           "priorityClass" : {
             "type" : "string"
+          },
+          "scheduleTimeoutSeconds" : {
+            "type" : "integer",
+            "format" : "int32"
           }
         }
       },
@@ -32107,6 +32206,10 @@
           },
           "schedulingPolicy" : {
             "$ref" : "#/components/schemas/v1SchedulingPolicy"
+          },
+          "successPolicy" : {
+            "title" : "optiona success policy",
+            "type" : "string"
           },
           "enableDynamicWorker" : {
             "title" : "optional flag to enable dynamic worker",

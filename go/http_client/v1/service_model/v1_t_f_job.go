@@ -39,6 +39,9 @@ type V1TFJob struct {
 	// optional scheduling policy section
 	SchedulingPolicy *V1SchedulingPolicy `json:"schedulingPolicy,omitempty"`
 
+	// optiona success policy
+	SuccessPolicy string `json:"successPolicy,omitempty"`
+
 	// Worker replicas definition
 	Worker *V1KFReplica `json:"worker,omitempty"`
 }

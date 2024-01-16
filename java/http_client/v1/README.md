@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.1.0-rc3
+- API version: 2.1.0-rc5
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.1.0-rc3</version>
+  <version>2.1.0-rc5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.1.0-rc3"
+     implementation "org.openapitools:openapi-java-client:2.1.0-rc5"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.1.0-rc3.jar`
+* `target/openapi-java-client-2.1.0-rc5.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -536,6 +536,7 @@ Class | Method | HTTP request | Description
  - [V1OptimizationResource](docs/V1OptimizationResource.md)
  - [V1Organization](docs/V1Organization.md)
  - [V1OrganizationMember](docs/V1OrganizationMember.md)
+ - [V1PaddleElasticPolic](docs/V1PaddleElasticPolic.md)
  - [V1PaddleJob](docs/V1PaddleJob.md)
  - [V1Param](docs/V1Param.md)
  - [V1PasswordChange](docs/V1PasswordChange.md)
@@ -552,6 +553,7 @@ Class | Method | HTTP request | Description
  - [V1ProjectUserAccess](docs/V1ProjectUserAccess.md)
  - [V1ProjectVersion](docs/V1ProjectVersion.md)
  - [V1ProjectVersionKind](docs/V1ProjectVersionKind.md)
+ - [V1PytorchElasticPolicy](docs/V1PytorchElasticPolicy.md)
  - [V1PytorchJob](docs/V1PytorchJob.md)
  - [V1Queue](docs/V1Queue.md)
  - [V1RandomSearch](docs/V1RandomSearch.md)

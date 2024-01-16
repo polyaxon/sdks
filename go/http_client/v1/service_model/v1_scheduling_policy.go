@@ -20,11 +20,17 @@ type V1SchedulingPolicy struct {
 	// min available
 	MinAvailable int32 `json:"minAvailable,omitempty"`
 
+	// min resources
+	MinResources interface{} `json:"minResources,omitempty"`
+
 	// priority class
 	PriorityClass string `json:"priorityClass,omitempty"`
 
 	// queue
 	Queue string `json:"queue,omitempty"`
+
+	// schedule timeout seconds
+	ScheduleTimeoutSeconds int32 `json:"scheduleTimeoutSeconds,omitempty"`
 }
 
 // Validate validates this v1 scheduling policy

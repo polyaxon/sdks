@@ -21,11 +21,17 @@ type V1PytorchJob struct {
 	// optional clean pod policy section
 	CleanPodPolicy *V1CleanPodPolicy `json:"cleanPodPolicy,omitempty"`
 
+	// Optional elastic policy section
+	ElasticPolicy *V1PytorchElasticPolicy `json:"elasticPolicy,omitempty"`
+
 	// Optional component kind, should be equal to 'pytorchjob'
 	Kind *string `json:"kind,omitempty"`
 
 	// Master replicas definition
 	Master *V1KFReplica `json:"master,omitempty"`
+
+	// n proc per node
+	NProcPerNode string `json:"nProcPerNode,omitempty"`
 
 	// optional scheduling policy section
 	SchedulingPolicy *V1SchedulingPolicy `json:"schedulingPolicy,omitempty"`
@@ -39,6 +45,10 @@ func (m *V1PytorchJob) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCleanPodPolicy(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateElasticPolicy(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -71,6 +81,25 @@ func (m *V1PytorchJob) validateCleanPodPolicy(formats strfmt.Registry) error {
 				return ve.ValidateName("cleanPodPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cleanPodPolicy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1PytorchJob) validateElasticPolicy(formats strfmt.Registry) error {
+	if swag.IsZero(m.ElasticPolicy) { // not required
+		return nil
+	}
+
+	if m.ElasticPolicy != nil {
+		if err := m.ElasticPolicy.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("elasticPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("elasticPolicy")
 			}
 			return err
 		}
@@ -144,6 +173,10 @@ func (m *V1PytorchJob) ContextValidate(ctx context.Context, formats strfmt.Regis
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateElasticPolicy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateMaster(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -175,6 +208,27 @@ func (m *V1PytorchJob) contextValidateCleanPodPolicy(ctx context.Context, format
 				return ve.ValidateName("cleanPodPolicy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("cleanPodPolicy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1PytorchJob) contextValidateElasticPolicy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ElasticPolicy != nil {
+
+		if swag.IsZero(m.ElasticPolicy) { // not required
+			return nil
+		}
+
+		if err := m.ElasticPolicy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("elasticPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("elasticPolicy")
 			}
 			return err
 		}

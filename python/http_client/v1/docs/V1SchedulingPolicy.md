@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **min_available** | **int** |  | [optional] 
 **queue** | **str** |  | [optional] 
+**min_resources** | **object** |  | [optional] 
 **priority_class** | **str** |  | [optional] 
+**schedule_timeout_seconds** | **int** |  | [optional] 
 
 ## Example
 

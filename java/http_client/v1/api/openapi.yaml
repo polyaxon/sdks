@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.0-rc3
+  version: 2.1.0-rc5
 servers:
 - url: /
 security:
@@ -20046,10 +20046,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 1.8268702
+        cost: 3.7814124
         kind: kind
         trigger: null
-        version: 9.254184
+        version: 7.6068635
         tags:
         - tags
         - tags
@@ -20642,7 +20642,7 @@ components:
     v1ConnectionResource:
       example:
         mountPath: mountPath
-        defaultMode: 0
+        defaultMode: 7
         name: name
         items:
         - items
@@ -20749,7 +20749,7 @@ components:
         kind: null
         configMap:
           mountPath: mountPath
-          defaultMode: 0
+          defaultMode: 7
           name: name
           items:
           - items
@@ -20760,7 +20760,7 @@ components:
           key: annotations
         secret:
           mountPath: mountPath
-          defaultMode: 0
+          defaultMode: 7
           name: name
           items:
           - items
@@ -22830,7 +22830,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 0
           volumes:
           - null
           - null
@@ -22992,7 +22992,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 0
           volumes:
           - null
           - null
@@ -23153,7 +23153,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 0
           volumes:
           - null
           - null
@@ -23328,7 +23328,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 8
+        replicas: 0
         volumes:
         - null
         - null
@@ -23765,36 +23765,36 @@ components:
       example:
         image:
           path: path
-          colorspace: 3
-          width: 7
-          height: 8
+          colorspace: 8
+          width: 3
+          height: 2
         curve:
           annotation: annotation
           kind: null
           x:
-          - 8.675064
-          - 8.675064
+          - 2.535259
+          - 2.535259
           "y":
-          - 4.5183096
-          - 4.5183096
+          - 6.173804
+          - 6.173804
         video:
           path: path
           content_type: content_type
-          colorspace: 3
-          width: 2
-          height: 3
+          colorspace: 0
+          width: 9
+          height: 2
         histogram:
           counts:
-          - 9.897492629215506
-          - 9.897492629215506
+          - 0.4833312865174044
+          - 0.4833312865174044
           values:
-          - 3.111202833403195
-          - 3.111202833403195
+          - 4.518309517874243
+          - 4.518309517874243
         artifact:
           path: path
           kind: null
-        metric: 5.3124895
-        step: 5
+        metric: 3.1497903
+        step: 0
         html: html
         model:
           path: path
@@ -23803,8 +23803,8 @@ components:
         audio:
           num_channels: 7
           path: path
-          length_frames: 0
-          sample_rate: 5.877125
+          length_frames: 4
+          sample_rate: 0.3526219
           content_type: content_type
         text: text
         dataframe:
@@ -23911,8 +23911,8 @@ components:
       example:
         num_channels: 7
         path: path
-        length_frames: 0
-        sample_rate: 5.877125
+        length_frames: 4
+        sample_rate: 0.3526219
         content_type: content_type
       properties:
         sample_rate:
@@ -23997,11 +23997,11 @@ components:
         annotation: annotation
         kind: null
         x:
-        - 8.675064
-        - 8.675064
+        - 2.535259
+        - 2.535259
         "y":
-        - 4.5183096
-        - 4.5183096
+        - 6.173804
+        - 6.173804
       properties:
         kind:
           $ref: '#/components/schemas/v1EventCurveKind'
@@ -24050,11 +24050,11 @@ components:
     v1EventHistogram:
       example:
         counts:
-        - 9.897492629215506
-        - 9.897492629215506
+        - 0.4833312865174044
+        - 0.4833312865174044
         values:
-        - 3.111202833403195
-        - 3.111202833403195
+        - 4.518309517874243
+        - 4.518309517874243
       properties:
         values:
           items:
@@ -24071,9 +24071,9 @@ components:
     v1EventImage:
       example:
         path: path
-        colorspace: 3
-        width: 7
-        height: 8
+        colorspace: 8
+        width: 3
+        height: 2
       properties:
         height:
           description: Height of the image.
@@ -24277,9 +24277,9 @@ components:
       example:
         path: path
         content_type: content_type
-        colorspace: 3
-        width: 2
-        height: 3
+        colorspace: 0
+        width: 9
+        height: 2
       properties:
         height:
           description: Height of the video.
@@ -25298,7 +25298,7 @@ components:
         kind: interval
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
-        frequency: 8
+        frequency: 5
       properties:
         kind:
           default: interval
@@ -25803,7 +25803,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 2
+        replicas: 1
         volumes:
         - null
         - null
@@ -27886,7 +27886,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -27896,6 +27896,8 @@ components:
         schedulingPolicy:
           minAvailable: 0
           priorityClass: priorityClass
+          scheduleTimeoutSeconds: 2
+          minResources: "{}"
           queue: queue
         launcher:
           container: "{}"
@@ -28051,7 +28053,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -28234,7 +28236,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -28396,7 +28398,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -28557,7 +28559,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -28718,7 +28720,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -28879,7 +28881,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -29041,7 +29043,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -29051,6 +29053,8 @@ components:
         schedulingPolicy:
           minAvailable: 0
           priorityClass: priorityClass
+          scheduleTimeoutSeconds: 2
+          minResources: "{}"
           queue: queue
       properties:
         kind:
@@ -30165,9 +30169,41 @@ components:
           type: string
       title: Organization member specification
       type: object
+    v1PaddleElasticPolic:
+      example:
+        maxReplicas: 9
+        minReplicas: 3
+        maxRestarts: 8
+        metrics:
+        - "{}"
+        - "{}"
+      properties:
+        minReplicas:
+          format: int32
+          type: integer
+        maxReplicas:
+          format: int32
+          type: integer
+        maxRestarts:
+          format: int32
+          type: integer
+        metrics:
+          items:
+            properties: {}
+            type: object
+          type: array
+      title: Paddle elastic policy
+      type: object
     v1PaddleJob:
       example:
         cleanPodPolicy: null
+        elasticPolicy:
+          maxReplicas: 9
+          minReplicas: 3
+          maxRestarts: 8
+          metrics:
+          - "{}"
+          - "{}"
         kind: paddlejob
         worker:
           container: "{}"
@@ -30323,7 +30359,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -30333,6 +30369,8 @@ components:
         schedulingPolicy:
           minAvailable: 0
           priorityClass: priorityClass
+          scheduleTimeoutSeconds: 2
+          minResources: "{}"
           queue: queue
         master:
           container: "{}"
@@ -30488,7 +30526,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -30504,6 +30542,8 @@ components:
           $ref: '#/components/schemas/v1CleanPodPolicy'
         schedulingPolicy:
           $ref: '#/components/schemas/v1SchedulingPolicy'
+        elasticPolicy:
+          $ref: '#/components/schemas/v1PaddleElasticPolic'
         master:
           $ref: '#/components/schemas/v1KFReplica'
         worker:
@@ -31122,9 +31162,101 @@ components:
       - model
       - artifact
       type: string
+    v1PytorchElasticPolicy:
+      example:
+        maxReplicas: 6
+        rdvzId: rdvzId
+        rdvzConf:
+        - "{}"
+        - "{}"
+        nProcPerNode: 8
+        Metrics:
+        - "{}"
+        - "{}"
+        minReplicas: 8
+        maxRestarts: 9
+        rdvzHost: rdvzHost
+        rdvzBackend: rdvzBackend
+        standalone: true
+        rdvzPort: 4
+      properties:
+        minReplicas:
+          description: minReplicas is the lower limit for the number of replicas to
+            which the training job can scale down.
+          format: int32
+          type: integer
+        maxReplicas:
+          description: "upper limit for the number of pods that can be set by the\
+            \ autoscaler; cannot be smaller than MinReplicas, defaults to null."
+          format: int32
+          type: integer
+        rdvzBackend:
+          type: string
+        rdvzPort:
+          format: int32
+          type: integer
+        rdvzHost:
+          type: string
+        rdvzId:
+          type: string
+        rdvzConf:
+          description: "RDZVConf contains additional rendezvous configuration (<key1>=<value1>,<key2>=<value2>,...)."
+          items:
+            properties: {}
+            type: object
+          type: array
+        standalone:
+          description: |-
+            Start a local standalone rendezvous backend that is represented by a C10d TCP store
+            on port 29400. Useful when launching single-node, multi-worker job. If specified
+            --rdzv_backend, --rdzv_endpoint, --rdzv_id are auto-assigned; any explicitly set values
+            are ignored.
+          type: boolean
+        nProcPerNode:
+          description: |-
+            Number of workers per node; supported values: [auto, cpu, gpu, int].
+            Deprecated: This API is deprecated in v1.7+
+            Use .spec.nprocPerNode instead.
+          format: int32
+          type: integer
+        maxRestarts:
+          format: int32
+          type: integer
+        Metrics:
+          description: |-
+            Metrics contains the specifications which are used to calculate the
+            desired replica count (the maximum replica count across all metrics will
+            be used).  The desired replica count is calculated with multiplying the
+            ratio between the target value and the current value by the current
+            number of pods. Ergo, metrics used must decrease as the pod count is
+            increased, and vice-versa.  See the individual metric source types for
+            more information about how each type of metric must respond.
+            If not set, the HPA will not be created.
+          items:
+            properties: {}
+            type: object
+          type: array
+      type: object
     v1PytorchJob:
       example:
         cleanPodPolicy: null
+        nProcPerNode: nProcPerNode
+        elasticPolicy:
+          maxReplicas: 6
+          rdvzId: rdvzId
+          rdvzConf:
+          - "{}"
+          - "{}"
+          nProcPerNode: 8
+          Metrics:
+          - "{}"
+          - "{}"
+          minReplicas: 8
+          maxRestarts: 9
+          rdvzHost: rdvzHost
+          rdvzBackend: rdvzBackend
+          standalone: true
+          rdvzPort: 4
         kind: pytorchjob
         worker:
           container: "{}"
@@ -31280,7 +31412,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -31290,6 +31422,8 @@ components:
         schedulingPolicy:
           minAvailable: 0
           priorityClass: priorityClass
+          scheduleTimeoutSeconds: 2
+          minResources: "{}"
           queue: queue
         master:
           container: "{}"
@@ -31445,7 +31579,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -31461,10 +31595,14 @@ components:
           $ref: '#/components/schemas/v1CleanPodPolicy'
         schedulingPolicy:
           $ref: '#/components/schemas/v1SchedulingPolicy'
+        elasticPolicy:
+          $ref: '#/components/schemas/v1PytorchElasticPolicy'
         master:
           $ref: '#/components/schemas/v1KFReplica'
         worker:
           $ref: '#/components/schemas/v1KFReplica'
+        nProcPerNode:
+          type: string
       title: Pytorch Job specification
       type: object
     v1Queue:
@@ -31731,8 +31869,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 4
-          replicas: 6
+          minReplicas: 5
+          replicas: 5
           volumes:
           - null
           - null
@@ -31901,8 +32039,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 4
-          replicas: 6
+          minReplicas: 5
+          replicas: 5
           volumes:
           - null
           - null
@@ -32066,8 +32204,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 4
-          replicas: 6
+          minReplicas: 5
+          replicas: 5
           volumes:
           - null
           - null
@@ -32264,8 +32402,8 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        minReplicas: 4
-        replicas: 6
+        minReplicas: 5
+        replicas: 5
         volumes:
         - null
         - null
@@ -33155,7 +33293,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 0
             volumes:
             - null
             - null
@@ -33317,7 +33455,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 0
             volumes:
             - null
             - null
@@ -33478,7 +33616,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 0
             volumes:
             - null
             - null
@@ -33487,6 +33625,13 @@ components:
             - connections
         paddleJob:
           cleanPodPolicy: null
+          elasticPolicy:
+            maxReplicas: 9
+            minReplicas: 3
+            maxRestarts: 8
+            metrics:
+            - "{}"
+            - "{}"
           kind: paddlejob
           worker:
             container: "{}"
@@ -33642,7 +33787,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -33652,6 +33797,8 @@ components:
           schedulingPolicy:
             minAvailable: 0
             priorityClass: priorityClass
+            scheduleTimeoutSeconds: 2
+            minResources: "{}"
             queue: queue
           master:
             container: "{}"
@@ -33807,7 +33954,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -33972,8 +34119,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 4
-            replicas: 6
+            minReplicas: 5
+            replicas: 5
             volumes:
             - null
             - null
@@ -34142,8 +34289,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 4
-            replicas: 6
+            minReplicas: 5
+            replicas: 5
             volumes:
             - null
             - null
@@ -34307,8 +34454,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 4
-            replicas: 6
+            minReplicas: 5
+            replicas: 5
             volumes:
             - null
             - null
@@ -34474,7 +34621,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -34636,7 +34783,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -34797,7 +34944,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -34958,7 +35105,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -35119,7 +35266,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -35281,7 +35428,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -35291,6 +35438,8 @@ components:
           schedulingPolicy:
             minAvailable: 0
             priorityClass: priorityClass
+            scheduleTimeoutSeconds: 2
+            minResources: "{}"
             queue: queue
         service:
           container: "{}"
@@ -35616,7 +35765,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -35778,7 +35927,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -35939,7 +36088,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -35949,7 +36098,10 @@ components:
           schedulingPolicy:
             minAvailable: 0
             priorityClass: priorityClass
+            scheduleTimeoutSeconds: 2
+            minResources: "{}"
             queue: queue
+          successPolicy: successPolicy
           evaluator:
             container: "{}"
             init:
@@ -36104,7 +36256,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -36268,7 +36420,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -36278,6 +36430,8 @@ components:
           schedulingPolicy:
             minAvailable: 0
             priorityClass: priorityClass
+            scheduleTimeoutSeconds: 2
+            minResources: "{}"
             queue: queue
           master:
             container: "{}"
@@ -36433,7 +36587,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -38120,6 +38274,23 @@ components:
           concurrency: 3
         pytorchJob:
           cleanPodPolicy: null
+          nProcPerNode: nProcPerNode
+          elasticPolicy:
+            maxReplicas: 6
+            rdvzId: rdvzId
+            rdvzConf:
+            - "{}"
+            - "{}"
+            nProcPerNode: 8
+            Metrics:
+            - "{}"
+            - "{}"
+            minReplicas: 8
+            maxRestarts: 9
+            rdvzHost: rdvzHost
+            rdvzBackend: rdvzBackend
+            standalone: true
+            rdvzPort: 4
           kind: pytorchjob
           worker:
             container: "{}"
@@ -38275,7 +38446,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -38285,6 +38456,8 @@ components:
           schedulingPolicy:
             minAvailable: 0
             priorityClass: priorityClass
+            scheduleTimeoutSeconds: 2
+            minResources: "{}"
             queue: queue
           master:
             container: "{}"
@@ -38440,7 +38613,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -38766,7 +38939,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -38776,6 +38949,8 @@ components:
           schedulingPolicy:
             minAvailable: 0
             priorityClass: priorityClass
+            scheduleTimeoutSeconds: 2
+            minResources: "{}"
             queue: queue
           launcher:
             container: "{}"
@@ -38931,7 +39106,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 2
+            replicas: 1
             volumes:
             - null
             - null
@@ -39063,7 +39238,7 @@ components:
           kind: interval
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
-          frequency: 8
+          frequency: 5
       properties:
         cron:
           $ref: '#/components/schemas/v1CronSchedule'
@@ -39084,6 +39259,8 @@ components:
       example:
         minAvailable: 0
         priorityClass: priorityClass
+        scheduleTimeoutSeconds: 2
+        minResources: "{}"
         queue: queue
       properties:
         minAvailable:
@@ -39091,8 +39268,14 @@ components:
           type: integer
         queue:
           type: string
+        minResources:
+          properties: {}
+          type: object
         priorityClass:
           type: string
+        scheduleTimeoutSeconds:
+          format: int32
+          type: integer
       type: object
     v1Schemas:
       example:
@@ -39126,7 +39309,7 @@ components:
           user: user
         resource:
           mountPath: mountPath
-          defaultMode: 0
+          defaultMode: 7
           name: name
           items:
           - items
@@ -39287,7 +39470,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 0
               volumes:
               - null
               - null
@@ -39449,7 +39632,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 0
               volumes:
               - null
               - null
@@ -39610,7 +39793,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 0
               volumes:
               - null
               - null
@@ -39619,6 +39802,13 @@ components:
               - connections
           paddleJob:
             cleanPodPolicy: null
+            elasticPolicy:
+              maxReplicas: 9
+              minReplicas: 3
+              maxRestarts: 8
+              metrics:
+              - "{}"
+              - "{}"
             kind: paddlejob
             worker:
               container: "{}"
@@ -39774,7 +39964,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -39784,6 +39974,8 @@ components:
             schedulingPolicy:
               minAvailable: 0
               priorityClass: priorityClass
+              scheduleTimeoutSeconds: 2
+              minResources: "{}"
               queue: queue
             master:
               container: "{}"
@@ -39939,7 +40131,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -40104,8 +40296,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 4
-              replicas: 6
+              minReplicas: 5
+              replicas: 5
               volumes:
               - null
               - null
@@ -40274,8 +40466,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 4
-              replicas: 6
+              minReplicas: 5
+              replicas: 5
               volumes:
               - null
               - null
@@ -40439,8 +40631,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 4
-              replicas: 6
+              minReplicas: 5
+              replicas: 5
               volumes:
               - null
               - null
@@ -40606,7 +40798,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -40768,7 +40960,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -40929,7 +41121,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -41090,7 +41282,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -41251,7 +41443,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -41413,7 +41605,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -41423,6 +41615,8 @@ components:
             schedulingPolicy:
               minAvailable: 0
               priorityClass: priorityClass
+              scheduleTimeoutSeconds: 2
+              minResources: "{}"
               queue: queue
           service:
             container: "{}"
@@ -41748,7 +41942,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -41910,7 +42104,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -42071,7 +42265,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -42081,7 +42275,10 @@ components:
             schedulingPolicy:
               minAvailable: 0
               priorityClass: priorityClass
+              scheduleTimeoutSeconds: 2
+              minResources: "{}"
               queue: queue
+            successPolicy: successPolicy
             evaluator:
               container: "{}"
               init:
@@ -42236,7 +42433,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -42400,7 +42597,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -42410,6 +42607,8 @@ components:
             schedulingPolicy:
               minAvailable: 0
               priorityClass: priorityClass
+              scheduleTimeoutSeconds: 2
+              minResources: "{}"
               queue: queue
             master:
               container: "{}"
@@ -42565,7 +42764,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -44252,6 +44451,23 @@ components:
             concurrency: 3
           pytorchJob:
             cleanPodPolicy: null
+            nProcPerNode: nProcPerNode
+            elasticPolicy:
+              maxReplicas: 6
+              rdvzId: rdvzId
+              rdvzConf:
+              - "{}"
+              - "{}"
+              nProcPerNode: 8
+              Metrics:
+              - "{}"
+              - "{}"
+              minReplicas: 8
+              maxRestarts: 9
+              rdvzHost: rdvzHost
+              rdvzBackend: rdvzBackend
+              standalone: true
+              rdvzPort: 4
             kind: pytorchjob
             worker:
               container: "{}"
@@ -44407,7 +44623,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -44417,6 +44633,8 @@ components:
             schedulingPolicy:
               minAvailable: 0
               priorityClass: priorityClass
+              scheduleTimeoutSeconds: 2
+              minResources: "{}"
               queue: queue
             master:
               container: "{}"
@@ -44572,7 +44790,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -44898,7 +45116,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -44908,6 +45126,8 @@ components:
             schedulingPolicy:
               minAvailable: 0
               priorityClass: priorityClass
+              scheduleTimeoutSeconds: 2
+              minResources: "{}"
               queue: queue
             launcher:
               container: "{}"
@@ -45063,7 +45283,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 2
+              replicas: 1
               volumes:
               - null
               - null
@@ -45314,7 +45534,7 @@ components:
             kind: interval
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
-            frequency: 8
+            frequency: 5
         polyaxonSidecarContainer:
           sleepInterval: 5
           monitorSpec: true
@@ -45341,7 +45561,7 @@ components:
           kind: null
           configMap:
             mountPath: mountPath
-            defaultMode: 0
+            defaultMode: 7
             name: name
             items:
             - items
@@ -45352,7 +45572,7 @@ components:
             key: annotations
           secret:
             mountPath: mountPath
-            defaultMode: 0
+            defaultMode: 7
             name: name
             items:
             - items
@@ -45369,36 +45589,36 @@ components:
         event:
           image:
             path: path
-            colorspace: 3
-            width: 7
-            height: 8
+            colorspace: 8
+            width: 3
+            height: 2
           curve:
             annotation: annotation
             kind: null
             x:
-            - 8.675064
-            - 8.675064
+            - 2.535259
+            - 2.535259
             "y":
-            - 4.5183096
-            - 4.5183096
+            - 6.173804
+            - 6.173804
           video:
             path: path
             content_type: content_type
-            colorspace: 3
-            width: 2
-            height: 3
+            colorspace: 0
+            width: 9
+            height: 2
           histogram:
             counts:
-            - 9.897492629215506
-            - 9.897492629215506
+            - 0.4833312865174044
+            - 0.4833312865174044
             values:
-            - 3.111202833403195
-            - 3.111202833403195
+            - 4.518309517874243
+            - 4.518309517874243
           artifact:
             path: path
             kind: null
-          metric: 5.3124895
-          step: 5
+          metric: 3.1497903
+          step: 0
           html: html
           model:
             path: path
@@ -45407,8 +45627,8 @@ components:
           audio:
             num_channels: 7
             path: path
-            length_frames: 0
-            sample_rate: 5.877125
+            length_frames: 4
+            sample_rate: 0.3526219
             content_type: content_type
           text: text
           dataframe:
@@ -46383,10 +46603,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 1.8268702
+          cost: 3.7814124
           kind: kind
           trigger: null
-          version: 9.254184
+          version: 7.6068635
           tags:
           - tags
           - tags
@@ -47316,7 +47536,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -47478,7 +47698,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -47639,7 +47859,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -47649,7 +47869,10 @@ components:
         schedulingPolicy:
           minAvailable: 0
           priorityClass: priorityClass
+          scheduleTimeoutSeconds: 2
+          minResources: "{}"
           queue: queue
+        successPolicy: successPolicy
         evaluator:
           container: "{}"
           init:
@@ -47804,7 +48027,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -47820,6 +48043,9 @@ components:
           $ref: '#/components/schemas/v1CleanPodPolicy'
         schedulingPolicy:
           $ref: '#/components/schemas/v1SchedulingPolicy'
+        successPolicy:
+          title: optiona success policy
+          type: string
         enableDynamicWorker:
           title: optional flag to enable dynamic worker
           type: boolean
@@ -48650,7 +48876,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
@@ -48660,6 +48886,8 @@ components:
         schedulingPolicy:
           minAvailable: 0
           priorityClass: priorityClass
+          scheduleTimeoutSeconds: 2
+          minResources: "{}"
           queue: queue
         master:
           container: "{}"
@@ -48815,7 +49043,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 2
+          replicas: 1
           volumes:
           - null
           - null
