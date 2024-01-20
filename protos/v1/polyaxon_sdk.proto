@@ -50,7 +50,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "2.1.0-rc5";
+        version: "2.1.0-rc7";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -1293,6 +1293,27 @@ service AgentsV1 {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{entity}/token"
       body: "token"
+    };
+  }
+
+  // collect agent
+  rpc CollectAgentData(AgentResourcesRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      post: "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect"
+    };
+  }
+
+  // Inspect an agent's service full conditions
+  rpc InspectAgent(AgentResourcesRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      get: "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect"
+    };
+  }
+
+  // Get run logs
+  rpc GetAgentLogs(AgentResourcesRequest) returns (Logs) {
+    option (google.api.http) = {
+      get: "/streams/v1/{namespace}/{owner}/agents/{uuid}/logs"
     };
   }
 }

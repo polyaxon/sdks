@@ -66,6 +66,30 @@ message AgentBodyRequest {
     Agent agent = 2;
 }
 
+// Request data to get agent resources
+message AgentResourcesRequest {
+  // namespace
+  string namespace = 1;
+
+  // Owner of the namespace
+  string owner = 2;
+
+  // Uuid identifier of the entity
+  string uuid = 3;
+
+  // Service
+  string service = 4;
+
+  // last_file
+  string last_file = 5;
+
+  // Force query param
+  bool force = 6;
+
+  // Connection to use
+  string connection = 7;
+}
+
 // Request data to trigger cron
 message CronBodyRequest {
     // Owner of the namespace

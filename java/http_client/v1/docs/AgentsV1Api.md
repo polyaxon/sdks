@@ -5,15 +5,18 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent |
 | [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent |
 | [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status |
 | [**cronAgent**](AgentsV1Api.md#cronAgent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron |
 | [**deleteAgent**](AgentsV1Api.md#deleteAgent) | **DELETE** /api/v1/orgs/{owner}/agents/{uuid} | Delete agent |
 | [**getAgent**](AgentsV1Api.md#getAgent) | **GET** /api/v1/orgs/{owner}/agents/{uuid} | Get agent |
 | [**getAgentConfig**](AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config |
+| [**getAgentLogs**](AgentsV1Api.md#getAgentLogs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs |
 | [**getAgentState**](AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs) |
 | [**getAgentToken**](AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token |
 | [**getGlobalState**](AgentsV1Api.md#getGlobalState) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs) |
+| [**inspectAgent**](AgentsV1Api.md#inspectAgent) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect | Inspect an agent&#39;s service full conditions |
 | [**listAgentNames**](AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names |
 | [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents |
 | [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent |
@@ -23,6 +26,81 @@ All URIs are relative to *http://localhost*
 | [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config |
 | [**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token |
 
+
+<a name="collectAgentData"></a>
+# **collectAgentData**
+> Object collectAgentData(namespace, owner, uuid)
+
+collect agent
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AgentsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
+    String owner = "owner_example"; // String | Owner of the namespace
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    try {
+      Object result = apiInstance.collectAgentData(namespace, owner, uuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentsV1Api#collectAgentData");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="createAgent"></a>
 # **createAgent**
@@ -469,6 +547,89 @@ public class Example {
 | **404** | Resource does not exist. |  -  |
 | **0** | An unexpected error response. |  -  |
 
+<a name="getAgentLogs"></a>
+# **getAgentLogs**
+> V1Logs getAgentLogs(namespace, owner, uuid, service, lastFile, force, connection)
+
+Get run logs
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AgentsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
+    String owner = "owner_example"; // String | Owner of the namespace
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    String service = "service_example"; // String | Service.
+    String lastFile = "lastFile_example"; // String | last_file.
+    Boolean force = true; // Boolean | Force query param.
+    String connection = "connection_example"; // String | Connection to use.
+    try {
+      V1Logs result = apiInstance.getAgentLogs(namespace, owner, uuid, service, lastFile, force, connection);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentsV1Api#getAgentLogs");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+| **service** | **String**| Service. | [optional] |
+| **lastFile** | **String**| last_file. | [optional] |
+| **force** | **Boolean**| Force query param. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
+
+### Return type
+
+[**V1Logs**](V1Logs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
 <a name="getAgentState"></a>
 # **getAgentState**
 > V1AgentStateResponse getAgentState(owner, uuid)
@@ -667,6 +828,89 @@ public class Example {
 ### Return type
 
 [**V1AgentStateResponse**](V1AgentStateResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="inspectAgent"></a>
+# **inspectAgent**
+> Object inspectAgent(namespace, owner, uuid, service, lastFile, force, connection)
+
+Inspect an agent&#39;s service full conditions
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AgentsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
+    String owner = "owner_example"; // String | Owner of the namespace
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    String service = "service_example"; // String | Service.
+    String lastFile = "lastFile_example"; // String | last_file.
+    Boolean force = true; // Boolean | Force query param.
+    String connection = "connection_example"; // String | Connection to use.
+    try {
+      Object result = apiInstance.inspectAgent(namespace, owner, uuid, service, lastFile, force, connection);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentsV1Api#inspectAgent");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+| **service** | **String**| Service. | [optional] |
+| **lastFile** | **String**| last_file. | [optional] |
+| **force** | **Boolean**| Force query param. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
+
+### Return type
+
+**Object**
 
 ### Authorization
 

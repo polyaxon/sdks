@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.0-rc5",
+    "version": "2.1.0-rc7",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -15772,6 +15772,236 @@
         },
         "tags": [
           "SchemasV1"
+        ]
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect": {
+      "post": {
+        "summary": "collect agent",
+        "operationId": "CollectAgentData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect": {
+      "get": {
+        "summary": "Inspect an agent's service full conditions",
+        "operationId": "InspectAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "service",
+            "description": "Service.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "last_file",
+            "description": "last_file.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "force",
+            "description": "Force query param.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/logs": {
+      "get": {
+        "summary": "Get run logs",
+        "operationId": "GetAgentLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Logs"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "service",
+            "description": "Service.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "last_file",
+            "description": "last_file.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "force",
+            "description": "Force query param.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
         ]
       }
     },

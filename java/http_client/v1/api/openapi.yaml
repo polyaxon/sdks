@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.0-rc5
+  version: 2.1.0-rc7
 servers:
 - url: /
 security:
@@ -17161,6 +17161,259 @@ paths:
       summary: NoOp
       tags:
       - SchemasV1
+      x-accepts: application/json
+  /streams/v1/{namespace}/{owner}/agents/{uuid}/collect:
+    post:
+      operationId: CollectAgentData
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: collect agent
+      tags:
+      - AgentsV1
+      x-accepts: application/json
+  /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect:
+    get:
+      operationId: InspectAgent
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Service.
+        explode: true
+        in: query
+        name: service
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: last_file.
+        explode: true
+        in: query
+        name: last_file
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Force query param.
+        explode: true
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Inspect an agent's service full conditions
+      tags:
+      - AgentsV1
+      x-accepts: application/json
+  /streams/v1/{namespace}/{owner}/agents/{uuid}/logs:
+    get:
+      operationId: GetAgentLogs
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Service.
+        explode: true
+        in: query
+        name: service
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: last_file.
+        explode: true
+        in: query
+        name: last_file
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Force query param.
+        explode: true
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Logs'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get run logs
+      tags:
+      - AgentsV1
       x-accepts: application/json
   /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}:
     get:

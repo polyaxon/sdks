@@ -28,6 +28,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CollectAgentData(params *CollectAgentDataParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectAgentDataOK, *CollectAgentDataNoContent, error)
+
 	CreateAgent(params *CreateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentOK, *CreateAgentNoContent, error)
 
 	CreateAgentStatus(params *CreateAgentStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentStatusOK, *CreateAgentStatusNoContent, error)
@@ -40,11 +42,15 @@ type ClientService interface {
 
 	GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentConfigOK, *GetAgentConfigNoContent, error)
 
+	GetAgentLogs(params *GetAgentLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentLogsOK, *GetAgentLogsNoContent, error)
+
 	GetAgentState(params *GetAgentStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStateOK, *GetAgentStateNoContent, error)
 
 	GetAgentToken(params *GetAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentTokenOK, *GetAgentTokenNoContent, error)
 
 	GetGlobalState(params *GetGlobalStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetGlobalStateOK, *GetGlobalStateNoContent, error)
+
+	InspectAgent(params *InspectAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InspectAgentOK, *InspectAgentNoContent, error)
 
 	ListAgentNames(params *ListAgentNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentNamesOK, *ListAgentNamesNoContent, error)
 
@@ -63,6 +69,46 @@ type ClientService interface {
 	UpdateAgentToken(params *UpdateAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentTokenOK, *UpdateAgentTokenNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CollectAgentData collects agent
+*/
+func (a *Client) CollectAgentData(params *CollectAgentDataParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectAgentDataOK, *CollectAgentDataNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCollectAgentDataParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CollectAgentData",
+		Method:             "POST",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CollectAgentDataReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CollectAgentDataOK:
+		return value, nil, nil
+	case *CollectAgentDataNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CollectAgentDataDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -306,6 +352,46 @@ func (a *Client) GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.C
 }
 
 /*
+GetAgentLogs gets run logs
+*/
+func (a *Client) GetAgentLogs(params *GetAgentLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentLogsOK, *GetAgentLogsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAgentLogsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAgentLogs",
+		Method:             "GET",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/logs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetAgentLogsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAgentLogsOK:
+		return value, nil, nil
+	case *GetAgentLogsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetAgentLogsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
 GetAgentState gets state queues runs
 */
 func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStateOK, *GetAgentStateNoContent, error) {
@@ -422,6 +508,46 @@ func (a *Client) GetGlobalState(params *GetGlobalStateParams, authInfo runtime.C
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetGlobalStateDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+InspectAgent inspects an agent s service full conditions
+*/
+func (a *Client) InspectAgent(params *InspectAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InspectAgentOK, *InspectAgentNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewInspectAgentParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "InspectAgent",
+		Method:             "GET",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &InspectAgentReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *InspectAgentOK:
+		return value, nil, nil
+	case *InspectAgentNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*InspectAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

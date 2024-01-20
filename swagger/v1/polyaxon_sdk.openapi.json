@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.0-rc5"
+    "version" : "2.1.0-rc7"
   },
   "servers" : [ {
     "url" : "/"
@@ -23983,6 +23983,356 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/v1Schemas"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect" : {
+      "post" : {
+        "tags" : [ "AgentsV1" ],
+        "summary" : "collect agent",
+        "operationId" : "CollectAgentData",
+        "parameters" : [ {
+          "name" : "namespace",
+          "in" : "path",
+          "description" : "namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect" : {
+      "get" : {
+        "tags" : [ "AgentsV1" ],
+        "summary" : "Inspect an agent's service full conditions",
+        "operationId" : "InspectAgent",
+        "parameters" : [ {
+          "name" : "namespace",
+          "in" : "path",
+          "description" : "namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "service",
+          "in" : "query",
+          "description" : "Service.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "last_file",
+          "in" : "query",
+          "description" : "last_file.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "force",
+          "in" : "query",
+          "description" : "Force query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/logs" : {
+      "get" : {
+        "tags" : [ "AgentsV1" ],
+        "summary" : "Get run logs",
+        "operationId" : "GetAgentLogs",
+        "parameters" : [ {
+          "name" : "namespace",
+          "in" : "path",
+          "description" : "namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "service",
+          "in" : "query",
+          "description" : "Service.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "last_file",
+          "in" : "query",
+          "description" : "last_file.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "force",
+          "in" : "query",
+          "description" : "Force query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Logs"
                 }
               }
             }

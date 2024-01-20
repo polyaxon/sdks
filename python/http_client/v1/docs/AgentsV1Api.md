@@ -5,15 +5,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**collect_agent_data**](AgentsV1Api.md#collect_agent_data) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 [**create_agent**](AgentsV1Api.md#create_agent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 [**create_agent_status**](AgentsV1Api.md#create_agent_status) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
 [**cron_agent**](AgentsV1Api.md#cron_agent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron
 [**delete_agent**](AgentsV1Api.md#delete_agent) | **DELETE** /api/v1/orgs/{owner}/agents/{uuid} | Delete agent
 [**get_agent**](AgentsV1Api.md#get_agent) | **GET** /api/v1/orgs/{owner}/agents/{uuid} | Get agent
 [**get_agent_config**](AgentsV1Api.md#get_agent_config) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
+[**get_agent_logs**](AgentsV1Api.md#get_agent_logs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 [**get_agent_state**](AgentsV1Api.md#get_agent_state) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
 [**get_agent_token**](AgentsV1Api.md#get_agent_token) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 [**get_global_state**](AgentsV1Api.md#get_global_state) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)
+[**inspect_agent**](AgentsV1Api.md#inspect_agent) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect | Inspect an agent&#39;s service full conditions
 [**list_agent_names**](AgentsV1Api.md#list_agent_names) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 [**list_agents**](AgentsV1Api.md#list_agents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 [**patch_agent**](AgentsV1Api.md#patch_agent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
@@ -23,6 +26,87 @@ Method | HTTP request | Description
 [**update_agent_config**](AgentsV1Api.md#update_agent_config) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
 [**update_agent_token**](AgentsV1Api.md#update_agent_token) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 
+
+# **collect_agent_data**
+> object collect_agent_data(namespace, owner, uuid)
+
+collect agent
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.AgentsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
+    owner = 'owner_example' # str | Owner of the namespace
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+
+    try:
+        # collect agent
+        api_response = api_instance.collect_agent_data(namespace, owner, uuid)
+        print("The response of AgentsV1Api->collect_agent_data:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsV1Api->collect_agent_data: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
+ **owner** | **str**| Owner of the namespace | 
+ **uuid** | **str**| Uuid identifier of the entity | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_agent**
 > V1Agent create_agent(owner, body)
@@ -504,6 +588,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_agent_logs**
+> V1Logs get_agent_logs(namespace, owner, uuid, service=service, last_file=last_file, force=force, connection=connection)
+
+Get run logs
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.AgentsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
+    owner = 'owner_example' # str | Owner of the namespace
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    service = 'service_example' # str | Service. (optional)
+    last_file = 'last_file_example' # str | last_file. (optional)
+    force = True # bool | Force query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
+
+    try:
+        # Get run logs
+        api_response = api_instance.get_agent_logs(namespace, owner, uuid, service=service, last_file=last_file, force=force, connection=connection)
+        print("The response of AgentsV1Api->get_agent_logs:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsV1Api->get_agent_logs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
+ **owner** | **str**| Owner of the namespace | 
+ **uuid** | **str**| Uuid identifier of the entity | 
+ **service** | **str**| Service. | [optional] 
+ **last_file** | **str**| last_file. | [optional] 
+ **force** | **bool**| Force query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
+
+### Return type
+
+[**V1Logs**](V1Logs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_agent_state**
 > V1AgentStateResponse get_agent_state(owner, uuid)
 
@@ -718,6 +891,95 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1AgentStateResponse**](V1AgentStateResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inspect_agent**
+> object inspect_agent(namespace, owner, uuid, service=service, last_file=last_file, force=force, connection=connection)
+
+Inspect an agent's service full conditions
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.AgentsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
+    owner = 'owner_example' # str | Owner of the namespace
+    uuid = 'uuid_example' # str | Uuid identifier of the entity
+    service = 'service_example' # str | Service. (optional)
+    last_file = 'last_file_example' # str | last_file. (optional)
+    force = True # bool | Force query param. (optional)
+    connection = 'connection_example' # str | Connection to use. (optional)
+
+    try:
+        # Inspect an agent's service full conditions
+        api_response = api_instance.inspect_agent(namespace, owner, uuid, service=service, last_file=last_file, force=force, connection=connection)
+        print("The response of AgentsV1Api->inspect_agent:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsV1Api->inspect_agent: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
+ **owner** | **str**| Owner of the namespace | 
+ **uuid** | **str**| Uuid identifier of the entity | 
+ **service** | **str**| Service. | [optional] 
+ **last_file** | **str**| last_file. | [optional] 
+ **force** | **bool**| Force query param. | [optional] 
+ **connection** | **str**| Connection to use. | [optional] 
+
+### Return type
+
+**object**
 
 ### Authorization
 

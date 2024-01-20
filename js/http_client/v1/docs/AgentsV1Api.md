@@ -6,15 +6,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
 [**cronAgent**](AgentsV1Api.md#cronAgent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron
 [**deleteAgent**](AgentsV1Api.md#deleteAgent) | **DELETE** /api/v1/orgs/{owner}/agents/{uuid} | Delete agent
 [**getAgent**](AgentsV1Api.md#getAgent) | **GET** /api/v1/orgs/{owner}/agents/{uuid} | Get agent
 [**getAgentConfig**](AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
+[**getAgentLogs**](AgentsV1Api.md#getAgentLogs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 [**getAgentState**](AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
 [**getAgentToken**](AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 [**getGlobalState**](AgentsV1Api.md#getGlobalState) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)
+[**inspectAgent**](AgentsV1Api.md#inspectAgent) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect | Inspect an agent&#39;s service full conditions
 [**listAgentNames**](AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
@@ -24,6 +27,59 @@ Method | HTTP request | Description
 [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
 [**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 
+
+
+## collectAgentData
+
+> Object collectAgentData(namespace, owner, uuid)
+
+collect agent
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.AgentsV1Api();
+let namespace = "namespace_example"; // String | namespace
+let owner = "owner_example"; // String | Owner of the namespace
+let uuid = "uuid_example"; // String | Uuid identifier of the entity
+apiInstance.collectAgentData(namespace, owner, uuid, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
+ **owner** | **String**| Owner of the namespace | 
+ **uuid** | **String**| Uuid identifier of the entity | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## createAgent
@@ -346,6 +402,69 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getAgentLogs
+
+> V1Logs getAgentLogs(namespace, owner, uuid, opts)
+
+Get run logs
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.AgentsV1Api();
+let namespace = "namespace_example"; // String | namespace
+let owner = "owner_example"; // String | Owner of the namespace
+let uuid = "uuid_example"; // String | Uuid identifier of the entity
+let opts = {
+  'service': "service_example", // String | Service.
+  'last_file': "last_file_example", // String | last_file.
+  'force': true, // Boolean | Force query param.
+  'connection': "connection_example" // String | Connection to use.
+};
+apiInstance.getAgentLogs(namespace, owner, uuid, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
+ **owner** | **String**| Owner of the namespace | 
+ **uuid** | **String**| Uuid identifier of the entity | 
+ **service** | **String**| Service. | [optional] 
+ **last_file** | **String**| last_file. | [optional] 
+ **force** | **Boolean**| Force query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
+
+### Return type
+
+[**V1Logs**](V1Logs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getAgentState
 
 > V1AgentStateResponse getAgentState(owner, uuid)
@@ -486,6 +605,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1AgentStateResponse**](V1AgentStateResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## inspectAgent
+
+> Object inspectAgent(namespace, owner, uuid, opts)
+
+Inspect an agent&#39;s service full conditions
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.AgentsV1Api();
+let namespace = "namespace_example"; // String | namespace
+let owner = "owner_example"; // String | Owner of the namespace
+let uuid = "uuid_example"; // String | Uuid identifier of the entity
+let opts = {
+  'service': "service_example", // String | Service.
+  'last_file': "last_file_example", // String | last_file.
+  'force': true, // Boolean | Force query param.
+  'connection': "connection_example" // String | Connection to use.
+};
+apiInstance.inspectAgent(namespace, owner, uuid, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
+ **owner** | **String**| Owner of the namespace | 
+ **uuid** | **String**| Uuid identifier of the entity | 
+ **service** | **String**| Service. | [optional] 
+ **last_file** | **String**| last_file. | [optional] 
+ **force** | **Boolean**| Force query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
+
+### Return type
+
+**Object**
 
 ### Authorization
 

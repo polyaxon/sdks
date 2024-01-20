@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.1.0-rc5
+- API version: 2.1.0-rc7
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.1.0-rc5</version>
+  <version>2.1.0-rc7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.1.0-rc5"
+     implementation "org.openapitools:openapi-java-client:2.1.0-rc7"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.1.0-rc5.jar`
+* `target/openapi-java-client-2.1.0-rc7.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -99,13 +99,14 @@ public class Example {
     //ApiKey.setApiKeyPrefix("Token");
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
-    V1Agent body = new V1Agent(); // V1Agent | Agent body
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
     try {
-      V1Agent result = apiInstance.createAgent(owner, body);
+      Object result = apiInstance.collectAgentData(namespace, owner, uuid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AgentsV1Api#createAgent");
+      System.err.println("Exception when calling AgentsV1Api#collectAgentData");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -122,15 +123,18 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AgentsV1Api* | [**collectAgentData**](docs/AgentsV1Api.md#collectAgentData) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 *AgentsV1Api* | [**createAgent**](docs/AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 *AgentsV1Api* | [**createAgentStatus**](docs/AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
 *AgentsV1Api* | [**cronAgent**](docs/AgentsV1Api.md#cronAgent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron
 *AgentsV1Api* | [**deleteAgent**](docs/AgentsV1Api.md#deleteAgent) | **DELETE** /api/v1/orgs/{owner}/agents/{uuid} | Delete agent
 *AgentsV1Api* | [**getAgent**](docs/AgentsV1Api.md#getAgent) | **GET** /api/v1/orgs/{owner}/agents/{uuid} | Get agent
 *AgentsV1Api* | [**getAgentConfig**](docs/AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
+*AgentsV1Api* | [**getAgentLogs**](docs/AgentsV1Api.md#getAgentLogs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 *AgentsV1Api* | [**getAgentState**](docs/AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
 *AgentsV1Api* | [**getAgentToken**](docs/AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 *AgentsV1Api* | [**getGlobalState**](docs/AgentsV1Api.md#getGlobalState) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)
+*AgentsV1Api* | [**inspectAgent**](docs/AgentsV1Api.md#inspectAgent) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect | Inspect an agent&#39;s service full conditions
 *AgentsV1Api* | [**listAgentNames**](docs/AgentsV1Api.md#listAgentNames) | **GET** /api/v1/orgs/{owner}/agents/names | List agents names
 *AgentsV1Api* | [**listAgents**](docs/AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 *AgentsV1Api* | [**patchAgent**](docs/AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
