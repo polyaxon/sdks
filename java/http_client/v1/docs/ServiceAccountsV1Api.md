@@ -122,7 +122,7 @@ public class Example {
 
     ServiceAccountsV1Api apiInstance = new ServiceAccountsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Rntity
+    String entity = "entity_example"; // String | Entity
     V1Token body = new V1Token(); // V1Token | Token body
     try {
       V1Token result = apiInstance.createServiceAccountToken(owner, entity, body);
@@ -143,7 +143,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Rntity | |
+| **entity** | **String**| Entity | |
 | **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
@@ -821,7 +821,7 @@ public class Example {
 
     ServiceAccountsV1Api apiInstance = new ServiceAccountsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Rntity
+    String entity = "entity_example"; // String | Entity
     String tokenUuid = "tokenUuid_example"; // String | UUID
     V1Token body = new V1Token(); // V1Token | Token body
     try {
@@ -843,7 +843,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Rntity | |
+| **entity** | **String**| Entity | |
 | **tokenUuid** | **String**| UUID | |
 | **body** | [**V1Token**](V1Token.md)| Token body | |
 
@@ -973,7 +973,7 @@ public class Example {
 
     ServiceAccountsV1Api apiInstance = new ServiceAccountsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Rntity
+    String entity = "entity_example"; // String | Entity
     String tokenUuid = "tokenUuid_example"; // String | UUID
     V1Token body = new V1Token(); // V1Token | Token body
     try {
@@ -995,7 +995,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Rntity | |
+| **entity** | **String**| Entity | |
 | **tokenUuid** | **String**| UUID | |
 | **body** | [**V1Token**](V1Token.md)| Token body | |
 

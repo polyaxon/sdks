@@ -96,7 +96,7 @@ message Token {
     // Owner of the namespace
     string owner = 1;
 
-    // Rntity
+    // Entity
     string entity = 2;
 
     // Token body

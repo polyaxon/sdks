@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.0-rc7
+  version: 2.1.0-rc10
 servers:
 - url: /
 security:
@@ -2195,7 +2195,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Rntity
+      - description: Entity
         explode: false
         in: path
         name: entity
@@ -2258,7 +2258,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Rntity
+      - description: Entity
         explode: false
         in: path
         name: entity
@@ -2720,6 +2720,69 @@ paths:
       summary: Get agent config
       tags:
       - AgentsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/agents/{uuid}/reconcile:
+    patch:
+      operationId: ReconcileAgent
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AgentReconcileBodyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Reconcile agent
+      tags:
+      - AgentsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{uuid}/state:
     get:
@@ -6610,7 +6673,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Rntity
+      - description: Entity
         explode: false
         in: path
         name: entity
@@ -6674,7 +6737,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Rntity
+      - description: Entity
         explode: false
         in: path
         name: entity
@@ -6745,7 +6808,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Rntity
+      - description: Entity
         explode: false
         in: path
         name: entity
@@ -17049,6 +17112,69 @@ paths:
       x-codegen-request-body-name: body
       x-content-type: application/json
       x-accepts: application/json
+  /internal/v1/{namespace}/{owner}/agents/{uuid}/collect:
+    post:
+      operationId: CollectAgentData
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: collect agent
+      tags:
+      - AgentsV1
+      x-accepts: application/json
   /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs:
     post:
       operationId: CollectRunLogs
@@ -17161,69 +17287,6 @@ paths:
       summary: NoOp
       tags:
       - SchemasV1
-      x-accepts: application/json
-  /streams/v1/{namespace}/{owner}/agents/{uuid}/collect:
-    post:
-      operationId: CollectAgentData
-      parameters:
-      - description: namespace
-        explode: false
-        in: path
-        name: namespace
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Owner of the namespace
-        explode: false
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Uuid identifier of the entity
-        explode: false
-        in: path
-        name: uuid
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: collect agent
-      tags:
-      - AgentsV1
       x-accepts: application/json
   /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect:
     get:
@@ -19421,6 +19484,20 @@ components:
           title: Optional settings
           type: object
       title: Agent specification
+      type: object
+    v1AgentReconcileBodyRequest:
+      properties:
+        owner:
+          title: Owner of the namespace
+          type: string
+        uuid:
+          title: Uuid identifier of the entity
+          type: string
+        reconcile:
+          properties: {}
+          title: Reconcile reconcile
+          type: object
+      title: Request data to reconcile agent
       type: object
     v1AgentStateResponse:
       example:

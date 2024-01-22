@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
+[**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
 [**cronAgent**](AgentsV1Api.md#cronAgent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron
@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
 [**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
+[**reconcileAgent**](AgentsV1Api.md#reconcileAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{uuid}/reconcile | Reconcile agent
 [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
@@ -881,7 +882,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Rntity
+let entity = "entity_example"; // String | Entity
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
 apiInstance.patchAgentToken(owner, entity, body, (error, data, response) => {
   if (error) {
@@ -898,12 +899,65 @@ apiInstance.patchAgentToken(owner, entity, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Rntity | 
+ **entity** | **String**| Entity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type
 
 [**V1Token**](V1Token.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## reconcileAgent
+
+> Object reconcileAgent(owner, uuid, body)
+
+Reconcile agent
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.AgentsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let uuid = "uuid_example"; // String | Uuid identifier of the entity
+let body = new PolyaxonSdk.V1AgentReconcileBodyRequest(); // V1AgentReconcileBodyRequest | 
+apiInstance.reconcileAgent(owner, uuid, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **uuid** | **String**| Uuid identifier of the entity | 
+ **body** | [**V1AgentReconcileBodyRequest**](V1AgentReconcileBodyRequest.md)|  | 
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -1093,7 +1147,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Rntity
+let entity = "entity_example"; // String | Entity
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
 apiInstance.updateAgentToken(owner, entity, body, (error, data, response) => {
   if (error) {
@@ -1110,7 +1164,7 @@ apiInstance.updateAgentToken(owner, entity, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Rntity | 
+ **entity** | **String**| Entity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type

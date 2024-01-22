@@ -71,7 +71,7 @@ type UpdateAgentTokenParams struct {
 
 	/* Entity.
 
-	   Rntity
+	   Entity
 	*/
 	Entity string
 

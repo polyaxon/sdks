@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent |
+| [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent |
 | [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent |
 | [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status |
 | [**cronAgent**](AgentsV1Api.md#cronAgent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron |
@@ -21,6 +21,7 @@ All URIs are relative to *http://localhost*
 | [**listAgents**](AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents |
 | [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent |
 | [**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token |
+| [**reconcileAgent**](AgentsV1Api.md#reconcileAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{uuid}/reconcile | Reconcile agent |
 | [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent |
 | [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent |
 | [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config |
@@ -1204,7 +1205,7 @@ public class Example {
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Rntity
+    String entity = "entity_example"; // String | Entity
     V1Token body = new V1Token(); // V1Token | Token body
     try {
       V1Token result = apiInstance.patchAgentToken(owner, entity, body);
@@ -1225,12 +1226,87 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Rntity | |
+| **entity** | **String**| Entity | |
 | **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type
 
 [**V1Token**](V1Token.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="reconcileAgent"></a>
+# **reconcileAgent**
+> Object reconcileAgent(owner, uuid, body)
+
+Reconcile agent
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AgentsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String owner = "owner_example"; // String | Owner of the namespace
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    V1AgentReconcileBodyRequest body = new V1AgentReconcileBodyRequest(); // V1AgentReconcileBodyRequest | 
+    try {
+      Object result = apiInstance.reconcileAgent(owner, uuid, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentsV1Api#reconcileAgent");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+| **body** | [**V1AgentReconcileBodyRequest**](V1AgentReconcileBodyRequest.md)|  | |
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -1503,7 +1579,7 @@ public class Example {
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Rntity
+    String entity = "entity_example"; // String | Entity
     V1Token body = new V1Token(); // V1Token | Token body
     try {
       V1Token result = apiInstance.updateAgentToken(owner, entity, body);
@@ -1524,7 +1600,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Rntity | |
+| **entity** | **String**| Entity | |
 | **body** | [**V1Token**](V1Token.md)| Token body | |
 
 ### Return type

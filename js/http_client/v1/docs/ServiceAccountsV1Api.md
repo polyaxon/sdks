@@ -92,7 +92,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ServiceAccountsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Rntity
+let entity = "entity_example"; // String | Entity
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
 apiInstance.createServiceAccountToken(owner, entity, body, (error, data, response) => {
   if (error) {
@@ -109,7 +109,7 @@ apiInstance.createServiceAccountToken(owner, entity, body, (error, data, respons
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Rntity | 
+ **entity** | **String**| Entity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type
@@ -601,7 +601,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ServiceAccountsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Rntity
+let entity = "entity_example"; // String | Entity
 let token_uuid = "token_uuid_example"; // String | UUID
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
 apiInstance.patchServiceAccountToken(owner, entity, token_uuid, body, (error, data, response) => {
@@ -619,7 +619,7 @@ apiInstance.patchServiceAccountToken(owner, entity, token_uuid, body, (error, da
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Rntity | 
+ **entity** | **String**| Entity | 
  **token_uuid** | **String**| UUID | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
@@ -709,7 +709,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ServiceAccountsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Rntity
+let entity = "entity_example"; // String | Entity
 let token_uuid = "token_uuid_example"; // String | UUID
 let body = new PolyaxonSdk.V1Token(); // V1Token | Token body
 apiInstance.updateServiceAccountToken(owner, entity, token_uuid, body, (error, data, response) => {
@@ -727,7 +727,7 @@ apiInstance.updateServiceAccountToken(owner, entity, token_uuid, body, (error, d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Rntity | 
+ **entity** | **String**| Entity | 
  **token_uuid** | **String**| UUID | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 

@@ -71,7 +71,7 @@ type UpdateServiceAccountTokenParams struct {
 
 	/* Entity.
 
-	   Rntity
+	   Entity
 	*/
 	Entity string
 

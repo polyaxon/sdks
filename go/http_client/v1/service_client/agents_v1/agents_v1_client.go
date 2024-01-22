@@ -60,6 +60,8 @@ type ClientService interface {
 
 	PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchAgentTokenOK, *PatchAgentTokenNoContent, error)
 
+	ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ReconcileAgentOK, *ReconcileAgentNoContent, error)
+
 	SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncAgentOK, *SyncAgentNoContent, error)
 
 	UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentOK, *UpdateAgentNoContent, error)
@@ -82,7 +84,7 @@ func (a *Client) CollectAgentData(params *CollectAgentDataParams, authInfo runti
 	op := &runtime.ClientOperation{
 		ID:                 "CollectAgentData",
 		Method:             "POST",
-		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect",
+		PathPattern:        "/internal/v1/{namespace}/{owner}/agents/{uuid}/collect",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -708,6 +710,46 @@ func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*PatchAgentTokenDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+ReconcileAgent reconciles agent
+*/
+func (a *Client) ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ReconcileAgentOK, *ReconcileAgentNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewReconcileAgentParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "ReconcileAgent",
+		Method:             "PATCH",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/{uuid}/reconcile",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &ReconcileAgentReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *ReconcileAgentOK:
+		return value, nil, nil
+	case *ReconcileAgentNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*ReconcileAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

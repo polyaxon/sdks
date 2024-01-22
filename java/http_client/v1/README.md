@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.1.0-rc7
+- API version: 2.1.0-rc10
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.1.0-rc7</version>
+  <version>2.1.0-rc10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.1.0-rc7"
+     implementation "org.openapitools:openapi-java-client:2.1.0-rc10"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.1.0-rc7.jar`
+* `target/openapi-java-client-2.1.0-rc10.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -123,7 +123,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentsV1Api* | [**collectAgentData**](docs/AgentsV1Api.md#collectAgentData) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
+*AgentsV1Api* | [**collectAgentData**](docs/AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 *AgentsV1Api* | [**createAgent**](docs/AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 *AgentsV1Api* | [**createAgentStatus**](docs/AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
 *AgentsV1Api* | [**cronAgent**](docs/AgentsV1Api.md#cronAgent) | **POST** /api/v1/orgs/{owner}/agents/cron | Global Cron
@@ -139,6 +139,7 @@ Class | Method | HTTP request | Description
 *AgentsV1Api* | [**listAgents**](docs/AgentsV1Api.md#listAgents) | **GET** /api/v1/orgs/{owner}/agents | List agents
 *AgentsV1Api* | [**patchAgent**](docs/AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
 *AgentsV1Api* | [**patchAgentToken**](docs/AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
+*AgentsV1Api* | [**reconcileAgent**](docs/AgentsV1Api.md#reconcileAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{uuid}/reconcile | Reconcile agent
 *AgentsV1Api* | [**syncAgent**](docs/AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 *AgentsV1Api* | [**updateAgent**](docs/AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 *AgentsV1Api* | [**updateAgentConfig**](docs/AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
@@ -397,6 +398,7 @@ Class | Method | HTTP request | Description
  - [SearchView](docs/SearchView.md)
  - [V1Activity](docs/V1Activity.md)
  - [V1Agent](docs/V1Agent.md)
+ - [V1AgentReconcileBodyRequest](docs/V1AgentReconcileBodyRequest.md)
  - [V1AgentStateResponse](docs/V1AgentStateResponse.md)
  - [V1AgentStatusBodyRequest](docs/V1AgentStatusBodyRequest.md)
  - [V1AnalyticsSpec](docs/V1AnalyticsSpec.md)

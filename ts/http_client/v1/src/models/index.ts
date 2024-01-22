@@ -8,6 +8,7 @@ export * from './RuntimeError';
 export * from './SearchView';
 export * from './V1Activity';
 export * from './V1Agent';
+export * from './V1AgentReconcileBodyRequest';
 export * from './V1AgentStateResponse';
 export * from './V1AgentStatusBodyRequest';
 export * from './V1AnalyticsSpec';

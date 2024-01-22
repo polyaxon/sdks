@@ -4353,6 +4353,24 @@
       "title": "Agent specification",
       "type": "object"
     },
+    "v1AgentReconcileBodyRequest": {
+      "properties": {
+        "owner": {
+          "title": "Owner of the namespace",
+          "type": "string"
+        },
+        "reconcile": {
+          "title": "Reconcile reconcile",
+          "type": "object"
+        },
+        "uuid": {
+          "title": "Uuid identifier of the entity",
+          "type": "string"
+        }
+      },
+      "title": "Request data to reconcile agent",
+      "type": "object"
+    },
     "v1AgentStateResponse": {
       "properties": {
         "compatible_updates": {

@@ -78,6 +78,18 @@ message AgentStatusBodyRequest {
     StatusCondition condition = 3;
 }
 
+// Request data to reconcile agent
+message AgentReconcileBodyRequest {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Uuid identifier of the entity
+  string uuid = 2;
+
+  // Reconcile reconcile
+  google.protobuf.Struct reconcile = 3;
+}
+
 // Request data to create/update entity status
 message EntityNotificationBody {
     // Na,espace

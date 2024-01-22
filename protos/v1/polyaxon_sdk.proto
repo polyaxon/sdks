@@ -50,7 +50,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "2.1.0-rc7";
+        version: "2.1.0-rc10";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -1273,6 +1273,14 @@ service AgentsV1 {
     };
   }
 
+  // Reconcile agent
+  rpc ReconcileAgent(AgentReconcileBodyRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      patch: "/api/v1/orgs/{owner}/agents/{uuid}/reconcile"
+      body: "*"
+    };
+  }
+
   // Get agent token
   rpc GetAgentToken(OwnerEntityResourceRequestByUid) returns (Token) {
     option (google.api.http) = {
@@ -1299,7 +1307,7 @@ service AgentsV1 {
   // collect agent
   rpc CollectAgentData(AgentResourcesRequest) returns (google.protobuf.Struct) {
     option (google.api.http) = {
-      post: "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect"
+      post: "/internal/v1/{namespace}/{owner}/agents/{uuid}/collect"
     };
   }
 

@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.0-rc7",
+    "version": "2.1.0-rc10",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -2075,7 +2075,7 @@
           },
           {
             "name": "entity",
-            "description": "Rntity",
+            "description": "Entity",
             "in": "path",
             "required": true,
             "type": "string"
@@ -2133,7 +2133,7 @@
           },
           {
             "name": "entity",
-            "description": "Rntity",
+            "description": "Entity",
             "in": "path",
             "required": true,
             "type": "string"
@@ -2519,6 +2519,65 @@
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/agents/{uuid}/reconcile": {
+      "patch": {
+        "summary": "Reconcile agent",
+        "operationId": "ReconcileAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AgentReconcileBodyRequest"
+            }
           }
         ],
         "tags": [
@@ -6128,7 +6187,7 @@
           },
           {
             "name": "entity",
-            "description": "Rntity",
+            "description": "Entity",
             "in": "path",
             "required": true,
             "type": "string"
@@ -6188,7 +6247,7 @@
           },
           {
             "name": "entity",
-            "description": "Rntity",
+            "description": "Entity",
             "in": "path",
             "required": true,
             "type": "string"
@@ -6253,7 +6312,7 @@
           },
           {
             "name": "entity",
-            "description": "Rntity",
+            "description": "Entity",
             "in": "path",
             "required": true,
             "type": "string"
@@ -15672,6 +15731,64 @@
         ]
       }
     },
+    "/internal/v1/{namespace}/{owner}/agents/{uuid}/collect": {
+      "post": {
+        "summary": "collect agent",
+        "operationId": "CollectAgentData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
     "/internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs": {
       "post": {
         "summary": "Internal API to collect run logs",
@@ -15772,64 +15889,6 @@
         },
         "tags": [
           "SchemasV1"
-        ]
-      }
-    },
-    "/streams/v1/{namespace}/{owner}/agents/{uuid}/collect": {
-      "post": {
-        "summary": "collect agent",
-        "operationId": "CollectAgentData",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "type": "object"
-            }
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "namespace",
-            "description": "namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "uuid",
-            "description": "Uuid identifier of the entity",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "AgentsV1"
         ]
       }
     },
@@ -17776,6 +17835,24 @@
         }
       },
       "title": "Agent specification"
+    },
+    "v1AgentReconcileBodyRequest": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "title": "Owner of the namespace"
+        },
+        "uuid": {
+          "type": "string",
+          "title": "Uuid identifier of the entity"
+        },
+        "reconcile": {
+          "type": "object",
+          "title": "Reconcile reconcile"
+        }
+      },
+      "title": "Request data to reconcile agent"
     },
     "v1AgentStateResponse": {
       "type": "object",

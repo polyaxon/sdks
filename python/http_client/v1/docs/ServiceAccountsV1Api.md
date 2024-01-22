@@ -136,7 +136,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ServiceAccountsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Rntity
+    entity = 'entity_example' # str | Entity
     body = polyaxon_sdk.V1Token() # V1Token | Token body
 
     try:
@@ -153,7 +153,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Rntity | 
+ **entity** | **str**| Entity | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
 ### Return type
@@ -887,7 +887,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ServiceAccountsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Rntity
+    entity = 'entity_example' # str | Entity
     token_uuid = 'token_uuid_example' # str | UUID
     body = polyaxon_sdk.V1Token() # V1Token | Token body
 
@@ -905,7 +905,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Rntity | 
+ **entity** | **str**| Entity | 
  **token_uuid** | **str**| UUID | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 
@@ -1051,7 +1051,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ServiceAccountsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Rntity
+    entity = 'entity_example' # str | Entity
     token_uuid = 'token_uuid_example' # str | UUID
     body = polyaxon_sdk.V1Token() # V1Token | Token body
 
@@ -1069,7 +1069,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Rntity | 
+ **entity** | **str**| Entity | 
  **token_uuid** | **str**| UUID | 
  **body** | [**V1Token**](V1Token.md)| Token body | 
 

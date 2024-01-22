@@ -71,7 +71,7 @@ type CreateServiceAccountTokenParams struct {
 
 	/* Entity.
 
-	   Rntity
+	   Entity
 	*/
 	Entity string
 
