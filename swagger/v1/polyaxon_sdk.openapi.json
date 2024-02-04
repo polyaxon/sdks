@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.0"
+    "version" : "2.1.1-rc0"
   },
   "servers" : [ {
     "url" : "/"
@@ -4040,6 +4040,94 @@
       }
     },
     "/api/v1/orgs/{owner}/agents/{uuid}/statuses" : {
+      "get" : {
+        "tags" : [ "AgentsV1" ],
+        "summary" : "Get Agent statuses",
+        "operationId" : "GetAgentStatuses",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Status"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      },
       "post" : {
         "tags" : [ "AgentsV1" ],
         "summary" : "Create new agent status",
@@ -26725,6 +26813,13 @@
           },
           "status" : {
             "$ref" : "#/components/schemas/v1Statuses"
+          },
+          "status_conditions" : {
+            "title" : "The status conditions timeline",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1StatusCondition"
+            }
           },
           "is_replica" : {
             "title" : "Agent is in replica mode",

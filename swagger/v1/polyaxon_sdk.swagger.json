@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.0",
+    "version": "2.1.1-rc0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -2637,6 +2637,62 @@
       }
     },
     "/api/v1/orgs/{owner}/agents/{uuid}/statuses": {
+      "get": {
+        "summary": "Get Agent statuses",
+        "operationId": "GetAgentStatuses",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Status"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      },
       "post": {
         "summary": "Create new agent status",
         "operationId": "CreateAgentStatus",
@@ -17820,6 +17876,13 @@
         "status": {
           "$ref": "#/definitions/v1Statuses",
           "title": "Optional latest status of this entity"
+        },
+        "status_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1StatusCondition"
+          },
+          "title": "The status conditions timeline"
         },
         "is_replica": {
           "type": "boolean",

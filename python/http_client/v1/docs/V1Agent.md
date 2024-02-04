@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 **status** | [**V1Statuses**](V1Statuses.md) |  | [optional] 
+**status_conditions** | [**List[V1StatusCondition]**](V1StatusCondition.md) |  | [optional] 
 **is_replica** | **bool** |  | [optional] 
 **is_ui_managed** | **bool** |  | [optional] 
 **settings** | **object** |  | [optional] 

@@ -19,6 +19,7 @@
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
 |**status** | **V1Statuses** |  |  [optional] |
+|**statusConditions** | [**List&lt;V1StatusCondition&gt;**](V1StatusCondition.md) |  |  [optional] |
 |**isReplica** | **Boolean** |  |  [optional] |
 |**isUiManaged** | **Boolean** |  |  [optional] |
 |**settings** | **Object** |  |  [optional] |

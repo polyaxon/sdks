@@ -1,9 +1,9 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.1.0
+- API version: 2.1.1-rc0
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.1.0</version>
+  <version>2.1.1-rc0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.1.0"
+     implementation "org.openapitools:openapi-java-client:2.1.1-rc0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.1.0.jar`
+* `target/openapi-java-client-2.1.1-rc0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 *AgentsV1Api* | [**getAgentConfig**](docs/AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
 *AgentsV1Api* | [**getAgentLogs**](docs/AgentsV1Api.md#getAgentLogs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 *AgentsV1Api* | [**getAgentState**](docs/AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
+*AgentsV1Api* | [**getAgentStatuses**](docs/AgentsV1Api.md#getAgentStatuses) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Get Agent statuses
 *AgentsV1Api* | [**getAgentToken**](docs/AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 *AgentsV1Api* | [**getGlobalState**](docs/AgentsV1Api.md#getGlobalState) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)
 *AgentsV1Api* | [**inspectAgent**](docs/AgentsV1Api.md#inspectAgent) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect | Inspect an agent&#39;s service full conditions

@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_agent_config**](AgentsV1Api.md#get_agent_config) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
 [**get_agent_logs**](AgentsV1Api.md#get_agent_logs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 [**get_agent_state**](AgentsV1Api.md#get_agent_state) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
+[**get_agent_statuses**](AgentsV1Api.md#get_agent_statuses) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Get Agent statuses
 [**get_agent_token**](AgentsV1Api.md#get_agent_token) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 [**get_global_state**](AgentsV1Api.md#get_global_state) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)
 [**inspect_agent**](AgentsV1Api.md#inspect_agent) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect | Inspect an agent&#39;s service full conditions
@@ -736,6 +737,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1AgentStateResponse**](V1AgentStateResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_agent_statuses**
+> V1Status get_agent_statuses(owner, uuid, entity=entity)
+
+Get Agent statuses
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.AgentsV1Api(api_client)
+    owner = 'owner_example' # str | Owner of the namespace
+    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+
+    try:
+        # Get Agent statuses
+        api_response = api_instance.get_agent_statuses(owner, uuid, entity=entity)
+        print("The response of AgentsV1Api->get_agent_statuses:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsV1Api->get_agent_statuses: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**| Owner of the namespace | 
+ **uuid** | **str**| Uuid identifier of the sub-entity | 
+ **entity** | **str**| Entity: project name, hub name, registry name, ... | [optional] 
+
+### Return type
+
+[**V1Status**](V1Status.md)
 
 ### Authorization
 

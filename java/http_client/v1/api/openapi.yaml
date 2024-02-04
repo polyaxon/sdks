@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.0
+  version: 2.1.1-rc0
 servers:
 - url: /
 security:
@@ -2840,6 +2840,68 @@ paths:
       - AgentsV1
       x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{uuid}/statuses:
+    get:
+      operationId: GetAgentStatuses
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the sub-entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Entity: project name, hub name, registry name, ..."
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Status'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get Agent statuses
+      tags:
+      - AgentsV1
+      x-accepts: application/json
     post:
       operationId: CreateAgentStatus
       parameters:
@@ -19430,6 +19492,21 @@ components:
         updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
         namespace: namespace
+        status_conditions:
+        - reason: reason
+          last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
+          last_transition_time: 2000-01-23T04:56:07.000+00:00
+          type: null
+          message: message
+          status: status
+        - reason: reason
+          last_update_time: 2000-01-23T04:56:07.000+00:00
+          meta_info: "{}"
+          last_transition_time: 2000-01-23T04:56:07.000+00:00
+          type: null
+          message: message
+          status: status
         status: null
       properties:
         uuid:
@@ -19473,6 +19550,11 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/v1Statuses'
+        status_conditions:
+          items:
+            $ref: '#/components/schemas/v1StatusCondition'
+          title: The status conditions timeline
+          type: array
         is_replica:
           title: Agent is in replica mode
           type: boolean
@@ -26234,6 +26316,21 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           namespace: namespace
+          status_conditions:
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            type: null
+            message: message
+            status: status
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            type: null
+            message: message
+            status: status
           status: null
         - settings: "{}"
           version_api: "{}"
@@ -26251,6 +26348,21 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           namespace: namespace
+          status_conditions:
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            type: null
+            message: message
+            status: status
+          - reason: reason
+            last_update_time: 2000-01-23T04:56:07.000+00:00
+            meta_info: "{}"
+            last_transition_time: 2000-01-23T04:56:07.000+00:00
+            type: null
+            message: message
+            status: status
           status: null
       properties:
         count:

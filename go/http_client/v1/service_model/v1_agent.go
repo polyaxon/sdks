@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -50,6 +51,9 @@ type V1Agent struct {
 	// Optional latest status of this entity
 	Status *V1Statuses `json:"status,omitempty"`
 
+	// The status conditions timeline
+	StatusConditions []*V1StatusCondition `json:"status_conditions"`
+
 	// Optional tags of this entity
 	Tags []string `json:"tags"`
 
@@ -76,6 +80,10 @@ func (m *V1Agent) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatusConditions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -120,6 +128,32 @@ func (m *V1Agent) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Agent) validateStatusConditions(formats strfmt.Registry) error {
+	if swag.IsZero(m.StatusConditions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.StatusConditions); i++ {
+		if swag.IsZero(m.StatusConditions[i]) { // not required
+			continue
+		}
+
+		if m.StatusConditions[i] != nil {
+			if err := m.StatusConditions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1Agent) validateUpdatedAt(formats strfmt.Registry) error {
 	if swag.IsZero(m.UpdatedAt) { // not required
 		return nil
@@ -137,6 +171,10 @@ func (m *V1Agent) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 	var res []error
 
 	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatusConditions(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -162,6 +200,31 @@ func (m *V1Agent) contextValidateStatus(ctx context.Context, formats strfmt.Regi
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *V1Agent) contextValidateStatusConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.StatusConditions); i++ {
+
+		if m.StatusConditions[i] != nil {
+
+			if swag.IsZero(m.StatusConditions[i]) { // not required
+				return nil
+			}
+
+			if err := m.StatusConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

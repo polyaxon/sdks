@@ -4325,6 +4325,13 @@
           "$ref": "#/definitions/v1Statuses",
           "title": "Optional latest status of this entity"
         },
+        "status_conditions": {
+          "items": {
+            "$ref": "#/definitions/v1StatusCondition"
+          },
+          "title": "The status conditions timeline",
+          "type": "array"
+        },
         "tags": {
           "items": {
             "type": "string"
