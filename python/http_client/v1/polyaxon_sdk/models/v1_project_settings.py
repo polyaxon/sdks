@@ -34,10 +34,11 @@ class V1ProjectSettings(BaseModel):
     queue: Optional[StrictStr] = None
     queues: Optional[conlist(StrictStr)] = None
     agents: Optional[conlist(StrictStr)] = None
+    namespaces: Optional[conlist(StrictStr)] = None
     user_accesses: Optional[conlist(V1ProjectUserAccess)] = None
     teams: Optional[conlist(StrictStr)] = None
     projects: Optional[conlist(StrictStr)] = None
-    __properties = ["connections", "preset", "presets", "queue", "queues", "agents", "user_accesses", "teams", "projects"]
+    __properties = ["connections", "preset", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects"]
 
     class Config:
         allow_population_by_field_name = True
@@ -87,6 +88,7 @@ class V1ProjectSettings(BaseModel):
             "queue": obj.get("queue"),
             "queues": obj.get("queues"),
             "agents": obj.get("agents"),
+            "namespaces": obj.get("namespaces"),
             "user_accesses": [V1ProjectUserAccess.from_dict(_item) for _item in obj.get("user_accesses")] if obj.get("user_accesses") is not None else None,
             "teams": obj.get("teams"),
             "projects": obj.get("projects")

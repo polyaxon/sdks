@@ -22520,6 +22520,13 @@
           },
           "title": "Authorized agents"
         },
+        "namespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized namespaces"
+        },
         "user_accesses": {
           "type": "array",
           "items": {

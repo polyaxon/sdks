@@ -64,6 +64,12 @@ export interface V1ProjectSettings {
     agents?: Array<string>;
     /**
      *
+     * @type {Array<string>}
+     * @memberof V1ProjectSettings
+     */
+    namespaces?: Array<string>;
+    /**
+     *
      * @type {Array<V1ProjectUserAccess>}
      * @memberof V1ProjectSettings
      */
@@ -107,6 +113,7 @@ export function V1ProjectSettingsFromJSONTyped(json: any, ignoreDiscriminator: b
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
         'queues': !exists(json, 'queues') ? undefined : json['queues'],
         'agents': !exists(json, 'agents') ? undefined : json['agents'],
+        'namespaces': !exists(json, 'namespaces') ? undefined : json['namespaces'],
         'user_accesses': !exists(json, 'user_accesses') ? undefined : ((json['user_accesses'] as Array<any>).map(V1ProjectUserAccessFromJSON)),
         'teams': !exists(json, 'teams') ? undefined : json['teams'],
         'projects': !exists(json, 'projects') ? undefined : json['projects'],
@@ -128,6 +135,7 @@ export function V1ProjectSettingsToJSON(value?: V1ProjectSettings | null): any {
         'queue': value.queue,
         'queues': value.queues,
         'agents': value.agents,
+        'namespaces': value.namespaces,
         'user_accesses': value.user_accesses === undefined ? undefined : ((value.user_accesses as Array<any>).map(V1ProjectUserAccessToJSON)),
         'teams': value.teams,
         'projects': value.projects,

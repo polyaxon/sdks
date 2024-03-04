@@ -26819,6 +26819,9 @@ components:
             agents:
             - agents
             - agents
+            namespaces:
+            - namespaces
+            - namespaces
           role: role
           bookmarked: true
           description: description
@@ -26871,6 +26874,9 @@ components:
             agents:
             - agents
             - agents
+            namespaces:
+            - namespaces
+            - namespaces
           role: role
           bookmarked: true
           description: description
@@ -31305,6 +31311,9 @@ components:
           agents:
           - agents
           - agents
+          namespaces:
+          - namespaces
+          - namespaces
         role: role
         bookmarked: true
         description: description
@@ -31420,6 +31429,9 @@ components:
         agents:
         - agents
         - agents
+        namespaces:
+        - namespaces
+        - namespaces
       properties:
         connections:
           items:
@@ -31446,6 +31458,11 @@ components:
           items:
             type: string
           title: Authorized agents
+          type: array
+        namespaces:
+          items:
+            type: string
+          title: Authorized namespaces
           type: array
         user_accesses:
           items:

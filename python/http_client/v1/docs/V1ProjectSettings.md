@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **queue** | **str** |  | [optional] 
 **queues** | **List[str]** |  | [optional] 
 **agents** | **List[str]** |  | [optional] 
+**namespaces** | **List[str]** |  | [optional] 
 **user_accesses** | [**List[V1ProjectUserAccess]**](V1ProjectUserAccess.md) |  | [optional] 
 **teams** | **List[str]** |  | [optional] 
 **projects** | **List[str]** |  | [optional] 

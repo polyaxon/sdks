@@ -66,6 +66,9 @@ class V1ProjectSettings {
             if (data.hasOwnProperty('agents')) {
                 obj['agents'] = ApiClient.convertToType(data['agents'], ['String']);
             }
+            if (data.hasOwnProperty('namespaces')) {
+                obj['namespaces'] = ApiClient.convertToType(data['namespaces'], ['String']);
+            }
             if (data.hasOwnProperty('user_accesses')) {
                 obj['user_accesses'] = ApiClient.convertToType(data['user_accesses'], [V1ProjectUserAccess]);
             }
@@ -108,6 +111,10 @@ class V1ProjectSettings {
         // ensure the json data is an array
         if (!Array.isArray(data['agents'])) {
             throw new Error("Expected the field `agents` to be an array in the JSON data but got " + data['agents']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['namespaces'])) {
+            throw new Error("Expected the field `namespaces` to be an array in the JSON data but got " + data['namespaces']);
         }
         if (data['user_accesses']) { // data not null
             // ensure the json data is an array
@@ -165,6 +172,11 @@ V1ProjectSettings.prototype['queues'] = undefined;
  * @member {Array.<String>} agents
  */
 V1ProjectSettings.prototype['agents'] = undefined;
+
+/**
+ * @member {Array.<String>} namespaces
+ */
+V1ProjectSettings.prototype['namespaces'] = undefined;
 
 /**
  * @member {Array.<module:model/V1ProjectUserAccess>} user_accesses

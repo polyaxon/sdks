@@ -31274,6 +31274,13 @@
               "type" : "string"
             }
           },
+          "namespaces" : {
+            "title" : "Authorized namespaces",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
           "user_accesses" : {
             "title" : "Authorized users",
             "type" : "array",

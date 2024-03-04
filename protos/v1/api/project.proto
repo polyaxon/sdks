@@ -121,14 +121,17 @@ message ProjectSettings {
     // Authorized agents
     repeated string agents = 6;
 
+    // Authorized namespaces
+    repeated string namespaces = 7;
+
     // Authorized users
-    repeated ProjectUserAccess user_accesses = 7;
+    repeated ProjectUserAccess user_accesses = 8;
 
     // Authorized teams
-    repeated string teams = 8;
+    repeated string teams = 9;
 
     // Authorized projects
-    repeated string projects = 9;
+    repeated string projects = 10;
 }
 
 // Request data to update project settings

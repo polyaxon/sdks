@@ -89,6 +89,14 @@ public class V1ProjectSettingsTest {
     }
 
     /**
+     * Test the property 'namespaces'
+     */
+    @Test
+    public void namespacesTest() {
+        // TODO: test namespaces
+    }
+
+    /**
      * Test the property 'userAccesses'
      */
     @Test

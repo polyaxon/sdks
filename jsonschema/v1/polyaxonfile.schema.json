@@ -9211,6 +9211,13 @@
           "title": "Authorized connections",
           "type": "array"
         },
+        "namespaces": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized namespaces",
+          "type": "array"
+        },
         "preset": {
           "title": "Default Preset",
           "type": "string"

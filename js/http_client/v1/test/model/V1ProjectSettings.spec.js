@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property namespaces (base name: "namespaces")', function() {
+      // uncomment below and update the code to test the property namespaces
+      //var instance = new PolyaxonSdk.V1ProjectSettings();
+      //expect(instance).to.be();
+    });
+
     it('should have the property user_accesses (base name: "user_accesses")', function() {
       // uncomment below and update the code to test the property user_accesses
       //var instance = new PolyaxonSdk.V1ProjectSettings();

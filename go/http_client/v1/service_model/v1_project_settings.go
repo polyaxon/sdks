@@ -25,6 +25,9 @@ type V1ProjectSettings struct {
 	// Authorized connections
 	Connections []string `json:"connections"`
 
+	// Authorized namespaces
+	Namespaces []string `json:"namespaces"`
+
 	// Default Preset
 	Preset string `json:"preset,omitempty"`
 

@@ -75,6 +75,10 @@ public class V1ProjectSettings {
   @SerializedName(SERIALIZED_NAME_AGENTS)
   private List<String> agents;
 
+  public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
+  @SerializedName(SERIALIZED_NAME_NAMESPACES)
+  private List<String> namespaces;
+
   public static final String SERIALIZED_NAME_USER_ACCESSES = "user_accesses";
   @SerializedName(SERIALIZED_NAME_USER_ACCESSES)
   private List<V1ProjectUserAccess> userAccesses;
@@ -254,6 +258,36 @@ public class V1ProjectSettings {
   }
 
 
+  public V1ProjectSettings namespaces(List<String> namespaces) {
+
+    this.namespaces = namespaces;
+    return this;
+  }
+
+  public V1ProjectSettings addNamespacesItem(String namespacesItem) {
+    if (this.namespaces == null) {
+      this.namespaces = new ArrayList<>();
+    }
+    this.namespaces.add(namespacesItem);
+    return this;
+  }
+
+   /**
+   * Get namespaces
+   * @return namespaces
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getNamespaces() {
+    return namespaces;
+  }
+
+
+  public void setNamespaces(List<String> namespaces) {
+    this.namespaces = namespaces;
+  }
+
+
   public V1ProjectSettings userAccesses(List<V1ProjectUserAccess> userAccesses) {
 
     this.userAccesses = userAccesses;
@@ -360,6 +394,7 @@ public class V1ProjectSettings {
         Objects.equals(this.queue, v1ProjectSettings.queue) &&
         Objects.equals(this.queues, v1ProjectSettings.queues) &&
         Objects.equals(this.agents, v1ProjectSettings.agents) &&
+        Objects.equals(this.namespaces, v1ProjectSettings.namespaces) &&
         Objects.equals(this.userAccesses, v1ProjectSettings.userAccesses) &&
         Objects.equals(this.teams, v1ProjectSettings.teams) &&
         Objects.equals(this.projects, v1ProjectSettings.projects);
@@ -367,7 +402,7 @@ public class V1ProjectSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(connections, preset, presets, queue, queues, agents, userAccesses, teams, projects);
+    return Objects.hash(connections, preset, presets, queue, queues, agents, namespaces, userAccesses, teams, projects);
   }
 
   @Override
@@ -380,6 +415,7 @@ public class V1ProjectSettings {
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    queues: ").append(toIndentedString(queues)).append("\n");
     sb.append("    agents: ").append(toIndentedString(agents)).append("\n");
+    sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    userAccesses: ").append(toIndentedString(userAccesses)).append("\n");
     sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
@@ -411,6 +447,7 @@ public class V1ProjectSettings {
     openapiFields.add("queue");
     openapiFields.add("queues");
     openapiFields.add("agents");
+    openapiFields.add("namespaces");
     openapiFields.add("user_accesses");
     openapiFields.add("teams");
     openapiFields.add("projects");
@@ -460,6 +497,10 @@ public class V1ProjectSettings {
       // ensure the optional json data is an array if present
       if (jsonObj.get("agents") != null && !jsonObj.get("agents").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `agents` to be an array in the JSON string but got `%s`", jsonObj.get("agents").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("namespaces") != null && !jsonObj.get("namespaces").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));
       }
       if (jsonObj.get("user_accesses") != null && !jsonObj.get("user_accesses").isJsonNull()) {
         JsonArray jsonArrayuserAccesses = jsonObj.getAsJsonArray("user_accesses");
