@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.2",
+    "version": "2.1.3-rc0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -22547,6 +22547,10 @@
             "type": "string"
           },
           "title": "Authorized projects"
+        },
+        "restrictions_template": {
+          "type": "string",
+          "title": "Attached restrcitions template"
         }
       },
       "title": "Project Settings specification"

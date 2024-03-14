@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **user_accesses** | [**List[V1ProjectUserAccess]**](V1ProjectUserAccess.md) |  | [optional] 
 **teams** | **List[str]** |  | [optional] 
 **projects** | **List[str]** |  | [optional] 
+**restrictions_template** | **str** |  | [optional] 
 
 ## Example
 

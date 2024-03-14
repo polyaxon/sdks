@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.2
+  version: 2.1.3-rc0
 servers:
 - url: /
 security:
@@ -26811,6 +26811,7 @@ components:
             queues:
             - queues
             - queues
+            restrictions_template: restrictions_template
             preset: preset
             connections:
             - connections
@@ -26866,6 +26867,7 @@ components:
             queues:
             - queues
             - queues
+            restrictions_template: restrictions_template
             preset: preset
             connections:
             - connections
@@ -31303,6 +31305,7 @@ components:
           queues:
           - queues
           - queues
+          restrictions_template: restrictions_template
           preset: preset
           connections:
           - connections
@@ -31421,6 +31424,7 @@ components:
         queues:
         - queues
         - queues
+        restrictions_template: restrictions_template
         preset: preset
         connections:
         - connections
@@ -31479,6 +31483,9 @@ components:
             type: string
           title: Authorized projects
           type: array
+        restrictions_template:
+          title: Attached restrcitions template
+          type: string
       title: Project Settings specification
       type: object
     v1ProjectUserAccess:

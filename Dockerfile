@@ -30,7 +30,7 @@ RUN apt-get -y update && \
 
 # Install Go
 RUN mkdir -p /goroot && \
-  curl https://dl.google.com/go/go1.19.6.linux-arm64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+  curl https://dl.google.com/go/go1.22.1.linux-arm64.tar.gz | tar xvzf - -C /goroot --strip-components=1
 
 # Set environment variables.
 ENV GOROOT /goroot
@@ -53,7 +53,7 @@ RUN go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 RUN go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
-RUN go get -u github.com/go-swagger/go-swagger/cmd/swagger
+RUN go get -u -a github.com/go-swagger/go-swagger/cmd/swagger
 RUN go install github.com/go-swagger/go-swagger/cmd/swagger
 
 # HTML openapi

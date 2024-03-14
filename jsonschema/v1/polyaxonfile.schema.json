@@ -9247,6 +9247,10 @@
           "title": "Authorized queues",
           "type": "array"
         },
+        "restrictions_template": {
+          "title": "Attached restrcitions template",
+          "type": "string"
+        },
         "teams": {
           "items": {
             "type": "string"
