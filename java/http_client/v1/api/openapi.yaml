@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.3-rc0
+  version: 2.1.3-rc1
 servers:
 - url: /
 security:
@@ -5043,6 +5043,520 @@ paths:
       - OrganizationsV1
       x-codegen-request-body-name: body
       x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/policies:
+    get:
+      operationId: ListPolicies
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by bookmarks.
+        explode: true
+        in: query
+        name: bookmarks
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Mode of the search.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: No pagination.
+        explode: true
+        in: query
+        name: no_page
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListPoliciesResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List Policies
+      tags:
+      - PoliciesV1
+      x-accepts: application/json
+    post:
+      operationId: CreatePolicy
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Policy'
+        description: Policy body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Policy'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Create Policy
+      tags:
+      - PoliciesV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/policies/names:
+    get:
+      operationId: ListPolicyNames
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by bookmarks.
+        explode: true
+        in: query
+        name: bookmarks
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Mode of the search.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: No pagination.
+        explode: true
+        in: query
+        name: no_page
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListPoliciesResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: List scheduling policies names
+      tags:
+      - PoliciesV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/policies/{policy.uuid}:
+    patch:
+      operationId: PatchPolicy
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: UUID
+        explode: false
+        in: path
+        name: policy.uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Policy'
+        description: Policy body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Policy'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Patch Policy
+      tags:
+      - PoliciesV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+    put:
+      operationId: UpdatePolicy
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: UUID
+        explode: false
+        in: path
+        name: policy.uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Policy'
+        description: Policy body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Policy'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Update Policy
+      tags:
+      - PoliciesV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/policies/{uuid}:
+    delete:
+      operationId: DeletePolicy
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the sub-entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Entity: project name, hub name, registry name, ..."
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Delete scheduling preset
+      tags:
+      - PoliciesV1
+      x-accepts: application/json
+    get:
+      operationId: GetPolicy
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the sub-entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Entity: project name, hub name, registry name, ..."
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Policy'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get Policy
+      tags:
+      - PoliciesV1
       x-accepts: application/json
   /api/v1/orgs/{owner}/presets:
     get:
@@ -26631,6 +27145,114 @@ components:
           type: string
       title: Contains list of organizations
       type: object
+    v1ListPoliciesResponse:
+      example:
+        next: next
+        previous: previous
+        count: 0
+        results:
+        - owner: owner
+          excluded_features:
+          - excluded_features
+          - excluded_features
+          projects_settings:
+          - projects_settings
+          - projects_settings
+          projects:
+          - projects
+          - projects
+          teams:
+          - teams
+          - teams
+          description: description
+          created_at: 2000-01-23T04:56:07.000+00:00
+          archived_deletion_interval: 6
+          preset: preset
+          uuid: uuid
+          tags:
+          - tags
+          - tags
+          agents:
+          - agents
+          - agents
+          presets:
+          - presets
+          - presets
+          updated_at: 2000-01-23T04:56:07.000+00:00
+          queues:
+          - queues
+          - queues
+          name: name
+          excluded_runtimes:
+          - excluded_runtimes
+          - excluded_runtimes
+          connections:
+          - connections
+          - connections
+          queue: queue
+          namespaces:
+          - namespaces
+          - namespaces
+        - owner: owner
+          excluded_features:
+          - excluded_features
+          - excluded_features
+          projects_settings:
+          - projects_settings
+          - projects_settings
+          projects:
+          - projects
+          - projects
+          teams:
+          - teams
+          - teams
+          description: description
+          created_at: 2000-01-23T04:56:07.000+00:00
+          archived_deletion_interval: 6
+          preset: preset
+          uuid: uuid
+          tags:
+          - tags
+          - tags
+          agents:
+          - agents
+          - agents
+          presets:
+          - presets
+          - presets
+          updated_at: 2000-01-23T04:56:07.000+00:00
+          queues:
+          - queues
+          - queues
+          name: name
+          excluded_runtimes:
+          - excluded_runtimes
+          - excluded_runtimes
+          connections:
+          - connections
+          - connections
+          queue: queue
+          namespaces:
+          - namespaces
+          - namespaces
+      properties:
+        count:
+          format: int32
+          title: Count of the entities
+          type: integer
+        results:
+          items:
+            $ref: '#/components/schemas/v1Policy'
+          title: List of all entities
+          type: array
+        previous:
+          title: Previous page
+          type: string
+        next:
+          title: Next page
+          type: string
+      title: Contains list of policies
+      type: object
     v1ListPresetsResponse:
       example:
         next: next
@@ -26811,7 +27433,6 @@ components:
             queues:
             - queues
             - queues
-            restrictions_template: restrictions_template
             preset: preset
             connections:
             - connections
@@ -26823,6 +27444,7 @@ components:
             namespaces:
             - namespaces
             - namespaces
+            policy: policy
           role: role
           bookmarked: true
           description: description
@@ -26867,7 +27489,6 @@ components:
             queues:
             - queues
             - queues
-            restrictions_template: restrictions_template
             preset: preset
             connections:
             - connections
@@ -26879,6 +27500,7 @@ components:
             namespaces:
             - namespaces
             - namespaces
+            policy: policy
           role: role
           bookmarked: true
           description: description
@@ -31181,6 +31803,138 @@ components:
     v1PodSecurityContext:
       title: Placeholder for PodSecurityContext
       type: object
+    v1Policy:
+      example:
+        owner: owner
+        excluded_features:
+        - excluded_features
+        - excluded_features
+        projects_settings:
+        - projects_settings
+        - projects_settings
+        projects:
+        - projects
+        - projects
+        teams:
+        - teams
+        - teams
+        description: description
+        created_at: 2000-01-23T04:56:07.000+00:00
+        archived_deletion_interval: 6
+        preset: preset
+        uuid: uuid
+        tags:
+        - tags
+        - tags
+        agents:
+        - agents
+        - agents
+        presets:
+        - presets
+        - presets
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        queues:
+        - queues
+        - queues
+        name: name
+        excluded_runtimes:
+        - excluded_runtimes
+        - excluded_runtimes
+        connections:
+        - connections
+        - connections
+        queue: queue
+        namespaces:
+        - namespaces
+        - namespaces
+      properties:
+        uuid:
+          title: UUID
+          type: string
+        owner:
+          title: Owner/namespace where the project was created
+          type: string
+        name:
+          title: Required name
+          type: string
+        description:
+          title: Optional description
+          type: string
+        tags:
+          items:
+            type: string
+          title: Optional tags of this entity
+          type: array
+        created_at:
+          format: date-time
+          title: Optional time when the entity was created
+          type: string
+        updated_at:
+          format: date-time
+          title: Optional last time the entity was updated
+          type: string
+        excluded_features:
+          items:
+            type: string
+          title: Optional project excluded features
+          type: array
+        excluded_runtimes:
+          items:
+            type: string
+          title: Optional project excluded runtimes
+          type: array
+        archived_deletion_interval:
+          format: int32
+          title: Optional project archived deletion interval
+          type: integer
+        connections:
+          items:
+            type: string
+          title: Authorized connections
+          type: array
+        preset:
+          title: Default Preset
+          type: string
+        presets:
+          items:
+            type: string
+          title: Authorized Presets
+          type: array
+        queue:
+          title: Default Queue
+          type: string
+        queues:
+          items:
+            type: string
+          title: Authorized queues
+          type: array
+        agents:
+          items:
+            type: string
+          title: Authorized agents
+          type: array
+        namespaces:
+          items:
+            type: string
+          title: Authorized namespaces
+          type: array
+        teams:
+          items:
+            type: string
+          title: Authorized teams
+          type: array
+        projects:
+          items:
+            type: string
+          title: Authorized projects
+          type: array
+        projects_settings:
+          items:
+            type: string
+          title: Linked projects
+          type: array
+      title: Organization policy
+      type: object
     v1PolyaxonInitContainer:
       example:
         image: image
@@ -31305,7 +32059,6 @@ components:
           queues:
           - queues
           - queues
-          restrictions_template: restrictions_template
           preset: preset
           connections:
           - connections
@@ -31317,6 +32070,7 @@ components:
           namespaces:
           - namespaces
           - namespaces
+          policy: policy
         role: role
         bookmarked: true
         description: description
@@ -31424,7 +32178,6 @@ components:
         queues:
         - queues
         - queues
-        restrictions_template: restrictions_template
         preset: preset
         connections:
         - connections
@@ -31436,6 +32189,7 @@ components:
         namespaces:
         - namespaces
         - namespaces
+        policy: policy
       properties:
         connections:
           items:
@@ -31483,8 +32237,8 @@ components:
             type: string
           title: Authorized projects
           type: array
-        restrictions_template:
-          title: Attached restrcitions template
+        policy:
+          title: Attached policy
           type: string
       title: Project Settings specification
       type: object

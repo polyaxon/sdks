@@ -6,6 +6,7 @@ export * from './AuthV1Api';
 export * from './ConnectionsV1Api';
 export * from './DashboardsV1Api';
 export * from './OrganizationsV1Api';
+export * from './PoliciesV1Api';
 export * from './PresetsV1Api';
 export * from './ProjectDashboardsV1Api';
 export * from './ProjectSearchesV1Api';

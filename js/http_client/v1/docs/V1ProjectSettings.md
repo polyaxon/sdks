@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **user_accesses** | [**[V1ProjectUserAccess]**](V1ProjectUserAccess.md) |  | [optional] 
 **teams** | **[String]** |  | [optional] 
 **projects** | **[String]** |  | [optional] 
-**restrictions_template** | **String** |  | [optional] 
+**policy** | **String** |  | [optional] 
 
 

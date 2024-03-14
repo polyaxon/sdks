@@ -29,6 +29,7 @@ import "v1/api/dashboard.proto";
 import "v1/api/base.proto";
 import "v1/api/run.proto";
 import "v1/api/organization.proto";
+import "v1/api/policy.proto";
 import "v1/api/project.proto";
 import "v1/api/version.proto";
 import "v1/api/auth.proto";
@@ -50,7 +51,7 @@ option go_package = "v1/polyaxon_sdk";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
 		title: "Polyaxon sdk";
-        version: "2.1.3-rc0";
+        version: "2.1.3-rc1";
         contact:{
             name:"Polyaxon sdk";
             url:"https://github.com/polyaxon/polyaxon";
@@ -1107,6 +1108,61 @@ service TagsV1 {
   rpc DeleteTag(OwnerEntityResourceRequestByUidCascade) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/api/v1/orgs/{owner}/tags/{uuid}"
+    };
+  }
+}
+
+// Service to manage policies
+service PoliciesV1 {
+  // List scheduling policies names
+  rpc ListPolicyNames(OwnerResourceListRequest) returns (ListPoliciesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/policies/names"
+    };
+  }
+
+  // List Policies
+  rpc ListPolicies(OwnerResourceListRequest) returns (ListPoliciesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/policies"
+    };
+  }
+
+  // Create Policy
+  rpc CreatePolicy(PolicyBodyRequest) returns (Policy) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/policies"
+      body: "policy"
+    };
+  }
+
+  // Get Policy
+  rpc GetPolicy(OwnerSubEntityResourceRequestByUid) returns (Policy) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/policies/{uuid}"
+    };
+  }
+
+  // Update Policy
+  rpc UpdatePolicy(PolicyBodyRequest) returns (Policy) {
+    option (google.api.http) = {
+      put: "/api/v1/orgs/{owner}/policies/{policy.uuid}"
+      body: "policy"
+    };
+  }
+
+  // Patch Policy
+  rpc PatchPolicy(PolicyBodyRequest) returns (Policy) {
+    option (google.api.http) = {
+      patch: "/api/v1/orgs/{owner}/policies/{policy.uuid}"
+      body: "policy"
+    };
+  }
+
+  // Delete scheduling preset
+  rpc DeletePolicy(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/api/v1/orgs/{owner}/policies/{uuid}"
     };
   }
 }

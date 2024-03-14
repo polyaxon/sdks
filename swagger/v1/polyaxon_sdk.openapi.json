@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.3-rc0"
+    "version" : "2.1.3-rc1"
   },
   "servers" : [ {
     "url" : "/"
@@ -7130,6 +7130,724 @@
           }
         },
         "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/policies" : {
+      "get" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "List Policies",
+        "operationId" : "ListPolicies",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Mode of the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "no_page",
+          "in" : "query",
+          "description" : "No pagination.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1ListPoliciesResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "Create Policy",
+        "operationId" : "CreatePolicy",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Policy body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Policy"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Policy"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/policies/names" : {
+      "get" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "List scheduling policies names",
+        "operationId" : "ListPolicyNames",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Mode of the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "no_page",
+          "in" : "query",
+          "description" : "No pagination.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1ListPoliciesResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/policies/{policy.uuid}" : {
+      "put" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "Update Policy",
+        "operationId" : "UpdatePolicy",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "policy.uuid",
+          "in" : "path",
+          "description" : "UUID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Policy body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Policy"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Policy"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      },
+      "patch" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "Patch Policy",
+        "operationId" : "PatchPolicy",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "policy.uuid",
+          "in" : "path",
+          "description" : "UUID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Policy body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Policy"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Policy"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/policies/{uuid}" : {
+      "get" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "Get Policy",
+        "operationId" : "GetPolicy",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Policy"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "PoliciesV1" ],
+        "summary" : "Delete scheduling preset",
+        "operationId" : "DeletePolicy",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : { }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/orgs/{owner}/presets" : {
@@ -29854,6 +30572,32 @@
           }
         }
       },
+      "v1ListPoliciesResponse" : {
+        "title" : "Contains list of policies",
+        "type" : "object",
+        "properties" : {
+          "count" : {
+            "title" : "Count of the entities",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "results" : {
+            "title" : "List of all entities",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1Policy"
+            }
+          },
+          "previous" : {
+            "title" : "Previous page",
+            "type" : "string"
+          },
+          "next" : {
+            "title" : "Next page",
+            "type" : "string"
+          }
+        }
+      },
       "v1ListPresetsResponse" : {
         "title" : "Contains list of scheduling presets",
         "type" : "object",
@@ -31046,6 +31790,128 @@
         "title" : "Placeholder for PodSecurityContext",
         "type" : "object"
       },
+      "v1Policy" : {
+        "title" : "Organization policy",
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "title" : "UUID",
+            "type" : "string"
+          },
+          "owner" : {
+            "title" : "Owner/namespace where the project was created",
+            "type" : "string"
+          },
+          "name" : {
+            "title" : "Required name",
+            "type" : "string"
+          },
+          "description" : {
+            "title" : "Optional description",
+            "type" : "string"
+          },
+          "tags" : {
+            "title" : "Optional tags of this entity",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "created_at" : {
+            "title" : "Optional time when the entity was created",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updated_at" : {
+            "title" : "Optional last time the entity was updated",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "excluded_features" : {
+            "title" : "Optional project excluded features",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "excluded_runtimes" : {
+            "title" : "Optional project excluded runtimes",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "archived_deletion_interval" : {
+            "title" : "Optional project archived deletion interval",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "connections" : {
+            "title" : "Authorized connections",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "preset" : {
+            "title" : "Default Preset",
+            "type" : "string"
+          },
+          "presets" : {
+            "title" : "Authorized Presets",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "queue" : {
+            "title" : "Default Queue",
+            "type" : "string"
+          },
+          "queues" : {
+            "title" : "Authorized queues",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "agents" : {
+            "title" : "Authorized agents",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "namespaces" : {
+            "title" : "Authorized namespaces",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "teams" : {
+            "title" : "Authorized teams",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "projects" : {
+            "title" : "Authorized projects",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "projects_settings" : {
+            "title" : "Linked projects",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "v1PolyaxonInitContainer" : {
         "title" : "Polyaxon init specification",
         "type" : "object",
@@ -31302,8 +32168,8 @@
               "type" : "string"
             }
           },
-          "restrictions_template" : {
-            "title" : "Attached restrcitions template",
+          "policy" : {
+            "title" : "Attached policy",
             "type" : "string"
           }
         }

@@ -16,6 +16,7 @@ import (
 	"github.com/polyaxon/sdks/go/http_client/v1/service_client/connections_v1"
 	"github.com/polyaxon/sdks/go/http_client/v1/service_client/dashboards_v1"
 	"github.com/polyaxon/sdks/go/http_client/v1/service_client/organizations_v1"
+	"github.com/polyaxon/sdks/go/http_client/v1/service_client/policies_v1"
 	"github.com/polyaxon/sdks/go/http_client/v1/service_client/presets_v1"
 	"github.com/polyaxon/sdks/go/http_client/v1/service_client/project_dashboards_v1"
 	"github.com/polyaxon/sdks/go/http_client/v1/service_client/project_searches_v1"
@@ -79,6 +80,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *PolyaxonSd
 	cli.ConnectionsV1 = connections_v1.New(transport, formats)
 	cli.DashboardsV1 = dashboards_v1.New(transport, formats)
 	cli.OrganizationsV1 = organizations_v1.New(transport, formats)
+	cli.PoliciesV1 = policies_v1.New(transport, formats)
 	cli.PresetsV1 = presets_v1.New(transport, formats)
 	cli.ProjectDashboardsV1 = project_dashboards_v1.New(transport, formats)
 	cli.ProjectSearchesV1 = project_searches_v1.New(transport, formats)
@@ -148,6 +150,8 @@ type PolyaxonSdk struct {
 
 	OrganizationsV1 organizations_v1.ClientService
 
+	PoliciesV1 policies_v1.ClientService
+
 	PresetsV1 presets_v1.ClientService
 
 	ProjectDashboardsV1 project_dashboards_v1.ClientService
@@ -186,6 +190,7 @@ func (c *PolyaxonSdk) SetTransport(transport runtime.ClientTransport) {
 	c.ConnectionsV1.SetTransport(transport)
 	c.DashboardsV1.SetTransport(transport)
 	c.OrganizationsV1.SetTransport(transport)
+	c.PoliciesV1.SetTransport(transport)
 	c.PresetsV1.SetTransport(transport)
 	c.ProjectDashboardsV1.SetTransport(transport)
 	c.ProjectSearchesV1.SetTransport(transport)

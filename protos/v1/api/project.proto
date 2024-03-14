@@ -133,8 +133,8 @@ message ProjectSettings {
     // Authorized projects
     repeated string projects = 10;
 
-    // Attached restrcitions template
-    string restrictions_template = 11;
+    // Attached policy
+    string policy = 11;
 }
 
 // Request data to update project settings

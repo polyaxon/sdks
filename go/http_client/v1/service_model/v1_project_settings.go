@@ -28,6 +28,9 @@ type V1ProjectSettings struct {
 	// Authorized namespaces
 	Namespaces []string `json:"namespaces"`
 
+	// Attached policy
+	Policy string `json:"policy,omitempty"`
+
 	// Default Preset
 	Preset string `json:"preset,omitempty"`
 
@@ -42,9 +45,6 @@ type V1ProjectSettings struct {
 
 	// Authorized queues
 	Queues []string `json:"queues"`
-
-	// Attached restrcitions template
-	RestrictionsTemplate string `json:"restrictions_template,omitempty"`
 
 	// Authorized teams
 	Teams []string `json:"teams"`

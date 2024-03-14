@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.1.3-rc0
+- API version: 2.1.3-rc1
 
    
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.1.3-rc0</version>
+  <version>2.1.3-rc1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.1.3-rc0"
+     implementation "org.openapitools:openapi-java-client:2.1.3-rc1"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.1.3-rc0.jar`
+* `target/openapi-java-client-2.1.3-rc1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -205,6 +205,13 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**updateOrganizationInvitation**](docs/OrganizationsV1Api.md#updateOrganizationInvitation) | **PUT** /api/v1/orgs/{owner}/invitations | Update organization invitation
 *OrganizationsV1Api* | [**updateOrganizationMember**](docs/OrganizationsV1Api.md#updateOrganizationMember) | **PUT** /api/v1/orgs/{owner}/members/{member.user} | Update organization member
 *OrganizationsV1Api* | [**updateOrganizationSettings**](docs/OrganizationsV1Api.md#updateOrganizationSettings) | **PUT** /api/v1/orgs/{owner}/settings | Update organization settings
+*PoliciesV1Api* | [**createPolicy**](docs/PoliciesV1Api.md#createPolicy) | **POST** /api/v1/orgs/{owner}/policies | Create Policy
+*PoliciesV1Api* | [**deletePolicy**](docs/PoliciesV1Api.md#deletePolicy) | **DELETE** /api/v1/orgs/{owner}/policies/{uuid} | Delete scheduling preset
+*PoliciesV1Api* | [**getPolicy**](docs/PoliciesV1Api.md#getPolicy) | **GET** /api/v1/orgs/{owner}/policies/{uuid} | Get Policy
+*PoliciesV1Api* | [**listPolicies**](docs/PoliciesV1Api.md#listPolicies) | **GET** /api/v1/orgs/{owner}/policies | List Policies
+*PoliciesV1Api* | [**listPolicyNames**](docs/PoliciesV1Api.md#listPolicyNames) | **GET** /api/v1/orgs/{owner}/policies/names | List scheduling policies names
+*PoliciesV1Api* | [**patchPolicy**](docs/PoliciesV1Api.md#patchPolicy) | **PATCH** /api/v1/orgs/{owner}/policies/{policy.uuid} | Patch Policy
+*PoliciesV1Api* | [**updatePolicy**](docs/PoliciesV1Api.md#updatePolicy) | **PUT** /api/v1/orgs/{owner}/policies/{policy.uuid} | Update Policy
 *PresetsV1Api* | [**createPreset**](docs/PresetsV1Api.md#createPreset) | **POST** /api/v1/orgs/{owner}/presets | Create scheduling presets
 *PresetsV1Api* | [**deletePreset**](docs/PresetsV1Api.md#deletePreset) | **DELETE** /api/v1/orgs/{owner}/presets/{uuid} | Delete scheduling preset
 *PresetsV1Api* | [**getPreset**](docs/PresetsV1Api.md#getPreset) | **GET** /api/v1/orgs/{owner}/presets/{uuid} | Get scheduling preset
@@ -509,6 +516,7 @@ Class | Method | HTTP request | Description
  - [V1ListDashboardsResponse](docs/V1ListDashboardsResponse.md)
  - [V1ListOrganizationMembersResponse](docs/V1ListOrganizationMembersResponse.md)
  - [V1ListOrganizationsResponse](docs/V1ListOrganizationsResponse.md)
+ - [V1ListPoliciesResponse](docs/V1ListPoliciesResponse.md)
  - [V1ListPresetsResponse](docs/V1ListPresetsResponse.md)
  - [V1ListProjectVersionsResponse](docs/V1ListProjectVersionsResponse.md)
  - [V1ListProjectsResponse](docs/V1ListProjectsResponse.md)
@@ -552,6 +560,7 @@ Class | Method | HTTP request | Description
  - [V1Pipeline](docs/V1Pipeline.md)
  - [V1PipelineKind](docs/V1PipelineKind.md)
  - [V1Plugins](docs/V1Plugins.md)
+ - [V1Policy](docs/V1Policy.md)
  - [V1PolyaxonInitContainer](docs/V1PolyaxonInitContainer.md)
  - [V1PolyaxonSidecarContainer](docs/V1PolyaxonSidecarContainer.md)
  - [V1Preset](docs/V1Preset.md)

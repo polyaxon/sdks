@@ -7695,6 +7695,32 @@
       "title": "Contains list of organizations",
       "type": "object"
     },
+    "v1ListPoliciesResponse": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "title": "Count of the entities",
+          "type": "integer"
+        },
+        "next": {
+          "title": "Next page",
+          "type": "string"
+        },
+        "previous": {
+          "title": "Previous page",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/v1Policy"
+          },
+          "title": "List of all entities",
+          "type": "array"
+        }
+      },
+      "title": "Contains list of policies",
+      "type": "object"
+    },
     "v1ListPresetsResponse": {
       "properties": {
         "count": {
@@ -9007,6 +9033,128 @@
       "title": "Placeholder for PodSecurityContext",
       "type": "object"
     },
+    "v1Policy": {
+      "properties": {
+        "agents": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized agents",
+          "type": "array"
+        },
+        "archived_deletion_interval": {
+          "format": "int32",
+          "title": "Optional project archived deletion interval",
+          "type": "integer"
+        },
+        "connections": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized connections",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Optional time when the entity was created",
+          "type": "string"
+        },
+        "description": {
+          "title": "Optional description",
+          "type": "string"
+        },
+        "excluded_features": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional project excluded features",
+          "type": "array"
+        },
+        "excluded_runtimes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional project excluded runtimes",
+          "type": "array"
+        },
+        "name": {
+          "title": "Required name",
+          "type": "string"
+        },
+        "namespaces": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized namespaces",
+          "type": "array"
+        },
+        "owner": {
+          "title": "Owner/namespace where the project was created",
+          "type": "string"
+        },
+        "preset": {
+          "title": "Default Preset",
+          "type": "string"
+        },
+        "presets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized Presets",
+          "type": "array"
+        },
+        "projects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized projects",
+          "type": "array"
+        },
+        "projects_settings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Linked projects",
+          "type": "array"
+        },
+        "queue": {
+          "title": "Default Queue",
+          "type": "string"
+        },
+        "queues": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized queues",
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity",
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized teams",
+          "type": "array"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        }
+      },
+      "title": "Organization policy",
+      "type": "object"
+    },
     "v1PolyaxonInitContainer": {
       "properties": {
         "image": {
@@ -9218,6 +9366,10 @@
           "title": "Authorized namespaces",
           "type": "array"
         },
+        "policy": {
+          "title": "Attached policy",
+          "type": "string"
+        },
         "preset": {
           "title": "Default Preset",
           "type": "string"
@@ -9246,10 +9398,6 @@
           },
           "title": "Authorized queues",
           "type": "array"
-        },
-        "restrictions_template": {
-          "title": "Attached restrcitions template",
-          "type": "string"
         },
         "teams": {
           "items": {
