@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.3-rc1",
+    "version": "2.1.3-rc3",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -22887,6 +22887,13 @@
           },
           "title": "Authorized namespaces"
         },
+        "user_accesses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1UserAccess"
+          },
+          "title": "Authorized users"
+        },
         "teams": {
           "type": "array",
           "items": {
@@ -22901,12 +22908,12 @@
           },
           "title": "Authorized projects"
         },
-        "projects_settings": {
+        "connected_projects": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "title": "Linked projects"
+          "title": "Connected projects"
         }
       },
       "title": "Organization policy"
@@ -23148,7 +23155,7 @@
         "user_accesses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/v1ProjectUserAccess"
+            "$ref": "#/definitions/v1UserAccess"
           },
           "title": "Authorized users"
         },
@@ -23172,23 +23179,6 @@
         }
       },
       "title": "Project Settings specification"
-    },
-    "v1ProjectUserAccess": {
-      "type": "object",
-      "properties": {
-        "user": {
-          "type": "string",
-          "title": "User to give access to"
-        },
-        "queue": {
-          "type": "string",
-          "title": "Optional queue to configure for user"
-        },
-        "preset": {
-          "type": "string",
-          "title": "Optional preset to configure for user"
-        }
-      }
     },
     "v1ProjectVersion": {
       "type": "object",
@@ -25190,6 +25180,28 @@
         }
       },
       "title": "Auth specification"
+    },
+    "v1UserAccess": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "type": "string",
+          "title": "User to give access to"
+        },
+        "queue": {
+          "type": "string",
+          "title": "Optional queue to configure for user"
+        },
+        "preset": {
+          "type": "string",
+          "title": "Optional preset to configure for user"
+        },
+        "namespace": {
+          "type": "string",
+          "title": "Optiona namespace to configure for user"
+        }
+      },
+      "title": "User request"
     },
     "v1UserEmail": {
       "type": "object",

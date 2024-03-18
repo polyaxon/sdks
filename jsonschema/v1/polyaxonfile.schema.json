@@ -9047,6 +9047,13 @@
           "title": "Optional project archived deletion interval",
           "type": "integer"
         },
+        "connected_projects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Connected projects",
+          "type": "array"
+        },
         "connections": {
           "items": {
             "type": "string"
@@ -9110,13 +9117,6 @@
           "title": "Authorized projects",
           "type": "array"
         },
-        "projects_settings": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Linked projects",
-          "type": "array"
-        },
         "queue": {
           "title": "Default Queue",
           "type": "string"
@@ -9146,6 +9146,13 @@
           "format": "date-time",
           "title": "Optional last time the entity was updated",
           "type": "string"
+        },
+        "user_accesses": {
+          "items": {
+            "$ref": "#/definitions/v1UserAccess"
+          },
+          "title": "Authorized users",
+          "type": "array"
         },
         "uuid": {
           "title": "UUID",
@@ -9408,30 +9415,13 @@
         },
         "user_accesses": {
           "items": {
-            "$ref": "#/definitions/v1ProjectUserAccess"
+            "$ref": "#/definitions/v1UserAccess"
           },
           "title": "Authorized users",
           "type": "array"
         }
       },
       "title": "Project Settings specification",
-      "type": "object"
-    },
-    "v1ProjectUserAccess": {
-      "properties": {
-        "preset": {
-          "title": "Optional preset to configure for user",
-          "type": "string"
-        },
-        "queue": {
-          "title": "Optional queue to configure for user",
-          "type": "string"
-        },
-        "user": {
-          "title": "User to give access to",
-          "type": "string"
-        }
-      },
       "type": "object"
     },
     "v1ProjectVersion": {
@@ -11441,6 +11431,28 @@
         }
       },
       "title": "Auth specification",
+      "type": "object"
+    },
+    "v1UserAccess": {
+      "properties": {
+        "namespace": {
+          "title": "Optiona namespace to configure for user",
+          "type": "string"
+        },
+        "preset": {
+          "title": "Optional preset to configure for user",
+          "type": "string"
+        },
+        "queue": {
+          "title": "Optional queue to configure for user",
+          "type": "string"
+        },
+        "user": {
+          "title": "User to give access to",
+          "type": "string"
+        }
+      },
+      "title": "User request",
       "type": "object"
     },
     "v1UserEmail": {

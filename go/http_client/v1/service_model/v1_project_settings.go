@@ -50,7 +50,7 @@ type V1ProjectSettings struct {
 	Teams []string `json:"teams"`
 
 	// Authorized users
-	UserAccesses []*V1ProjectUserAccess `json:"user_accesses"`
+	UserAccesses []*V1UserAccess `json:"user_accesses"`
 }
 
 // Validate validates this v1 project settings

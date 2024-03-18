@@ -24,9 +24,10 @@
 |**queues** | **List&lt;String&gt;** |  |  [optional] |
 |**agents** | **List&lt;String&gt;** |  |  [optional] |
 |**namespaces** | **List&lt;String&gt;** |  |  [optional] |
+|**userAccesses** | [**List&lt;V1UserAccess&gt;**](V1UserAccess.md) |  |  [optional] |
 |**teams** | **List&lt;String&gt;** |  |  [optional] |
 |**projects** | **List&lt;String&gt;** |  |  [optional] |
-|**projectsSettings** | **List&lt;String&gt;** |  |  [optional] |
+|**connectedProjects** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

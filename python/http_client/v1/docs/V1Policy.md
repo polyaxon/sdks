@@ -21,9 +21,10 @@ Name | Type | Description | Notes
 **queues** | **List[str]** |  | [optional] 
 **agents** | **List[str]** |  | [optional] 
 **namespaces** | **List[str]** |  | [optional] 
+**user_accesses** | [**List[V1UserAccess]**](V1UserAccess.md) |  | [optional] 
 **teams** | **List[str]** |  | [optional] 
 **projects** | **List[str]** |  | [optional] 
-**projects_settings** | **List[str]** |  | [optional] 
+**connected_projects** | **List[str]** |  | [optional] 
 
 ## Example
 

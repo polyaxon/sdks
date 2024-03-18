@@ -12,10 +12,13 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1ProjectUserAccess v1 project user access
+// V1UserAccess User request
 //
-// swagger:model v1ProjectUserAccess
-type V1ProjectUserAccess struct {
+// swagger:model v1UserAccess
+type V1UserAccess struct {
+
+	// Optiona namespace to configure for user
+	Namespace string `json:"namespace,omitempty"`
 
 	// Optional preset to configure for user
 	Preset string `json:"preset,omitempty"`
@@ -27,18 +30,18 @@ type V1ProjectUserAccess struct {
 	User string `json:"user,omitempty"`
 }
 
-// Validate validates this v1 project user access
-func (m *V1ProjectUserAccess) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 user access
+func (m *V1UserAccess) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this v1 project user access based on context it is used
-func (m *V1ProjectUserAccess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this v1 user access based on context it is used
+func (m *V1UserAccess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *V1ProjectUserAccess) MarshalBinary() ([]byte, error) {
+func (m *V1UserAccess) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -46,8 +49,8 @@ func (m *V1ProjectUserAccess) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1ProjectUserAccess) UnmarshalBinary(b []byte) error {
-	var res V1ProjectUserAccess
+func (m *V1UserAccess) UnmarshalBinary(b []byte) error {
+	var res V1UserAccess
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

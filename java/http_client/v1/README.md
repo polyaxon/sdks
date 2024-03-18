@@ -1,9 +1,9 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.1.3-rc1
+- API version: 2.1.3-rc3
 
-   
+
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.1.3-rc1</version>
+  <version>2.1.3-rc3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.1.3-rc1"
+     implementation "org.openapitools:openapi-java-client:2.1.3-rc3"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.1.3-rc1.jar`
+* `target/openapi-java-client-2.1.3-rc3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
+
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -566,7 +566,6 @@ Class | Method | HTTP request | Description
  - [V1Preset](docs/V1Preset.md)
  - [V1Project](docs/V1Project.md)
  - [V1ProjectSettings](docs/V1ProjectSettings.md)
- - [V1ProjectUserAccess](docs/V1ProjectUserAccess.md)
  - [V1ProjectVersion](docs/V1ProjectVersion.md)
  - [V1ProjectVersionKind](docs/V1ProjectVersionKind.md)
  - [V1PytorchElasticPolicy](docs/V1PytorchElasticPolicy.md)
@@ -624,6 +623,7 @@ Class | Method | HTTP request | Description
  - [V1UriType](docs/V1UriType.md)
  - [V1UrlRef](docs/V1UrlRef.md)
  - [V1User](docs/V1User.md)
+ - [V1UserAccess](docs/V1UserAccess.md)
  - [V1UserEmail](docs/V1UserEmail.md)
  - [V1UserSingup](docs/V1UserSingup.md)
  - [V1Uuids](docs/V1Uuids.md)

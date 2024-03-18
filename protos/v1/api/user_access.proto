@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "v1/api";
+
+
+// User request
+message UserAccess {
+  // User to give access to
+  string user = 1;
+
+  // Optional queue to configure for user
+  string queue = 2;
+
+  // Optional preset to configure for user
+  string preset = 3;
+
+  // Optiona namespace to configure for user
+  string namespace = 4;
+}

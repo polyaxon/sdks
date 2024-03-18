@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **queues** | **[String]** |  | [optional] 
 **agents** | **[String]** |  | [optional] 
 **namespaces** | **[String]** |  | [optional] 
-**user_accesses** | [**[V1ProjectUserAccess]**](V1ProjectUserAccess.md) |  | [optional] 
+**user_accesses** | [**[V1UserAccess]**](V1UserAccess.md) |  | [optional] 
 **teams** | **[String]** |  | [optional] 
 **projects** | **[String]** |  | [optional] 
 **policy** | **String** |  | [optional] 

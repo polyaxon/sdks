@@ -5,6 +5,8 @@ package v1;
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
+import "v1/api/user_access.proto";
+
 option go_package = "v1/api";
 
 // Organization policy
@@ -60,14 +62,17 @@ message Policy {
   // Authorized namespaces
   repeated string namespaces = 17;
 
+  // Authorized users
+  repeated UserAccess user_accesses = 18;
+
   // Authorized teams
-  repeated string teams = 18;
+  repeated string teams = 19;
 
   // Authorized projects
-  repeated string projects = 19;
+  repeated string projects = 20;
 
-  // Linked projects
-  repeated string projects_settings = 20;
+  // Connected projects
+  repeated string connected_projects = 21;
 }
 
 

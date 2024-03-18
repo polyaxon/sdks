@@ -1,4 +1,4 @@
-# PolyaxonSdk.V1ProjectUserAccess
+# PolyaxonSdk.V1UserAccess
 
 ## Properties
 
@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **user** | **String** |  | [optional] 
 **queue** | **String** |  | [optional] 
 **preset** | **String** |  | [optional] 
+**namespace** | **String** |  | [optional] 
 
 

@@ -1,6 +1,6 @@
 
 
-# V1ProjectUserAccess
+# V1UserAccess
 
 
 ## Properties
@@ -10,6 +10,7 @@
 |**user** | **String** |  |  [optional] |
 |**queue** | **String** |  |  [optional] |
 |**preset** | **String** |  |  [optional] |
+|**namespace** | **String** |  |  [optional] |
 
 
 

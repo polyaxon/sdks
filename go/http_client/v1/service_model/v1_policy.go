@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -24,6 +25,9 @@ type V1Policy struct {
 
 	// Optional project archived deletion interval
 	ArchivedDeletionInterval int32 `json:"archived_deletion_interval,omitempty"`
+
+	// Connected projects
+	ConnectedProjects []string `json:"connected_projects"`
 
 	// Authorized connections
 	Connections []string `json:"connections"`
@@ -59,9 +63,6 @@ type V1Policy struct {
 	// Authorized projects
 	Projects []string `json:"projects"`
 
-	// Linked projects
-	ProjectsSettings []string `json:"projects_settings"`
-
 	// Default Queue
 	Queue string `json:"queue,omitempty"`
 
@@ -78,6 +79,9 @@ type V1Policy struct {
 	// Format: date-time
 	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 
+	// Authorized users
+	UserAccesses []*V1UserAccess `json:"user_accesses"`
+
 	// UUID
 	UUID string `json:"uuid,omitempty"`
 }
@@ -91,6 +95,10 @@ func (m *V1Policy) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUpdatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserAccesses(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -124,8 +132,68 @@ func (m *V1Policy) validateUpdatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this v1 policy based on context it is used
+func (m *V1Policy) validateUserAccesses(formats strfmt.Registry) error {
+	if swag.IsZero(m.UserAccesses) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.UserAccesses); i++ {
+		if swag.IsZero(m.UserAccesses[i]) { // not required
+			continue
+		}
+
+		if m.UserAccesses[i] != nil {
+			if err := m.UserAccesses[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("user_accesses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("user_accesses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this v1 policy based on the context it is used
 func (m *V1Policy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUserAccesses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *V1Policy) contextValidateUserAccesses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserAccesses); i++ {
+
+		if m.UserAccesses[i] != nil {
+
+			if swag.IsZero(m.UserAccesses[i]) { // not required
+				return nil
+			}
+
+			if err := m.UserAccesses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("user_accesses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("user_accesses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

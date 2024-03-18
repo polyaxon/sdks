@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.3-rc1"
+    "version" : "2.1.3-rc3"
   },
   "servers" : [ {
     "url" : "/"
@@ -31889,6 +31889,13 @@
               "type" : "string"
             }
           },
+          "user_accesses" : {
+            "title" : "Authorized users",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1UserAccess"
+            }
+          },
           "teams" : {
             "title" : "Authorized teams",
             "type" : "array",
@@ -31903,8 +31910,8 @@
               "type" : "string"
             }
           },
-          "projects_settings" : {
-            "title" : "Linked projects",
+          "connected_projects" : {
+            "title" : "Connected projects",
             "type" : "array",
             "items" : {
               "type" : "string"
@@ -32151,7 +32158,7 @@
             "title" : "Authorized users",
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/v1ProjectUserAccess"
+              "$ref" : "#/components/schemas/v1UserAccess"
             }
           },
           "teams" : {
@@ -32170,23 +32177,6 @@
           },
           "policy" : {
             "title" : "Attached policy",
-            "type" : "string"
-          }
-        }
-      },
-      "v1ProjectUserAccess" : {
-        "type" : "object",
-        "properties" : {
-          "user" : {
-            "title" : "User to give access to",
-            "type" : "string"
-          },
-          "queue" : {
-            "title" : "Optional queue to configure for user",
-            "type" : "string"
-          },
-          "preset" : {
-            "title" : "Optional preset to configure for user",
             "type" : "string"
           }
         }
@@ -34096,6 +34086,28 @@
           },
           "organization" : {
             "title" : "Default organization",
+            "type" : "string"
+          }
+        }
+      },
+      "v1UserAccess" : {
+        "title" : "User request",
+        "type" : "object",
+        "properties" : {
+          "user" : {
+            "title" : "User to give access to",
+            "type" : "string"
+          },
+          "queue" : {
+            "title" : "Optional queue to configure for user",
+            "type" : "string"
+          },
+          "preset" : {
+            "title" : "Optional preset to configure for user",
+            "type" : "string"
+          },
+          "namespace" : {
+            "title" : "Optiona namespace to configure for user",
             "type" : "string"
           }
         }
