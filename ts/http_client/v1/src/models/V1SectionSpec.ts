@@ -33,6 +33,12 @@ export interface V1SectionSpec {
     is_minimized?: boolean;
     /**
      *
+     * @type {boolean}
+     * @memberof V1SectionSpec
+     */
+    is_frozen?: boolean;
+    /**
+     *
      * @type {number}
      * @memberof V1SectionSpec
      */
@@ -45,6 +51,30 @@ export interface V1SectionSpec {
     height?: number;
     /**
      *
+     * @type {string}
+     * @memberof V1SectionSpec
+     */
+    xaxis?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof V1SectionSpec
+     */
+    smoothing?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof V1SectionSpec
+     */
+    ignore_outliers?: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof V1SectionSpec
+     */
+    sample_size?: number;
+    /**
+     *
      * @type {Array<object>}
      * @memberof V1SectionSpec
      */
@@ -54,13 +84,13 @@ export interface V1SectionSpec {
      * @type {number}
      * @memberof V1SectionSpec
      */
-    pageIndex?: number;
+    page_index?: number;
     /**
      *
      * @type {number}
      * @memberof V1SectionSpec
      */
-    pageSize?: number;
+    page_size?: number;
 }
 
 /**
@@ -84,11 +114,16 @@ export function V1SectionSpecFromJSONTyped(json: any, ignoreDiscriminator: boole
 
         'name': !exists(json, 'name') ? undefined : json['name'],
         'is_minimized': !exists(json, 'is_minimized') ? undefined : json['is_minimized'],
+        'is_frozen': !exists(json, 'is_frozen') ? undefined : json['is_frozen'],
         'columns': !exists(json, 'columns') ? undefined : json['columns'],
         'height': !exists(json, 'height') ? undefined : json['height'],
+        'xaxis': !exists(json, 'xaxis') ? undefined : json['xaxis'],
+        'smoothing': !exists(json, 'smoothing') ? undefined : json['smoothing'],
+        'ignore_outliers': !exists(json, 'ignore_outliers') ? undefined : json['ignore_outliers'],
+        'sample_size': !exists(json, 'sample_size') ? undefined : json['sample_size'],
         'widgets': !exists(json, 'widgets') ? undefined : json['widgets'],
-        'pageIndex': !exists(json, 'pageIndex') ? undefined : json['pageIndex'],
-        'pageSize': !exists(json, 'pageSize') ? undefined : json['pageSize'],
+        'page_index': !exists(json, 'page_index') ? undefined : json['page_index'],
+        'page_size': !exists(json, 'page_size') ? undefined : json['page_size'],
     };
 }
 
@@ -103,11 +138,16 @@ export function V1SectionSpecToJSON(value?: V1SectionSpec | null): any {
 
         'name': value.name,
         'is_minimized': value.is_minimized,
+        'is_frozen': value.is_frozen,
         'columns': value.columns,
         'height': value.height,
+        'xaxis': value.xaxis,
+        'smoothing': value.smoothing,
+        'ignore_outliers': value.ignore_outliers,
+        'sample_size': value.sample_size,
         'widgets': value.widgets,
-        'pageIndex': value.pageIndex,
-        'pageSize': value.pageSize,
+        'page_index': value.page_index,
+        'page_size': value.page_size,
     };
 }
 

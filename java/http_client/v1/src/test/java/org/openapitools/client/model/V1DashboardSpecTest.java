@@ -48,4 +48,36 @@ public class V1DashboardSpecTest {
         // TODO: test sections
     }
 
+    /**
+     * Test the property 'xaxis'
+     */
+    @Test
+    public void xaxisTest() {
+        // TODO: test xaxis
+    }
+
+    /**
+     * Test the property 'smoothing'
+     */
+    @Test
+    public void smoothingTest() {
+        // TODO: test smoothing
+    }
+
+    /**
+     * Test the property 'ignoreOutliers'
+     */
+    @Test
+    public void ignoreOutliersTest() {
+        // TODO: test ignoreOutliers
+    }
+
+    /**
+     * Test the property 'sampleSize'
+     */
+    @Test
+    public void sampleSizeTest() {
+        // TODO: test sampleSize
+    }
+
 }

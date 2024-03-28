@@ -23,6 +23,12 @@ type V1SectionSpec struct {
 	// Height
 	Height int32 `json:"height,omitempty"`
 
+	// Ignore outliers
+	IgnoreOutliers bool `json:"ignore_outliers,omitempty"`
+
+	// Freeze
+	IsFrozen bool `json:"is_frozen,omitempty"`
+
 	// Minimize
 	IsMinimized bool `json:"is_minimized,omitempty"`
 
@@ -30,13 +36,22 @@ type V1SectionSpec struct {
 	Name string `json:"name,omitempty"`
 
 	// Page index
-	PageIndex int32 `json:"pageIndex,omitempty"`
+	PageIndex int32 `json:"page_index,omitempty"`
 
 	// Page size
-	PageSize int32 `json:"pageSize,omitempty"`
+	PageSize int32 `json:"page_size,omitempty"`
+
+	// Sample size
+	SampleSize int32 `json:"sample_size,omitempty"`
+
+	// Smoothing
+	Smoothing int32 `json:"smoothing,omitempty"`
 
 	// Section's widgets
 	Widgets []interface{} `json:"widgets"`
+
+	// xaxis
+	Xaxis string `json:"xaxis,omitempty"`
 }
 
 // Validate validates this v1 section spec

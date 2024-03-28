@@ -55,6 +55,22 @@ public class V1DashboardSpec {
   @SerializedName(SERIALIZED_NAME_SECTIONS)
   private List<V1SectionSpec> sections;
 
+  public static final String SERIALIZED_NAME_XAXIS = "xaxis";
+  @SerializedName(SERIALIZED_NAME_XAXIS)
+  private String xaxis;
+
+  public static final String SERIALIZED_NAME_SMOOTHING = "smoothing";
+  @SerializedName(SERIALIZED_NAME_SMOOTHING)
+  private Integer smoothing;
+
+  public static final String SERIALIZED_NAME_IGNORE_OUTLIERS = "ignore_outliers";
+  @SerializedName(SERIALIZED_NAME_IGNORE_OUTLIERS)
+  private Boolean ignoreOutliers;
+
+  public static final String SERIALIZED_NAME_SAMPLE_SIZE = "sample_size";
+  @SerializedName(SERIALIZED_NAME_SAMPLE_SIZE)
+  private Integer sampleSize;
+
   public V1DashboardSpec() {
   }
 
@@ -88,6 +104,94 @@ public class V1DashboardSpec {
   }
 
 
+  public V1DashboardSpec xaxis(String xaxis) {
+
+    this.xaxis = xaxis;
+    return this;
+  }
+
+   /**
+   * Get xaxis
+   * @return xaxis
+  **/
+  @javax.annotation.Nullable
+
+  public String getXaxis() {
+    return xaxis;
+  }
+
+
+  public void setXaxis(String xaxis) {
+    this.xaxis = xaxis;
+  }
+
+
+  public V1DashboardSpec smoothing(Integer smoothing) {
+
+    this.smoothing = smoothing;
+    return this;
+  }
+
+   /**
+   * Get smoothing
+   * @return smoothing
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getSmoothing() {
+    return smoothing;
+  }
+
+
+  public void setSmoothing(Integer smoothing) {
+    this.smoothing = smoothing;
+  }
+
+
+  public V1DashboardSpec ignoreOutliers(Boolean ignoreOutliers) {
+
+    this.ignoreOutliers = ignoreOutliers;
+    return this;
+  }
+
+   /**
+   * Get ignoreOutliers
+   * @return ignoreOutliers
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIgnoreOutliers() {
+    return ignoreOutliers;
+  }
+
+
+  public void setIgnoreOutliers(Boolean ignoreOutliers) {
+    this.ignoreOutliers = ignoreOutliers;
+  }
+
+
+  public V1DashboardSpec sampleSize(Integer sampleSize) {
+
+    this.sampleSize = sampleSize;
+    return this;
+  }
+
+   /**
+   * Get sampleSize
+   * @return sampleSize
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getSampleSize() {
+    return sampleSize;
+  }
+
+
+  public void setSampleSize(Integer sampleSize) {
+    this.sampleSize = sampleSize;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -98,12 +202,16 @@ public class V1DashboardSpec {
       return false;
     }
     V1DashboardSpec v1DashboardSpec = (V1DashboardSpec) o;
-    return Objects.equals(this.sections, v1DashboardSpec.sections);
+    return Objects.equals(this.sections, v1DashboardSpec.sections) &&
+        Objects.equals(this.xaxis, v1DashboardSpec.xaxis) &&
+        Objects.equals(this.smoothing, v1DashboardSpec.smoothing) &&
+        Objects.equals(this.ignoreOutliers, v1DashboardSpec.ignoreOutliers) &&
+        Objects.equals(this.sampleSize, v1DashboardSpec.sampleSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sections);
+    return Objects.hash(sections, xaxis, smoothing, ignoreOutliers, sampleSize);
   }
 
   @Override
@@ -111,6 +219,10 @@ public class V1DashboardSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1DashboardSpec {\n");
     sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
+    sb.append("    xaxis: ").append(toIndentedString(xaxis)).append("\n");
+    sb.append("    smoothing: ").append(toIndentedString(smoothing)).append("\n");
+    sb.append("    ignoreOutliers: ").append(toIndentedString(ignoreOutliers)).append("\n");
+    sb.append("    sampleSize: ").append(toIndentedString(sampleSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -134,6 +246,10 @@ public class V1DashboardSpec {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("sections");
+    openapiFields.add("xaxis");
+    openapiFields.add("smoothing");
+    openapiFields.add("ignore_outliers");
+    openapiFields.add("sample_size");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -172,6 +288,9 @@ public class V1DashboardSpec {
             V1SectionSpec.validateJsonObject(jsonArraysections.get(i).getAsJsonObject());
           };
         }
+      }
+      if ((jsonObj.get("xaxis") != null && !jsonObj.get("xaxis").isJsonNull()) && !jsonObj.get("xaxis").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `xaxis` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xaxis").toString()));
       }
   }
 

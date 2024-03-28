@@ -19400,6 +19400,24 @@
             "$ref": "#/definitions/v1SectionSpec"
           },
           "title": "Section Spec"
+        },
+        "xaxis": {
+          "type": "string",
+          "title": "xaxis"
+        },
+        "smoothing": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Smoothing"
+        },
+        "ignore_outliers": {
+          "type": "boolean",
+          "title": "Ignore outliers"
+        },
+        "sample_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Sample size"
         }
       },
       "title": "Dashboard spec definition"
@@ -24369,6 +24387,10 @@
           "type": "boolean",
           "title": "Minimize"
         },
+        "is_frozen": {
+          "type": "boolean",
+          "title": "Freeze"
+        },
         "columns": {
           "type": "integer",
           "format": "int32",
@@ -24379,6 +24401,24 @@
           "format": "int32",
           "title": "Height"
         },
+        "xaxis": {
+          "type": "string",
+          "title": "xaxis"
+        },
+        "smoothing": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Smoothing"
+        },
+        "ignore_outliers": {
+          "type": "boolean",
+          "title": "Ignore outliers"
+        },
+        "sample_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Sample size"
+        },
         "widgets": {
           "type": "array",
           "items": {
@@ -24386,12 +24426,12 @@
           },
           "title": "Section's widgets"
         },
-        "pageIndex": {
+        "page_index": {
           "type": "integer",
           "format": "int32",
           "title": "Page index"
         },
-        "pageSize": {
+        "page_size": {
           "type": "integer",
           "format": "int32",
           "title": "Page size"

@@ -6,10 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
 **is_minimized** | **Boolean** |  | [optional] 
+**is_frozen** | **Boolean** |  | [optional] 
 **columns** | **Number** |  | [optional] 
 **height** | **Number** |  | [optional] 
+**xaxis** | **String** |  | [optional] 
+**smoothing** | **Number** |  | [optional] 
+**ignore_outliers** | **Boolean** |  | [optional] 
+**sample_size** | **Number** |  | [optional] 
 **widgets** | **[Object]** |  | [optional] 
-**pageIndex** | **Number** |  | [optional] 
-**pageSize** | **Number** |  | [optional] 
+**page_index** | **Number** |  | [optional] 
+**page_size** | **Number** |  | [optional] 
 
 

@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property is_frozen (base name: "is_frozen")', function() {
+      // uncomment below and update the code to test the property is_frozen
+      //var instance = new PolyaxonSdk.V1SectionSpec();
+      //expect(instance).to.be();
+    });
+
     it('should have the property columns (base name: "columns")', function() {
       // uncomment below and update the code to test the property columns
       //var instance = new PolyaxonSdk.V1SectionSpec();
@@ -78,20 +84,44 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property xaxis (base name: "xaxis")', function() {
+      // uncomment below and update the code to test the property xaxis
+      //var instance = new PolyaxonSdk.V1SectionSpec();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property smoothing (base name: "smoothing")', function() {
+      // uncomment below and update the code to test the property smoothing
+      //var instance = new PolyaxonSdk.V1SectionSpec();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ignore_outliers (base name: "ignore_outliers")', function() {
+      // uncomment below and update the code to test the property ignore_outliers
+      //var instance = new PolyaxonSdk.V1SectionSpec();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sample_size (base name: "sample_size")', function() {
+      // uncomment below and update the code to test the property sample_size
+      //var instance = new PolyaxonSdk.V1SectionSpec();
+      //expect(instance).to.be();
+    });
+
     it('should have the property widgets (base name: "widgets")', function() {
       // uncomment below and update the code to test the property widgets
       //var instance = new PolyaxonSdk.V1SectionSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property pageIndex (base name: "pageIndex")', function() {
-      // uncomment below and update the code to test the property pageIndex
+    it('should have the property page_index (base name: "page_index")', function() {
+      // uncomment below and update the code to test the property page_index
       //var instance = new PolyaxonSdk.V1SectionSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property pageSize (base name: "pageSize")', function() {
-      // uncomment below and update the code to test the property pageSize
+    it('should have the property page_size (base name: "page_size")', function() {
+      // uncomment below and update the code to test the property page_size
       //var instance = new PolyaxonSdk.V1SectionSpec();
       //expect(instance).to.be();
     });

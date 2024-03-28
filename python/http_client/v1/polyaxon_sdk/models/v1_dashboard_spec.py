@@ -21,7 +21,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, conlist
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
 from polyaxon_sdk.models.v1_section_spec import V1SectionSpec
 
 class V1DashboardSpec(BaseModel):
@@ -29,7 +29,11 @@ class V1DashboardSpec(BaseModel):
     V1DashboardSpec
     """
     sections: Optional[conlist(V1SectionSpec)] = None
-    __properties = ["sections"]
+    xaxis: Optional[StrictStr] = None
+    smoothing: Optional[StrictInt] = None
+    ignore_outliers: Optional[StrictBool] = None
+    sample_size: Optional[StrictInt] = None
+    __properties = ["sections", "xaxis", "smoothing", "ignore_outliers", "sample_size"]
 
     class Config:
         allow_population_by_field_name = True
@@ -73,7 +77,11 @@ class V1DashboardSpec(BaseModel):
             return V1DashboardSpec.parse_obj(obj)
 
         _obj = V1DashboardSpec.parse_obj({
-            "sections": [V1SectionSpec.from_dict(_item) for _item in obj.get("sections")] if obj.get("sections") is not None else None
+            "sections": [V1SectionSpec.from_dict(_item) for _item in obj.get("sections")] if obj.get("sections") is not None else None,
+            "xaxis": obj.get("xaxis"),
+            "smoothing": obj.get("smoothing"),
+            "ignore_outliers": obj.get("ignore_outliers"),
+            "sample_size": obj.get("sample_size")
         })
         return _obj
 

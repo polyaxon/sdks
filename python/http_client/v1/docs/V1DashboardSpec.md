@@ -5,6 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sections** | [**List[V1SectionSpec]**](V1SectionSpec.md) |  | [optional] 
+**xaxis** | **str** |  | [optional] 
+**smoothing** | **int** |  | [optional] 
+**ignore_outliers** | **bool** |  | [optional] 
+**sample_size** | **int** |  | [optional] 
 
 ## Example
 

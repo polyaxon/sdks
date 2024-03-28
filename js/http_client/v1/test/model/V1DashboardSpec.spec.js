@@ -60,6 +60,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property xaxis (base name: "xaxis")', function() {
+      // uncomment below and update the code to test the property xaxis
+      //var instance = new PolyaxonSdk.V1DashboardSpec();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property smoothing (base name: "smoothing")', function() {
+      // uncomment below and update the code to test the property smoothing
+      //var instance = new PolyaxonSdk.V1DashboardSpec();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ignore_outliers (base name: "ignore_outliers")', function() {
+      // uncomment below and update the code to test the property ignore_outliers
+      //var instance = new PolyaxonSdk.V1DashboardSpec();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sample_size (base name: "sample_size")', function() {
+      // uncomment below and update the code to test the property sample_size
+      //var instance = new PolyaxonSdk.V1DashboardSpec();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

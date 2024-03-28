@@ -6,8 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **is_minimized** | **bool** |  | [optional] 
+**is_frozen** | **bool** |  | [optional] 
 **columns** | **int** |  | [optional] 
 **height** | **int** |  | [optional] 
+**xaxis** | **str** |  | [optional] 
+**smoothing** | **int** |  | [optional] 
+**ignore_outliers** | **bool** |  | [optional] 
+**sample_size** | **int** |  | [optional] 
 **widgets** | **List[object]** |  | [optional] 
 **page_index** | **int** |  | [optional] 
 **page_size** | **int** |  | [optional] 

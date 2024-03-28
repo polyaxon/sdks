@@ -32,6 +32,30 @@ export interface V1DashboardSpec {
      * @memberof V1DashboardSpec
      */
     sections?: Array<V1SectionSpec>;
+    /**
+     *
+     * @type {string}
+     * @memberof V1DashboardSpec
+     */
+    xaxis?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof V1DashboardSpec
+     */
+    smoothing?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof V1DashboardSpec
+     */
+    ignore_outliers?: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof V1DashboardSpec
+     */
+    sample_size?: number;
 }
 
 /**
@@ -54,6 +78,10 @@ export function V1DashboardSpecFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
 
         'sections': !exists(json, 'sections') ? undefined : ((json['sections'] as Array<any>).map(V1SectionSpecFromJSON)),
+        'xaxis': !exists(json, 'xaxis') ? undefined : json['xaxis'],
+        'smoothing': !exists(json, 'smoothing') ? undefined : json['smoothing'],
+        'ignore_outliers': !exists(json, 'ignore_outliers') ? undefined : json['ignore_outliers'],
+        'sample_size': !exists(json, 'sample_size') ? undefined : json['sample_size'],
     };
 }
 
@@ -67,6 +95,10 @@ export function V1DashboardSpecToJSON(value?: V1DashboardSpec | null): any {
     return {
 
         'sections': value.sections === undefined ? undefined : ((value.sections as Array<any>).map(V1SectionSpecToJSON)),
+        'xaxis': value.xaxis,
+        'smoothing': value.smoothing,
+        'ignore_outliers': value.ignore_outliers,
+        'sample_size': value.sample_size,
     };
 }
 

@@ -19,8 +19,20 @@ import (
 // swagger:model v1DashboardSpec
 type V1DashboardSpec struct {
 
+	// Ignore outliers
+	IgnoreOutliers bool `json:"ignore_outliers,omitempty"`
+
+	// Sample size
+	SampleSize int32 `json:"sample_size,omitempty"`
+
 	// Section Spec
 	Sections []*V1SectionSpec `json:"sections"`
+
+	// Smoothing
+	Smoothing int32 `json:"smoothing,omitempty"`
+
+	// xaxis
+	Xaxis string `json:"xaxis,omitempty"`
 }
 
 // Validate validates this v1 dashboard spec

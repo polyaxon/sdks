@@ -28494,6 +28494,24 @@
             "items" : {
               "$ref" : "#/components/schemas/v1SectionSpec"
             }
+          },
+          "xaxis" : {
+            "title" : "xaxis",
+            "type" : "string"
+          },
+          "smoothing" : {
+            "title" : "Smoothing",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "ignore_outliers" : {
+            "title" : "Ignore outliers",
+            "type" : "boolean"
+          },
+          "sample_size" : {
+            "title" : "Sample size",
+            "type" : "integer",
+            "format" : "int32"
           }
         }
       },
@@ -33319,6 +33337,10 @@
             "title" : "Minimize",
             "type" : "boolean"
           },
+          "is_frozen" : {
+            "title" : "Freeze",
+            "type" : "boolean"
+          },
           "columns" : {
             "title" : "Number of columns",
             "type" : "integer",
@@ -33326,6 +33348,24 @@
           },
           "height" : {
             "title" : "Height",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "xaxis" : {
+            "title" : "xaxis",
+            "type" : "string"
+          },
+          "smoothing" : {
+            "title" : "Smoothing",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "ignore_outliers" : {
+            "title" : "Ignore outliers",
+            "type" : "boolean"
+          },
+          "sample_size" : {
+            "title" : "Sample size",
             "type" : "integer",
             "format" : "int32"
           },
@@ -33337,12 +33377,12 @@
               "properties" : { }
             }
           },
-          "pageIndex" : {
+          "page_index" : {
             "title" : "Page index",
             "type" : "integer",
             "format" : "int32"
           },
-          "pageSize" : {
+          "page_size" : {
             "title" : "Page size",
             "type" : "integer",
             "format" : "int32"

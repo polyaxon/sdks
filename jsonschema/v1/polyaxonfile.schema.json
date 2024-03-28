@@ -5511,12 +5511,30 @@
     },
     "v1DashboardSpec": {
       "properties": {
+        "ignore_outliers": {
+          "title": "Ignore outliers",
+          "type": "boolean"
+        },
+        "sample_size": {
+          "format": "int32",
+          "title": "Sample size",
+          "type": "integer"
+        },
         "sections": {
           "items": {
             "$ref": "#/definitions/v1SectionSpec"
           },
           "title": "Section Spec",
           "type": "array"
+        },
+        "smoothing": {
+          "format": "int32",
+          "title": "Smoothing",
+          "type": "integer"
+        },
+        "xaxis": {
+          "title": "xaxis",
+          "type": "string"
         }
       },
       "title": "Dashboard spec definition",
@@ -10622,6 +10640,14 @@
           "title": "Height",
           "type": "integer"
         },
+        "ignore_outliers": {
+          "title": "Ignore outliers",
+          "type": "boolean"
+        },
+        "is_frozen": {
+          "title": "Freeze",
+          "type": "boolean"
+        },
         "is_minimized": {
           "title": "Minimize",
           "type": "boolean"
@@ -10630,14 +10656,24 @@
           "title": "Section name",
           "type": "string"
         },
-        "pageIndex": {
+        "page_index": {
           "format": "int32",
           "title": "Page index",
           "type": "integer"
         },
-        "pageSize": {
+        "page_size": {
           "format": "int32",
           "title": "Page size",
+          "type": "integer"
+        },
+        "sample_size": {
+          "format": "int32",
+          "title": "Sample size",
+          "type": "integer"
+        },
+        "smoothing": {
+          "format": "int32",
+          "title": "Smoothing",
           "type": "integer"
         },
         "widgets": {
@@ -10646,6 +10682,10 @@
           },
           "title": "Section's widgets",
           "type": "array"
+        },
+        "xaxis": {
+          "title": "xaxis",
+          "type": "string"
         }
       },
       "title": "Dashboard section definition",

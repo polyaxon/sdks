@@ -58,6 +58,10 @@ public class V1SectionSpec {
   @SerializedName(SERIALIZED_NAME_IS_MINIMIZED)
   private Boolean isMinimized;
 
+  public static final String SERIALIZED_NAME_IS_FROZEN = "is_frozen";
+  @SerializedName(SERIALIZED_NAME_IS_FROZEN)
+  private Boolean isFrozen;
+
   public static final String SERIALIZED_NAME_COLUMNS = "columns";
   @SerializedName(SERIALIZED_NAME_COLUMNS)
   private Integer columns;
@@ -66,15 +70,31 @@ public class V1SectionSpec {
   @SerializedName(SERIALIZED_NAME_HEIGHT)
   private Integer height;
 
+  public static final String SERIALIZED_NAME_XAXIS = "xaxis";
+  @SerializedName(SERIALIZED_NAME_XAXIS)
+  private String xaxis;
+
+  public static final String SERIALIZED_NAME_SMOOTHING = "smoothing";
+  @SerializedName(SERIALIZED_NAME_SMOOTHING)
+  private Integer smoothing;
+
+  public static final String SERIALIZED_NAME_IGNORE_OUTLIERS = "ignore_outliers";
+  @SerializedName(SERIALIZED_NAME_IGNORE_OUTLIERS)
+  private Boolean ignoreOutliers;
+
+  public static final String SERIALIZED_NAME_SAMPLE_SIZE = "sample_size";
+  @SerializedName(SERIALIZED_NAME_SAMPLE_SIZE)
+  private Integer sampleSize;
+
   public static final String SERIALIZED_NAME_WIDGETS = "widgets";
   @SerializedName(SERIALIZED_NAME_WIDGETS)
   private List<Object> widgets;
 
-  public static final String SERIALIZED_NAME_PAGE_INDEX = "pageIndex";
+  public static final String SERIALIZED_NAME_PAGE_INDEX = "page_index";
   @SerializedName(SERIALIZED_NAME_PAGE_INDEX)
   private Integer pageIndex;
 
-  public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
+  public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   private Integer pageSize;
 
@@ -125,6 +145,28 @@ public class V1SectionSpec {
   }
 
 
+  public V1SectionSpec isFrozen(Boolean isFrozen) {
+
+    this.isFrozen = isFrozen;
+    return this;
+  }
+
+   /**
+   * Get isFrozen
+   * @return isFrozen
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIsFrozen() {
+    return isFrozen;
+  }
+
+
+  public void setIsFrozen(Boolean isFrozen) {
+    this.isFrozen = isFrozen;
+  }
+
+
   public V1SectionSpec columns(Integer columns) {
 
     this.columns = columns;
@@ -166,6 +208,94 @@ public class V1SectionSpec {
 
   public void setHeight(Integer height) {
     this.height = height;
+  }
+
+
+  public V1SectionSpec xaxis(String xaxis) {
+
+    this.xaxis = xaxis;
+    return this;
+  }
+
+   /**
+   * Get xaxis
+   * @return xaxis
+  **/
+  @javax.annotation.Nullable
+
+  public String getXaxis() {
+    return xaxis;
+  }
+
+
+  public void setXaxis(String xaxis) {
+    this.xaxis = xaxis;
+  }
+
+
+  public V1SectionSpec smoothing(Integer smoothing) {
+
+    this.smoothing = smoothing;
+    return this;
+  }
+
+   /**
+   * Get smoothing
+   * @return smoothing
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getSmoothing() {
+    return smoothing;
+  }
+
+
+  public void setSmoothing(Integer smoothing) {
+    this.smoothing = smoothing;
+  }
+
+
+  public V1SectionSpec ignoreOutliers(Boolean ignoreOutliers) {
+
+    this.ignoreOutliers = ignoreOutliers;
+    return this;
+  }
+
+   /**
+   * Get ignoreOutliers
+   * @return ignoreOutliers
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getIgnoreOutliers() {
+    return ignoreOutliers;
+  }
+
+
+  public void setIgnoreOutliers(Boolean ignoreOutliers) {
+    this.ignoreOutliers = ignoreOutliers;
+  }
+
+
+  public V1SectionSpec sampleSize(Integer sampleSize) {
+
+    this.sampleSize = sampleSize;
+    return this;
+  }
+
+   /**
+   * Get sampleSize
+   * @return sampleSize
+  **/
+  @javax.annotation.Nullable
+
+  public Integer getSampleSize() {
+    return sampleSize;
+  }
+
+
+  public void setSampleSize(Integer sampleSize) {
+    this.sampleSize = sampleSize;
   }
 
 
@@ -255,8 +385,13 @@ public class V1SectionSpec {
     V1SectionSpec v1SectionSpec = (V1SectionSpec) o;
     return Objects.equals(this.name, v1SectionSpec.name) &&
         Objects.equals(this.isMinimized, v1SectionSpec.isMinimized) &&
+        Objects.equals(this.isFrozen, v1SectionSpec.isFrozen) &&
         Objects.equals(this.columns, v1SectionSpec.columns) &&
         Objects.equals(this.height, v1SectionSpec.height) &&
+        Objects.equals(this.xaxis, v1SectionSpec.xaxis) &&
+        Objects.equals(this.smoothing, v1SectionSpec.smoothing) &&
+        Objects.equals(this.ignoreOutliers, v1SectionSpec.ignoreOutliers) &&
+        Objects.equals(this.sampleSize, v1SectionSpec.sampleSize) &&
         Objects.equals(this.widgets, v1SectionSpec.widgets) &&
         Objects.equals(this.pageIndex, v1SectionSpec.pageIndex) &&
         Objects.equals(this.pageSize, v1SectionSpec.pageSize);
@@ -264,7 +399,7 @@ public class V1SectionSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isMinimized, columns, height, widgets, pageIndex, pageSize);
+    return Objects.hash(name, isMinimized, isFrozen, columns, height, xaxis, smoothing, ignoreOutliers, sampleSize, widgets, pageIndex, pageSize);
   }
 
   @Override
@@ -273,8 +408,13 @@ public class V1SectionSpec {
     sb.append("class V1SectionSpec {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isMinimized: ").append(toIndentedString(isMinimized)).append("\n");
+    sb.append("    isFrozen: ").append(toIndentedString(isFrozen)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    xaxis: ").append(toIndentedString(xaxis)).append("\n");
+    sb.append("    smoothing: ").append(toIndentedString(smoothing)).append("\n");
+    sb.append("    ignoreOutliers: ").append(toIndentedString(ignoreOutliers)).append("\n");
+    sb.append("    sampleSize: ").append(toIndentedString(sampleSize)).append("\n");
     sb.append("    widgets: ").append(toIndentedString(widgets)).append("\n");
     sb.append("    pageIndex: ").append(toIndentedString(pageIndex)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
@@ -302,11 +442,16 @@ public class V1SectionSpec {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("is_minimized");
+    openapiFields.add("is_frozen");
     openapiFields.add("columns");
     openapiFields.add("height");
+    openapiFields.add("xaxis");
+    openapiFields.add("smoothing");
+    openapiFields.add("ignore_outliers");
+    openapiFields.add("sample_size");
     openapiFields.add("widgets");
-    openapiFields.add("pageIndex");
-    openapiFields.add("pageSize");
+    openapiFields.add("page_index");
+    openapiFields.add("page_size");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -334,6 +479,9 @@ public class V1SectionSpec {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("xaxis") != null && !jsonObj.get("xaxis").isJsonNull()) && !jsonObj.get("xaxis").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `xaxis` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xaxis").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("widgets") != null && !jsonObj.get("widgets").isJsonArray()) {

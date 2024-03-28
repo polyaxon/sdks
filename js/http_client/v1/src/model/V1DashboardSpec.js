@@ -51,6 +51,18 @@ class V1DashboardSpec {
             if (data.hasOwnProperty('sections')) {
                 obj['sections'] = ApiClient.convertToType(data['sections'], [V1SectionSpec]);
             }
+            if (data.hasOwnProperty('xaxis')) {
+                obj['xaxis'] = ApiClient.convertToType(data['xaxis'], 'String');
+            }
+            if (data.hasOwnProperty('smoothing')) {
+                obj['smoothing'] = ApiClient.convertToType(data['smoothing'], 'Number');
+            }
+            if (data.hasOwnProperty('ignore_outliers')) {
+                obj['ignore_outliers'] = ApiClient.convertToType(data['ignore_outliers'], 'Boolean');
+            }
+            if (data.hasOwnProperty('sample_size')) {
+                obj['sample_size'] = ApiClient.convertToType(data['sample_size'], 'Number');
+            }
         }
         return obj;
     }
@@ -71,6 +83,10 @@ class V1DashboardSpec {
                 V1SectionSpec.validateJSON(item);
             };
         }
+        // ensure the json data is a string
+        if (data['xaxis'] && !(typeof data['xaxis'] === 'string' || data['xaxis'] instanceof String)) {
+            throw new Error("Expected the field `xaxis` to be a primitive type in the JSON string but got " + data['xaxis']);
+        }
 
         return true;
     }
@@ -84,6 +100,26 @@ class V1DashboardSpec {
  * @member {Array.<module:model/V1SectionSpec>} sections
  */
 V1DashboardSpec.prototype['sections'] = undefined;
+
+/**
+ * @member {String} xaxis
+ */
+V1DashboardSpec.prototype['xaxis'] = undefined;
+
+/**
+ * @member {Number} smoothing
+ */
+V1DashboardSpec.prototype['smoothing'] = undefined;
+
+/**
+ * @member {Boolean} ignore_outliers
+ */
+V1DashboardSpec.prototype['ignore_outliers'] = undefined;
+
+/**
+ * @member {Number} sample_size
+ */
+V1DashboardSpec.prototype['sample_size'] = undefined;
 
 
 

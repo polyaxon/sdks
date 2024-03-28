@@ -53,20 +53,35 @@ class V1SectionSpec {
             if (data.hasOwnProperty('is_minimized')) {
                 obj['is_minimized'] = ApiClient.convertToType(data['is_minimized'], 'Boolean');
             }
+            if (data.hasOwnProperty('is_frozen')) {
+                obj['is_frozen'] = ApiClient.convertToType(data['is_frozen'], 'Boolean');
+            }
             if (data.hasOwnProperty('columns')) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], 'Number');
             }
             if (data.hasOwnProperty('height')) {
                 obj['height'] = ApiClient.convertToType(data['height'], 'Number');
             }
+            if (data.hasOwnProperty('xaxis')) {
+                obj['xaxis'] = ApiClient.convertToType(data['xaxis'], 'String');
+            }
+            if (data.hasOwnProperty('smoothing')) {
+                obj['smoothing'] = ApiClient.convertToType(data['smoothing'], 'Number');
+            }
+            if (data.hasOwnProperty('ignore_outliers')) {
+                obj['ignore_outliers'] = ApiClient.convertToType(data['ignore_outliers'], 'Boolean');
+            }
+            if (data.hasOwnProperty('sample_size')) {
+                obj['sample_size'] = ApiClient.convertToType(data['sample_size'], 'Number');
+            }
             if (data.hasOwnProperty('widgets')) {
                 obj['widgets'] = ApiClient.convertToType(data['widgets'], [Object]);
             }
-            if (data.hasOwnProperty('pageIndex')) {
-                obj['pageIndex'] = ApiClient.convertToType(data['pageIndex'], 'Number');
+            if (data.hasOwnProperty('page_index')) {
+                obj['page_index'] = ApiClient.convertToType(data['page_index'], 'Number');
             }
-            if (data.hasOwnProperty('pageSize')) {
-                obj['pageSize'] = ApiClient.convertToType(data['pageSize'], 'Number');
+            if (data.hasOwnProperty('page_size')) {
+                obj['page_size'] = ApiClient.convertToType(data['page_size'], 'Number');
             }
         }
         return obj;
@@ -81,6 +96,10 @@ class V1SectionSpec {
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['xaxis'] && !(typeof data['xaxis'] === 'string' || data['xaxis'] instanceof String)) {
+            throw new Error("Expected the field `xaxis` to be a primitive type in the JSON string but got " + data['xaxis']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['widgets'])) {
@@ -106,6 +125,11 @@ V1SectionSpec.prototype['name'] = undefined;
 V1SectionSpec.prototype['is_minimized'] = undefined;
 
 /**
+ * @member {Boolean} is_frozen
+ */
+V1SectionSpec.prototype['is_frozen'] = undefined;
+
+/**
  * @member {Number} columns
  */
 V1SectionSpec.prototype['columns'] = undefined;
@@ -116,19 +140,39 @@ V1SectionSpec.prototype['columns'] = undefined;
 V1SectionSpec.prototype['height'] = undefined;
 
 /**
+ * @member {String} xaxis
+ */
+V1SectionSpec.prototype['xaxis'] = undefined;
+
+/**
+ * @member {Number} smoothing
+ */
+V1SectionSpec.prototype['smoothing'] = undefined;
+
+/**
+ * @member {Boolean} ignore_outliers
+ */
+V1SectionSpec.prototype['ignore_outliers'] = undefined;
+
+/**
+ * @member {Number} sample_size
+ */
+V1SectionSpec.prototype['sample_size'] = undefined;
+
+/**
  * @member {Array.<Object>} widgets
  */
 V1SectionSpec.prototype['widgets'] = undefined;
 
 /**
- * @member {Number} pageIndex
+ * @member {Number} page_index
  */
-V1SectionSpec.prototype['pageIndex'] = undefined;
+V1SectionSpec.prototype['page_index'] = undefined;
 
 /**
- * @member {Number} pageSize
+ * @member {Number} page_size
  */
-V1SectionSpec.prototype['pageSize'] = undefined;
+V1SectionSpec.prototype['page_size'] = undefined;
 
 
 

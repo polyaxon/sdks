@@ -21,7 +21,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
 
 class V1SectionSpec(BaseModel):
     """
@@ -29,12 +29,17 @@ class V1SectionSpec(BaseModel):
     """
     name: Optional[StrictStr] = None
     is_minimized: Optional[StrictBool] = None
+    is_frozen: Optional[StrictBool] = None
     columns: Optional[StrictInt] = None
     height: Optional[StrictInt] = None
+    xaxis: Optional[StrictStr] = None
+    smoothing: Optional[StrictInt] = None
+    ignore_outliers: Optional[StrictBool] = None
+    sample_size: Optional[StrictInt] = None
     widgets: Optional[conlist(Dict[str, Any])] = None
-    page_index: Optional[StrictInt] = Field(None, alias="pageIndex")
-    page_size: Optional[StrictInt] = Field(None, alias="pageSize")
-    __properties = ["name", "is_minimized", "columns", "height", "widgets", "pageIndex", "pageSize"]
+    page_index: Optional[StrictInt] = None
+    page_size: Optional[StrictInt] = None
+    __properties = ["name", "is_minimized", "is_frozen", "columns", "height", "xaxis", "smoothing", "ignore_outliers", "sample_size", "widgets", "page_index", "page_size"]
 
     class Config:
         allow_population_by_field_name = True
@@ -73,11 +78,16 @@ class V1SectionSpec(BaseModel):
         _obj = V1SectionSpec.parse_obj({
             "name": obj.get("name"),
             "is_minimized": obj.get("is_minimized"),
+            "is_frozen": obj.get("is_frozen"),
             "columns": obj.get("columns"),
             "height": obj.get("height"),
+            "xaxis": obj.get("xaxis"),
+            "smoothing": obj.get("smoothing"),
+            "ignore_outliers": obj.get("ignore_outliers"),
+            "sample_size": obj.get("sample_size"),
             "widgets": obj.get("widgets"),
-            "page_index": obj.get("pageIndex"),
-            "page_size": obj.get("pageSize")
+            "page_index": obj.get("page_index"),
+            "page_size": obj.get("page_size")
         })
         return _obj
 
