@@ -30,6 +30,9 @@ type V1Agent struct {
 	// Optional description
 	Description string `json:"description,omitempty"`
 
+	// Agent hostname
+	Hostname string `json:"hostname,omitempty"`
+
 	// Agent is in replica mode
 	IsReplica bool `json:"is_replica,omitempty"`
 

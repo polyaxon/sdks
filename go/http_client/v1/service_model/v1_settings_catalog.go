@@ -20,6 +20,9 @@ type V1SettingsCatalog struct {
 	// Name
 	Name string `json:"name,omitempty"`
 
+	// Url
+	URL string `json:"url,omitempty"`
+
 	// Uuid
 	UUID string `json:"uuid,omitempty"`
 

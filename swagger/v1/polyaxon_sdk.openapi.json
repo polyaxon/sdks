@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.1.6-rc0"
+    "version" : "2.1.7"
   },
   "servers" : [ {
     "url" : "/"
@@ -27547,6 +27547,10 @@
             "title" : "Agent is updatable and managed from the UI",
             "type" : "boolean"
           },
+          "hostname" : {
+            "title" : "Agent hostname",
+            "type" : "string"
+          },
           "settings" : {
             "title" : "Optional settings",
             "type" : "object",
@@ -33523,6 +33527,10 @@
           },
           "version" : {
             "title" : "Version",
+            "type" : "string"
+          },
+          "url" : {
+            "title" : "Url",
             "type" : "string"
           }
         }

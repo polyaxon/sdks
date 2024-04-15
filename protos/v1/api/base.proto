@@ -533,4 +533,7 @@ message SettingsCatalog {
 
   // Version
   string version = 3;
+
+  // Url
+  string url = 4;
 }

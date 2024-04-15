@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.1.6
+  version: 2.1.7
 servers:
 - url: /
 security:
@@ -20003,6 +20003,7 @@ components:
         tags:
         - tags
         - tags
+        hostname: hostname
         updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
         namespace: namespace
@@ -20075,6 +20076,9 @@ components:
         is_ui_managed:
           title: Agent is updatable and managed from the UI
           type: boolean
+        hostname:
+          title: Agent hostname
+          type: string
         settings:
           properties: {}
           title: Optional settings
@@ -26869,6 +26873,7 @@ components:
           tags:
           - tags
           - tags
+          hostname: hostname
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           namespace: namespace
@@ -26901,6 +26906,7 @@ components:
           tags:
           - tags
           - tags
+          hostname: hostname
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           namespace: namespace
@@ -27792,6 +27798,7 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -27800,10 +27807,12 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               queue:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               artifacts:
               - owner: owner
                 name: name
@@ -27896,6 +27905,7 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -27904,10 +27914,12 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               queue:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               artifacts:
               - owner: owner
                 name: name
@@ -28001,6 +28013,7 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -28009,10 +28022,12 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               queue:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               artifacts:
               - owner: owner
                 name: name
@@ -28105,6 +28120,7 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               component: "{}"
               tensorboard: "{}"
               build: "{}"
@@ -28113,10 +28129,12 @@ components:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               queue:
                 name: name
                 uuid: uuid
                 version: version
+                url: url
               artifacts:
               - owner: owner
                 name: name
@@ -28233,6 +28251,7 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -28241,10 +28260,12 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             queue:
               name: name
               uuid: uuid
               version: version
+              url: url
             artifacts:
             - owner: owner
               name: name
@@ -28334,6 +28355,7 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -28342,10 +28364,12 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             queue:
               name: name
               uuid: uuid
               version: version
+              url: url
             artifacts:
             - owner: owner
               name: name
@@ -28710,23 +28734,29 @@ components:
             - name: name
               uuid: uuid
               version: version
+              url: url
             - name: name
               uuid: uuid
               version: version
+              url: url
             registries:
             - name: name
               uuid: uuid
               version: version
+              url: url
             - name: name
               uuid: uuid
               version: version
+              url: url
             hubs:
             - name: name
               uuid: uuid
               version: version
+              url: url
             - name: name
               uuid: uuid
               version: version
+              url: url
           model_registries:
           - model_registries
           - model_registries
@@ -28745,23 +28775,29 @@ components:
             - name: name
               uuid: uuid
               version: version
+              url: url
             - name: name
               uuid: uuid
               version: version
+              url: url
             registries:
             - name: name
               uuid: uuid
               version: version
+              url: url
             - name: name
               uuid: uuid
               version: version
+              url: url
             hubs:
             - name: name
               uuid: uuid
               version: version
+              url: url
             - name: name
               uuid: uuid
               version: version
+              url: url
           model_registries:
           - model_registries
           - model_registries
@@ -33868,6 +33904,7 @@ components:
             name: name
             uuid: uuid
             version: version
+            url: url
           component: "{}"
           tensorboard: "{}"
           build: "{}"
@@ -33876,10 +33913,12 @@ components:
             name: name
             uuid: uuid
             version: version
+            url: url
           queue:
             name: name
             uuid: uuid
             version: version
+            url: url
           artifacts:
           - owner: owner
             name: name
@@ -34167,6 +34206,7 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -34175,10 +34215,12 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             queue:
               name: name
               uuid: uuid
               version: version
+              url: url
             artifacts:
             - owner: owner
               name: name
@@ -34271,6 +34313,7 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             component: "{}"
             tensorboard: "{}"
             build: "{}"
@@ -34279,10 +34322,12 @@ components:
               name: name
               uuid: uuid
               version: version
+              url: url
             queue:
               name: name
               uuid: uuid
               version: version
+              url: url
             artifacts:
             - owner: owner
               name: name
@@ -40494,6 +40539,7 @@ components:
           name: name
           uuid: uuid
           version: version
+          url: url
         component: "{}"
         tensorboard: "{}"
         build: "{}"
@@ -40502,10 +40548,12 @@ components:
           name: name
           uuid: uuid
           version: version
+          url: url
         queue:
           name: name
           uuid: uuid
           version: version
+          url: url
         artifacts:
         - owner: owner
           name: name
@@ -48587,6 +48635,7 @@ components:
         name: name
         uuid: uuid
         version: version
+        url: url
       properties:
         uuid:
           title: Uuid
@@ -48596,6 +48645,9 @@ components:
           type: string
         version:
           title: Version
+          type: string
+        url:
+          title: Url
           type: string
       title: Settings catalog specification
       type: object
@@ -49488,23 +49540,29 @@ components:
           - name: name
             uuid: uuid
             version: version
+            url: url
           - name: name
             uuid: uuid
             version: version
+            url: url
           registries:
           - name: name
             uuid: uuid
             version: version
+            url: url
           - name: name
             uuid: uuid
             version: version
+            url: url
           hubs:
           - name: name
             uuid: uuid
             version: version
+            url: url
           - name: name
             uuid: uuid
             version: version
+            url: url
         model_registries:
         - model_registries
         - model_registries
@@ -49589,23 +49647,29 @@ components:
         - name: name
           uuid: uuid
           version: version
+          url: url
         - name: name
           uuid: uuid
           version: version
+          url: url
         registries:
         - name: name
           uuid: uuid
           version: version
+          url: url
         - name: name
           uuid: uuid
           version: version
+          url: url
         hubs:
         - name: name
           uuid: uuid
           version: version
+          url: url
         - name: name
           uuid: uuid
           version: version
+          url: url
       properties:
         projects:
           items:

@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.1.6-rc0",
+    "version": "2.1.7",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -18362,6 +18362,10 @@
           "type": "boolean",
           "title": "Agent is updatable and managed from the UI"
         },
+        "hostname": {
+          "type": "string",
+          "title": "Agent hostname"
+        },
         "settings": {
           "type": "object",
           "title": "Optional settings"
@@ -24575,6 +24579,10 @@
         "version": {
           "type": "string",
           "title": "Version"
+        },
+        "url": {
+          "type": "string",
+          "title": "Url"
         }
       },
       "title": "Settings catalog specification"

@@ -4296,6 +4296,10 @@
           "title": "Optional description",
           "type": "string"
         },
+        "hostname": {
+          "title": "Agent hostname",
+          "type": "string"
+        },
         "is_replica": {
           "title": "Agent is in replica mode",
           "type": "boolean"
@@ -10817,6 +10821,10 @@
       "properties": {
         "name": {
           "title": "Name",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
           "type": "string"
         },
         "uuid": {

@@ -57,8 +57,11 @@ message Agent {
     // Agent is updatable and managed from the UI
     bool is_ui_managed = 15;
 
+    // Agent hostname
+    string hostname = 16;
+
     // Optional settings
-    google.protobuf.Struct settings = 16;
+    google.protobuf.Struct settings = 17;
 }
 
 // Request data to create/update agents

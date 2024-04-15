@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **status_conditions** | [**List[V1StatusCondition]**](V1StatusCondition.md) |  | [optional] 
 **is_replica** | **bool** |  | [optional] 
 **is_ui_managed** | **bool** |  | [optional] 
+**hostname** | **str** |  | [optional] 
 **settings** | **object** |  | [optional] 
 
 ## Example
