@@ -69,17 +69,17 @@ type InvalidateRunsParams struct {
 	*/
 	Body *service_model.V1Uuids
 
+	/* Name.
+
+	   Entity under namespace
+	*/
+	Name string
+
 	/* Owner.
 
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project under namesapce
-	*/
-	Project string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -145,6 +145,17 @@ func (o *InvalidateRunsParams) SetBody(body *service_model.V1Uuids) {
 	o.Body = body
 }
 
+// WithName adds the name to the invalidate runs params
+func (o *InvalidateRunsParams) WithName(name string) *InvalidateRunsParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the invalidate runs params
+func (o *InvalidateRunsParams) SetName(name string) {
+	o.Name = name
+}
+
 // WithOwner adds the owner to the invalidate runs params
 func (o *InvalidateRunsParams) WithOwner(owner string) *InvalidateRunsParams {
 	o.SetOwner(owner)
@@ -154,17 +165,6 @@ func (o *InvalidateRunsParams) WithOwner(owner string) *InvalidateRunsParams {
 // SetOwner adds the owner to the invalidate runs params
 func (o *InvalidateRunsParams) SetOwner(owner string) {
 	o.Owner = owner
-}
-
-// WithProject adds the project to the invalidate runs params
-func (o *InvalidateRunsParams) WithProject(project string) *InvalidateRunsParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the invalidate runs params
-func (o *InvalidateRunsParams) SetProject(project string) {
-	o.Project = project
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -180,13 +180,13 @@ func (o *InvalidateRunsParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		}
 	}
 
-	// path param owner
-	if err := r.SetPathParam("owner", o.Owner); err != nil {
+	// path param name
+	if err := r.SetPathParam("name", o.Name); err != nil {
 		return err
 	}
 
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
+	// path param owner
+	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
 	}
 

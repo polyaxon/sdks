@@ -69,7 +69,7 @@ type DeleteTeamMemberParams struct {
 
 	/* Team.
 
-	   Team under namesapce
+	   Team under namespace
 	*/
 	Team string
 

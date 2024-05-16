@@ -77,7 +77,7 @@ type UpdateProjectSearchParams struct {
 
 	/* Project.
 
-	   Project under namesapce
+	   Project under namespace
 	*/
 	Project string
 

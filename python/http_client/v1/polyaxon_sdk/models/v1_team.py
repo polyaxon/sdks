@@ -29,14 +29,16 @@ class V1Team(BaseModel):
     V1Team
     """
     uuid: Optional[StrictStr] = None
+    owner: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     projects: Optional[conlist(StrictStr)] = None
     component_hubs: Optional[conlist(StrictStr)] = None
     model_registries: Optional[conlist(StrictStr)] = None
     settings: Optional[V1TeamSettings] = None
+    role: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties = ["uuid", "name", "projects", "component_hubs", "model_registries", "settings", "created_at", "updated_at"]
+    __properties = ["uuid", "owner", "name", "projects", "component_hubs", "model_registries", "settings", "role", "created_at", "updated_at"]
 
     class Config:
         allow_population_by_field_name = True
@@ -77,11 +79,13 @@ class V1Team(BaseModel):
 
         _obj = V1Team.parse_obj({
             "uuid": obj.get("uuid"),
+            "owner": obj.get("owner"),
             "name": obj.get("name"),
             "projects": obj.get("projects"),
             "component_hubs": obj.get("component_hubs"),
             "model_registries": obj.get("model_registries"),
             "settings": V1TeamSettings.from_dict(obj.get("settings")) if obj.get("settings") is not None else None,
+            "role": obj.get("role"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")
         })

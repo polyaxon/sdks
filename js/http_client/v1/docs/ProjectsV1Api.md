@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**archiveProject**](ProjectsV1Api.md#archiveProject) | **POST** /api/v1/{owner}/{name}/archive | Archive project
 [**bookmarkProject**](ProjectsV1Api.md#bookmarkProject) | **POST** /api/v1/{owner}/{name}/bookmark | Bookmark project
 [**createProject**](ProjectsV1Api.md#createProject) | **POST** /api/v1/{owner}/projects/create | Create new project
+[**createTeamProject**](ProjectsV1Api.md#createTeamProject) | **POST** /api/v1/{owner}/{team}/projects/create | Create new project via team space
 [**createVersion**](ProjectsV1Api.md#createVersion) | **POST** /api/v1/{owner}/{project}/versions/{version.kind} | Create version
 [**createVersionStage**](ProjectsV1Api.md#createVersionStage) | **POST** /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages | Create new artifact version stage
 [**deleteProject**](ProjectsV1Api.md#deleteProject) | **DELETE** /api/v1/{owner}/{name} | Delete project
@@ -59,7 +60,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.archiveProject(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -75,7 +76,7 @@ apiInstance.archiveProject(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -110,7 +111,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.bookmarkProject(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -126,7 +127,7 @@ apiInstance.bookmarkProject(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -177,6 +178,59 @@ apiInstance.createProject(owner, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
+ **body** | [**V1Project**](V1Project.md)| Project body | 
+
+### Return type
+
+[**V1Project**](V1Project.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createTeamProject
+
+> V1Project createTeamProject(owner, team, body)
+
+Create new project via team space
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.ProjectsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let team = "team_example"; // String | Team
+let body = new PolyaxonSdk.V1Project(); // V1Project | Project body
+apiInstance.createTeamProject(owner, team, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **team** | **String**| Team | 
  **body** | [**V1Project**](V1Project.md)| Project body | 
 
 ### Return type
@@ -324,7 +378,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.deleteProject(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -340,7 +394,7 @@ apiInstance.deleteProject(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -430,7 +484,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.disableProjectCI(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -446,7 +500,7 @@ apiInstance.disableProjectCI(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -481,7 +535,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.enableProjectCI(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -497,7 +551,7 @@ apiInstance.enableProjectCI(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -532,7 +586,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.getProject(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -548,7 +602,7 @@ apiInstance.getProject(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -650,7 +704,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.getProjectSettings(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -666,7 +720,7 @@ apiInstance.getProjectSettings(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -1136,7 +1190,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Entity name under namesapce
+let entity = "entity_example"; // String | Entity name under namespace
 let kind = "kind_example"; // String | Version Kind
 let opts = {
   'offset': 56, // Number | Pagination offset.
@@ -1160,7 +1214,7 @@ apiInstance.listVersionNames(owner, entity, kind, opts, (error, data, response) 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Entity name under namesapce | 
+ **entity** | **String**| Entity name under namespace | 
  **kind** | **String**| Version Kind | 
  **offset** | **Number**| Pagination offset. | [optional] 
  **limit** | **Number**| Limit size. | [optional] 
@@ -1201,7 +1255,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let entity = "entity_example"; // String | Entity name under namesapce
+let entity = "entity_example"; // String | Entity name under namespace
 let kind = "kind_example"; // String | Version Kind
 let opts = {
   'offset': 56, // Number | Pagination offset.
@@ -1225,7 +1279,7 @@ apiInstance.listVersions(owner, entity, kind, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **entity** | **String**| Entity name under namesapce | 
+ **entity** | **String**| Entity name under namespace | 
  **kind** | **String**| Version Kind | 
  **offset** | **Number**| Pagination offset. | [optional] 
  **limit** | **Number**| Limit size. | [optional] 
@@ -1429,7 +1483,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.restoreProject(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1445,7 +1499,7 @@ apiInstance.restoreProject(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -1537,7 +1591,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.unbookmarkProject(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1553,7 +1607,7 @@ apiInstance.unbookmarkProject(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 

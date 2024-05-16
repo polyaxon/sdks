@@ -1192,7 +1192,7 @@ public class ServiceAccountsV1Api {
      * Build call for listServiceAccountTokens
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
-     * @param entity Entity name under namesapce. (optional)
+     * @param entity Entity name under namespace. (optional)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -1302,7 +1302,7 @@ public class ServiceAccountsV1Api {
      * 
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
-     * @param entity Entity name under namesapce. (optional)
+     * @param entity Entity name under namespace. (optional)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -1330,7 +1330,7 @@ public class ServiceAccountsV1Api {
      * 
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
-     * @param entity Entity name under namesapce. (optional)
+     * @param entity Entity name under namespace. (optional)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)
@@ -1359,7 +1359,7 @@ public class ServiceAccountsV1Api {
      * 
      * @param owner Owner of the namespace (required)
      * @param uuid SubEntity uuid (required)
-     * @param entity Entity name under namesapce. (optional)
+     * @param entity Entity name under namespace. (optional)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
      * @param sort Sort to order the search. (optional)

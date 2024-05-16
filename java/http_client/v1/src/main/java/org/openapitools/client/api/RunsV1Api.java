@@ -255,7 +255,7 @@ public class RunsV1Api {
     /**
      * Build call for approveRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -270,7 +270,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call approveRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -287,9 +287,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/approve"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/approve"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -318,15 +318,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call approveRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call approveRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling approveRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling approveRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling approveRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -334,7 +334,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling approveRuns(Async)");
         }
 
-        return approveRunsCall(owner, project, body, _callback);
+        return approveRunsCall(owner, name, body, _callback);
 
     }
 
@@ -342,7 +342,7 @@ public class RunsV1Api {
      * Approve runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -355,15 +355,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void approveRuns(String owner, String project, V1Uuids body) throws ApiException {
-        approveRunsWithHttpInfo(owner, project, body);
+    public void approveRuns(String owner, String name, V1Uuids body) throws ApiException {
+        approveRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Approve runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -377,8 +377,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> approveRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = approveRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> approveRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = approveRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -386,7 +386,7 @@ public class RunsV1Api {
      * Approve runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -401,9 +401,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call approveRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = approveRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = approveRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -565,7 +565,7 @@ public class RunsV1Api {
     /**
      * Build call for archiveRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -580,7 +580,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call archiveRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call archiveRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -597,9 +597,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/archive"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/archive"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -628,15 +628,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call archiveRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call archiveRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling archiveRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling archiveRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling archiveRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -644,7 +644,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling archiveRuns(Async)");
         }
 
-        return archiveRunsCall(owner, project, body, _callback);
+        return archiveRunsCall(owner, name, body, _callback);
 
     }
 
@@ -652,7 +652,7 @@ public class RunsV1Api {
      * Archive runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -665,15 +665,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void archiveRuns(String owner, String project, V1Uuids body) throws ApiException {
-        archiveRunsWithHttpInfo(owner, project, body);
+    public void archiveRuns(String owner, String name, V1Uuids body) throws ApiException {
+        archiveRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Archive runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -687,8 +687,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> archiveRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = archiveRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> archiveRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = archiveRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -696,7 +696,7 @@ public class RunsV1Api {
      * Archive runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -711,9 +711,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call archiveRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call archiveRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = archiveRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = archiveRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -875,7 +875,7 @@ public class RunsV1Api {
     /**
      * Build call for bookmarkRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -890,7 +890,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bookmarkRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call bookmarkRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -907,9 +907,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/bookmark"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/bookmark"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -938,15 +938,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call bookmarkRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bookmarkRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling bookmarkRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling bookmarkRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling bookmarkRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -954,7 +954,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling bookmarkRuns(Async)");
         }
 
-        return bookmarkRunsCall(owner, project, body, _callback);
+        return bookmarkRunsCall(owner, name, body, _callback);
 
     }
 
@@ -962,7 +962,7 @@ public class RunsV1Api {
      * Bookmark runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -975,15 +975,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void bookmarkRuns(String owner, String project, V1Uuids body) throws ApiException {
-        bookmarkRunsWithHttpInfo(owner, project, body);
+    public void bookmarkRuns(String owner, String name, V1Uuids body) throws ApiException {
+        bookmarkRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Bookmark runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -997,8 +997,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> bookmarkRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = bookmarkRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> bookmarkRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = bookmarkRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -1006,7 +1006,7 @@ public class RunsV1Api {
      * Bookmark runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1021,9 +1021,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bookmarkRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call bookmarkRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = bookmarkRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = bookmarkRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -2557,7 +2557,7 @@ public class RunsV1Api {
     /**
      * Build call for deleteRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2572,7 +2572,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2589,9 +2589,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/delete"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/delete"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2620,15 +2620,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling deleteRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling deleteRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -2636,7 +2636,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling deleteRuns(Async)");
         }
 
-        return deleteRunsCall(owner, project, body, _callback);
+        return deleteRunsCall(owner, name, body, _callback);
 
     }
 
@@ -2644,7 +2644,7 @@ public class RunsV1Api {
      * Delete runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2657,15 +2657,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteRuns(String owner, String project, V1Uuids body) throws ApiException {
-        deleteRunsWithHttpInfo(owner, project, body);
+    public void deleteRuns(String owner, String name, V1Uuids body) throws ApiException {
+        deleteRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Delete runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2679,8 +2679,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = deleteRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> deleteRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = deleteRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -2688,7 +2688,7 @@ public class RunsV1Api {
      * Delete runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2703,9 +2703,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = deleteRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -3828,7 +3828,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunArtifactsLineage
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3940,7 +3940,7 @@ public class RunsV1Api {
      * Get run artifacts lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3968,7 +3968,7 @@ public class RunsV1Api {
      * Get run artifacts lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3997,7 +3997,7 @@ public class RunsV1Api {
      * Get run artifacts lineage (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4027,7 +4027,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunArtifactsLineageNames
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4139,7 +4139,7 @@ public class RunsV1Api {
      * Get run artifacts lineage names
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4167,7 +4167,7 @@ public class RunsV1Api {
      * Get run artifacts lineage names
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4196,7 +4196,7 @@ public class RunsV1Api {
      * Get run artifacts lineage names (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4411,7 +4411,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunClonesLineage
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4523,7 +4523,7 @@ public class RunsV1Api {
      * Get run clones lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4551,7 +4551,7 @@ public class RunsV1Api {
      * Get run clones lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4580,7 +4580,7 @@ public class RunsV1Api {
      * Get run clones lineage (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4610,7 +4610,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunConnectionsLineage
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4722,7 +4722,7 @@ public class RunsV1Api {
      * Get run connections lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4750,7 +4750,7 @@ public class RunsV1Api {
      * Get run connections lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4779,7 +4779,7 @@ public class RunsV1Api {
      * Get run connections lineage (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4809,7 +4809,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunDownstreamLineage
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4921,7 +4921,7 @@ public class RunsV1Api {
      * Get run downstream lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4949,7 +4949,7 @@ public class RunsV1Api {
      * Get run downstream lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4978,7 +4978,7 @@ public class RunsV1Api {
      * Get run downstream lineage (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -5971,7 +5971,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunStats
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6108,7 +6108,7 @@ public class RunsV1Api {
      * Get run stats
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6141,7 +6141,7 @@ public class RunsV1Api {
      * Get run stats
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6175,7 +6175,7 @@ public class RunsV1Api {
      * Get run stats (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6369,7 +6369,7 @@ public class RunsV1Api {
     /**
      * Build call for getRunUpstreamLineage
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6481,7 +6481,7 @@ public class RunsV1Api {
      * Get run upstream lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6509,7 +6509,7 @@ public class RunsV1Api {
      * Get run upstream lineage
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -6538,7 +6538,7 @@ public class RunsV1Api {
      * Get run upstream lineage (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param uuid SubEntity uuid (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -7304,7 +7304,7 @@ public class RunsV1Api {
     /**
      * Build call for invalidateRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7319,7 +7319,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call invalidateRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call invalidateRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7336,9 +7336,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/invalidate"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/invalidate"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7367,15 +7367,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call invalidateRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call invalidateRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling invalidateRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling invalidateRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling invalidateRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -7383,7 +7383,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling invalidateRuns(Async)");
         }
 
-        return invalidateRunsCall(owner, project, body, _callback);
+        return invalidateRunsCall(owner, name, body, _callback);
 
     }
 
@@ -7391,7 +7391,7 @@ public class RunsV1Api {
      * Invalidate runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7404,15 +7404,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void invalidateRuns(String owner, String project, V1Uuids body) throws ApiException {
-        invalidateRunsWithHttpInfo(owner, project, body);
+    public void invalidateRuns(String owner, String name, V1Uuids body) throws ApiException {
+        invalidateRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Invalidate runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7426,8 +7426,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> invalidateRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = invalidateRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> invalidateRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = invalidateRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -7435,7 +7435,7 @@ public class RunsV1Api {
      * Invalidate runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7450,9 +7450,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call invalidateRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call invalidateRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = invalidateRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = invalidateRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -8690,7 +8690,7 @@ public class RunsV1Api {
     /**
      * Build call for restoreRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8705,7 +8705,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call restoreRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call restoreRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8722,9 +8722,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/restore"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/restore"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8753,15 +8753,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call restoreRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call restoreRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling restoreRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling restoreRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling restoreRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -8769,7 +8769,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling restoreRuns(Async)");
         }
 
-        return restoreRunsCall(owner, project, body, _callback);
+        return restoreRunsCall(owner, name, body, _callback);
 
     }
 
@@ -8777,7 +8777,7 @@ public class RunsV1Api {
      * Restore runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8790,15 +8790,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void restoreRuns(String owner, String project, V1Uuids body) throws ApiException {
-        restoreRunsWithHttpInfo(owner, project, body);
+    public void restoreRuns(String owner, String name, V1Uuids body) throws ApiException {
+        restoreRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Restore runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8812,8 +8812,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> restoreRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = restoreRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> restoreRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = restoreRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -8821,7 +8821,7 @@ public class RunsV1Api {
      * Restore runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8836,9 +8836,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call restoreRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call restoreRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = restoreRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = restoreRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -9334,7 +9334,7 @@ public class RunsV1Api {
     /**
      * Build call for skipRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9349,7 +9349,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call skipRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call skipRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9366,9 +9366,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/skip"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/skip"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9397,15 +9397,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call skipRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call skipRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling skipRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling skipRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling skipRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -9413,7 +9413,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling skipRuns(Async)");
         }
 
-        return skipRunsCall(owner, project, body, _callback);
+        return skipRunsCall(owner, name, body, _callback);
 
     }
 
@@ -9421,7 +9421,7 @@ public class RunsV1Api {
      * Skip runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9434,15 +9434,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void skipRuns(String owner, String project, V1Uuids body) throws ApiException {
-        skipRunsWithHttpInfo(owner, project, body);
+    public void skipRuns(String owner, String name, V1Uuids body) throws ApiException {
+        skipRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Skip runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9456,8 +9456,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> skipRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = skipRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> skipRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = skipRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -9465,7 +9465,7 @@ public class RunsV1Api {
      * Skip runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9480,9 +9480,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call skipRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call skipRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = skipRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = skipRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -9644,7 +9644,7 @@ public class RunsV1Api {
     /**
      * Build call for stopRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9659,7 +9659,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopRunsCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call stopRunsCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9676,9 +9676,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/stop"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/stop"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9707,15 +9707,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call stopRunsValidateBeforeCall(String owner, String project, V1Uuids body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call stopRunsValidateBeforeCall(String owner, String name, V1Uuids body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling stopRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling stopRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling stopRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -9723,7 +9723,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling stopRuns(Async)");
         }
 
-        return stopRunsCall(owner, project, body, _callback);
+        return stopRunsCall(owner, name, body, _callback);
 
     }
 
@@ -9731,7 +9731,7 @@ public class RunsV1Api {
      * Stop runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9744,15 +9744,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void stopRuns(String owner, String project, V1Uuids body) throws ApiException {
-        stopRunsWithHttpInfo(owner, project, body);
+    public void stopRuns(String owner, String name, V1Uuids body) throws ApiException {
+        stopRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Stop runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9766,8 +9766,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> stopRunsWithHttpInfo(String owner, String project, V1Uuids body) throws ApiException {
-        okhttp3.Call localVarCall = stopRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> stopRunsWithHttpInfo(String owner, String name, V1Uuids body) throws ApiException {
+        okhttp3.Call localVarCall = stopRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -9775,7 +9775,7 @@ public class RunsV1Api {
      * Stop runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Uuids of the entities (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9790,9 +9790,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopRunsAsync(String owner, String project, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call stopRunsAsync(String owner, String name, V1Uuids body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = stopRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = stopRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -9954,7 +9954,7 @@ public class RunsV1Api {
     /**
      * Build call for tagRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9969,7 +9969,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tagRunsCall(String owner, String project, V1EntitiesTags body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tagRunsCall(String owner, String name, V1EntitiesTags body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9986,9 +9986,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/tag"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/tag"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10017,15 +10017,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tagRunsValidateBeforeCall(String owner, String project, V1EntitiesTags body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tagRunsValidateBeforeCall(String owner, String name, V1EntitiesTags body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling tagRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling tagRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling tagRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -10033,7 +10033,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling tagRuns(Async)");
         }
 
-        return tagRunsCall(owner, project, body, _callback);
+        return tagRunsCall(owner, name, body, _callback);
 
     }
 
@@ -10041,7 +10041,7 @@ public class RunsV1Api {
      * Tag runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10054,15 +10054,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void tagRuns(String owner, String project, V1EntitiesTags body) throws ApiException {
-        tagRunsWithHttpInfo(owner, project, body);
+    public void tagRuns(String owner, String name, V1EntitiesTags body) throws ApiException {
+        tagRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Tag runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10076,8 +10076,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> tagRunsWithHttpInfo(String owner, String project, V1EntitiesTags body) throws ApiException {
-        okhttp3.Call localVarCall = tagRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> tagRunsWithHttpInfo(String owner, String name, V1EntitiesTags body) throws ApiException {
+        okhttp3.Call localVarCall = tagRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -10085,7 +10085,7 @@ public class RunsV1Api {
      * Tag runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10100,9 +10100,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tagRunsAsync(String owner, String project, V1EntitiesTags body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call tagRunsAsync(String owner, String name, V1EntitiesTags body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tagRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = tagRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -10274,7 +10274,7 @@ public class RunsV1Api {
     /**
      * Build call for transferRuns
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10289,7 +10289,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferRunsCall(String owner, String project, V1EntitiesTransfer body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call transferRunsCall(String owner, String name, V1EntitiesTransfer body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10306,9 +10306,9 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/{owner}/{project}/runs/transfer"
+        String localVarPath = "/api/v1/{owner}/{name}/runs/transfer"
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10337,15 +10337,15 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call transferRunsValidateBeforeCall(String owner, String project, V1EntitiesTransfer body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call transferRunsValidateBeforeCall(String owner, String name, V1EntitiesTransfer body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling transferRuns(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling transferRuns(Async)");
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling transferRuns(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -10353,7 +10353,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling transferRuns(Async)");
         }
 
-        return transferRunsCall(owner, project, body, _callback);
+        return transferRunsCall(owner, name, body, _callback);
 
     }
 
@@ -10361,7 +10361,7 @@ public class RunsV1Api {
      * Transfer runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10374,15 +10374,15 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public void transferRuns(String owner, String project, V1EntitiesTransfer body) throws ApiException {
-        transferRunsWithHttpInfo(owner, project, body);
+    public void transferRuns(String owner, String name, V1EntitiesTransfer body) throws ApiException {
+        transferRunsWithHttpInfo(owner, name, body);
     }
 
     /**
      * Transfer runs
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10396,8 +10396,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> transferRunsWithHttpInfo(String owner, String project, V1EntitiesTransfer body) throws ApiException {
-        okhttp3.Call localVarCall = transferRunsValidateBeforeCall(owner, project, body, null);
+    public ApiResponse<Void> transferRunsWithHttpInfo(String owner, String name, V1EntitiesTransfer body) throws ApiException {
+        okhttp3.Call localVarCall = transferRunsValidateBeforeCall(owner, name, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -10405,7 +10405,7 @@ public class RunsV1Api {
      * Transfer runs (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param name Entity under namespace (required)
      * @param body Data (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10420,9 +10420,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferRunsAsync(String owner, String project, V1EntitiesTransfer body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call transferRunsAsync(String owner, String name, V1EntitiesTransfer body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = transferRunsValidateBeforeCall(owner, project, body, _callback);
+        okhttp3.Call localVarCall = transferRunsValidateBeforeCall(owner, name, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

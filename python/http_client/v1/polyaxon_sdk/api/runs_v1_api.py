@@ -219,19 +219,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def approve_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def approve_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Approve runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.approve_runs(owner, project, body, async_req=True)
+        >>> thread = api.approve_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -250,22 +250,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.approve_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.approve_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def approve_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def approve_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Approve runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.approve_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.approve_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -296,7 +296,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -328,8 +328,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -361,7 +361,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/approve', 'POST',
+            '/api/v1/{owner}/{name}/runs/approve', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -530,19 +530,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def archive_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def archive_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Archive runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.archive_runs(owner, project, body, async_req=True)
+        >>> thread = api.archive_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -561,22 +561,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.archive_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.archive_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def archive_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def archive_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Archive runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.archive_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.archive_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -607,7 +607,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -639,8 +639,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -672,7 +672,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/archive', 'POST',
+            '/api/v1/{owner}/{name}/runs/archive', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -841,19 +841,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def bookmark_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def bookmark_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Bookmark runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.bookmark_runs(owner, project, body, async_req=True)
+        >>> thread = api.bookmark_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -872,22 +872,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.bookmark_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.bookmark_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def bookmark_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def bookmark_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Bookmark runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.bookmark_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.bookmark_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -918,7 +918,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -950,8 +950,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -983,7 +983,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/bookmark', 'POST',
+            '/api/v1/{owner}/{name}/runs/bookmark', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -2515,19 +2515,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def delete_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Delete runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_runs(owner, project, body, async_req=True)
+        >>> thread = api.delete_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -2546,22 +2546,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.delete_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def delete_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Delete runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.delete_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -2592,7 +2592,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -2624,8 +2624,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -2657,7 +2657,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/delete', 'DELETE',
+            '/api/v1/{owner}/{name}/runs/delete', 'DELETE',
             _path_params,
             _query_params,
             _header_params,
@@ -3783,7 +3783,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_artifacts_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
+    def get_run_artifacts_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
         """Get run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3794,7 +3794,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -3827,7 +3827,7 @@ class RunsV1Api(object):
         return self.get_run_artifacts_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_artifacts_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def get_run_artifacts_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3838,7 +3838,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -3980,7 +3980,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_artifacts_lineage_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
+    def get_run_artifacts_lineage_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
         """Get run artifacts lineage names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3991,7 +3991,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4024,7 +4024,7 @@ class RunsV1Api(object):
         return self.get_run_artifacts_lineage_names_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_artifacts_lineage_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def get_run_artifacts_lineage_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run artifacts lineage names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4035,7 +4035,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4358,7 +4358,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_clones_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunsResponse:  # noqa: E501
+    def get_run_clones_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunsResponse:  # noqa: E501
         """Get run clones lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4369,7 +4369,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4402,7 +4402,7 @@ class RunsV1Api(object):
         return self.get_run_clones_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_clones_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def get_run_clones_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run clones lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4413,7 +4413,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4555,7 +4555,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_connections_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunConnectionsResponse:  # noqa: E501
+    def get_run_connections_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunConnectionsResponse:  # noqa: E501
         """Get run connections lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4566,7 +4566,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4599,7 +4599,7 @@ class RunsV1Api(object):
         return self.get_run_connections_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_connections_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def get_run_connections_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run connections lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4610,7 +4610,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4752,7 +4752,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_downstream_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunEdgesResponse:  # noqa: E501
+    def get_run_downstream_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunEdgesResponse:  # noqa: E501
         """Get run downstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4763,7 +4763,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -4796,7 +4796,7 @@ class RunsV1Api(object):
         return self.get_run_downstream_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_downstream_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def get_run_downstream_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run downstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4807,7 +4807,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -5897,7 +5897,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs) -> object:  # noqa: E501
+    def get_run_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs) -> object:  # noqa: E501
         """Get run stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5908,7 +5908,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -5951,7 +5951,7 @@ class RunsV1Api(object):
         return self.get_run_stats_with_http_info(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs):  # noqa: E501
+    def get_run_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs):  # noqa: E501
         """Get run stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -5962,7 +5962,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -6291,7 +6291,7 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_run_upstream_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunEdgesResponse:  # noqa: E501
+    def get_run_upstream_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunEdgesResponse:  # noqa: E501
         """Get run upstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6302,7 +6302,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -6335,7 +6335,7 @@ class RunsV1Api(object):
         return self.get_run_upstream_lineage_with_http_info(owner, entity, uuid, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_run_upstream_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def get_run_upstream_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """Get run upstream lineage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -6346,7 +6346,7 @@ class RunsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
@@ -7215,19 +7215,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def invalidate_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def invalidate_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Invalidate runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.invalidate_runs(owner, project, body, async_req=True)
+        >>> thread = api.invalidate_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -7246,22 +7246,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.invalidate_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.invalidate_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def invalidate_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def invalidate_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Invalidate runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.invalidate_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.invalidate_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -7292,7 +7292,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -7324,8 +7324,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -7357,7 +7357,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/invalidate', 'POST',
+            '/api/v1/{owner}/{name}/runs/invalidate', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -8612,19 +8612,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def restore_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def restore_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Restore runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.restore_runs(owner, project, body, async_req=True)
+        >>> thread = api.restore_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -8643,22 +8643,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.restore_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.restore_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def restore_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def restore_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Restore runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.restore_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.restore_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -8689,7 +8689,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -8721,8 +8721,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -8754,7 +8754,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/restore', 'POST',
+            '/api/v1/{owner}/{name}/runs/restore', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -9262,19 +9262,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def skip_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def skip_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Skip runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.skip_runs(owner, project, body, async_req=True)
+        >>> thread = api.skip_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -9293,22 +9293,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.skip_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.skip_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def skip_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def skip_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Skip runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.skip_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.skip_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -9339,7 +9339,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -9371,8 +9371,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -9404,7 +9404,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/skip', 'POST',
+            '/api/v1/{owner}/{name}/runs/skip', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -9573,19 +9573,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def stop_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
+    def stop_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs) -> None:  # noqa: E501
         """Stop runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.stop_runs(owner, project, body, async_req=True)
+        >>> thread = api.stop_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -9604,22 +9604,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.stop_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.stop_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def stop_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
+    def stop_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1Uuids, Field(..., description="Uuids of the entities")], **kwargs):  # noqa: E501
         """Stop runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.stop_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.stop_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Uuids of the entities (required)
         :type body: V1Uuids
         :param async_req: Whether to execute the request asynchronously.
@@ -9650,7 +9650,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -9682,8 +9682,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -9715,7 +9715,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/stop', 'POST',
+            '/api/v1/{owner}/{name}/runs/stop', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -9891,19 +9891,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def tag_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTags, Field(..., description="Data")], **kwargs) -> None:  # noqa: E501
+    def tag_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1EntitiesTags, Field(..., description="Data")], **kwargs) -> None:  # noqa: E501
         """Tag runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.tag_runs(owner, project, body, async_req=True)
+        >>> thread = api.tag_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Data (required)
         :type body: V1EntitiesTags
         :param async_req: Whether to execute the request asynchronously.
@@ -9922,22 +9922,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.tag_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.tag_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def tag_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTags, Field(..., description="Data")], **kwargs):  # noqa: E501
+    def tag_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1EntitiesTags, Field(..., description="Data")], **kwargs):  # noqa: E501
         """Tag runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.tag_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.tag_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Data (required)
         :type body: V1EntitiesTags
         :param async_req: Whether to execute the request asynchronously.
@@ -9968,7 +9968,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -10000,8 +10000,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -10033,7 +10033,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/tag', 'POST',
+            '/api/v1/{owner}/{name}/runs/tag', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -10217,19 +10217,19 @@ class RunsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def transfer_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTransfer, Field(..., description="Data")], **kwargs) -> None:  # noqa: E501
+    def transfer_runs(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1EntitiesTransfer, Field(..., description="Data")], **kwargs) -> None:  # noqa: E501
         """Transfer runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.transfer_runs(owner, project, body, async_req=True)
+        >>> thread = api.transfer_runs(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Data (required)
         :type body: V1EntitiesTransfer
         :param async_req: Whether to execute the request asynchronously.
@@ -10248,22 +10248,22 @@ class RunsV1Api(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.transfer_runs_with_http_info(owner, project, body, **kwargs)  # noqa: E501
+        return self.transfer_runs_with_http_info(owner, name, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def transfer_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1EntitiesTransfer, Field(..., description="Data")], **kwargs):  # noqa: E501
+    def transfer_runs_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity under namespace")], body : Annotated[V1EntitiesTransfer, Field(..., description="Data")], **kwargs):  # noqa: E501
         """Transfer runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.transfer_runs_with_http_info(owner, project, body, async_req=True)
+        >>> thread = api.transfer_runs_with_http_info(owner, name, body, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
-        :type project: str
+        :param name: Entity under namespace (required)
+        :type name: str
         :param body: Data (required)
         :type body: V1EntitiesTransfer
         :param async_req: Whether to execute the request asynchronously.
@@ -10294,7 +10294,7 @@ class RunsV1Api(object):
 
         _all_params = [
             'owner',
-            'project',
+            'name',
             'body'
         ]
         _all_params.extend(
@@ -10326,8 +10326,8 @@ class RunsV1Api(object):
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
-        if _params['project']:
-            _path_params['project'] = _params['project']
+        if _params['name']:
+            _path_params['name'] = _params['name']
 
 
         # process the query parameters
@@ -10359,7 +10359,7 @@ class RunsV1Api(object):
         _response_types_map = {}
 
         return self.api_client.call_api(
-            '/api/v1/{owner}/{project}/runs/transfer', 'POST',
+            '/api/v1/{owner}/{name}/runs/transfer', 'POST',
             _path_params,
             _query_params,
             _header_params,

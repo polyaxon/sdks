@@ -121,19 +121,19 @@ export default class RunsV1Api {
     /**
      * Approve runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~approveRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    approveRuns(owner, project, body, callback) {
+    approveRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling approveRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling approveRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling approveRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -142,7 +142,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -156,7 +156,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/approve', 'POST',
+        '/api/v1/{owner}/{name}/runs/approve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -226,19 +226,19 @@ export default class RunsV1Api {
     /**
      * Archive runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~archiveRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    archiveRuns(owner, project, body, callback) {
+    archiveRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling archiveRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling archiveRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling archiveRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -247,7 +247,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -261,7 +261,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/archive', 'POST',
+        '/api/v1/{owner}/{name}/runs/archive', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -331,19 +331,19 @@ export default class RunsV1Api {
     /**
      * Bookmark runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~bookmarkRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    bookmarkRuns(owner, project, body, callback) {
+    bookmarkRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling bookmarkRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling bookmarkRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling bookmarkRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -352,7 +352,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -366,7 +366,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/bookmark', 'POST',
+        '/api/v1/{owner}/{name}/runs/bookmark', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -923,19 +923,19 @@ export default class RunsV1Api {
     /**
      * Delete runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~deleteRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteRuns(owner, project, body, callback) {
+    deleteRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling deleteRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling deleteRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling deleteRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -944,7 +944,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -958,7 +958,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/delete', 'DELETE',
+        '/api/v1/{owner}/{name}/runs/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1366,7 +1366,7 @@ export default class RunsV1Api {
     /**
      * Get run artifacts lineage
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -1432,7 +1432,7 @@ export default class RunsV1Api {
     /**
      * Get run artifacts lineage names
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -1564,7 +1564,7 @@ export default class RunsV1Api {
     /**
      * Get run clones lineage
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -1630,7 +1630,7 @@ export default class RunsV1Api {
     /**
      * Get run connections lineage
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -1696,7 +1696,7 @@ export default class RunsV1Api {
     /**
      * Get run downstream lineage
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -2094,7 +2094,7 @@ export default class RunsV1Api {
     /**
      * Get run stats
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -2224,7 +2224,7 @@ export default class RunsV1Api {
     /**
      * Get run upstream lineage
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -2535,19 +2535,19 @@ export default class RunsV1Api {
     /**
      * Invalidate runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~invalidateRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    invalidateRuns(owner, project, body, callback) {
+    invalidateRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling invalidateRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling invalidateRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling invalidateRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -2556,7 +2556,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -2570,7 +2570,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/invalidate', 'POST',
+        '/api/v1/{owner}/{name}/runs/invalidate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2994,19 +2994,19 @@ export default class RunsV1Api {
     /**
      * Restore runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~restoreRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    restoreRuns(owner, project, body, callback) {
+    restoreRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling restoreRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling restoreRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling restoreRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -3015,7 +3015,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -3029,7 +3029,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/restore', 'POST',
+        '/api/v1/{owner}/{name}/runs/restore', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3216,19 +3216,19 @@ export default class RunsV1Api {
     /**
      * Skip runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~skipRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    skipRuns(owner, project, body, callback) {
+    skipRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling skipRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling skipRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling skipRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -3237,7 +3237,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -3251,7 +3251,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/skip', 'POST',
+        '/api/v1/{owner}/{name}/runs/skip', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3321,19 +3321,19 @@ export default class RunsV1Api {
     /**
      * Stop runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1Uuids} body Uuids of the entities
      * @param {module:api/RunsV1Api~stopRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    stopRuns(owner, project, body, callback) {
+    stopRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling stopRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling stopRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling stopRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -3342,7 +3342,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -3356,7 +3356,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/stop', 'POST',
+        '/api/v1/{owner}/{name}/runs/stop', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3425,19 +3425,19 @@ export default class RunsV1Api {
     /**
      * Tag runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1EntitiesTags} body Data
      * @param {module:api/RunsV1Api~tagRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    tagRuns(owner, project, body, callback) {
+    tagRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling tagRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling tagRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling tagRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -3446,7 +3446,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -3460,7 +3460,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/tag', 'POST',
+        '/api/v1/{owner}/{name}/runs/tag', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3535,19 +3535,19 @@ export default class RunsV1Api {
     /**
      * Transfer runs
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} name Entity under namespace
      * @param {module:model/V1EntitiesTransfer} body Data
      * @param {module:api/RunsV1Api~transferRunsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    transferRuns(owner, project, body, callback) {
+    transferRuns(owner, name, body, callback) {
       let postBody = body;
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling transferRuns");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling transferRuns");
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling transferRuns");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -3556,7 +3556,7 @@ export default class RunsV1Api {
 
       let pathParams = {
         'owner': owner,
-        'project': project
+        'name': name
       };
       let queryParams = {
       };
@@ -3570,7 +3570,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v1/{owner}/{project}/runs/transfer', 'POST',
+        '/api/v1/{owner}/{name}/runs/transfer', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

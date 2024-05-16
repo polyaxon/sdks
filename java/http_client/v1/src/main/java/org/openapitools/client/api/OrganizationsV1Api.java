@@ -1153,7 +1153,7 @@ public class OrganizationsV1Api {
     /**
      * Build call for deleteOrganizationMember
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1233,7 +1233,7 @@ public class OrganizationsV1Api {
      * Delete organization member details
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1253,7 +1253,7 @@ public class OrganizationsV1Api {
      * Delete organization member details
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1275,7 +1275,7 @@ public class OrganizationsV1Api {
      * Delete organization member details (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1980,7 +1980,7 @@ public class OrganizationsV1Api {
     /**
      * Build call for getOrganizationMember
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2060,7 +2060,7 @@ public class OrganizationsV1Api {
      * Get organization member details
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return V1OrganizationMember
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2082,7 +2082,7 @@ public class OrganizationsV1Api {
      * Get organization member details
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;V1OrganizationMember&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2105,7 +2105,7 @@ public class OrganizationsV1Api {
      * Get organization member details (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

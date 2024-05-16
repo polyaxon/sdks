@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**archiveProject**](ProjectsV1Api.md#archiveProject) | **POST** /api/v1/{owner}/{name}/archive | Archive project |
 | [**bookmarkProject**](ProjectsV1Api.md#bookmarkProject) | **POST** /api/v1/{owner}/{name}/bookmark | Bookmark project |
 | [**createProject**](ProjectsV1Api.md#createProject) | **POST** /api/v1/{owner}/projects/create | Create new project |
+| [**createTeamProject**](ProjectsV1Api.md#createTeamProject) | **POST** /api/v1/{owner}/{team}/projects/create | Create new project via team space |
 | [**createVersion**](ProjectsV1Api.md#createVersion) | **POST** /api/v1/{owner}/{project}/versions/{version.kind} | Create version |
 | [**createVersionStage**](ProjectsV1Api.md#createVersionStage) | **POST** /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages | Create new artifact version stage |
 | [**deleteProject**](ProjectsV1Api.md#deleteProject) | **DELETE** /api/v1/{owner}/{name} | Delete project |
@@ -67,7 +68,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.archiveProject(owner, name);
     } catch (ApiException e) {
@@ -86,7 +87,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -139,7 +140,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.bookmarkProject(owner, name);
     } catch (ApiException e) {
@@ -158,7 +159,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -231,6 +232,81 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
+| **body** | [**V1Project**](V1Project.md)| Project body | |
+
+### Return type
+
+[**V1Project**](V1Project.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="createTeamProject"></a>
+# **createTeamProject**
+> V1Project createTeamProject(owner, team, body)
+
+Create new project via team space
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
+    String owner = "owner_example"; // String | Owner of the namespace
+    String team = "team_example"; // String | Team
+    V1Project body = new V1Project(); // V1Project | Project body
+    try {
+      V1Project result = apiInstance.createTeamProject(owner, team, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsV1Api#createTeamProject");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **team** | **String**| Team | |
 | **body** | [**V1Project**](V1Project.md)| Project body | |
 
 ### Return type
@@ -440,7 +516,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.deleteProject(owner, name);
     } catch (ApiException e) {
@@ -459,7 +535,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -588,7 +664,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.disableProjectCI(owner, name);
     } catch (ApiException e) {
@@ -607,7 +683,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -660,7 +736,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.enableProjectCI(owner, name);
     } catch (ApiException e) {
@@ -679,7 +755,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -732,7 +808,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       V1Project result = apiInstance.getProject(owner, name);
       System.out.println(result);
@@ -752,7 +828,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -892,7 +968,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       V1ProjectSettings result = apiInstance.getProjectSettings(owner, name);
       System.out.println(result);
@@ -912,7 +988,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -1544,7 +1620,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Entity name under namesapce
+    String entity = "entity_example"; // String | Entity name under namespace
     String kind = "kind_example"; // String | Version Kind
     Integer offset = 56; // Integer | Pagination offset.
     Integer limit = 56; // Integer | Limit size.
@@ -1570,7 +1646,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Entity name under namesapce | |
+| **entity** | **String**| Entity name under namespace | |
 | **kind** | **String**| Version Kind | |
 | **offset** | **Integer**| Pagination offset. | [optional] |
 | **limit** | **Integer**| Limit size. | [optional] |
@@ -1629,7 +1705,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String entity = "entity_example"; // String | Entity name under namesapce
+    String entity = "entity_example"; // String | Entity name under namespace
     String kind = "kind_example"; // String | Version Kind
     Integer offset = 56; // Integer | Pagination offset.
     Integer limit = 56; // Integer | Limit size.
@@ -1655,7 +1731,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **entity** | **String**| Entity name under namesapce | |
+| **entity** | **String**| Entity name under namespace | |
 | **kind** | **String**| Version Kind | |
 | **offset** | **Integer**| Pagination offset. | [optional] |
 | **limit** | **Integer**| Limit size. | [optional] |
@@ -1943,7 +2019,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.restoreProject(owner, name);
     } catch (ApiException e) {
@@ -1962,7 +2038,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -2093,7 +2169,7 @@ public class Example {
 
     ProjectsV1Api apiInstance = new ProjectsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.unbookmarkProject(owner, name);
     } catch (ApiException e) {
@@ -2112,7 +2188,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 

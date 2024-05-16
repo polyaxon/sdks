@@ -11091,12 +11091,20 @@
           "title": "Name",
           "type": "string"
         },
+        "owner": {
+          "title": "Owner/namespace where the team was created",
+          "type": "string"
+        },
         "projects": {
           "items": {
             "type": "string"
           },
           "title": "projects",
           "type": "array"
+        },
+        "role": {
+          "title": "Current user's role in this (org/teams)/project",
+          "type": "string"
         },
         "settings": {
           "$ref": "#/definitions/v1TeamSettings",

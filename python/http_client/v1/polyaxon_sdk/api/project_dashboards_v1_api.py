@@ -45,7 +45,7 @@ class ProjectDashboardsV1Api(object):
         self.api_client = api_client
 
     @validate_arguments
-    def create_project_dashboard(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs) -> V1Dashboard:  # noqa: E501
+    def create_project_dashboard(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs) -> V1Dashboard:  # noqa: E501
         """Create project dashboard  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class ProjectDashboardsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param body: Dashboard body (required)
         :type body: V1Dashboard
@@ -79,7 +79,7 @@ class ProjectDashboardsV1Api(object):
         return self.create_project_dashboard_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_project_dashboard_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs):  # noqa: E501
+    def create_project_dashboard_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs):  # noqa: E501
         """Create project dashboard  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -90,7 +90,7 @@ class ProjectDashboardsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param body: Dashboard body (required)
         :type body: V1Dashboard
@@ -928,7 +928,7 @@ class ProjectDashboardsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def patch_project_dashboard(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs) -> V1Dashboard:  # noqa: E501
+    def patch_project_dashboard(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs) -> V1Dashboard:  # noqa: E501
         """Patch project dashboard  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -939,7 +939,7 @@ class ProjectDashboardsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param dashboard_uuid: UUID (required)
         :type dashboard_uuid: str
@@ -964,7 +964,7 @@ class ProjectDashboardsV1Api(object):
         return self.patch_project_dashboard_with_http_info(owner, project, dashboard_uuid, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def patch_project_dashboard_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs):  # noqa: E501
+    def patch_project_dashboard_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs):  # noqa: E501
         """Patch project dashboard  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -975,7 +975,7 @@ class ProjectDashboardsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param dashboard_uuid: UUID (required)
         :type dashboard_uuid: str
@@ -1252,7 +1252,7 @@ class ProjectDashboardsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_project_dashboard(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs) -> V1Dashboard:  # noqa: E501
+    def update_project_dashboard(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs) -> V1Dashboard:  # noqa: E501
         """Update project dashboard  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1263,7 +1263,7 @@ class ProjectDashboardsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param dashboard_uuid: UUID (required)
         :type dashboard_uuid: str
@@ -1288,7 +1288,7 @@ class ProjectDashboardsV1Api(object):
         return self.update_project_dashboard_with_http_info(owner, project, dashboard_uuid, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_project_dashboard_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs):  # noqa: E501
+    def update_project_dashboard_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], dashboard_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Dashboard, Field(..., description="Dashboard body")], **kwargs):  # noqa: E501
         """Update project dashboard  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1299,7 +1299,7 @@ class ProjectDashboardsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param dashboard_uuid: UUID (required)
         :type dashboard_uuid: str

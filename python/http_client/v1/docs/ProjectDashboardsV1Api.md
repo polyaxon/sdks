@@ -52,7 +52,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    project = 'project_example' # str | Project under namespace
     body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
     try:
@@ -69,7 +69,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **project** | **str**| Project under namespace | 
  **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | 
 
 ### Return type
@@ -479,7 +479,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    project = 'project_example' # str | Project under namespace
     dashboard_uuid = 'dashboard_uuid_example' # str | UUID
     body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
@@ -497,7 +497,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **project** | **str**| Project under namespace | 
  **dashboard_uuid** | **str**| UUID | 
  **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | 
 
@@ -641,7 +641,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    project = 'project_example' # str | Project under namespace
     dashboard_uuid = 'dashboard_uuid_example' # str | UUID
     body = polyaxon_sdk.V1Dashboard() # V1Dashboard | Dashboard body
 
@@ -659,7 +659,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **project** | **str**| Project under namespace | 
  **dashboard_uuid** | **str**| UUID | 
  **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | 
 

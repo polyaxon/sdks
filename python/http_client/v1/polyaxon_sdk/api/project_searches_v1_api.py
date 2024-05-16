@@ -45,7 +45,7 @@ class ProjectSearchesV1Api(object):
         self.api_client = api_client
 
     @validate_arguments
-    def create_project_search(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs) -> V1Search:  # noqa: E501
+    def create_project_search(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs) -> V1Search:  # noqa: E501
         """Create project search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class ProjectSearchesV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param body: Search body (required)
         :type body: V1Search
@@ -79,7 +79,7 @@ class ProjectSearchesV1Api(object):
         return self.create_project_search_with_http_info(owner, project, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_project_search_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs):  # noqa: E501
+    def create_project_search_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs):  # noqa: E501
         """Create project search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -90,7 +90,7 @@ class ProjectSearchesV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param body: Search body (required)
         :type body: V1Search
@@ -928,7 +928,7 @@ class ProjectSearchesV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def patch_project_search(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs) -> V1Search:  # noqa: E501
+    def patch_project_search(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs) -> V1Search:  # noqa: E501
         """Patch project search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -939,7 +939,7 @@ class ProjectSearchesV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param search_uuid: UUID (required)
         :type search_uuid: str
@@ -964,7 +964,7 @@ class ProjectSearchesV1Api(object):
         return self.patch_project_search_with_http_info(owner, project, search_uuid, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def patch_project_search_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs):  # noqa: E501
+    def patch_project_search_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs):  # noqa: E501
         """Patch project search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -975,7 +975,7 @@ class ProjectSearchesV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param search_uuid: UUID (required)
         :type search_uuid: str
@@ -1252,7 +1252,7 @@ class ProjectSearchesV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_project_search(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs) -> V1Search:  # noqa: E501
+    def update_project_search(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs) -> V1Search:  # noqa: E501
         """Update project search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1263,7 +1263,7 @@ class ProjectSearchesV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param search_uuid: UUID (required)
         :type search_uuid: str
@@ -1288,7 +1288,7 @@ class ProjectSearchesV1Api(object):
         return self.update_project_search_with_http_info(owner, project, search_uuid, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_project_search_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namesapce")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs):  # noqa: E501
+    def update_project_search_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], project : Annotated[StrictStr, Field(..., description="Project under namespace")], search_uuid : Annotated[StrictStr, Field(..., description="UUID")], body : Annotated[V1Search, Field(..., description="Search body")], **kwargs):  # noqa: E501
         """Update project search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1299,7 +1299,7 @@ class ProjectSearchesV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param project: Project under namesapce (required)
+        :param project: Project under namespace (required)
         :type project: str
         :param search_uuid: UUID (required)
         :type search_uuid: str

@@ -625,7 +625,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.ServiceAccountsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
     uuid = 'uuid_example' # str | SubEntity uuid
-    entity = 'entity_example' # str | Entity name under namesapce. (optional)
+    entity = 'entity_example' # str | Entity name under namespace. (optional)
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
     sort = 'sort_example' # str | Sort to order the search. (optional)
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
  **uuid** | **str**| SubEntity uuid | 
- **entity** | **str**| Entity name under namesapce. | [optional] 
+ **entity** | **str**| Entity name under namespace. | [optional] 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
  **sort** | **str**| Sort to order the search. | [optional] 

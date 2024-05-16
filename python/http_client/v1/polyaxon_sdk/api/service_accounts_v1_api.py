@@ -1166,7 +1166,7 @@ class ServiceAccountsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_service_account_tokens(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], entity : Annotated[Optional[StrictStr], Field(description="Entity name under namesapce.")] = None, offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListTokenResponse:  # noqa: E501
+    def list_service_account_tokens(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], entity : Annotated[Optional[StrictStr], Field(description="Entity name under namespace.")] = None, offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListTokenResponse:  # noqa: E501
         """List service account tokens  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1179,7 +1179,7 @@ class ServiceAccountsV1Api(object):
         :type owner: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
-        :param entity: Entity name under namesapce.
+        :param entity: Entity name under namespace.
         :type entity: str
         :param offset: Pagination offset.
         :type offset: int
@@ -1210,7 +1210,7 @@ class ServiceAccountsV1Api(object):
         return self.list_service_account_tokens_with_http_info(owner, uuid, entity, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_service_account_tokens_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], entity : Annotated[Optional[StrictStr], Field(description="Entity name under namesapce.")] = None, offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def list_service_account_tokens_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], entity : Annotated[Optional[StrictStr], Field(description="Entity name under namespace.")] = None, offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List service account tokens  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1223,7 +1223,7 @@ class ServiceAccountsV1Api(object):
         :type owner: str
         :param uuid: SubEntity uuid (required)
         :type uuid: str
-        :param entity: Entity name under namesapce.
+        :param entity: Entity name under namespace.
         :type entity: str
         :param offset: Pagination offset.
         :type offset: int

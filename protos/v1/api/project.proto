@@ -76,6 +76,18 @@ message Project {
     Project project = 2;
  }
 
+  // Request data to create/update project
+  message TeamProjectBodyRequest {
+    // Owner of the namespace
+    string owner = 1;
+
+    // Team
+    string team = 2;
+
+    // Project body
+    Project project = 3;
+ }
+
  // Contains list of projects
  message ListProjectsResponse {
     // Count of the entities

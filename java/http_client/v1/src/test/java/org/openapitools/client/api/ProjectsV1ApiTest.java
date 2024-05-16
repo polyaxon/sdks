@@ -81,6 +81,20 @@ public class ProjectsV1ApiTest {
     }
 
     /**
+     * Create new project via team space
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createTeamProjectTest() throws ApiException {
+        String owner = null;
+        String team = null;
+        V1Project body = null;
+        V1Project response = api.createTeamProject(owner, team, body);
+        // TODO: test validations
+    }
+
+    /**
      * Create version
      *
      * @throws ApiException if the Api call fails

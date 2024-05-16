@@ -1163,7 +1163,7 @@ class OrganizationsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_organization_member(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def delete_organization_member(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Delete organization member details  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1174,7 +1174,7 @@ class OrganizationsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1195,7 +1195,7 @@ class OrganizationsV1Api(object):
         return self.delete_organization_member_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_organization_member_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def delete_organization_member_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Delete organization member details  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1206,7 +1206,7 @@ class OrganizationsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2007,7 +2007,7 @@ class OrganizationsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_organization_member(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> V1OrganizationMember:  # noqa: E501
+    def get_organization_member(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> V1OrganizationMember:  # noqa: E501
         """Get organization member details  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2018,7 +2018,7 @@ class OrganizationsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -2039,7 +2039,7 @@ class OrganizationsV1Api(object):
         return self.get_organization_member_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_organization_member_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def get_organization_member_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Get organization member details  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -2050,7 +2050,7 @@ class OrganizationsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

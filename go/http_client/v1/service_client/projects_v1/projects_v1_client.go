@@ -36,6 +36,8 @@ type ClientService interface {
 
 	CreateProject(params *CreateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateProjectOK, *CreateProjectNoContent, error)
 
+	CreateTeamProject(params *CreateTeamProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamProjectOK, *CreateTeamProjectNoContent, error)
+
 	CreateVersion(params *CreateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionOK, *CreateVersionNoContent, error)
 
 	CreateVersionStage(params *CreateVersionStageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionStageOK, *CreateVersionStageNoContent, error)
@@ -212,6 +214,46 @@ func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.Cli
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*CreateProjectDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+CreateTeamProject creates new project via team space
+*/
+func (a *Client) CreateTeamProject(params *CreateTeamProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamProjectOK, *CreateTeamProjectNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateTeamProjectParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CreateTeamProject",
+		Method:             "POST",
+		PathPattern:        "/api/v1/{owner}/{team}/projects/create",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CreateTeamProjectReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *CreateTeamProjectOK:
+		return value, nil, nil
+	case *CreateTeamProjectNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*CreateTeamProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

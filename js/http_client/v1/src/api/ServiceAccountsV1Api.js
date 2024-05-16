@@ -412,7 +412,7 @@ export default class ServiceAccountsV1Api {
      * @param {String} owner Owner of the namespace
      * @param {String} uuid SubEntity uuid
      * @param {Object} opts Optional parameters
-     * @param {String} [entity] Entity name under namesapce.
+     * @param {String} [entity] Entity name under namespace.
      * @param {Number} [offset] Pagination offset.
      * @param {Number} [limit] Limit size.
      * @param {String} [sort] Sort to order the search.

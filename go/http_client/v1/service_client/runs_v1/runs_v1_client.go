@@ -210,7 +210,7 @@ func (a *Client) ApproveRuns(params *ApproveRunsParams, authInfo runtime.ClientA
 	op := &runtime.ClientOperation{
 		ID:                 "ApproveRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/approve",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/approve",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -290,7 +290,7 @@ func (a *Client) ArchiveRuns(params *ArchiveRunsParams, authInfo runtime.ClientA
 	op := &runtime.ClientOperation{
 		ID:                 "ArchiveRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/archive",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/archive",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -370,7 +370,7 @@ func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.Clien
 	op := &runtime.ClientOperation{
 		ID:                 "BookmarkRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/bookmark",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/bookmark",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -770,7 +770,7 @@ func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAut
 	op := &runtime.ClientOperation{
 		ID:                 "DeleteRuns",
 		Method:             "DELETE",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/delete",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/delete",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -1770,7 +1770,7 @@ func (a *Client) InvalidateRuns(params *InvalidateRunsParams, authInfo runtime.C
 	op := &runtime.ClientOperation{
 		ID:                 "InvalidateRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/invalidate",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/invalidate",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -2090,7 +2090,7 @@ func (a *Client) RestoreRuns(params *RestoreRunsParams, authInfo runtime.ClientA
 	op := &runtime.ClientOperation{
 		ID:                 "RestoreRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/restore",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/restore",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -2250,7 +2250,7 @@ func (a *Client) SkipRuns(params *SkipRunsParams, authInfo runtime.ClientAuthInf
 	op := &runtime.ClientOperation{
 		ID:                 "SkipRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/skip",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/skip",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -2330,7 +2330,7 @@ func (a *Client) StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInf
 	op := &runtime.ClientOperation{
 		ID:                 "StopRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/stop",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/stop",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -2410,7 +2410,7 @@ func (a *Client) TagRuns(params *TagRunsParams, authInfo runtime.ClientAuthInfoW
 	op := &runtime.ClientOperation{
 		ID:                 "TagRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/tag",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/tag",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -2490,7 +2490,7 @@ func (a *Client) TransferRuns(params *TransferRunsParams, authInfo runtime.Clien
 	op := &runtime.ClientOperation{
 		ID:                 "TransferRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/{owner}/{project}/runs/transfer",
+		PathPattern:        "/api/v1/{owner}/{name}/runs/transfer",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

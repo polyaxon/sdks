@@ -103,11 +103,11 @@ func (o *DeleteRunsOK) Code() int {
 }
 
 func (o *DeleteRunsOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsOK ", 200)
 }
 
 func (o *DeleteRunsOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsOK ", 200)
 }
 
 func (o *DeleteRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *DeleteRunsNoContent) Code() int {
 }
 
 func (o *DeleteRunsNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *DeleteRunsNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *DeleteRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *DeleteRunsForbidden) Code() int {
 }
 
 func (o *DeleteRunsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *DeleteRunsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *DeleteRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *DeleteRunsNotFound) Code() int {
 }
 
 func (o *DeleteRunsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *DeleteRunsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *DeleteRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *DeleteRunsDefault) Code() int {
 }
 
 func (o *DeleteRunsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *DeleteRunsDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *DeleteRunsDefault) GetPayload() *service_model.RuntimeError {

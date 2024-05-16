@@ -48,6 +48,36 @@
   }
 
   describe('TeamsV1Api', function() {
+    describe('approveTeamRuns', function() {
+      it('should call approveTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test approveTeamRuns
+        //instance.approveTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('archiveTeamRuns', function() {
+      it('should call archiveTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test archiveTeamRuns
+        //instance.archiveTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bookmarkTeamRuns', function() {
+      it('should call bookmarkTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test bookmarkTeamRuns
+        //instance.bookmarkTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createTeam', function() {
       it('should call createTeam successfully', function(done) {
         //uncomment below and update the code to test createTeam
@@ -88,6 +118,16 @@
         done();
       });
     });
+    describe('deleteTeamRuns', function() {
+      it('should call deleteTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test deleteTeamRuns
+        //instance.deleteTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTeam', function() {
       it('should call getTeam successfully', function(done) {
         //uncomment below and update the code to test getTeam
@@ -98,10 +138,70 @@
         done();
       });
     });
+    describe('getTeamActivities', function() {
+      it('should call getTeamActivities successfully', function(done) {
+        //uncomment below and update the code to test getTeamActivities
+        //instance.getTeamActivities(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTeamMember', function() {
       it('should call getTeamMember successfully', function(done) {
         //uncomment below and update the code to test getTeamMember
         //instance.getTeamMember(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTeamRun', function() {
+      it('should call getTeamRun successfully', function(done) {
+        //uncomment below and update the code to test getTeamRun
+        //instance.getTeamRun(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTeamRuns', function() {
+      it('should call getTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test getTeamRuns
+        //instance.getTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTeamStats', function() {
+      it('should call getTeamStats successfully', function(done) {
+        //uncomment below and update the code to test getTeamStats
+        //instance.getTeamStats(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTeamVersions', function() {
+      it('should call getTeamVersions successfully', function(done) {
+        //uncomment below and update the code to test getTeamVersions
+        //instance.getTeamVersions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('invalidateTeamRuns', function() {
+      it('should call invalidateTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test invalidateTeamRuns
+        //instance.invalidateTeamRuns(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -152,6 +252,56 @@
       it('should call patchTeamMember successfully', function(done) {
         //uncomment below and update the code to test patchTeamMember
         //instance.patchTeamMember(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('restoreTeamRuns', function() {
+      it('should call restoreTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test restoreTeamRuns
+        //instance.restoreTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('skipTeamRuns', function() {
+      it('should call skipTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test skipTeamRuns
+        //instance.skipTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('stopTeamRuns', function() {
+      it('should call stopTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test stopTeamRuns
+        //instance.stopTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('tagTeamRuns', function() {
+      it('should call tagTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test tagTeamRuns
+        //instance.tagTeamRuns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('transferTeamRuns', function() {
+      it('should call transferTeamRuns successfully', function(done) {
+        //uncomment below and update the code to test transferTeamRuns
+        //instance.transferTeamRuns(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

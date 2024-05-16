@@ -103,11 +103,11 @@ func (o *StopRunsOK) Code() int {
 }
 
 func (o *StopRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsOK ", 200)
 }
 
 func (o *StopRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsOK ", 200)
 }
 
 func (o *StopRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *StopRunsNoContent) Code() int {
 }
 
 func (o *StopRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *StopRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *StopRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *StopRunsForbidden) Code() int {
 }
 
 func (o *StopRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *StopRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *StopRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *StopRunsNotFound) Code() int {
 }
 
 func (o *StopRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *StopRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] stopRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *StopRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *StopRunsDefault) Code() int {
 }
 
 func (o *StopRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] StopRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] StopRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *StopRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/stop][%d] StopRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/stop][%d] StopRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *StopRunsDefault) GetPayload() *service_model.RuntimeError {

@@ -86,7 +86,7 @@ public class ProjectsV1Api {
     /**
      * Build call for archiveProject
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -166,7 +166,7 @@ public class ProjectsV1Api {
      * Archive project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -186,7 +186,7 @@ public class ProjectsV1Api {
      * Archive project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -208,7 +208,7 @@ public class ProjectsV1Api {
      * Archive project (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -231,7 +231,7 @@ public class ProjectsV1Api {
     /**
      * Build call for bookmarkProject
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -311,7 +311,7 @@ public class ProjectsV1Api {
      * Bookmark project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -331,7 +331,7 @@ public class ProjectsV1Api {
      * Bookmark project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -353,7 +353,7 @@ public class ProjectsV1Api {
      * Bookmark project (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -518,6 +518,165 @@ public class ProjectsV1Api {
     public okhttp3.Call createProjectAsync(String owner, V1Project body, final ApiCallback<V1Project> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createProjectValidateBeforeCall(owner, body, _callback);
+        Type localVarReturnType = new TypeToken<V1Project>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createTeamProject
+     * @param owner Owner of the namespace (required)
+     * @param team Team (required)
+     * @param body Project body (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createTeamProjectCall(String owner, String team, V1Project body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/{owner}/{team}/projects/create"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "team" + "}", localVarApiClient.escapeString(team.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createTeamProjectValidateBeforeCall(String owner, String team, V1Project body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling createTeamProject(Async)");
+        }
+
+        // verify the required parameter 'team' is set
+        if (team == null) {
+            throw new ApiException("Missing the required parameter 'team' when calling createTeamProject(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createTeamProject(Async)");
+        }
+
+        return createTeamProjectCall(owner, team, body, _callback);
+
+    }
+
+    /**
+     * Create new project via team space
+     * 
+     * @param owner Owner of the namespace (required)
+     * @param team Team (required)
+     * @param body Project body (required)
+     * @return V1Project
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public V1Project createTeamProject(String owner, String team, V1Project body) throws ApiException {
+        ApiResponse<V1Project> localVarResp = createTeamProjectWithHttpInfo(owner, team, body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create new project via team space
+     * 
+     * @param owner Owner of the namespace (required)
+     * @param team Team (required)
+     * @param body Project body (required)
+     * @return ApiResponse&lt;V1Project&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<V1Project> createTeamProjectWithHttpInfo(String owner, String team, V1Project body) throws ApiException {
+        okhttp3.Call localVarCall = createTeamProjectValidateBeforeCall(owner, team, body, null);
+        Type localVarReturnType = new TypeToken<V1Project>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create new project via team space (asynchronously)
+     * 
+     * @param owner Owner of the namespace (required)
+     * @param team Team (required)
+     * @param body Project body (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createTeamProjectAsync(String owner, String team, V1Project body, final ApiCallback<V1Project> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createTeamProjectValidateBeforeCall(owner, team, body, _callback);
         Type localVarReturnType = new TypeToken<V1Project>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -873,7 +1032,7 @@ public class ProjectsV1Api {
     /**
      * Build call for deleteProject
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -953,7 +1112,7 @@ public class ProjectsV1Api {
      * Delete project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -973,7 +1132,7 @@ public class ProjectsV1Api {
      * Delete project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -995,7 +1154,7 @@ public class ProjectsV1Api {
      * Delete project (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1183,7 +1342,7 @@ public class ProjectsV1Api {
     /**
      * Build call for disableProjectCI
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1263,7 +1422,7 @@ public class ProjectsV1Api {
      * Disbale project CI
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1283,7 +1442,7 @@ public class ProjectsV1Api {
      * Disbale project CI
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1305,7 +1464,7 @@ public class ProjectsV1Api {
      * Disbale project CI (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1328,7 +1487,7 @@ public class ProjectsV1Api {
     /**
      * Build call for enableProjectCI
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1408,7 +1567,7 @@ public class ProjectsV1Api {
      * Enable project CI
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1428,7 +1587,7 @@ public class ProjectsV1Api {
      * Enable project CI
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1450,7 +1609,7 @@ public class ProjectsV1Api {
      * Enable project CI (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1473,7 +1632,7 @@ public class ProjectsV1Api {
     /**
      * Build call for getProject
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1553,7 +1712,7 @@ public class ProjectsV1Api {
      * Get project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return V1Project
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1575,7 +1734,7 @@ public class ProjectsV1Api {
      * Get project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;V1Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1598,7 +1757,7 @@ public class ProjectsV1Api {
      * Get project (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1827,7 +1986,7 @@ public class ProjectsV1Api {
     /**
      * Build call for getProjectSettings
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1907,7 +2066,7 @@ public class ProjectsV1Api {
      * Get Project settings
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return V1ProjectSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1929,7 +2088,7 @@ public class ProjectsV1Api {
      * Get Project settings
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;V1ProjectSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1952,7 +2111,7 @@ public class ProjectsV1Api {
      * Get Project settings (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3291,7 +3450,7 @@ public class ProjectsV1Api {
     /**
      * Build call for listVersionNames
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3403,7 +3562,7 @@ public class ProjectsV1Api {
      * List versions names
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3431,7 +3590,7 @@ public class ProjectsV1Api {
      * List versions names
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3460,7 +3619,7 @@ public class ProjectsV1Api {
      * List versions names (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3490,7 +3649,7 @@ public class ProjectsV1Api {
     /**
      * Build call for listVersions
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3602,7 +3761,7 @@ public class ProjectsV1Api {
      * List versions
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3630,7 +3789,7 @@ public class ProjectsV1Api {
      * List versions
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -3659,7 +3818,7 @@ public class ProjectsV1Api {
      * List versions (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param entity Entity name under namesapce (required)
+     * @param entity Entity name under namespace (required)
      * @param kind Version Kind (required)
      * @param offset Pagination offset. (optional)
      * @param limit Limit size. (optional)
@@ -4186,7 +4345,7 @@ public class ProjectsV1Api {
     /**
      * Build call for restoreProject
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4266,7 +4425,7 @@ public class ProjectsV1Api {
      * Restore project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4286,7 +4445,7 @@ public class ProjectsV1Api {
      * Restore project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4308,7 +4467,7 @@ public class ProjectsV1Api {
      * Restore project (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4506,7 +4665,7 @@ public class ProjectsV1Api {
     /**
      * Build call for unbookmarkProject
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4586,7 +4745,7 @@ public class ProjectsV1Api {
      * Unbookmark project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4606,7 +4765,7 @@ public class ProjectsV1Api {
      * Unbookmark project
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4628,7 +4787,7 @@ public class ProjectsV1Api {
      * Unbookmark project (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param name Component under namesapce (required)
+     * @param name Component under namespace (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

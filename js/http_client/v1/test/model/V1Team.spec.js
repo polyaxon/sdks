@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property owner (base name: "owner")', function() {
+      // uncomment below and update the code to test the property owner
+      //var instance = new PolyaxonSdk.V1Team();
+      //expect(instance).to.be();
+    });
+
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
       //var instance = new PolyaxonSdk.V1Team();
@@ -86,6 +92,12 @@
 
     it('should have the property settings (base name: "settings")', function() {
       // uncomment below and update the code to test the property settings
+      //var instance = new PolyaxonSdk.V1Team();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property role (base name: "role")', function() {
+      // uncomment below and update the code to test the property role
       //var instance = new PolyaxonSdk.V1Team();
       //expect(instance).to.be();
     });

@@ -442,7 +442,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.deleteOrganizationMember(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -458,7 +458,7 @@ apiInstance.deleteOrganizationMember(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 
@@ -727,7 +727,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let name = "name_example"; // String | Component under namesapce
+let name = "name_example"; // String | Component under namespace
 apiInstance.getOrganizationMember(owner, name, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -743,7 +743,7 @@ apiInstance.getOrganizationMember(owner, name, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **name** | **String**| Component under namesapce | 
+ **name** | **String**| Component under namespace | 
 
 ### Return type
 

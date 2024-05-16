@@ -44,7 +44,7 @@ public class Example {
 
     ProjectSearchesV1Api apiInstance = new ProjectSearchesV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project under namesapce
+    String project = "project_example"; // String | Project under namespace
     V1Search body = new V1Search(); // V1Search | Search body
     try {
       V1Search result = apiInstance.createProjectSearch(owner, project, body);
@@ -65,7 +65,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project under namesapce | |
+| **project** | **String**| Project under namespace | |
 | **body** | [**V1Search**](V1Search.md)| Search body | |
 
 ### Return type
@@ -442,7 +442,7 @@ public class Example {
 
     ProjectSearchesV1Api apiInstance = new ProjectSearchesV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project under namesapce
+    String project = "project_example"; // String | Project under namespace
     String searchUuid = "searchUuid_example"; // String | UUID
     V1Search body = new V1Search(); // V1Search | Search body
     try {
@@ -464,7 +464,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project under namesapce | |
+| **project** | **String**| Project under namespace | |
 | **searchUuid** | **String**| UUID | |
 | **body** | [**V1Search**](V1Search.md)| Search body | |
 
@@ -593,7 +593,7 @@ public class Example {
 
     ProjectSearchesV1Api apiInstance = new ProjectSearchesV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project under namesapce
+    String project = "project_example"; // String | Project under namespace
     String searchUuid = "searchUuid_example"; // String | UUID
     V1Search body = new V1Search(); // V1Search | Search body
     try {
@@ -615,7 +615,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project under namesapce | |
+| **project** | **String**| Project under namespace | |
 | **searchUuid** | **String**| UUID | |
 | **body** | [**V1Search**](V1Search.md)| Search body | |
 

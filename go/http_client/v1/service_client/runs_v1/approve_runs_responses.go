@@ -103,11 +103,11 @@ func (o *ApproveRunsOK) Code() int {
 }
 
 func (o *ApproveRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsOK ", 200)
 }
 
 func (o *ApproveRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsOK ", 200)
 }
 
 func (o *ApproveRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *ApproveRunsNoContent) Code() int {
 }
 
 func (o *ApproveRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *ApproveRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *ApproveRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *ApproveRunsForbidden) Code() int {
 }
 
 func (o *ApproveRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *ApproveRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *ApproveRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *ApproveRunsNotFound) Code() int {
 }
 
 func (o *ApproveRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *ApproveRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] approveRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *ApproveRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *ApproveRunsDefault) Code() int {
 }
 
 func (o *ApproveRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] ApproveRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] ApproveRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *ApproveRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/approve][%d] ApproveRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/approve][%d] ApproveRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *ApproveRunsDefault) GetPayload() *service_model.RuntimeError {

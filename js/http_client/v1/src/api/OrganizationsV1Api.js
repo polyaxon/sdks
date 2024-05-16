@@ -389,7 +389,7 @@ export default class OrganizationsV1Api {
     /**
      * Delete organization member details
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/OrganizationsV1Api~deleteOrganizationMemberCallback} callback The callback function, accepting three arguments: error, data, response
      */
     deleteOrganizationMember(owner, name, callback) {
@@ -644,7 +644,7 @@ export default class OrganizationsV1Api {
     /**
      * Get organization member details
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/OrganizationsV1Api~getOrganizationMemberCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1OrganizationMember}
      */

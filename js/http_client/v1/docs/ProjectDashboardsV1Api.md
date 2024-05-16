@@ -36,7 +36,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectDashboardsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project under namesapce
+let project = "project_example"; // String | Project under namespace
 let body = new PolyaxonSdk.V1Dashboard(); // V1Dashboard | Dashboard body
 apiInstance.createProjectDashboard(owner, project, body, (error, data, response) => {
   if (error) {
@@ -53,7 +53,7 @@ apiInstance.createProjectDashboard(owner, project, body, (error, data, response)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project under namesapce | 
+ **project** | **String**| Project under namespace | 
  **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | 
 
 ### Return type
@@ -329,7 +329,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectDashboardsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project under namesapce
+let project = "project_example"; // String | Project under namespace
 let dashboard_uuid = "dashboard_uuid_example"; // String | UUID
 let body = new PolyaxonSdk.V1Dashboard(); // V1Dashboard | Dashboard body
 apiInstance.patchProjectDashboard(owner, project, dashboard_uuid, body, (error, data, response) => {
@@ -347,7 +347,7 @@ apiInstance.patchProjectDashboard(owner, project, dashboard_uuid, body, (error, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project under namesapce | 
+ **project** | **String**| Project under namespace | 
  **dashboard_uuid** | **String**| UUID | 
  **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | 
 
@@ -437,7 +437,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectDashboardsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project under namesapce
+let project = "project_example"; // String | Project under namespace
 let dashboard_uuid = "dashboard_uuid_example"; // String | UUID
 let body = new PolyaxonSdk.V1Dashboard(); // V1Dashboard | Dashboard body
 apiInstance.updateProjectDashboard(owner, project, dashboard_uuid, body, (error, data, response) => {
@@ -455,7 +455,7 @@ apiInstance.updateProjectDashboard(owner, project, dashboard_uuid, body, (error,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project under namesapce | 
+ **project** | **String**| Project under namespace | 
  **dashboard_uuid** | **String**| UUID | 
  **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | 
 

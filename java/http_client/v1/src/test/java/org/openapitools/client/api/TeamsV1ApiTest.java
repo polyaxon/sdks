@@ -15,10 +15,17 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.RuntimeError;
+import org.openapitools.client.model.V1EntitiesTags;
+import org.openapitools.client.model.V1EntitiesTransfer;
+import org.openapitools.client.model.V1ListActivitiesResponse;
+import org.openapitools.client.model.V1ListProjectVersionsResponse;
+import org.openapitools.client.model.V1ListRunsResponse;
 import org.openapitools.client.model.V1ListTeamMembersResponse;
 import org.openapitools.client.model.V1ListTeamsResponse;
+import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1Team;
 import org.openapitools.client.model.V1TeamMember;
+import org.openapitools.client.model.V1Uuids;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +41,48 @@ import java.util.Map;
 public class TeamsV1ApiTest {
 
     private final TeamsV1Api api = new TeamsV1Api();
+
+    /**
+     * Approve cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void approveTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.approveTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Archive cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void archiveTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.archiveTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Bookmark cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void bookmarkTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.bookmarkTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
 
     /**
      * Create team
@@ -90,6 +139,20 @@ public class TeamsV1ApiTest {
     }
 
     /**
+     * Delete cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.deleteTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
      * Get team
      *
      * @throws ApiException if the Api call fails
@@ -99,6 +162,26 @@ public class TeamsV1ApiTest {
         String owner = null;
         String name = null;
         V1Team response = api.getTeam(owner, name);
+        // TODO: test validations
+    }
+
+    /**
+     * Get organization activities
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamActivitiesTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean bookmarks = null;
+        String mode = null;
+        Boolean noPage = null;
+        V1ListActivitiesResponse response = api.getTeamActivities(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
 
@@ -113,6 +196,96 @@ public class TeamsV1ApiTest {
         String team = null;
         String user = null;
         V1TeamMember response = api.getTeamMember(owner, team, user);
+        // TODO: test validations
+    }
+
+    /**
+     * Get a run in a team
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamRunTest() throws ApiException {
+        String owner = null;
+        String entity = null;
+        String uuid = null;
+        V1Run response = api.getTeamRun(owner, entity, uuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Get all runs in a team
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean bookmarks = null;
+        String mode = null;
+        Boolean noPage = null;
+        V1ListRunsResponse response = api.getTeamRuns(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+        // TODO: test validations
+    }
+
+    /**
+     * Get team stats
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamStatsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean bookmarks = null;
+        String mode = null;
+        String kind = null;
+        String aggregate = null;
+        String groupby = null;
+        String trunc = null;
+        Object response = api.getTeamStats(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
+        // TODO: test validations
+    }
+
+    /**
+     * Get all runs in a team
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamVersionsTest() throws ApiException {
+        String owner = null;
+        String entity = null;
+        String kind = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean noPage = null;
+        V1ListProjectVersionsResponse response = api.getTeamVersions(owner, entity, kind, offset, limit, sort, query, noPage);
+        // TODO: test validations
+    }
+
+    /**
+     * Invalidate cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void invalidateTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.invalidateTeamRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -200,6 +373,76 @@ public class TeamsV1ApiTest {
         String memberUser = null;
         V1TeamMember body = null;
         V1TeamMember response = api.patchTeamMember(owner, team, memberUser, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Restore cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void restoreTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.restoreTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Skip cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void skipTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.skipTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Stop cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void stopTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1Uuids body = null;
+        api.stopTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Tag cross-project runs selection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tagTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1EntitiesTags body = null;
+        api.tagTeamRuns(owner, name, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Transfer cross-project runs selection to a new project
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void transferTeamRunsTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        V1EntitiesTransfer body = null;
+        api.transferTeamRuns(owner, name, body);
         // TODO: test validations
     }
 

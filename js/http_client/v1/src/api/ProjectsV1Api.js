@@ -55,7 +55,7 @@ export default class ProjectsV1Api {
     /**
      * Archive project
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~archiveProjectCallback} callback The callback function, accepting three arguments: error, data, response
      */
     archiveProject(owner, name, callback) {
@@ -102,7 +102,7 @@ export default class ProjectsV1Api {
     /**
      * Bookmark project
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~bookmarkProjectCallback} callback The callback function, accepting three arguments: error, data, response
      */
     bookmarkProject(owner, name, callback) {
@@ -180,6 +180,59 @@ export default class ProjectsV1Api {
       let returnType = V1Project;
       return this.apiClient.callApi(
         '/api/v1/{owner}/projects/create', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createTeamProject operation.
+     * @callback module:api/ProjectsV1Api~createTeamProjectCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1Project} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create new project via team space
+     * @param {String} owner Owner of the namespace
+     * @param {String} team Team
+     * @param {module:model/V1Project} body Project body
+     * @param {module:api/ProjectsV1Api~createTeamProjectCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1Project}
+     */
+    createTeamProject(owner, team, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling createTeamProject");
+      }
+      // verify the required parameter 'team' is set
+      if (team === undefined || team === null) {
+        throw new Error("Missing the required parameter 'team' when calling createTeamProject");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createTeamProject");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'team': team
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1Project;
+      return this.apiClient.callApi(
+        '/api/v1/{owner}/{team}/projects/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -320,7 +373,7 @@ export default class ProjectsV1Api {
     /**
      * Delete project
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~deleteProjectCallback} callback The callback function, accepting three arguments: error, data, response
      */
     deleteProject(owner, name, callback) {
@@ -426,7 +479,7 @@ export default class ProjectsV1Api {
     /**
      * Disbale project CI
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~disableProjectCICallback} callback The callback function, accepting three arguments: error, data, response
      */
     disableProjectCI(owner, name, callback) {
@@ -473,7 +526,7 @@ export default class ProjectsV1Api {
     /**
      * Enable project CI
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~enableProjectCICallback} callback The callback function, accepting three arguments: error, data, response
      */
     enableProjectCI(owner, name, callback) {
@@ -520,7 +573,7 @@ export default class ProjectsV1Api {
     /**
      * Get project
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~getProjectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Project}
      */
@@ -632,7 +685,7 @@ export default class ProjectsV1Api {
     /**
      * Get Project settings
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~getProjectSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1ProjectSettings}
      */
@@ -1094,7 +1147,7 @@ export default class ProjectsV1Api {
     /**
      * List versions names
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} kind Version Kind
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -1160,7 +1213,7 @@ export default class ProjectsV1Api {
     /**
      * List versions
      * @param {String} owner Owner of the namespace
-     * @param {String} entity Entity name under namesapce
+     * @param {String} entity Entity name under namespace
      * @param {String} kind Version Kind
      * @param {Object} opts Optional parameters
      * @param {Number} [offset] Pagination offset.
@@ -1397,7 +1450,7 @@ export default class ProjectsV1Api {
     /**
      * Restore project
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~restoreProjectCallback} callback The callback function, accepting three arguments: error, data, response
      */
     restoreProject(owner, name, callback) {
@@ -1508,7 +1561,7 @@ export default class ProjectsV1Api {
     /**
      * Unbookmark project
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/ProjectsV1Api~unbookmarkProjectCallback} callback The callback function, accepting three arguments: error, data, response
      */
     unbookmarkProject(owner, name, callback) {

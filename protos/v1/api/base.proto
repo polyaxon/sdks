@@ -62,7 +62,7 @@ message OwnerEntityResourceRequestByName {
   // Owner of the namespace
   string owner = 1;
 
-  // Component under namesapce
+  // Component under namespace
   string name = 2;
 }
 
@@ -110,7 +110,7 @@ message TeamMemeberResourceRequest {
   // Owner of the namespace
   string owner = 1;
 
-  // Team under namesapce
+  // Team under namespace
   string team = 2;
 
   // Member under team
@@ -141,13 +141,13 @@ message OwnerResourceUuidsBodyRequest {
 }
 
 
-// Request to act on multiple entities under project
-message ProjectResourceUuidsBodyRequest {
+// Request to act on multiple entities under entity
+message OwnerEntityResourceUuidsBodyRequest {
   // Owner of the namespace
   string owner = 1;
 
-  // Project under namesapce
-  string project = 2;
+  // Entity under namespace
+  string name = 2;
 
   // Uuids of the entities
   Uuids uuids = 3;
@@ -162,13 +162,13 @@ message OwnerTagResourceUuidsBodyRequest {
   EntitiesTags data = 3;
 }
 
-// Request to tag multiple entities under project
-message ProjectTagResourceUuidsBodyRequest {
+// Request to tag multiple entities under entity
+message OwnerEntityTagResourceUuidsBodyRequest {
   // Owner of the namespace
   string owner = 1;
 
-  // Project under namesapce
-  string project = 2;
+  // Entity under namespace
+  string name = 2;
 
   // Data
   EntitiesTags data = 3;
@@ -183,13 +183,13 @@ message OwnerTransferResourceUuidsBodyRequest {
   EntitiesTransfer data = 3;
 }
 
-// Request to transfer multiple entities under project
-message ProjectTransferResourceUuidsBodyRequest {
+// Request to transfer multiple entities under entity
+message OwnerEntityTransferResourceUuidsBodyRequest {
   // Owner of the namespace
   string owner = 1;
 
-  // Project under namesapce
-  string project = 2;
+  // Entity under namespace
+  string name = 2;
 
   // Data
   EntitiesTransfer data = 3;
@@ -260,6 +260,37 @@ message OwnerResourceListRequest {
 
   // No pagination
   bool no_page = 8;
+}
+
+
+// Request list data with owner/entity namespace
+message OwnerEnitytResourceListRequest {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Entity managing the resource
+  string name = 2;
+
+  // Pagination offset
+  int32 offset = 3;
+
+  // Limit size
+  int32 limit = 4;
+
+  // Sort to order the search
+  string sort = 5;
+
+  // Query filter the search
+  string query = 6;
+
+  // Filter by bookmarks
+  bool bookmarks = 7;
+
+  // Mode of the search
+  string mode = 8;
+
+  // No pagination
+  bool no_page = 9;
 }
 
 
@@ -398,7 +429,7 @@ message OwnerSubEntityResourceListRequestByUid {
   // Owner of the namespace
   string owner = 1;
 
-  // Entity name under namesapce
+  // Entity name under namespace
   string entity = 2;
 
   // SubEntity uuid
@@ -425,7 +456,7 @@ message OwnerSubEntityResourceListRequestByName {
   // Owner of the namespace
   string owner = 1;
 
-  // Entity name under namesapce
+  // Entity name under namespace
   string entity = 2;
 
   // SubEntity name
@@ -452,7 +483,7 @@ message OwnerEntityVersionResourceListRequestByName {
   // Owner of the namespace
   string owner = 1;
 
-  // Entity name under namesapce
+  // Entity name under namespace
   string entity = 2;
 
   // Version Kind
@@ -479,7 +510,7 @@ message OwnerSubEntityStatsRequestByUid {
   // Owner of the namespace
   string owner = 1;
 
-  // Entity name under namesapce
+  // Entity name under namespace
   string entity = 2;
 
   // SubEntity uuid

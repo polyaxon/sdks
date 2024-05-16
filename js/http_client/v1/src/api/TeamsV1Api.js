@@ -14,10 +14,17 @@
 
 import ApiClient from "../ApiClient";
 import RuntimeError from '../model/RuntimeError';
+import V1EntitiesTags from '../model/V1EntitiesTags';
+import V1EntitiesTransfer from '../model/V1EntitiesTransfer';
+import V1ListActivitiesResponse from '../model/V1ListActivitiesResponse';
+import V1ListProjectVersionsResponse from '../model/V1ListProjectVersionsResponse';
+import V1ListRunsResponse from '../model/V1ListRunsResponse';
 import V1ListTeamMembersResponse from '../model/V1ListTeamMembersResponse';
 import V1ListTeamsResponse from '../model/V1ListTeamsResponse';
+import V1Run from '../model/V1Run';
 import V1Team from '../model/V1Team';
 import V1TeamMember from '../model/V1TeamMember';
+import V1Uuids from '../model/V1Uuids';
 
 /**
 * TeamsV1 service.
@@ -38,6 +45,162 @@ export default class TeamsV1Api {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the approveTeamRuns operation.
+     * @callback module:api/TeamsV1Api~approveTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Approve cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~approveTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    approveTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling approveTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling approveTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling approveTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/approve', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the archiveTeamRuns operation.
+     * @callback module:api/TeamsV1Api~archiveTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Archive cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~archiveTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    archiveTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling archiveTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling archiveTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling archiveTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/archive', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bookmarkTeamRuns operation.
+     * @callback module:api/TeamsV1Api~bookmarkTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Bookmark cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~bookmarkTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    bookmarkTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling bookmarkTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling bookmarkTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling bookmarkTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/bookmark', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the createTeam operation.
@@ -150,7 +313,7 @@ export default class TeamsV1Api {
     /**
      * Delete team
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/TeamsV1Api~deleteTeamCallback} callback The callback function, accepting three arguments: error, data, response
      */
     deleteTeam(owner, name, callback) {
@@ -197,7 +360,7 @@ export default class TeamsV1Api {
     /**
      * Delete team member details
      * @param {String} owner Owner of the namespace
-     * @param {String} team Team under namesapce
+     * @param {String} team Team under namespace
      * @param {String} user Member under team
      * @param {module:api/TeamsV1Api~deleteTeamMemberCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -240,6 +403,58 @@ export default class TeamsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the deleteTeamRuns operation.
+     * @callback module:api/TeamsV1Api~deleteTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~deleteTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling deleteTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling deleteTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling deleteTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/delete', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getTeam operation.
      * @callback module:api/TeamsV1Api~getTeamCallback
      * @param {String} error Error message, if any.
@@ -250,7 +465,7 @@ export default class TeamsV1Api {
     /**
      * Get team
      * @param {String} owner Owner of the namespace
-     * @param {String} name Component under namesapce
+     * @param {String} name Component under namespace
      * @param {module:api/TeamsV1Api~getTeamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Team}
      */
@@ -288,6 +503,70 @@ export default class TeamsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the getTeamActivities operation.
+     * @callback module:api/TeamsV1Api~getTeamActivitiesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1ListActivitiesResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get organization activities
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity managing the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [bookmarks] Filter by bookmarks.
+     * @param {String} [mode] Mode of the search.
+     * @param {Boolean} [no_page] No pagination.
+     * @param {module:api/TeamsV1Api~getTeamActivitiesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1ListActivitiesResponse}
+     */
+    getTeamActivities(owner, name, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamActivities");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling getTeamActivities");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'bookmarks': opts['bookmarks'],
+        'mode': opts['mode'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1ListActivitiesResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/activities', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getTeamMember operation.
      * @callback module:api/TeamsV1Api~getTeamMemberCallback
      * @param {String} error Error message, if any.
@@ -298,7 +577,7 @@ export default class TeamsV1Api {
     /**
      * Get team member details
      * @param {String} owner Owner of the namespace
-     * @param {String} team Team under namesapce
+     * @param {String} team Team under namespace
      * @param {String} user Member under team
      * @param {module:api/TeamsV1Api~getTeamMemberCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1TeamMember}
@@ -336,6 +615,312 @@ export default class TeamsV1Api {
       let returnType = V1TeamMember;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/teams/{team}/members/{user}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTeamRun operation.
+     * @callback module:api/TeamsV1Api~getTeamRunCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1Run} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a run in a team
+     * @param {String} owner Owner of the namespace
+     * @param {String} entity Entity: project name, hub name, registry name, ...
+     * @param {String} uuid Uuid identifier of the sub-entity
+     * @param {module:api/TeamsV1Api~getTeamRunCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1Run}
+     */
+    getTeamRun(owner, entity, uuid, callback) {
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamRun");
+      }
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getTeamRun");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling getTeamRun");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'entity': entity,
+        'uuid': uuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1Run;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{entity}/runs/{uuid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTeamRuns operation.
+     * @callback module:api/TeamsV1Api~getTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1ListRunsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all runs in a team
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity managing the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [bookmarks] Filter by bookmarks.
+     * @param {String} [mode] Mode of the search.
+     * @param {Boolean} [no_page] No pagination.
+     * @param {module:api/TeamsV1Api~getTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1ListRunsResponse}
+     */
+    getTeamRuns(owner, name, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling getTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'bookmarks': opts['bookmarks'],
+        'mode': opts['mode'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1ListRunsResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTeamStats operation.
+     * @callback module:api/TeamsV1Api~getTeamStatsCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get team stats
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity managing the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [bookmarks] Filter by bookmarks.
+     * @param {String} [mode] Stats Mode.
+     * @param {String} [kind] Stats Kind.
+     * @param {String} [aggregate] Stats aggregate.
+     * @param {String} [groupby] Stats group.
+     * @param {String} [trunc] Stats trunc.
+     * @param {module:api/TeamsV1Api~getTeamStatsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getTeamStats(owner, name, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamStats");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling getTeamStats");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'bookmarks': opts['bookmarks'],
+        'mode': opts['mode'],
+        'kind': opts['kind'],
+        'aggregate': opts['aggregate'],
+        'groupby': opts['groupby'],
+        'trunc': opts['trunc']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/stats', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTeamVersions operation.
+     * @callback module:api/TeamsV1Api~getTeamVersionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1ListProjectVersionsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all runs in a team
+     * @param {String} owner Owner of the namespace
+     * @param {String} entity Entity name under namespace
+     * @param {String} kind Version Kind
+     * @param {Object} opts Optional parameters
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [no_page] No pagination.
+     * @param {module:api/TeamsV1Api~getTeamVersionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1ListProjectVersionsResponse}
+     */
+    getTeamVersions(owner, entity, kind, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamVersions");
+      }
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getTeamVersions");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling getTeamVersions");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'entity': entity,
+        'kind': kind
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1ListProjectVersionsResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{entity}/versions/{kind}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the invalidateTeamRuns operation.
+     * @callback module:api/TeamsV1Api~invalidateTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Invalidate cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~invalidateTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    invalidateTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling invalidateTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling invalidateTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling invalidateTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/invalidate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -628,6 +1213,266 @@ export default class TeamsV1Api {
       let returnType = V1TeamMember;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/teams/{team}/members/{member.user}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the restoreTeamRuns operation.
+     * @callback module:api/TeamsV1Api~restoreTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Restore cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~restoreTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    restoreTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling restoreTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling restoreTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling restoreTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/restore', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the skipTeamRuns operation.
+     * @callback module:api/TeamsV1Api~skipTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Skip cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~skipTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    skipTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling skipTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling skipTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling skipTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/Skip', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the stopTeamRuns operation.
+     * @callback module:api/TeamsV1Api~stopTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Stop cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1Uuids} body Uuids of the entities
+     * @param {module:api/TeamsV1Api~stopTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    stopTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling stopTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling stopTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling stopTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/stop', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the tagTeamRuns operation.
+     * @callback module:api/TeamsV1Api~tagTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Tag cross-project runs selection
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1EntitiesTags} body Data
+     * @param {module:api/TeamsV1Api~tagTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    tagTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling tagTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling tagTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling tagTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/tag', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the transferTeamRuns operation.
+     * @callback module:api/TeamsV1Api~transferTeamRunsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Transfer cross-project runs selection to a new project
+     * @param {String} owner Owner of the namespace
+     * @param {String} name Entity under namespace
+     * @param {module:model/V1EntitiesTransfer} body Data
+     * @param {module:api/TeamsV1Api~transferTeamRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    transferTeamRuns(owner, name, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling transferTeamRuns");
+      }
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling transferTeamRuns");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling transferTeamRuns");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'name': name
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{name}/runs/transfer', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

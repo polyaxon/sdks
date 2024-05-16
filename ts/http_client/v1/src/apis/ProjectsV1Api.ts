@@ -64,6 +64,12 @@ export interface CreateProjectRequest {
     body: V1Project;
 }
 
+export interface CreateTeamProjectRequest {
+    owner: string;
+    team: string;
+    body: V1Project;
+}
+
 export interface CreateVersionRequest {
     owner: string;
     project: string;
@@ -398,6 +404,51 @@ export class ProjectsV1Api extends runtime.BaseAPI {
      */
     async createProject(requestParameters: CreateProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Project> {
         const response = await this.createProjectRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create new project via team space
+     */
+    async createTeamProjectRaw(requestParameters: CreateTeamProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Project>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling createTeamProject.');
+        }
+
+        if (requestParameters.team === null || requestParameters.team === undefined) {
+            throw new runtime.RequiredError('team','Required parameter requestParameters.team was null or undefined when calling createTeamProject.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createTeamProject.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/{owner}/{team}/projects/create`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"team"}}`, encodeURIComponent(String(requestParameters.team))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1ProjectToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ProjectFromJSON(jsonValue));
+    }
+
+    /**
+     * Create new project via team space
+     */
+    async createTeamProject(requestParameters: CreateTeamProjectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Project> {
+        const response = await this.createTeamProjectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

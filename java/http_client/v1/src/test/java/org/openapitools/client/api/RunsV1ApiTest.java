@@ -77,9 +77,9 @@ public class RunsV1ApiTest {
     @Test
     public void approveRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.approveRuns(owner, project, body);
+        api.approveRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -105,9 +105,9 @@ public class RunsV1ApiTest {
     @Test
     public void archiveRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.archiveRuns(owner, project, body);
+        api.archiveRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -133,9 +133,9 @@ public class RunsV1ApiTest {
     @Test
     public void bookmarkRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.bookmarkRuns(owner, project, body);
+        api.bookmarkRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -286,9 +286,9 @@ public class RunsV1ApiTest {
     @Test
     public void deleteRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.deleteRuns(owner, project, body);
+        api.deleteRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -732,9 +732,9 @@ public class RunsV1ApiTest {
     @Test
     public void invalidateRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.invalidateRuns(owner, project, body);
+        api.invalidateRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -860,9 +860,9 @@ public class RunsV1ApiTest {
     @Test
     public void restoreRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.restoreRuns(owner, project, body);
+        api.restoreRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -918,9 +918,9 @@ public class RunsV1ApiTest {
     @Test
     public void skipRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.skipRuns(owner, project, body);
+        api.skipRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -946,9 +946,9 @@ public class RunsV1ApiTest {
     @Test
     public void stopRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1Uuids body = null;
-        api.stopRuns(owner, project, body);
+        api.stopRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -974,9 +974,9 @@ public class RunsV1ApiTest {
     @Test
     public void tagRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1EntitiesTags body = null;
-        api.tagRuns(owner, project, body);
+        api.tagRuns(owner, name, body);
         // TODO: test validations
     }
 
@@ -1003,9 +1003,9 @@ public class RunsV1ApiTest {
     @Test
     public void transferRunsTest() throws ApiException {
         String owner = null;
-        String project = null;
+        String name = null;
         V1EntitiesTransfer body = null;
-        api.transferRuns(owner, project, body);
+        api.transferRuns(owner, name, body);
         // TODO: test validations
     }
 

@@ -76,7 +76,7 @@ type GetRunStatsParams struct {
 
 	/* Entity.
 
-	   Entity name under namesapce
+	   Entity name under namespace
 	*/
 	Entity string
 

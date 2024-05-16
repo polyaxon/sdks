@@ -51,6 +51,9 @@ class V1Team {
             if (data.hasOwnProperty('uuid')) {
                 obj['uuid'] = ApiClient.convertToType(data['uuid'], 'String');
             }
+            if (data.hasOwnProperty('owner')) {
+                obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -65,6 +68,9 @@ class V1Team {
             }
             if (data.hasOwnProperty('settings')) {
                 obj['settings'] = V1TeamSettings.constructFromObject(data['settings']);
+            }
+            if (data.hasOwnProperty('role')) {
+                obj['role'] = ApiClient.convertToType(data['role'], 'String');
             }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
@@ -87,6 +93,10 @@ class V1Team {
             throw new Error("Expected the field `uuid` to be a primitive type in the JSON string but got " + data['uuid']);
         }
         // ensure the json data is a string
+        if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
+            throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
@@ -106,6 +116,10 @@ class V1Team {
         if (data['settings']) { // data not null
           V1TeamSettings.validateJSON(data['settings']);
         }
+        // ensure the json data is a string
+        if (data['role'] && !(typeof data['role'] === 'string' || data['role'] instanceof String)) {
+            throw new Error("Expected the field `role` to be a primitive type in the JSON string but got " + data['role']);
+        }
 
         return true;
     }
@@ -119,6 +133,11 @@ class V1Team {
  * @member {String} uuid
  */
 V1Team.prototype['uuid'] = undefined;
+
+/**
+ * @member {String} owner
+ */
+V1Team.prototype['owner'] = undefined;
 
 /**
  * @member {String} name
@@ -144,6 +163,11 @@ V1Team.prototype['model_registries'] = undefined;
  * @member {module:model/V1TeamSettings} settings
  */
 V1Team.prototype['settings'] = undefined;
+
+/**
+ * @member {String} role
+ */
+V1Team.prototype['role'] = undefined;
 
 /**
  * @member {Date} created_at

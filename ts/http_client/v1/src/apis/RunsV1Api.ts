@@ -96,7 +96,7 @@ export interface ApproveRunRequest {
 
 export interface ApproveRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -108,7 +108,7 @@ export interface ArchiveRunRequest {
 
 export interface ArchiveRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -120,7 +120,7 @@ export interface BookmarkRunRequest {
 
 export interface BookmarkRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -193,7 +193,7 @@ export interface DeleteRunArtifactsRequest {
 
 export interface DeleteRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -439,7 +439,7 @@ export interface InvalidateRunRequest {
 
 export interface InvalidateRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -503,7 +503,7 @@ export interface RestoreRunRequest {
 
 export interface RestoreRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -529,7 +529,7 @@ export interface SkipRunRequest {
 
 export interface SkipRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -541,7 +541,7 @@ export interface StopRunRequest {
 
 export interface StopRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1Uuids;
 }
 
@@ -553,7 +553,7 @@ export interface SyncRunRequest {
 
 export interface TagRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1EntitiesTags;
 }
 
@@ -566,7 +566,7 @@ export interface TransferRunRequest {
 
 export interface TransferRunsRequest {
     owner: string;
-    project: string;
+    name: string;
     body: V1EntitiesTransfer;
 }
 
@@ -657,8 +657,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling approveRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling approveRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling approveRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -676,7 +676,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/approve`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/approve`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -742,8 +742,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling archiveRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling archiveRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling archiveRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -761,7 +761,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/archive`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/archive`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -827,8 +827,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling bookmarkRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling bookmarkRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling bookmarkRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -846,7 +846,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/bookmark`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/bookmark`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -1307,8 +1307,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling deleteRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -1326,7 +1326,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/delete`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/delete`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -2753,8 +2753,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling invalidateRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling invalidateRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling invalidateRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -2772,7 +2772,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/invalidate`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/invalidate`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -3162,8 +3162,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restoreRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling restoreRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling restoreRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -3181,7 +3181,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/restore`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/restore`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -3344,8 +3344,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling skipRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling skipRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling skipRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -3363,7 +3363,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/skip`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/skip`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -3429,8 +3429,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling stopRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling stopRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling stopRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -3448,7 +3448,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/stop`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/stop`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -3517,8 +3517,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling tagRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling tagRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling tagRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -3536,7 +3536,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/tag`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/tag`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -3609,8 +3609,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling transferRuns.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling transferRuns.');
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling transferRuns.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -3628,7 +3628,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/{owner}/{project}/runs/transfer`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/api/v1/{owner}/{name}/runs/transfer`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

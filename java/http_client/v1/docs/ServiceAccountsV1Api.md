@@ -577,7 +577,7 @@ public class Example {
     ServiceAccountsV1Api apiInstance = new ServiceAccountsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
     String uuid = "uuid_example"; // String | SubEntity uuid
-    String entity = "entity_example"; // String | Entity name under namesapce.
+    String entity = "entity_example"; // String | Entity name under namespace.
     Integer offset = 56; // Integer | Pagination offset.
     Integer limit = 56; // Integer | Limit size.
     String sort = "sort_example"; // String | Sort to order the search.
@@ -603,7 +603,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
 | **uuid** | **String**| SubEntity uuid | |
-| **entity** | **String**| Entity name under namesapce. | [optional] |
+| **entity** | **String**| Entity name under namespace. | [optional] |
 | **offset** | **Integer**| Pagination offset. | [optional] |
 | **limit** | **Integer**| Limit size. | [optional] |
 | **sort** | **String**| Sort to order the search. | [optional] |

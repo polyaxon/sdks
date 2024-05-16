@@ -420,7 +420,7 @@ let apiInstance = new PolyaxonSdk.ServiceAccountsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
 let uuid = "uuid_example"; // String | SubEntity uuid
 let opts = {
-  'entity': "entity_example", // String | Entity name under namesapce.
+  'entity': "entity_example", // String | Entity name under namespace.
   'offset': 56, // Number | Pagination offset.
   'limit': 56, // Number | Limit size.
   'sort': "sort_example", // String | Sort to order the search.
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
  **uuid** | **String**| SubEntity uuid | 
- **entity** | **String**| Entity name under namesapce. | [optional] 
+ **entity** | **String**| Entity name under namespace. | [optional] 
  **offset** | **Number**| Pagination offset. | [optional] 
  **limit** | **Number**| Limit size. | [optional] 
  **sort** | **String**| Sort to order the search. | [optional] 

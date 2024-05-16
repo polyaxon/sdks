@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('createTeamProject', function() {
+      it('should call createTeamProject successfully', function(done) {
+        //uncomment below and update the code to test createTeamProject
+        //instance.createTeamProject(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createVersion', function() {
       it('should call createVersion successfully', function(done) {
         //uncomment below and update the code to test createVersion

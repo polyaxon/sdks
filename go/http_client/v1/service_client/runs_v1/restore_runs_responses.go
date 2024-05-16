@@ -103,11 +103,11 @@ func (o *RestoreRunsOK) Code() int {
 }
 
 func (o *RestoreRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsOK ", 200)
 }
 
 func (o *RestoreRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsOK ", 200)
 }
 
 func (o *RestoreRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *RestoreRunsNoContent) Code() int {
 }
 
 func (o *RestoreRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *RestoreRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *RestoreRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *RestoreRunsForbidden) Code() int {
 }
 
 func (o *RestoreRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *RestoreRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *RestoreRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *RestoreRunsNotFound) Code() int {
 }
 
 func (o *RestoreRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *RestoreRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] restoreRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] restoreRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *RestoreRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *RestoreRunsDefault) Code() int {
 }
 
 func (o *RestoreRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] RestoreRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] RestoreRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *RestoreRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/restore][%d] RestoreRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/restore][%d] RestoreRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *RestoreRunsDefault) GetPayload() *service_model.RuntimeError {

@@ -16,23 +16,62 @@
 import * as runtime from '../runtime';
 import type {
   RuntimeError,
+  V1EntitiesTags,
+  V1EntitiesTransfer,
+  V1ListActivitiesResponse,
+  V1ListProjectVersionsResponse,
+  V1ListRunsResponse,
   V1ListTeamMembersResponse,
   V1ListTeamsResponse,
+  V1Run,
   V1Team,
   V1TeamMember,
+  V1Uuids,
 } from '../models';
 import {
     RuntimeErrorFromJSON,
     RuntimeErrorToJSON,
+    V1EntitiesTagsFromJSON,
+    V1EntitiesTagsToJSON,
+    V1EntitiesTransferFromJSON,
+    V1EntitiesTransferToJSON,
+    V1ListActivitiesResponseFromJSON,
+    V1ListActivitiesResponseToJSON,
+    V1ListProjectVersionsResponseFromJSON,
+    V1ListProjectVersionsResponseToJSON,
+    V1ListRunsResponseFromJSON,
+    V1ListRunsResponseToJSON,
     V1ListTeamMembersResponseFromJSON,
     V1ListTeamMembersResponseToJSON,
     V1ListTeamsResponseFromJSON,
     V1ListTeamsResponseToJSON,
+    V1RunFromJSON,
+    V1RunToJSON,
     V1TeamFromJSON,
     V1TeamToJSON,
     V1TeamMemberFromJSON,
     V1TeamMemberToJSON,
+    V1UuidsFromJSON,
+    V1UuidsToJSON,
 } from '../models';
+
+export interface ApproveTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
+
+export interface ArchiveTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
+
+export interface BookmarkTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
 
 export interface CreateTeamRequest {
     owner: string;
@@ -56,15 +95,83 @@ export interface DeleteTeamMemberRequest {
     user: string;
 }
 
+export interface DeleteTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
+
 export interface GetTeamRequest {
     owner: string;
     name: string;
+}
+
+export interface GetTeamActivitiesRequest {
+    owner: string;
+    name: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    noPage?: boolean;
 }
 
 export interface GetTeamMemberRequest {
     owner: string;
     team: string;
     user: string;
+}
+
+export interface GetTeamRunRequest {
+    owner: string;
+    entity: string;
+    uuid: string;
+}
+
+export interface GetTeamRunsRequest {
+    owner: string;
+    name: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    noPage?: boolean;
+}
+
+export interface GetTeamStatsRequest {
+    owner: string;
+    name: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    kind?: string;
+    aggregate?: string;
+    groupby?: string;
+    trunc?: string;
+}
+
+export interface GetTeamVersionsRequest {
+    owner: string;
+    entity: string;
+    kind: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    noPage?: boolean;
+}
+
+export interface InvalidateTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
 }
 
 export interface ListTeamMembersRequest {
@@ -114,6 +221,36 @@ export interface PatchTeamMemberRequest {
     body: V1TeamMember;
 }
 
+export interface RestoreTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
+
+export interface SkipTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
+
+export interface StopTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1Uuids;
+}
+
+export interface TagTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1EntitiesTags;
+}
+
+export interface TransferTeamRunsRequest {
+    owner: string;
+    name: string;
+    body: V1EntitiesTransfer;
+}
+
 export interface UpdateTeamRequest {
     owner: string;
     teamName: string;
@@ -131,6 +268,138 @@ export interface UpdateTeamMemberRequest {
  * 
  */
 export class TeamsV1Api extends runtime.BaseAPI {
+
+    /**
+     * Approve cross-project runs selection
+     */
+    async approveTeamRunsRaw(requestParameters: ApproveTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling approveTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling approveTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling approveTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/approve`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Approve cross-project runs selection
+     */
+    async approveTeamRuns(requestParameters: ApproveTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.approveTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Archive cross-project runs selection
+     */
+    async archiveTeamRunsRaw(requestParameters: ArchiveTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling archiveTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling archiveTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling archiveTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/archive`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Archive cross-project runs selection
+     */
+    async archiveTeamRuns(requestParameters: ArchiveTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.archiveTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Bookmark cross-project runs selection
+     */
+    async bookmarkTeamRunsRaw(requestParameters: BookmarkTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling bookmarkTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling bookmarkTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling bookmarkTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/bookmark`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Bookmark cross-project runs selection
+     */
+    async bookmarkTeamRuns(requestParameters: BookmarkTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.bookmarkTeamRunsRaw(requestParameters, initOverrides);
+    }
 
     /**
      * Create team
@@ -297,6 +566,50 @@ export class TeamsV1Api extends runtime.BaseAPI {
     }
 
     /**
+     * Delete cross-project runs selection
+     */
+    async deleteTeamRunsRaw(requestParameters: DeleteTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling deleteTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling deleteTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/delete`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete cross-project runs selection
+     */
+    async deleteTeamRuns(requestParameters: DeleteTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
      * Get team
      */
     async getTeamRaw(requestParameters: GetTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Team>> {
@@ -331,6 +644,72 @@ export class TeamsV1Api extends runtime.BaseAPI {
      */
     async getTeam(requestParameters: GetTeamRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Team> {
         const response = await this.getTeamRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get organization activities
+     */
+    async getTeamActivitiesRaw(requestParameters: GetTeamActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListActivitiesResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamActivities.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling getTeamActivities.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/activities`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ListActivitiesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get organization activities
+     */
+    async getTeamActivities(requestParameters: GetTeamActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListActivitiesResponse> {
+        const response = await this.getTeamActivitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -374,6 +753,298 @@ export class TeamsV1Api extends runtime.BaseAPI {
     async getTeamMember(requestParameters: GetTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.getTeamMemberRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Get a run in a team
+     */
+    async getTeamRunRaw(requestParameters: GetTeamRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Run>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamRun.');
+        }
+
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getTeamRun.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getTeamRun.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{entity}/runs/{uuid}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1RunFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a run in a team
+     */
+    async getTeamRun(requestParameters: GetTeamRunRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Run> {
+        const response = await this.getTeamRunRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get all runs in a team
+     */
+    async getTeamRunsRaw(requestParameters: GetTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling getTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ListRunsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get all runs in a team
+     */
+    async getTeamRuns(requestParameters: GetTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
+        const response = await this.getTeamRunsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get team stats
+     */
+    async getTeamStatsRaw(requestParameters: GetTeamStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamStats.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling getTeamStats.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.kind !== undefined) {
+            queryParameters['kind'] = requestParameters.kind;
+        }
+
+        if (requestParameters.aggregate !== undefined) {
+            queryParameters['aggregate'] = requestParameters.aggregate;
+        }
+
+        if (requestParameters.groupby !== undefined) {
+            queryParameters['groupby'] = requestParameters.groupby;
+        }
+
+        if (requestParameters.trunc !== undefined) {
+            queryParameters['trunc'] = requestParameters.trunc;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/stats`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Get team stats
+     */
+    async getTeamStats(requestParameters: GetTeamStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.getTeamStatsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get all runs in a team
+     */
+    async getTeamVersionsRaw(requestParameters: GetTeamVersionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListProjectVersionsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamVersions.');
+        }
+
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getTeamVersions.');
+        }
+
+        if (requestParameters.kind === null || requestParameters.kind === undefined) {
+            throw new runtime.RequiredError('kind','Required parameter requestParameters.kind was null or undefined when calling getTeamVersions.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{entity}/versions/{kind}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ListProjectVersionsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get all runs in a team
+     */
+    async getTeamVersions(requestParameters: GetTeamVersionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListProjectVersionsResponse> {
+        const response = await this.getTeamVersionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Invalidate cross-project runs selection
+     */
+    async invalidateTeamRunsRaw(requestParameters: InvalidateTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling invalidateTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling invalidateTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling invalidateTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/invalidate`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Invalidate cross-project runs selection
+     */
+    async invalidateTeamRuns(requestParameters: InvalidateTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.invalidateTeamRunsRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -658,6 +1329,226 @@ export class TeamsV1Api extends runtime.BaseAPI {
     async patchTeamMember(requestParameters: PatchTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.patchTeamMemberRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Restore cross-project runs selection
+     */
+    async restoreTeamRunsRaw(requestParameters: RestoreTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling restoreTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling restoreTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling restoreTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/restore`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Restore cross-project runs selection
+     */
+    async restoreTeamRuns(requestParameters: RestoreTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.restoreTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Skip cross-project runs selection
+     */
+    async skipTeamRunsRaw(requestParameters: SkipTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling skipTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling skipTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling skipTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/Skip`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Skip cross-project runs selection
+     */
+    async skipTeamRuns(requestParameters: SkipTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.skipTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Stop cross-project runs selection
+     */
+    async stopTeamRunsRaw(requestParameters: StopTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling stopTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling stopTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling stopTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/stop`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1UuidsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Stop cross-project runs selection
+     */
+    async stopTeamRuns(requestParameters: StopTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.stopTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Tag cross-project runs selection
+     */
+    async tagTeamRunsRaw(requestParameters: TagTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling tagTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling tagTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling tagTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/tag`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1EntitiesTagsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Tag cross-project runs selection
+     */
+    async tagTeamRuns(requestParameters: TagTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.tagTeamRunsRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Transfer cross-project runs selection to a new project
+     */
+    async transferTeamRunsRaw(requestParameters: TransferTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling transferTeamRuns.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling transferTeamRuns.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling transferTeamRuns.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/transfer`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1EntitiesTransferToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Transfer cross-project runs selection to a new project
+     */
+    async transferTeamRuns(requestParameters: TransferTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.transferTeamRunsRaw(requestParameters, initOverrides);
     }
 
     /**

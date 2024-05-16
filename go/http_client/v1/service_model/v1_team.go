@@ -32,8 +32,14 @@ type V1Team struct {
 	// Name
 	Name string `json:"name,omitempty"`
 
+	// Owner/namespace where the team was created
+	Owner string `json:"owner,omitempty"`
+
 	// projects
 	Projects []string `json:"projects"`
+
+	// Current user's role in this (org/teams)/project
+	Role string `json:"role,omitempty"`
 
 	// settings
 	Settings *V1TeamSettings `json:"settings,omitempty"`

@@ -103,11 +103,11 @@ func (o *BookmarkRunsOK) Code() int {
 }
 
 func (o *BookmarkRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsOK ", 200)
 }
 
 func (o *BookmarkRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsOK ", 200)
 }
 
 func (o *BookmarkRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *BookmarkRunsNoContent) Code() int {
 }
 
 func (o *BookmarkRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *BookmarkRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *BookmarkRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *BookmarkRunsForbidden) Code() int {
 }
 
 func (o *BookmarkRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *BookmarkRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *BookmarkRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *BookmarkRunsNotFound) Code() int {
 }
 
 func (o *BookmarkRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *BookmarkRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] bookmarkRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] bookmarkRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *BookmarkRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *BookmarkRunsDefault) Code() int {
 }
 
 func (o *BookmarkRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] BookmarkRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] BookmarkRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *BookmarkRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/bookmark][%d] BookmarkRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/bookmark][%d] BookmarkRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *BookmarkRunsDefault) GetPayload() *service_model.RuntimeError {

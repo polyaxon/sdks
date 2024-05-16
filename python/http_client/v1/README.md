@@ -214,6 +214,7 @@ Class | Method | HTTP request | Description
 *ProjectsV1Api* | [**archive_project**](docs/ProjectsV1Api.md#archive_project) | **POST** /api/v1/{owner}/{name}/archive | Archive project
 *ProjectsV1Api* | [**bookmark_project**](docs/ProjectsV1Api.md#bookmark_project) | **POST** /api/v1/{owner}/{name}/bookmark | Bookmark project
 *ProjectsV1Api* | [**create_project**](docs/ProjectsV1Api.md#create_project) | **POST** /api/v1/{owner}/projects/create | Create new project
+*ProjectsV1Api* | [**create_team_project**](docs/ProjectsV1Api.md#create_team_project) | **POST** /api/v1/{owner}/{team}/projects/create | Create new project via team space
 *ProjectsV1Api* | [**create_version**](docs/ProjectsV1Api.md#create_version) | **POST** /api/v1/{owner}/{project}/versions/{version.kind} | Create version
 *ProjectsV1Api* | [**create_version_stage**](docs/ProjectsV1Api.md#create_version_stage) | **POST** /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages | Create new artifact version stage
 *ProjectsV1Api* | [**delete_project**](docs/ProjectsV1Api.md#delete_project) | **DELETE** /api/v1/{owner}/{name} | Delete project
@@ -252,11 +253,11 @@ Class | Method | HTTP request | Description
 *QueuesV1Api* | [**patch_queue**](docs/QueuesV1Api.md#patch_queue) | **PATCH** /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid} | Patch queue
 *QueuesV1Api* | [**update_queue**](docs/QueuesV1Api.md#update_queue) | **PUT** /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid} | Update queue
 *RunsV1Api* | [**approve_run**](docs/RunsV1Api.md#approve_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/approve | Approve run
-*RunsV1Api* | [**approve_runs**](docs/RunsV1Api.md#approve_runs) | **POST** /api/v1/{owner}/{project}/runs/approve | Approve runs
+*RunsV1Api* | [**approve_runs**](docs/RunsV1Api.md#approve_runs) | **POST** /api/v1/{owner}/{name}/runs/approve | Approve runs
 *RunsV1Api* | [**archive_run**](docs/RunsV1Api.md#archive_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/archive | Archive run
-*RunsV1Api* | [**archive_runs**](docs/RunsV1Api.md#archive_runs) | **POST** /api/v1/{owner}/{project}/runs/archive | Archive runs
+*RunsV1Api* | [**archive_runs**](docs/RunsV1Api.md#archive_runs) | **POST** /api/v1/{owner}/{name}/runs/archive | Archive runs
 *RunsV1Api* | [**bookmark_run**](docs/RunsV1Api.md#bookmark_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/bookmark | Bookmark run
-*RunsV1Api* | [**bookmark_runs**](docs/RunsV1Api.md#bookmark_runs) | **POST** /api/v1/{owner}/{project}/runs/bookmark | Bookmark runs
+*RunsV1Api* | [**bookmark_runs**](docs/RunsV1Api.md#bookmark_runs) | **POST** /api/v1/{owner}/{name}/runs/bookmark | Bookmark runs
 *RunsV1Api* | [**collect_run_logs**](docs/RunsV1Api.md#collect_run_logs) | **POST** /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs | Internal API to collect run logs
 *RunsV1Api* | [**copy_run**](docs/RunsV1Api.md#copy_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/copy | Restart run with copy
 *RunsV1Api* | [**create_run**](docs/RunsV1Api.md#create_run) | **POST** /api/v1/{owner}/{project}/runs | Create new run
@@ -266,7 +267,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**delete_run_artifact**](docs/RunsV1Api.md#delete_run_artifact) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Delete run artifact
 *RunsV1Api* | [**delete_run_artifact_lineage**](docs/RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 *RunsV1Api* | [**delete_run_artifacts**](docs/RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
-*RunsV1Api* | [**delete_runs**](docs/RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
+*RunsV1Api* | [**delete_runs**](docs/RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs
 *RunsV1Api* | [**get_multi_run_events**](docs/RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 *RunsV1Api* | [**get_multi_run_importance**](docs/RunsV1Api.md#get_multi_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
 *RunsV1Api* | [**get_run**](docs/RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
@@ -291,7 +292,7 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**impersonate_token**](docs/RunsV1Api.md#impersonate_token) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/impersonate | Impersonate run token
 *RunsV1Api* | [**inspect_run**](docs/RunsV1Api.md#inspect_run) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect | Inspect an active run full conditions
 *RunsV1Api* | [**invalidate_run**](docs/RunsV1Api.md#invalidate_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/invalidate | Invalidate run
-*RunsV1Api* | [**invalidate_runs**](docs/RunsV1Api.md#invalidate_runs) | **POST** /api/v1/{owner}/{project}/runs/invalidate | Invalidate runs
+*RunsV1Api* | [**invalidate_runs**](docs/RunsV1Api.md#invalidate_runs) | **POST** /api/v1/{owner}/{name}/runs/invalidate | Invalidate runs
 *RunsV1Api* | [**list_archived_runs**](docs/RunsV1Api.md#list_archived_runs) | **GET** /api/v1/archives/{user}/runs | List archived runs for user
 *RunsV1Api* | [**list_bookmarked_runs**](docs/RunsV1Api.md#list_bookmarked_runs) | **GET** /api/v1/bookmarks/{user}/runs | List bookmarked runs for user
 *RunsV1Api* | [**list_runs**](docs/RunsV1Api.md#list_runs) | **GET** /api/v1/{owner}/{name}/runs | List runs
@@ -299,17 +300,17 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**patch_run**](docs/RunsV1Api.md#patch_run) | **PATCH** /api/v1/{owner}/{project}/runs/{run.uuid} | Patch run
 *RunsV1Api* | [**restart_run**](docs/RunsV1Api.md#restart_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/restart | Restart run
 *RunsV1Api* | [**restore_run**](docs/RunsV1Api.md#restore_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
-*RunsV1Api* | [**restore_runs**](docs/RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
+*RunsV1Api* | [**restore_runs**](docs/RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{name}/runs/restore | Restore runs
 *RunsV1Api* | [**resume_run**](docs/RunsV1Api.md#resume_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
 *RunsV1Api* | [**set_run_edges_lineage**](docs/RunsV1Api.md#set_run_edges_lineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
 *RunsV1Api* | [**skip_run**](docs/RunsV1Api.md#skip_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/skip | Skip run
-*RunsV1Api* | [**skip_runs**](docs/RunsV1Api.md#skip_runs) | **POST** /api/v1/{owner}/{project}/runs/skip | Skip runs
+*RunsV1Api* | [**skip_runs**](docs/RunsV1Api.md#skip_runs) | **POST** /api/v1/{owner}/{name}/runs/skip | Skip runs
 *RunsV1Api* | [**stop_run**](docs/RunsV1Api.md#stop_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
-*RunsV1Api* | [**stop_runs**](docs/RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
+*RunsV1Api* | [**stop_runs**](docs/RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{name}/runs/stop | Stop runs
 *RunsV1Api* | [**sync_run**](docs/RunsV1Api.md#sync_run) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
-*RunsV1Api* | [**tag_runs**](docs/RunsV1Api.md#tag_runs) | **POST** /api/v1/{owner}/{project}/runs/tag | Tag runs
+*RunsV1Api* | [**tag_runs**](docs/RunsV1Api.md#tag_runs) | **POST** /api/v1/{owner}/{name}/runs/tag | Tag runs
 *RunsV1Api* | [**transfer_run**](docs/RunsV1Api.md#transfer_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/transfer | Transfer run
-*RunsV1Api* | [**transfer_runs**](docs/RunsV1Api.md#transfer_runs) | **POST** /api/v1/{owner}/{project}/runs/transfer | Transfer runs
+*RunsV1Api* | [**transfer_runs**](docs/RunsV1Api.md#transfer_runs) | **POST** /api/v1/{owner}/{name}/runs/transfer | Transfer runs
 *RunsV1Api* | [**unbookmark_run**](docs/RunsV1Api.md#unbookmark_run) | **DELETE** /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark | Unbookmark run
 *RunsV1Api* | [**update_run**](docs/RunsV1Api.md#update_run) | **PUT** /api/v1/{owner}/{project}/runs/{run.uuid} | Update run
 *RunsV1Api* | [**upload_run_artifact**](docs/RunsV1Api.md#upload_run_artifact) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload | Upload an artifact file to a store via run access
@@ -343,17 +344,32 @@ Class | Method | HTTP request | Description
 *TagsV1Api* | [**patch_tag**](docs/TagsV1Api.md#patch_tag) | **PATCH** /api/v1/orgs/{owner}/tags/{tag.uuid} | Patch tag
 *TagsV1Api* | [**sync_tags**](docs/TagsV1Api.md#sync_tags) | **POST** /api/v1/orgs/{owner}/tags/sync | Sync tags
 *TagsV1Api* | [**update_tag**](docs/TagsV1Api.md#update_tag) | **PUT** /api/v1/orgs/{owner}/tags/{tag.uuid} | Update tag
+*TeamsV1Api* | [**approve_team_runs**](docs/TeamsV1Api.md#approve_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/approve | Approve cross-project runs selection
+*TeamsV1Api* | [**archive_team_runs**](docs/TeamsV1Api.md#archive_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/archive | Archive cross-project runs selection
+*TeamsV1Api* | [**bookmark_team_runs**](docs/TeamsV1Api.md#bookmark_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/bookmark | Bookmark cross-project runs selection
 *TeamsV1Api* | [**create_team**](docs/TeamsV1Api.md#create_team) | **POST** /api/v1/orgs/{owner}/teams | Create team
 *TeamsV1Api* | [**create_team_member**](docs/TeamsV1Api.md#create_team_member) | **POST** /api/v1/orgs/{owner}/teams/{team}/members | Create team member
 *TeamsV1Api* | [**delete_team**](docs/TeamsV1Api.md#delete_team) | **DELETE** /api/v1/orgs/{owner}/teams/{name} | Delete team
 *TeamsV1Api* | [**delete_team_member**](docs/TeamsV1Api.md#delete_team_member) | **DELETE** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Delete team member details
+*TeamsV1Api* | [**delete_team_runs**](docs/TeamsV1Api.md#delete_team_runs) | **DELETE** /api/v1/orgs/{owner}/teams/{name}/runs/delete | Delete cross-project runs selection
 *TeamsV1Api* | [**get_team**](docs/TeamsV1Api.md#get_team) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
+*TeamsV1Api* | [**get_team_activities**](docs/TeamsV1Api.md#get_team_activities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities
 *TeamsV1Api* | [**get_team_member**](docs/TeamsV1Api.md#get_team_member) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
+*TeamsV1Api* | [**get_team_run**](docs/TeamsV1Api.md#get_team_run) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
+*TeamsV1Api* | [**get_team_runs**](docs/TeamsV1Api.md#get_team_runs) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
+*TeamsV1Api* | [**get_team_stats**](docs/TeamsV1Api.md#get_team_stats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats
+*TeamsV1Api* | [**get_team_versions**](docs/TeamsV1Api.md#get_team_versions) | **GET** /api/v1/orgs/{owner}/teams/{entity}/versions/{kind} | Get all runs in a team
+*TeamsV1Api* | [**invalidate_team_runs**](docs/TeamsV1Api.md#invalidate_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/invalidate | Invalidate cross-project runs selection
 *TeamsV1Api* | [**list_team_members**](docs/TeamsV1Api.md#list_team_members) | **GET** /api/v1/orgs/{owner}/teams/{name}/members | Get team members
 *TeamsV1Api* | [**list_team_names**](docs/TeamsV1Api.md#list_team_names) | **GET** /api/v1/orgs/{owner}/teams/names | List teams names
 *TeamsV1Api* | [**list_teams**](docs/TeamsV1Api.md#list_teams) | **GET** /api/v1/orgs/{owner}/teams | List teams
 *TeamsV1Api* | [**patch_team**](docs/TeamsV1Api.md#patch_team) | **PATCH** /api/v1/orgs/{owner}/teams/{team.name} | Patch team
 *TeamsV1Api* | [**patch_team_member**](docs/TeamsV1Api.md#patch_team_member) | **PATCH** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Patch team member
+*TeamsV1Api* | [**restore_team_runs**](docs/TeamsV1Api.md#restore_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/restore | Restore cross-project runs selection
+*TeamsV1Api* | [**skip_team_runs**](docs/TeamsV1Api.md#skip_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/Skip | Skip cross-project runs selection
+*TeamsV1Api* | [**stop_team_runs**](docs/TeamsV1Api.md#stop_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/stop | Stop cross-project runs selection
+*TeamsV1Api* | [**tag_team_runs**](docs/TeamsV1Api.md#tag_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/tag | Tag cross-project runs selection
+*TeamsV1Api* | [**transfer_team_runs**](docs/TeamsV1Api.md#transfer_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/transfer | Transfer cross-project runs selection to a new project
 *TeamsV1Api* | [**update_team**](docs/TeamsV1Api.md#update_team) | **PUT** /api/v1/orgs/{owner}/teams/{team.name} | Update team
 *TeamsV1Api* | [**update_team_member**](docs/TeamsV1Api.md#update_team_member) | **PUT** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Update team member
 *UsersV1Api* | [**create_token**](docs/UsersV1Api.md#create_token) | **POST** /api/v1/users/tokens | Create token

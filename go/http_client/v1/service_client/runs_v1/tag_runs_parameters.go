@@ -69,17 +69,17 @@ type TagRunsParams struct {
 	*/
 	Body *service_model.V1EntitiesTags
 
+	/* Name.
+
+	   Entity under namespace
+	*/
+	Name string
+
 	/* Owner.
 
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project under namesapce
-	*/
-	Project string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -145,6 +145,17 @@ func (o *TagRunsParams) SetBody(body *service_model.V1EntitiesTags) {
 	o.Body = body
 }
 
+// WithName adds the name to the tag runs params
+func (o *TagRunsParams) WithName(name string) *TagRunsParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the tag runs params
+func (o *TagRunsParams) SetName(name string) {
+	o.Name = name
+}
+
 // WithOwner adds the owner to the tag runs params
 func (o *TagRunsParams) WithOwner(owner string) *TagRunsParams {
 	o.SetOwner(owner)
@@ -154,17 +165,6 @@ func (o *TagRunsParams) WithOwner(owner string) *TagRunsParams {
 // SetOwner adds the owner to the tag runs params
 func (o *TagRunsParams) SetOwner(owner string) {
 	o.Owner = owner
-}
-
-// WithProject adds the project to the tag runs params
-func (o *TagRunsParams) WithProject(project string) *TagRunsParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the tag runs params
-func (o *TagRunsParams) SetProject(project string) {
-	o.Project = project
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -180,13 +180,13 @@ func (o *TagRunsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 		}
 	}
 
-	// path param owner
-	if err := r.SetPathParam("owner", o.Owner); err != nil {
+	// path param name
+	if err := r.SetPathParam("name", o.Name); err != nil {
 		return err
 	}
 
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
+	// path param owner
+	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
 	}
 

@@ -56,6 +56,10 @@ public class V1Team {
   @SerializedName(SERIALIZED_NAME_UUID)
   private String uuid;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  private String owner;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -75,6 +79,10 @@ public class V1Team {
   public static final String SERIALIZED_NAME_SETTINGS = "settings";
   @SerializedName(SERIALIZED_NAME_SETTINGS)
   private V1TeamSettings settings;
+
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  private String role;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -106,6 +114,28 @@ public class V1Team {
 
   public void setUuid(String uuid) {
     this.uuid = uuid;
+  }
+
+
+  public V1Team owner(String owner) {
+    
+    this.owner = owner;
+    return this;
+  }
+
+   /**
+   * Get owner
+   * @return owner
+  **/
+  @javax.annotation.Nullable
+
+  public String getOwner() {
+    return owner;
+  }
+
+
+  public void setOwner(String owner) {
+    this.owner = owner;
   }
 
 
@@ -243,6 +273,28 @@ public class V1Team {
   }
 
 
+  public V1Team role(String role) {
+    
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @javax.annotation.Nullable
+
+  public String getRole() {
+    return role;
+  }
+
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+
   public V1Team createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -298,18 +350,20 @@ public class V1Team {
     }
     V1Team v1Team = (V1Team) o;
     return Objects.equals(this.uuid, v1Team.uuid) &&
+        Objects.equals(this.owner, v1Team.owner) &&
         Objects.equals(this.name, v1Team.name) &&
         Objects.equals(this.projects, v1Team.projects) &&
         Objects.equals(this.componentHubs, v1Team.componentHubs) &&
         Objects.equals(this.modelRegistries, v1Team.modelRegistries) &&
         Objects.equals(this.settings, v1Team.settings) &&
+        Objects.equals(this.role, v1Team.role) &&
         Objects.equals(this.createdAt, v1Team.createdAt) &&
         Objects.equals(this.updatedAt, v1Team.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, projects, componentHubs, modelRegistries, settings, createdAt, updatedAt);
+    return Objects.hash(uuid, owner, name, projects, componentHubs, modelRegistries, settings, role, createdAt, updatedAt);
   }
 
   @Override
@@ -317,11 +371,13 @@ public class V1Team {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1Team {\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("    componentHubs: ").append(toIndentedString(componentHubs)).append("\n");
     sb.append("    modelRegistries: ").append(toIndentedString(modelRegistries)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
@@ -347,11 +403,13 @@ public class V1Team {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("uuid");
+    openapiFields.add("owner");
     openapiFields.add("name");
     openapiFields.add("projects");
     openapiFields.add("component_hubs");
     openapiFields.add("model_registries");
     openapiFields.add("settings");
+    openapiFields.add("role");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
 
@@ -382,6 +440,9 @@ public class V1Team {
       if ((jsonObj.get("uuid") != null && !jsonObj.get("uuid").isJsonNull()) && !jsonObj.get("uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uuid").toString()));
       }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -400,6 +461,9 @@ public class V1Team {
       // validate the optional field `settings`
       if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
         V1TeamSettings.validateJsonObject(jsonObj.getAsJsonObject("settings"));
+      }
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
   }
 

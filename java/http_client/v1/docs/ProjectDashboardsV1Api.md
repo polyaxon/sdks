@@ -44,7 +44,7 @@ public class Example {
 
     ProjectDashboardsV1Api apiInstance = new ProjectDashboardsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project under namesapce
+    String project = "project_example"; // String | Project under namespace
     V1Dashboard body = new V1Dashboard(); // V1Dashboard | Dashboard body
     try {
       V1Dashboard result = apiInstance.createProjectDashboard(owner, project, body);
@@ -65,7 +65,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project under namesapce | |
+| **project** | **String**| Project under namespace | |
 | **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | |
 
 ### Return type
@@ -442,7 +442,7 @@ public class Example {
 
     ProjectDashboardsV1Api apiInstance = new ProjectDashboardsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project under namesapce
+    String project = "project_example"; // String | Project under namespace
     String dashboardUuid = "dashboardUuid_example"; // String | UUID
     V1Dashboard body = new V1Dashboard(); // V1Dashboard | Dashboard body
     try {
@@ -464,7 +464,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project under namesapce | |
+| **project** | **String**| Project under namespace | |
 | **dashboardUuid** | **String**| UUID | |
 | **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | |
 
@@ -593,7 +593,7 @@ public class Example {
 
     ProjectDashboardsV1Api apiInstance = new ProjectDashboardsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project under namesapce
+    String project = "project_example"; // String | Project under namespace
     String dashboardUuid = "dashboardUuid_example"; // String | UUID
     V1Dashboard body = new V1Dashboard(); // V1Dashboard | Dashboard body
     try {
@@ -615,7 +615,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project under namesapce | |
+| **project** | **String**| Project under namespace | |
 | **dashboardUuid** | **String**| UUID | |
 | **body** | [**V1Dashboard**](V1Dashboard.md)| Dashboard body | |
 

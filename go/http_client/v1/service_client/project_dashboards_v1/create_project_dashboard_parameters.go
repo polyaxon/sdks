@@ -77,7 +77,7 @@ type CreateProjectDashboardParams struct {
 
 	/* Project.
 
-	   Project under namesapce
+	   Project under namespace
 	*/
 	Project string
 

@@ -69,17 +69,17 @@ type BookmarkRunsParams struct {
 	*/
 	Body *service_model.V1Uuids
 
+	/* Name.
+
+	   Entity under namespace
+	*/
+	Name string
+
 	/* Owner.
 
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project under namesapce
-	*/
-	Project string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -145,6 +145,17 @@ func (o *BookmarkRunsParams) SetBody(body *service_model.V1Uuids) {
 	o.Body = body
 }
 
+// WithName adds the name to the bookmark runs params
+func (o *BookmarkRunsParams) WithName(name string) *BookmarkRunsParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the bookmark runs params
+func (o *BookmarkRunsParams) SetName(name string) {
+	o.Name = name
+}
+
 // WithOwner adds the owner to the bookmark runs params
 func (o *BookmarkRunsParams) WithOwner(owner string) *BookmarkRunsParams {
 	o.SetOwner(owner)
@@ -154,17 +165,6 @@ func (o *BookmarkRunsParams) WithOwner(owner string) *BookmarkRunsParams {
 // SetOwner adds the owner to the bookmark runs params
 func (o *BookmarkRunsParams) SetOwner(owner string) {
 	o.Owner = owner
-}
-
-// WithProject adds the project to the bookmark runs params
-func (o *BookmarkRunsParams) WithProject(project string) *BookmarkRunsParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the bookmark runs params
-func (o *BookmarkRunsParams) SetProject(project string) {
-	o.Project = project
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -180,13 +180,13 @@ func (o *BookmarkRunsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		}
 	}
 
-	// path param owner
-	if err := r.SetPathParam("owner", o.Owner); err != nil {
+	// path param name
+	if err := r.SetPathParam("name", o.Name); err != nil {
 		return err
 	}
 
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
+	// path param owner
+	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
 	}
 

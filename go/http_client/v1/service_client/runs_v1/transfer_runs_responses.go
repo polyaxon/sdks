@@ -103,11 +103,11 @@ func (o *TransferRunsOK) Code() int {
 }
 
 func (o *TransferRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsOK ", 200)
 }
 
 func (o *TransferRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsOK ", 200)
 }
 
 func (o *TransferRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *TransferRunsNoContent) Code() int {
 }
 
 func (o *TransferRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *TransferRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *TransferRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *TransferRunsForbidden) Code() int {
 }
 
 func (o *TransferRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *TransferRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *TransferRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *TransferRunsNotFound) Code() int {
 }
 
 func (o *TransferRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *TransferRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] transferRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] transferRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *TransferRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *TransferRunsDefault) Code() int {
 }
 
 func (o *TransferRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] TransferRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] TransferRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *TransferRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/transfer][%d] TransferRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/transfer][%d] TransferRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *TransferRunsDefault) GetPayload() *service_model.RuntimeError {

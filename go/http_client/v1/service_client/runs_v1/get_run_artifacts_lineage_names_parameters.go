@@ -64,7 +64,7 @@ type GetRunArtifactsLineageNamesParams struct {
 
 	/* Entity.
 
-	   Entity name under namesapce
+	   Entity name under namespace
 	*/
 	Entity string
 

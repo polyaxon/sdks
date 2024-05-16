@@ -103,11 +103,11 @@ func (o *TagRunsOK) Code() int {
 }
 
 func (o *TagRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsOK ", 200)
 }
 
 func (o *TagRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsOK ", 200)
 }
 
 func (o *TagRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *TagRunsNoContent) Code() int {
 }
 
 func (o *TagRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *TagRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *TagRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *TagRunsForbidden) Code() int {
 }
 
 func (o *TagRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *TagRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *TagRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *TagRunsNotFound) Code() int {
 }
 
 func (o *TagRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *TagRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] tagRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *TagRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *TagRunsDefault) Code() int {
 }
 
 func (o *TagRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] TagRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] TagRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *TagRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/tag][%d] TagRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/tag][%d] TagRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *TagRunsDefault) GetPayload() *service_model.RuntimeError {

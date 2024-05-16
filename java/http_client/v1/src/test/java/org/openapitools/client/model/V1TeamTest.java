@@ -50,6 +50,14 @@ public class V1TeamTest {
     }
 
     /**
+     * Test the property 'owner'
+     */
+    @Test
+    public void ownerTest() {
+        // TODO: test owner
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
@@ -87,6 +95,14 @@ public class V1TeamTest {
     @Test
     public void settingsTest() {
         // TODO: test settings
+    }
+
+    /**
+     * Test the property 'role'
+     */
+    @Test
+    public void roleTest() {
+        // TODO: test role
     }
 
     /**

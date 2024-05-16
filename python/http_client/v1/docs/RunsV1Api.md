@@ -6,11 +6,11 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approve_run**](RunsV1Api.md#approve_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/approve | Approve run
-[**approve_runs**](RunsV1Api.md#approve_runs) | **POST** /api/v1/{owner}/{project}/runs/approve | Approve runs
+[**approve_runs**](RunsV1Api.md#approve_runs) | **POST** /api/v1/{owner}/{name}/runs/approve | Approve runs
 [**archive_run**](RunsV1Api.md#archive_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/archive | Archive run
-[**archive_runs**](RunsV1Api.md#archive_runs) | **POST** /api/v1/{owner}/{project}/runs/archive | Archive runs
+[**archive_runs**](RunsV1Api.md#archive_runs) | **POST** /api/v1/{owner}/{name}/runs/archive | Archive runs
 [**bookmark_run**](RunsV1Api.md#bookmark_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/bookmark | Bookmark run
-[**bookmark_runs**](RunsV1Api.md#bookmark_runs) | **POST** /api/v1/{owner}/{project}/runs/bookmark | Bookmark runs
+[**bookmark_runs**](RunsV1Api.md#bookmark_runs) | **POST** /api/v1/{owner}/{name}/runs/bookmark | Bookmark runs
 [**collect_run_logs**](RunsV1Api.md#collect_run_logs) | **POST** /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs | Internal API to collect run logs
 [**copy_run**](RunsV1Api.md#copy_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/copy | Restart run with copy
 [**create_run**](RunsV1Api.md#create_run) | **POST** /api/v1/{owner}/{project}/runs | Create new run
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**delete_run_artifact**](RunsV1Api.md#delete_run_artifact) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Delete run artifact
 [**delete_run_artifact_lineage**](RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 [**delete_run_artifacts**](RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
-[**delete_runs**](RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{project}/runs/delete | Delete runs
+[**delete_runs**](RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs
 [**get_multi_run_events**](RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
 [**get_multi_run_importance**](RunsV1Api.md#get_multi_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
 [**get_run**](RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
@@ -45,7 +45,7 @@ Method | HTTP request | Description
 [**impersonate_token**](RunsV1Api.md#impersonate_token) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/impersonate | Impersonate run token
 [**inspect_run**](RunsV1Api.md#inspect_run) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect | Inspect an active run full conditions
 [**invalidate_run**](RunsV1Api.md#invalidate_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/invalidate | Invalidate run
-[**invalidate_runs**](RunsV1Api.md#invalidate_runs) | **POST** /api/v1/{owner}/{project}/runs/invalidate | Invalidate runs
+[**invalidate_runs**](RunsV1Api.md#invalidate_runs) | **POST** /api/v1/{owner}/{name}/runs/invalidate | Invalidate runs
 [**list_archived_runs**](RunsV1Api.md#list_archived_runs) | **GET** /api/v1/archives/{user}/runs | List archived runs for user
 [**list_bookmarked_runs**](RunsV1Api.md#list_bookmarked_runs) | **GET** /api/v1/bookmarks/{user}/runs | List bookmarked runs for user
 [**list_runs**](RunsV1Api.md#list_runs) | **GET** /api/v1/{owner}/{name}/runs | List runs
@@ -53,17 +53,17 @@ Method | HTTP request | Description
 [**patch_run**](RunsV1Api.md#patch_run) | **PATCH** /api/v1/{owner}/{project}/runs/{run.uuid} | Patch run
 [**restart_run**](RunsV1Api.md#restart_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/restart | Restart run
 [**restore_run**](RunsV1Api.md#restore_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/restore | Restore run
-[**restore_runs**](RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{project}/runs/restore | Restore runs
+[**restore_runs**](RunsV1Api.md#restore_runs) | **POST** /api/v1/{owner}/{name}/runs/restore | Restore runs
 [**resume_run**](RunsV1Api.md#resume_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/resume | Resume run
 [**set_run_edges_lineage**](RunsV1Api.md#set_run_edges_lineage) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges | Set run edges graph lineage
 [**skip_run**](RunsV1Api.md#skip_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/skip | Skip run
-[**skip_runs**](RunsV1Api.md#skip_runs) | **POST** /api/v1/{owner}/{project}/runs/skip | Skip runs
+[**skip_runs**](RunsV1Api.md#skip_runs) | **POST** /api/v1/{owner}/{name}/runs/skip | Skip runs
 [**stop_run**](RunsV1Api.md#stop_run) | **POST** /api/v1/{owner}/{entity}/runs/{uuid}/stop | Stop run
-[**stop_runs**](RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{project}/runs/stop | Stop runs
+[**stop_runs**](RunsV1Api.md#stop_runs) | **POST** /api/v1/{owner}/{name}/runs/stop | Stop runs
 [**sync_run**](RunsV1Api.md#sync_run) | **POST** /api/v1/{owner}/{project}/runs/sync | Sync offline run
-[**tag_runs**](RunsV1Api.md#tag_runs) | **POST** /api/v1/{owner}/{project}/runs/tag | Tag runs
+[**tag_runs**](RunsV1Api.md#tag_runs) | **POST** /api/v1/{owner}/{name}/runs/tag | Tag runs
 [**transfer_run**](RunsV1Api.md#transfer_run) | **POST** /api/v1/{owner}/{project}/runs/{run.uuid}/transfer | Transfer run
-[**transfer_runs**](RunsV1Api.md#transfer_runs) | **POST** /api/v1/{owner}/{project}/runs/transfer | Transfer runs
+[**transfer_runs**](RunsV1Api.md#transfer_runs) | **POST** /api/v1/{owner}/{name}/runs/transfer | Transfer runs
 [**unbookmark_run**](RunsV1Api.md#unbookmark_run) | **DELETE** /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark | Unbookmark run
 [**update_run**](RunsV1Api.md#update_run) | **PUT** /api/v1/{owner}/{project}/runs/{run.uuid} | Update run
 [**upload_run_artifact**](RunsV1Api.md#upload_run_artifact) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload | Upload an artifact file to a store via run access
@@ -150,7 +150,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **approve_runs**
-> approve_runs(owner, project, body)
+> approve_runs(owner, name, body)
 
 Approve runs
 
@@ -186,12 +186,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Approve runs
-        api_instance.approve_runs(owner, project, body)
+        api_instance.approve_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->approve_runs: %s\n" % e)
 ```
@@ -201,7 +201,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -308,7 +308,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **archive_runs**
-> archive_runs(owner, project, body)
+> archive_runs(owner, name, body)
 
 Archive runs
 
@@ -344,12 +344,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Archive runs
-        api_instance.archive_runs(owner, project, body)
+        api_instance.archive_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->archive_runs: %s\n" % e)
 ```
@@ -359,7 +359,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -466,7 +466,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bookmark_runs**
-> bookmark_runs(owner, project, body)
+> bookmark_runs(owner, name, body)
 
 Bookmark runs
 
@@ -502,12 +502,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Bookmark runs
-        api_instance.bookmark_runs(owner, project, body)
+        api_instance.bookmark_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->bookmark_runs: %s\n" % e)
 ```
@@ -517,7 +517,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -1288,7 +1288,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_runs**
-> delete_runs(owner, project, body)
+> delete_runs(owner, name, body)
 
 Delete runs
 
@@ -1324,12 +1324,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Delete runs
-        api_instance.delete_runs(owner, project, body)
+        api_instance.delete_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->delete_runs: %s\n" % e)
 ```
@@ -1339,7 +1339,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -1927,7 +1927,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -1949,7 +1949,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -2018,7 +2018,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -2040,7 +2040,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -2196,7 +2196,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -2218,7 +2218,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -2287,7 +2287,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -2309,7 +2309,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -2378,7 +2378,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -2400,7 +2400,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -2914,7 +2914,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -2941,7 +2941,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -3096,7 +3096,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    entity = 'entity_example' # str | Entity name under namesapce
+    entity = 'entity_example' # str | Entity name under namespace
     uuid = 'uuid_example' # str | SubEntity uuid
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
@@ -3118,7 +3118,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **entity** | **str**| Entity name under namesapce | 
+ **entity** | **str**| Entity name under namespace | 
  **uuid** | **str**| SubEntity uuid | 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
@@ -3499,7 +3499,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invalidate_runs**
-> invalidate_runs(owner, project, body)
+> invalidate_runs(owner, name, body)
 
 Invalidate runs
 
@@ -3535,12 +3535,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Invalidate runs
-        api_instance.invalidate_runs(owner, project, body)
+        api_instance.invalidate_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->invalidate_runs: %s\n" % e)
 ```
@@ -3550,7 +3550,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -4173,7 +4173,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restore_runs**
-> restore_runs(owner, project, body)
+> restore_runs(owner, name, body)
 
 Restore runs
 
@@ -4209,12 +4209,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Restore runs
-        api_instance.restore_runs(owner, project, body)
+        api_instance.restore_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->restore_runs: %s\n" % e)
 ```
@@ -4224,7 +4224,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -4495,7 +4495,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **skip_runs**
-> skip_runs(owner, project, body)
+> skip_runs(owner, name, body)
 
 Skip runs
 
@@ -4531,12 +4531,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Skip runs
-        api_instance.skip_runs(owner, project, body)
+        api_instance.skip_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->skip_runs: %s\n" % e)
 ```
@@ -4546,7 +4546,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -4653,7 +4653,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_runs**
-> stop_runs(owner, project, body)
+> stop_runs(owner, name, body)
 
 Stop runs
 
@@ -4689,12 +4689,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1Uuids() # V1Uuids | Uuids of the entities
 
     try:
         # Stop runs
-        api_instance.stop_runs(owner, project, body)
+        api_instance.stop_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->stop_runs: %s\n" % e)
 ```
@@ -4704,7 +4704,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1Uuids**](V1Uuids.md)| Uuids of the entities | 
 
 ### Return type
@@ -4811,7 +4811,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **tag_runs**
-> tag_runs(owner, project, body)
+> tag_runs(owner, name, body)
 
 Tag runs
 
@@ -4847,12 +4847,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1EntitiesTags() # V1EntitiesTags | Data
 
     try:
         # Tag runs
-        api_instance.tag_runs(owner, project, body)
+        api_instance.tag_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->tag_runs: %s\n" % e)
 ```
@@ -4862,7 +4862,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1EntitiesTags**](V1EntitiesTags.md)| Data | 
 
 ### Return type
@@ -4971,7 +4971,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transfer_runs**
-> transfer_runs(owner, project, body)
+> transfer_runs(owner, name, body)
 
 Transfer runs
 
@@ -5007,12 +5007,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project under namesapce
+    name = 'name_example' # str | Entity under namespace
     body = polyaxon_sdk.V1EntitiesTransfer() # V1EntitiesTransfer | Data
 
     try:
         # Transfer runs
-        api_instance.transfer_runs(owner, project, body)
+        api_instance.transfer_runs(owner, name, body)
     except Exception as e:
         print("Exception when calling RunsV1Api->transfer_runs: %s\n" % e)
 ```
@@ -5022,7 +5022,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project under namesapce | 
+ **name** | **str**| Entity under namespace | 
  **body** | [**V1EntitiesTransfer**](V1EntitiesTransfer.md)| Data | 
 
 ### Return type

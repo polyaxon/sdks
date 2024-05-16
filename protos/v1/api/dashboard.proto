@@ -52,7 +52,7 @@ message Dashboard {
     // Owner of the namespace
     string owner = 1;
 
-    // Project under namesapce
+    // Project under namespace
     string project = 2;
 
     // Dashboard body

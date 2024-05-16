@@ -52,7 +52,7 @@ class ProjectsV1Api(object):
         self.api_client = api_client
 
     @validate_arguments
-    def archive_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def archive_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Archive project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -63,7 +63,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -84,7 +84,7 @@ class ProjectsV1Api(object):
         return self.archive_project_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def archive_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def archive_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Archive project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -95,7 +95,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -196,7 +196,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def bookmark_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def bookmark_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Bookmark project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -207,7 +207,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -228,7 +228,7 @@ class ProjectsV1Api(object):
         return self.bookmark_project_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def bookmark_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def bookmark_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Bookmark project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -239,7 +239,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -480,6 +480,170 @@ class ProjectsV1Api(object):
 
         return self.api_client.call_api(
             '/api/v1/{owner}/projects/create', 'POST',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def create_team_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], team : Annotated[StrictStr, Field(..., description="Team")], body : Annotated[V1Project, Field(..., description="Project body")], **kwargs) -> V1Project:  # noqa: E501
+        """Create new project via team space  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_team_project(owner, team, body, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param team: Team (required)
+        :type team: str
+        :param body: Project body (required)
+        :type body: V1Project
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1Project
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_team_project_with_http_info(owner, team, body, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def create_team_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], team : Annotated[StrictStr, Field(..., description="Team")], body : Annotated[V1Project, Field(..., description="Project body")], **kwargs):  # noqa: E501
+        """Create new project via team space  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_team_project_with_http_info(owner, team, body, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param team: Team (required)
+        :type team: str
+        :param body: Project body (required)
+        :type body: V1Project
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1Project, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'owner',
+            'team',
+            'body'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_team_project" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+
+        if _params['team']:
+            _path_params['team'] = _params['team']
+
+
+        # process the query parameters
+        _query_params = []
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
+
+        _response_types_map = {
+            '200': "V1Project",
+            '204': "object",
+            '403': "object",
+            '404': "object",
+        }
+
+        return self.api_client.call_api(
+            '/api/v1/{owner}/{team}/projects/create', 'POST',
             _path_params,
             _query_params,
             _header_params,
@@ -848,7 +1012,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def delete_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Delete project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -859,7 +1023,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -880,7 +1044,7 @@ class ProjectsV1Api(object):
         return self.delete_project_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def delete_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Delete project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -891,7 +1055,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1152,7 +1316,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def disable_project_ci(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def disable_project_ci(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Disbale project CI  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1163,7 +1327,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1184,7 +1348,7 @@ class ProjectsV1Api(object):
         return self.disable_project_ci_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def disable_project_ci_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def disable_project_ci_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Disbale project CI  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1195,7 +1359,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1296,7 +1460,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def enable_project_ci(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def enable_project_ci(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Enable project CI  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1307,7 +1471,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1328,7 +1492,7 @@ class ProjectsV1Api(object):
         return self.enable_project_ci_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def enable_project_ci_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def enable_project_ci_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Enable project CI  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1339,7 +1503,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1440,7 +1604,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> V1Project:  # noqa: E501
+    def get_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> V1Project:  # noqa: E501
         """Get project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1451,7 +1615,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1472,7 +1636,7 @@ class ProjectsV1Api(object):
         return self.get_project_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def get_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Get project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1483,7 +1647,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1794,7 +1958,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_project_settings(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> V1ProjectSettings:  # noqa: E501
+    def get_project_settings(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> V1ProjectSettings:  # noqa: E501
         """Get Project settings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1805,7 +1969,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1826,7 +1990,7 @@ class ProjectsV1Api(object):
         return self.get_project_settings_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_project_settings_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def get_project_settings_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Get Project settings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1837,7 +2001,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -3258,7 +3422,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_version_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListProjectVersionsResponse:  # noqa: E501
+    def list_version_names(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListProjectVersionsResponse:  # noqa: E501
         """List versions names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3269,7 +3433,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param kind: Version Kind (required)
         :type kind: str
@@ -3302,7 +3466,7 @@ class ProjectsV1Api(object):
         return self.list_version_names_with_http_info(owner, entity, kind, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_version_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def list_version_names_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List versions names  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3313,7 +3477,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param kind: Version Kind (required)
         :type kind: str
@@ -3455,7 +3619,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def list_versions(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListProjectVersionsResponse:  # noqa: E501
+    def list_versions(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListProjectVersionsResponse:  # noqa: E501
         """List versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3466,7 +3630,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param kind: Version Kind (required)
         :type kind: str
@@ -3499,7 +3663,7 @@ class ProjectsV1Api(object):
         return self.list_versions_with_http_info(owner, entity, kind, offset, limit, sort, query, no_page, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_versions_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namesapce")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+    def list_versions_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity name under namespace")], kind : Annotated[StrictStr, Field(..., description="Version Kind")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
         """List versions  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -3510,7 +3674,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param entity: Entity name under namesapce (required)
+        :param entity: Entity name under namespace (required)
         :type entity: str
         :param kind: Version Kind (required)
         :type kind: str
@@ -4160,7 +4324,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def restore_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def restore_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Restore project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4171,7 +4335,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4192,7 +4356,7 @@ class ProjectsV1Api(object):
         return self.restore_project_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def restore_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def restore_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Restore project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4203,7 +4367,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4479,7 +4643,7 @@ class ProjectsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def unbookmark_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs) -> None:  # noqa: E501
+    def unbookmark_project(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs) -> None:  # noqa: E501
         """Unbookmark project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4490,7 +4654,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -4511,7 +4675,7 @@ class ProjectsV1Api(object):
         return self.unbookmark_project_with_http_info(owner, name, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def unbookmark_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namesapce")], **kwargs):  # noqa: E501
+    def unbookmark_project_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Component under namespace")], **kwargs):  # noqa: E501
         """Unbookmark project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4522,7 +4686,7 @@ class ProjectsV1Api(object):
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param name: Component under namesapce (required)
+        :param name: Component under namespace (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional

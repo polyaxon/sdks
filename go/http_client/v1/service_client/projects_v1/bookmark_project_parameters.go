@@ -63,7 +63,7 @@ type BookmarkProjectParams struct {
 
 	/* Name.
 
-	   Component under namesapce
+	   Component under namespace
 	*/
 	Name string
 

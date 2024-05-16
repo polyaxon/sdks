@@ -78,7 +78,7 @@ public class ProjectDashboardsV1Api {
     /**
      * Build call for createProjectDashboard
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Dashboard body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -165,7 +165,7 @@ public class ProjectDashboardsV1Api {
      * Create project dashboard
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Dashboard body (required)
      * @return V1Dashboard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,7 +188,7 @@ public class ProjectDashboardsV1Api {
      * Create project dashboard
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Dashboard body (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -212,7 +212,7 @@ public class ProjectDashboardsV1Api {
      * Create project dashboard (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Dashboard body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -961,7 +961,7 @@ public class ProjectDashboardsV1Api {
     /**
      * Build call for patchProjectDashboard
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @param _callback Callback for upload/download progress
@@ -1055,7 +1055,7 @@ public class ProjectDashboardsV1Api {
      * Patch project dashboard
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @return V1Dashboard
@@ -1079,7 +1079,7 @@ public class ProjectDashboardsV1Api {
      * Patch project dashboard
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
@@ -1104,7 +1104,7 @@ public class ProjectDashboardsV1Api {
      * Patch project dashboard (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1285,7 +1285,7 @@ public class ProjectDashboardsV1Api {
     /**
      * Build call for updateProjectDashboard
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @param _callback Callback for upload/download progress
@@ -1379,7 +1379,7 @@ public class ProjectDashboardsV1Api {
      * Update project dashboard
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @return V1Dashboard
@@ -1403,7 +1403,7 @@ public class ProjectDashboardsV1Api {
      * Update project dashboard
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @return ApiResponse&lt;V1Dashboard&gt;
@@ -1428,7 +1428,7 @@ public class ProjectDashboardsV1Api {
      * Update project dashboard (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
      * @param body Dashboard body (required)
      * @param _callback The callback to be executed when the API call finishes

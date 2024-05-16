@@ -103,11 +103,11 @@ func (o *InvalidateRunsOK) Code() int {
 }
 
 func (o *InvalidateRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsOK ", 200)
 }
 
 func (o *InvalidateRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsOK ", 200)
 }
 
 func (o *InvalidateRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *InvalidateRunsNoContent) Code() int {
 }
 
 func (o *InvalidateRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *InvalidateRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *InvalidateRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *InvalidateRunsForbidden) Code() int {
 }
 
 func (o *InvalidateRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *InvalidateRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *InvalidateRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *InvalidateRunsNotFound) Code() int {
 }
 
 func (o *InvalidateRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *InvalidateRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *InvalidateRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *InvalidateRunsDefault) Code() int {
 }
 
 func (o *InvalidateRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *InvalidateRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *InvalidateRunsDefault) GetPayload() *service_model.RuntimeError {

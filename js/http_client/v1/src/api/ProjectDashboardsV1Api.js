@@ -48,7 +48,7 @@ export default class ProjectDashboardsV1Api {
     /**
      * Create project dashboard
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} project Project under namespace
      * @param {module:model/V1Dashboard} body Dashboard body
      * @param {module:api/ProjectDashboardsV1Api~createProjectDashboardCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Dashboard}
@@ -336,7 +336,7 @@ export default class ProjectDashboardsV1Api {
     /**
      * Patch project dashboard
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} project Project under namespace
      * @param {String} dashboard_uuid UUID
      * @param {module:model/V1Dashboard} body Dashboard body
      * @param {module:api/ProjectDashboardsV1Api~patchProjectDashboardCallback} callback The callback function, accepting three arguments: error, data, response
@@ -448,7 +448,7 @@ export default class ProjectDashboardsV1Api {
     /**
      * Update project dashboard
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} project Project under namespace
      * @param {String} dashboard_uuid UUID
      * @param {module:model/V1Dashboard} body Dashboard body
      * @param {module:api/ProjectDashboardsV1Api~updateProjectDashboardCallback} callback The callback function, accepting three arguments: error, data, response

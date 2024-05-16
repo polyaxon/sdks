@@ -78,7 +78,7 @@ public class ProjectSearchesV1Api {
     /**
      * Build call for createProjectSearch
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Search body (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -165,7 +165,7 @@ public class ProjectSearchesV1Api {
      * Create project search
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Search body (required)
      * @return V1Search
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,7 +188,7 @@ public class ProjectSearchesV1Api {
      * Create project search
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Search body (required)
      * @return ApiResponse&lt;V1Search&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -212,7 +212,7 @@ public class ProjectSearchesV1Api {
      * Create project search (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param body Search body (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -961,7 +961,7 @@ public class ProjectSearchesV1Api {
     /**
      * Build call for patchProjectSearch
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @param _callback Callback for upload/download progress
@@ -1055,7 +1055,7 @@ public class ProjectSearchesV1Api {
      * Patch project search
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @return V1Search
@@ -1079,7 +1079,7 @@ public class ProjectSearchesV1Api {
      * Patch project search
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @return ApiResponse&lt;V1Search&gt;
@@ -1104,7 +1104,7 @@ public class ProjectSearchesV1Api {
      * Patch project search (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1285,7 +1285,7 @@ public class ProjectSearchesV1Api {
     /**
      * Build call for updateProjectSearch
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @param _callback Callback for upload/download progress
@@ -1379,7 +1379,7 @@ public class ProjectSearchesV1Api {
      * Update project search
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @return V1Search
@@ -1403,7 +1403,7 @@ public class ProjectSearchesV1Api {
      * Update project search
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @return ApiResponse&lt;V1Search&gt;
@@ -1428,7 +1428,7 @@ public class ProjectSearchesV1Api {
      * Update project search (asynchronously)
      * 
      * @param owner Owner of the namespace (required)
-     * @param project Project under namesapce (required)
+     * @param project Project under namespace (required)
      * @param searchUuid UUID (required)
      * @param body Search body (required)
      * @param _callback The callback to be executed when the API call finishes

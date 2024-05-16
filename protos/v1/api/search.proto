@@ -82,7 +82,7 @@ message Search {
     // Owner of the namespace
     string owner = 1;
 
-    // Project under namesapce
+    // Project under namespace
     string project = 2;
 
     // Search body

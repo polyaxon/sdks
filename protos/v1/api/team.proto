@@ -10,30 +10,35 @@ option go_package = "v1/api";
 
 // Team specification
 message Team {
-    // Uuid
-    string uuid = 1;
+  // Uuid
+  string uuid = 1;
 
-    // Name
-    string name = 2;
+  // Owner/namespace where the team was created
+  string owner = 2;
 
-    // projects
-    repeated string projects = 3;
+  // Name
+  string name = 3;
 
-    // hubs
-    repeated string component_hubs = 4;
+  // projects
+  repeated string projects = 4;
 
-    // registries
-    repeated string model_registries = 5;
+  // hubs
+  repeated string component_hubs = 5;
 
-    // settings
-    TeamSettings settings = 6;
+  // registries
+  repeated string model_registries = 6;
 
-    // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 7;
+  // settings
+  TeamSettings settings = 7;
 
-    // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 8;
+  // Current user's role in this (org/teams)/project
+  string role = 8;
 
+  // Optional time when the entity was created
+  google.protobuf.Timestamp created_at = 9;
+
+  // Optional last time the entity was updated
+  google.protobuf.Timestamp updated_at = 10;
 }
 
  // Request data to update teams

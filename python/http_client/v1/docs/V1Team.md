@@ -5,11 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [optional] 
+**owner** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **projects** | **List[str]** |  | [optional] 
 **component_hubs** | **List[str]** |  | [optional] 
 **model_registries** | **List[str]** |  | [optional] 
 **settings** | [**V1TeamSettings**](V1TeamSettings.md) |  | [optional] 
+**role** | **str** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 

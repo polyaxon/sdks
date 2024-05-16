@@ -48,7 +48,7 @@ export default class ProjectSearchesV1Api {
     /**
      * Create project search
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} project Project under namespace
      * @param {module:model/V1Search} body Search body
      * @param {module:api/ProjectSearchesV1Api~createProjectSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1Search}
@@ -336,7 +336,7 @@ export default class ProjectSearchesV1Api {
     /**
      * Patch project search
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} project Project under namespace
      * @param {String} search_uuid UUID
      * @param {module:model/V1Search} body Search body
      * @param {module:api/ProjectSearchesV1Api~patchProjectSearchCallback} callback The callback function, accepting three arguments: error, data, response
@@ -448,7 +448,7 @@ export default class ProjectSearchesV1Api {
     /**
      * Update project search
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project under namesapce
+     * @param {String} project Project under namespace
      * @param {String} search_uuid UUID
      * @param {module:model/V1Search} body Search body
      * @param {module:api/ProjectSearchesV1Api~updateProjectSearchCallback} callback The callback function, accepting three arguments: error, data, response

@@ -103,11 +103,11 @@ func (o *ArchiveRunsOK) Code() int {
 }
 
 func (o *ArchiveRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsOK ", 200)
 }
 
 func (o *ArchiveRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsOK ", 200)
 }
 
 func (o *ArchiveRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *ArchiveRunsNoContent) Code() int {
 }
 
 func (o *ArchiveRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *ArchiveRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *ArchiveRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *ArchiveRunsForbidden) Code() int {
 }
 
 func (o *ArchiveRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *ArchiveRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *ArchiveRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *ArchiveRunsNotFound) Code() int {
 }
 
 func (o *ArchiveRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *ArchiveRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *ArchiveRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *ArchiveRunsDefault) Code() int {
 }
 
 func (o *ArchiveRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] ArchiveRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] ArchiveRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *ArchiveRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/archive][%d] ArchiveRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] ArchiveRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *ArchiveRunsDefault) GetPayload() *service_model.RuntimeError {

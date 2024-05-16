@@ -69,17 +69,17 @@ type ApproveRunsParams struct {
 	*/
 	Body *service_model.V1Uuids
 
+	/* Name.
+
+	   Entity under namespace
+	*/
+	Name string
+
 	/* Owner.
 
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project under namesapce
-	*/
-	Project string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -145,6 +145,17 @@ func (o *ApproveRunsParams) SetBody(body *service_model.V1Uuids) {
 	o.Body = body
 }
 
+// WithName adds the name to the approve runs params
+func (o *ApproveRunsParams) WithName(name string) *ApproveRunsParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the approve runs params
+func (o *ApproveRunsParams) SetName(name string) {
+	o.Name = name
+}
+
 // WithOwner adds the owner to the approve runs params
 func (o *ApproveRunsParams) WithOwner(owner string) *ApproveRunsParams {
 	o.SetOwner(owner)
@@ -154,17 +165,6 @@ func (o *ApproveRunsParams) WithOwner(owner string) *ApproveRunsParams {
 // SetOwner adds the owner to the approve runs params
 func (o *ApproveRunsParams) SetOwner(owner string) {
 	o.Owner = owner
-}
-
-// WithProject adds the project to the approve runs params
-func (o *ApproveRunsParams) WithProject(project string) *ApproveRunsParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the approve runs params
-func (o *ApproveRunsParams) SetProject(project string) {
-	o.Project = project
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -180,13 +180,13 @@ func (o *ApproveRunsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		}
 	}
 
-	// path param owner
-	if err := r.SetPathParam("owner", o.Owner); err != nil {
+	// path param name
+	if err := r.SetPathParam("name", o.Name); err != nil {
 		return err
 	}
 
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
+	// path param owner
+	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
 	}
 

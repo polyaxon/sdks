@@ -36,7 +36,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectSearchesV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project under namesapce
+let project = "project_example"; // String | Project under namespace
 let body = new PolyaxonSdk.V1Search(); // V1Search | Search body
 apiInstance.createProjectSearch(owner, project, body, (error, data, response) => {
   if (error) {
@@ -53,7 +53,7 @@ apiInstance.createProjectSearch(owner, project, body, (error, data, response) =>
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project under namesapce | 
+ **project** | **String**| Project under namespace | 
  **body** | [**V1Search**](V1Search.md)| Search body | 
 
 ### Return type
@@ -329,7 +329,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectSearchesV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project under namesapce
+let project = "project_example"; // String | Project under namespace
 let search_uuid = "search_uuid_example"; // String | UUID
 let body = new PolyaxonSdk.V1Search(); // V1Search | Search body
 apiInstance.patchProjectSearch(owner, project, search_uuid, body, (error, data, response) => {
@@ -347,7 +347,7 @@ apiInstance.patchProjectSearch(owner, project, search_uuid, body, (error, data, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project under namesapce | 
+ **project** | **String**| Project under namespace | 
  **search_uuid** | **String**| UUID | 
  **body** | [**V1Search**](V1Search.md)| Search body | 
 
@@ -437,7 +437,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.ProjectSearchesV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project under namesapce
+let project = "project_example"; // String | Project under namespace
 let search_uuid = "search_uuid_example"; // String | UUID
 let body = new PolyaxonSdk.V1Search(); // V1Search | Search body
 apiInstance.updateProjectSearch(owner, project, search_uuid, body, (error, data, response) => {
@@ -455,7 +455,7 @@ apiInstance.updateProjectSearch(owner, project, search_uuid, body, (error, data,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project under namesapce | 
+ **project** | **String**| Project under namespace | 
  **search_uuid** | **String**| UUID | 
  **body** | [**V1Search**](V1Search.md)| Search body | 
 

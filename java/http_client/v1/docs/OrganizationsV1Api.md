@@ -593,7 +593,7 @@ public class Example {
 
     OrganizationsV1Api apiInstance = new OrganizationsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       apiInstance.deleteOrganizationMember(owner, name);
     } catch (ApiException e) {
@@ -612,7 +612,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 
@@ -980,7 +980,7 @@ public class Example {
 
     OrganizationsV1Api apiInstance = new OrganizationsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String name = "name_example"; // String | Component under namesapce
+    String name = "name_example"; // String | Component under namespace
     try {
       V1OrganizationMember result = apiInstance.getOrganizationMember(owner, name);
       System.out.println(result);
@@ -1000,7 +1000,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **name** | **String**| Component under namesapce | |
+| **name** | **String**| Component under namespace | |
 
 ### Return type
 

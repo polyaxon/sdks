@@ -160,9 +160,9 @@ service RunsV1 {
   }
 
   // Delete runs
-  rpc DeleteRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc DeleteRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      delete: "/api/v1/{owner}/{project}/runs/delete"
+      delete: "/api/v1/{owner}/{name}/runs/delete"
       body: "uuids"
     };
   }
@@ -183,9 +183,9 @@ service RunsV1 {
   }
 
   // Stop runs
-  rpc StopRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc StopRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/stop"
+      post: "/api/v1/{owner}/{name}/runs/stop"
       body: "uuids"
     };
   }
@@ -198,9 +198,9 @@ service RunsV1 {
   }
 
   // Skip runs
-  rpc SkipRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc SkipRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/skip"
+      post: "/api/v1/{owner}/{name}/runs/skip"
       body: "uuids"
     };
   }
@@ -213,17 +213,17 @@ service RunsV1 {
   }
 
   // Approve runs
-  rpc ApproveRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc ApproveRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/approve"
+      post: "/api/v1/{owner}/{name}/runs/approve"
       body: "uuids"
     };
   }
 
   // Tag runs
-  rpc TagRuns(ProjectTagResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc TagRuns(OwnerEntityTagResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/tag"
+      post: "/api/v1/{owner}/{name}/runs/tag"
       body: "data"
     };
   }
@@ -236,9 +236,9 @@ service RunsV1 {
   }
 
   // Invalidate runs
-  rpc InvalidateRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc InvalidateRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/invalidate"
+      post: "/api/v1/{owner}/{name}/runs/invalidate"
       body: "uuids"
     };
   }
@@ -275,9 +275,9 @@ service RunsV1 {
   }
 
   // Archive runs
-  rpc ArchiveRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc ArchiveRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/archive"
+      post: "/api/v1/{owner}/{name}/runs/archive"
       body: "uuids"
     };
   }
@@ -290,9 +290,9 @@ service RunsV1 {
   }
 
   // Restore runs
-  rpc RestoreRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc RestoreRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/restore"
+      post: "/api/v1/{owner}/{name}/runs/restore"
       body: "uuids"
     };
   }
@@ -306,9 +306,9 @@ service RunsV1 {
   }
 
   // Transfer runs
-  rpc TransferRuns(ProjectTransferResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc TransferRuns(OwnerEntityTransferResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/transfer"
+      post: "/api/v1/{owner}/{name}/runs/transfer"
       body: "data"
     };
   }
@@ -321,9 +321,9 @@ service RunsV1 {
   }
 
   // Bookmark runs
-  rpc BookmarkRuns(ProjectResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+  rpc BookmarkRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/{owner}/{project}/runs/bookmark"
+      post: "/api/v1/{owner}/{name}/runs/bookmark"
       body: "uuids"
     };
   }
@@ -543,6 +543,14 @@ service ProjectsV1 {
   rpc CreateProject(ProjectBodyRequest) returns (Project) {
     option (google.api.http) = {
       post: "/api/v1/{owner}/projects/create"
+      body: "project"
+    };
+  }
+
+  // Create new project via team space
+  rpc CreateTeamProject(TeamProjectBodyRequest) returns (Project) {
+    option (google.api.http) = {
+      post: "/api/v1/{owner}/{team}/projects/create"
       body: "project"
     };
   }
@@ -2113,6 +2121,121 @@ service TeamsV1 {
   rpc DeleteTeamMember(TeamMemeberResourceRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/api/v1/orgs/{owner}/teams/{team}/members/{user}"
+    };
+  }
+
+  // Get team stats
+  rpc GetTeamStats(OwnerEntityStatsRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/teams/{name}/stats"
+    };
+  }
+
+  // Get all runs in a team
+  rpc GetTeamVersions(OwnerEntityVersionResourceListRequestByName) returns (ListProjectVersionsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/teams/{entity}/versions/{kind}"
+    };
+  }
+
+  // Get all runs in a team
+  rpc GetTeamRuns(OwnerEnitytResourceListRequest) returns (ListRunsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/teams/{name}/runs"
+    };
+  }
+
+  // Get a run in a team
+  rpc GetTeamRun(OwnerSubEntityResourceRequestByUid) returns (Run) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/teams/{entity}/runs/{uuid}"
+    };
+  }
+
+  // Delete cross-project runs selection
+  rpc DeleteTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/api/v1/orgs/{owner}/teams/{name}/runs/delete"
+      body: "uuids"
+    };
+  }
+
+  // Stop cross-project runs selection
+  rpc StopTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/stop"
+      body: "uuids"
+    };
+  }
+
+  // Skip cross-project runs selection
+  rpc SkipTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/Skip"
+      body: "uuids"
+    };
+  }
+
+  // Approve cross-project runs selection
+  rpc ApproveTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/approve"
+      body: "uuids"
+    };
+  }
+
+  // Invalidate cross-project runs selection
+  rpc InvalidateTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/invalidate"
+      body: "uuids"
+    };
+  }
+
+  // Archive cross-project runs selection
+  rpc ArchiveTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/archive"
+      body: "uuids"
+    };
+  }
+
+  // Restore cross-project runs selection
+  rpc RestoreTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/restore"
+      body: "uuids"
+    };
+  }
+
+  // Bookmark cross-project runs selection
+  rpc BookmarkTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/bookmark"
+      body: "uuids"
+    };
+  }
+
+  // Tag cross-project runs selection
+  rpc TagTeamRuns(OwnerEntityTagResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/tag"
+      body: "data"
+    };
+  }
+
+  // Transfer cross-project runs selection to a new project
+  rpc TransferTeamRuns(OwnerEntityTransferResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/transfer"
+      body: "data"
+    };
+  }
+
+  // Get organization activities
+  rpc GetTeamActivities(OwnerEnitytResourceListRequest) returns (ListActivitiesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/teams/{name}/activities"
     };
   }
 }

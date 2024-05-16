@@ -69,17 +69,17 @@ type StopRunsParams struct {
 	*/
 	Body *service_model.V1Uuids
 
+	/* Name.
+
+	   Entity under namespace
+	*/
+	Name string
+
 	/* Owner.
 
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project under namesapce
-	*/
-	Project string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -145,6 +145,17 @@ func (o *StopRunsParams) SetBody(body *service_model.V1Uuids) {
 	o.Body = body
 }
 
+// WithName adds the name to the stop runs params
+func (o *StopRunsParams) WithName(name string) *StopRunsParams {
+	o.SetName(name)
+	return o
+}
+
+// SetName adds the name to the stop runs params
+func (o *StopRunsParams) SetName(name string) {
+	o.Name = name
+}
+
 // WithOwner adds the owner to the stop runs params
 func (o *StopRunsParams) WithOwner(owner string) *StopRunsParams {
 	o.SetOwner(owner)
@@ -154,17 +165,6 @@ func (o *StopRunsParams) WithOwner(owner string) *StopRunsParams {
 // SetOwner adds the owner to the stop runs params
 func (o *StopRunsParams) SetOwner(owner string) {
 	o.Owner = owner
-}
-
-// WithProject adds the project to the stop runs params
-func (o *StopRunsParams) WithProject(project string) *StopRunsParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the stop runs params
-func (o *StopRunsParams) SetProject(project string) {
-	o.Project = project
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -180,13 +180,13 @@ func (o *StopRunsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 		}
 	}
 
-	// path param owner
-	if err := r.SetPathParam("owner", o.Owner); err != nil {
+	// path param name
+	if err := r.SetPathParam("name", o.Name); err != nil {
 		return err
 	}
 
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
+	// path param owner
+	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
 	}
 

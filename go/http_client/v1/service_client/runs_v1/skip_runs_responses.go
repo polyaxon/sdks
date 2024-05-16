@@ -103,11 +103,11 @@ func (o *SkipRunsOK) Code() int {
 }
 
 func (o *SkipRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsOK ", 200)
 }
 
 func (o *SkipRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsOK ", 200)
 }
 
 func (o *SkipRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -160,11 +160,11 @@ func (o *SkipRunsNoContent) Code() int {
 }
 
 func (o *SkipRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *SkipRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *SkipRunsNoContent) GetPayload() interface{} {
@@ -226,11 +226,11 @@ func (o *SkipRunsForbidden) Code() int {
 }
 
 func (o *SkipRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *SkipRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *SkipRunsForbidden) GetPayload() interface{} {
@@ -292,11 +292,11 @@ func (o *SkipRunsNotFound) Code() int {
 }
 
 func (o *SkipRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *SkipRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] skipRunsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] skipRunsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *SkipRunsNotFound) GetPayload() interface{} {
@@ -362,11 +362,11 @@ func (o *SkipRunsDefault) Code() int {
 }
 
 func (o *SkipRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] SkipRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] SkipRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *SkipRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/skip][%d] SkipRuns default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/skip][%d] SkipRuns default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *SkipRunsDefault) GetPayload() *service_model.RuntimeError {

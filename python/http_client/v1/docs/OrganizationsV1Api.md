@@ -638,7 +638,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namespace
 
     try:
         # Delete organization member details
@@ -652,7 +652,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **name** | **str**| Component under namesapce | 
+ **name** | **str**| Component under namespace | 
 
 ### Return type
 
@@ -1053,7 +1053,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    name = 'name_example' # str | Component under namesapce
+    name = 'name_example' # str | Component under namespace
 
     try:
         # Get organization member details
@@ -1069,7 +1069,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **name** | **str**| Component under namesapce | 
+ **name** | **str**| Component under namespace | 
 
 ### Return type
 
