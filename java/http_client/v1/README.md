@@ -402,6 +402,7 @@ Class | Method | HTTP request | Description
 *UsersV1Api* | [**getSuggestions**](docs/UsersV1Api.md#getSuggestions) | **GET** /api/v1/users/suggestions | User suggestions
 *UsersV1Api* | [**getToken**](docs/UsersV1Api.md#getToken) | **GET** /api/v1/users/tokens/{uuid} | Get token
 *UsersV1Api* | [**getUser**](docs/UsersV1Api.md#getUser) | **GET** /api/v1/users | Get current user
+*UsersV1Api* | [**getWorkspaces**](docs/UsersV1Api.md#getWorkspaces) | **GET** /api/v1/users/workspaces | User workspaces
 *UsersV1Api* | [**listTokens**](docs/UsersV1Api.md#listTokens) | **GET** /api/v1/users/tokens | List tokens
 *UsersV1Api* | [**patchToken**](docs/UsersV1Api.md#patchToken) | **PATCH** /api/v1/users/tokens/{token.uuid} | Patch token
 *UsersV1Api* | [**patchUser**](docs/UsersV1Api.md#patchUser) | **PATCH** /api/v1/users | Patch current user

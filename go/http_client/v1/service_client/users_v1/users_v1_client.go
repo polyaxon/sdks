@@ -40,6 +40,8 @@ type ClientService interface {
 
 	GetUser(params *GetUserParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetUserOK, *GetUserNoContent, error)
 
+	GetWorkspaces(params *GetWorkspacesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetWorkspacesOK, *GetWorkspacesNoContent, error)
+
 	ListTokens(params *ListTokensParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTokensOK, *ListTokensNoContent, error)
 
 	PatchToken(params *PatchTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTokenOK, *PatchTokenNoContent, error)
@@ -290,6 +292,46 @@ func (a *Client) GetUser(params *GetUserParams, authInfo runtime.ClientAuthInfoW
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetUserDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetWorkspaces users workspaces
+*/
+func (a *Client) GetWorkspaces(params *GetWorkspacesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetWorkspacesOK, *GetWorkspacesNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetWorkspacesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetWorkspaces",
+		Method:             "GET",
+		PathPattern:        "/api/v1/users/workspaces",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetWorkspacesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetWorkspacesOK:
+		return value, nil, nil
+	case *GetWorkspacesNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetWorkspacesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

@@ -62,6 +62,14 @@ export interface GetTokenRequest {
     uuid: string;
 }
 
+export interface GetWorkspacesRequest {
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    noPage?: boolean;
+}
+
 export interface ListTokensRequest {
     offset?: number;
     limit?: number;
@@ -324,6 +332,56 @@ export class UsersV1Api extends runtime.BaseAPI {
      */
     async getUser(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1User> {
         const response = await this.getUserRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * User workspaces
+     */
+    async getWorkspacesRaw(requestParameters: GetWorkspacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/users/workspaces`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * User workspaces
+     */
+    async getWorkspaces(requestParameters: GetWorkspacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.getWorkspacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

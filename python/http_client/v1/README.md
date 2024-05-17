@@ -378,6 +378,7 @@ Class | Method | HTTP request | Description
 *UsersV1Api* | [**get_suggestions**](docs/UsersV1Api.md#get_suggestions) | **GET** /api/v1/users/suggestions | User suggestions
 *UsersV1Api* | [**get_token**](docs/UsersV1Api.md#get_token) | **GET** /api/v1/users/tokens/{uuid} | Get token
 *UsersV1Api* | [**get_user**](docs/UsersV1Api.md#get_user) | **GET** /api/v1/users | Get current user
+*UsersV1Api* | [**get_workspaces**](docs/UsersV1Api.md#get_workspaces) | **GET** /api/v1/users/workspaces | User workspaces
 *UsersV1Api* | [**list_tokens**](docs/UsersV1Api.md#list_tokens) | **GET** /api/v1/users/tokens | List tokens
 *UsersV1Api* | [**patch_token**](docs/UsersV1Api.md#patch_token) | **PATCH** /api/v1/users/tokens/{token.uuid} | Patch token
 *UsersV1Api* | [**patch_user**](docs/UsersV1Api.md#patch_user) | **PATCH** /api/v1/users | Patch current user

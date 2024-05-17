@@ -408,6 +408,7 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.UsersV1Api* | [**getSuggestions**](docs/UsersV1Api.md#getSuggestions) | **GET** /api/v1/users/suggestions | User suggestions
 *PolyaxonSdk.UsersV1Api* | [**getToken**](docs/UsersV1Api.md#getToken) | **GET** /api/v1/users/tokens/{uuid} | Get token
 *PolyaxonSdk.UsersV1Api* | [**getUser**](docs/UsersV1Api.md#getUser) | **GET** /api/v1/users | Get current user
+*PolyaxonSdk.UsersV1Api* | [**getWorkspaces**](docs/UsersV1Api.md#getWorkspaces) | **GET** /api/v1/users/workspaces | User workspaces
 *PolyaxonSdk.UsersV1Api* | [**listTokens**](docs/UsersV1Api.md#listTokens) | **GET** /api/v1/users/tokens | List tokens
 *PolyaxonSdk.UsersV1Api* | [**patchToken**](docs/UsersV1Api.md#patchToken) | **PATCH** /api/v1/users/tokens/{token.uuid} | Patch token
 *PolyaxonSdk.UsersV1Api* | [**patchUser**](docs/UsersV1Api.md#patchUser) | **PATCH** /api/v1/users | Patch current user

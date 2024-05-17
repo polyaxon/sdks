@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('getWorkspaces', function() {
+      it('should call getWorkspaces successfully', function(done) {
+        //uncomment below and update the code to test getWorkspaces
+        //instance.getWorkspaces(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listTokens', function() {
       it('should call listTokens successfully', function(done) {
         //uncomment below and update the code to test listTokens

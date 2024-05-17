@@ -115,6 +115,22 @@ public class UsersV1ApiTest {
     }
 
     /**
+     * User workspaces
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getWorkspacesTest() throws ApiException {
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean noPage = null;
+        Object response = api.getWorkspaces(offset, limit, sort, query, noPage);
+        // TODO: test validations
+    }
+
+    /**
      * List tokens
      *
      * @throws ApiException if the Api call fails

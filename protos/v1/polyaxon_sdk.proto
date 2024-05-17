@@ -1694,6 +1694,13 @@ service UsersV1 {
     };
   }
 
+  // User workspaces
+  rpc GetWorkspaces(ResourceListRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      get: "/api/v1/users/workspaces"
+    };
+  }
+
   // User History
   rpc GetHistory(ResourceListRequest) returns (ListActivitiesResponse) {
     option (google.api.http) = {

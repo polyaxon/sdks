@@ -296,6 +296,54 @@ export default class UsersV1Api {
     }
 
     /**
+     * Callback function to receive the result of the getWorkspaces operation.
+     * @callback module:api/UsersV1Api~getWorkspacesCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * User workspaces
+     * @param {Object} opts Optional parameters
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [no_page] No pagination.
+     * @param {module:api/UsersV1Api~getWorkspacesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getWorkspaces(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/api/v1/users/workspaces', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listTokens operation.
      * @callback module:api/UsersV1Api~listTokensCallback
      * @param {String} error Error message, if any.
