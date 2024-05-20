@@ -2,7 +2,7 @@
   "modelPropertyNaming": "original",
   "packageName": "polyaxon_sdk",
   "projectName": "polyaxon-sdk",
-  "packageVersion": "2.1.8",
+  "packageVersion": "2.2.0-rc0",
   "author": "Polyaxon",
   "description": "Polyaxon sdk",
   "contact": {
