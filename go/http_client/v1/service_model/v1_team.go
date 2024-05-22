@@ -35,6 +35,9 @@ type V1Team struct {
 	// Owner/namespace where the team was created
 	Owner string `json:"owner,omitempty"`
 
+	// Attached policy
+	Policy string `json:"policy,omitempty"`
+
 	// projects
 	Projects []string `json:"projects"`
 

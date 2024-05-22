@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **component_hubs** | **List[str]** |  | [optional] 
 **model_registries** | **List[str]** |  | [optional] 
 **settings** | [**V1TeamSettings**](V1TeamSettings.md) |  | [optional] 
+**policy** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 

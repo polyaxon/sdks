@@ -35552,6 +35552,10 @@
           "settings" : {
             "$ref" : "#/components/schemas/v1TeamSettings"
           },
+          "policy" : {
+            "title" : "Attached policy",
+            "type" : "string"
+          },
           "role" : {
             "title" : "Current user's role in this (org/teams)/project",
             "type" : "string"

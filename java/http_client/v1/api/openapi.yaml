@@ -30058,6 +30058,7 @@ components:
           - component_hubs
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
+          policy: policy
         - owner: owner
           settings:
             projects:
@@ -30101,6 +30102,7 @@ components:
           - component_hubs
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
+          policy: policy
       properties:
         count:
           format: int32
@@ -50868,6 +50870,7 @@ components:
         - component_hubs
         created_at: 2000-01-23T04:56:07.000+00:00
         uuid: uuid
+        policy: policy
       properties:
         uuid:
           title: Uuid
@@ -50895,6 +50898,9 @@ components:
           type: array
         settings:
           $ref: '#/components/schemas/v1TeamSettings'
+        policy:
+          title: Attached policy
+          type: string
         role:
           title: Current user's role in this (org/teams)/project
           type: string

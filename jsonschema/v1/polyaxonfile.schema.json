@@ -11095,6 +11095,10 @@
           "title": "Owner/namespace where the team was created",
           "type": "string"
         },
+        "policy": {
+          "title": "Attached policy",
+          "type": "string"
+        },
         "projects": {
           "items": {
             "type": "string"

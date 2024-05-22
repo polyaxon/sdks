@@ -80,6 +80,10 @@ public class V1Team {
   @SerializedName(SERIALIZED_NAME_SETTINGS)
   private V1TeamSettings settings;
 
+  public static final String SERIALIZED_NAME_POLICY = "policy";
+  @SerializedName(SERIALIZED_NAME_POLICY)
+  private String policy;
+
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
@@ -273,6 +277,28 @@ public class V1Team {
   }
 
 
+  public V1Team policy(String policy) {
+    
+    this.policy = policy;
+    return this;
+  }
+
+   /**
+   * Get policy
+   * @return policy
+  **/
+  @javax.annotation.Nullable
+
+  public String getPolicy() {
+    return policy;
+  }
+
+
+  public void setPolicy(String policy) {
+    this.policy = policy;
+  }
+
+
   public V1Team role(String role) {
     
     this.role = role;
@@ -356,6 +382,7 @@ public class V1Team {
         Objects.equals(this.componentHubs, v1Team.componentHubs) &&
         Objects.equals(this.modelRegistries, v1Team.modelRegistries) &&
         Objects.equals(this.settings, v1Team.settings) &&
+        Objects.equals(this.policy, v1Team.policy) &&
         Objects.equals(this.role, v1Team.role) &&
         Objects.equals(this.createdAt, v1Team.createdAt) &&
         Objects.equals(this.updatedAt, v1Team.updatedAt);
@@ -363,7 +390,7 @@ public class V1Team {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, projects, componentHubs, modelRegistries, settings, role, createdAt, updatedAt);
+    return Objects.hash(uuid, owner, name, projects, componentHubs, modelRegistries, settings, policy, role, createdAt, updatedAt);
   }
 
   @Override
@@ -377,6 +404,7 @@ public class V1Team {
     sb.append("    componentHubs: ").append(toIndentedString(componentHubs)).append("\n");
     sb.append("    modelRegistries: ").append(toIndentedString(modelRegistries)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -409,6 +437,7 @@ public class V1Team {
     openapiFields.add("component_hubs");
     openapiFields.add("model_registries");
     openapiFields.add("settings");
+    openapiFields.add("policy");
     openapiFields.add("role");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -461,6 +490,9 @@ public class V1Team {
       // validate the optional field `settings`
       if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
         V1TeamSettings.validateJsonObject(jsonObj.getAsJsonObject("settings"));
+      }
+      if ((jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonNull()) && !jsonObj.get("policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("policy").toString()));
       }
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));

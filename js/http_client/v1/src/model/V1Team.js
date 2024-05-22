@@ -69,6 +69,9 @@ class V1Team {
             if (data.hasOwnProperty('settings')) {
                 obj['settings'] = V1TeamSettings.constructFromObject(data['settings']);
             }
+            if (data.hasOwnProperty('policy')) {
+                obj['policy'] = ApiClient.convertToType(data['policy'], 'String');
+            }
             if (data.hasOwnProperty('role')) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
             }
@@ -117,6 +120,10 @@ class V1Team {
           V1TeamSettings.validateJSON(data['settings']);
         }
         // ensure the json data is a string
+        if (data['policy'] && !(typeof data['policy'] === 'string' || data['policy'] instanceof String)) {
+            throw new Error("Expected the field `policy` to be a primitive type in the JSON string but got " + data['policy']);
+        }
+        // ensure the json data is a string
         if (data['role'] && !(typeof data['role'] === 'string' || data['role'] instanceof String)) {
             throw new Error("Expected the field `role` to be a primitive type in the JSON string but got " + data['role']);
         }
@@ -163,6 +170,11 @@ V1Team.prototype['model_registries'] = undefined;
  * @member {module:model/V1TeamSettings} settings
  */
 V1Team.prototype['settings'] = undefined;
+
+/**
+ * @member {String} policy
+ */
+V1Team.prototype['policy'] = undefined;
 
 /**
  * @member {String} role

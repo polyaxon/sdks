@@ -31,14 +31,17 @@ message Team {
   // settings
   TeamSettings settings = 7;
 
+  // Attached policy
+  string policy = 8;
+
   // Current user's role in this (org/teams)/project
-  string role = 8;
+  string role = 9;
 
   // Optional time when the entity was created
-  google.protobuf.Timestamp created_at = 9;
+  google.protobuf.Timestamp created_at = 10;
 
   // Optional last time the entity was updated
-  google.protobuf.Timestamp updated_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
 }
 
  // Request data to update teams

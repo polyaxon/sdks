@@ -26038,6 +26038,10 @@
           "$ref": "#/definitions/v1TeamSettings",
           "title": "settings"
         },
+        "policy": {
+          "type": "string",
+          "title": "Attached policy"
+        },
         "role": {
           "type": "string",
           "title": "Current user's role in this (org/teams)/project"

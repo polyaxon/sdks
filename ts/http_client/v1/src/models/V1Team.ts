@@ -73,6 +73,12 @@ export interface V1Team {
      * @type {string}
      * @memberof V1Team
      */
+    policy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Team
+     */
     role?: string;
     /**
      * 
@@ -114,6 +120,7 @@ export function V1TeamFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         'component_hubs': !exists(json, 'component_hubs') ? undefined : json['component_hubs'],
         'model_registries': !exists(json, 'model_registries') ? undefined : json['model_registries'],
         'settings': !exists(json, 'settings') ? undefined : V1TeamSettingsFromJSON(json['settings']),
+        'policy': !exists(json, 'policy') ? undefined : json['policy'],
         'role': !exists(json, 'role') ? undefined : json['role'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
@@ -136,6 +143,7 @@ export function V1TeamToJSON(value?: V1Team | null): any {
         'component_hubs': value.component_hubs,
         'model_registries': value.model_registries,
         'settings': V1TeamSettingsToJSON(value.settings),
+        'policy': value.policy,
         'role': value.role,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),

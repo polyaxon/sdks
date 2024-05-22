@@ -35,10 +35,11 @@ class V1Team(BaseModel):
     component_hubs: Optional[conlist(StrictStr)] = None
     model_registries: Optional[conlist(StrictStr)] = None
     settings: Optional[V1TeamSettings] = None
+    policy: Optional[StrictStr] = None
     role: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties = ["uuid", "owner", "name", "projects", "component_hubs", "model_registries", "settings", "role", "created_at", "updated_at"]
+    __properties = ["uuid", "owner", "name", "projects", "component_hubs", "model_registries", "settings", "policy", "role", "created_at", "updated_at"]
 
     class Config:
         allow_population_by_field_name = True
@@ -85,6 +86,7 @@ class V1Team(BaseModel):
             "component_hubs": obj.get("component_hubs"),
             "model_registries": obj.get("model_registries"),
             "settings": V1TeamSettings.from_dict(obj.get("settings")) if obj.get("settings") is not None else None,
+            "policy": obj.get("policy"),
             "role": obj.get("role"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")

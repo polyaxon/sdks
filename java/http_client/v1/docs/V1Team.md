@@ -14,6 +14,7 @@
 |**componentHubs** | **List&lt;String&gt;** |  |  [optional] |
 |**modelRegistries** | **List&lt;String&gt;** |  |  [optional] |
 |**settings** | [**V1TeamSettings**](V1TeamSettings.md) |  |  [optional] |
+|**policy** | **String** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
