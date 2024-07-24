@@ -62,6 +62,8 @@ type ClientService interface {
 
 	GetOrganizationRuns(params *GetOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunsOK, *GetOrganizationRunsNoContent, error)
 
+	GetOrganizationRunsArtifactsLineage(params *GetOrganizationRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunsArtifactsLineageOK, *GetOrganizationRunsArtifactsLineageNoContent, error)
+
 	GetOrganizationSettings(params *GetOrganizationSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationSettingsOK, *GetOrganizationSettingsNoContent, error)
 
 	GetOrganizationStats(params *GetOrganizationStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationStatsOK, *GetOrganizationStatsNoContent, error)
@@ -790,6 +792,46 @@ func (a *Client) GetOrganizationRuns(params *GetOrganizationRunsParams, authInfo
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetOrganizationRunsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetOrganizationRunsArtifactsLineage gets runs artifacts lineage
+*/
+func (a *Client) GetOrganizationRunsArtifactsLineage(params *GetOrganizationRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunsArtifactsLineageOK, *GetOrganizationRunsArtifactsLineageNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOrganizationRunsArtifactsLineageParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetOrganizationRunsArtifactsLineage",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/runs/lineage/artifacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetOrganizationRunsArtifactsLineageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetOrganizationRunsArtifactsLineageOK:
+		return value, nil, nil
+	case *GetOrganizationRunsArtifactsLineageNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetOrganizationRunsArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

@@ -19,6 +19,7 @@ import org.openapitools.client.model.V1EntitiesTags;
 import org.openapitools.client.model.V1EntitiesTransfer;
 import org.openapitools.client.model.V1ListActivitiesResponse;
 import org.openapitools.client.model.V1ListProjectVersionsResponse;
+import org.openapitools.client.model.V1ListRunArtifactsResponse;
 import org.openapitools.client.model.V1ListRunsResponse;
 import org.openapitools.client.model.V1ListTeamMembersResponse;
 import org.openapitools.client.model.V1ListTeamsResponse;
@@ -268,6 +269,26 @@ public class TeamsV1ApiTest {
         String mode = null;
         Boolean noPage = null;
         V1ListRunsResponse response = api.getTeamRuns(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+        // TODO: test validations
+    }
+
+    /**
+     * Get runs artifacts lineage
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamRunsArtifactsLineageTest() throws ApiException {
+        String owner = null;
+        String name = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean bookmarks = null;
+        String mode = null;
+        Boolean noPage = null;
+        V1ListRunArtifactsResponse response = api.getTeamRunsArtifactsLineage(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
         // TODO: test validations
     }
 

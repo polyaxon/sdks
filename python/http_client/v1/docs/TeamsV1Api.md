@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**get_team_multi_run_importance**](TeamsV1Api.md#get_team_multi_run_importance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 [**get_team_run**](TeamsV1Api.md#get_team_run) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 [**get_team_runs**](TeamsV1Api.md#get_team_runs) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
+[**get_team_runs_artifacts_lineage**](TeamsV1Api.md#get_team_runs_artifacts_lineage) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts | Get runs artifacts lineage
 [**get_team_stats**](TeamsV1Api.md#get_team_stats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats
 [**get_team_versions**](TeamsV1Api.md#get_team_versions) | **GET** /api/v1/orgs/{owner}/teams/{entity}/versions/{kind} | Get all runs in a team
 [**invalidate_team_runs**](TeamsV1Api.md#invalidate_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/invalidate | Invalidate cross-project runs selection
@@ -1255,6 +1256,99 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1ListRunsResponse**](V1ListRunsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**204** | No content. |  -  |
+**403** | You don&#39;t have permission to access the resource. |  -  |
+**404** | Resource does not exist. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_team_runs_artifacts_lineage**
+> V1ListRunArtifactsResponse get_team_runs_artifacts_lineage(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+
+Get runs artifacts lineage
+
+### Example
+
+* Api Key Authentication (ApiKey):
+```python
+from __future__ import print_function
+import time
+import os
+import polyaxon_sdk
+from polyaxon_sdk.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = polyaxon_sdk.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration.api_key['ApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with polyaxon_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = polyaxon_sdk.TeamsV1Api(api_client)
+    owner = 'owner_example' # str | Owner of the namespace
+    name = 'name_example' # str | Entity managing the resource
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Mode of the search. (optional)
+    no_page = True # bool | No pagination. (optional)
+
+    try:
+        # Get runs artifacts lineage
+        api_response = api_instance.get_team_runs_artifacts_lineage(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        print("The response of TeamsV1Api->get_team_runs_artifacts_lineage:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TeamsV1Api->get_team_runs_artifacts_lineage: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**| Owner of the namespace | 
+ **name** | **str**| Entity managing the resource | 
+ **offset** | **int**| Pagination offset. | [optional] 
+ **limit** | **int**| Limit size. | [optional] 
+ **sort** | **str**| Sort to order the search. | [optional] 
+ **query** | **str**| Query filter the search. | [optional] 
+ **bookmarks** | **bool**| Filter by bookmarks. | [optional] 
+ **mode** | **str**| Mode of the search. | [optional] 
+ **no_page** | **bool**| No pagination. | [optional] 
+
+### Return type
+
+[**V1ListRunArtifactsResponse**](V1ListRunArtifactsResponse.md)
 
 ### Authorization
 

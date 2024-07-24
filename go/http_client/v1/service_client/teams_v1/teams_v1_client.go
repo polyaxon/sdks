@@ -58,6 +58,8 @@ type ClientService interface {
 
 	GetTeamRuns(params *GetTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunsOK, *GetTeamRunsNoContent, error)
 
+	GetTeamRunsArtifactsLineage(params *GetTeamRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunsArtifactsLineageOK, *GetTeamRunsArtifactsLineageNoContent, error)
+
 	GetTeamStats(params *GetTeamStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamStatsOK, *GetTeamStatsNoContent, error)
 
 	GetTeamVersions(params *GetTeamVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamVersionsOK, *GetTeamVersionsNoContent, error)
@@ -688,6 +690,46 @@ func (a *Client) GetTeamRuns(params *GetTeamRunsParams, authInfo runtime.ClientA
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetTeamRunsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetTeamRunsArtifactsLineage gets runs artifacts lineage
+*/
+func (a *Client) GetTeamRunsArtifactsLineage(params *GetTeamRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunsArtifactsLineageOK, *GetTeamRunsArtifactsLineageNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetTeamRunsArtifactsLineageParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetTeamRunsArtifactsLineage",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetTeamRunsArtifactsLineageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetTeamRunsArtifactsLineageOK:
+		return value, nil, nil
+	case *GetTeamRunsArtifactsLineageNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetTeamRunsArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

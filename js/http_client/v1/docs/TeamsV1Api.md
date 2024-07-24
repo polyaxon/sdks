@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**getTeamMultiRunImportance**](TeamsV1Api.md#getTeamMultiRunImportance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 [**getTeamRun**](TeamsV1Api.md#getTeamRun) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 [**getTeamRuns**](TeamsV1Api.md#getTeamRuns) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
+[**getTeamRunsArtifactsLineage**](TeamsV1Api.md#getTeamRunsArtifactsLineage) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts | Get runs artifacts lineage
 [**getTeamStats**](TeamsV1Api.md#getTeamStats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats
 [**getTeamVersions**](TeamsV1Api.md#getTeamVersions) | **GET** /api/v1/orgs/{owner}/teams/{entity}/versions/{kind} | Get all runs in a team
 [**invalidateTeamRuns**](TeamsV1Api.md#invalidateTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/invalidate | Invalidate cross-project runs selection
@@ -867,6 +868,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1ListRunsResponse**](V1ListRunsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTeamRunsArtifactsLineage
+
+> V1ListRunArtifactsResponse getTeamRunsArtifactsLineage(owner, name, opts)
+
+Get runs artifacts lineage
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.TeamsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let name = "name_example"; // String | Entity managing the resource
+let opts = {
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'bookmarks': true, // Boolean | Filter by bookmarks.
+  'mode': "mode_example", // String | Mode of the search.
+  'no_page': true // Boolean | No pagination.
+};
+apiInstance.getTeamRunsArtifactsLineage(owner, name, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **name** | **String**| Entity managing the resource | 
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] 
+ **mode** | **String**| Mode of the search. | [optional] 
+ **no_page** | **Boolean**| No pagination. | [optional] 
+
+### Return type
+
+[**V1ListRunArtifactsResponse**](V1ListRunArtifactsResponse.md)
 
 ### Authorization
 

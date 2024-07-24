@@ -218,6 +218,16 @@
         done();
       });
     });
+    describe('getOrganizationRunsArtifactsLineage', function() {
+      it('should call getOrganizationRunsArtifactsLineage successfully', function(done) {
+        //uncomment below and update the code to test getOrganizationRunsArtifactsLineage
+        //instance.getOrganizationRunsArtifactsLineage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getOrganizationSettings', function() {
       it('should call getOrganizationSettings successfully', function(done) {
         //uncomment below and update the code to test getOrganizationSettings

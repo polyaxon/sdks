@@ -198,6 +198,16 @@
         done();
       });
     });
+    describe('getTeamRunsArtifactsLineage', function() {
+      it('should call getTeamRunsArtifactsLineage successfully', function(done) {
+        //uncomment below and update the code to test getTeamRunsArtifactsLineage
+        //instance.getTeamRunsArtifactsLineage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTeamStats', function() {
       it('should call getTeamStats successfully', function(done) {
         //uncomment below and update the code to test getTeamStats

@@ -20,6 +20,7 @@ import type {
   V1EntitiesTransfer,
   V1ListActivitiesResponse,
   V1ListProjectVersionsResponse,
+  V1ListRunArtifactsResponse,
   V1ListRunsResponse,
   V1ListTeamMembersResponse,
   V1ListTeamsResponse,
@@ -40,6 +41,8 @@ import {
     V1ListActivitiesResponseToJSON,
     V1ListProjectVersionsResponseFromJSON,
     V1ListProjectVersionsResponseToJSON,
+    V1ListRunArtifactsResponseFromJSON,
+    V1ListRunArtifactsResponseToJSON,
     V1ListRunsResponseFromJSON,
     V1ListRunsResponseToJSON,
     V1ListTeamMembersResponseFromJSON,
@@ -155,6 +158,18 @@ export interface GetTeamRunRequest {
 }
 
 export interface GetTeamRunsRequest {
+    owner: string;
+    name: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    noPage?: boolean;
+}
+
+export interface GetTeamRunsArtifactsLineageRequest {
     owner: string;
     name: string;
     offset?: number;
@@ -1007,6 +1022,72 @@ export class TeamsV1Api extends runtime.BaseAPI {
      */
     async getTeamRuns(requestParameters: GetTeamRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
         const response = await this.getTeamRunsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get runs artifacts lineage
+     */
+    async getTeamRunsArtifactsLineageRaw(requestParameters: GetTeamRunsArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamRunsArtifactsLineage.');
+        }
+
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling getTeamRunsArtifactsLineage.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ListRunArtifactsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get runs artifacts lineage
+     */
+    async getTeamRunsArtifactsLineage(requestParameters: GetTeamRunsArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunArtifactsResponse> {
+        const response = await this.getTeamRunsArtifactsLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

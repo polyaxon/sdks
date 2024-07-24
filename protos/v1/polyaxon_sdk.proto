@@ -1895,6 +1895,13 @@ service OrganizationsV1 {
     };
   }
 
+  // Get runs artifacts lineage
+  rpc GetOrganizationRunsArtifactsLineage(OwnerEntityResourceListRequestByName) returns (ListRunArtifactsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/runs/lineage/artifacts"
+    };
+  }
+
   // Get multi run importance
   rpc GetOrganizationMultiRunImportance(RunImportanceCorrelationRequest) returns (MultiEventsResponse) {
     option (google.api.http) = {
@@ -2251,6 +2258,13 @@ service TeamsV1 {
     option (google.api.http) = {
       post: "/api/v1/orgs/{owner}/teams/{name}/runs/transfer"
       body: "data"
+    };
+  }
+
+  // Get runs artifacts lineage
+  rpc GetTeamRunsArtifactsLineage(OwnerEntityResourceListRequestByName) returns (ListRunArtifactsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts"
     };
   }
 

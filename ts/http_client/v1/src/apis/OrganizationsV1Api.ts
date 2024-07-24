@@ -22,6 +22,7 @@ import type {
   V1ListOrganizationMembersResponse,
   V1ListOrganizationsResponse,
   V1ListProjectVersionsResponse,
+  V1ListRunArtifactsResponse,
   V1ListRunsResponse,
   V1MultiEventsResponse,
   V1Organization,
@@ -44,6 +45,8 @@ import {
     V1ListOrganizationsResponseToJSON,
     V1ListProjectVersionsResponseFromJSON,
     V1ListProjectVersionsResponseToJSON,
+    V1ListRunArtifactsResponseFromJSON,
+    V1ListRunArtifactsResponseToJSON,
     V1ListRunsResponseFromJSON,
     V1ListRunsResponseToJSON,
     V1MultiEventsResponseFromJSON,
@@ -169,6 +172,18 @@ export interface GetOrganizationRunRequest {
 
 export interface GetOrganizationRunsRequest {
     owner: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    noPage?: boolean;
+}
+
+export interface GetOrganizationRunsArtifactsLineageRequest {
+    owner: string;
+    name?: string;
     offset?: number;
     limit?: number;
     sort?: string;
@@ -1135,6 +1150,72 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
      */
     async getOrganizationRuns(requestParameters: GetOrganizationRunsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunsResponse> {
         const response = await this.getOrganizationRunsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get runs artifacts lineage
+     */
+    async getOrganizationRunsArtifactsLineageRaw(requestParameters: GetOrganizationRunsArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ListRunArtifactsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationRunsArtifactsLineage.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.name !== undefined) {
+            queryParameters['name'] = requestParameters.name;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.noPage !== undefined) {
+            queryParameters['no_page'] = requestParameters.noPage;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/runs/lineage/artifacts`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1ListRunArtifactsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get runs artifacts lineage
+     */
+    async getOrganizationRunsArtifactsLineage(requestParameters: GetOrganizationRunsArtifactsLineageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ListRunArtifactsResponse> {
+        const response = await this.getOrganizationRunsArtifactsLineageRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

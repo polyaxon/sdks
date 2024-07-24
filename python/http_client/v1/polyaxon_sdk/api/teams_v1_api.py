@@ -26,6 +26,7 @@ from polyaxon_sdk.models.v1_entities_tags import V1EntitiesTags
 from polyaxon_sdk.models.v1_entities_transfer import V1EntitiesTransfer
 from polyaxon_sdk.models.v1_list_activities_response import V1ListActivitiesResponse
 from polyaxon_sdk.models.v1_list_project_versions_response import V1ListProjectVersionsResponse
+from polyaxon_sdk.models.v1_list_run_artifacts_response import V1ListRunArtifactsResponse
 from polyaxon_sdk.models.v1_list_runs_response import V1ListRunsResponse
 from polyaxon_sdk.models.v1_list_team_members_response import V1ListTeamMembersResponse
 from polyaxon_sdk.models.v1_list_teams_response import V1ListTeamsResponse
@@ -2557,6 +2558,211 @@ class TeamsV1Api(object):
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/teams/{name}/runs', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_team_runs_artifacts_lineage(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs) -> V1ListRunArtifactsResponse:  # noqa: E501
+        """Get runs artifacts lineage  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_team_runs_artifacts_lineage(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param name: Entity managing the resource (required)
+        :type name: str
+        :param offset: Pagination offset.
+        :type offset: int
+        :param limit: Limit size.
+        :type limit: int
+        :param sort: Sort to order the search.
+        :type sort: str
+        :param query: Query filter the search.
+        :type query: str
+        :param bookmarks: Filter by bookmarks.
+        :type bookmarks: bool
+        :param mode: Mode of the search.
+        :type mode: str
+        :param no_page: No pagination.
+        :type no_page: bool
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1ListRunArtifactsResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_team_runs_artifacts_lineage_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_team_runs_artifacts_lineage_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], name : Annotated[StrictStr, Field(..., description="Entity managing the resource")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Mode of the search.")] = None, no_page : Annotated[Optional[StrictBool], Field(description="No pagination.")] = None, **kwargs):  # noqa: E501
+        """Get runs artifacts lineage  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_team_runs_artifacts_lineage_with_http_info(owner, name, offset, limit, sort, query, bookmarks, mode, no_page, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param name: Entity managing the resource (required)
+        :type name: str
+        :param offset: Pagination offset.
+        :type offset: int
+        :param limit: Limit size.
+        :type limit: int
+        :param sort: Sort to order the search.
+        :type sort: str
+        :param query: Query filter the search.
+        :type query: str
+        :param bookmarks: Filter by bookmarks.
+        :type bookmarks: bool
+        :param mode: Mode of the search.
+        :type mode: str
+        :param no_page: No pagination.
+        :type no_page: bool
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1ListRunArtifactsResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'owner',
+            'name',
+            'offset',
+            'limit',
+            'sort',
+            'query',
+            'bookmarks',
+            'mode',
+            'no_page'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_team_runs_artifacts_lineage" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+
+        if _params['name']:
+            _path_params['name'] = _params['name']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+
+        if _params.get('no_page') is not None:  # noqa: E501
+            _query_params.append(('no_page', _params['no_page']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
+
+        _response_types_map = {
+            '200': "V1ListRunArtifactsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
+        }
+
+        return self.api_client.call_api(
+            '/api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts', 'GET',
             _path_params,
             _query_params,
             _header_params,

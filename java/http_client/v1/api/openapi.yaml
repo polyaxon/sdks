@@ -6705,6 +6705,119 @@ paths:
       x-codegen-request-body-name: body
       x-content-type: application/json
       x-accepts: application/json
+  /api/v1/orgs/{owner}/runs/lineage/artifacts:
+    get:
+      operationId: GetOrganizationRunsArtifactsLineage
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Entity managing the resource.
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by bookmarks.
+        explode: true
+        in: query
+        name: bookmarks
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Mode of the search.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: No pagination.
+        explode: true
+        in: query
+        name: no_page
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListRunArtifactsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get runs artifacts lineage
+      tags:
+      - OrganizationsV1
+      x-accepts: application/json
   /api/v1/orgs/{owner}/runs/multi/events/{kind}:
     get:
       operationId: GetOrganizationMultiRunEvents
@@ -11109,6 +11222,119 @@ paths:
       - TeamsV1
       x-codegen-request-body-name: body
       x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts:
+    get:
+      operationId: GetTeamRunsArtifactsLineage
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Entity managing the resource
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by bookmarks.
+        explode: true
+        in: query
+        name: bookmarks
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Mode of the search.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: No pagination.
+        explode: true
+        in: query
+        name: no_page
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ListRunArtifactsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get runs artifacts lineage
+      tags:
+      - TeamsV1
       x-accepts: application/json
   /api/v1/orgs/{owner}/teams/{name}/runs/restore:
     post:

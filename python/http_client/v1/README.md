@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**get_organization_multi_run_importance**](docs/OrganizationsV1Api.md#get_organization_multi_run_importance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance
 *OrganizationsV1Api* | [**get_organization_run**](docs/OrganizationsV1Api.md#get_organization_run) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 *OrganizationsV1Api* | [**get_organization_runs**](docs/OrganizationsV1Api.md#get_organization_runs) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
+*OrganizationsV1Api* | [**get_organization_runs_artifacts_lineage**](docs/OrganizationsV1Api.md#get_organization_runs_artifacts_lineage) | **GET** /api/v1/orgs/{owner}/runs/lineage/artifacts | Get runs artifacts lineage
 *OrganizationsV1Api* | [**get_organization_settings**](docs/OrganizationsV1Api.md#get_organization_settings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
 *OrganizationsV1Api* | [**get_organization_stats**](docs/OrganizationsV1Api.md#get_organization_stats) | **GET** /api/v1/orgs/{owner}/stats | Get organization stats
 *OrganizationsV1Api* | [**get_organization_versions**](docs/OrganizationsV1Api.md#get_organization_versions) | **GET** /api/v1/orgs/{owner}/versions/{kind} | Get all runs in an organization
@@ -361,6 +362,7 @@ Class | Method | HTTP request | Description
 *TeamsV1Api* | [**get_team_multi_run_importance**](docs/TeamsV1Api.md#get_team_multi_run_importance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 *TeamsV1Api* | [**get_team_run**](docs/TeamsV1Api.md#get_team_run) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 *TeamsV1Api* | [**get_team_runs**](docs/TeamsV1Api.md#get_team_runs) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
+*TeamsV1Api* | [**get_team_runs_artifacts_lineage**](docs/TeamsV1Api.md#get_team_runs_artifacts_lineage) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts | Get runs artifacts lineage
 *TeamsV1Api* | [**get_team_stats**](docs/TeamsV1Api.md#get_team_stats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats
 *TeamsV1Api* | [**get_team_versions**](docs/TeamsV1Api.md#get_team_versions) | **GET** /api/v1/orgs/{owner}/teams/{entity}/versions/{kind} | Get all runs in a team
 *TeamsV1Api* | [**invalidate_team_runs**](docs/TeamsV1Api.md#invalidate_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/invalidate | Invalidate cross-project runs selection

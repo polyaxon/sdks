@@ -20,6 +20,7 @@ import V1ListActivitiesResponse from '../model/V1ListActivitiesResponse';
 import V1ListOrganizationMembersResponse from '../model/V1ListOrganizationMembersResponse';
 import V1ListOrganizationsResponse from '../model/V1ListOrganizationsResponse';
 import V1ListProjectVersionsResponse from '../model/V1ListProjectVersionsResponse';
+import V1ListRunArtifactsResponse from '../model/V1ListRunArtifactsResponse';
 import V1ListRunsResponse from '../model/V1ListRunsResponse';
 import V1MultiEventsResponse from '../model/V1MultiEventsResponse';
 import V1Organization from '../model/V1Organization';
@@ -904,6 +905,66 @@ export default class OrganizationsV1Api {
       let returnType = V1ListRunsResponse;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/runs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getOrganizationRunsArtifactsLineage operation.
+     * @callback module:api/OrganizationsV1Api~getOrganizationRunsArtifactsLineageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1ListRunArtifactsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get runs artifacts lineage
+     * @param {String} owner Owner of the namespace
+     * @param {Object} opts Optional parameters
+     * @param {String} [name] Entity managing the resource.
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [bookmarks] Filter by bookmarks.
+     * @param {String} [mode] Mode of the search.
+     * @param {Boolean} [no_page] No pagination.
+     * @param {module:api/OrganizationsV1Api~getOrganizationRunsArtifactsLineageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1ListRunArtifactsResponse}
+     */
+    getOrganizationRunsArtifactsLineage(owner, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getOrganizationRunsArtifactsLineage");
+      }
+
+      let pathParams = {
+        'owner': owner
+      };
+      let queryParams = {
+        'name': opts['name'],
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'bookmarks': opts['bookmarks'],
+        'mode': opts['mode'],
+        'no_page': opts['no_page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1ListRunArtifactsResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/runs/lineage/artifacts', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
