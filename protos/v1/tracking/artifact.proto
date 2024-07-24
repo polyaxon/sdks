@@ -274,8 +274,8 @@ message RunEventsRequest {
     // Owner of the namespace
     string owner = 2;
 
-    // Project where the run will be assigned
-    string project = 3;
+    // Entity where the run will be assigned
+    string entity = 3;
 
     // The artifact kind
     ArtifactKind kind = 4;
@@ -343,8 +343,8 @@ message RunImportanceCorrelationRequest {
   // Owner of the namespace
   string owner = 2;
 
-  // Project where the run will be assigned
-  string project = 3;
+  // Entity where the run will be assigned
+  string entity = 3;
 
   // Params/Metrics data
   google.protobuf.Struct data = 4;
