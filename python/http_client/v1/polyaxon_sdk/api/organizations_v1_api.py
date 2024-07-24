@@ -31,6 +31,7 @@ from polyaxon_sdk.models.v1_list_organization_members_response import V1ListOrga
 from polyaxon_sdk.models.v1_list_organizations_response import V1ListOrganizationsResponse
 from polyaxon_sdk.models.v1_list_project_versions_response import V1ListProjectVersionsResponse
 from polyaxon_sdk.models.v1_list_runs_response import V1ListRunsResponse
+from polyaxon_sdk.models.v1_multi_events_response import V1MultiEventsResponse
 from polyaxon_sdk.models.v1_organization import V1Organization
 from polyaxon_sdk.models.v1_organization_member import V1OrganizationMember
 from polyaxon_sdk.models.v1_run import V1Run
@@ -2140,6 +2141,399 @@ class OrganizationsV1Api(object):
 
         return self.api_client.call_api(
             '/api/v1/orgs/{owner}/members/{name}', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_organization_multi_run_events(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, entity : Annotated[Optional[StrictStr], Field(description="Entity where the run will be assigned.")] = None, names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, status : Annotated[Optional[StrictStr], Field(description="Optional status.")] = None, **kwargs) -> V1MultiEventsResponse:  # noqa: E501
+        """Get multi runs events  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_organization_multi_run_events(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param kind: The artifact kind (required)
+        :type kind: str
+        :param namespace: namespace.
+        :type namespace: str
+        :param entity: Entity where the run will be assigned.
+        :type entity: str
+        :param names: Names query param.
+        :type names: str
+        :param runs: Runs query param.
+        :type runs: str
+        :param orient: Orient query param.
+        :type orient: str
+        :param force: Force query param.
+        :type force: bool
+        :param sample: Sample query param.
+        :type sample: int
+        :param connection: Connection to use.
+        :type connection: str
+        :param status: Optional status.
+        :type status: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1MultiEventsResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_organization_multi_run_events_with_http_info(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_organization_multi_run_events_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, entity : Annotated[Optional[StrictStr], Field(description="Entity where the run will be assigned.")] = None, names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, status : Annotated[Optional[StrictStr], Field(description="Optional status.")] = None, **kwargs):  # noqa: E501
+        """Get multi runs events  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_organization_multi_run_events_with_http_info(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param kind: The artifact kind (required)
+        :type kind: str
+        :param namespace: namespace.
+        :type namespace: str
+        :param entity: Entity where the run will be assigned.
+        :type entity: str
+        :param names: Names query param.
+        :type names: str
+        :param runs: Runs query param.
+        :type runs: str
+        :param orient: Orient query param.
+        :type orient: str
+        :param force: Force query param.
+        :type force: bool
+        :param sample: Sample query param.
+        :type sample: int
+        :param connection: Connection to use.
+        :type connection: str
+        :param status: Optional status.
+        :type status: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1MultiEventsResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'owner',
+            'kind',
+            'namespace',
+            'entity',
+            'names',
+            'runs',
+            'orient',
+            'force',
+            'sample',
+            'connection',
+            'status'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_organization_multi_run_events" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+
+        if _params['kind']:
+            _path_params['kind'] = _params['kind']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('namespace') is not None:  # noqa: E501
+            _query_params.append(('namespace', _params['namespace']))
+
+        if _params.get('entity') is not None:  # noqa: E501
+            _query_params.append(('entity', _params['entity']))
+
+        if _params.get('names') is not None:  # noqa: E501
+            _query_params.append(('names', _params['names']))
+
+        if _params.get('runs') is not None:  # noqa: E501
+            _query_params.append(('runs', _params['runs']))
+
+        if _params.get('orient') is not None:  # noqa: E501
+            _query_params.append(('orient', _params['orient']))
+
+        if _params.get('force') is not None:  # noqa: E501
+            _query_params.append(('force', _params['force']))
+
+        if _params.get('sample') is not None:  # noqa: E501
+            _query_params.append(('sample', _params['sample']))
+
+        if _params.get('connection') is not None:  # noqa: E501
+            _query_params.append(('connection', _params['connection']))
+
+        if _params.get('status') is not None:  # noqa: E501
+            _query_params.append(('status', _params['status']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
+
+        _response_types_map = {
+            '200': "V1MultiEventsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
+        }
+
+        return self.api_client.call_api(
+            '/api/v1/orgs/{owner}/runs/multi/events/{kind}', 'GET',
+            _path_params,
+            _query_params,
+            _header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            response_types_map=_response_types_map,
+            auth_settings=_auth_settings,
+            async_req=_params.get('async_req'),
+            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=_params.get('_preload_content', True),
+            _request_timeout=_params.get('_request_timeout'),
+            collection_formats=_collection_formats,
+            _request_auth=_params.get('_request_auth'))
+
+    @validate_arguments
+    def get_organization_multi_run_importance(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], body : Annotated[Dict[str, Any], Field(..., description="Params/Metrics data")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, entity : Annotated[Optional[StrictStr], Field(description="Entity where the run will be assigned.")] = None, **kwargs) -> V1MultiEventsResponse:  # noqa: E501
+        """Get multi run importance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_organization_multi_run_importance(owner, body, namespace, entity, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param body: Params/Metrics data (required)
+        :type body: object
+        :param namespace: namespace.
+        :type namespace: str
+        :param entity: Entity where the run will be assigned.
+        :type entity: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: V1MultiEventsResponse
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_organization_multi_run_importance_with_http_info(owner, body, namespace, entity, **kwargs)  # noqa: E501
+
+    @validate_arguments
+    def get_organization_multi_run_importance_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], body : Annotated[Dict[str, Any], Field(..., description="Params/Metrics data")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, entity : Annotated[Optional[StrictStr], Field(description="Entity where the run will be assigned.")] = None, **kwargs):  # noqa: E501
+        """Get multi run importance  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_organization_multi_run_importance_with_http_info(owner, body, namespace, entity, async_req=True)
+        >>> result = thread.get()
+
+        :param owner: Owner of the namespace (required)
+        :type owner: str
+        :param body: Params/Metrics data (required)
+        :type body: object
+        :param namespace: namespace.
+        :type namespace: str
+        :param entity: Entity where the run will be assigned.
+        :type entity: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :type _content_type: string, optional: force content-type for the request
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(V1MultiEventsResponse, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        _params = locals()
+
+        _all_params = [
+            'owner',
+            'body',
+            'namespace',
+            'entity'
+        ]
+        _all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth',
+                '_content_type',
+                '_headers'
+            ]
+        )
+
+        # validate the arguments
+        for _key, _val in _params['kwargs'].items():
+            if _key not in _all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_organization_multi_run_importance" % _key
+                )
+            _params[_key] = _val
+        del _params['kwargs']
+
+        _collection_formats = {}
+
+        # process the path parameters
+        _path_params = {}
+        if _params['owner']:
+            _path_params['owner'] = _params['owner']
+
+
+        # process the query parameters
+        _query_params = []
+        if _params.get('namespace') is not None:  # noqa: E501
+            _query_params.append(('namespace', _params['namespace']))
+
+        if _params.get('entity') is not None:  # noqa: E501
+            _query_params.append(('entity', _params['entity']))
+
+        # process the header parameters
+        _header_params = dict(_params.get('_headers', {}))
+        # process the form parameters
+        _form_params = []
+        _files = {}
+        # process the body parameter
+        _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
+
+        # authentication setting
+        _auth_settings = ['ApiKey']  # noqa: E501
+
+        _response_types_map = {
+            '200': "V1MultiEventsResponse",
+            '204': "object",
+            '403': "object",
+            '404': "object",
+        }
+
+        return self.api_client.call_api(
+            '/api/v1/orgs/{owner}/runs/multi/importance', 'POST',
             _path_params,
             _query_params,
             _header_params,

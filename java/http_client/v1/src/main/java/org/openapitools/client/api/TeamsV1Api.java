@@ -35,6 +35,7 @@ import org.openapitools.client.model.V1ListProjectVersionsResponse;
 import org.openapitools.client.model.V1ListRunsResponse;
 import org.openapitools.client.model.V1ListTeamMembersResponse;
 import org.openapitools.client.model.V1ListTeamsResponse;
+import org.openapitools.client.model.V1MultiEventsResponse;
 import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1Team;
 import org.openapitools.client.model.V1TeamMember;
@@ -1822,6 +1823,396 @@ public class TeamsV1Api {
 
         okhttp3.Call localVarCall = getTeamMemberValidateBeforeCall(owner, team, user, _callback);
         Type localVarReturnType = new TypeToken<V1TeamMember>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getTeamMultiRunEvents
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param kind The artifact kind (required)
+     * @param namespace namespace. (optional)
+     * @param names Names query param. (optional)
+     * @param runs Runs query param. (optional)
+     * @param orient Orient query param. (optional)
+     * @param force Force query param. (optional)
+     * @param sample Sample query param. (optional)
+     * @param connection Connection to use. (optional)
+     * @param status Optional status. (optional, default to created)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTeamMultiRunEventsCall(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
+            .replace("{" + "kind" + "}", localVarApiClient.escapeString(kind.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (namespace != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("namespace", namespace));
+        }
+
+        if (names != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("names", names));
+        }
+
+        if (runs != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("runs", runs));
+        }
+
+        if (orient != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("orient", orient));
+        }
+
+        if (force != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+        }
+
+        if (sample != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sample", sample));
+        }
+
+        if (connection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("connection", connection));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTeamMultiRunEventsValidateBeforeCall(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getTeamMultiRunEvents(Async)");
+        }
+
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling getTeamMultiRunEvents(Async)");
+        }
+
+        // verify the required parameter 'kind' is set
+        if (kind == null) {
+            throw new ApiException("Missing the required parameter 'kind' when calling getTeamMultiRunEvents(Async)");
+        }
+
+        return getTeamMultiRunEventsCall(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, _callback);
+
+    }
+
+    /**
+     * Get multi runs events
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param kind The artifact kind (required)
+     * @param namespace namespace. (optional)
+     * @param names Names query param. (optional)
+     * @param runs Runs query param. (optional)
+     * @param orient Orient query param. (optional)
+     * @param force Force query param. (optional)
+     * @param sample Sample query param. (optional)
+     * @param connection Connection to use. (optional)
+     * @param status Optional status. (optional, default to created)
+     * @return V1MultiEventsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public V1MultiEventsResponse getTeamMultiRunEvents(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        ApiResponse<V1MultiEventsResponse> localVarResp = getTeamMultiRunEventsWithHttpInfo(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get multi runs events
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param kind The artifact kind (required)
+     * @param namespace namespace. (optional)
+     * @param names Names query param. (optional)
+     * @param runs Runs query param. (optional)
+     * @param orient Orient query param. (optional)
+     * @param force Force query param. (optional)
+     * @param sample Sample query param. (optional)
+     * @param connection Connection to use. (optional)
+     * @param status Optional status. (optional, default to created)
+     * @return ApiResponse&lt;V1MultiEventsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<V1MultiEventsResponse> getTeamMultiRunEventsWithHttpInfo(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        okhttp3.Call localVarCall = getTeamMultiRunEventsValidateBeforeCall(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, null);
+        Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get multi runs events (asynchronously)
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param kind The artifact kind (required)
+     * @param namespace namespace. (optional)
+     * @param names Names query param. (optional)
+     * @param runs Runs query param. (optional)
+     * @param orient Orient query param. (optional)
+     * @param force Force query param. (optional)
+     * @param sample Sample query param. (optional)
+     * @param connection Connection to use. (optional)
+     * @param status Optional status. (optional, default to created)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTeamMultiRunEventsAsync(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getTeamMultiRunEventsValidateBeforeCall(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, _callback);
+        Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getTeamMultiRunImportance
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param body Params/Metrics data (required)
+     * @param namespace namespace. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTeamMultiRunImportanceCall(String owner, String entity, Object body, String namespace, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (namespace != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("namespace", namespace));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTeamMultiRunImportanceValidateBeforeCall(String owner, String entity, Object body, String namespace, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getTeamMultiRunImportance(Async)");
+        }
+
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling getTeamMultiRunImportance(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getTeamMultiRunImportance(Async)");
+        }
+
+        return getTeamMultiRunImportanceCall(owner, entity, body, namespace, _callback);
+
+    }
+
+    /**
+     * Get multi run importance
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param body Params/Metrics data (required)
+     * @param namespace namespace. (optional)
+     * @return V1MultiEventsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public V1MultiEventsResponse getTeamMultiRunImportance(String owner, String entity, Object body, String namespace) throws ApiException {
+        ApiResponse<V1MultiEventsResponse> localVarResp = getTeamMultiRunImportanceWithHttpInfo(owner, entity, body, namespace);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get multi run importance
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param body Params/Metrics data (required)
+     * @param namespace namespace. (optional)
+     * @return ApiResponse&lt;V1MultiEventsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<V1MultiEventsResponse> getTeamMultiRunImportanceWithHttpInfo(String owner, String entity, Object body, String namespace) throws ApiException {
+        okhttp3.Call localVarCall = getTeamMultiRunImportanceValidateBeforeCall(owner, entity, body, namespace, null);
+        Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get multi run importance (asynchronously)
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity where the run will be assigned (required)
+     * @param body Params/Metrics data (required)
+     * @param namespace namespace. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTeamMultiRunImportanceAsync(String owner, String entity, Object body, String namespace, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getTeamMultiRunImportanceValidateBeforeCall(owner, entity, body, namespace, _callback);
+        Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

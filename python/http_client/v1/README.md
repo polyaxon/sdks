@@ -155,6 +155,8 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**get_organization_activities**](docs/OrganizationsV1Api.md#get_organization_activities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 *OrganizationsV1Api* | [**get_organization_invitation**](docs/OrganizationsV1Api.md#get_organization_invitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 *OrganizationsV1Api* | [**get_organization_member**](docs/OrganizationsV1Api.md#get_organization_member) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
+*OrganizationsV1Api* | [**get_organization_multi_run_events**](docs/OrganizationsV1Api.md#get_organization_multi_run_events) | **GET** /api/v1/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
+*OrganizationsV1Api* | [**get_organization_multi_run_importance**](docs/OrganizationsV1Api.md#get_organization_multi_run_importance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance
 *OrganizationsV1Api* | [**get_organization_run**](docs/OrganizationsV1Api.md#get_organization_run) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 *OrganizationsV1Api* | [**get_organization_runs**](docs/OrganizationsV1Api.md#get_organization_runs) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 *OrganizationsV1Api* | [**get_organization_settings**](docs/OrganizationsV1Api.md#get_organization_settings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
@@ -268,8 +270,8 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**delete_run_artifact_lineage**](docs/RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 *RunsV1Api* | [**delete_run_artifacts**](docs/RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 *RunsV1Api* | [**delete_runs**](docs/RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs
-*RunsV1Api* | [**get_multi_run_events**](docs/RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
-*RunsV1Api* | [**get_multi_run_importance**](docs/RunsV1Api.md#get_multi_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
+*RunsV1Api* | [**get_multi_run_events**](docs/RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind} | Get multi runs events
+*RunsV1Api* | [**get_multi_run_importance**](docs/RunsV1Api.md#get_multi_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance | Get multi run importance
 *RunsV1Api* | [**get_run**](docs/RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 *RunsV1Api* | [**get_run_artifact**](docs/RunsV1Api.md#get_run_artifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
 *RunsV1Api* | [**get_run_artifact_lineage**](docs/RunsV1Api.md#get_run_artifact_lineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage
@@ -355,6 +357,8 @@ Class | Method | HTTP request | Description
 *TeamsV1Api* | [**get_team**](docs/TeamsV1Api.md#get_team) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
 *TeamsV1Api* | [**get_team_activities**](docs/TeamsV1Api.md#get_team_activities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities
 *TeamsV1Api* | [**get_team_member**](docs/TeamsV1Api.md#get_team_member) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
+*TeamsV1Api* | [**get_team_multi_run_events**](docs/TeamsV1Api.md#get_team_multi_run_events) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
+*TeamsV1Api* | [**get_team_multi_run_importance**](docs/TeamsV1Api.md#get_team_multi_run_importance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 *TeamsV1Api* | [**get_team_run**](docs/TeamsV1Api.md#get_team_run) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 *TeamsV1Api* | [**get_team_runs**](docs/TeamsV1Api.md#get_team_runs) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
 *TeamsV1Api* | [**get_team_stats**](docs/TeamsV1Api.md#get_team_stats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats

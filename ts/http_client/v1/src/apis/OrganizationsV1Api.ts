@@ -23,6 +23,7 @@ import type {
   V1ListOrganizationsResponse,
   V1ListProjectVersionsResponse,
   V1ListRunsResponse,
+  V1MultiEventsResponse,
   V1Organization,
   V1OrganizationMember,
   V1Run,
@@ -45,6 +46,8 @@ import {
     V1ListProjectVersionsResponseToJSON,
     V1ListRunsResponseFromJSON,
     V1ListRunsResponseToJSON,
+    V1MultiEventsResponseFromJSON,
+    V1MultiEventsResponseToJSON,
     V1OrganizationFromJSON,
     V1OrganizationToJSON,
     V1OrganizationMemberFromJSON,
@@ -136,6 +139,27 @@ export interface GetOrganizationInvitationRequest {
 export interface GetOrganizationMemberRequest {
     owner: string;
     name: string;
+}
+
+export interface GetOrganizationMultiRunEventsRequest {
+    owner: string;
+    kind: GetOrganizationMultiRunEventsKindEnum;
+    namespace?: string;
+    entity?: string;
+    names?: string;
+    runs?: string;
+    orient?: string;
+    force?: boolean;
+    sample?: number;
+    connection?: string;
+    status?: GetOrganizationMultiRunEventsStatusEnum;
+}
+
+export interface GetOrganizationMultiRunImportanceRequest {
+    owner: string;
+    body: object;
+    namespace?: string;
+    entity?: string;
 }
 
 export interface GetOrganizationRunRequest {
@@ -888,6 +912,129 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
      */
     async getOrganizationMember(requestParameters: GetOrganizationMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1OrganizationMember> {
         const response = await this.getOrganizationMemberRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get multi runs events
+     */
+    async getOrganizationMultiRunEventsRaw(requestParameters: GetOrganizationMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationMultiRunEvents.');
+        }
+
+        if (requestParameters.kind === null || requestParameters.kind === undefined) {
+            throw new runtime.RequiredError('kind','Required parameter requestParameters.kind was null or undefined when calling getOrganizationMultiRunEvents.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.namespace !== undefined) {
+            queryParameters['namespace'] = requestParameters.namespace;
+        }
+
+        if (requestParameters.entity !== undefined) {
+            queryParameters['entity'] = requestParameters.entity;
+        }
+
+        if (requestParameters.names !== undefined) {
+            queryParameters['names'] = requestParameters.names;
+        }
+
+        if (requestParameters.runs !== undefined) {
+            queryParameters['runs'] = requestParameters.runs;
+        }
+
+        if (requestParameters.orient !== undefined) {
+            queryParameters['orient'] = requestParameters.orient;
+        }
+
+        if (requestParameters.force !== undefined) {
+            queryParameters['force'] = requestParameters.force;
+        }
+
+        if (requestParameters.sample !== undefined) {
+            queryParameters['sample'] = requestParameters.sample;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
+        if (requestParameters.status !== undefined) {
+            queryParameters['status'] = requestParameters.status;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/runs/multi/events/{kind}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1MultiEventsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get multi runs events
+     */
+    async getOrganizationMultiRunEvents(requestParameters: GetOrganizationMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1MultiEventsResponse> {
+        const response = await this.getOrganizationMultiRunEventsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get multi run importance
+     */
+    async getOrganizationMultiRunImportanceRaw(requestParameters: GetOrganizationMultiRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationMultiRunImportance.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling getOrganizationMultiRunImportance.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.namespace !== undefined) {
+            queryParameters['namespace'] = requestParameters.namespace;
+        }
+
+        if (requestParameters.entity !== undefined) {
+            queryParameters['entity'] = requestParameters.entity;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/runs/multi/importance`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1MultiEventsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get multi run importance
+     */
+    async getOrganizationMultiRunImportance(requestParameters: GetOrganizationMultiRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1MultiEventsResponse> {
+        const response = await this.getOrganizationMultiRunImportanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -2113,3 +2260,68 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const GetOrganizationMultiRunEventsKindEnum = {
+    Model: 'model',
+    Audio: 'audio',
+    Video: 'video',
+    Histogram: 'histogram',
+    Image: 'image',
+    Tensor: 'tensor',
+    Dataframe: 'dataframe',
+    Chart: 'chart',
+    Csv: 'csv',
+    Tsv: 'tsv',
+    Psv: 'psv',
+    Ssv: 'ssv',
+    Metric: 'metric',
+    Env: 'env',
+    Html: 'html',
+    Text: 'text',
+    File: 'file',
+    Dir: 'dir',
+    Dockerfile: 'dockerfile',
+    DockerImage: 'docker_image',
+    Data: 'data',
+    Coderef: 'coderef',
+    Table: 'table',
+    Tensorboard: 'tensorboard',
+    Curve: 'curve',
+    Confusion: 'confusion',
+    Analysis: 'analysis',
+    Iteration: 'iteration',
+    Markdown: 'markdown',
+    System: 'system',
+    Span: 'span',
+    Artifact: 'artifact'
+} as const;
+export type GetOrganizationMultiRunEventsKindEnum = typeof GetOrganizationMultiRunEventsKindEnum[keyof typeof GetOrganizationMultiRunEventsKindEnum];
+/**
+ * @export
+ */
+export const GetOrganizationMultiRunEventsStatusEnum = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type GetOrganizationMultiRunEventsStatusEnum = typeof GetOrganizationMultiRunEventsStatusEnum[keyof typeof GetOrganizationMultiRunEventsStatusEnum];

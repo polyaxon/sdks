@@ -185,6 +185,8 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationActivities**](docs/OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationInvitation**](docs/OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationMember**](docs/OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
+*PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationMultiRunEvents**](docs/OrganizationsV1Api.md#getOrganizationMultiRunEvents) | **GET** /api/v1/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
+*PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationMultiRunImportance**](docs/OrganizationsV1Api.md#getOrganizationMultiRunImportance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationRun**](docs/OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationRuns**](docs/OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 *PolyaxonSdk.OrganizationsV1Api* | [**getOrganizationSettings**](docs/OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
@@ -298,8 +300,8 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.RunsV1Api* | [**deleteRunArtifactLineage**](docs/RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 *PolyaxonSdk.RunsV1Api* | [**deleteRunArtifacts**](docs/RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 *PolyaxonSdk.RunsV1Api* | [**deleteRuns**](docs/RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs
-*PolyaxonSdk.RunsV1Api* | [**getMultiRunEvents**](docs/RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
-*PolyaxonSdk.RunsV1Api* | [**getMultiRunImportance**](docs/RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
+*PolyaxonSdk.RunsV1Api* | [**getMultiRunEvents**](docs/RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind} | Get multi runs events
+*PolyaxonSdk.RunsV1Api* | [**getMultiRunImportance**](docs/RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance | Get multi run importance
 *PolyaxonSdk.RunsV1Api* | [**getRun**](docs/RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 *PolyaxonSdk.RunsV1Api* | [**getRunArtifact**](docs/RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
 *PolyaxonSdk.RunsV1Api* | [**getRunArtifactLineage**](docs/RunsV1Api.md#getRunArtifactLineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage
@@ -385,6 +387,8 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.TeamsV1Api* | [**getTeam**](docs/TeamsV1Api.md#getTeam) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
 *PolyaxonSdk.TeamsV1Api* | [**getTeamActivities**](docs/TeamsV1Api.md#getTeamActivities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities
 *PolyaxonSdk.TeamsV1Api* | [**getTeamMember**](docs/TeamsV1Api.md#getTeamMember) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
+*PolyaxonSdk.TeamsV1Api* | [**getTeamMultiRunEvents**](docs/TeamsV1Api.md#getTeamMultiRunEvents) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
+*PolyaxonSdk.TeamsV1Api* | [**getTeamMultiRunImportance**](docs/TeamsV1Api.md#getTeamMultiRunImportance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 *PolyaxonSdk.TeamsV1Api* | [**getTeamRun**](docs/TeamsV1Api.md#getTeamRun) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 *PolyaxonSdk.TeamsV1Api* | [**getTeamRuns**](docs/TeamsV1Api.md#getTeamRuns) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
 *PolyaxonSdk.TeamsV1Api* | [**getTeamStats**](docs/TeamsV1Api.md#getTeamStats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats

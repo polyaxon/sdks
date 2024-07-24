@@ -67,6 +67,12 @@ type GetMultiRunImportanceParams struct {
 	*/
 	Body interface{}
 
+	/* Entity.
+
+	   Entity where the run will be assigned
+	*/
+	Entity string
+
 	/* Namespace.
 
 	   namespace
@@ -78,12 +84,6 @@ type GetMultiRunImportanceParams struct {
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project where the run will be assigned
-	*/
-	Project string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -149,6 +149,17 @@ func (o *GetMultiRunImportanceParams) SetBody(body interface{}) {
 	o.Body = body
 }
 
+// WithEntity adds the entity to the get multi run importance params
+func (o *GetMultiRunImportanceParams) WithEntity(entity string) *GetMultiRunImportanceParams {
+	o.SetEntity(entity)
+	return o
+}
+
+// SetEntity adds the entity to the get multi run importance params
+func (o *GetMultiRunImportanceParams) SetEntity(entity string) {
+	o.Entity = entity
+}
+
 // WithNamespace adds the namespace to the get multi run importance params
 func (o *GetMultiRunImportanceParams) WithNamespace(namespace string) *GetMultiRunImportanceParams {
 	o.SetNamespace(namespace)
@@ -171,17 +182,6 @@ func (o *GetMultiRunImportanceParams) SetOwner(owner string) {
 	o.Owner = owner
 }
 
-// WithProject adds the project to the get multi run importance params
-func (o *GetMultiRunImportanceParams) WithProject(project string) *GetMultiRunImportanceParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the get multi run importance params
-func (o *GetMultiRunImportanceParams) SetProject(project string) {
-	o.Project = project
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *GetMultiRunImportanceParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -195,6 +195,11 @@ func (o *GetMultiRunImportanceParams) WriteToRequest(r runtime.ClientRequest, re
 		}
 	}
 
+	// path param entity
+	if err := r.SetPathParam("entity", o.Entity); err != nil {
+		return err
+	}
+
 	// path param namespace
 	if err := r.SetPathParam("namespace", o.Namespace); err != nil {
 		return err
@@ -202,11 +207,6 @@ func (o *GetMultiRunImportanceParams) WriteToRequest(r runtime.ClientRequest, re
 
 	// path param owner
 	if err := r.SetPathParam("owner", o.Owner); err != nil {
-		return err
-	}
-
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
 		return err
 	}
 

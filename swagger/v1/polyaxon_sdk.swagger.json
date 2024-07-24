@@ -6181,6 +6181,245 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/runs/multi/events/{kind}": {
+      "get": {
+        "summary": "Get multi runs events",
+        "operationId": "GetOrganizationMultiRunEvents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MultiEventsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "The artifact kind",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "model",
+              "audio",
+              "video",
+              "histogram",
+              "image",
+              "tensor",
+              "dataframe",
+              "chart",
+              "csv",
+              "tsv",
+              "psv",
+              "ssv",
+              "metric",
+              "env",
+              "html",
+              "text",
+              "file",
+              "dir",
+              "dockerfile",
+              "docker_image",
+              "data",
+              "coderef",
+              "table",
+              "tensorboard",
+              "curve",
+              "confusion",
+              "analysis",
+              "iteration",
+              "markdown",
+              "system",
+              "span",
+              "artifact"
+            ]
+          },
+          {
+            "name": "namespace",
+            "description": "namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity where the run will be assigned.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "names",
+            "description": "Names query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "runs",
+            "description": "Runs query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orient",
+            "description": "Orient query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "force",
+            "description": "Force query param.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sample",
+            "description": "Sample query param.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "Optional status.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created",
+              "resuming",
+              "on_schedule",
+              "compiled",
+              "queued",
+              "scheduled",
+              "starting",
+              "running",
+              "processing",
+              "stopping",
+              "failed",
+              "stopped",
+              "succeeded",
+              "skipped",
+              "warning",
+              "unschedulable",
+              "upstream_failed",
+              "retrying",
+              "unknown",
+              "done"
+            ],
+            "default": "created"
+          }
+        ],
+        "tags": [
+          "OrganizationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/runs/multi/importance": {
+      "post": {
+        "summary": "Get multi run importance",
+        "operationId": "GetOrganizationMultiRunImportance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MultiEventsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Params/Metrics data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "namespace",
+            "description": "namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity where the run will be assigned.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "OrganizationsV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/runs/restore": {
       "post": {
         "summary": "Restore cross-project runs selection",
@@ -8847,6 +9086,245 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          }
+        ],
+        "tags": [
+          "TeamsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}": {
+      "get": {
+        "summary": "Get multi runs events",
+        "operationId": "GetTeamMultiRunEvents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MultiEventsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity where the run will be assigned",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "The artifact kind",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "model",
+              "audio",
+              "video",
+              "histogram",
+              "image",
+              "tensor",
+              "dataframe",
+              "chart",
+              "csv",
+              "tsv",
+              "psv",
+              "ssv",
+              "metric",
+              "env",
+              "html",
+              "text",
+              "file",
+              "dir",
+              "dockerfile",
+              "docker_image",
+              "data",
+              "coderef",
+              "table",
+              "tensorboard",
+              "curve",
+              "confusion",
+              "analysis",
+              "iteration",
+              "markdown",
+              "system",
+              "span",
+              "artifact"
+            ]
+          },
+          {
+            "name": "namespace",
+            "description": "namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "names",
+            "description": "Names query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "runs",
+            "description": "Runs query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orient",
+            "description": "Orient query param.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "force",
+            "description": "Force query param.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sample",
+            "description": "Sample query param.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "Optional status.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "created",
+              "resuming",
+              "on_schedule",
+              "compiled",
+              "queued",
+              "scheduled",
+              "starting",
+              "running",
+              "processing",
+              "stopping",
+              "failed",
+              "stopped",
+              "succeeded",
+              "skipped",
+              "warning",
+              "unschedulable",
+              "upstream_failed",
+              "retrying",
+              "unknown",
+              "done"
+            ],
+            "default": "created"
+          }
+        ],
+        "tags": [
+          "TeamsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance": {
+      "post": {
+        "summary": "Get multi run importance",
+        "operationId": "GetTeamMultiRunImportance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MultiEventsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity where the run will be assigned",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Params/Metrics data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "namespace",
+            "description": "namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -17774,7 +18252,7 @@
         ]
       }
     },
-    "/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}": {
+    "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}": {
       "get": {
         "summary": "Get multi runs events",
         "operationId": "GetMultiRunEvents",
@@ -17820,8 +18298,8 @@
             "type": "string"
           },
           {
-            "name": "project",
-            "description": "Project where the run will be assigned",
+            "name": "entity",
+            "description": "Entity where the run will be assigned",
             "in": "path",
             "required": true,
             "type": "string"
@@ -17946,7 +18424,7 @@
         ]
       }
     },
-    "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance": {
+    "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance": {
       "post": {
         "summary": "Get multi run importance",
         "operationId": "GetMultiRunImportance",
@@ -17992,8 +18470,8 @@
             "type": "string"
           },
           {
-            "name": "project",
-            "description": "Project where the run will be assigned",
+            "name": "entity",
+            "description": "Entity where the run will be assigned",
             "in": "path",
             "required": true,
             "type": "string"

@@ -9450,6 +9450,282 @@
         "x-codegen-request-body-name" : "body"
       }
     },
+    "/api/v1/orgs/{owner}/runs/multi/events/{kind}" : {
+      "get" : {
+        "tags" : [ "OrganizationsV1" ],
+        "summary" : "Get multi runs events",
+        "operationId" : "GetOrganizationMultiRunEvents",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "path",
+          "description" : "The artifact kind",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ]
+          }
+        }, {
+          "name" : "namespace",
+          "in" : "query",
+          "description" : "namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity where the run will be assigned.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "names",
+          "in" : "query",
+          "description" : "Names query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "runs",
+          "in" : "query",
+          "description" : "Runs query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "orient",
+          "in" : "query",
+          "description" : "Orient query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "force",
+          "in" : "query",
+          "description" : "Force query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "sample",
+          "in" : "query",
+          "description" : "Sample query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "Optional status.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
+            "default" : "created"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1MultiEventsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/runs/multi/importance" : {
+      "post" : {
+        "tags" : [ "OrganizationsV1" ],
+        "summary" : "Get multi run importance",
+        "operationId" : "GetOrganizationMultiRunImportance",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "namespace",
+          "in" : "query",
+          "description" : "namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity where the run will be assigned.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Params/Metrics data",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1MultiEventsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
     "/api/v1/orgs/{owner}/runs/restore" : {
       "post" : {
         "tags" : [ "OrganizationsV1" ],
@@ -13521,6 +13797,282 @@
             }
           }
         }
+      }
+    },
+    "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}" : {
+      "get" : {
+        "tags" : [ "TeamsV1" ],
+        "summary" : "Get multi runs events",
+        "operationId" : "GetTeamMultiRunEvents",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "path",
+          "description" : "Entity where the run will be assigned",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "path",
+          "description" : "The artifact kind",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ]
+          }
+        }, {
+          "name" : "namespace",
+          "in" : "query",
+          "description" : "namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "names",
+          "in" : "query",
+          "description" : "Names query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "runs",
+          "in" : "query",
+          "description" : "Runs query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "orient",
+          "in" : "query",
+          "description" : "Orient query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "force",
+          "in" : "query",
+          "description" : "Force query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "sample",
+          "in" : "query",
+          "description" : "Sample query param.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "connection",
+          "in" : "query",
+          "description" : "Connection to use.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "Optional status.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
+            "default" : "created"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1MultiEventsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance" : {
+      "post" : {
+        "tags" : [ "TeamsV1" ],
+        "summary" : "Get multi run importance",
+        "operationId" : "GetTeamMultiRunImportance",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "path",
+          "description" : "Entity where the run will be assigned",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "namespace",
+          "in" : "query",
+          "description" : "namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Params/Metrics data",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1MultiEventsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
       }
     },
     "/api/v1/orgs/{owner}/teams/{entity}/runs/{uuid}" : {
@@ -27059,7 +27611,7 @@
         }
       }
     },
-    "/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}" : {
+    "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}" : {
       "get" : {
         "tags" : [ "RunsV1" ],
         "summary" : "Get multi runs events",
@@ -27085,9 +27637,9 @@
             "type" : "string"
           }
         }, {
-          "name" : "project",
+          "name" : "entity",
           "in" : "path",
-          "description" : "Project where the run will be assigned",
+          "description" : "Entity where the run will be assigned",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -27233,7 +27785,7 @@
         }
       }
     },
-    "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance" : {
+    "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance" : {
       "post" : {
         "tags" : [ "RunsV1" ],
         "summary" : "Get multi run importance",
@@ -27259,9 +27811,9 @@
             "type" : "string"
           }
         }, {
-          "name" : "project",
+          "name" : "entity",
           "in" : "path",
-          "description" : "Project where the run will be assigned",
+          "description" : "Entity where the run will be assigned",
           "required" : true,
           "style" : "simple",
           "explode" : false,

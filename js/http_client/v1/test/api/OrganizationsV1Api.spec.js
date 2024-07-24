@@ -178,6 +178,26 @@
         done();
       });
     });
+    describe('getOrganizationMultiRunEvents', function() {
+      it('should call getOrganizationMultiRunEvents successfully', function(done) {
+        //uncomment below and update the code to test getOrganizationMultiRunEvents
+        //instance.getOrganizationMultiRunEvents(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getOrganizationMultiRunImportance', function() {
+      it('should call getOrganizationMultiRunImportance successfully', function(done) {
+        //uncomment below and update the code to test getOrganizationMultiRunImportance
+        //instance.getOrganizationMultiRunImportance(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getOrganizationRun', function() {
       it('should call getOrganizationRun successfully', function(done) {
         //uncomment below and update the code to test getOrganizationRun

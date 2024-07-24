@@ -21,8 +21,8 @@ All URIs are relative to *http://localhost*
 | [**deleteRunArtifactLineage**](RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage |
 | [**deleteRunArtifacts**](RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts |
 | [**deleteRuns**](RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs |
-| [**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events |
-| [**getMultiRunImportance**](RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance |
+| [**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind} | Get multi runs events |
+| [**getMultiRunImportance**](RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance | Get multi run importance |
 | [**getRun**](RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run |
 | [**getRunArtifact**](RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact |
 | [**getRunArtifactLineage**](RunsV1Api.md#getRunArtifactLineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage |
@@ -1285,7 +1285,7 @@ null (empty response body)
 
 <a name="getMultiRunEvents"></a>
 # **getMultiRunEvents**
-> V1MultiEventsResponse getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status)
+> V1MultiEventsResponse getMultiRunEvents(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status)
 
 Get multi runs events
 
@@ -1313,7 +1313,7 @@ public class Example {
     RunsV1Api apiInstance = new RunsV1Api(defaultClient);
     String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project where the run will be assigned
+    String entity = "entity_example"; // String | Entity where the run will be assigned
     String kind = "model"; // String | The artifact kind
     String names = "names_example"; // String | Names query param.
     String runs = "runs_example"; // String | Runs query param.
@@ -1323,7 +1323,7 @@ public class Example {
     String connection = "connection_example"; // String | Connection to use.
     String status = "created"; // String | Optional status.
     try {
-      V1MultiEventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
+      V1MultiEventsResponse result = apiInstance.getMultiRunEvents(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getMultiRunEvents");
@@ -1342,7 +1342,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project where the run will be assigned | |
+| **entity** | **String**| Entity where the run will be assigned | |
 | **kind** | **String**| The artifact kind | [enum: model, audio, video, histogram, image, tensor, dataframe, chart, csv, tsv, psv, ssv, metric, env, html, text, file, dir, dockerfile, docker_image, data, coderef, table, tensorboard, curve, confusion, analysis, iteration, markdown, system, span, artifact] |
 | **names** | **String**| Names query param. | [optional] |
 | **runs** | **String**| Runs query param. | [optional] |
@@ -1376,7 +1376,7 @@ public class Example {
 
 <a name="getMultiRunImportance"></a>
 # **getMultiRunImportance**
-> V1MultiEventsResponse getMultiRunImportance(namespace, owner, project, body)
+> V1MultiEventsResponse getMultiRunImportance(namespace, owner, entity, body)
 
 Get multi run importance
 
@@ -1404,10 +1404,10 @@ public class Example {
     RunsV1Api apiInstance = new RunsV1Api(defaultClient);
     String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
-    String project = "project_example"; // String | Project where the run will be assigned
+    String entity = "entity_example"; // String | Entity where the run will be assigned
     Object body = null; // Object | Params/Metrics data
     try {
-      V1MultiEventsResponse result = apiInstance.getMultiRunImportance(namespace, owner, project, body);
+      V1MultiEventsResponse result = apiInstance.getMultiRunImportance(namespace, owner, entity, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getMultiRunImportance");
@@ -1426,7 +1426,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
-| **project** | **String**| Project where the run will be assigned | |
+| **entity** | **String**| Entity where the run will be assigned | |
 | **body** | **Object**| Params/Metrics data | |
 
 ### Return type

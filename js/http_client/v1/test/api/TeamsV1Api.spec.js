@@ -158,6 +158,26 @@
         done();
       });
     });
+    describe('getTeamMultiRunEvents', function() {
+      it('should call getTeamMultiRunEvents successfully', function(done) {
+        //uncomment below and update the code to test getTeamMultiRunEvents
+        //instance.getTeamMultiRunEvents(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTeamMultiRunImportance', function() {
+      it('should call getTeamMultiRunImportance successfully', function(done) {
+        //uncomment below and update the code to test getTeamMultiRunImportance
+        //instance.getTeamMultiRunImportance(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTeamRun', function() {
       it('should call getTeamRun successfully', function(done) {
         //uncomment below and update the code to test getTeamRun

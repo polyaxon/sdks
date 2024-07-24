@@ -54,6 +54,10 @@ type ClientService interface {
 
 	GetOrganizationMember(params *GetOrganizationMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMemberOK, *GetOrganizationMemberNoContent, error)
 
+	GetOrganizationMultiRunEvents(params *GetOrganizationMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMultiRunEventsOK, *GetOrganizationMultiRunEventsNoContent, error)
+
+	GetOrganizationMultiRunImportance(params *GetOrganizationMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMultiRunImportanceOK, *GetOrganizationMultiRunImportanceNoContent, error)
+
 	GetOrganizationRun(params *GetOrganizationRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunOK, *GetOrganizationRunNoContent, error)
 
 	GetOrganizationRuns(params *GetOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunsOK, *GetOrganizationRunsNoContent, error)
@@ -626,6 +630,86 @@ func (a *Client) GetOrganizationMember(params *GetOrganizationMemberParams, auth
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetOrganizationMemberDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetOrganizationMultiRunEvents gets multi runs events
+*/
+func (a *Client) GetOrganizationMultiRunEvents(params *GetOrganizationMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMultiRunEventsOK, *GetOrganizationMultiRunEventsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOrganizationMultiRunEventsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetOrganizationMultiRunEvents",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/runs/multi/events/{kind}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetOrganizationMultiRunEventsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetOrganizationMultiRunEventsOK:
+		return value, nil, nil
+	case *GetOrganizationMultiRunEventsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetOrganizationMultiRunEventsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetOrganizationMultiRunImportance gets multi run importance
+*/
+func (a *Client) GetOrganizationMultiRunImportance(params *GetOrganizationMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMultiRunImportanceOK, *GetOrganizationMultiRunImportanceNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOrganizationMultiRunImportanceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetOrganizationMultiRunImportance",
+		Method:             "POST",
+		PathPattern:        "/api/v1/orgs/{owner}/runs/multi/importance",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetOrganizationMultiRunImportanceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetOrganizationMultiRunImportanceOK:
+		return value, nil, nil
+	case *GetOrganizationMultiRunImportanceNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetOrganizationMultiRunImportanceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

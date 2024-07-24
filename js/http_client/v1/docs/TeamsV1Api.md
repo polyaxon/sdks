@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**getTeam**](TeamsV1Api.md#getTeam) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
 [**getTeamActivities**](TeamsV1Api.md#getTeamActivities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities
 [**getTeamMember**](TeamsV1Api.md#getTeamMember) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
+[**getTeamMultiRunEvents**](TeamsV1Api.md#getTeamMultiRunEvents) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
+[**getTeamMultiRunImportance**](TeamsV1Api.md#getTeamMultiRunImportance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 [**getTeamRun**](TeamsV1Api.md#getTeamRun) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 [**getTeamRuns**](TeamsV1Api.md#getTeamRuns) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
 [**getTeamStats**](TeamsV1Api.md#getTeamStats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats
@@ -625,6 +627,134 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTeamMultiRunEvents
+
+> V1MultiEventsResponse getTeamMultiRunEvents(owner, entity, kind, opts)
+
+Get multi runs events
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.TeamsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let entity = "entity_example"; // String | Entity where the run will be assigned
+let kind = "kind_example"; // String | The artifact kind
+let opts = {
+  'namespace': "namespace_example", // String | namespace.
+  'names': "names_example", // String | Names query param.
+  'runs': "runs_example", // String | Runs query param.
+  'orient': "orient_example", // String | Orient query param.
+  'force': true, // Boolean | Force query param.
+  'sample': 56, // Number | Sample query param.
+  'connection': "connection_example", // String | Connection to use.
+  'status': "'created'" // String | Optional status.
+};
+apiInstance.getTeamMultiRunEvents(owner, entity, kind, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **entity** | **String**| Entity where the run will be assigned | 
+ **kind** | **String**| The artifact kind | 
+ **namespace** | **String**| namespace. | [optional] 
+ **names** | **String**| Names query param. | [optional] 
+ **runs** | **String**| Runs query param. | [optional] 
+ **orient** | **String**| Orient query param. | [optional] 
+ **force** | **Boolean**| Force query param. | [optional] 
+ **sample** | **Number**| Sample query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
+ **status** | **String**| Optional status. | [optional] [default to &#39;created&#39;]
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTeamMultiRunImportance
+
+> V1MultiEventsResponse getTeamMultiRunImportance(owner, entity, body, opts)
+
+Get multi run importance
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.TeamsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let entity = "entity_example"; // String | Entity where the run will be assigned
+let body = {key: null}; // Object | Params/Metrics data
+let opts = {
+  'namespace': "namespace_example" // String | namespace.
+};
+apiInstance.getTeamMultiRunImportance(owner, entity, body, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **entity** | **String**| Entity where the run will be assigned | 
+ **body** | **Object**| Params/Metrics data | 
+ **namespace** | **String**| namespace. | [optional] 
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

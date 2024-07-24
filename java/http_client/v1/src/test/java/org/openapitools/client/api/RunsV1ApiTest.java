@@ -301,7 +301,7 @@ public class RunsV1ApiTest {
     public void getMultiRunEventsTest() throws ApiException {
         String namespace = null;
         String owner = null;
-        String project = null;
+        String entity = null;
         String kind = null;
         String names = null;
         String runs = null;
@@ -310,7 +310,7 @@ public class RunsV1ApiTest {
         Integer sample = null;
         String connection = null;
         String status = null;
-        V1MultiEventsResponse response = api.getMultiRunEvents(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
+        V1MultiEventsResponse response = api.getMultiRunEvents(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -323,9 +323,9 @@ public class RunsV1ApiTest {
     public void getMultiRunImportanceTest() throws ApiException {
         String namespace = null;
         String owner = null;
-        String project = null;
+        String entity = null;
         Object body = null;
-        V1MultiEventsResponse response = api.getMultiRunImportance(namespace, owner, project, body);
+        V1MultiEventsResponse response = api.getMultiRunImportance(namespace, owner, entity, body);
         // TODO: test validations
     }
 

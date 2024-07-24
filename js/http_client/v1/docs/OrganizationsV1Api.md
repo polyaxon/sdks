@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**getOrganizationActivities**](OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 [**getOrganizationInvitation**](OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 [**getOrganizationMember**](OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
+[**getOrganizationMultiRunEvents**](OrganizationsV1Api.md#getOrganizationMultiRunEvents) | **GET** /api/v1/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
+[**getOrganizationMultiRunImportance**](OrganizationsV1Api.md#getOrganizationMultiRunImportance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance
 [**getOrganizationRun**](OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 [**getOrganizationRuns**](OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 [**getOrganizationSettings**](OrganizationsV1Api.md#getOrganizationSettings) | **GET** /api/v1/orgs/{owner}/settings | Get organization settings
@@ -756,6 +758,134 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationMultiRunEvents
+
+> V1MultiEventsResponse getOrganizationMultiRunEvents(owner, kind, opts)
+
+Get multi runs events
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let kind = "kind_example"; // String | The artifact kind
+let opts = {
+  'namespace': "namespace_example", // String | namespace.
+  'entity': "entity_example", // String | Entity where the run will be assigned.
+  'names': "names_example", // String | Names query param.
+  'runs': "runs_example", // String | Runs query param.
+  'orient': "orient_example", // String | Orient query param.
+  'force': true, // Boolean | Force query param.
+  'sample': 56, // Number | Sample query param.
+  'connection': "connection_example", // String | Connection to use.
+  'status': "'created'" // String | Optional status.
+};
+apiInstance.getOrganizationMultiRunEvents(owner, kind, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **kind** | **String**| The artifact kind | 
+ **namespace** | **String**| namespace. | [optional] 
+ **entity** | **String**| Entity where the run will be assigned. | [optional] 
+ **names** | **String**| Names query param. | [optional] 
+ **runs** | **String**| Runs query param. | [optional] 
+ **orient** | **String**| Orient query param. | [optional] 
+ **force** | **Boolean**| Force query param. | [optional] 
+ **sample** | **Number**| Sample query param. | [optional] 
+ **connection** | **String**| Connection to use. | [optional] 
+ **status** | **String**| Optional status. | [optional] [default to &#39;created&#39;]
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationMultiRunImportance
+
+> V1MultiEventsResponse getOrganizationMultiRunImportance(owner, body, opts)
+
+Get multi run importance
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let body = {key: null}; // Object | Params/Metrics data
+let opts = {
+  'namespace': "namespace_example", // String | namespace.
+  'entity': "entity_example" // String | Entity where the run will be assigned.
+};
+apiInstance.getOrganizationMultiRunImportance(owner, body, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **body** | **Object**| Params/Metrics data | 
+ **namespace** | **String**| namespace. | [optional] 
+ **entity** | **String**| Entity where the run will be assigned. | [optional] 
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

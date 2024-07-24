@@ -68,6 +68,12 @@ type GetMultiRunEventsParams struct {
 	*/
 	Connection *string
 
+	/* Entity.
+
+	   Entity where the run will be assigned
+	*/
+	Entity string
+
 	/* Force.
 
 	   Force query param.
@@ -103,12 +109,6 @@ type GetMultiRunEventsParams struct {
 	   Owner of the namespace
 	*/
 	Owner string
-
-	/* Project.
-
-	   Project where the run will be assigned
-	*/
-	Project string
 
 	/* Runs.
 
@@ -207,6 +207,17 @@ func (o *GetMultiRunEventsParams) SetConnection(connection *string) {
 	o.Connection = connection
 }
 
+// WithEntity adds the entity to the get multi run events params
+func (o *GetMultiRunEventsParams) WithEntity(entity string) *GetMultiRunEventsParams {
+	o.SetEntity(entity)
+	return o
+}
+
+// SetEntity adds the entity to the get multi run events params
+func (o *GetMultiRunEventsParams) SetEntity(entity string) {
+	o.Entity = entity
+}
+
 // WithForce adds the force to the get multi run events params
 func (o *GetMultiRunEventsParams) WithForce(force *bool) *GetMultiRunEventsParams {
 	o.SetForce(force)
@@ -273,17 +284,6 @@ func (o *GetMultiRunEventsParams) SetOwner(owner string) {
 	o.Owner = owner
 }
 
-// WithProject adds the project to the get multi run events params
-func (o *GetMultiRunEventsParams) WithProject(project string) *GetMultiRunEventsParams {
-	o.SetProject(project)
-	return o
-}
-
-// SetProject adds the project to the get multi run events params
-func (o *GetMultiRunEventsParams) SetProject(project string) {
-	o.Project = project
-}
-
 // WithRuns adds the runs to the get multi run events params
 func (o *GetMultiRunEventsParams) WithRuns(runs *string) *GetMultiRunEventsParams {
 	o.SetRuns(runs)
@@ -340,6 +340,11 @@ func (o *GetMultiRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg st
 				return err
 			}
 		}
+	}
+
+	// path param entity
+	if err := r.SetPathParam("entity", o.Entity); err != nil {
+		return err
 	}
 
 	if o.Force != nil {
@@ -405,11 +410,6 @@ func (o *GetMultiRunEventsParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 	// path param owner
 	if err := r.SetPathParam("owner", o.Owner); err != nil {
-		return err
-	}
-
-	// path param project
-	if err := r.SetPathParam("project", o.Project); err != nil {
 		return err
 	}
 

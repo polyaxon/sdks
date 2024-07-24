@@ -6705,6 +6705,261 @@ paths:
       x-codegen-request-body-name: body
       x-content-type: application/json
       x-accepts: application/json
+  /api/v1/orgs/{owner}/runs/multi/events/{kind}:
+    get:
+      operationId: GetOrganizationMultiRunEvents
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The artifact kind
+        explode: false
+        in: path
+        name: kind
+        required: true
+        schema:
+          enum:
+          - model
+          - audio
+          - video
+          - histogram
+          - image
+          - tensor
+          - dataframe
+          - chart
+          - csv
+          - tsv
+          - psv
+          - ssv
+          - metric
+          - env
+          - html
+          - text
+          - file
+          - dir
+          - dockerfile
+          - docker_image
+          - data
+          - coderef
+          - table
+          - tensorboard
+          - curve
+          - confusion
+          - analysis
+          - iteration
+          - markdown
+          - system
+          - span
+          - artifact
+          type: string
+        style: simple
+      - description: namespace.
+        explode: true
+        in: query
+        name: namespace
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Entity where the run will be assigned.
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Names query param.
+        explode: true
+        in: query
+        name: names
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Runs query param.
+        explode: true
+        in: query
+        name: runs
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Orient query param.
+        explode: true
+        in: query
+        name: orient
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Force query param.
+        explode: true
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Sample query param.
+        explode: true
+        in: query
+        name: sample
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Optional status.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: created
+          enum:
+          - created
+          - resuming
+          - on_schedule
+          - compiled
+          - queued
+          - scheduled
+          - starting
+          - running
+          - processing
+          - stopping
+          - failed
+          - stopped
+          - succeeded
+          - skipped
+          - warning
+          - unschedulable
+          - upstream_failed
+          - retrying
+          - unknown
+          - done
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1MultiEventsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get multi runs events
+      tags:
+      - OrganizationsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/runs/multi/importance:
+    post:
+      operationId: GetOrganizationMultiRunImportance
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: namespace.
+        explode: true
+        in: query
+        name: namespace
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Entity where the run will be assigned.
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Params/Metrics data
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1MultiEventsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get multi run importance
+      tags:
+      - OrganizationsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
   /api/v1/orgs/{owner}/runs/restore:
     post:
       operationId: RestoreOrganizationRuns
@@ -9620,6 +9875,261 @@ paths:
       summary: List teams names
       tags:
       - TeamsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}:
+    get:
+      operationId: GetTeamMultiRunEvents
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Entity where the run will be assigned
+        explode: false
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The artifact kind
+        explode: false
+        in: path
+        name: kind
+        required: true
+        schema:
+          enum:
+          - model
+          - audio
+          - video
+          - histogram
+          - image
+          - tensor
+          - dataframe
+          - chart
+          - csv
+          - tsv
+          - psv
+          - ssv
+          - metric
+          - env
+          - html
+          - text
+          - file
+          - dir
+          - dockerfile
+          - docker_image
+          - data
+          - coderef
+          - table
+          - tensorboard
+          - curve
+          - confusion
+          - analysis
+          - iteration
+          - markdown
+          - system
+          - span
+          - artifact
+          type: string
+        style: simple
+      - description: namespace.
+        explode: true
+        in: query
+        name: namespace
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Names query param.
+        explode: true
+        in: query
+        name: names
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Runs query param.
+        explode: true
+        in: query
+        name: runs
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Orient query param.
+        explode: true
+        in: query
+        name: orient
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Force query param.
+        explode: true
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Sample query param.
+        explode: true
+        in: query
+        name: sample
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Connection to use.
+        explode: true
+        in: query
+        name: connection
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Optional status.
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          default: created
+          enum:
+          - created
+          - resuming
+          - on_schedule
+          - compiled
+          - queued
+          - scheduled
+          - starting
+          - running
+          - processing
+          - stopping
+          - failed
+          - stopped
+          - succeeded
+          - skipped
+          - warning
+          - unschedulable
+          - upstream_failed
+          - retrying
+          - unknown
+          - done
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1MultiEventsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get multi runs events
+      tags:
+      - TeamsV1
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance:
+    post:
+      operationId: GetTeamMultiRunImportance
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Entity where the run will be assigned
+        explode: false
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: namespace.
+        explode: true
+        in: query
+        name: namespace
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Params/Metrics data
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1MultiEventsResponse'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get multi run importance
+      tags:
+      - TeamsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts: application/json
   /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid}:
     get:
@@ -19340,7 +19850,7 @@ paths:
       tags:
       - AgentsV1
       x-accepts: application/json
-  /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}:
+  /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}:
     get:
       operationId: GetMultiRunEvents
       parameters:
@@ -19360,10 +19870,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Project where the run will be assigned
+      - description: Entity where the run will be assigned
         explode: false
         in: path
-        name: project
+        name: entity
         required: true
         schema:
           type: string
@@ -19523,7 +20033,7 @@ paths:
       tags:
       - RunsV1
       x-accepts: application/json
-  /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance:
+  /streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance:
     post:
       operationId: GetMultiRunImportance
       parameters:
@@ -19543,10 +20053,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Project where the run will be assigned
+      - description: Entity where the run will be assigned
         explode: false
         in: path
-        name: project
+        name: entity
         required: true
         schema:
           type: string

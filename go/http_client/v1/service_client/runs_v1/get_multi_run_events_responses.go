@@ -104,11 +104,11 @@ func (o *GetMultiRunEventsOK) Code() int {
 }
 
 func (o *GetMultiRunEventsOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetMultiRunEventsOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetMultiRunEventsOK) GetPayload() *service_model.V1MultiEventsResponse {
@@ -172,11 +172,11 @@ func (o *GetMultiRunEventsNoContent) Code() int {
 }
 
 func (o *GetMultiRunEventsNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetMultiRunEventsNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetMultiRunEventsNoContent) GetPayload() interface{} {
@@ -238,11 +238,11 @@ func (o *GetMultiRunEventsForbidden) Code() int {
 }
 
 func (o *GetMultiRunEventsForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetMultiRunEventsForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetMultiRunEventsForbidden) GetPayload() interface{} {
@@ -304,11 +304,11 @@ func (o *GetMultiRunEventsNotFound) Code() int {
 }
 
 func (o *GetMultiRunEventsNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetMultiRunEventsNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] getMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetMultiRunEventsNotFound) GetPayload() interface{} {
@@ -374,11 +374,11 @@ func (o *GetMultiRunEventsDefault) Code() int {
 }
 
 func (o *GetMultiRunEventsDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] GetMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] GetMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetMultiRunEventsDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}][%d] GetMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}][%d] GetMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetMultiRunEventsDefault) GetPayload() *service_model.RuntimeError {

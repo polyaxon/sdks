@@ -22,6 +22,7 @@ import org.openapitools.client.model.V1ListProjectVersionsResponse;
 import org.openapitools.client.model.V1ListRunsResponse;
 import org.openapitools.client.model.V1ListTeamMembersResponse;
 import org.openapitools.client.model.V1ListTeamsResponse;
+import org.openapitools.client.model.V1MultiEventsResponse;
 import org.openapitools.client.model.V1Run;
 import org.openapitools.client.model.V1Team;
 import org.openapitools.client.model.V1TeamMember;
@@ -196,6 +197,43 @@ public class TeamsV1ApiTest {
         String team = null;
         String user = null;
         V1TeamMember response = api.getTeamMember(owner, team, user);
+        // TODO: test validations
+    }
+
+    /**
+     * Get multi runs events
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamMultiRunEventsTest() throws ApiException {
+        String owner = null;
+        String entity = null;
+        String kind = null;
+        String namespace = null;
+        String names = null;
+        String runs = null;
+        String orient = null;
+        Boolean force = null;
+        Integer sample = null;
+        String connection = null;
+        String status = null;
+        V1MultiEventsResponse response = api.getTeamMultiRunEvents(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status);
+        // TODO: test validations
+    }
+
+    /**
+     * Get multi run importance
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTeamMultiRunImportanceTest() throws ApiException {
+        String owner = null;
+        String entity = null;
+        Object body = null;
+        String namespace = null;
+        V1MultiEventsResponse response = api.getTeamMultiRunImportance(owner, entity, body, namespace);
         // TODO: test validations
     }
 

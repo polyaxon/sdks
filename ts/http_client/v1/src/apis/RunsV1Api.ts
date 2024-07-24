@@ -200,7 +200,7 @@ export interface DeleteRunsRequest {
 export interface GetMultiRunEventsRequest {
     namespace: string;
     owner: string;
-    project: string;
+    entity: string;
     kind: GetMultiRunEventsKindEnum;
     names?: string;
     runs?: string;
@@ -214,7 +214,7 @@ export interface GetMultiRunEventsRequest {
 export interface GetMultiRunImportanceRequest {
     namespace: string;
     owner: string;
-    project: string;
+    entity: string;
     body: object;
 }
 
@@ -1355,8 +1355,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getMultiRunEvents.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling getMultiRunEvents.');
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getMultiRunEvents.');
         }
 
         if (requestParameters.kind === null || requestParameters.kind === undefined) {
@@ -1400,7 +1400,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            path: `/streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -1429,8 +1429,8 @@ export class RunsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getMultiRunImportance.');
         }
 
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling getMultiRunImportance.');
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getMultiRunImportance.');
         }
 
         if (requestParameters.body === null || requestParameters.body === undefined) {
@@ -1448,7 +1448,7 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"project"}}`, encodeURIComponent(String(requestParameters.project))),
+            path: `/streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

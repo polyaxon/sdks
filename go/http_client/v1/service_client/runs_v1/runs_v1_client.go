@@ -810,7 +810,7 @@ func (a *Client) GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo run
 	op := &runtime.ClientOperation{
 		ID:                 "GetMultiRunEvents",
 		Method:             "GET",
-		PathPattern:        "/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -850,7 +850,7 @@ func (a *Client) GetMultiRunImportance(params *GetMultiRunImportanceParams, auth
 	op := &runtime.ClientOperation{
 		ID:                 "GetMultiRunImportance",
 		Method:             "POST",
-		PathPattern:        "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

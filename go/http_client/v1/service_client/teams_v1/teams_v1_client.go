@@ -50,6 +50,10 @@ type ClientService interface {
 
 	GetTeamMember(params *GetTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMemberOK, *GetTeamMemberNoContent, error)
 
+	GetTeamMultiRunEvents(params *GetTeamMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMultiRunEventsOK, *GetTeamMultiRunEventsNoContent, error)
+
+	GetTeamMultiRunImportance(params *GetTeamMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMultiRunImportanceOK, *GetTeamMultiRunImportanceNoContent, error)
+
 	GetTeamRun(params *GetTeamRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunOK, *GetTeamRunNoContent, error)
 
 	GetTeamRuns(params *GetTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunsOK, *GetTeamRunsNoContent, error)
@@ -524,6 +528,86 @@ func (a *Client) GetTeamMember(params *GetTeamMemberParams, authInfo runtime.Cli
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetTeamMemberDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetTeamMultiRunEvents gets multi runs events
+*/
+func (a *Client) GetTeamMultiRunEvents(params *GetTeamMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMultiRunEventsOK, *GetTeamMultiRunEventsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetTeamMultiRunEventsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetTeamMultiRunEvents",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetTeamMultiRunEventsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetTeamMultiRunEventsOK:
+		return value, nil, nil
+	case *GetTeamMultiRunEventsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetTeamMultiRunEventsDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetTeamMultiRunImportance gets multi run importance
+*/
+func (a *Client) GetTeamMultiRunImportance(params *GetTeamMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMultiRunImportanceOK, *GetTeamMultiRunImportanceNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetTeamMultiRunImportanceParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetTeamMultiRunImportance",
+		Method:             "POST",
+		PathPattern:        "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetTeamMultiRunImportanceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetTeamMultiRunImportanceOK:
+		return value, nil, nil
+	case *GetTeamMultiRunImportanceNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetTeamMultiRunImportanceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

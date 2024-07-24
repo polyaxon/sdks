@@ -976,7 +976,7 @@ export default class RunsV1Api {
      * Get multi runs events
      * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project where the run will be assigned
+     * @param {String} entity Entity where the run will be assigned
      * @param {module:model/String} kind The artifact kind
      * @param {Object} opts Optional parameters
      * @param {String} [names] Names query param.
@@ -989,7 +989,7 @@ export default class RunsV1Api {
      * @param {module:api/RunsV1Api~getMultiRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1MultiEventsResponse}
      */
-    getMultiRunEvents(namespace, owner, project, kind, opts, callback) {
+    getMultiRunEvents(namespace, owner, entity, kind, opts, callback) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'namespace' is set
@@ -1000,9 +1000,9 @@ export default class RunsV1Api {
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling getMultiRunEvents");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling getMultiRunEvents");
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getMultiRunEvents");
       }
       // verify the required parameter 'kind' is set
       if (kind === undefined || kind === null) {
@@ -1012,7 +1012,7 @@ export default class RunsV1Api {
       let pathParams = {
         'namespace': namespace,
         'owner': owner,
-        'project': project,
+        'entity': entity,
         'kind': kind
       };
       let queryParams = {
@@ -1034,7 +1034,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = V1MultiEventsResponse;
       return this.apiClient.callApi(
-        '/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}', 'GET',
+        '/streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1052,12 +1052,12 @@ export default class RunsV1Api {
      * Get multi run importance
      * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
-     * @param {String} project Project where the run will be assigned
+     * @param {String} entity Entity where the run will be assigned
      * @param {Object.<String, Object>} body Params/Metrics data
      * @param {module:api/RunsV1Api~getMultiRunImportanceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1MultiEventsResponse}
      */
-    getMultiRunImportance(namespace, owner, project, body, callback) {
+    getMultiRunImportance(namespace, owner, entity, body, callback) {
       let postBody = body;
       // verify the required parameter 'namespace' is set
       if (namespace === undefined || namespace === null) {
@@ -1067,9 +1067,9 @@ export default class RunsV1Api {
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling getMultiRunImportance");
       }
-      // verify the required parameter 'project' is set
-      if (project === undefined || project === null) {
-        throw new Error("Missing the required parameter 'project' when calling getMultiRunImportance");
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getMultiRunImportance");
       }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -1079,7 +1079,7 @@ export default class RunsV1Api {
       let pathParams = {
         'namespace': namespace,
         'owner': owner,
-        'project': project
+        'entity': entity
       };
       let queryParams = {
       };
@@ -1093,7 +1093,7 @@ export default class RunsV1Api {
       let accepts = ['application/json'];
       let returnType = V1MultiEventsResponse;
       return this.apiClient.callApi(
-        '/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance', 'POST',
+        '/streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

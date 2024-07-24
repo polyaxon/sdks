@@ -16,6 +16,8 @@ All URIs are relative to *http://localhost*
 | [**getTeam**](TeamsV1Api.md#getTeam) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team |
 | [**getTeamActivities**](TeamsV1Api.md#getTeamActivities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities |
 | [**getTeamMember**](TeamsV1Api.md#getTeamMember) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details |
+| [**getTeamMultiRunEvents**](TeamsV1Api.md#getTeamMultiRunEvents) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events |
+| [**getTeamMultiRunImportance**](TeamsV1Api.md#getTeamMultiRunImportance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance |
 | [**getTeamRun**](TeamsV1Api.md#getTeamRun) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team |
 | [**getTeamRuns**](TeamsV1Api.md#getTeamRuns) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team |
 | [**getTeamStats**](TeamsV1Api.md#getTeamStats) | **GET** /api/v1/orgs/{owner}/teams/{name}/stats | Get team stats |
@@ -849,6 +851,174 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="getTeamMultiRunEvents"></a>
+# **getTeamMultiRunEvents**
+> V1MultiEventsResponse getTeamMultiRunEvents(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status)
+
+Get multi runs events
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TeamsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    TeamsV1Api apiInstance = new TeamsV1Api(defaultClient);
+    String owner = "owner_example"; // String | Owner of the namespace
+    String entity = "entity_example"; // String | Entity where the run will be assigned
+    String kind = "model"; // String | The artifact kind
+    String namespace = "namespace_example"; // String | namespace.
+    String names = "names_example"; // String | Names query param.
+    String runs = "runs_example"; // String | Runs query param.
+    String orient = "orient_example"; // String | Orient query param.
+    Boolean force = true; // Boolean | Force query param.
+    Integer sample = 56; // Integer | Sample query param.
+    String connection = "connection_example"; // String | Connection to use.
+    String status = "created"; // String | Optional status.
+    try {
+      V1MultiEventsResponse result = apiInstance.getTeamMultiRunEvents(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TeamsV1Api#getTeamMultiRunEvents");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Entity where the run will be assigned | |
+| **kind** | **String**| The artifact kind | [enum: model, audio, video, histogram, image, tensor, dataframe, chart, csv, tsv, psv, ssv, metric, env, html, text, file, dir, dockerfile, docker_image, data, coderef, table, tensorboard, curve, confusion, analysis, iteration, markdown, system, span, artifact] |
+| **namespace** | **String**| namespace. | [optional] |
+| **names** | **String**| Names query param. | [optional] |
+| **runs** | **String**| Runs query param. | [optional] |
+| **orient** | **String**| Orient query param. | [optional] |
+| **force** | **Boolean**| Force query param. | [optional] |
+| **sample** | **Integer**| Sample query param. | [optional] |
+| **connection** | **String**| Connection to use. | [optional] |
+| **status** | **String**| Optional status. | [optional] [default to created] [enum: created, resuming, on_schedule, compiled, queued, scheduled, starting, running, processing, stopping, failed, stopped, succeeded, skipped, warning, unschedulable, upstream_failed, retrying, unknown, done] |
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="getTeamMultiRunImportance"></a>
+# **getTeamMultiRunImportance**
+> V1MultiEventsResponse getTeamMultiRunImportance(owner, entity, body, namespace)
+
+Get multi run importance
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TeamsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    TeamsV1Api apiInstance = new TeamsV1Api(defaultClient);
+    String owner = "owner_example"; // String | Owner of the namespace
+    String entity = "entity_example"; // String | Entity where the run will be assigned
+    Object body = null; // Object | Params/Metrics data
+    String namespace = "namespace_example"; // String | namespace.
+    try {
+      V1MultiEventsResponse result = apiInstance.getTeamMultiRunImportance(owner, entity, body, namespace);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TeamsV1Api#getTeamMultiRunImportance");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**| Owner of the namespace | |
+| **entity** | **String**| Entity where the run will be assigned | |
+| **body** | **Object**| Params/Metrics data | |
+| **namespace** | **String**| namespace. | [optional] |
+
+### Return type
+
+[**V1MultiEventsResponse**](V1MultiEventsResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

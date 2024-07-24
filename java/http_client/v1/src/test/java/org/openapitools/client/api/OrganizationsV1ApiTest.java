@@ -23,6 +23,7 @@ import org.openapitools.client.model.V1ListOrganizationMembersResponse;
 import org.openapitools.client.model.V1ListOrganizationsResponse;
 import org.openapitools.client.model.V1ListProjectVersionsResponse;
 import org.openapitools.client.model.V1ListRunsResponse;
+import org.openapitools.client.model.V1MultiEventsResponse;
 import org.openapitools.client.model.V1Organization;
 import org.openapitools.client.model.V1OrganizationMember;
 import org.openapitools.client.model.V1Run;
@@ -227,6 +228,43 @@ public class OrganizationsV1ApiTest {
         String owner = null;
         String name = null;
         V1OrganizationMember response = api.getOrganizationMember(owner, name);
+        // TODO: test validations
+    }
+
+    /**
+     * Get multi runs events
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getOrganizationMultiRunEventsTest() throws ApiException {
+        String owner = null;
+        String kind = null;
+        String namespace = null;
+        String entity = null;
+        String names = null;
+        String runs = null;
+        String orient = null;
+        Boolean force = null;
+        Integer sample = null;
+        String connection = null;
+        String status = null;
+        V1MultiEventsResponse response = api.getOrganizationMultiRunEvents(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status);
+        // TODO: test validations
+    }
+
+    /**
+     * Get multi run importance
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getOrganizationMultiRunImportanceTest() throws ApiException {
+        String owner = null;
+        Object body = null;
+        String namespace = null;
+        String entity = null;
+        V1MultiEventsResponse response = api.getOrganizationMultiRunImportance(owner, body, namespace, entity);
         // TODO: test validations
     }
 

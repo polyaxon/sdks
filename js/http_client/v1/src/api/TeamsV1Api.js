@@ -21,6 +21,7 @@ import V1ListProjectVersionsResponse from '../model/V1ListProjectVersionsRespons
 import V1ListRunsResponse from '../model/V1ListRunsResponse';
 import V1ListTeamMembersResponse from '../model/V1ListTeamMembersResponse';
 import V1ListTeamsResponse from '../model/V1ListTeamsResponse';
+import V1MultiEventsResponse from '../model/V1MultiEventsResponse';
 import V1Run from '../model/V1Run';
 import V1Team from '../model/V1Team';
 import V1TeamMember from '../model/V1TeamMember';
@@ -615,6 +616,135 @@ export default class TeamsV1Api {
       let returnType = V1TeamMember;
       return this.apiClient.callApi(
         '/api/v1/orgs/{owner}/teams/{team}/members/{user}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTeamMultiRunEvents operation.
+     * @callback module:api/TeamsV1Api~getTeamMultiRunEventsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1MultiEventsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get multi runs events
+     * @param {String} owner Owner of the namespace
+     * @param {String} entity Entity where the run will be assigned
+     * @param {module:model/String} kind The artifact kind
+     * @param {Object} opts Optional parameters
+     * @param {String} [namespace] namespace.
+     * @param {String} [names] Names query param.
+     * @param {String} [runs] Runs query param.
+     * @param {String} [orient] Orient query param.
+     * @param {Boolean} [force] Force query param.
+     * @param {Number} [sample] Sample query param.
+     * @param {String} [connection] Connection to use.
+     * @param {module:model/String} [status = 'created')] Optional status.
+     * @param {module:api/TeamsV1Api~getTeamMultiRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1MultiEventsResponse}
+     */
+    getTeamMultiRunEvents(owner, entity, kind, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamMultiRunEvents");
+      }
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getTeamMultiRunEvents");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling getTeamMultiRunEvents");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'entity': entity,
+        'kind': kind
+      };
+      let queryParams = {
+        'namespace': opts['namespace'],
+        'names': opts['names'],
+        'runs': opts['runs'],
+        'orient': opts['orient'],
+        'force': opts['force'],
+        'sample': opts['sample'],
+        'connection': opts['connection'],
+        'status': opts['status']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1MultiEventsResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTeamMultiRunImportance operation.
+     * @callback module:api/TeamsV1Api~getTeamMultiRunImportanceCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1MultiEventsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get multi run importance
+     * @param {String} owner Owner of the namespace
+     * @param {String} entity Entity where the run will be assigned
+     * @param {Object.<String, Object>} body Params/Metrics data
+     * @param {Object} opts Optional parameters
+     * @param {String} [namespace] namespace.
+     * @param {module:api/TeamsV1Api~getTeamMultiRunImportanceCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1MultiEventsResponse}
+     */
+    getTeamMultiRunImportance(owner, entity, body, opts, callback) {
+      opts = opts || {};
+      let postBody = body;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getTeamMultiRunImportance");
+      }
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getTeamMultiRunImportance");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling getTeamMultiRunImportance");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'entity': entity
+      };
+      let queryParams = {
+        'namespace': opts['namespace']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = V1MultiEventsResponse;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

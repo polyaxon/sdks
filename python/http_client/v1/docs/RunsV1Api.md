@@ -21,8 +21,8 @@ Method | HTTP request | Description
 [**delete_run_artifact_lineage**](RunsV1Api.md#delete_run_artifact_lineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 [**delete_run_artifacts**](RunsV1Api.md#delete_run_artifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 [**delete_runs**](RunsV1Api.md#delete_runs) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs
-[**get_multi_run_events**](RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
-[**get_multi_run_importance**](RunsV1Api.md#get_multi_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
+[**get_multi_run_events**](RunsV1Api.md#get_multi_run_events) | **GET** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind} | Get multi runs events
+[**get_multi_run_importance**](RunsV1Api.md#get_multi_run_importance) | **POST** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance | Get multi run importance
 [**get_run**](RunsV1Api.md#get_run) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 [**get_run_artifact**](RunsV1Api.md#get_run_artifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
 [**get_run_artifact_lineage**](RunsV1Api.md#get_run_artifact_lineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage
@@ -1367,7 +1367,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_multi_run_events**
-> V1MultiEventsResponse get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
+> V1MultiEventsResponse get_multi_run_events(namespace, owner, entity, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
 
 Get multi runs events
 
@@ -1404,7 +1404,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project where the run will be assigned
+    entity = 'entity_example' # str | Entity where the run will be assigned
     kind = 'kind_example' # str | The artifact kind
     names = 'names_example' # str | Names query param. (optional)
     runs = 'runs_example' # str | Runs query param. (optional)
@@ -1416,7 +1416,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get multi runs events
-        api_response = api_instance.get_multi_run_events(namespace, owner, project, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
+        api_response = api_instance.get_multi_run_events(namespace, owner, entity, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->get_multi_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -1429,7 +1429,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project where the run will be assigned | 
+ **entity** | **str**| Entity where the run will be assigned | 
  **kind** | **str**| The artifact kind | 
  **names** | **str**| Names query param. | [optional] 
  **runs** | **str**| Runs query param. | [optional] 
@@ -1464,7 +1464,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_multi_run_importance**
-> V1MultiEventsResponse get_multi_run_importance(namespace, owner, project, body)
+> V1MultiEventsResponse get_multi_run_importance(namespace, owner, entity, body)
 
 Get multi run importance
 
@@ -1501,12 +1501,12 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.RunsV1Api(api_client)
     namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
-    project = 'project_example' # str | Project where the run will be assigned
+    entity = 'entity_example' # str | Entity where the run will be assigned
     body = None # object | Params/Metrics data
 
     try:
         # Get multi run importance
-        api_response = api_instance.get_multi_run_importance(namespace, owner, project, body)
+        api_response = api_instance.get_multi_run_importance(namespace, owner, entity, body)
         print("The response of RunsV1Api->get_multi_run_importance:\n")
         pprint(api_response)
     except Exception as e:
@@ -1519,7 +1519,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
- **project** | **str**| Project where the run will be assigned | 
+ **entity** | **str**| Entity where the run will be assigned | 
  **body** | **object**| Params/Metrics data | 
 
 ### Return type

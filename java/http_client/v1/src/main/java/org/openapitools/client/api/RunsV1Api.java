@@ -2713,7 +2713,7 @@ public class RunsV1Api {
      * Build call for getMultiRunEvents
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
@@ -2735,7 +2735,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMultiRunEventsCall(String namespace, String owner, String project, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMultiRunEventsCall(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2752,10 +2752,10 @@ public class RunsV1Api {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind}"
+        String localVarPath = "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind}"
             .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()))
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
             .replace("{" + "kind" + "}", localVarApiClient.escapeString(kind.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2812,7 +2812,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMultiRunEventsValidateBeforeCall(String namespace, String owner, String project, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMultiRunEventsValidateBeforeCall(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getMultiRunEvents(Async)");
@@ -2823,9 +2823,9 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'owner' when calling getMultiRunEvents(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling getMultiRunEvents(Async)");
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling getMultiRunEvents(Async)");
         }
 
         // verify the required parameter 'kind' is set
@@ -2833,7 +2833,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'kind' when calling getMultiRunEvents(Async)");
         }
 
-        return getMultiRunEventsCall(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status, _callback);
+        return getMultiRunEventsCall(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, _callback);
 
     }
 
@@ -2842,7 +2842,7 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
@@ -2863,8 +2863,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1MultiEventsResponse getMultiRunEvents(String namespace, String owner, String project, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        ApiResponse<V1MultiEventsResponse> localVarResp = getMultiRunEventsWithHttpInfo(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status);
+    public V1MultiEventsResponse getMultiRunEvents(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        ApiResponse<V1MultiEventsResponse> localVarResp = getMultiRunEventsWithHttpInfo(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status);
         return localVarResp.getData();
     }
 
@@ -2873,7 +2873,7 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
@@ -2894,8 +2894,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1MultiEventsResponse> getMultiRunEventsWithHttpInfo(String namespace, String owner, String project, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        okhttp3.Call localVarCall = getMultiRunEventsValidateBeforeCall(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status, null);
+    public ApiResponse<V1MultiEventsResponse> getMultiRunEventsWithHttpInfo(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        okhttp3.Call localVarCall = getMultiRunEventsValidateBeforeCall(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, null);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2905,7 +2905,7 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
@@ -2927,9 +2927,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMultiRunEventsAsync(String namespace, String owner, String project, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
+    public okhttp3.Call getMultiRunEventsAsync(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMultiRunEventsValidateBeforeCall(namespace, owner, project, kind, names, runs, orient, force, sample, connection, status, _callback);
+        okhttp3.Call localVarCall = getMultiRunEventsValidateBeforeCall(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, _callback);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2938,7 +2938,7 @@ public class RunsV1Api {
      * Build call for getMultiRunImportance
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2953,7 +2953,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMultiRunImportanceCall(String namespace, String owner, String project, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMultiRunImportanceCall(String namespace, String owner, String entity, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2970,10 +2970,10 @@ public class RunsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/streams/v1/{namespace}/{owner}/{project}/runs/multi/importance"
+        String localVarPath = "/streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance"
             .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()))
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "project" + "}", localVarApiClient.escapeString(project.toString()));
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3002,7 +3002,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMultiRunImportanceValidateBeforeCall(String namespace, String owner, String project, Object body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMultiRunImportanceValidateBeforeCall(String namespace, String owner, String entity, Object body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getMultiRunImportance(Async)");
@@ -3013,9 +3013,9 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'owner' when calling getMultiRunImportance(Async)");
         }
 
-        // verify the required parameter 'project' is set
-        if (project == null) {
-            throw new ApiException("Missing the required parameter 'project' when calling getMultiRunImportance(Async)");
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling getMultiRunImportance(Async)");
         }
 
         // verify the required parameter 'body' is set
@@ -3023,7 +3023,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling getMultiRunImportance(Async)");
         }
 
-        return getMultiRunImportanceCall(namespace, owner, project, body, _callback);
+        return getMultiRunImportanceCall(namespace, owner, entity, body, _callback);
 
     }
 
@@ -3032,7 +3032,7 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
      * @return V1MultiEventsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3046,8 +3046,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1MultiEventsResponse getMultiRunImportance(String namespace, String owner, String project, Object body) throws ApiException {
-        ApiResponse<V1MultiEventsResponse> localVarResp = getMultiRunImportanceWithHttpInfo(namespace, owner, project, body);
+    public V1MultiEventsResponse getMultiRunImportance(String namespace, String owner, String entity, Object body) throws ApiException {
+        ApiResponse<V1MultiEventsResponse> localVarResp = getMultiRunImportanceWithHttpInfo(namespace, owner, entity, body);
         return localVarResp.getData();
     }
 
@@ -3056,7 +3056,7 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
      * @return ApiResponse&lt;V1MultiEventsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3070,8 +3070,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1MultiEventsResponse> getMultiRunImportanceWithHttpInfo(String namespace, String owner, String project, Object body) throws ApiException {
-        okhttp3.Call localVarCall = getMultiRunImportanceValidateBeforeCall(namespace, owner, project, body, null);
+    public ApiResponse<V1MultiEventsResponse> getMultiRunImportanceWithHttpInfo(String namespace, String owner, String entity, Object body) throws ApiException {
+        okhttp3.Call localVarCall = getMultiRunImportanceValidateBeforeCall(namespace, owner, entity, body, null);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3081,7 +3081,7 @@ public class RunsV1Api {
      *
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
-     * @param project Project where the run will be assigned (required)
+     * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3096,9 +3096,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMultiRunImportanceAsync(String namespace, String owner, String project, Object body, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
+    public okhttp3.Call getMultiRunImportanceAsync(String namespace, String owner, String entity, Object body, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMultiRunImportanceValidateBeforeCall(namespace, owner, project, body, _callback);
+        okhttp3.Call localVarCall = getMultiRunImportanceValidateBeforeCall(namespace, owner, entity, body, _callback);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

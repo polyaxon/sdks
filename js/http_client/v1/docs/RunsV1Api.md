@@ -22,8 +22,8 @@ Method | HTTP request | Description
 [**deleteRunArtifactLineage**](RunsV1Api.md#deleteRunArtifactLineage) | **DELETE** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Delete run artifact lineage
 [**deleteRunArtifacts**](RunsV1Api.md#deleteRunArtifacts) | **DELETE** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts | Delete run artifacts
 [**deleteRuns**](RunsV1Api.md#deleteRuns) | **DELETE** /api/v1/{owner}/{name}/runs/delete | Delete runs
-[**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/multi/events/{kind} | Get multi runs events
-[**getMultiRunImportance**](RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{project}/runs/multi/importance | Get multi run importance
+[**getMultiRunEvents**](RunsV1Api.md#getMultiRunEvents) | **GET** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/events/{kind} | Get multi runs events
+[**getMultiRunImportance**](RunsV1Api.md#getMultiRunImportance) | **POST** /streams/v1/{namespace}/{owner}/{entity}/runs/multi/importance | Get multi run importance
 [**getRun**](RunsV1Api.md#getRun) | **GET** /api/v1/{owner}/{entity}/runs/{uuid} | Get run
 [**getRunArtifact**](RunsV1Api.md#getRunArtifact) | **GET** /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifact | Get run artifact
 [**getRunArtifactLineage**](RunsV1Api.md#getRunArtifactLineage) | **GET** /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name} | Get run artifacts lineage
@@ -954,7 +954,7 @@ null (empty response body)
 
 ## getMultiRunEvents
 
-> V1MultiEventsResponse getMultiRunEvents(namespace, owner, project, kind, opts)
+> V1MultiEventsResponse getMultiRunEvents(namespace, owner, entity, kind, opts)
 
 Get multi runs events
 
@@ -972,7 +972,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new PolyaxonSdk.RunsV1Api();
 let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project where the run will be assigned
+let entity = "entity_example"; // String | Entity where the run will be assigned
 let kind = "kind_example"; // String | The artifact kind
 let opts = {
   'names': "names_example", // String | Names query param.
@@ -983,7 +983,7 @@ let opts = {
   'connection': "connection_example", // String | Connection to use.
   'status': "'created'" // String | Optional status.
 };
-apiInstance.getMultiRunEvents(namespace, owner, project, kind, opts, (error, data, response) => {
+apiInstance.getMultiRunEvents(namespace, owner, entity, kind, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -999,7 +999,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project where the run will be assigned | 
+ **entity** | **String**| Entity where the run will be assigned | 
  **kind** | **String**| The artifact kind | 
  **names** | **String**| Names query param. | [optional] 
  **runs** | **String**| Runs query param. | [optional] 
@@ -1025,7 +1025,7 @@ Name | Type | Description  | Notes
 
 ## getMultiRunImportance
 
-> V1MultiEventsResponse getMultiRunImportance(namespace, owner, project, body)
+> V1MultiEventsResponse getMultiRunImportance(namespace, owner, entity, body)
 
 Get multi run importance
 
@@ -1043,9 +1043,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new PolyaxonSdk.RunsV1Api();
 let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
-let project = "project_example"; // String | Project where the run will be assigned
+let entity = "entity_example"; // String | Entity where the run will be assigned
 let body = {key: null}; // Object | Params/Metrics data
-apiInstance.getMultiRunImportance(namespace, owner, project, body, (error, data, response) => {
+apiInstance.getMultiRunImportance(namespace, owner, entity, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1061,7 +1061,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
- **project** | **String**| Project where the run will be assigned | 
+ **entity** | **String**| Entity where the run will be assigned | 
  **body** | **Object**| Params/Metrics data | 
 
 ### Return type

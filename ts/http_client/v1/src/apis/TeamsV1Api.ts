@@ -23,6 +23,7 @@ import type {
   V1ListRunsResponse,
   V1ListTeamMembersResponse,
   V1ListTeamsResponse,
+  V1MultiEventsResponse,
   V1Run,
   V1Team,
   V1TeamMember,
@@ -45,6 +46,8 @@ import {
     V1ListTeamMembersResponseToJSON,
     V1ListTeamsResponseFromJSON,
     V1ListTeamsResponseToJSON,
+    V1MultiEventsResponseFromJSON,
+    V1MultiEventsResponseToJSON,
     V1RunFromJSON,
     V1RunToJSON,
     V1TeamFromJSON,
@@ -122,6 +125,27 @@ export interface GetTeamMemberRequest {
     owner: string;
     team: string;
     user: string;
+}
+
+export interface GetTeamMultiRunEventsRequest {
+    owner: string;
+    entity: string;
+    kind: GetTeamMultiRunEventsKindEnum;
+    namespace?: string;
+    names?: string;
+    runs?: string;
+    orient?: string;
+    force?: boolean;
+    sample?: number;
+    connection?: string;
+    status?: GetTeamMultiRunEventsStatusEnum;
+}
+
+export interface GetTeamMultiRunImportanceRequest {
+    owner: string;
+    entity: string;
+    body: object;
+    namespace?: string;
 }
 
 export interface GetTeamRunRequest {
@@ -752,6 +776,129 @@ export class TeamsV1Api extends runtime.BaseAPI {
      */
     async getTeamMember(requestParameters: GetTeamMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1TeamMember> {
         const response = await this.getTeamMemberRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get multi runs events
+     */
+    async getTeamMultiRunEventsRaw(requestParameters: GetTeamMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamMultiRunEvents.');
+        }
+
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getTeamMultiRunEvents.');
+        }
+
+        if (requestParameters.kind === null || requestParameters.kind === undefined) {
+            throw new runtime.RequiredError('kind','Required parameter requestParameters.kind was null or undefined when calling getTeamMultiRunEvents.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.namespace !== undefined) {
+            queryParameters['namespace'] = requestParameters.namespace;
+        }
+
+        if (requestParameters.names !== undefined) {
+            queryParameters['names'] = requestParameters.names;
+        }
+
+        if (requestParameters.runs !== undefined) {
+            queryParameters['runs'] = requestParameters.runs;
+        }
+
+        if (requestParameters.orient !== undefined) {
+            queryParameters['orient'] = requestParameters.orient;
+        }
+
+        if (requestParameters.force !== undefined) {
+            queryParameters['force'] = requestParameters.force;
+        }
+
+        if (requestParameters.sample !== undefined) {
+            queryParameters['sample'] = requestParameters.sample;
+        }
+
+        if (requestParameters.connection !== undefined) {
+            queryParameters['connection'] = requestParameters.connection;
+        }
+
+        if (requestParameters.status !== undefined) {
+            queryParameters['status'] = requestParameters.status;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1MultiEventsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get multi runs events
+     */
+    async getTeamMultiRunEvents(requestParameters: GetTeamMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1MultiEventsResponse> {
+        const response = await this.getTeamMultiRunEventsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get multi run importance
+     */
+    async getTeamMultiRunImportanceRaw(requestParameters: GetTeamMultiRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamMultiRunImportance.');
+        }
+
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getTeamMultiRunImportance.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling getTeamMultiRunImportance.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.namespace !== undefined) {
+            queryParameters['namespace'] = requestParameters.namespace;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1MultiEventsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get multi run importance
+     */
+    async getTeamMultiRunImportance(requestParameters: GetTeamMultiRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1MultiEventsResponse> {
+        const response = await this.getTeamMultiRunImportanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1646,3 +1793,68 @@ export class TeamsV1Api extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const GetTeamMultiRunEventsKindEnum = {
+    Model: 'model',
+    Audio: 'audio',
+    Video: 'video',
+    Histogram: 'histogram',
+    Image: 'image',
+    Tensor: 'tensor',
+    Dataframe: 'dataframe',
+    Chart: 'chart',
+    Csv: 'csv',
+    Tsv: 'tsv',
+    Psv: 'psv',
+    Ssv: 'ssv',
+    Metric: 'metric',
+    Env: 'env',
+    Html: 'html',
+    Text: 'text',
+    File: 'file',
+    Dir: 'dir',
+    Dockerfile: 'dockerfile',
+    DockerImage: 'docker_image',
+    Data: 'data',
+    Coderef: 'coderef',
+    Table: 'table',
+    Tensorboard: 'tensorboard',
+    Curve: 'curve',
+    Confusion: 'confusion',
+    Analysis: 'analysis',
+    Iteration: 'iteration',
+    Markdown: 'markdown',
+    System: 'system',
+    Span: 'span',
+    Artifact: 'artifact'
+} as const;
+export type GetTeamMultiRunEventsKindEnum = typeof GetTeamMultiRunEventsKindEnum[keyof typeof GetTeamMultiRunEventsKindEnum];
+/**
+ * @export
+ */
+export const GetTeamMultiRunEventsStatusEnum = {
+    Created: 'created',
+    Resuming: 'resuming',
+    OnSchedule: 'on_schedule',
+    Compiled: 'compiled',
+    Queued: 'queued',
+    Scheduled: 'scheduled',
+    Starting: 'starting',
+    Running: 'running',
+    Processing: 'processing',
+    Stopping: 'stopping',
+    Failed: 'failed',
+    Stopped: 'stopped',
+    Succeeded: 'succeeded',
+    Skipped: 'skipped',
+    Warning: 'warning',
+    Unschedulable: 'unschedulable',
+    UpstreamFailed: 'upstream_failed',
+    Retrying: 'retrying',
+    Unknown: 'unknown',
+    Done: 'done'
+} as const;
+export type GetTeamMultiRunEventsStatusEnum = typeof GetTeamMultiRunEventsStatusEnum[keyof typeof GetTeamMultiRunEventsStatusEnum];
