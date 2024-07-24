@@ -693,10 +693,10 @@ export default class OrganizationsV1Api {
 
     /**
      * Get multi runs events
+     * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
      * @param {module:model/String} kind The artifact kind
      * @param {Object} opts Optional parameters
-     * @param {String} [namespace] namespace.
      * @param {String} [entity] Entity where the run will be assigned.
      * @param {String} [names] Names query param.
      * @param {String} [runs] Runs query param.
@@ -708,9 +708,13 @@ export default class OrganizationsV1Api {
      * @param {module:api/OrganizationsV1Api~getOrganizationMultiRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1MultiEventsResponse}
      */
-    getOrganizationMultiRunEvents(owner, kind, opts, callback) {
+    getOrganizationMultiRunEvents(namespace, owner, kind, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling getOrganizationMultiRunEvents");
+      }
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling getOrganizationMultiRunEvents");
@@ -721,11 +725,11 @@ export default class OrganizationsV1Api {
       }
 
       let pathParams = {
+        'namespace': namespace,
         'owner': owner,
         'kind': kind
       };
       let queryParams = {
-        'namespace': opts['namespace'],
         'entity': opts['entity'],
         'names': opts['names'],
         'runs': opts['runs'],
@@ -745,7 +749,7 @@ export default class OrganizationsV1Api {
       let accepts = ['application/json'];
       let returnType = V1MultiEventsResponse;
       return this.apiClient.callApi(
-        '/api/v1/orgs/{owner}/runs/multi/events/{kind}', 'GET',
+        '/streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -761,17 +765,21 @@ export default class OrganizationsV1Api {
 
     /**
      * Get multi run importance
+     * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
      * @param {Object.<String, Object>} body Params/Metrics data
      * @param {Object} opts Optional parameters
-     * @param {String} [namespace] namespace.
      * @param {String} [entity] Entity where the run will be assigned.
      * @param {module:api/OrganizationsV1Api~getOrganizationMultiRunImportanceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1MultiEventsResponse}
      */
-    getOrganizationMultiRunImportance(owner, body, opts, callback) {
+    getOrganizationMultiRunImportance(namespace, owner, body, opts, callback) {
       opts = opts || {};
       let postBody = body;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling getOrganizationMultiRunImportance");
+      }
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling getOrganizationMultiRunImportance");
@@ -782,10 +790,10 @@ export default class OrganizationsV1Api {
       }
 
       let pathParams = {
+        'namespace': namespace,
         'owner': owner
       };
       let queryParams = {
-        'namespace': opts['namespace'],
         'entity': opts['entity']
       };
       let headerParams = {
@@ -798,7 +806,7 @@ export default class OrganizationsV1Api {
       let accepts = ['application/json'];
       let returnType = V1MultiEventsResponse;
       return this.apiClient.callApi(
-        '/api/v1/orgs/{owner}/runs/multi/importance', 'POST',
+        '/streams/v1/{namespace}/orgs/{owner}/runs/multi/importance', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

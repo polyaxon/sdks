@@ -208,10 +208,10 @@ public class TeamsV1ApiTest {
      */
     @Test
     public void getTeamMultiRunEventsTest() throws ApiException {
+        String namespace = null;
         String owner = null;
         String entity = null;
         String kind = null;
-        String namespace = null;
         String names = null;
         String runs = null;
         String orient = null;
@@ -219,7 +219,7 @@ public class TeamsV1ApiTest {
         Integer sample = null;
         String connection = null;
         String status = null;
-        V1MultiEventsResponse response = api.getTeamMultiRunEvents(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status);
+        V1MultiEventsResponse response = api.getTeamMultiRunEvents(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -230,11 +230,11 @@ public class TeamsV1ApiTest {
      */
     @Test
     public void getTeamMultiRunImportanceTest() throws ApiException {
+        String namespace = null;
         String owner = null;
         String entity = null;
         Object body = null;
-        String namespace = null;
-        V1MultiEventsResponse response = api.getTeamMultiRunImportance(owner, entity, body, namespace);
+        V1MultiEventsResponse response = api.getTeamMultiRunImportance(namespace, owner, entity, body);
         // TODO: test validations
     }
 

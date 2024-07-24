@@ -19,8 +19,8 @@ Method | HTTP request | Description
 [**getOrganizationActivities**](OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 [**getOrganizationInvitation**](OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 [**getOrganizationMember**](OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
-[**getOrganizationMultiRunEvents**](OrganizationsV1Api.md#getOrganizationMultiRunEvents) | **GET** /api/v1/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
-[**getOrganizationMultiRunImportance**](OrganizationsV1Api.md#getOrganizationMultiRunImportance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance
+[**getOrganizationMultiRunEvents**](OrganizationsV1Api.md#getOrganizationMultiRunEvents) | **GET** /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
+[**getOrganizationMultiRunImportance**](OrganizationsV1Api.md#getOrganizationMultiRunImportance) | **POST** /streams/v1/{namespace}/orgs/{owner}/runs/multi/importance | Get multi run importance
 [**getOrganizationRun**](OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 [**getOrganizationRuns**](OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 [**getOrganizationRunsArtifactsLineage**](OrganizationsV1Api.md#getOrganizationRunsArtifactsLineage) | **GET** /api/v1/orgs/{owner}/runs/lineage/artifacts | Get runs artifacts lineage
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 ## getOrganizationMultiRunEvents
 
-> V1MultiEventsResponse getOrganizationMultiRunEvents(owner, kind, opts)
+> V1MultiEventsResponse getOrganizationMultiRunEvents(namespace, owner, kind, opts)
 
 Get multi runs events
 
@@ -780,10 +780,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
+let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
 let kind = "kind_example"; // String | The artifact kind
 let opts = {
-  'namespace': "namespace_example", // String | namespace.
   'entity': "entity_example", // String | Entity where the run will be assigned.
   'names': "names_example", // String | Names query param.
   'runs': "runs_example", // String | Runs query param.
@@ -793,7 +793,7 @@ let opts = {
   'connection': "connection_example", // String | Connection to use.
   'status': "'created'" // String | Optional status.
 };
-apiInstance.getOrganizationMultiRunEvents(owner, kind, opts, (error, data, response) => {
+apiInstance.getOrganizationMultiRunEvents(namespace, owner, kind, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -807,9 +807,9 @@ apiInstance.getOrganizationMultiRunEvents(owner, kind, opts, (error, data, respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
  **kind** | **String**| The artifact kind | 
- **namespace** | **String**| namespace. | [optional] 
  **entity** | **String**| Entity where the run will be assigned. | [optional] 
  **names** | **String**| Names query param. | [optional] 
  **runs** | **String**| Runs query param. | [optional] 
@@ -835,7 +835,7 @@ Name | Type | Description  | Notes
 
 ## getOrganizationMultiRunImportance
 
-> V1MultiEventsResponse getOrganizationMultiRunImportance(owner, body, opts)
+> V1MultiEventsResponse getOrganizationMultiRunImportance(namespace, owner, body, opts)
 
 Get multi run importance
 
@@ -851,13 +851,13 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new PolyaxonSdk.OrganizationsV1Api();
+let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
 let body = {key: null}; // Object | Params/Metrics data
 let opts = {
-  'namespace': "namespace_example", // String | namespace.
   'entity': "entity_example" // String | Entity where the run will be assigned.
 };
-apiInstance.getOrganizationMultiRunImportance(owner, body, opts, (error, data, response) => {
+apiInstance.getOrganizationMultiRunImportance(namespace, owner, body, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -871,9 +871,9 @@ apiInstance.getOrganizationMultiRunImportance(owner, body, opts, (error, data, r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
  **body** | **Object**| Params/Metrics data | 
- **namespace** | **String**| namespace. | [optional] 
  **entity** | **String**| Entity where the run will be assigned. | [optional] 
 
 ### Return type

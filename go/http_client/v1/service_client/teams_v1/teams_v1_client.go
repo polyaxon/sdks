@@ -544,7 +544,7 @@ func (a *Client) GetTeamMultiRunEvents(params *GetTeamMultiRunEventsParams, auth
 	op := &runtime.ClientOperation{
 		ID:                 "GetTeamMultiRunEvents",
 		Method:             "GET",
-		PathPattern:        "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}",
+		PathPattern:        "/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -584,7 +584,7 @@ func (a *Client) GetTeamMultiRunImportance(params *GetTeamMultiRunImportancePara
 	op := &runtime.ClientOperation{
 		ID:                 "GetTeamMultiRunImportance",
 		Method:             "POST",
-		PathPattern:        "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance",
+		PathPattern:        "/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

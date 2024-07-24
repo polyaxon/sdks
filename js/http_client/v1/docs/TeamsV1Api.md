@@ -17,8 +17,8 @@ Method | HTTP request | Description
 [**getTeam**](TeamsV1Api.md#getTeam) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
 [**getTeamActivities**](TeamsV1Api.md#getTeamActivities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities
 [**getTeamMember**](TeamsV1Api.md#getTeamMember) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
-[**getTeamMultiRunEvents**](TeamsV1Api.md#getTeamMultiRunEvents) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
-[**getTeamMultiRunImportance**](TeamsV1Api.md#getTeamMultiRunImportance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
+[**getTeamMultiRunEvents**](TeamsV1Api.md#getTeamMultiRunEvents) | **GET** /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
+[**getTeamMultiRunImportance**](TeamsV1Api.md#getTeamMultiRunImportance) | **POST** /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 [**getTeamRun**](TeamsV1Api.md#getTeamRun) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 [**getTeamRuns**](TeamsV1Api.md#getTeamRuns) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
 [**getTeamRunsArtifactsLineage**](TeamsV1Api.md#getTeamRunsArtifactsLineage) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts | Get runs artifacts lineage
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 ## getTeamMultiRunEvents
 
-> V1MultiEventsResponse getTeamMultiRunEvents(owner, entity, kind, opts)
+> V1MultiEventsResponse getTeamMultiRunEvents(namespace, owner, entity, kind, opts)
 
 Get multi runs events
 
@@ -649,11 +649,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new PolyaxonSdk.TeamsV1Api();
+let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
 let entity = "entity_example"; // String | Entity where the run will be assigned
 let kind = "kind_example"; // String | The artifact kind
 let opts = {
-  'namespace': "namespace_example", // String | namespace.
   'names': "names_example", // String | Names query param.
   'runs': "runs_example", // String | Runs query param.
   'orient': "orient_example", // String | Orient query param.
@@ -662,7 +662,7 @@ let opts = {
   'connection': "connection_example", // String | Connection to use.
   'status': "'created'" // String | Optional status.
 };
-apiInstance.getTeamMultiRunEvents(owner, entity, kind, opts, (error, data, response) => {
+apiInstance.getTeamMultiRunEvents(namespace, owner, entity, kind, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -676,10 +676,10 @@ apiInstance.getTeamMultiRunEvents(owner, entity, kind, opts, (error, data, respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
  **entity** | **String**| Entity where the run will be assigned | 
  **kind** | **String**| The artifact kind | 
- **namespace** | **String**| namespace. | [optional] 
  **names** | **String**| Names query param. | [optional] 
  **runs** | **String**| Runs query param. | [optional] 
  **orient** | **String**| Orient query param. | [optional] 
@@ -704,7 +704,7 @@ Name | Type | Description  | Notes
 
 ## getTeamMultiRunImportance
 
-> V1MultiEventsResponse getTeamMultiRunImportance(owner, entity, body, opts)
+> V1MultiEventsResponse getTeamMultiRunImportance(namespace, owner, entity, body)
 
 Get multi run importance
 
@@ -720,13 +720,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new PolyaxonSdk.TeamsV1Api();
+let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
 let entity = "entity_example"; // String | Entity where the run will be assigned
 let body = {key: null}; // Object | Params/Metrics data
-let opts = {
-  'namespace': "namespace_example" // String | namespace.
-};
-apiInstance.getTeamMultiRunImportance(owner, entity, body, opts, (error, data, response) => {
+apiInstance.getTeamMultiRunImportance(namespace, owner, entity, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -740,10 +738,10 @@ apiInstance.getTeamMultiRunImportance(owner, entity, body, opts, (error, data, r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
  **entity** | **String**| Entity where the run will be assigned | 
  **body** | **Object**| Params/Metrics data | 
- **namespace** | **String**| namespace. | [optional] 
 
 ### Return type
 

@@ -18,8 +18,8 @@ Method | HTTP request | Description
 [**get_organization_activities**](OrganizationsV1Api.md#get_organization_activities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities
 [**get_organization_invitation**](OrganizationsV1Api.md#get_organization_invitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details
 [**get_organization_member**](OrganizationsV1Api.md#get_organization_member) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details
-[**get_organization_multi_run_events**](OrganizationsV1Api.md#get_organization_multi_run_events) | **GET** /api/v1/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
-[**get_organization_multi_run_importance**](OrganizationsV1Api.md#get_organization_multi_run_importance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance
+[**get_organization_multi_run_events**](OrganizationsV1Api.md#get_organization_multi_run_events) | **GET** /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events
+[**get_organization_multi_run_importance**](OrganizationsV1Api.md#get_organization_multi_run_importance) | **POST** /streams/v1/{namespace}/orgs/{owner}/runs/multi/importance | Get multi run importance
 [**get_organization_run**](OrganizationsV1Api.md#get_organization_run) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization
 [**get_organization_runs**](OrganizationsV1Api.md#get_organization_runs) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization
 [**get_organization_runs_artifacts_lineage**](OrganizationsV1Api.md#get_organization_runs_artifacts_lineage) | **GET** /api/v1/orgs/{owner}/runs/lineage/artifacts | Get runs artifacts lineage
@@ -1099,7 +1099,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_multi_run_events**
-> V1MultiEventsResponse get_organization_multi_run_events(owner, kind, namespace=namespace, entity=entity, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
+> V1MultiEventsResponse get_organization_multi_run_events(namespace, owner, kind, entity=entity, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
 
 Get multi runs events
 
@@ -1134,9 +1134,9 @@ configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
     kind = 'kind_example' # str | The artifact kind
-    namespace = 'namespace_example' # str | namespace. (optional)
     entity = 'entity_example' # str | Entity where the run will be assigned. (optional)
     names = 'names_example' # str | Names query param. (optional)
     runs = 'runs_example' # str | Runs query param. (optional)
@@ -1148,7 +1148,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get multi runs events
-        api_response = api_instance.get_organization_multi_run_events(owner, kind, namespace=namespace, entity=entity, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
+        api_response = api_instance.get_organization_multi_run_events(namespace, owner, kind, entity=entity, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
         print("The response of OrganizationsV1Api->get_organization_multi_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -1159,9 +1159,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
  **kind** | **str**| The artifact kind | 
- **namespace** | **str**| namespace. | [optional] 
  **entity** | **str**| Entity where the run will be assigned. | [optional] 
  **names** | **str**| Names query param. | [optional] 
  **runs** | **str**| Runs query param. | [optional] 
@@ -1196,7 +1196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_multi_run_importance**
-> V1MultiEventsResponse get_organization_multi_run_importance(owner, body, namespace=namespace, entity=entity)
+> V1MultiEventsResponse get_organization_multi_run_importance(namespace, owner, body, entity=entity)
 
 Get multi run importance
 
@@ -1231,14 +1231,14 @@ configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.OrganizationsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
     body = None # object | Params/Metrics data
-    namespace = 'namespace_example' # str | namespace. (optional)
     entity = 'entity_example' # str | Entity where the run will be assigned. (optional)
 
     try:
         # Get multi run importance
-        api_response = api_instance.get_organization_multi_run_importance(owner, body, namespace=namespace, entity=entity)
+        api_response = api_instance.get_organization_multi_run_importance(namespace, owner, body, entity=entity)
         print("The response of OrganizationsV1Api->get_organization_multi_run_importance:\n")
         pprint(api_response)
     except Exception as e:
@@ -1249,9 +1249,9 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
  **body** | **object**| Params/Metrics data | 
- **namespace** | **str**| namespace. | [optional] 
  **entity** | **str**| Entity where the run will be assigned. | [optional] 
 
 ### Return type

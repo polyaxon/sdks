@@ -94,9 +94,9 @@ type GetOrganizationMultiRunEventsParams struct {
 
 	/* Namespace.
 
-	   namespace.
+	   namespace
 	*/
-	Namespace *string
+	Namespace string
 
 	/* Orient.
 
@@ -252,13 +252,13 @@ func (o *GetOrganizationMultiRunEventsParams) SetNames(names *string) {
 }
 
 // WithNamespace adds the namespace to the get organization multi run events params
-func (o *GetOrganizationMultiRunEventsParams) WithNamespace(namespace *string) *GetOrganizationMultiRunEventsParams {
+func (o *GetOrganizationMultiRunEventsParams) WithNamespace(namespace string) *GetOrganizationMultiRunEventsParams {
 	o.SetNamespace(namespace)
 	return o
 }
 
 // SetNamespace adds the namespace to the get organization multi run events params
-func (o *GetOrganizationMultiRunEventsParams) SetNamespace(namespace *string) {
+func (o *GetOrganizationMultiRunEventsParams) SetNamespace(namespace string) {
 	o.Namespace = namespace
 }
 
@@ -398,21 +398,9 @@ func (o *GetOrganizationMultiRunEventsParams) WriteToRequest(r runtime.ClientReq
 		}
 	}
 
-	if o.Namespace != nil {
-
-		// query param namespace
-		var qrNamespace string
-
-		if o.Namespace != nil {
-			qrNamespace = *o.Namespace
-		}
-		qNamespace := qrNamespace
-		if qNamespace != "" {
-
-			if err := r.SetQueryParam("namespace", qNamespace); err != nil {
-				return err
-			}
-		}
+	// path param namespace
+	if err := r.SetPathParam("namespace", o.Namespace); err != nil {
+		return err
 	}
 
 	if o.Orient != nil {

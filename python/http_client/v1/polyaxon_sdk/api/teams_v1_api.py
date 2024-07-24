@@ -1819,23 +1819,23 @@ class TeamsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_team_multi_run_events(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, status : Annotated[Optional[StrictStr], Field(description="Optional status.")] = None, **kwargs) -> V1MultiEventsResponse:  # noqa: E501
+    def get_team_multi_run_events(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, status : Annotated[Optional[StrictStr], Field(description="Optional status.")] = None, **kwargs) -> V1MultiEventsResponse:  # noqa: E501
         """Get multi runs events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_team_multi_run_events(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, async_req=True)
+        >>> thread = api.get_team_multi_run_events(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, async_req=True)
         >>> result = thread.get()
 
+        :param namespace: namespace (required)
+        :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
         :param entity: Entity where the run will be assigned (required)
         :type entity: str
         :param kind: The artifact kind (required)
         :type kind: str
-        :param namespace: namespace.
-        :type namespace: str
         :param names: Names query param.
         :type names: str
         :param runs: Runs query param.
@@ -1866,26 +1866,26 @@ class TeamsV1Api(object):
         :rtype: V1MultiEventsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_team_multi_run_events_with_http_info(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, **kwargs)  # noqa: E501
+        return self.get_team_multi_run_events_with_http_info(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_team_multi_run_events_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, status : Annotated[Optional[StrictStr], Field(description="Optional status.")] = None, **kwargs):  # noqa: E501
+    def get_team_multi_run_events_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], kind : Annotated[StrictStr, Field(..., description="The artifact kind")], names : Annotated[Optional[StrictStr], Field(description="Names query param.")] = None, runs : Annotated[Optional[StrictStr], Field(description="Runs query param.")] = None, orient : Annotated[Optional[StrictStr], Field(description="Orient query param.")] = None, force : Annotated[Optional[StrictBool], Field(description="Force query param.")] = None, sample : Annotated[Optional[StrictInt], Field(description="Sample query param.")] = None, connection : Annotated[Optional[StrictStr], Field(description="Connection to use.")] = None, status : Annotated[Optional[StrictStr], Field(description="Optional status.")] = None, **kwargs):  # noqa: E501
         """Get multi runs events  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_team_multi_run_events_with_http_info(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, async_req=True)
+        >>> thread = api.get_team_multi_run_events_with_http_info(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, async_req=True)
         >>> result = thread.get()
 
+        :param namespace: namespace (required)
+        :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
         :param entity: Entity where the run will be assigned (required)
         :type entity: str
         :param kind: The artifact kind (required)
         :type kind: str
-        :param namespace: namespace.
-        :type namespace: str
         :param names: Names query param.
         :type names: str
         :param runs: Runs query param.
@@ -1927,10 +1927,10 @@ class TeamsV1Api(object):
         _params = locals()
 
         _all_params = [
+            'namespace',
             'owner',
             'entity',
             'kind',
-            'namespace',
             'names',
             'runs',
             'orient',
@@ -1965,6 +1965,9 @@ class TeamsV1Api(object):
 
         # process the path parameters
         _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
@@ -1977,9 +1980,6 @@ class TeamsV1Api(object):
 
         # process the query parameters
         _query_params = []
-        if _params.get('namespace') is not None:  # noqa: E501
-            _query_params.append(('namespace', _params['namespace']))
-
         if _params.get('names') is not None:  # noqa: E501
             _query_params.append(('names', _params['names']))
 
@@ -2023,7 +2023,7 @@ class TeamsV1Api(object):
         }
 
         return self.api_client.call_api(
-            '/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}', 'GET',
+            '/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}', 'GET',
             _path_params,
             _query_params,
             _header_params,
@@ -2040,23 +2040,23 @@ class TeamsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_team_multi_run_importance(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], body : Annotated[Dict[str, Any], Field(..., description="Params/Metrics data")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, **kwargs) -> V1MultiEventsResponse:  # noqa: E501
+    def get_team_multi_run_importance(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], body : Annotated[Dict[str, Any], Field(..., description="Params/Metrics data")], **kwargs) -> V1MultiEventsResponse:  # noqa: E501
         """Get multi run importance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_team_multi_run_importance(owner, entity, body, namespace, async_req=True)
+        >>> thread = api.get_team_multi_run_importance(namespace, owner, entity, body, async_req=True)
         >>> result = thread.get()
 
+        :param namespace: namespace (required)
+        :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
         :param entity: Entity where the run will be assigned (required)
         :type entity: str
         :param body: Params/Metrics data (required)
         :type body: object
-        :param namespace: namespace.
-        :type namespace: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2073,26 +2073,26 @@ class TeamsV1Api(object):
         :rtype: V1MultiEventsResponse
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_team_multi_run_importance_with_http_info(owner, entity, body, namespace, **kwargs)  # noqa: E501
+        return self.get_team_multi_run_importance_with_http_info(namespace, owner, entity, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_team_multi_run_importance_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], body : Annotated[Dict[str, Any], Field(..., description="Params/Metrics data")], namespace : Annotated[Optional[StrictStr], Field(description="namespace.")] = None, **kwargs):  # noqa: E501
+    def get_team_multi_run_importance_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], entity : Annotated[StrictStr, Field(..., description="Entity where the run will be assigned")], body : Annotated[Dict[str, Any], Field(..., description="Params/Metrics data")], **kwargs):  # noqa: E501
         """Get multi run importance  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_team_multi_run_importance_with_http_info(owner, entity, body, namespace, async_req=True)
+        >>> thread = api.get_team_multi_run_importance_with_http_info(namespace, owner, entity, body, async_req=True)
         >>> result = thread.get()
 
+        :param namespace: namespace (required)
+        :type namespace: str
         :param owner: Owner of the namespace (required)
         :type owner: str
         :param entity: Entity where the run will be assigned (required)
         :type entity: str
         :param body: Params/Metrics data (required)
         :type body: object
-        :param namespace: namespace.
-        :type namespace: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -2120,10 +2120,10 @@ class TeamsV1Api(object):
         _params = locals()
 
         _all_params = [
+            'namespace',
             'owner',
             'entity',
-            'body',
-            'namespace'
+            'body'
         ]
         _all_params.extend(
             [
@@ -2151,6 +2151,9 @@ class TeamsV1Api(object):
 
         # process the path parameters
         _path_params = {}
+        if _params['namespace']:
+            _path_params['namespace'] = _params['namespace']
+
         if _params['owner']:
             _path_params['owner'] = _params['owner']
 
@@ -2160,9 +2163,6 @@ class TeamsV1Api(object):
 
         # process the query parameters
         _query_params = []
-        if _params.get('namespace') is not None:  # noqa: E501
-            _query_params.append(('namespace', _params['namespace']))
-
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
@@ -2195,7 +2195,7 @@ class TeamsV1Api(object):
         }
 
         return self.api_client.call_api(
-            '/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance', 'POST',
+            '/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance', 'POST',
             _path_params,
             _query_params,
             _header_params,

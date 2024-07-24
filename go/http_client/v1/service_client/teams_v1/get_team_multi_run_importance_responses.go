@@ -104,11 +104,11 @@ func (o *GetTeamMultiRunImportanceOK) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK  %+v", 200, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK  %+v", 200, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceOK) GetPayload() *service_model.V1MultiEventsResponse {
@@ -172,11 +172,11 @@ func (o *GetTeamMultiRunImportanceNoContent) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceNoContent) GetPayload() interface{} {
@@ -238,11 +238,11 @@ func (o *GetTeamMultiRunImportanceForbidden) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceForbidden) GetPayload() interface{} {
@@ -304,11 +304,11 @@ func (o *GetTeamMultiRunImportanceNotFound) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceNotFound) GetPayload() interface{} {
@@ -374,11 +374,11 @@ func (o *GetTeamMultiRunImportanceDefault) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetTeamMultiRunImportanceDefault) GetPayload() *service_model.RuntimeError {

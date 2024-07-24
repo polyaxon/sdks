@@ -646,7 +646,7 @@ func (a *Client) GetOrganizationMultiRunEvents(params *GetOrganizationMultiRunEv
 	op := &runtime.ClientOperation{
 		ID:                 "GetOrganizationMultiRunEvents",
 		Method:             "GET",
-		PathPattern:        "/api/v1/orgs/{owner}/runs/multi/events/{kind}",
+		PathPattern:        "/streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -686,7 +686,7 @@ func (a *Client) GetOrganizationMultiRunImportance(params *GetOrganizationMultiR
 	op := &runtime.ClientOperation{
 		ID:                 "GetOrganizationMultiRunImportance",
 		Method:             "POST",
-		PathPattern:        "/api/v1/orgs/{owner}/runs/multi/importance",
+		PathPattern:        "/streams/v1/{namespace}/orgs/{owner}/runs/multi/importance",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

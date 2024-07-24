@@ -18,8 +18,8 @@ All URIs are relative to *http://localhost*
 | [**getOrganizationActivities**](OrganizationsV1Api.md#getOrganizationActivities) | **GET** /api/v1/orgs/{owner}/activities | Get organization activities |
 | [**getOrganizationInvitation**](OrganizationsV1Api.md#getOrganizationInvitation) | **GET** /api/v1/orgs/{owner}/invitations | Get organization invitation details |
 | [**getOrganizationMember**](OrganizationsV1Api.md#getOrganizationMember) | **GET** /api/v1/orgs/{owner}/members/{name} | Get organization member details |
-| [**getOrganizationMultiRunEvents**](OrganizationsV1Api.md#getOrganizationMultiRunEvents) | **GET** /api/v1/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events |
-| [**getOrganizationMultiRunImportance**](OrganizationsV1Api.md#getOrganizationMultiRunImportance) | **POST** /api/v1/orgs/{owner}/runs/multi/importance | Get multi run importance |
+| [**getOrganizationMultiRunEvents**](OrganizationsV1Api.md#getOrganizationMultiRunEvents) | **GET** /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind} | Get multi runs events |
+| [**getOrganizationMultiRunImportance**](OrganizationsV1Api.md#getOrganizationMultiRunImportance) | **POST** /streams/v1/{namespace}/orgs/{owner}/runs/multi/importance | Get multi run importance |
 | [**getOrganizationRun**](OrganizationsV1Api.md#getOrganizationRun) | **GET** /api/v1/orgs/{owner}/runs/{uuid} | Get a run in an organization |
 | [**getOrganizationRuns**](OrganizationsV1Api.md#getOrganizationRuns) | **GET** /api/v1/orgs/{owner}/runs | Get all runs in an organization |
 | [**getOrganizationRunsArtifactsLineage**](OrganizationsV1Api.md#getOrganizationRunsArtifactsLineage) | **GET** /api/v1/orgs/{owner}/runs/lineage/artifacts | Get runs artifacts lineage |
@@ -1029,7 +1029,7 @@ public class Example {
 
 <a name="getOrganizationMultiRunEvents"></a>
 # **getOrganizationMultiRunEvents**
-> V1MultiEventsResponse getOrganizationMultiRunEvents(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status)
+> V1MultiEventsResponse getOrganizationMultiRunEvents(namespace, owner, kind, entity, names, runs, orient, force, sample, connection, status)
 
 Get multi runs events
 
@@ -1055,9 +1055,9 @@ public class Example {
     //ApiKey.setApiKeyPrefix("Token");
 
     OrganizationsV1Api apiInstance = new OrganizationsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
     String kind = "model"; // String | The artifact kind
-    String namespace = "namespace_example"; // String | namespace.
     String entity = "entity_example"; // String | Entity where the run will be assigned.
     String names = "names_example"; // String | Names query param.
     String runs = "runs_example"; // String | Runs query param.
@@ -1067,7 +1067,7 @@ public class Example {
     String connection = "connection_example"; // String | Connection to use.
     String status = "created"; // String | Optional status.
     try {
-      V1MultiEventsResponse result = apiInstance.getOrganizationMultiRunEvents(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status);
+      V1MultiEventsResponse result = apiInstance.getOrganizationMultiRunEvents(namespace, owner, kind, entity, names, runs, orient, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationMultiRunEvents");
@@ -1084,9 +1084,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
 | **kind** | **String**| The artifact kind | [enum: model, audio, video, histogram, image, tensor, dataframe, chart, csv, tsv, psv, ssv, metric, env, html, text, file, dir, dockerfile, docker_image, data, coderef, table, tensorboard, curve, confusion, analysis, iteration, markdown, system, span, artifact] |
-| **namespace** | **String**| namespace. | [optional] |
 | **entity** | **String**| Entity where the run will be assigned. | [optional] |
 | **names** | **String**| Names query param. | [optional] |
 | **runs** | **String**| Runs query param. | [optional] |
@@ -1120,7 +1120,7 @@ public class Example {
 
 <a name="getOrganizationMultiRunImportance"></a>
 # **getOrganizationMultiRunImportance**
-> V1MultiEventsResponse getOrganizationMultiRunImportance(owner, body, namespace, entity)
+> V1MultiEventsResponse getOrganizationMultiRunImportance(namespace, owner, body, entity)
 
 Get multi run importance
 
@@ -1146,12 +1146,12 @@ public class Example {
     //ApiKey.setApiKeyPrefix("Token");
 
     OrganizationsV1Api apiInstance = new OrganizationsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
     Object body = null; // Object | Params/Metrics data
-    String namespace = "namespace_example"; // String | namespace.
     String entity = "entity_example"; // String | Entity where the run will be assigned.
     try {
-      V1MultiEventsResponse result = apiInstance.getOrganizationMultiRunImportance(owner, body, namespace, entity);
+      V1MultiEventsResponse result = apiInstance.getOrganizationMultiRunImportance(namespace, owner, body, entity);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationMultiRunImportance");
@@ -1168,9 +1168,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
 | **body** | **Object**| Params/Metrics data | |
-| **namespace** | **String**| namespace. | [optional] |
 | **entity** | **String**| Entity where the run will be assigned. | [optional] |
 
 ### Return type

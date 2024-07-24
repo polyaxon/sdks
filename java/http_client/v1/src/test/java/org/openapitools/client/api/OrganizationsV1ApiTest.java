@@ -239,9 +239,9 @@ public class OrganizationsV1ApiTest {
      */
     @Test
     public void getOrganizationMultiRunEventsTest() throws ApiException {
+        String namespace = null;
         String owner = null;
         String kind = null;
-        String namespace = null;
         String entity = null;
         String names = null;
         String runs = null;
@@ -250,7 +250,7 @@ public class OrganizationsV1ApiTest {
         Integer sample = null;
         String connection = null;
         String status = null;
-        V1MultiEventsResponse response = api.getOrganizationMultiRunEvents(owner, kind, namespace, entity, names, runs, orient, force, sample, connection, status);
+        V1MultiEventsResponse response = api.getOrganizationMultiRunEvents(namespace, owner, kind, entity, names, runs, orient, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -261,11 +261,11 @@ public class OrganizationsV1ApiTest {
      */
     @Test
     public void getOrganizationMultiRunImportanceTest() throws ApiException {
+        String namespace = null;
         String owner = null;
         Object body = null;
-        String namespace = null;
         String entity = null;
-        V1MultiEventsResponse response = api.getOrganizationMultiRunImportance(owner, body, namespace, entity);
+        V1MultiEventsResponse response = api.getOrganizationMultiRunImportance(namespace, owner, body, entity);
         // TODO: test validations
     }
 

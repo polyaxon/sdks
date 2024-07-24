@@ -75,9 +75,9 @@ type GetOrganizationMultiRunImportanceParams struct {
 
 	/* Namespace.
 
-	   namespace.
+	   namespace
 	*/
-	Namespace *string
+	Namespace string
 
 	/* Owner.
 
@@ -161,13 +161,13 @@ func (o *GetOrganizationMultiRunImportanceParams) SetEntity(entity *string) {
 }
 
 // WithNamespace adds the namespace to the get organization multi run importance params
-func (o *GetOrganizationMultiRunImportanceParams) WithNamespace(namespace *string) *GetOrganizationMultiRunImportanceParams {
+func (o *GetOrganizationMultiRunImportanceParams) WithNamespace(namespace string) *GetOrganizationMultiRunImportanceParams {
 	o.SetNamespace(namespace)
 	return o
 }
 
 // SetNamespace adds the namespace to the get organization multi run importance params
-func (o *GetOrganizationMultiRunImportanceParams) SetNamespace(namespace *string) {
+func (o *GetOrganizationMultiRunImportanceParams) SetNamespace(namespace string) {
 	o.Namespace = namespace
 }
 
@@ -212,21 +212,9 @@ func (o *GetOrganizationMultiRunImportanceParams) WriteToRequest(r runtime.Clien
 		}
 	}
 
-	if o.Namespace != nil {
-
-		// query param namespace
-		var qrNamespace string
-
-		if o.Namespace != nil {
-			qrNamespace = *o.Namespace
-		}
-		qNamespace := qrNamespace
-		if qNamespace != "" {
-
-			if err := r.SetQueryParam("namespace", qNamespace); err != nil {
-				return err
-			}
-		}
+	// path param namespace
+	if err := r.SetPathParam("namespace", o.Namespace); err != nil {
+		return err
 	}
 
 	// path param owner

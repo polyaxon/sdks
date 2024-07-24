@@ -16,8 +16,8 @@ Method | HTTP request | Description
 [**get_team**](TeamsV1Api.md#get_team) | **GET** /api/v1/orgs/{owner}/teams/{name} | Get team
 [**get_team_activities**](TeamsV1Api.md#get_team_activities) | **GET** /api/v1/orgs/{owner}/teams/{name}/activities | Get organization activities
 [**get_team_member**](TeamsV1Api.md#get_team_member) | **GET** /api/v1/orgs/{owner}/teams/{team}/members/{user} | Get team member details
-[**get_team_multi_run_events**](TeamsV1Api.md#get_team_multi_run_events) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
-[**get_team_multi_run_importance**](TeamsV1Api.md#get_team_multi_run_importance) | **POST** /api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
+[**get_team_multi_run_events**](TeamsV1Api.md#get_team_multi_run_events) | **GET** /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind} | Get multi runs events
+[**get_team_multi_run_importance**](TeamsV1Api.md#get_team_multi_run_importance) | **POST** /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance | Get multi run importance
 [**get_team_run**](TeamsV1Api.md#get_team_run) | **GET** /api/v1/orgs/{owner}/teams/{entity}/runs/{uuid} | Get a run in a team
 [**get_team_runs**](TeamsV1Api.md#get_team_runs) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs | Get all runs in a team
 [**get_team_runs_artifacts_lineage**](TeamsV1Api.md#get_team_runs_artifacts_lineage) | **GET** /api/v1/orgs/{owner}/teams/{name}/runs/lineage/artifacts | Get runs artifacts lineage
@@ -924,7 +924,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_team_multi_run_events**
-> V1MultiEventsResponse get_team_multi_run_events(owner, entity, kind, namespace=namespace, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
+> V1MultiEventsResponse get_team_multi_run_events(namespace, owner, entity, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
 
 Get multi runs events
 
@@ -959,10 +959,10 @@ configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
     entity = 'entity_example' # str | Entity where the run will be assigned
     kind = 'kind_example' # str | The artifact kind
-    namespace = 'namespace_example' # str | namespace. (optional)
     names = 'names_example' # str | Names query param. (optional)
     runs = 'runs_example' # str | Runs query param. (optional)
     orient = 'orient_example' # str | Orient query param. (optional)
@@ -973,7 +973,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get multi runs events
-        api_response = api_instance.get_team_multi_run_events(owner, entity, kind, namespace=namespace, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
+        api_response = api_instance.get_team_multi_run_events(namespace, owner, entity, kind, names=names, runs=runs, orient=orient, force=force, sample=sample, connection=connection, status=status)
         print("The response of TeamsV1Api->get_team_multi_run_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -984,10 +984,10 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
  **entity** | **str**| Entity where the run will be assigned | 
  **kind** | **str**| The artifact kind | 
- **namespace** | **str**| namespace. | [optional] 
  **names** | **str**| Names query param. | [optional] 
  **runs** | **str**| Runs query param. | [optional] 
  **orient** | **str**| Orient query param. | [optional] 
@@ -1021,7 +1021,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_team_multi_run_importance**
-> V1MultiEventsResponse get_team_multi_run_importance(owner, entity, body, namespace=namespace)
+> V1MultiEventsResponse get_team_multi_run_importance(namespace, owner, entity, body)
 
 Get multi run importance
 
@@ -1056,14 +1056,14 @@ configuration.api_key['ApiKey'] = os.environ["API_KEY"]
 with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.TeamsV1Api(api_client)
+    namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
     entity = 'entity_example' # str | Entity where the run will be assigned
     body = None # object | Params/Metrics data
-    namespace = 'namespace_example' # str | namespace. (optional)
 
     try:
         # Get multi run importance
-        api_response = api_instance.get_team_multi_run_importance(owner, entity, body, namespace=namespace)
+        api_response = api_instance.get_team_multi_run_importance(namespace, owner, entity, body)
         print("The response of TeamsV1Api->get_team_multi_run_importance:\n")
         pprint(api_response)
     except Exception as e:
@@ -1074,10 +1074,10 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
  **entity** | **str**| Entity where the run will be assigned | 
  **body** | **object**| Params/Metrics data | 
- **namespace** | **str**| namespace. | [optional] 
 
 ### Return type
 

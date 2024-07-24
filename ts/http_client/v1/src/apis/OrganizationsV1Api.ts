@@ -145,9 +145,9 @@ export interface GetOrganizationMemberRequest {
 }
 
 export interface GetOrganizationMultiRunEventsRequest {
+    namespace: string;
     owner: string;
     kind: GetOrganizationMultiRunEventsKindEnum;
-    namespace?: string;
     entity?: string;
     names?: string;
     runs?: string;
@@ -159,9 +159,9 @@ export interface GetOrganizationMultiRunEventsRequest {
 }
 
 export interface GetOrganizationMultiRunImportanceRequest {
+    namespace: string;
     owner: string;
     body: object;
-    namespace?: string;
     entity?: string;
 }
 
@@ -934,6 +934,10 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
      * Get multi runs events
      */
     async getOrganizationMultiRunEventsRaw(requestParameters: GetOrganizationMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getOrganizationMultiRunEvents.');
+        }
+
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationMultiRunEvents.');
         }
@@ -943,10 +947,6 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters.namespace !== undefined) {
-            queryParameters['namespace'] = requestParameters.namespace;
-        }
 
         if (requestParameters.entity !== undefined) {
             queryParameters['entity'] = requestParameters.entity;
@@ -987,7 +987,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/orgs/{owner}/runs/multi/events/{kind}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            path: `/streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -1008,6 +1008,10 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
      * Get multi run importance
      */
     async getOrganizationMultiRunImportanceRaw(requestParameters: GetOrganizationMultiRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getOrganizationMultiRunImportance.');
+        }
+
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getOrganizationMultiRunImportance.');
         }
@@ -1017,10 +1021,6 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters.namespace !== undefined) {
-            queryParameters['namespace'] = requestParameters.namespace;
-        }
 
         if (requestParameters.entity !== undefined) {
             queryParameters['entity'] = requestParameters.entity;
@@ -1035,7 +1035,7 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/orgs/{owner}/runs/multi/importance`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
+            path: `/streams/v1/{namespace}/orgs/{owner}/runs/multi/importance`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

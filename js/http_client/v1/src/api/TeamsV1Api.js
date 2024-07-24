@@ -632,11 +632,11 @@ export default class TeamsV1Api {
 
     /**
      * Get multi runs events
+     * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
      * @param {String} entity Entity where the run will be assigned
      * @param {module:model/String} kind The artifact kind
      * @param {Object} opts Optional parameters
-     * @param {String} [namespace] namespace.
      * @param {String} [names] Names query param.
      * @param {String} [runs] Runs query param.
      * @param {String} [orient] Orient query param.
@@ -647,9 +647,13 @@ export default class TeamsV1Api {
      * @param {module:api/TeamsV1Api~getTeamMultiRunEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1MultiEventsResponse}
      */
-    getTeamMultiRunEvents(owner, entity, kind, opts, callback) {
+    getTeamMultiRunEvents(namespace, owner, entity, kind, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling getTeamMultiRunEvents");
+      }
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling getTeamMultiRunEvents");
@@ -664,12 +668,12 @@ export default class TeamsV1Api {
       }
 
       let pathParams = {
+        'namespace': namespace,
         'owner': owner,
         'entity': entity,
         'kind': kind
       };
       let queryParams = {
-        'namespace': opts['namespace'],
         'names': opts['names'],
         'runs': opts['runs'],
         'orient': opts['orient'],
@@ -688,7 +692,7 @@ export default class TeamsV1Api {
       let accepts = ['application/json'];
       let returnType = V1MultiEventsResponse;
       return this.apiClient.callApi(
-        '/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}', 'GET',
+        '/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -704,17 +708,19 @@ export default class TeamsV1Api {
 
     /**
      * Get multi run importance
+     * @param {String} namespace namespace
      * @param {String} owner Owner of the namespace
      * @param {String} entity Entity where the run will be assigned
      * @param {Object.<String, Object>} body Params/Metrics data
-     * @param {Object} opts Optional parameters
-     * @param {String} [namespace] namespace.
      * @param {module:api/TeamsV1Api~getTeamMultiRunImportanceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/V1MultiEventsResponse}
      */
-    getTeamMultiRunImportance(owner, entity, body, opts, callback) {
-      opts = opts || {};
+    getTeamMultiRunImportance(namespace, owner, entity, body, callback) {
       let postBody = body;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling getTeamMultiRunImportance");
+      }
       // verify the required parameter 'owner' is set
       if (owner === undefined || owner === null) {
         throw new Error("Missing the required parameter 'owner' when calling getTeamMultiRunImportance");
@@ -729,11 +735,11 @@ export default class TeamsV1Api {
       }
 
       let pathParams = {
+        'namespace': namespace,
         'owner': owner,
         'entity': entity
       };
       let queryParams = {
-        'namespace': opts['namespace']
       };
       let headerParams = {
       };
@@ -745,7 +751,7 @@ export default class TeamsV1Api {
       let accepts = ['application/json'];
       let returnType = V1MultiEventsResponse;
       return this.apiClient.callApi(
-        '/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance', 'POST',
+        '/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

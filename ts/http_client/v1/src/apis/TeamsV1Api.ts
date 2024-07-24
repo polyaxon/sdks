@@ -131,10 +131,10 @@ export interface GetTeamMemberRequest {
 }
 
 export interface GetTeamMultiRunEventsRequest {
+    namespace: string;
     owner: string;
     entity: string;
     kind: GetTeamMultiRunEventsKindEnum;
-    namespace?: string;
     names?: string;
     runs?: string;
     orient?: string;
@@ -145,10 +145,10 @@ export interface GetTeamMultiRunEventsRequest {
 }
 
 export interface GetTeamMultiRunImportanceRequest {
+    namespace: string;
     owner: string;
     entity: string;
     body: object;
-    namespace?: string;
 }
 
 export interface GetTeamRunRequest {
@@ -798,6 +798,10 @@ export class TeamsV1Api extends runtime.BaseAPI {
      * Get multi runs events
      */
     async getTeamMultiRunEventsRaw(requestParameters: GetTeamMultiRunEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getTeamMultiRunEvents.');
+        }
+
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamMultiRunEvents.');
         }
@@ -811,10 +815,6 @@ export class TeamsV1Api extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters.namespace !== undefined) {
-            queryParameters['namespace'] = requestParameters.namespace;
-        }
 
         if (requestParameters.names !== undefined) {
             queryParameters['names'] = requestParameters.names;
@@ -851,7 +851,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
+            path: `/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"kind"}}`, encodeURIComponent(String(requestParameters.kind))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -872,6 +872,10 @@ export class TeamsV1Api extends runtime.BaseAPI {
      * Get multi run importance
      */
     async getTeamMultiRunImportanceRaw(requestParameters: GetTeamMultiRunImportanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1MultiEventsResponse>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling getTeamMultiRunImportance.');
+        }
+
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getTeamMultiRunImportance.');
         }
@@ -886,10 +890,6 @@ export class TeamsV1Api extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
-        if (requestParameters.namespace !== undefined) {
-            queryParameters['namespace'] = requestParameters.namespace;
-        }
-
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
@@ -899,7 +899,7 @@ export class TeamsV1Api extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))),
+            path: `/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

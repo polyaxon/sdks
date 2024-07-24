@@ -1905,7 +1905,7 @@ service OrganizationsV1 {
   // Get multi run importance
   rpc GetOrganizationMultiRunImportance(RunImportanceCorrelationRequest) returns (MultiEventsResponse) {
     option (google.api.http) = {
-      post: "/api/v1/orgs/{owner}/runs/multi/importance"
+      post: "/streams/v1/{namespace}/orgs/{owner}/runs/multi/importance"
       body: "data",
     };
   }
@@ -1913,7 +1913,7 @@ service OrganizationsV1 {
   // Get multi runs events
   rpc GetOrganizationMultiRunEvents(RunEventsRequest) returns (MultiEventsResponse) {
     option (google.api.http) = {
-      get: "/api/v1/orgs/{owner}/runs/multi/events/{kind}"
+      get: "/streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}"
     };
   }
 
@@ -2271,7 +2271,7 @@ service TeamsV1 {
   // Get multi run importance
   rpc GetTeamMultiRunImportance(RunImportanceCorrelationRequest) returns (MultiEventsResponse) {
     option (google.api.http) = {
-      post: "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance"
+      post: "/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance"
       body: "data",
     };
   }
@@ -2279,7 +2279,7 @@ service TeamsV1 {
   // Get multi runs events
   rpc GetTeamMultiRunEvents(RunEventsRequest) returns (MultiEventsResponse) {
     option (google.api.http) = {
-      get: "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}"
+      get: "/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}"
     };
   }
 

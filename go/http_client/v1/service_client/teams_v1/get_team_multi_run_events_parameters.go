@@ -94,9 +94,9 @@ type GetTeamMultiRunEventsParams struct {
 
 	/* Namespace.
 
-	   namespace.
+	   namespace
 	*/
-	Namespace *string
+	Namespace string
 
 	/* Orient.
 
@@ -252,13 +252,13 @@ func (o *GetTeamMultiRunEventsParams) SetNames(names *string) {
 }
 
 // WithNamespace adds the namespace to the get team multi run events params
-func (o *GetTeamMultiRunEventsParams) WithNamespace(namespace *string) *GetTeamMultiRunEventsParams {
+func (o *GetTeamMultiRunEventsParams) WithNamespace(namespace string) *GetTeamMultiRunEventsParams {
 	o.SetNamespace(namespace)
 	return o
 }
 
 // SetNamespace adds the namespace to the get team multi run events params
-func (o *GetTeamMultiRunEventsParams) SetNamespace(namespace *string) {
+func (o *GetTeamMultiRunEventsParams) SetNamespace(namespace string) {
 	o.Namespace = namespace
 }
 
@@ -386,21 +386,9 @@ func (o *GetTeamMultiRunEventsParams) WriteToRequest(r runtime.ClientRequest, re
 		}
 	}
 
-	if o.Namespace != nil {
-
-		// query param namespace
-		var qrNamespace string
-
-		if o.Namespace != nil {
-			qrNamespace = *o.Namespace
-		}
-		qNamespace := qrNamespace
-		if qNamespace != "" {
-
-			if err := r.SetQueryParam("namespace", qNamespace); err != nil {
-				return err
-			}
-		}
+	// path param namespace
+	if err := r.SetPathParam("namespace", o.Namespace); err != nil {
+		return err
 	}
 
 	if o.Orient != nil {

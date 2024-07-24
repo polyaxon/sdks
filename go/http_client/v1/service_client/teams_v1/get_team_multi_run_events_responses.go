@@ -104,11 +104,11 @@ func (o *GetTeamMultiRunEventsOK) Code() int {
 }
 
 func (o *GetTeamMultiRunEventsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsOK) GetPayload() *service_model.V1MultiEventsResponse {
@@ -172,11 +172,11 @@ func (o *GetTeamMultiRunEventsNoContent) Code() int {
 }
 
 func (o *GetTeamMultiRunEventsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsNoContent) GetPayload() interface{} {
@@ -238,11 +238,11 @@ func (o *GetTeamMultiRunEventsForbidden) Code() int {
 }
 
 func (o *GetTeamMultiRunEventsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsForbidden) GetPayload() interface{} {
@@ -304,11 +304,11 @@ func (o *GetTeamMultiRunEventsNotFound) Code() int {
 }
 
 func (o *GetTeamMultiRunEventsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] getTeamMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsNotFound) GetPayload() interface{} {
@@ -374,11 +374,11 @@ func (o *GetTeamMultiRunEventsDefault) Code() int {
 }
 
 func (o *GetTeamMultiRunEventsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] GetTeamMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] GetTeamMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] GetTeamMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}][%d] GetTeamMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetTeamMultiRunEventsDefault) GetPayload() *service_model.RuntimeError {

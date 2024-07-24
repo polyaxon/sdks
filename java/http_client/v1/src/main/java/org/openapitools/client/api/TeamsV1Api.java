@@ -1829,10 +1829,10 @@ public class TeamsV1Api {
     }
     /**
      * Build call for getTeamMultiRunEvents
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
-     * @param namespace namespace. (optional)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
      * @param orient Orient query param. (optional)
@@ -1853,7 +1853,7 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTeamMultiRunEventsCall(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTeamMultiRunEventsCall(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1870,7 +1870,8 @@ public class TeamsV1Api {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}"
+        String localVarPath = "/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/events/{kind}"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()))
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
             .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
             .replace("{" + "kind" + "}", localVarApiClient.escapeString(kind.toString()));
@@ -1880,10 +1881,6 @@ public class TeamsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (namespace != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("namespace", namespace));
-        }
 
         if (names != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("names", names));
@@ -1933,7 +1930,12 @@ public class TeamsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTeamMultiRunEventsValidateBeforeCall(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTeamMultiRunEventsValidateBeforeCall(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling getTeamMultiRunEvents(Async)");
+        }
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getTeamMultiRunEvents(Async)");
@@ -1949,17 +1951,17 @@ public class TeamsV1Api {
             throw new ApiException("Missing the required parameter 'kind' when calling getTeamMultiRunEvents(Async)");
         }
 
-        return getTeamMultiRunEventsCall(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, _callback);
+        return getTeamMultiRunEventsCall(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, _callback);
 
     }
 
     /**
      * Get multi runs events
      *
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
-     * @param namespace namespace. (optional)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
      * @param orient Orient query param. (optional)
@@ -1979,18 +1981,18 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1MultiEventsResponse getTeamMultiRunEvents(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        ApiResponse<V1MultiEventsResponse> localVarResp = getTeamMultiRunEventsWithHttpInfo(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status);
+    public V1MultiEventsResponse getTeamMultiRunEvents(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        ApiResponse<V1MultiEventsResponse> localVarResp = getTeamMultiRunEventsWithHttpInfo(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status);
         return localVarResp.getData();
     }
 
     /**
      * Get multi runs events
      *
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
-     * @param namespace namespace. (optional)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
      * @param orient Orient query param. (optional)
@@ -2010,8 +2012,8 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1MultiEventsResponse> getTeamMultiRunEventsWithHttpInfo(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        okhttp3.Call localVarCall = getTeamMultiRunEventsValidateBeforeCall(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, null);
+    public ApiResponse<V1MultiEventsResponse> getTeamMultiRunEventsWithHttpInfo(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        okhttp3.Call localVarCall = getTeamMultiRunEventsValidateBeforeCall(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, null);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2019,10 +2021,10 @@ public class TeamsV1Api {
     /**
      * Get multi runs events (asynchronously)
      *
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param kind The artifact kind (required)
-     * @param namespace namespace. (optional)
      * @param names Names query param. (optional)
      * @param runs Runs query param. (optional)
      * @param orient Orient query param. (optional)
@@ -2043,19 +2045,19 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTeamMultiRunEventsAsync(String owner, String entity, String kind, String namespace, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
+    public okhttp3.Call getTeamMultiRunEventsAsync(String namespace, String owner, String entity, String kind, String names, String runs, String orient, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTeamMultiRunEventsValidateBeforeCall(owner, entity, kind, namespace, names, runs, orient, force, sample, connection, status, _callback);
+        okhttp3.Call localVarCall = getTeamMultiRunEventsValidateBeforeCall(namespace, owner, entity, kind, names, runs, orient, force, sample, connection, status, _callback);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTeamMultiRunImportance
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
-     * @param namespace namespace. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2069,7 +2071,7 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTeamMultiRunImportanceCall(String owner, String entity, Object body, String namespace, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTeamMultiRunImportanceCall(String namespace, String owner, String entity, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2086,7 +2088,8 @@ public class TeamsV1Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/v1/orgs/{owner}/teams/{entity}/runs/multi/importance"
+        String localVarPath = "/streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance"
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()))
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
             .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()));
 
@@ -2095,10 +2098,6 @@ public class TeamsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (namespace != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("namespace", namespace));
-        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -2121,7 +2120,12 @@ public class TeamsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTeamMultiRunImportanceValidateBeforeCall(String owner, String entity, Object body, String namespace, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTeamMultiRunImportanceValidateBeforeCall(String namespace, String owner, String entity, Object body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'namespace' is set
+        if (namespace == null) {
+            throw new ApiException("Missing the required parameter 'namespace' when calling getTeamMultiRunImportance(Async)");
+        }
+
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getTeamMultiRunImportance(Async)");
@@ -2137,17 +2141,17 @@ public class TeamsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling getTeamMultiRunImportance(Async)");
         }
 
-        return getTeamMultiRunImportanceCall(owner, entity, body, namespace, _callback);
+        return getTeamMultiRunImportanceCall(namespace, owner, entity, body, _callback);
 
     }
 
     /**
      * Get multi run importance
      *
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
-     * @param namespace namespace. (optional)
      * @return V1MultiEventsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2160,18 +2164,18 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1MultiEventsResponse getTeamMultiRunImportance(String owner, String entity, Object body, String namespace) throws ApiException {
-        ApiResponse<V1MultiEventsResponse> localVarResp = getTeamMultiRunImportanceWithHttpInfo(owner, entity, body, namespace);
+    public V1MultiEventsResponse getTeamMultiRunImportance(String namespace, String owner, String entity, Object body) throws ApiException {
+        ApiResponse<V1MultiEventsResponse> localVarResp = getTeamMultiRunImportanceWithHttpInfo(namespace, owner, entity, body);
         return localVarResp.getData();
     }
 
     /**
      * Get multi run importance
      *
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
-     * @param namespace namespace. (optional)
      * @return ApiResponse&lt;V1MultiEventsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2184,8 +2188,8 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1MultiEventsResponse> getTeamMultiRunImportanceWithHttpInfo(String owner, String entity, Object body, String namespace) throws ApiException {
-        okhttp3.Call localVarCall = getTeamMultiRunImportanceValidateBeforeCall(owner, entity, body, namespace, null);
+    public ApiResponse<V1MultiEventsResponse> getTeamMultiRunImportanceWithHttpInfo(String namespace, String owner, String entity, Object body) throws ApiException {
+        okhttp3.Call localVarCall = getTeamMultiRunImportanceValidateBeforeCall(namespace, owner, entity, body, null);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2193,10 +2197,10 @@ public class TeamsV1Api {
     /**
      * Get multi run importance (asynchronously)
      *
+     * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param entity Entity where the run will be assigned (required)
      * @param body Params/Metrics data (required)
-     * @param namespace namespace. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2210,9 +2214,9 @@ public class TeamsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTeamMultiRunImportanceAsync(String owner, String entity, Object body, String namespace, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
+    public okhttp3.Call getTeamMultiRunImportanceAsync(String namespace, String owner, String entity, Object body, final ApiCallback<V1MultiEventsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTeamMultiRunImportanceValidateBeforeCall(owner, entity, body, namespace, _callback);
+        okhttp3.Call localVarCall = getTeamMultiRunImportanceValidateBeforeCall(namespace, owner, entity, body, _callback);
         Type localVarReturnType = new TypeToken<V1MultiEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -104,11 +104,11 @@ func (o *GetOrganizationMultiRunEventsOK) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK  %+v", 200, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsOK) GetPayload() *service_model.V1MultiEventsResponse {
@@ -172,11 +172,11 @@ func (o *GetOrganizationMultiRunEventsNoContent) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent  %+v", 204, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent  %+v", 204, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsNoContent) GetPayload() interface{} {
@@ -238,11 +238,11 @@ func (o *GetOrganizationMultiRunEventsForbidden) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsForbidden) GetPayload() interface{} {
@@ -304,11 +304,11 @@ func (o *GetOrganizationMultiRunEventsNotFound) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsNotFound) GetPayload() interface{} {
@@ -374,11 +374,11 @@ func (o *GetOrganizationMultiRunEventsDefault) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *GetOrganizationMultiRunEventsDefault) GetPayload() *service_model.RuntimeError {
