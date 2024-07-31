@@ -118,7 +118,7 @@ message ListTeamMembersResponse {
     string next = 4;
 }
 
-// Run Settings specification
+// Team Settings specification
 message TeamSettings {
   // Projects
   repeated SettingsCatalog projects = 1;

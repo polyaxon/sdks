@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **frozen** | **bool** |  | [optional] 
 **live_state** | **int** |  | [optional] 
 **content** | **str** |  | [optional] 
+**settings** | [**V1PresetSettings**](V1PresetSettings.md) |  | [optional] 
 
 ## Example
 

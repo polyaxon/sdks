@@ -9262,6 +9262,10 @@
           "title": "Name",
           "type": "string"
         },
+        "settings": {
+          "$ref": "#/definitions/v1PresetSettings",
+          "title": "settings"
+        },
         "tags": {
           "items": {
             "type": "string"
@@ -9280,6 +9284,26 @@
         }
       },
       "title": "Preset specification",
+      "type": "object"
+    },
+    "v1PresetSettings": {
+      "properties": {
+        "projects": {
+          "items": {
+            "$ref": "#/definitions/v1SettingsCatalog"
+          },
+          "title": "Projects",
+          "type": "array"
+        },
+        "runs": {
+          "items": {
+            "$ref": "#/definitions/v1SettingsCatalog"
+          },
+          "title": "Component hubs",
+          "type": "array"
+        }
+      },
+      "title": "Preset Settings specification",
       "type": "object"
     },
     "v1Project": {
@@ -11183,7 +11207,7 @@
           "type": "array"
         }
       },
-      "title": "Run Settings specification",
+      "title": "Team Settings specification",
       "type": "object"
     },
     "v1Template": {

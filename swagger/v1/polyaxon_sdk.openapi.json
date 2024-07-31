@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.3.0-rc0"
+    "version" : "2.3.0"
   },
   "servers" : [ {
     "url" : "/"
@@ -34674,6 +34674,29 @@
           "content" : {
             "title" : "The content of the preset",
             "type" : "string"
+          },
+          "settings" : {
+            "$ref" : "#/components/schemas/v1PresetSettings"
+          }
+        }
+      },
+      "v1PresetSettings" : {
+        "title" : "Preset Settings specification",
+        "type" : "object",
+        "properties" : {
+          "projects" : {
+            "title" : "Projects",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1SettingsCatalog"
+            }
+          },
+          "runs" : {
+            "title" : "Component hubs",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1SettingsCatalog"
+            }
           }
         }
       },
@@ -36461,7 +36484,7 @@
         }
       },
       "v1TeamSettings" : {
-        "title" : "Run Settings specification",
+        "title" : "Team Settings specification",
         "type" : "object",
         "properties" : {
           "projects" : {

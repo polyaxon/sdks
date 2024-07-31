@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **frozen** | **Boolean** |  | [optional] 
 **live_state** | **Number** |  | [optional] 
 **content** | **String** |  | [optional] 
+**settings** | [**V1PresetSettings**](V1PresetSettings.md) |  | [optional] 
 
 

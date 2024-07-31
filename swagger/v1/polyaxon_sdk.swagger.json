@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.3.0-rc0",
+    "version": "2.3.0",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -24900,9 +24900,33 @@
         "content": {
           "type": "string",
           "title": "The content of the preset"
+        },
+        "settings": {
+          "$ref": "#/definitions/v1PresetSettings",
+          "title": "settings"
         }
       },
       "title": "Preset specification"
+    },
+    "v1PresetSettings": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1SettingsCatalog"
+          },
+          "title": "Projects"
+        },
+        "runs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1SettingsCatalog"
+          },
+          "title": "Component hubs"
+        }
+      },
+      "title": "Preset Settings specification"
     },
     "v1Project": {
       "type": "object",
@@ -26798,7 +26822,7 @@
           "title": "Model registries"
         }
       },
-      "title": "Run Settings specification"
+      "title": "Team Settings specification"
     },
     "v1Template": {
       "type": "object",

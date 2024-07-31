@@ -16,6 +16,7 @@
 |**frozen** | **Boolean** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
+|**settings** | [**V1PresetSettings**](V1PresetSettings.md) |  |  [optional] |
 
 
 

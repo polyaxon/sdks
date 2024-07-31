@@ -166,6 +166,7 @@ export * from './V1Policy';
 export * from './V1PolyaxonInitContainer';
 export * from './V1PolyaxonSidecarContainer';
 export * from './V1Preset';
+export * from './V1PresetSettings';
 export * from './V1Project';
 export * from './V1ProjectSettings';
 export * from './V1ProjectVersion';

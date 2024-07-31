@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1TeamSettings Run Settings specification
+// V1TeamSettings Team Settings specification
 //
 // swagger:model v1TeamSettings
 type V1TeamSettings struct {

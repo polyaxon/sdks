@@ -4,6 +4,8 @@ package v1;
 
 import "google/protobuf/timestamp.proto";
 
+import "v1/api/base.proto";
+
 option go_package = "v1/api";
 
 // Preset specification
@@ -34,7 +36,20 @@ message Preset {
 
     // The content of the preset
     string content = 11;
+
+    // settings
+    PresetSettings settings = 12;
 }
+
+// Preset Settings specification
+message PresetSettings {
+  // Projects
+  repeated SettingsCatalog projects = 1;
+
+  // Component hubs
+  repeated SettingsCatalog runs = 2;
+}
+
 
  // Request data to create/update scheduling preset
  message PresetBodyRequest {

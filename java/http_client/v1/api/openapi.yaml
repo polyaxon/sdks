@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.3.0-rc0
+  version: 2.3.0
 servers:
 - url: /
 security:
@@ -29375,7 +29375,26 @@ components:
         previous: previous
         count: 0
         results:
-        - updated_at: 2000-01-23T04:56:07.000+00:00
+        - settings:
+            projects:
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+            runs:
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+          updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
@@ -29386,7 +29405,26 @@ components:
           tags:
           - tags
           - tags
-        - updated_at: 2000-01-23T04:56:07.000+00:00
+        - settings:
+            projects:
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+            runs:
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+            - name: name
+              uuid: uuid
+              version: version
+              url: url
+          updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
@@ -34185,6 +34223,25 @@ components:
       type: object
     v1Preset:
       example:
+        settings:
+          projects:
+          - name: name
+            uuid: uuid
+            version: version
+            url: url
+          - name: name
+            uuid: uuid
+            version: version
+            url: url
+          runs:
+          - name: name
+            uuid: uuid
+            version: version
+            url: url
+          - name: name
+            uuid: uuid
+            version: version
+            url: url
         updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
         description: description
@@ -34229,7 +34286,42 @@ components:
         content:
           title: The content of the preset
           type: string
+        settings:
+          $ref: '#/components/schemas/v1PresetSettings'
       title: Preset specification
+      type: object
+    v1PresetSettings:
+      example:
+        projects:
+        - name: name
+          uuid: uuid
+          version: version
+          url: url
+        - name: name
+          uuid: uuid
+          version: version
+          url: url
+        runs:
+        - name: name
+          uuid: uuid
+          version: version
+          url: url
+        - name: name
+          uuid: uuid
+          version: version
+          url: url
+      properties:
+        projects:
+          items:
+            $ref: '#/components/schemas/v1SettingsCatalog'
+          title: Projects
+          type: array
+        runs:
+          items:
+            $ref: '#/components/schemas/v1SettingsCatalog'
+          title: Component hubs
+          type: array
+      title: Preset Settings specification
       type: object
     v1Project:
       example:
@@ -51726,7 +51818,7 @@ components:
             $ref: '#/components/schemas/v1SettingsCatalog'
           title: Model registries
           type: array
-      title: Run Settings specification
+      title: Team Settings specification
       type: object
     v1Template:
       example:
