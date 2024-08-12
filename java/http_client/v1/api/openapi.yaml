@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.3.2
+  version: 2.3.3
 servers:
 - url: /
 security:
@@ -29279,10 +29279,16 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           user_accesses:
           - namespace: namespace
+            user_data:
+              is_sa: true
+              username: username
             preset: preset
             user: user
             queue: queue
           - namespace: namespace
+            user_data:
+              is_sa: true
+              username: username
             preset: preset
             user: user
             queue: queue
@@ -29330,10 +29336,16 @@ components:
           updated_at: 2000-01-23T04:56:07.000+00:00
           user_accesses:
           - namespace: namespace
+            user_data:
+              is_sa: true
+              username: username
             preset: preset
             user: user
             queue: queue
           - namespace: namespace
+            user_data:
+              is_sa: true
+              username: username
             preset: preset
             user: user
             queue: queue
@@ -29579,10 +29591,16 @@ components:
             - teams
             user_accesses:
             - namespace: namespace
+              user_data:
+                is_sa: true
+                username: username
               preset: preset
               user: user
               queue: queue
             - namespace: namespace
+              user_data:
+                is_sa: true
+                username: username
               preset: preset
               user: user
               queue: queue
@@ -29637,10 +29655,16 @@ components:
             - teams
             user_accesses:
             - namespace: namespace
+              user_data:
+                is_sa: true
+                username: username
               preset: preset
               user: user
               queue: queue
             - namespace: namespace
+              user_data:
+                is_sa: true
+                username: username
               preset: preset
               user: user
               queue: queue
@@ -34057,10 +34081,16 @@ components:
         updated_at: 2000-01-23T04:56:07.000+00:00
         user_accesses:
         - namespace: namespace
+          user_data:
+            is_sa: true
+            username: username
           preset: preset
           user: user
           queue: queue
         - namespace: namespace
+          user_data:
+            is_sa: true
+            username: username
           preset: preset
           user: user
           queue: queue
@@ -34341,10 +34371,16 @@ components:
           - teams
           user_accesses:
           - namespace: namespace
+            user_data:
+              is_sa: true
+              username: username
             preset: preset
             user: user
             queue: queue
           - namespace: namespace
+            user_data:
+              is_sa: true
+              username: username
             preset: preset
             user: user
             queue: queue
@@ -34462,10 +34498,16 @@ components:
         - teams
         user_accesses:
         - namespace: namespace
+          user_data:
+            is_sa: true
+            username: username
           preset: preset
           user: user
           queue: queue
         - namespace: namespace
+          user_data:
+            is_sa: true
+            username: username
           preset: preset
           user: user
           queue: queue
@@ -52129,6 +52171,9 @@ components:
     v1UserAccess:
       example:
         namespace: namespace
+        user_data:
+          is_sa: true
+          username: username
         preset: preset
         user: user
         queue: queue
@@ -52136,6 +52181,8 @@ components:
         user:
           title: User to give access to
           type: string
+        user_data:
+          $ref: '#/components/schemas/v1UserAccessData'
         queue:
           title: Optional queue to configure for user
           type: string
@@ -52146,6 +52193,18 @@ components:
           title: Optiona namespace to configure for user
           type: string
       title: User request
+      type: object
+    v1UserAccessData:
+      example:
+        is_sa: true
+        username: username
+      properties:
+        username:
+          title: Username
+          type: string
+        is_sa:
+          title: Is service account
+          type: boolean
       type: object
     v1UserEmail:
       properties:

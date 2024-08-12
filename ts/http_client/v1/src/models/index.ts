@@ -227,6 +227,7 @@ export * from './V1UriType';
 export * from './V1UrlRef';
 export * from './V1User';
 export * from './V1UserAccess';
+export * from './V1UserAccessData';
 export * from './V1UserEmail';
 export * from './V1UserSingup';
 export * from './V1Uuids';

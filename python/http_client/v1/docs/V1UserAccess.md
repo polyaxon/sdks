@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user** | **str** |  | [optional] 
+**user_data** | [**V1UserAccessData**](V1UserAccessData.md) |  | [optional] 
 **queue** | **str** |  | [optional] 
 **preset** | **str** |  | [optional] 
 **namespace** | **str** |  | [optional] 

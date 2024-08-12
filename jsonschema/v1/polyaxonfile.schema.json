@@ -11534,9 +11534,26 @@
         "user": {
           "title": "User to give access to",
           "type": "string"
+        },
+        "user_data": {
+          "$ref": "#/definitions/v1UserAccessData",
+          "title": "Optional graph definition"
         }
       },
       "title": "User request",
+      "type": "object"
+    },
+    "v1UserAccessData": {
+      "properties": {
+        "is_sa": {
+          "title": "Is service account",
+          "type": "boolean"
+        },
+        "username": {
+          "title": "Username",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "v1UserEmail": {

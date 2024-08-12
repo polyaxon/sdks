@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.3.2"
+    "version" : "2.3.3"
   },
   "servers" : [ {
     "url" : "/"
@@ -36819,6 +36819,9 @@
             "title" : "User to give access to",
             "type" : "string"
           },
+          "user_data" : {
+            "$ref" : "#/components/schemas/v1UserAccessData"
+          },
           "queue" : {
             "title" : "Optional queue to configure for user",
             "type" : "string"
@@ -36830,6 +36833,19 @@
           "namespace" : {
             "title" : "Optiona namespace to configure for user",
             "type" : "string"
+          }
+        }
+      },
+      "v1UserAccessData" : {
+        "type" : "object",
+        "properties" : {
+          "username" : {
+            "title" : "Username",
+            "type" : "string"
+          },
+          "is_sa" : {
+            "title" : "Is service account",
+            "type" : "boolean"
           }
         }
       },

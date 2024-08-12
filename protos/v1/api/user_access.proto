@@ -5,17 +5,29 @@ package v1;
 option go_package = "v1/api";
 
 
+message UserAccessData {
+  // Username
+  string username = 1;
+
+  // Is service account
+  bool is_sa = 2;
+
+}
+
 // User request
 message UserAccess {
   // User to give access to
   string user = 1;
 
+  // Optional graph definition
+  UserAccessData user_data = 2;
+
   // Optional queue to configure for user
-  string queue = 2;
+  string queue = 3;
 
   // Optional preset to configure for user
-  string preset = 3;
+  string preset = 4;
 
   // Optiona namespace to configure for user
-  string namespace = 4;
+  string namespace = 5;
 }

@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.3.2
+- API version: 2.3.3
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.3.2</version>
+  <version>2.3.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.3.2"
+     implementation "org.openapitools:openapi-java-client:2.3.3"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.3.2.jar`
+* `target/openapi-java-client-2.3.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -648,6 +648,7 @@ Class | Method | HTTP request | Description
  - [V1UrlRef](docs/V1UrlRef.md)
  - [V1User](docs/V1User.md)
  - [V1UserAccess](docs/V1UserAccess.md)
+ - [V1UserAccessData](docs/V1UserAccessData.md)
  - [V1UserEmail](docs/V1UserEmail.md)
  - [V1UserSingup](docs/V1UserSingup.md)
  - [V1Uuids](docs/V1Uuids.md)

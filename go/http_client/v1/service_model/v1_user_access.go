@@ -8,6 +8,7 @@ package service_model
 import (
 	"context"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -28,15 +29,76 @@ type V1UserAccess struct {
 
 	// User to give access to
 	User string `json:"user,omitempty"`
+
+	// Optional graph definition
+	UserData *V1UserAccessData `json:"user_data,omitempty"`
 }
 
 // Validate validates this v1 user access
 func (m *V1UserAccess) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateUserData(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this v1 user access based on context it is used
+func (m *V1UserAccess) validateUserData(formats strfmt.Registry) error {
+	if swag.IsZero(m.UserData) { // not required
+		return nil
+	}
+
+	if m.UserData != nil {
+		if err := m.UserData.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user_data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user_data")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this v1 user access based on the context it is used
 func (m *V1UserAccess) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUserData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *V1UserAccess) contextValidateUserData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UserData != nil {
+
+		if swag.IsZero(m.UserData) { // not required
+			return nil
+		}
+
+		if err := m.UserData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user_data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user_data")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

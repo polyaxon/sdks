@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.3.2",
+    "version": "2.3.3",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -27138,6 +27138,10 @@
           "type": "string",
           "title": "User to give access to"
         },
+        "user_data": {
+          "$ref": "#/definitions/v1UserAccessData",
+          "title": "Optional graph definition"
+        },
         "queue": {
           "type": "string",
           "title": "Optional queue to configure for user"
@@ -27152,6 +27156,19 @@
         }
       },
       "title": "User request"
+    },
+    "v1UserAccessData": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "title": "Username"
+        },
+        "is_sa": {
+          "type": "boolean",
+          "title": "Is service account"
+        }
+      }
     },
     "v1UserEmail": {
       "type": "object",
