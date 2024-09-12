@@ -28,17 +28,14 @@ message Preset {
     // Optional last time the entity was updated
     google.protobuf.Timestamp updated_at = 8;
 
-    // Optional a flag to freeze the scheduling preset
-    bool frozen = 9;
-
     // Current live state
-    int32 live_state = 10;
+    int32 live_state = 9;
 
     // The content of the preset
-    string content = 11;
+    string content = 10;
 
     // settings
-    PresetSettings settings = 12;
+    PresetSettings settings = 11;
 }
 
 // Preset Settings specification
