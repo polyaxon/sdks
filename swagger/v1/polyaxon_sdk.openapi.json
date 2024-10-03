@@ -4039,6 +4039,96 @@
         }
       }
     },
+    "/api/v1/orgs/{owner}/agents/{uuid}/stats" : {
+      "get" : {
+        "tags" : [ "AgentsV1" ],
+        "summary" : "Get agent stats",
+        "operationId" : "GetAgentStats",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Agent"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/orgs/{owner}/agents/{uuid}/statuses" : {
       "get" : {
         "tags" : [ "AgentsV1" ],
@@ -30193,6 +30283,11 @@
             "title" : "Optional settings",
             "type" : "object",
             "properties" : { }
+          },
+          "stats" : {
+            "title" : "Optional agent stats",
+            "type" : "object",
+            "properties" : { }
           }
         }
       },
@@ -34662,10 +34757,6 @@
             "type" : "string",
             "format" : "date-time"
           },
-          "frozen" : {
-            "title" : "Optional a flag to freeze the scheduling preset",
-            "type" : "boolean"
-          },
           "live_state" : {
             "title" : "Current live state",
             "type" : "integer",
@@ -35101,7 +35192,7 @@
             "type" : "string"
           },
           "stats" : {
-            "title" : "Optional queue quota",
+            "title" : "Optional queue stats",
             "type" : "object",
             "properties" : { }
           },

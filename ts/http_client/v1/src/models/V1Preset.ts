@@ -64,12 +64,6 @@ export interface V1Preset {
     updated_at?: Date;
     /**
      *
-     * @type {boolean}
-     * @memberof V1Preset
-     */
-    frozen?: boolean;
-    /**
-     *
      * @type {number}
      * @memberof V1Preset
      */
@@ -113,7 +107,6 @@ export function V1PresetFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
-        'frozen': !exists(json, 'frozen') ? undefined : json['frozen'],
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
         'content': !exists(json, 'content') ? undefined : json['content'],
         'settings': !exists(json, 'settings') ? undefined : V1PresetSettingsFromJSON(json['settings']),
@@ -135,7 +128,6 @@ export function V1PresetToJSON(value?: V1Preset | null): any {
         'tags': value.tags,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),
-        'frozen': value.frozen,
         'live_state': value.live_state,
         'content': value.content,
         'settings': V1PresetSettingsToJSON(value.settings),

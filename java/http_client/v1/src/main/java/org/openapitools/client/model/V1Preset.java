@@ -76,10 +76,6 @@ public class V1Preset {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
-  public static final String SERIALIZED_NAME_FROZEN = "frozen";
-  @SerializedName(SERIALIZED_NAME_FROZEN)
-  private Boolean frozen;
-
   public static final String SERIALIZED_NAME_LIVE_STATE = "live_state";
   @SerializedName(SERIALIZED_NAME_LIVE_STATE)
   private Integer liveState;
@@ -235,28 +231,6 @@ public class V1Preset {
   }
 
 
-  public V1Preset frozen(Boolean frozen) {
-
-    this.frozen = frozen;
-    return this;
-  }
-
-   /**
-   * Get frozen
-   * @return frozen
-  **/
-  @javax.annotation.Nullable
-
-  public Boolean getFrozen() {
-    return frozen;
-  }
-
-
-  public void setFrozen(Boolean frozen) {
-    this.frozen = frozen;
-  }
-
-
   public V1Preset liveState(Integer liveState) {
 
     this.liveState = liveState;
@@ -339,7 +313,6 @@ public class V1Preset {
         Objects.equals(this.tags, v1Preset.tags) &&
         Objects.equals(this.createdAt, v1Preset.createdAt) &&
         Objects.equals(this.updatedAt, v1Preset.updatedAt) &&
-        Objects.equals(this.frozen, v1Preset.frozen) &&
         Objects.equals(this.liveState, v1Preset.liveState) &&
         Objects.equals(this.content, v1Preset.content) &&
         Objects.equals(this.settings, v1Preset.settings);
@@ -347,7 +320,7 @@ public class V1Preset {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, createdAt, updatedAt, frozen, liveState, content, settings);
+    return Objects.hash(uuid, name, description, tags, createdAt, updatedAt, liveState, content, settings);
   }
 
   @Override
@@ -360,7 +333,6 @@ public class V1Preset {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    frozen: ").append(toIndentedString(frozen)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
@@ -392,7 +364,6 @@ public class V1Preset {
     openapiFields.add("tags");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
-    openapiFields.add("frozen");
     openapiFields.add("live_state");
     openapiFields.add("content");
     openapiFields.add("settings");

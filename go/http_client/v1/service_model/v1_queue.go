@@ -44,7 +44,7 @@ type V1Queue struct {
 	// Optional queue resource
 	Resource string `json:"resource,omitempty"`
 
-	// Optional queue quota
+	// Optional queue stats
 	Stats interface{} `json:"stats,omitempty"`
 
 	// Optional tags of this entity

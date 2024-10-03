@@ -2636,6 +2636,64 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/agents/{uuid}/stats": {
+      "get": {
+        "summary": "Get agent stats",
+        "operationId": "GetAgentStats",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Agent"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/agents/{uuid}/statuses": {
       "get": {
         "summary": "Get Agent statuses",
@@ -20235,6 +20293,10 @@
         "settings": {
           "type": "object",
           "title": "Optional settings"
+        },
+        "stats": {
+          "type": "object",
+          "title": "Optional agent stats"
         }
       },
       "title": "Agent specification"
@@ -24888,10 +24950,6 @@
           "format": "date-time",
           "title": "Optional last time the entity was updated"
         },
-        "frozen": {
-          "type": "boolean",
-          "title": "Optional a flag to freeze the scheduling preset"
-        },
         "live_state": {
           "type": "integer",
           "format": "int32",
@@ -25336,7 +25394,7 @@
         },
         "stats": {
           "type": "object",
-          "title": "Optional queue quota"
+          "title": "Optional queue stats"
         },
         "created_at": {
           "type": "string",

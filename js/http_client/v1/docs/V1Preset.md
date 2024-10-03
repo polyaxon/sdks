@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **tags** | **[String]** |  | [optional] 
 **created_at** | **Date** |  | [optional] 
 **updated_at** | **Date** |  | [optional] 
-**frozen** | **Boolean** |  | [optional] 
 **live_state** | **Number** |  | [optional] 
 **content** | **String** |  | [optional] 
 **settings** | [**V1PresetSettings**](V1PresetSettings.md) |  | [optional] 

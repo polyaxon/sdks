@@ -512,6 +512,58 @@ export default class AgentsV1Api {
     }
 
     /**
+     * Callback function to receive the result of the getAgentStats operation.
+     * @callback module:api/AgentsV1Api~getAgentStatsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/V1Agent} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get agent stats
+     * @param {String} owner Owner of the namespace
+     * @param {String} uuid Uuid identifier of the sub-entity
+     * @param {Object} opts Optional parameters
+     * @param {String} [entity] Entity: project name, hub name, registry name, ...
+     * @param {module:api/AgentsV1Api~getAgentStatsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/V1Agent}
+     */
+    getAgentStats(owner, uuid, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getAgentStats");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling getAgentStats");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'uuid': uuid
+      };
+      let queryParams = {
+        'entity': opts['entity']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = V1Agent;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/agents/{uuid}/stats', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getAgentStatuses operation.
      * @callback module:api/AgentsV1Api~getAgentStatusesCallback
      * @param {String} error Error message, if any.

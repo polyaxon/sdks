@@ -121,6 +121,10 @@ public class V1Agent {
   @SerializedName(SERIALIZED_NAME_SETTINGS)
   private Object settings;
 
+  public static final String SERIALIZED_NAME_STATS = "stats";
+  @SerializedName(SERIALIZED_NAME_STATS)
+  private Object stats;
+
   public V1Agent() {
   }
 
@@ -514,6 +518,28 @@ public class V1Agent {
   }
 
 
+  public V1Agent stats(Object stats) {
+
+    this.stats = stats;
+    return this;
+  }
+
+   /**
+   * Get stats
+   * @return stats
+  **/
+  @javax.annotation.Nullable
+
+  public Object getStats() {
+    return stats;
+  }
+
+
+  public void setStats(Object stats) {
+    this.stats = stats;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -540,12 +566,13 @@ public class V1Agent {
         Objects.equals(this.isReplica, v1Agent.isReplica) &&
         Objects.equals(this.isUiManaged, v1Agent.isUiManaged) &&
         Objects.equals(this.hostname, v1Agent.hostname) &&
-        Objects.equals(this.settings, v1Agent.settings);
+        Objects.equals(this.settings, v1Agent.settings) &&
+        Objects.equals(this.stats, v1Agent.stats);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, liveState, namespace, versionApi, version, content, createdAt, updatedAt, status, statusConditions, isReplica, isUiManaged, hostname, settings);
+    return Objects.hash(uuid, name, description, tags, liveState, namespace, versionApi, version, content, createdAt, updatedAt, status, statusConditions, isReplica, isUiManaged, hostname, settings, stats);
   }
 
   @Override
@@ -569,6 +596,7 @@ public class V1Agent {
     sb.append("    isUiManaged: ").append(toIndentedString(isUiManaged)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -608,6 +636,7 @@ public class V1Agent {
     openapiFields.add("is_ui_managed");
     openapiFields.add("hostname");
     openapiFields.add("settings");
+    openapiFields.add("stats");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -51,6 +51,9 @@ type V1Agent struct {
 	// Optional settings
 	Settings interface{} `json:"settings,omitempty"`
 
+	// Optional agent stats
+	Stats interface{} `json:"stats,omitempty"`
+
 	// Optional latest status of this entity
 	Status *V1Statuses `json:"status,omitempty"`
 

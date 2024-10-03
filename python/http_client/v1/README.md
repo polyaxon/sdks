@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
 *AgentsV1Api* | [**get_agent_config**](docs/AgentsV1Api.md#get_agent_config) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
 *AgentsV1Api* | [**get_agent_logs**](docs/AgentsV1Api.md#get_agent_logs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 *AgentsV1Api* | [**get_agent_state**](docs/AgentsV1Api.md#get_agent_state) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
+*AgentsV1Api* | [**get_agent_stats**](docs/AgentsV1Api.md#get_agent_stats) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/stats | Get agent stats
 *AgentsV1Api* | [**get_agent_statuses**](docs/AgentsV1Api.md#get_agent_statuses) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Get Agent statuses
 *AgentsV1Api* | [**get_agent_token**](docs/AgentsV1Api.md#get_agent_token) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 *AgentsV1Api* | [**get_global_state**](docs/AgentsV1Api.md#get_global_state) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)

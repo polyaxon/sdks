@@ -4325,6 +4325,10 @@
           "title": "Optional settings",
           "type": "object"
         },
+        "stats": {
+          "title": "Optional agent stats",
+          "type": "object"
+        },
         "status": {
           "$ref": "#/definitions/v1Statuses",
           "title": "Optional latest status of this entity"
@@ -9249,10 +9253,6 @@
           "title": "Optional description",
           "type": "string"
         },
-        "frozen": {
-          "title": "Optional a flag to freeze the scheduling preset",
-          "type": "boolean"
-        },
         "live_state": {
           "format": "int32",
           "title": "Current live state",
@@ -9706,7 +9706,7 @@
           "type": "string"
         },
         "stats": {
-          "title": "Optional queue quota",
+          "title": "Optional queue stats",
           "type": "object"
         },
         "tags": {

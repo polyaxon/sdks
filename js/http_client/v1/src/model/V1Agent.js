@@ -100,6 +100,9 @@ class V1Agent {
             if (data.hasOwnProperty('settings')) {
                 obj['settings'] = ApiClient.convertToType(data['settings'], Object);
             }
+            if (data.hasOwnProperty('stats')) {
+                obj['stats'] = ApiClient.convertToType(data['stats'], Object);
+            }
         }
         return obj;
     }
@@ -245,6 +248,11 @@ V1Agent.prototype['hostname'] = undefined;
  * @member {Object} settings
  */
 V1Agent.prototype['settings'] = undefined;
+
+/**
+ * @member {Object} stats
+ */
+V1Agent.prototype['stats'] = undefined;
 
 
 

@@ -21,5 +21,6 @@ Name | Type | Description | Notes
 **is_ui_managed** | **Boolean** |  | [optional] 
 **hostname** | **String** |  | [optional] 
 **settings** | **Object** |  | [optional] 
+**stats** | **Object** |  | [optional] 
 
 

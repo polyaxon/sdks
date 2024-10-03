@@ -134,6 +134,12 @@ export interface V1Agent {
      * @memberof V1Agent
      */
     settings?: object;
+    /**
+     *
+     * @type {object}
+     * @memberof V1Agent
+     */
+    stats?: object;
 }
 
 /**
@@ -172,6 +178,7 @@ export function V1AgentFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'is_ui_managed': !exists(json, 'is_ui_managed') ? undefined : json['is_ui_managed'],
         'hostname': !exists(json, 'hostname') ? undefined : json['hostname'],
         'settings': !exists(json, 'settings') ? undefined : json['settings'],
+        'stats': !exists(json, 'stats') ? undefined : json['stats'],
     };
 }
 
@@ -201,6 +208,7 @@ export function V1AgentToJSON(value?: V1Agent | null): any {
         'is_ui_managed': value.is_ui_managed,
         'hostname': value.hostname,
         'settings': value.settings,
+        'stats': value.stats,
     };
 }
 

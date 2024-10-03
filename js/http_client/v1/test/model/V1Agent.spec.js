@@ -156,6 +156,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property stats (base name: "stats")', function() {
+      // uncomment below and update the code to test the property stats
+      //var instance = new PolyaxonSdk.V1Agent();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

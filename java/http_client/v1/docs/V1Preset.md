@@ -13,7 +13,6 @@
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
-|**frozen** | **Boolean** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**settings** | [**V1PresetSettings**](V1PresetSettings.md) |  |  [optional] |

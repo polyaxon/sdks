@@ -2839,6 +2839,69 @@ paths:
       tags:
       - AgentsV1
       x-accepts: application/json
+  /api/v1/orgs/{owner}/agents/{uuid}/stats:
+    get:
+      operationId: GetAgentStats
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the sub-entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Entity: project name, hub name, registry name, ..."
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Agent'
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get agent stats
+      tags:
+      - AgentsV1
+      x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{uuid}/statuses:
     get:
       operationId: GetAgentStatuses
@@ -22027,6 +22090,7 @@ components:
         - tags
         hostname: hostname
         updated_at: 2000-01-23T04:56:07.000+00:00
+        stats: "{}"
         name: name
         namespace: namespace
         status_conditions:
@@ -22104,6 +22168,10 @@ components:
         settings:
           properties: {}
           title: Optional settings
+          type: object
+        stats:
+          properties: {}
+          title: Optional agent stats
           type: object
       title: Agent specification
       type: object
@@ -28897,6 +28965,7 @@ components:
           - tags
           hostname: hostname
           updated_at: 2000-01-23T04:56:07.000+00:00
+          stats: "{}"
           name: name
           namespace: namespace
           status_conditions:
@@ -28930,6 +28999,7 @@ components:
           - tags
           hostname: hostname
           updated_at: 2000-01-23T04:56:07.000+00:00
+          stats: "{}"
           name: name
           namespace: namespace
           status_conditions:
@@ -29410,7 +29480,6 @@ components:
           name: name
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
-          frozen: true
           live_state: 6
           uuid: uuid
           content: content
@@ -29440,7 +29509,6 @@ components:
           name: name
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
-          frozen: true
           live_state: 6
           uuid: uuid
           content: content
@@ -34276,7 +34344,6 @@ components:
         name: name
         description: description
         created_at: 2000-01-23T04:56:07.000+00:00
-        frozen: true
         live_state: 6
         uuid: uuid
         content: content
@@ -34306,9 +34373,6 @@ components:
           format: date-time
           title: Optional last time the entity was updated
           type: string
-        frozen:
-          title: Optional a flag to freeze the scheduling preset
-          type: boolean
         live_state:
           format: int32
           title: Current live state
@@ -35195,7 +35259,7 @@ components:
           type: string
         stats:
           properties: {}
-          title: Optional queue quota
+          title: Optional queue stats
           type: object
         created_at:
           format: date-time

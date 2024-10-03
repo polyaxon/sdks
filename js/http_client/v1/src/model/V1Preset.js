@@ -66,9 +66,6 @@ class V1Preset {
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
-            if (data.hasOwnProperty('frozen')) {
-                obj['frozen'] = ApiClient.convertToType(data['frozen'], 'Boolean');
-            }
             if (data.hasOwnProperty('live_state')) {
                 obj['live_state'] = ApiClient.convertToType(data['live_state'], 'Number');
             }
@@ -150,11 +147,6 @@ V1Preset.prototype['created_at'] = undefined;
  * @member {Date} updated_at
  */
 V1Preset.prototype['updated_at'] = undefined;
-
-/**
- * @member {Boolean} frozen
- */
-V1Preset.prototype['frozen'] = undefined;
 
 /**
  * @member {Number} live_state

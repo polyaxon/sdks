@@ -167,6 +167,20 @@ public class AgentsV1ApiTest {
     }
 
     /**
+     * Get agent stats
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAgentStatsTest() throws ApiException {
+        String owner = null;
+        String uuid = null;
+        String entity = null;
+        V1Agent response = api.getAgentStats(owner, uuid, entity);
+        // TODO: test validations
+    }
+
+    /**
      * Get Agent statuses
      *
      * @throws ApiException if the Api call fails

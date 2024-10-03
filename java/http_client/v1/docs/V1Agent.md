@@ -24,6 +24,7 @@
 |**isUiManaged** | **Boolean** |  |  [optional] |
 |**hostname** | **String** |  |  [optional] |
 |**settings** | **Object** |  |  [optional] |
+|**stats** | **Object** |  |  [optional] |
 
 
 

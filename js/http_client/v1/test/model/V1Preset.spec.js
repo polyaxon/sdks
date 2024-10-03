@@ -90,12 +90,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property frozen (base name: "frozen")', function() {
-      // uncomment below and update the code to test the property frozen
-      //var instance = new PolyaxonSdk.V1Preset();
-      //expect(instance).to.be();
-    });
-
     it('should have the property live_state (base name: "live_state")', function() {
       // uncomment below and update the code to test the property live_state
       //var instance = new PolyaxonSdk.V1Preset();

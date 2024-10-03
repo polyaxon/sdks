@@ -21,7 +21,7 @@ import json
 
 from datetime import datetime
 from typing import List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
+from pydantic import BaseModel, StrictInt, StrictStr, conlist
 from polyaxon_sdk.models.v1_preset_settings import V1PresetSettings
 
 class V1Preset(BaseModel):
@@ -34,11 +34,10 @@ class V1Preset(BaseModel):
     tags: Optional[conlist(StrictStr)] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    frozen: Optional[StrictBool] = None
     live_state: Optional[StrictInt] = None
     content: Optional[StrictStr] = None
     settings: Optional[V1PresetSettings] = None
-    __properties = ["uuid", "name", "description", "tags", "created_at", "updated_at", "frozen", "live_state", "content", "settings"]
+    __properties = ["uuid", "name", "description", "tags", "created_at", "updated_at", "live_state", "content", "settings"]
 
     class Config:
         allow_population_by_field_name = True
@@ -84,7 +83,6 @@ class V1Preset(BaseModel):
             "tags": obj.get("tags"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
-            "frozen": obj.get("frozen"),
             "live_state": obj.get("live_state"),
             "content": obj.get("content"),
             "settings": V1PresetSettings.from_dict(obj.get("settings")) if obj.get("settings") is not None else None

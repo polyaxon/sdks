@@ -138,6 +138,16 @@
         done();
       });
     });
+    describe('getAgentStats', function() {
+      it('should call getAgentStats successfully', function(done) {
+        //uncomment below and update the code to test getAgentStats
+        //instance.getAgentStats(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getAgentStatuses', function() {
       it('should call getAgentStatuses successfully', function(done) {
         //uncomment below and update the code to test getAgentStatuses

@@ -178,4 +178,12 @@ public class V1AgentTest {
         // TODO: test settings
     }
 
+    /**
+     * Test the property 'stats'
+     */
+    @Test
+    public void statsTest() {
+        // TODO: test stats
+    }
+
 }

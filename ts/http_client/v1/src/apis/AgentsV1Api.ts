@@ -101,6 +101,12 @@ export interface GetAgentStateRequest {
     uuid: string;
 }
 
+export interface GetAgentStatsRequest {
+    owner: string;
+    uuid: string;
+    entity?: string;
+}
+
 export interface GetAgentStatusesRequest {
     owner: string;
     uuid: string;
@@ -582,6 +588,48 @@ export class AgentsV1Api extends runtime.BaseAPI {
      */
     async getAgentState(requestParameters: GetAgentStateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1AgentStateResponse> {
         const response = await this.getAgentStateRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get agent stats
+     */
+    async getAgentStatsRaw(requestParameters: GetAgentStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getAgentStats.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getAgentStats.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.entity !== undefined) {
+            queryParameters['entity'] = requestParameters.entity;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/agents/{uuid}/stats`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1AgentFromJSON(jsonValue));
+    }
+
+    /**
+     * Get agent stats
+     */
+    async getAgentStats(requestParameters: GetAgentStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
+        const response = await this.getAgentStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

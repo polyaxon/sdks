@@ -46,6 +46,8 @@ type ClientService interface {
 
 	GetAgentState(params *GetAgentStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStateOK, *GetAgentStateNoContent, error)
 
+	GetAgentStats(params *GetAgentStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStatsOK, *GetAgentStatsNoContent, error)
+
 	GetAgentStatuses(params *GetAgentStatusesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStatusesOK, *GetAgentStatusesNoContent, error)
 
 	GetAgentToken(params *GetAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentTokenOK, *GetAgentTokenNoContent, error)
@@ -432,6 +434,46 @@ func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.Cli
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetAgentStateDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetAgentStats gets agent stats
+*/
+func (a *Client) GetAgentStats(params *GetAgentStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStatsOK, *GetAgentStatsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAgentStatsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAgentStats",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/{uuid}/stats",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetAgentStatsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetAgentStatsOK:
+		return value, nil, nil
+	case *GetAgentStatsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetAgentStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

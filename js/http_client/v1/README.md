@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.AgentsV1Api* | [**getAgentConfig**](docs/AgentsV1Api.md#getAgentConfig) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/config | Get agent config
 *PolyaxonSdk.AgentsV1Api* | [**getAgentLogs**](docs/AgentsV1Api.md#getAgentLogs) | **GET** /streams/v1/{namespace}/{owner}/agents/{uuid}/logs | Get run logs
 *PolyaxonSdk.AgentsV1Api* | [**getAgentState**](docs/AgentsV1Api.md#getAgentState) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/state | Get State (queues/runs)
+*PolyaxonSdk.AgentsV1Api* | [**getAgentStats**](docs/AgentsV1Api.md#getAgentStats) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/stats | Get agent stats
 *PolyaxonSdk.AgentsV1Api* | [**getAgentStatuses**](docs/AgentsV1Api.md#getAgentStatuses) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Get Agent statuses
 *PolyaxonSdk.AgentsV1Api* | [**getAgentToken**](docs/AgentsV1Api.md#getAgentToken) | **GET** /api/v1/orgs/{owner}/agents/{uuid}/token | Get agent token
 *PolyaxonSdk.AgentsV1Api* | [**getGlobalState**](docs/AgentsV1Api.md#getGlobalState) | **GET** /api/v1/orgs/{owner}/agents/state | Get Global State (queues/runs)

@@ -90,14 +90,6 @@ public class V1PresetTest {
     }
 
     /**
-     * Test the property 'frozen'
-     */
-    @Test
-    public void frozenTest() {
-        // TODO: test frozen
-    }
-
-    /**
      * Test the property 'liveState'
      */
     @Test
