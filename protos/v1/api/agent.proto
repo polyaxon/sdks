@@ -62,6 +62,9 @@ message Agent {
 
     // Optional settings
     google.protobuf.Struct settings = 17;
+
+    // Optional agent stats
+    google.protobuf.Struct stats = 18;
 }
 
 // Request data to create/update agents
@@ -152,7 +155,7 @@ message Queue {
     // Optional queue quota
     string quota = 9;
 
-    // Optional queue quota
+    // Optional queue stats
     google.protobuf.Struct stats = 10;
 
     // Optional time when the entity was created

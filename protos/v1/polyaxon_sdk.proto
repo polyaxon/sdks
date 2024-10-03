@@ -1321,6 +1321,13 @@ service AgentsV1 {
     };
   }
 
+  // Get agent stats
+  rpc GetAgentStats(OwnerSubEntityResourceRequestByUid) returns (Agent) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/agents/{uuid}/stats"
+    };
+  }
+
   // Update agent config
   rpc UpdateAgentConfig(AgentBodyRequest) returns (Agent) {
     option (google.api.http) = {
